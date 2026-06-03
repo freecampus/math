@@ -22,3 +22,26 @@ description: Probability after new information.
 2. If events are independent, how does `P(A | B)` relate to `P(A)`?
 3. Why is conditional probability important for inference?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the probability of event `A` given that event `B` has occurred.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `P(A | B) = P(A)`.
+
+Independence means knowing `B` happened does not change the probability of `A`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: inference updates beliefs when new information is observed, and
+conditional probability is the language for that update.
+:::

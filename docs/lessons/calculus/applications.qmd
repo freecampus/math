@@ -27,3 +27,31 @@ Derivative: local change. Integral: accumulated change.
 2. Total distance from velocity is a derivative or an integral?
 3. Maximum profit usually requires which calculus tool first?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: derivative.
+
+Marginal cost means the rate at which cost changes when production increases
+slightly.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: integral.
+
+Distance accumulates velocity over time.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: derivative.
+
+Set the derivative of profit equal to zero to find candidate maxima, then check
+which candidate gives the largest profit.
+:::

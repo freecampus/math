@@ -19,3 +19,30 @@ how much values tend to vary around that average.
 2. Why is expected value not always a guaranteed outcome?
 3. How does variance relate to risk?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: values are spread far from the mean.
+
+High variance means outcomes can differ substantially from the long-run
+average.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: expected value is a weighted average over many repetitions.
+
+For example, a fair die has expected value `3.5`, but no single roll can equal
+`3.5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: larger variance usually means more uncertainty in outcomes, which is
+one common way to quantify risk.
+:::

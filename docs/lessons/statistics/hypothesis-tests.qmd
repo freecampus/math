@@ -25,3 +25,28 @@ A p-value is not the probability that the null hypothesis is true.
 2. What does a small p-value suggest?
 3. Why does statistical significance not always mean practical importance?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the baseline claim tested against the data.
+
+It often represents "no effect", "no difference", or an existing assumption.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: the observed data would be unlikely if the null hypothesis were true.
+
+That is evidence against the null, not proof that the alternative is true.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: a tiny effect can be statistically significant in a large sample but
+still too small to matter in practice.
+:::

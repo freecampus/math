@@ -16,3 +16,65 @@ then return to the relevant topic pages.
 7. What is the norm of `[3, 4]`?
 8. What does `p -> q` mean?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `x = 5`.
+
+Add `10` to both sides to get `5x = 25`, then divide by `5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `10`.
+
+`f(3) = 3^2 + 1 = 9 + 1 = 10`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `3x^2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: `16`.
+
+An antiderivative of `2x` is `x^2`, and `4^2 - 0^2 = 16`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+Answer: `20`.
+
+`C(6, 3) = 6! / (3! 3!) = 20`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+Answer: standard deviation measures typical distance from the mean.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+Answer: `5`.
+
+`sqrt(3^2 + 4^2) = sqrt(25) = 5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+Answer: "if `p`, then `q`".
+
+The implication is false only when `p` is true and `q` is false.
+:::

@@ -116,6 +116,50 @@ from edumath.trigonometry.plots import display_unit_circle_widget
 display_unit_circle_widget(initial_angle=45, min_angle=-360, max_angle=360)
 ```
 
+## Practice
+
+::: {.practice-box}
+1. What are `cos(0 degrees)` and `sin(0 degrees)`?
+2. At `90 degrees`, which coordinate is zero?
+3. At `225 degrees`, are sine and cosine positive or negative?
+4. Why can sine and cosine never be larger than `1` on the unit circle?
+:::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `cos(0 degrees) = 1` and `sin(0 degrees) = 0`.
+
+At `0 degrees`, the unit-circle point is `(1, 0)`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: cosine is zero.
+
+At `90 degrees`, the unit-circle point is `(0, 1)`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: both are negative.
+
+`225 degrees` is in quadrant III, where x- and y-coordinates are both negative.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: sine and cosine are coordinates of a point on a circle with radius `1`.
+
+No horizontal or vertical coordinate on that circle can have magnitude greater
+than `1`.
+:::
+
 ## Interactive unit circle
 
 Use the slider or type an angle between `-360` and `360` degrees. Positive

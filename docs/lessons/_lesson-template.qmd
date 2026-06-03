@@ -10,6 +10,13 @@ description: Authoring pattern for edu-math lessons.
 - Use verbs that can be checked: compute, identify, explain, graph, solve.
 :::
 
+::: {.prerequisites}
+### Prerequisites
+
+- List earlier ideas the learner should know.
+- Link to earlier lessons when possible.
+:::
+
 ## Motivation
 
 Explain why the concept matters before introducing notation.
@@ -31,14 +38,41 @@ rendered documentation must stay interactive without a live Python kernel.
 
 Show every step.
 
+::: {.callout-tip collapse="false"}
+## Worked example pattern
+
+1. State the problem.
+2. Name the method.
+3. Show each algebraic, numeric, graphical, or logical step.
+4. Check the final answer.
+:::
+
 ## Common Mistakes
 
 Name the mistake and show how to avoid it.
 
 ## Practice
 
-Give short exercises and quizzes.
+Give short exercises and quizzes. Every exercise should have an answer reveal.
+
+::: {.practice-box}
+1. Write a short exercise.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: Give the final answer first.
+
+Then explain the reasoning step by step.
+:::
 
 ## Python Connection
 
 Show how the concept maps to reusable code.
+
+## Summary
+
+- Restate the main idea.
+- Name the most important formula or technique.
+- Link to the next lesson.

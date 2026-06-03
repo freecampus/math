@@ -23,3 +23,26 @@ dy/dt = g(x, y)
 2. How can matrices represent linear systems of ODEs?
 3. What is an equilibrium point?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: each variable may affect the other's rate of change, such as predator
+and prey populations or position and velocity.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: a matrix can store the coefficients that multiply the state variables
+in a system like `x' = A x`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: a state where all derivatives are zero, so the system does not move
+away if it starts there.
+:::

@@ -26,3 +26,28 @@ expected_value([0, 1], [0.4, 0.6])
 2. What does expected value represent?
 3. Can expected value be a value that never occurs exactly?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: discrete.
+
+A coin-flip payout has a finite list of possible values.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: the long-run average value across many repetitions.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: yes.
+
+The expected value can be an average that is not itself a possible outcome, such
+as `3.5` for a fair die.
+:::

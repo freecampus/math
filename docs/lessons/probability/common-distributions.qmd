@@ -24,3 +24,30 @@ binomial_pmf(trials=10, successes=3, probability=0.5)
 2. Which distribution models the number of successes in fixed trials?
 3. Which distribution is often used for measurement noise?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: Bernoulli distribution.
+
+It models a single trial with two outcomes, often coded as `0` and `1`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: binomial distribution.
+
+It counts successes across a fixed number of independent Bernoulli trials.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: normal distribution.
+
+Many measurement errors are modeled as approximately normal because small
+independent sources of variation accumulate.
+:::

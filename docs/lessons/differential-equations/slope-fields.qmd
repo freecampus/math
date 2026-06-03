@@ -22,3 +22,25 @@ euler_method(lambda x, y: y, initial_x=0, initial_y=1, step=0.1, steps=5)
 2. How does Euler's method use local slope?
 3. Why is a smaller step often more accurate?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the slope `dy/dx` predicted by the differential equation at that point.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: it moves a short distance in the direction suggested by the current
+slope, then repeats from the new point.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: a smaller step updates the slope more frequently, reducing the error
+from pretending the slope stays constant for too long.
+:::

@@ -19,3 +19,29 @@ that space.
 2. What event means "getting heads"?
 3. What is the probability of rolling a 6 on a fair die?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `{H, T}`.
+
+The two possible outcomes are heads and tails.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `{H}`.
+
+The event is the subset of the sample space where heads occurs.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `1/6`.
+
+A fair die has six equally likely outcomes, and only one of them is `6`.
+:::

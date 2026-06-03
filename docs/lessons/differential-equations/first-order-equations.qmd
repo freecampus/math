@@ -22,3 +22,25 @@ dy/dx = f(x, y)
 2. Why do differential equations model dynamic systems?
 3. Give one real-world quantity that changes over time.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the rate of change of `y` with respect to `x`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: dynamic systems are defined by how quantities change, and differential
+equations describe those rates of change directly.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: examples include population size, temperature, position, velocity,
+account balance, or concentration.
+:::

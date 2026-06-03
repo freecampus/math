@@ -23,3 +23,24 @@ a | b, a & b
 2. What is `A intersection B`?
 3. How are events in probability related to sets?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: all elements that are in `A`, in `B`, or in both.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: elements that are in both `A` and `B`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: events are subsets of a sample space, so set operations describe
+combined events.
+:::

@@ -35,3 +35,27 @@ input, and integrals shrink rectangle widths.
 2. Why can a limit exist even if the function is not defined at that point?
 3. Explain a limit in one sentence without symbols.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `5`.
+
+As `x` gets close to `3`, `x + 2` gets close to `3 + 2 = 5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: a limit depends on nearby behavior, not necessarily the exact function
+value at the point.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: a limit is the value a function approaches as the input gets close to a
+chosen point.
+:::

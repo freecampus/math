@@ -79,3 +79,49 @@ causes another.
 3. Add a title that explains what the plot shows.
 4. Explain the pattern in one sentence.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer:
+
+```python
+from edumath.python_fundamentals import plot_values
+
+fig, ax = plot_values([1, 4, 9, 16], title="Square numbers")
+fig
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer:
+
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.scatter([1, 2, 3], [3, 2, 5])
+fig
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer:
+
+```python
+ax.set_title("Observed values by input")
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: the values decrease from `x = 1` to `x = 2`, then increase sharply at
+`x = 3`.
+:::

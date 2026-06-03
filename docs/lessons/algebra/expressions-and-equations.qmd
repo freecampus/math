@@ -127,6 +127,40 @@ When solving `-3x = 12`, divide by `-3`, not by `3`. The solution is `x = -4`.
 4. Check whether `x = 5` solves `3x - 1 = 14`.
 :::
 
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `11`.
+
+Substitute `x = 3`: `2(3) + 5 = 6 + 5 = 11`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `x = 4`.
+
+Add `7` to both sides to get `4x = 16`, then divide by `4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `x = -4`.
+
+Subtract `6` from both sides to get `-2x = 8`, then divide by `-2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: yes.
+
+Substitute `x = 5`: `3(5) - 1 = 15 - 1 = 14`.
+:::
+
 ## Quick Quiz
 
 ```{python}

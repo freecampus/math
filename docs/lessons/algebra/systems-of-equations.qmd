@@ -90,3 +90,34 @@ After solving for `x`, substitute back into either original equation to find
 3. What does it mean if two lines are parallel?
 4. What does it mean if two equations describe the same line?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `(x, y) = (3, 6)`.
+
+Set the right sides equal: `2x = x + 3`, so `x = 3`. Then `y = 2(3) = 6`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `(x, y) = (3, 2)`.
+
+Add the equations: `2x = 6`, so `x = 3`. Then `3 + y = 5`, so `y = 2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: they do not intersect, so the system has no solution.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: every point on that line solves both equations, so the system has
+infinitely many solutions.
+:::

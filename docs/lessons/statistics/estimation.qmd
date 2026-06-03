@@ -22,3 +22,28 @@ A confidence interval communicates both an estimate and uncertainty.
 2. Why is an interval usually more informative?
 3. What happens to uncertainty with larger samples?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: a single-number estimate of an unknown quantity.
+
+For example, a sample mean can estimate a population mean.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: an interval communicates uncertainty as well as the estimate.
+
+A single number hides how precise or uncertain the estimate is.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: uncertainty usually decreases when the sample is larger, assuming the
+sample is collected well.
+:::

@@ -35,3 +35,28 @@ derivative("x**2 - 4*x + 5")
 2. Is the parabola `x^2` minimized or maximized at `x = 0`?
 3. Why do we check endpoints in constrained optimization?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `x = 3`.
+
+The derivative is `2x - 6`. Set it equal to zero: `2x - 6 = 0`, so `x = 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: minimized.
+
+The parabola opens upward, and its vertex is at `x = 0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: the best value on a closed interval can occur at an endpoint, even when
+the derivative is not zero there.
+:::

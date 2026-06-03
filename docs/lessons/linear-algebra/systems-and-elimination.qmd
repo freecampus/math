@@ -24,3 +24,27 @@ solve_linear_system([[1, 1], [1, -1]], [5, 1])
 2. What does it mean if a system has no solution?
 3. What does it mean if a system has infinitely many solutions?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `(x, y) = (3, 2)`.
+
+Add the equations to get `2x = 6`, so `x = 3`. Then `3 + y = 5`, so `y = 2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: the equations are inconsistent; there is no point or vector that
+satisfies every equation at the same time.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: the equations are dependent; there is a whole line, plane, or higher
+dimensional set of solutions.
+:::

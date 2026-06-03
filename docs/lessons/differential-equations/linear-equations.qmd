@@ -22,3 +22,27 @@ dy/dx + p(x)y = q(x)
 2. What does the term involving `y` often represent?
 3. Why are linear equations easier than nonlinear ones?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `p(x) = 2` and `q(x) = x`.
+
+Compare `dy/dx + 2y = x` with `dy/dx + p(x)y = q(x)`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: feedback, decay, growth, or resistance proportional to the current
+state.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: linear structure supports systematic solution methods and avoids many
+of the complications caused by products or powers of the unknown function.
+:::

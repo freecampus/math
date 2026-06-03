@@ -19,3 +19,29 @@ a fixed amount.
 2. Find the next term: `3, 6, 12, ...`.
 3. Which type models repeated percentage growth?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `11`.
+
+The sequence adds `3` each time.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `24`.
+
+The sequence multiplies by `2` each time.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: geometric sequence.
+
+Repeated percentage growth means multiplying by a fixed factor.
+:::

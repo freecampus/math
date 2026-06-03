@@ -98,3 +98,37 @@ term in the second factor.
 3. What is the degree of `4x^5 - x^2 + 8`?
 4. Does `x = 3` make `(x - 3)(x + 1)` equal zero?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `x^2 + 5x + 4`.
+
+Multiply each term: `x*x + 4x + 1x + 4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `x = 5` and `x = -2`.
+
+A product is zero when at least one factor is zero.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: degree `5`.
+
+The highest power of `x` is `x^5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: yes.
+
+Substitute `x = 3`: `(3 - 3)(3 + 1) = 0 * 4 = 0`.
+:::

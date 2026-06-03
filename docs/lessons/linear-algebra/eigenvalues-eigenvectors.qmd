@@ -26,3 +26,29 @@ A v = lambda v
 2. Does an eigenvector keep its direction?
 3. Why might eigenvalues matter in repeated transformations?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `3`.
+
+In `A v = lambda v`, the scalar multiplying `v` is the eigenvalue.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: yes, up to direction reversal when the eigenvalue is negative.
+
+An eigenvector is stretched, shrunk, or flipped, but it remains on the same
+line.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: eigenvalues describe how repeated multiplication scales important
+directions, which helps explain long-run behavior.
+:::

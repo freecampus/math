@@ -22,3 +22,28 @@ describe([1, 2, 3, 4, 10])
 2. What does standard deviation measure?
 3. Why should summaries be paired with plots?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: mean.
+
+The mean uses every value directly, so an extreme value can pull it strongly.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: typical spread around the mean.
+
+A larger standard deviation means values tend to be farther from the mean.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: plots reveal shape, clusters, skew, and outliers that a few summary
+numbers can hide.
+:::

@@ -19,3 +19,24 @@ web pages, roads, dependencies, and relationships.
 2. What is an edge?
 3. Give one real-world network modeled by a graph.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: a node or object in a graph.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: a connection between two vertices.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: examples include roads between cities, friendships between people, web
+links between pages, or dependencies between tasks.
+:::

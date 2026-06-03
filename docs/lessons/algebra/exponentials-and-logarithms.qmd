@@ -81,3 +81,39 @@ multiplication, not addition.
 3. Is `0.5^x` growth or decay?
 4. Which eventually grows faster: `x^2` or `2^x`?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `32`.
+
+`2^5 = 2 * 2 * 2 * 2 * 2 = 32`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `x = 1000`.
+
+`log_10(x) = 3` means `10^3 = x`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: decay.
+
+The base `0.5` is between `0` and `1`, so the function shrinks as `x`
+increases.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: `2^x`.
+
+Exponential functions with base greater than `1` eventually grow faster than
+any fixed power such as `x^2`.
+:::

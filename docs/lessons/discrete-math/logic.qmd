@@ -22,3 +22,27 @@ truth_table(("p", "q"), implies)
 2. What does a truth table show?
 3. Why is logic useful for proofs and programming?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: when `p` is true and `q` is false.
+
+That is the only case where an implication fails.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: every combination of truth values for the inputs and the resulting
+truth value of the expression.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: logic makes assumptions, conditions, implications, and correctness
+precise.
+:::

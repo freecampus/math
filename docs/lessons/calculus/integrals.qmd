@@ -33,3 +33,30 @@ definite_integral("2*x", 0, 3)
 2. What area does `integral 1 dx` from `0` to `5` represent?
 3. Why are integrals useful for probability densities?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `x^3 + C`.
+
+The derivative of `x^3` is `3x^2`, and `C` represents any constant.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `5`.
+
+The graph is a rectangle with height `1` and width `5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: probabilities over intervals are areas under a density curve.
+
+For a density `f(x)`, the probability between `a` and `b` is the integral of
+`f(x)` over that interval.
+:::

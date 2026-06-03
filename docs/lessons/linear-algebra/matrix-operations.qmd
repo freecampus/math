@@ -24,3 +24,27 @@ matrix_vector_product([[2, 0], [0, 3]], [5, 4])
 2. Can a 2x3 matrix multiply a length-2 vector?
 3. What does scalar multiplication do to every matrix entry?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `[2, 3]`.
+
+The identity matrix leaves the vector unchanged.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: no.
+
+A `2 x 3` matrix needs a length-`3` vector on the right.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: it multiplies every entry by the same scalar.
+:::

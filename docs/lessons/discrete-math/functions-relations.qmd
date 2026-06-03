@@ -19,3 +19,27 @@ has exactly one output.
 2. Is `{(1, 2), (2, 3)}` a function?
 3. Why does the function rule matter?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: no.
+
+Input `1` has two different outputs: `2` and `3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: yes.
+
+Each input appears with exactly one output.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: it guarantees that a given input determines one unambiguous output.
+:::

@@ -23,3 +23,27 @@ Simple linear regression has the form `y = beta_0 + beta_1 x + error`.
 2. What is a residual?
 3. Why does regression alone not prove causation?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the expected change in the response for a one-unit increase in the
+explanatory variable, according to the fitted model.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: observed value minus predicted value.
+
+Residuals measure model error for individual data points.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: association can be caused by confounding, selection effects, or other
+variables not included in the model.
+:::

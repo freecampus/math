@@ -19,3 +19,28 @@ A separable equation can be rearranged so all `y` terms are on one side and all
 2. What operation is used after separating variables?
 3. Why does a constant of integration appear?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: yes.
+
+It can be rearranged as `(1/y) dy = x dx`, assuming `y` is not zero.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: integration.
+
+After separating variables, integrate both sides.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: indefinite integration creates a family of solutions, and the constant
+selects one member of that family.
+:::

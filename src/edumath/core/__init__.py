@@ -6,7 +6,13 @@ from edumath.core.answers import (
     check_expression_answer,
     check_numeric_answer,
 )
-from edumath.core.exercises import Exercise
+from edumath.core.exercises import (
+    AnswerType,
+    Difficulty,
+    Exercise,
+    render_exercise_markdown,
+    render_practice_set,
+)
 from edumath.core.expressions import (
     MathExpression,
     expression_equivalent,
@@ -26,12 +32,23 @@ from edumath.core.plots import (
     Viewport2D,
 )
 from edumath.core.quizzes import AnswerOption, Question, QuizResult, QuizSession
+from edumath.core.solutions import (
+    ExerciseSolution,
+    SolutionReveal,
+    SolutionStep,
+    WorkedSolution,
+    render_solution_callout,
+    render_solution_details,
+)
 from edumath.core.widgets import NotebookDisplay
 
 __all__ = [
     "AnswerCheck",
     "AnswerOption",
+    "AnswerType",
+    "Difficulty",
     "Exercise",
+    "ExerciseSolution",
     "ExplicitFunction2D",
     "LearningObjective",
     "Lesson",
@@ -50,10 +67,17 @@ __all__ = [
     "QuizSession",
     "SampledCurve2D",
     "Segment2D",
+    "SolutionReveal",
+    "SolutionStep",
     "StudyPath",
     "Viewport2D",
+    "WorkedSolution",
     "check_expression_answer",
     "check_numeric_answer",
     "expression_equivalent",
     "parse_expression",
+    "render_exercise_markdown",
+    "render_practice_set",
+    "render_solution_callout",
+    "render_solution_details",
 ]

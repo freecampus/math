@@ -35,3 +35,30 @@ tangent_line("x**2", 2)
 2. What does a positive derivative mean graphically?
 3. What does a zero derivative suggest at a smooth turning point?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `2x`.
+
+Use the power rule with exponent `2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: the graph is increasing at that point.
+
+A positive derivative means the tangent line has positive slope.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: a possible local maximum or local minimum.
+
+The derivative being zero means the tangent line is horizontal, but more
+checking is needed to classify the point.
+:::

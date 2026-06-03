@@ -19,3 +19,25 @@ proving each statement implies the next.
 2. What is the induction hypothesis?
 3. Why does the induction step matter?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the first case proved directly, often `n = 1` or `n = 0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: the temporary assumption that the statement is true for some arbitrary
+case `n = k`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: it proves that truth passes from one case to the next, creating the
+chain that covers all later cases.
+:::

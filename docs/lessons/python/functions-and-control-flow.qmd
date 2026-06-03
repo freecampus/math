@@ -97,3 +97,49 @@ If a function does not return a value, Python returns `None`.
 3. Use a loop to sum `[2, 4, 6, 8]`.
 4. Use `cumulative_sum` on `[10, -3, 7]`.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer:
+
+```python
+def double(value):
+    return 2 * value
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer:
+
+```python
+if value > 100:
+    label = "large"
+else:
+    label = "not large"
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `20`.
+
+```python
+total = 0
+for value in [2, 4, 6, 8]:
+    total = total + value
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: `[10, 7, 14]`.
+
+The running totals are `10`, then `10 - 3 = 7`, then `7 + 7 = 14`.
+:::

@@ -23,3 +23,28 @@ matrix is a compact way to describe such a transformation.
 2. What does `[[1, 0], [0, 0]]` do in the plane?
 3. Why are transformations useful for data and geometry?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: it doubles every vector.
+
+Both coordinate directions are scaled by `2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: it projects points onto the x-axis.
+
+The x-coordinate is kept and the y-coordinate becomes `0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: transformations describe rotation, scaling, projection, and changes of
+coordinates using one compact matrix rule.
+:::

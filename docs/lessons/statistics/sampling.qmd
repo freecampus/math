@@ -19,3 +19,26 @@ population without measuring everyone.
 2. What is sampling bias?
 3. Why do random samples help?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: the full group or process we want to learn about.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: a systematic way the sample differs from the population.
+
+Bias can make estimates wrong even when the sample is large.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: random sampling reduces systematic selection patterns and supports
+probability-based uncertainty estimates.
+:::

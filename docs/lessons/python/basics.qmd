@@ -87,3 +87,37 @@ In Python, `x = 3` assigns the value `3` to `x`. It does not mean "prove that
 3. Compute `principal * (1 + rate)`.
 4. Use `describe_value(...)` on the result.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `principal = 250`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `rate = 0.08`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `270.0`.
+
+The expression is `250 * (1 + 0.08) = 250 * 1.08 = 270.0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer:
+
+```python
+describe_value(principal * (1 + rate))
+```
+
+The helper reports the value and its Python type.
+:::

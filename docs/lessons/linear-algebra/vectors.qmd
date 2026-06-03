@@ -29,3 +29,28 @@ dot_product([1, 2], [3, 4]), vector_norm([3, 4])
 2. Compute `[1, 0] dot [0, 1]`.
 3. What does a dot product of zero suggest geometrically?
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `10`.
+
+Use the distance formula: `sqrt(6^2 + 8^2) = sqrt(36 + 64) = sqrt(100) = 10`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `0`.
+
+Compute `1*0 + 0*1 = 0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: the vectors are perpendicular, assuming neither vector is the zero
+vector.
+:::

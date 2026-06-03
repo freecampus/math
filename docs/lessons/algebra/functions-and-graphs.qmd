@@ -93,3 +93,37 @@ A graph is a function of `x` only if each x-value has exactly one y-value.
 3. Which grows faster for large positive `x`: `x` or `x^2`?
 4. Sketch the graph of `y = x - 3`.
 :::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `10`.
+
+`f(4) = 3(4) - 2 = 12 - 2 = 10`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: slope `-2`; y-intercept `5`.
+
+The equation is already in slope-intercept form `y = mx + b`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `x^2`.
+
+For large positive `x`, squaring grows faster than the linear function `x`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: draw a line with slope `1` and y-intercept `-3`.
+
+Two easy points are `(0, -3)` and `(3, 0)`.
+:::
