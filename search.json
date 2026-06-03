@@ -1,41 +1,363 @@
 [
   {
-    "objectID": "notebooks/algebra/guessing_quiz.html",
-    "href": "notebooks/algebra/guessing_quiz.html",
-    "title": "Guessing Quiz",
+    "objectID": "notebooks/index.html",
+    "href": "notebooks/index.html",
+    "title": "Quantitative Mathematics Study Path",
     "section": "",
-    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document.",
+    "text": "This study path is organized for learners who want a practical foundation in quantitative mathematics. Each topic combines explanation, worked examples, Python code, visual intuition, and short checks for understanding.",
     "crumbs": [
       "Home",
       "Notebooks",
-      "Algebra",
-      "Guessing Quiz"
+      "Quantitative Mathematics Study Path"
     ]
   },
   {
-    "objectID": "notebooks/algebra/guessing_quiz.html#guess-the-expression",
-    "href": "notebooks/algebra/guessing_quiz.html#guess-the-expression",
-    "title": "Guessing Quiz",
-    "section": "Guess the expression",
-    "text": "Guess the expression\nChoose the expression that matches the graph.\n\nquiz = quizApp()\n\n\n\n\n\n\n\nfunction quizApp() {\n  const root = html`&lt;section class=\"quiz-shell\"&gt;&lt;/section&gt;`;\n  const state = {\n    total: 5,\n    index: 0,\n    score: 0,\n    question: null,\n    answered: false\n  };\n\n  renderStart();\n  return root;\n\n  function renderStart() {\n    root.innerHTML = \"\";\n\n    const input = html`&lt;input class=\"quiz-count\" type=\"number\" min=\"1\" max=\"100\" value=\"${state.total}\"&gt;`;\n    const button = html`&lt;button type=\"button\"&gt;Start quiz&lt;/button&gt;`;\n    const controls = html`&lt;div class=\"quiz-start\"&gt;\n      &lt;label&gt;\n        &lt;span&gt;Number of questions&lt;/span&gt;\n        ${input}\n      &lt;/label&gt;\n      ${button}\n    &lt;/div&gt;`;\n\n    button.addEventListener(\"click\", () =&gt; {\n      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));\n      state.index = 0;\n      state.score = 0;\n      startQuestion();\n    });\n\n    root.append(controls);\n  }\n\n  function startQuestion() {\n    state.question = makeQuestion();\n    state.answered = false;\n    renderQuestion();\n  }\n\n  function renderQuestion() {\n    const question = state.question;\n    root.innerHTML = \"\";\n\n    const progress = html`&lt;div class=\"quiz-progress\"&gt;\n      &lt;span&gt;Question ${state.index + 1} of ${state.total}&lt;/span&gt;\n      &lt;span&gt;Score: ${state.score}/${state.total}&lt;/span&gt;\n    &lt;/div&gt;`;\n    const graph = drawGraph(question);\n    const prompt = html`&lt;p class=\"quiz-prompt\"&gt;Select an expression.&lt;/p&gt;`;\n    const feedback = html`&lt;p class=\"quiz-feedback\" aria-live=\"polite\"&gt;&lt;/p&gt;`;\n    const next = html`&lt;button type=\"button\" disabled&gt;Next question&lt;/button&gt;`;\n    const options = radioList(question.options, option =&gt; {\n      if (state.answered) return;\n\n      state.answered = true;\n      const correct = option.id === question.answer.id;\n      if (correct) state.score += 1;\n\n      feedback.className = correct\n        ? \"quiz-feedback correct\"\n        : \"quiz-feedback wrong\";\n      feedback.innerHTML = correct\n        ? \"Correct.\"\n        : `Not quite. The answer is &lt;code&gt;${question.answer.label}&lt;/code&gt;.`;\n\n      for (const input of options.querySelectorAll(\"input\")) {\n        input.disabled = true;\n      }\n\n      next.disabled = false;\n      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;\n    });\n\n    next.addEventListener(\"click\", () =&gt; {\n      state.index += 1;\n      if (state.index &lt; state.total) {\n        startQuestion();\n      } else {\n        renderComplete();\n      }\n    });\n\n    root.append(progress, graph, prompt, feedback, options, next);\n  }\n\n  function renderComplete() {\n    root.innerHTML = \"\";\n\n    const summary = html`&lt;div class=\"quiz-complete\"&gt;\n      &lt;h3&gt;Quiz complete&lt;/h3&gt;\n      &lt;p&gt;Final score: ${state.score}/${state.total}&lt;/p&gt;\n    &lt;/div&gt;`;\n    const restart = html`&lt;button type=\"button\"&gt;Start another quiz&lt;/button&gt;`;\n    restart.addEventListener(\"click\", renderStart);\n\n    root.append(summary, restart);\n  }\n}\n\n\n\n\n\n\n\nfunction makeQuestion() {\n  const answer = randomExpression();\n  const options = new Map([[answer.id, answer]]);\n\n  while (options.size &lt; 4) {\n    const option = randomExpression();\n    options.set(option.id, option);\n  }\n\n  return {\n    answer,\n    options: shuffle(Array.from(options.values()))\n  };\n}\n\n\n\n\n\n\n\nfunction randomExpression() {\n  const kind = choice([\"linear\", \"quadratic\", \"cubic\", \"sine\", \"cosine\"]);\n\n  if (kind === \"linear\") {\n    const m = nonzeroInt(-4, 4);\n    const b = int(-6, 6);\n    return expression(\n      `${formatCoeff(m)}x ${formatSigned(b)}`,\n      x =&gt; m * x + b\n    );\n  }\n\n  if (kind === \"quadratic\") {\n    const a = nonzeroInt(-3, 3);\n    const b = int(-5, 5);\n    const c = int(-6, 6);\n    return expression(\n      `${formatCoeff(a)}x² ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"cubic\") {\n    const a = nonzeroInt(-2, 2);\n    const b = int(-3, 3);\n    const c = int(-4, 4);\n    return expression(\n      `${formatCoeff(a)}x³ ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"sine\") {\n    const a = nonzeroInt(-4, 4);\n    const k = nonzeroInt(1, 4);\n    return expression(`${formatCoeff(a)}sin(${k}x)`, x =&gt; a * Math.sin(k * x));\n  }\n\n  const a = nonzeroInt(-4, 4);\n  const k = nonzeroInt(1, 4);\n  return expression(`${formatCoeff(a)}cos(${k}x)`, x =&gt; a * Math.cos(k * x));\n}\n\n\n\n\n\n\n\nfunction expression(label, evaluate) {\n  return {\n    id: label.replace(/\\s+/g, \"\"),\n    label,\n    evaluate,\n    toString: () =&gt; label\n  };\n}\n\n\n\n\n\n\n\nfunction radioList(options, onSelect) {\n  const form = html`&lt;form class=\"quiz-options\" role=\"radiogroup\" aria-label=\"Expression options\"&gt;&lt;/form&gt;`;\n  form.value = null;\n\n  for (const option of options) {\n    const input = html`&lt;input type=\"radio\" name=\"quiz-answer\"&gt;`;\n    const label = html`&lt;label class=\"quiz-option\"&gt;${input}&lt;span&gt;${option.label}&lt;/span&gt;&lt;/label&gt;`;\n\n    input.addEventListener(\"change\", () =&gt; {\n      form.value = option;\n      form.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      onSelect(option);\n    });\n\n    form.append(label);\n  }\n\n  return form;\n}\n\n\n\n\n\n\n\nfunction drawGraph(question) {\n  const width = 720;\n  const height = 360;\n  const margin = { top: 24, right: 24, bottom: 36, left: 46 };\n  const xs = Array.from({ length: 401 }, (_, i) =&gt; -10 + i * 20 / 400);\n  const points = xs\n    .map(x =&gt; ({ x, y: question.answer.evaluate(x) }))\n    .filter(d =&gt; Number.isFinite(d.y));\n\n  const yValues = points.map(d =&gt; d.y).sort((a, b) =&gt; a - b);\n  const low = Math.min(quantile(yValues, 0.02), -5);\n  const high = Math.max(quantile(yValues, 0.98), 5);\n  const yPadding = Math.max((high - low) * 0.08, 1);\n\n  const xScale = d3.scaleLinear()\n    .domain([-10, 10])\n    .range([margin.left, width - margin.right]);\n  const yScale = d3.scaleLinear()\n    .domain([low - yPadding, high + yPadding])\n    .range([height - margin.bottom, margin.top]);\n\n  const line = d3.line()\n    .x(d =&gt; xScale(d.x))\n    .y(d =&gt; yScale(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Graph of an algebraic expression\")\n    .attr(\"class\", \"quiz-graph\");\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(0,${yScale(0)})`)\n    .call(d3.axisBottom(xScale).ticks(10));\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(${xScale(0)},0)`)\n    .call(d3.axisLeft(yScale).ticks(8));\n\n  svg.append(\"g\")\n    .attr(\"class\", \"quiz-grid\")\n    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(\"\"));\n\n  svg.append(\"path\")\n    .datum(points)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#1a73e8\")\n    .attr(\"stroke-width\", 3)\n    .attr(\"d\", line);\n\n  return svg.node();\n}\n\n\n\n\n\n\n\nfunction choice(values) {\n  return values[Math.floor(Math.random() * values.length)];\n}\n\nfunction int(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nfunction nonzeroInt(min, max) {\n  let value = 0;\n  while (value === 0) value = int(min, max);\n  return value;\n}\n\nfunction shuffle(values) {\n  const copy = values.slice();\n  for (let i = copy.length - 1; i &gt; 0; i -= 1) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [copy[i], copy[j]] = [copy[j], copy[i]];\n  }\n  return copy;\n}\n\nfunction quantile(sortedValues, p) {\n  const index = Math.min(\n    sortedValues.length - 1,\n    Math.max(0, Math.floor(sortedValues.length * p))\n  );\n  return sortedValues[index];\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction formatCoeff(value) {\n  if (value === 1) return \"\";\n  if (value === -1) return \"-\";\n  return `${value}`;\n}\n\nfunction formatSigned(value) {\n  if (value === 0) return \"+ 0\";\n  return value &gt; 0 ? `+ ${value}` : `- ${Math.abs(value)}`;\n}\n\nfunction formatSignedTerm(value, symbol) {\n  if (value === 0) return \"+ 0\";\n  const magnitude = Math.abs(value);\n  const coeff = magnitude === 1 ? \"\" : `${magnitude}`;\n  return value &gt; 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;\n}",
+    "objectID": "notebooks/index.html#topics",
+    "href": "notebooks/index.html#topics",
+    "title": "Quantitative Mathematics Study Path",
+    "section": "Topics",
+    "text": "Topics\n\n\nCollege Algebra\nExpressions, equations, functions, graphs, polynomials, exponentials, logarithms, and systems.\nStart College Algebra\n\n\nTrigonometry\nUnit circle, sine and cosine, angle measures, graph transformations, and identity practice.\nExplore Sine and Cosine\n\n\nCalculus\nLimits, derivatives, optimization, integrals, and applications.\n\n\nLinear Algebra\nVectors, matrices, linear systems, transformations, and eigenvalues.\n\n\nProbability and Statistics\nRandom variables, distributions, estimation, testing, and regression.\n\n\nDiscrete Mathematics\nLogic, sets, relations, sequences, induction, and graph basics.",
     "crumbs": [
       "Home",
       "Notebooks",
-      "Algebra",
-      "Guessing Quiz"
+      "Quantitative Mathematics Study Path"
     ]
   },
   {
-    "objectID": "notebooks/algebra/guessing_quiz.html#python-notebook-widget",
-    "href": "notebooks/algebra/guessing_quiz.html#python-notebook-widget",
-    "title": "Guessing Quiz",
-    "section": "Python notebook widget",
-    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()",
+    "objectID": "notebooks/index.html#learning-pattern",
+    "href": "notebooks/index.html#learning-pattern",
+    "title": "Quantitative Mathematics Study Path",
+    "section": "Learning Pattern",
+    "text": "Learning Pattern\nMost lessons follow this sequence:\n\nMotivation: why the topic matters.\nConcept: intuitive explanation.\nDefinition: formal notation.\nVisual model: graph or interactive diagram.\nWorked example: step-by-step solution.\nCommon mistakes: errors to avoid.\nPractice: short exercises or quizzes.\nPython connection: reusable code for notebooks and Colab.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Quantitative Mathematics Study Path"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html",
+    "href": "notebooks/algebra/expressions-and-equations.html",
+    "title": "Expressions and Equations",
+    "section": "",
+    "text": "Distinguish an expression from an equation.\nEvaluate expressions by substituting values.\nSolve one-variable linear equations.\nCheck whether a proposed solution is correct.",
     "crumbs": [
       "Home",
       "Notebooks",
       "Algebra",
-      "Guessing Quiz"
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#motivation",
+    "href": "notebooks/algebra/expressions-and-equations.html#motivation",
+    "title": "Expressions and Equations",
+    "section": "Motivation",
+    "text": "Motivation\nAlgebra is the language used to turn a quantitative situation into something we can compute. If a portfolio grows by a fixed amount, if a loan balance changes each month, or if a model has one unknown parameter, algebra gives us the structure for writing and solving the problem.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#expressions",
+    "href": "notebooks/algebra/expressions-and-equations.html#expressions",
+    "title": "Expressions and Equations",
+    "section": "Expressions",
+    "text": "Expressions\nAn expression is a mathematical phrase. It can contain numbers, variables, and operations, but it does not make a complete true-or-false statement.\nExamples:\n3x + 2\nx^2 - 5x + 6\n2(a + b)\nIf x = 4, then 3x + 2 evaluates to:\n3(4) + 2 = 14",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#equations",
+    "href": "notebooks/algebra/expressions-and-equations.html#equations",
+    "title": "Expressions and Equations",
+    "section": "Equations",
+    "text": "Equations\nAn equation says that two expressions are equal.\n3x + 2 = 14\nSolving an equation means finding the value of the variable that makes the statement true.\n\nKey Idea\nWhatever you do to one side of an equation, do the same thing to the other side. This keeps the equality balanced.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#worked-example",
+    "href": "notebooks/algebra/expressions-and-equations.html#worked-example",
+    "title": "Expressions and Equations",
+    "section": "Worked Example",
+    "text": "Worked Example\nSolve:\n3x + 2 = 14\nSubtract 2 from both sides:\n3x = 12\nDivide both sides by 3:\nx = 4\nCheck:\n3(4) + 2 = 14\nSo the solution is x = 4.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#python-connection",
+    "href": "notebooks/algebra/expressions-and-equations.html#python-connection",
+    "title": "Expressions and Equations",
+    "section": "Python Connection",
+    "text": "Python Connection\nThe package includes reusable exercise builders.\n\nfrom edumath.algebra import linear_equation_exercise\n\nexercise = linear_equation_exercise(seed=7)\nexercise.prompt\n\n'Solve for x: Eq(2 - 4*x, -6)'\n\n\n\nexercise.expected\n\n2.0\n\n\n\nexercise.check(exercise.expected).message\n\n'Correct.'",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#common-mistakes",
+    "href": "notebooks/algebra/expressions-and-equations.html#common-mistakes",
+    "title": "Expressions and Equations",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nChanging Only One Side\nIf you subtract 2 from the left side but not the right side, the new equation is no longer equivalent to the original.\n\n\nLosing the Negative Sign\nWhen solving -3x = 12, divide by -3, not by 3. The solution is x = -4.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#practice",
+    "href": "notebooks/algebra/expressions-and-equations.html#practice",
+    "title": "Expressions and Equations",
+    "section": "Practice",
+    "text": "Practice\n\n\nEvaluate 2x + 5 when x = 3.\nSolve 4x - 7 = 9.\nSolve -2x + 6 = 14.\nCheck whether x = 5 solves 3x - 1 = 14.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/expressions-and-equations.html#quick-quiz",
+    "href": "notebooks/algebra/expressions-and-equations.html#quick-quiz",
+    "title": "Expressions and Equations",
+    "section": "Quick Quiz",
+    "text": "Quick Quiz\n\nfrom edumath.core import Question, QuizSession\n\nquiz = QuizSession(\n    questions=(\n        Question(\"What is 2*3 + 5?\", expected=11),\n        Question(\"Solve 4*x - 7 = 9.\", expected=4),\n    )\n)\n\nresult = quiz.answer(0, 11)\nresult.check.message\n\n'Correct.'",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html",
+    "href": "notebooks/algebra/functions-and-graphs.html",
+    "title": "Functions and Graphs",
+    "section": "",
+    "text": "Interpret a function as an input-output rule.\nIdentify slope and intercepts for linear functions.\nConnect symbolic formulas to visual graphs.\nUse Python helpers to render function scenes.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#motivation",
+    "href": "notebooks/algebra/functions-and-graphs.html#motivation",
+    "title": "Functions and Graphs",
+    "section": "Motivation",
+    "text": "Motivation\nFunctions describe relationships. In quantitative work, a function might map time to account value, price to demand, or risk level to expected return.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#what-is-a-function",
+    "href": "notebooks/algebra/functions-and-graphs.html#what-is-a-function",
+    "title": "Functions and Graphs",
+    "section": "What Is a Function?",
+    "text": "What Is a Function?\nA function assigns each input exactly one output.\nf(x) = 2x + 1\nIf the input is x = 3, the output is:\nf(3) = 2(3) + 1 = 7",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#graphs",
+    "href": "notebooks/algebra/functions-and-graphs.html#graphs",
+    "title": "Functions and Graphs",
+    "section": "Graphs",
+    "text": "Graphs\nThe graph of a function is the set of points:\n(x, f(x))\nFor f(x) = 2x + 1, each x-value creates a y-value.\n\nFor a line y = mx + b, m is the slope and b is the y-intercept.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#python-connection",
+    "href": "notebooks/algebra/functions-and-graphs.html#python-connection",
+    "title": "Functions and Graphs",
+    "section": "Python Connection",
+    "text": "Python Connection\n\nfrom edumath.algebra import function_scene\n\nscene = function_scene(\"2*x + 1\", x_min=-5, x_max=5, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#comparing-functions",
+    "href": "notebooks/algebra/functions-and-graphs.html#comparing-functions",
+    "title": "Functions and Graphs",
+    "section": "Comparing Functions",
+    "text": "Comparing Functions\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x\", \"2*x + 1\", \"x**2\"),\n    x_min=-4,\n    x_max=4,\n    y_min=-6,\n    y_max=12,\n)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#common-mistakes",
+    "href": "notebooks/algebra/functions-and-graphs.html#common-mistakes",
+    "title": "Functions and Graphs",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nConfusing Input and Output\nIn f(3) = 7, the input is 3 and the output is 7.\n\n\nTreating Every Curve as a Function\nA graph is a function of x only if each x-value has exactly one y-value.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/functions-and-graphs.html#practice",
+    "href": "notebooks/algebra/functions-and-graphs.html#practice",
+    "title": "Functions and Graphs",
+    "section": "Practice",
+    "text": "Practice\n\n\nFind f(4) for f(x) = 3x - 2.\nIdentify the slope and y-intercept of y = -2x + 5.\nWhich grows faster for large positive x: x or x^2?\nSketch the graph of y = x - 3.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html",
+    "href": "notebooks/algebra/polynomials.html",
+    "title": "Polynomials",
+    "section": "",
+    "text": "Recognize polynomial terms, degree, and leading coefficient.\nExpand factored polynomial expressions.\nInterpret roots as x-intercepts.\nConnect factored and expanded forms.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#motivation",
+    "href": "notebooks/algebra/polynomials.html#motivation",
+    "title": "Polynomials",
+    "section": "Motivation",
+    "text": "Motivation\nPolynomials are simple enough to compute with but flexible enough to model curves. They appear in approximation, optimization, numerical methods, and many applied models.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#polynomial-structure",
+    "href": "notebooks/algebra/polynomials.html#polynomial-structure",
+    "title": "Polynomials",
+    "section": "Polynomial Structure",
+    "text": "Polynomial Structure\nA polynomial is a sum of terms like:\nconstant * x^nonnegative_integer\nExample:\n2x^3 - 5x^2 + x - 7\nThe highest power is the degree. This polynomial has degree 3.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#factored-form-and-roots",
+    "href": "notebooks/algebra/polynomials.html#factored-form-and-roots",
+    "title": "Polynomials",
+    "section": "Factored Form and Roots",
+    "text": "Factored Form and Roots\nThe polynomial:\n(x - 2)(x + 3)\nhas roots:\nx = 2 and x = -3\nbecause either factor can become zero.\nExpanded:\n(x - 2)(x + 3) = x^2 + x - 6",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#python-connection",
+    "href": "notebooks/algebra/polynomials.html#python-connection",
+    "title": "Polynomials",
+    "section": "Python Connection",
+    "text": "Python Connection\n\nfrom edumath.algebra import expand_expression_exercise\n\nexercise = expand_expression_exercise(seed=4)\nexercise.prompt\n\n'Expand: (x - 2)**2'\n\n\n\nexercise.expected\n\n\\(\\displaystyle x^{2} - 4 x + 4\\)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#visual-model",
+    "href": "notebooks/algebra/polynomials.html#visual-model",
+    "title": "Polynomials",
+    "section": "Visual Model",
+    "text": "Visual Model\n\nfrom edumath.algebra import function_scene\n\nscene = function_scene(\"(x - 2)*(x + 3)\", x_min=-5, x_max=5, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe graph crosses the x-axis at the roots.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#common-mistakes",
+    "href": "notebooks/algebra/polynomials.html#common-mistakes",
+    "title": "Polynomials",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nForgetting to Distribute Every Term\nWhen expanding (x + 2)(x + 3), multiply each term in the first factor by each term in the second factor.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/polynomials.html#practice",
+    "href": "notebooks/algebra/polynomials.html#practice",
+    "title": "Polynomials",
+    "section": "Practice",
+    "text": "Practice\n\n\nExpand (x + 1)(x + 4).\nFind the roots of (x - 5)(x + 2).\nWhat is the degree of 4x^5 - x^2 + 8?\nDoes x = 3 make (x - 3)(x + 1) equal zero?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Polynomials"
     ]
   },
   {
@@ -239,6 +561,214 @@
       "Notebooks",
       "Trigonometry",
       "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/guessing_quiz.html",
+    "href": "notebooks/algebra/guessing_quiz.html",
+    "title": "Guessing Quiz",
+    "section": "",
+    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Guessing Quiz"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/guessing_quiz.html#guess-the-expression",
+    "href": "notebooks/algebra/guessing_quiz.html#guess-the-expression",
+    "title": "Guessing Quiz",
+    "section": "Guess the expression",
+    "text": "Guess the expression\nChoose the expression that matches the graph.\n\nquiz = quizApp()\n\n\n\n\n\n\n\nfunction quizApp() {\n  const root = html`&lt;section class=\"quiz-shell\"&gt;&lt;/section&gt;`;\n  const state = {\n    total: 5,\n    index: 0,\n    score: 0,\n    question: null,\n    answered: false\n  };\n\n  renderStart();\n  return root;\n\n  function renderStart() {\n    root.innerHTML = \"\";\n\n    const input = html`&lt;input class=\"quiz-count\" type=\"number\" min=\"1\" max=\"100\" value=\"${state.total}\"&gt;`;\n    const button = html`&lt;button type=\"button\"&gt;Start quiz&lt;/button&gt;`;\n    const controls = html`&lt;div class=\"quiz-start\"&gt;\n      &lt;label&gt;\n        &lt;span&gt;Number of questions&lt;/span&gt;\n        ${input}\n      &lt;/label&gt;\n      ${button}\n    &lt;/div&gt;`;\n\n    button.addEventListener(\"click\", () =&gt; {\n      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));\n      state.index = 0;\n      state.score = 0;\n      startQuestion();\n    });\n\n    root.append(controls);\n  }\n\n  function startQuestion() {\n    state.question = makeQuestion();\n    state.answered = false;\n    renderQuestion();\n  }\n\n  function renderQuestion() {\n    const question = state.question;\n    root.innerHTML = \"\";\n\n    const progress = html`&lt;div class=\"quiz-progress\"&gt;\n      &lt;span&gt;Question ${state.index + 1} of ${state.total}&lt;/span&gt;\n      &lt;span&gt;Score: ${state.score}/${state.total}&lt;/span&gt;\n    &lt;/div&gt;`;\n    const graph = drawGraph(question);\n    const prompt = html`&lt;p class=\"quiz-prompt\"&gt;Select an expression.&lt;/p&gt;`;\n    const feedback = html`&lt;p class=\"quiz-feedback\" aria-live=\"polite\"&gt;&lt;/p&gt;`;\n    const next = html`&lt;button type=\"button\" disabled&gt;Next question&lt;/button&gt;`;\n    const options = radioList(question.options, option =&gt; {\n      if (state.answered) return;\n\n      state.answered = true;\n      const correct = option.id === question.answer.id;\n      if (correct) state.score += 1;\n\n      feedback.className = correct\n        ? \"quiz-feedback correct\"\n        : \"quiz-feedback wrong\";\n      feedback.innerHTML = correct\n        ? \"Correct.\"\n        : `Not quite. The answer is &lt;code&gt;${question.answer.label}&lt;/code&gt;.`;\n\n      for (const input of options.querySelectorAll(\"input\")) {\n        input.disabled = true;\n      }\n\n      next.disabled = false;\n      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;\n    });\n\n    next.addEventListener(\"click\", () =&gt; {\n      state.index += 1;\n      if (state.index &lt; state.total) {\n        startQuestion();\n      } else {\n        renderComplete();\n      }\n    });\n\n    root.append(progress, graph, prompt, feedback, options, next);\n  }\n\n  function renderComplete() {\n    root.innerHTML = \"\";\n\n    const summary = html`&lt;div class=\"quiz-complete\"&gt;\n      &lt;h3&gt;Quiz complete&lt;/h3&gt;\n      &lt;p&gt;Final score: ${state.score}/${state.total}&lt;/p&gt;\n    &lt;/div&gt;`;\n    const restart = html`&lt;button type=\"button\"&gt;Start another quiz&lt;/button&gt;`;\n    restart.addEventListener(\"click\", renderStart);\n\n    root.append(summary, restart);\n  }\n}\n\n\n\n\n\n\n\nfunction makeQuestion() {\n  const answer = randomExpression();\n  const options = new Map([[answer.id, answer]]);\n\n  while (options.size &lt; 4) {\n    const option = randomExpression();\n    options.set(option.id, option);\n  }\n\n  return {\n    answer,\n    options: shuffle(Array.from(options.values()))\n  };\n}\n\n\n\n\n\n\n\nfunction randomExpression() {\n  const kind = choice([\"linear\", \"quadratic\", \"cubic\", \"sine\", \"cosine\"]);\n\n  if (kind === \"linear\") {\n    const m = nonzeroInt(-4, 4);\n    const b = int(-6, 6);\n    return expression(\n      `${formatCoeff(m)}x ${formatSigned(b)}`,\n      x =&gt; m * x + b\n    );\n  }\n\n  if (kind === \"quadratic\") {\n    const a = nonzeroInt(-3, 3);\n    const b = int(-5, 5);\n    const c = int(-6, 6);\n    return expression(\n      `${formatCoeff(a)}x² ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"cubic\") {\n    const a = nonzeroInt(-2, 2);\n    const b = int(-3, 3);\n    const c = int(-4, 4);\n    return expression(\n      `${formatCoeff(a)}x³ ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"sine\") {\n    const a = nonzeroInt(-4, 4);\n    const k = nonzeroInt(1, 4);\n    return expression(`${formatCoeff(a)}sin(${k}x)`, x =&gt; a * Math.sin(k * x));\n  }\n\n  const a = nonzeroInt(-4, 4);\n  const k = nonzeroInt(1, 4);\n  return expression(`${formatCoeff(a)}cos(${k}x)`, x =&gt; a * Math.cos(k * x));\n}\n\n\n\n\n\n\n\nfunction expression(label, evaluate) {\n  return {\n    id: label.replace(/\\s+/g, \"\"),\n    label,\n    evaluate,\n    toString: () =&gt; label\n  };\n}\n\n\n\n\n\n\n\nfunction radioList(options, onSelect) {\n  const form = html`&lt;form class=\"quiz-options\" role=\"radiogroup\" aria-label=\"Expression options\"&gt;&lt;/form&gt;`;\n  form.value = null;\n\n  for (const option of options) {\n    const input = html`&lt;input type=\"radio\" name=\"quiz-answer\"&gt;`;\n    const label = html`&lt;label class=\"quiz-option\"&gt;${input}&lt;span&gt;${option.label}&lt;/span&gt;&lt;/label&gt;`;\n\n    input.addEventListener(\"change\", () =&gt; {\n      form.value = option;\n      form.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      onSelect(option);\n    });\n\n    form.append(label);\n  }\n\n  return form;\n}\n\n\n\n\n\n\n\nfunction drawGraph(question) {\n  const width = 720;\n  const height = 360;\n  const margin = { top: 24, right: 24, bottom: 36, left: 46 };\n  const xs = Array.from({ length: 401 }, (_, i) =&gt; -10 + i * 20 / 400);\n  const points = xs\n    .map(x =&gt; ({ x, y: question.answer.evaluate(x) }))\n    .filter(d =&gt; Number.isFinite(d.y));\n\n  const yValues = points.map(d =&gt; d.y).sort((a, b) =&gt; a - b);\n  const low = Math.min(quantile(yValues, 0.02), -5);\n  const high = Math.max(quantile(yValues, 0.98), 5);\n  const yPadding = Math.max((high - low) * 0.08, 1);\n\n  const xScale = d3.scaleLinear()\n    .domain([-10, 10])\n    .range([margin.left, width - margin.right]);\n  const yScale = d3.scaleLinear()\n    .domain([low - yPadding, high + yPadding])\n    .range([height - margin.bottom, margin.top]);\n\n  const line = d3.line()\n    .x(d =&gt; xScale(d.x))\n    .y(d =&gt; yScale(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Graph of an algebraic expression\")\n    .attr(\"class\", \"quiz-graph\");\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(0,${yScale(0)})`)\n    .call(d3.axisBottom(xScale).ticks(10));\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(${xScale(0)},0)`)\n    .call(d3.axisLeft(yScale).ticks(8));\n\n  svg.append(\"g\")\n    .attr(\"class\", \"quiz-grid\")\n    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(\"\"));\n\n  svg.append(\"path\")\n    .datum(points)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#1a73e8\")\n    .attr(\"stroke-width\", 3)\n    .attr(\"d\", line);\n\n  return svg.node();\n}\n\n\n\n\n\n\n\nfunction choice(values) {\n  return values[Math.floor(Math.random() * values.length)];\n}\n\nfunction int(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nfunction nonzeroInt(min, max) {\n  let value = 0;\n  while (value === 0) value = int(min, max);\n  return value;\n}\n\nfunction shuffle(values) {\n  const copy = values.slice();\n  for (let i = copy.length - 1; i &gt; 0; i -= 1) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [copy[i], copy[j]] = [copy[j], copy[i]];\n  }\n  return copy;\n}\n\nfunction quantile(sortedValues, p) {\n  const index = Math.min(\n    sortedValues.length - 1,\n    Math.max(0, Math.floor(sortedValues.length * p))\n  );\n  return sortedValues[index];\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction formatCoeff(value) {\n  if (value === 1) return \"\";\n  if (value === -1) return \"-\";\n  return `${value}`;\n}\n\nfunction formatSigned(value) {\n  if (value === 0) return \"+ 0\";\n  return value &gt; 0 ? `+ ${value}` : `- ${Math.abs(value)}`;\n}\n\nfunction formatSignedTerm(value, symbol) {\n  if (value === 0) return \"+ 0\";\n  const magnitude = Math.abs(value);\n  const coeff = magnitude === 1 ? \"\" : `${magnitude}`;\n  return value &gt; 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;\n}",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Guessing Quiz"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/guessing_quiz.html#python-notebook-widget",
+    "href": "notebooks/algebra/guessing_quiz.html#python-notebook-widget",
+    "title": "Guessing Quiz",
+    "section": "Python notebook widget",
+    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Guessing Quiz"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html",
+    "title": "Exponentials and Logarithms",
+    "section": "",
+    "text": "Recognize exponential growth and decay.\nInterpret logarithms as inverse operations.\nSolve basic exponential and logarithmic equations.\nCompare exponential functions with polynomial functions.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html#motivation",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html#motivation",
+    "title": "Exponentials and Logarithms",
+    "section": "Motivation",
+    "text": "Motivation\nExponential functions model repeated multiplication. They appear in compound interest, population growth, radioactive decay, and many risk models.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html#exponential-functions",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html#exponential-functions",
+    "title": "Exponentials and Logarithms",
+    "section": "Exponential Functions",
+    "text": "Exponential Functions\nAn exponential function has the variable in the exponent:\nf(x) = a * b^x\nIf b &gt; 1, the function grows. If 0 &lt; b &lt; 1, the function decays.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html#logarithms",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html#logarithms",
+    "title": "Exponentials and Logarithms",
+    "section": "Logarithms",
+    "text": "Logarithms\nA logarithm is the inverse of an exponential.\n\nlog_b(y) = x means b^x = y.\n\nFor example:\nlog_2(8) = 3\nbecause:\n2^3 = 8",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html#visual-comparison",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html#visual-comparison",
+    "title": "Exponentials and Logarithms",
+    "section": "Visual Comparison",
+    "text": "Visual Comparison\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**2\", \"2**x\"),\n    x_min=-2,\n    x_max=6,\n    y_min=-2,\n    y_max=40,\n    title=\"Polynomial vs exponential growth\",\n)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html#common-mistakes",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html#common-mistakes",
+    "title": "Exponentials and Logarithms",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nTreating log(x + y) as log(x) + log(y)\nLogarithms do not distribute over addition. Product rules apply to multiplication, not addition.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/exponentials-and-logarithms.html#practice",
+    "href": "notebooks/algebra/exponentials-and-logarithms.html#practice",
+    "title": "Exponentials and Logarithms",
+    "section": "Practice",
+    "text": "Practice\n\n\nCompute 2^5.\nSolve log_10(x) = 3.\nIs 0.5^x growth or decay?\nWhich eventually grows faster: x^2 or 2^x?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/systems-of-equations.html",
+    "href": "notebooks/algebra/systems-of-equations.html",
+    "title": "Systems of Equations",
+    "section": "",
+    "text": "Interpret a system solution as a value satisfying all equations.\nSolve small linear systems by substitution or elimination.\nUnderstand line intersections as system solutions.\nConnect systems to matrix methods later.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/systems-of-equations.html#motivation",
+    "href": "notebooks/algebra/systems-of-equations.html#motivation",
+    "title": "Systems of Equations",
+    "section": "Motivation",
+    "text": "Motivation\nSystems of equations appear whenever several constraints must hold at the same time. In applications, one equation might describe a cost condition and another might describe a revenue condition. The solution is where both are true.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/systems-of-equations.html#two-lines-one-shared-point",
+    "href": "notebooks/algebra/systems-of-equations.html#two-lines-one-shared-point",
+    "title": "Systems of Equations",
+    "section": "Two Lines, One Shared Point",
+    "text": "Two Lines, One Shared Point\nConsider:\ny = x + 1\ny = -x + 5\nAt the intersection, both equations give the same y.\nSet them equal:\nx + 1 = -x + 5\nSolve:\n2x = 4\nx = 2\nThen:\ny = 2 + 1 = 3\nThe solution is (2, 3).",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/systems-of-equations.html#visual-model",
+    "href": "notebooks/algebra/systems-of-equations.html#visual-model",
+    "title": "Systems of Equations",
+    "section": "Visual Model",
+    "text": "Visual Model\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x + 1\", \"-x + 5\"),\n    x_min=-1,\n    x_max=6,\n    y_min=-1,\n    y_max=7,\n    title=\"A system of two linear equations\",\n)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/systems-of-equations.html#common-mistakes",
+    "href": "notebooks/algebra/systems-of-equations.html#common-mistakes",
+    "title": "Systems of Equations",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nSolving Only One Equation\nA solution to a system must satisfy every equation in the system, not just one.\n\n\nForgetting to Find Both Coordinates\nAfter solving for x, substitute back into either original equation to find y.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/systems-of-equations.html#practice",
+    "href": "notebooks/algebra/systems-of-equations.html#practice",
+    "title": "Systems of Equations",
+    "section": "Practice",
+    "text": "Practice\n\n\nSolve y = 2x and y = x + 3.\nSolve x + y = 5 and x - y = 1.\nWhat does it mean if two lines are parallel?\nWhat does it mean if two equations describe the same line?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Systems of Equations"
     ]
   }
 ]

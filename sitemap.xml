@@ -1,27 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/guessing_quiz.html</loc>
-    <lastmod>2026-06-03T02:52:26.888Z</lastmod>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/index.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/expressions-and-equations.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/functions-and-graphs.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/polynomials.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
   </url>
   <url>
     <loc>https://osl-incubator.github.io/edu-math/installation.html</loc>
-    <lastmod>2026-06-03T02:52:26.888Z</lastmod>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
   </url>
   <url>
     <loc>https://osl-incubator.github.io/edu-math/index.html</loc>
-    <lastmod>2026-06-03T02:52:26.888Z</lastmod>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
   </url>
   <url>
     <loc>https://osl-incubator.github.io/edu-math/api.html</loc>
-    <lastmod>2026-06-03T02:52:26.888Z</lastmod>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
   </url>
   <url>
     <loc>https://osl-incubator.github.io/edu-math/changelog.html</loc>
-    <lastmod>2026-06-03T02:52:26.888Z</lastmod>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
   </url>
   <url>
     <loc>https://osl-incubator.github.io/edu-math/notebooks/trigonometry/sine-cosine.html</loc>
-    <lastmod>2026-06-03T02:52:26.888Z</lastmod>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/guessing_quiz.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/exponentials-and-logarithms.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osl-incubator.github.io/edu-math/notebooks/algebra/systems-of-equations.html</loc>
+    <lastmod>2026-06-03T05:13:28.818Z</lastmod>
   </url>
 </urlset>
