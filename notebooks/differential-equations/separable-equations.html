@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Differential equations that can be separated and integrated.">
 
-<title>Installation – edu-math</title>
+<title>Separable Equations – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,67 +24,32 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./api.html" rel="next">
-<link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-7392739307969b5d5c25b2b2fcafa982.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../notebooks/differential-equations/linear-equations.html" rel="next">
+<link href="../../notebooks/differential-equations/first-order-equations.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7392739307969b5d5c25b2b2fcafa982.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -285,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">edu-math</span>
     </a>
   </div>
@@ -296,35 +262,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./installation.html"> 
+    <a class="nav-link" href="../../installation.html"> 
 <span class="menu-text">Install</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./api.html"> 
+    <a class="nav-link" href="../../api.html"> 
 <span class="menu-text">API</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebooks/index.html"> 
+    <a class="nav-link" href="../../notebooks/index.html"> 
 <span class="menu-text">Study Path</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebooks/python/basics.html"> 
+    <a class="nav-link" href="../../notebooks/python/basics.html"> 
 <span class="menu-text">Python</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebooks/algebra/guessing_quiz.html"> 
+    <a class="nav-link" href="../../notebooks/algebra/guessing_quiz.html"> 
 <span class="menu-text">Algebra</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notebooks/trigonometry/sine-cosine.html"> 
+    <a class="nav-link" href="../../notebooks/trigonometry/sine-cosine.html"> 
 <span class="menu-text">Trigonometry</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./changelog.html"> 
+    <a class="nav-link" href="../../changelog.html"> 
 <span class="menu-text">Changelog</span></a>
   </li>  
 </ul>
@@ -346,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">Installation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notebooks/index.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../notebooks/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../notebooks/differential-equations/separable-equations.html">Separable Equations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -368,19 +334,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">edu-math</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./api.html" class="sidebar-item-text sidebar-link">
+  <a href="../../api.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API reference</span></a>
   </div>
 </li>
@@ -395,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quantitative Mathematics Study Path</span></a>
   </div>
 </li>
@@ -410,25 +376,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/python/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/python/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Control Flow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NumPy and Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/python/plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/python/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting With Python</span></a>
   </div>
 </li>
@@ -445,37 +411,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Polynomials</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/algebra/guessing_quiz.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/algebra/guessing_quiz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Guessing Quiz</span></a>
   </div>
 </li>
@@ -492,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
   </div>
 </li>
@@ -509,43 +475,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/limits.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/limits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivatives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivative Rules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/integrals.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/integrals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integration Techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/calculus/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/calculus/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Applications</span></a>
   </div>
 </li>
@@ -562,37 +528,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems and Elimination</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Transformations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
   </div>
 </li>
@@ -609,37 +575,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/probability/counting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/probability/counting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Counting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conditional Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/probability/random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/probability/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Random Variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Common Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expectation and Variance</span></a>
   </div>
 </li>
@@ -656,31 +622,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/statistics/sampling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/statistics/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/statistics/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
   </div>
 </li>
@@ -688,40 +654,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
  <span class="menu-text">Differential Equations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Separable Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slope Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Differential Equations</span></a>
   </div>
 </li>
@@ -738,37 +704,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Relations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sequences</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Induction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Graphs</span></a>
   </div>
 </li>
@@ -785,25 +751,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Diagnostic Quiz</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Formula Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mixed Practice</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/review/mock-test.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/review/mock-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mock Test</span></a>
   </div>
 </li>
@@ -820,7 +786,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/colab/usage.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notebooks/colab/usage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using edu-math in Google Colab</span></a>
   </div>
 </li>
@@ -830,7 +796,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./changelog.html" class="sidebar-item-text sidebar-link">
+  <a href="../../changelog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changelog</span></a>
   </div>
 </li>
@@ -844,20 +810,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#base-install" id="toc-base-install" class="nav-link active" data-scroll-target="#base-install">Base install</a></li>
-  <li><a href="#development-install" id="toc-development-install" class="nav-link" data-scroll-target="#development-install">Development install</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/installation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/notebooks/differential-equations/separable-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notebooks/index.html">Notebooks</a></li><li class="breadcrumb-item"><a href="../../notebooks/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../notebooks/differential-equations/separable-equations.html">Separable Equations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Installation</h1>
+<h1 class="title">Separable Equations</h1>
 </div>
 
+<div>
+  <div class="description">
+    Differential equations that can be separated and integrated.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -872,24 +842,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="base-install" class="level2">
-<h2 class="anchored" data-anchor-id="base-install">Base install</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install edu-math</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="learning-objectives" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li>Recognize separable equations.</li>
+<li>Separate variables conceptually.</li>
+<li>Connect solving to integration.</li>
+</ul>
 </section>
-<section id="development-install" class="level2">
-<h2 class="anchored" data-anchor-id="development-install">Development install</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> conda/dev.yaml</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate edumath</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> config virtualenvs.create false</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> install <span class="at">--extras</span> <span class="st">"dev"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Run quality checks through Makim:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">makim</span> tests.linter</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">makim</span> tests.unit</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">makim</span> package.build</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">makim</span> docs.build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A separable equation can be rearranged so all <code>y</code> terms are on one side and all <code>x</code> terms are on the other.</p>
+<div class="practice-box">
+<ol type="1">
+<li>Is <code>dy/dx = x*y</code> separable?</li>
+<li>What operation is used after separating variables?</li>
+<li>Why does a constant of integration appear?</li>
+</ol>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1312,13 +1282,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="edu-math">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">edu-math</span>
+      <a href="../../notebooks/differential-equations/first-order-equations.html" class="pagination-link" aria-label="First-Order Differential Equations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">First-Order Differential Equations</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./api.html" class="pagination-link" aria-label="API reference">
-        <span class="nav-page-text">API reference</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../notebooks/differential-equations/linear-equations.html" class="pagination-link" aria-label="Linear Differential Equations">
+        <span class="nav-page-text">Linear Differential Equations</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1327,4 +1297,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/installation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/notebooks/differential-equations/separable-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

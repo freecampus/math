@@ -1,38 +1,405 @@
 [
   {
-    "objectID": "notebooks/index.html",
-    "href": "notebooks/index.html",
-    "title": "Quantitative Mathematics Study Path",
+    "objectID": "notebooks/probability/counting.html",
+    "href": "notebooks/probability/counting.html",
+    "title": "Counting",
     "section": "",
-    "text": "This study path is organized for learners who want a practical foundation in quantitative mathematics. Each topic combines explanation, worked examples, Python code, visual intuition, and short checks for understanding.",
+    "text": "Learning Objectives\n\nCompute factorials.\nCompute combinations.\nUse counting before probability.\n\n\n\nfrom edumath.probability.distributions import combinations, factorial\n\nfactorial(5), combinations(5, 2)\n\n(120, 10)\n\n\n\n\nCompute 4!.\nCompute C(6, 2).\nWhy does order matter in permutations but not combinations?",
     "crumbs": [
       "Home",
       "Notebooks",
-      "Quantitative Mathematics Study Path"
+      "Probability",
+      "Counting"
     ]
   },
   {
-    "objectID": "notebooks/index.html#topics",
-    "href": "notebooks/index.html#topics",
-    "title": "Quantitative Mathematics Study Path",
-    "section": "Topics",
-    "text": "Topics\n\n\nCollege Algebra\nExpressions, equations, functions, graphs, polynomials, exponentials, logarithms, and systems.\nStart College Algebra\n\n\nTrigonometry\nUnit circle, sine and cosine, angle measures, graph transformations, and identity practice.\nExplore Sine and Cosine\n\n\nCalculus\nLimits, derivatives, optimization, integrals, and applications.\n\n\nLinear Algebra\nVectors, matrices, linear systems, transformations, and eigenvalues.\n\n\nProbability and Statistics\nRandom variables, distributions, estimation, testing, and regression.\n\n\nDiscrete Mathematics\nLogic, sets, relations, sequences, induction, and graph basics.",
+    "objectID": "notebooks/probability/common-distributions.html",
+    "href": "notebooks/probability/common-distributions.html",
+    "title": "Common Distributions",
+    "section": "",
+    "text": "Recognize common probability distributions.\nCompute binomial probabilities.\nMatch distributions to situations.\nfrom edumath.probability.distributions import binomial_pmf\n\nbinomial_pmf(trials=10, successes=3, probability=0.5)\n\n0.1171875",
     "crumbs": [
       "Home",
       "Notebooks",
-      "Quantitative Mathematics Study Path"
+      "Probability",
+      "Common Distributions"
     ]
   },
   {
-    "objectID": "notebooks/index.html#learning-pattern",
-    "href": "notebooks/index.html#learning-pattern",
-    "title": "Quantitative Mathematics Study Path",
-    "section": "Learning Pattern",
-    "text": "Learning Pattern\nMost lessons follow this sequence:\n\nMotivation: why the topic matters.\nConcept: intuitive explanation.\nDefinition: formal notation.\nVisual model: graph or interactive diagram.\nWorked example: step-by-step solution.\nCommon mistakes: errors to avoid.\nPractice: short exercises or quizzes.\nPython connection: reusable code for notebooks and Colab.",
+    "objectID": "notebooks/probability/common-distributions.html#practice",
+    "href": "notebooks/probability/common-distributions.html#practice",
+    "title": "Common Distributions",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhich distribution models one yes/no trial?\nWhich distribution models the number of successes in fixed trials?\nWhich distribution is often used for measurement noise?",
     "crumbs": [
       "Home",
       "Notebooks",
-      "Quantitative Mathematics Study Path"
+      "Probability",
+      "Common Distributions"
+    ]
+  },
+  {
+    "objectID": "notebooks/probability/random-variables.html",
+    "href": "notebooks/probability/random-variables.html",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Define a random variable.\nDistinguish discrete and continuous variables.\nInterpret expected value.\nA random variable assigns a number to each outcome of a random experiment.\nfrom edumath.probability.distributions import expected_value\n\nexpected_value([0, 1], [0.4, 0.6])\n\n0.6",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Probability",
+      "Random Variables"
+    ]
+  },
+  {
+    "objectID": "notebooks/probability/random-variables.html#practice",
+    "href": "notebooks/probability/random-variables.html#practice",
+    "title": "Random Variables",
+    "section": "Practice",
+    "text": "Practice\n\n\nIs a coin-flip payout discrete or continuous?\nWhat does expected value represent?\nCan expected value be a value that never occurs exactly?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Probability",
+      "Random Variables"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html",
+    "href": "notebooks/python/functions-and-control-flow.html",
+    "title": "Functions and Control Flow",
+    "section": "",
+    "text": "Use if, elif, and else to make decisions.\nUse loops to process repeated values.\nDefine reusable functions.\nUnderstand why functions make notebooks easier to maintain.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#motivation",
+    "href": "notebooks/python/functions-and-control-flow.html#motivation",
+    "title": "Functions and Control Flow",
+    "section": "Motivation",
+    "text": "Motivation\nQuantitative notebooks often repeat the same logic: classify a value, compute a running total, or apply a formula to several inputs. Functions and control flow make that logic explicit.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#conditional-logic",
+    "href": "notebooks/python/functions-and-control-flow.html#conditional-logic",
+    "title": "Functions and Control Flow",
+    "section": "Conditional Logic",
+    "text": "Conditional Logic\n\nvalue = -2\n\nif value &lt; 0:\n    label = \"negative\"\nelif value &gt; 0:\n    label = \"positive\"\nelse:\n    label = \"zero\"\n\nlabel\n\n'negative'\n\n\nThe package includes a small helper with the same logic.\n\nfrom edumath.python_fundamentals import classify_number\n\nclassify_number(-2), classify_number(0), classify_number(5)\n\n('negative', 'zero', 'positive')",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#loops",
+    "href": "notebooks/python/functions-and-control-flow.html#loops",
+    "title": "Functions and Control Flow",
+    "section": "Loops",
+    "text": "Loops\nLoops let us process a sequence of values.\n\nvalues = [1, 2, 3]\ntotal = 0\n\nfor value in values:\n    total = total + value\n\ntotal\n\n6",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#functions",
+    "href": "notebooks/python/functions-and-control-flow.html#functions",
+    "title": "Functions and Control Flow",
+    "section": "Functions",
+    "text": "Functions\nA function gives a name to a reusable computation.\n\ndef simple_interest(principal, rate, years):\n    return principal * rate * years\n\nsimple_interest(1000, 0.05, 2)\n\n100.0",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#running-totals",
+    "href": "notebooks/python/functions-and-control-flow.html#running-totals",
+    "title": "Functions and Control Flow",
+    "section": "Running Totals",
+    "text": "Running Totals\n\nfrom edumath.python_fundamentals import cumulative_sum\n\ncumulative_sum([100, -20, 50, 10])\n\n[100.0, 80.0, 130.0, 140.0]",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#common-mistakes",
+    "href": "notebooks/python/functions-and-control-flow.html#common-mistakes",
+    "title": "Functions and Control Flow",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nIndentation Is Syntax\nPython uses indentation to decide what belongs inside an if, loop, or function. Misaligned code changes the meaning.\n\n\nForgetting return\nIf a function does not return a value, Python returns None.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/functions-and-control-flow.html#practice",
+    "href": "notebooks/python/functions-and-control-flow.html#practice",
+    "title": "Functions and Control Flow",
+    "section": "Practice",
+    "text": "Practice\n\n\nWrite a function that doubles a number.\nWrite an if statement that labels a number as “large” if it is above 100.\nUse a loop to sum [2, 4, 6, 8].\nUse cumulative_sum on [10, -3, 7].",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Functions and Control Flow"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html",
+    "href": "notebooks/python/basics.html",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Assign values to variables.\nRecognize common Python types.\nUse arithmetic operators.\nInspect values with helper functions.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html#motivation",
+    "href": "notebooks/python/basics.html#motivation",
+    "title": "Python Basics",
+    "section": "Motivation",
+    "text": "Motivation\nPython is useful for quantitative mathematics because it lets us compute, visualize, and experiment. The first step is understanding how Python stores values.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html#variables-and-values",
+    "href": "notebooks/python/basics.html#variables-and-values",
+    "title": "Python Basics",
+    "section": "Variables and Values",
+    "text": "Variables and Values\nA variable is a name that points to a value.\n\nprice = 100\ngrowth_rate = 0.05\nname = \"portfolio\"\n\nprice, growth_rate, name\n\n(100, 0.05, 'portfolio')\n\n\nPython keeps track of the type of each value.\n\ntype(price), type(growth_rate), type(name)\n\n(int, float, str)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html#arithmetic",
+    "href": "notebooks/python/basics.html#arithmetic",
+    "title": "Python Basics",
+    "section": "Arithmetic",
+    "text": "Arithmetic\n\ninitial = 100\nrate = 0.05\nafter_one_year = initial * (1 + rate)\n\nafter_one_year\n\n105.0\n\n\nCommon arithmetic operators:\n\n\n\nOperator\nMeaning\n\n\n\n\n+\naddition\n\n\n-\nsubtraction\n\n\n*\nmultiplication\n\n\n/\ndivision\n\n\n**\nexponentiation",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html#python-connection",
+    "href": "notebooks/python/basics.html#python-connection",
+    "title": "Python Basics",
+    "section": "Python Connection",
+    "text": "Python Connection\n\nfrom edumath.python_fundamentals import describe_value\n\ndescribe_value(after_one_year)\n\nValueInfo(value=105.0, type_name='float', representation='105.0')",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html#common-mistakes",
+    "href": "notebooks/python/basics.html#common-mistakes",
+    "title": "Python Basics",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nConfusing Assignment With Equality\nIn Python, x = 3 assigns the value 3 to x. It does not mean “prove that x equals 3.”\n\n\nForgetting That Strings Are Text\n\"100\" is text. 100 is a number. They behave differently.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/basics.html#practice",
+    "href": "notebooks/python/basics.html#practice",
+    "title": "Python Basics",
+    "section": "Practice",
+    "text": "Practice\n\n\nCreate a variable named principal with value 250.\nCreate a variable named rate with value 0.08.\nCompute principal * (1 + rate).\nUse describe_value(...) on the result.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Python Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/discrete-math/induction.html",
+    "href": "notebooks/discrete-math/induction.html",
+    "title": "Induction",
+    "section": "",
+    "text": "Learning Objectives\n\nUnderstand base case and induction step.\nInterpret induction as a chain of implications.\nRecognize proof structure.\n\n\nInduction proves infinitely many statements by proving the first one and then proving each statement implies the next.\n\n\nWhat is a base case?\nWhat is the induction hypothesis?\nWhy does the induction step matter?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Discrete Mathematics",
+      "Induction"
+    ]
+  },
+  {
+    "objectID": "notebooks/discrete-math/sequences.html",
+    "href": "notebooks/discrete-math/sequences.html",
+    "title": "Sequences",
+    "section": "",
+    "text": "Learning Objectives\n\nDefine arithmetic and geometric sequences.\nCompute sequence terms.\nConnect sequences to recursion.\n\n\nAn arithmetic sequence adds a fixed amount. A geometric sequence multiplies by a fixed amount.\n\n\nFind the next term: 2, 5, 8, ....\nFind the next term: 3, 6, 12, ....\nWhich type models repeated percentage growth?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Discrete Mathematics",
+      "Sequences"
+    ]
+  },
+  {
+    "objectID": "notebooks/discrete-math/functions-relations.html",
+    "href": "notebooks/discrete-math/functions-relations.html",
+    "title": "Functions and Relations",
+    "section": "",
+    "text": "Learning Objectives\n\nDistinguish relations from functions.\nInterpret ordered pairs.\nRecognize when each input has one output.\n\n\nA relation is a set of ordered pairs. A function is a relation where each input has exactly one output.\n\n\nIs {(1, 2), (1, 3)} a function?\nIs {(1, 2), (2, 3)} a function?\nWhy does the function rule matter?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Discrete Mathematics",
+      "Functions and Relations"
+    ]
+  },
+  {
+    "objectID": "notebooks/colab/usage.html",
+    "href": "notebooks/colab/usage.html",
+    "title": "Using edu-math in Google Colab",
+    "section": "",
+    "text": "pip install edu-math\nWhen working from a source checkout instead of a released package, install from the repository root:\npip install -e .",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Colab",
+      "Using edu-math in Google Colab"
+    ]
+  },
+  {
+    "objectID": "notebooks/colab/usage.html#install",
+    "href": "notebooks/colab/usage.html#install",
+    "title": "Using edu-math in Google Colab",
+    "section": "",
+    "text": "pip install edu-math\nWhen working from a source checkout instead of a released package, install from the repository root:\npip install -e .",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Colab",
+      "Using edu-math in Google Colab"
+    ]
+  },
+  {
+    "objectID": "notebooks/colab/usage.html#import-helpers",
+    "href": "notebooks/colab/usage.html#import-helpers",
+    "title": "Using edu-math in Google Colab",
+    "section": "Import Helpers",
+    "text": "Import Helpers\nfrom edumath.algebra import function_scene\nfrom edumath.calculus.derivatives import derivative\nfrom edumath.python_fundamentals import array_summary",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Colab",
+      "Using edu-math in Google Colab"
+    ]
+  },
+  {
+    "objectID": "notebooks/colab/usage.html#plot-in-colab",
+    "href": "notebooks/colab/usage.html#plot-in-colab",
+    "title": "Using edu-math in Google Colab",
+    "section": "Plot in Colab",
+    "text": "Plot in Colab\nscene = function_scene(\"x**2\", x_min=-5, x_max=5, y_min=-2, y_max=25)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Colab",
+      "Using edu-math in Google Colab"
+    ]
+  },
+  {
+    "objectID": "notebooks/colab/usage.html#notes",
+    "href": "notebooks/colab/usage.html#notes",
+    "title": "Using edu-math in Google Colab",
+    "section": "Notes",
+    "text": "Notes\nBrowser-side Quarto widgets are designed for the documentation site. In Colab, prefer the Python helpers and Matplotlib figures.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Colab",
+      "Using edu-math in Google Colab"
+    ]
+  },
+  {
+    "objectID": "notebooks/statistics/sampling.html",
+    "href": "notebooks/statistics/sampling.html",
+    "title": "Sampling",
+    "section": "",
+    "text": "Learning Objectives\n\nDistinguish sample and population.\nExplain sampling variability.\nRecognize bias.\n\n\nA sample is a subset of a population. Good samples help us learn about the population without measuring everyone.\n\n\nWhat is a population?\nWhat is sampling bias?\nWhy do random samples help?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Statistics",
+      "Sampling"
+    ]
+  },
+  {
+    "objectID": "notebooks/statistics/estimation.html",
+    "href": "notebooks/statistics/estimation.html",
+    "title": "Estimation",
+    "section": "",
+    "text": "Learning Objectives\n\nInterpret point estimates.\nInterpret confidence intervals.\nUnderstand uncertainty in estimates.\n\n\nAn estimate uses sample data to approximate an unknown population quantity.\n\nA confidence interval communicates both an estimate and uncertainty.\n\n\n\nWhat is a point estimate?\nWhy is an interval usually more informative?\nWhat happens to uncertainty with larger samples?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Statistics",
+      "Estimation"
+    ]
+  },
+  {
+    "objectID": "notebooks/statistics/hypothesis-tests.html",
+    "href": "notebooks/statistics/hypothesis-tests.html",
+    "title": "Hypothesis Tests",
+    "section": "",
+    "text": "Learning Objectives\n\nDefine null and alternative hypotheses.\nInterpret p-values cautiously.\nConnect tests to uncertainty.\n\n\nA hypothesis test asks whether observed data are surprising under a baseline claim called the null hypothesis.\n\nMisreading p-values\nA p-value is not the probability that the null hypothesis is true.\n\n\n\nWhat is a null hypothesis?\nWhat does a small p-value suggest?\nWhy does statistical significance not always mean practical importance?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Statistics",
+      "Hypothesis Tests"
     ]
   },
   {
@@ -361,102 +728,211 @@
     ]
   },
   {
-    "objectID": "installation.html",
-    "href": "installation.html",
-    "title": "Installation",
+    "objectID": "notebooks/review/mixed-practice.html",
+    "href": "notebooks/review/mixed-practice.html",
+    "title": "Mixed Practice",
     "section": "",
-    "text": "pip install edu-math",
+    "text": "A value grows from 100 by 5%. Compute the new value in Python.\nGraph y = x^2 - 4.\nCompute P(X = 2) for X ~ Binomial(5, 0.5).\nUse a derivative to find the minimum of x^2 - 2x + 3.\nSolve x + y = 4, x - y = 2.",
     "crumbs": [
       "Home",
-      "Installation"
+      "Notebooks",
+      "Review",
+      "Mixed Practice"
     ]
   },
   {
-    "objectID": "installation.html#base-install",
-    "href": "installation.html#base-install",
-    "title": "Installation",
+    "objectID": "notebooks/review/formula-sheet.html",
+    "href": "notebooks/review/formula-sheet.html",
+    "title": "Formula Sheet",
     "section": "",
-    "text": "pip install edu-math",
+    "text": "Line: y = mx + b",
     "crumbs": [
       "Home",
-      "Installation"
+      "Notebooks",
+      "Review",
+      "Formula Sheet"
     ]
   },
   {
-    "objectID": "installation.html#development-install",
-    "href": "installation.html#development-install",
-    "title": "Installation",
-    "section": "Development install",
-    "text": "Development install\nconda env create -f conda/dev.yaml\nconda activate edumath\npoetry config virtualenvs.create false\npoetry install --extras \"dev\"\nRun quality checks through Makim:\nmakim tests.linter\nmakim tests.unit\nmakim package.build\nmakim docs.build",
-    "crumbs": [
-      "Home",
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "edu-math",
+    "objectID": "notebooks/review/formula-sheet.html#algebra",
+    "href": "notebooks/review/formula-sheet.html#algebra",
+    "title": "Formula Sheet",
     "section": "",
-    "text": "edu-math is a Python package for math education workflows.\nThe package is currently at its initial infrastructure stage. The project includes source packaging, tests, linting, documentation, release automation, and CI scaffolding.",
+    "text": "Line: y = mx + b",
     "crumbs": [
       "Home",
-      "edu-math"
+      "Notebooks",
+      "Review",
+      "Formula Sheet"
     ]
   },
   {
-    "objectID": "index.html#development-status",
-    "href": "index.html#development-status",
-    "title": "edu-math",
-    "section": "Development status",
-    "text": "Development status\nThe public API is intentionally small while the package design is established. See API reference for the current exported interface.",
+    "objectID": "notebooks/review/formula-sheet.html#calculus",
+    "href": "notebooks/review/formula-sheet.html#calculus",
+    "title": "Formula Sheet",
+    "section": "Calculus",
+    "text": "Calculus\n\nPower rule: d/dx x^n = n*x^(n-1)\n\n\nDefinite integral: accumulated signed area.",
     "crumbs": [
       "Home",
-      "edu-math"
+      "Notebooks",
+      "Review",
+      "Formula Sheet"
     ]
   },
   {
-    "objectID": "api.html",
-    "href": "api.html",
-    "title": "API reference",
+    "objectID": "notebooks/review/formula-sheet.html#probability",
+    "href": "notebooks/review/formula-sheet.html#probability",
+    "title": "Formula Sheet",
+    "section": "Probability",
+    "text": "Probability\n\nConditional probability: P(A | B) = P(A and B) / P(B)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Review",
+      "Formula Sheet"
+    ]
+  },
+  {
+    "objectID": "notebooks/review/formula-sheet.html#statistics",
+    "href": "notebooks/review/formula-sheet.html#statistics",
+    "title": "Formula Sheet",
+    "section": "Statistics",
+    "text": "Statistics\n\nz-score: (value - mean) / standard_deviation",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Review",
+      "Formula Sheet"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/integration-techniques.html",
+    "href": "notebooks/calculus/integration-techniques.html",
+    "title": "Integration Techniques",
     "section": "",
-    "text": "The public API is exported from edumath.",
+    "text": "Recognize when substitution can simplify an integral.\nRecognize when integration by parts is useful.\nApproximate integrals numerically.",
     "crumbs": [
       "Home",
-      "API reference"
+      "Notebooks",
+      "Calculus",
+      "Integration Techniques"
     ]
   },
   {
-    "objectID": "api.html#metadata",
-    "href": "api.html#metadata",
-    "title": "API reference",
-    "section": "Metadata",
-    "text": "Metadata\n\nedumath.__version__",
+    "objectID": "notebooks/calculus/integration-techniques.html#numeric-approximation",
+    "href": "notebooks/calculus/integration-techniques.html#numeric-approximation",
+    "title": "Integration Techniques",
+    "section": "Numeric Approximation",
+    "text": "Numeric Approximation\nWhen symbolic integration is hard, approximate the area.\n\nfrom edumath.calculus.integrals import midpoint_riemann_sum\n\nmidpoint_riemann_sum(\"x**2\", 0, 1, 100)\n\n0.33332500000000004",
     "crumbs": [
       "Home",
-      "API reference"
+      "Notebooks",
+      "Calculus",
+      "Integration Techniques"
     ]
   },
   {
-    "objectID": "changelog.html",
-    "href": "changelog.html",
-    "title": "Changelog",
+    "objectID": "notebooks/calculus/integration-techniques.html#practice",
+    "href": "notebooks/calculus/integration-techniques.html#practice",
+    "title": "Integration Techniques",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhich technique fits integral 2x*cos(x^2) dx?\nWhich technique fits integral x*exp(x) dx?\nApproximate integral x^2 dx from 0 to 1.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Integration Techniques"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/derivatives.html",
+    "href": "notebooks/calculus/derivatives.html",
+    "title": "Derivatives",
     "section": "",
-    "text": "Initial package infrastructure.",
+    "text": "Interpret derivatives as instantaneous rates of change.\nCompute symbolic derivatives with Python.\nConnect derivatives to tangent lines.",
     "crumbs": [
       "Home",
-      "Changelog"
+      "Notebooks",
+      "Calculus",
+      "Derivatives"
     ]
   },
   {
-    "objectID": "changelog.html#section",
-    "href": "changelog.html#section",
-    "title": "Changelog",
-    "section": "",
-    "text": "Initial package infrastructure.",
+    "objectID": "notebooks/calculus/derivatives.html#concept",
+    "href": "notebooks/calculus/derivatives.html#concept",
+    "title": "Derivatives",
+    "section": "Concept",
+    "text": "Concept\nThe derivative tells us how fast a function is changing at a point. On a graph, it is the slope of the tangent line.",
     "crumbs": [
       "Home",
-      "Changelog"
+      "Notebooks",
+      "Calculus",
+      "Derivatives"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/derivatives.html#python-connection",
+    "href": "notebooks/calculus/derivatives.html#python-connection",
+    "title": "Derivatives",
+    "section": "Python Connection",
+    "text": "Python Connection\n\nfrom edumath.calculus.derivatives import derivative, tangent_line\n\nderivative(\"x**2 + 3*x\")\n\n\\(\\displaystyle 2 x + 3\\)\n\n\n\ntangent_line(\"x**2\", 2)\n\n\\(\\displaystyle 4 x - 4\\)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Derivatives"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/derivatives.html#practice",
+    "href": "notebooks/calculus/derivatives.html#practice",
+    "title": "Derivatives",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhat is the derivative of x^2?\nWhat does a positive derivative mean graphically?\nWhat does a zero derivative suggest at a smooth turning point?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Derivatives"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/applications.html",
+    "href": "notebooks/calculus/applications.html",
+    "title": "Calculus Applications",
+    "section": "",
+    "text": "Choose derivatives for rate problems.\nChoose integrals for accumulation problems.\nConnect calculus to quantitative modeling.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Calculus Applications"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/applications.html#choosing-the-tool",
+    "href": "notebooks/calculus/applications.html#choosing-the-tool",
+    "title": "Calculus Applications",
+    "section": "Choosing the Tool",
+    "text": "Choosing the Tool\nUse derivatives when the question asks about change at an instant. Use integrals when the question asks about total accumulation over an interval.\n\nDerivative: local change. Integral: accumulated change.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Calculus Applications"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/applications.html#practice",
+    "href": "notebooks/calculus/applications.html#practice",
+    "title": "Calculus Applications",
+    "section": "Practice",
+    "text": "Practice\n\n\nMarginal cost is a derivative or an integral?\nTotal distance from velocity is a derivative or an integral?\nMaximum profit usually requires which calculus tool first?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Calculus Applications"
     ]
   },
   {
@@ -561,6 +1037,573 @@
       "Notebooks",
       "Trigonometry",
       "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/differential-equations/first-order-equations.html",
+    "href": "notebooks/differential-equations/first-order-equations.html",
+    "title": "First-Order Differential Equations",
+    "section": "",
+    "text": "Learning Objectives\n\nRecognize first-order differential equations.\nInterpret them as dynamic rules.\nConnect derivative rules to change over time.\n\n\nA differential equation relates an unknown function to its derivatives.\ndy/dx = f(x, y)\n\n\nWhat does dy/dx represent?\nWhy do differential equations model dynamic systems?\nGive one real-world quantity that changes over time.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Differential Equations",
+      "First-Order Differential Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/differential-equations/separable-equations.html",
+    "href": "notebooks/differential-equations/separable-equations.html",
+    "title": "Separable Equations",
+    "section": "",
+    "text": "Learning Objectives\n\nRecognize separable equations.\nSeparate variables conceptually.\nConnect solving to integration.\n\n\nA separable equation can be rearranged so all y terms are on one side and all x terms are on the other.\n\n\nIs dy/dx = x*y separable?\nWhat operation is used after separating variables?\nWhy does a constant of integration appear?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Differential Equations",
+      "Separable Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/systems-and-elimination.html",
+    "href": "notebooks/linear-algebra/systems-and-elimination.html",
+    "title": "Systems and Elimination",
+    "section": "",
+    "text": "Write a linear system as A x = b.\nSolve small systems.\nConnect elimination to matrix operations.\nfrom edumath.linear_algebra.concepts import solve_linear_system\n\nsolve_linear_system([[1, 1], [1, -1]], [5, 1])\n\narray([3., 2.])",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Systems and Elimination"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/systems-and-elimination.html#practice",
+    "href": "notebooks/linear-algebra/systems-and-elimination.html#practice",
+    "title": "Systems and Elimination",
+    "section": "Practice",
+    "text": "Practice\n\n\nSolve x + y = 5, x - y = 1.\nWhat does it mean if a system has no solution?\nWhat does it mean if a system has infinitely many solutions?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Systems and Elimination"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/matrix-operations.html",
+    "href": "notebooks/linear-algebra/matrix-operations.html",
+    "title": "Matrix Operations",
+    "section": "",
+    "text": "Add matrices with matching shapes.\nMultiply a matrix by a scalar.\nCompute matrix-vector products.\nfrom edumath.linear_algebra.concepts import matrix_vector_product\n\nmatrix_vector_product([[2, 0], [0, 3]], [5, 4])\n\narray([10., 12.])",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Matrix Operations"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/matrix-operations.html#practice",
+    "href": "notebooks/linear-algebra/matrix-operations.html#practice",
+    "title": "Matrix Operations",
+    "section": "Practice",
+    "text": "Practice\n\n\nMultiply [[1, 0], [0, 1]] by [2, 3].\nCan a 2x3 matrix multiply a length-2 vector?\nWhat does scalar multiplication do to every matrix entry?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Matrix Operations"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/linear-transformations.html",
+    "href": "notebooks/linear-algebra/linear-transformations.html",
+    "title": "Linear Transformations",
+    "section": "",
+    "text": "Interpret a matrix as a vector transformation.\nRecognize scaling, rotation, and projection examples.\nConnect transformations to geometry.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Linear Transformations"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/linear-transformations.html#concept",
+    "href": "notebooks/linear-algebra/linear-transformations.html#concept",
+    "title": "Linear Transformations",
+    "section": "Concept",
+    "text": "Concept\nA linear transformation preserves vector addition and scalar multiplication. A matrix is a compact way to describe such a transformation.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Linear Transformations"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/linear-transformations.html#practice",
+    "href": "notebooks/linear-algebra/linear-transformations.html#practice",
+    "title": "Linear Transformations",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhat does [[2, 0], [0, 2]] do to every vector?\nWhat does [[1, 0], [0, 0]] do in the plane?\nWhy are transformations useful for data and geometry?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Linear Transformations"
+    ]
+  },
+  {
+    "objectID": "installation.html",
+    "href": "installation.html",
+    "title": "Installation",
+    "section": "",
+    "text": "pip install edu-math",
+    "crumbs": [
+      "Home",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "installation.html#base-install",
+    "href": "installation.html#base-install",
+    "title": "Installation",
+    "section": "",
+    "text": "pip install edu-math",
+    "crumbs": [
+      "Home",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "installation.html#development-install",
+    "href": "installation.html#development-install",
+    "title": "Installation",
+    "section": "Development install",
+    "text": "Development install\nconda env create -f conda/dev.yaml\nconda activate edumath\npoetry config virtualenvs.create false\npoetry install --extras \"dev\"\nRun quality checks through Makim:\nmakim tests.linter\nmakim tests.unit\nmakim package.build\nmakim docs.build",
+    "crumbs": [
+      "Home",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "edu-math",
+    "section": "",
+    "text": "edu-math is a Python package for math education workflows.\nThe package is currently at its initial infrastructure stage. The project includes source packaging, tests, linting, documentation, release automation, and CI scaffolding.",
+    "crumbs": [
+      "Home",
+      "edu-math"
+    ]
+  },
+  {
+    "objectID": "index.html#development-status",
+    "href": "index.html#development-status",
+    "title": "edu-math",
+    "section": "Development status",
+    "text": "Development status\nThe public API is intentionally small while the package design is established. See API reference for the current exported interface.",
+    "crumbs": [
+      "Home",
+      "edu-math"
+    ]
+  },
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "API reference",
+    "section": "",
+    "text": "The public API is exported from edumath.",
+    "crumbs": [
+      "Home",
+      "API reference"
+    ]
+  },
+  {
+    "objectID": "api.html#metadata",
+    "href": "api.html#metadata",
+    "title": "API reference",
+    "section": "Metadata",
+    "text": "Metadata\n\nedumath.__version__",
+    "crumbs": [
+      "Home",
+      "API reference"
+    ]
+  },
+  {
+    "objectID": "changelog.html",
+    "href": "changelog.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "Initial package infrastructure.",
+    "crumbs": [
+      "Home",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "changelog.html#section",
+    "href": "changelog.html#section",
+    "title": "Changelog",
+    "section": "",
+    "text": "Initial package infrastructure.",
+    "crumbs": [
+      "Home",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/matrices.html",
+    "href": "notebooks/linear-algebra/matrices.html",
+    "title": "Matrices",
+    "section": "",
+    "text": "Interpret matrices as rectangular arrays.\nMultiply a matrix by a vector.\nRecognize matrix shape.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Matrices"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/matrices.html#concept",
+    "href": "notebooks/linear-algebra/matrices.html#concept",
+    "title": "Matrices",
+    "section": "Concept",
+    "text": "Concept\nMatrices organize numbers in rows and columns. They can represent systems of equations, transformations, and data tables.\n\nimport numpy as np\n\nmatrix = np.array([[2, 0], [0, 3]])\nmatrix.shape\n\n(2, 2)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Matrices"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/matrices.html#practice",
+    "href": "notebooks/linear-algebra/matrices.html#practice",
+    "title": "Matrices",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhat is the shape of a 3-row, 2-column matrix?\nWhy does shape matter for multiplication?\nWrite the identity matrix in two dimensions.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Matrices"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/vectors.html",
+    "href": "notebooks/linear-algebra/vectors.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "Interpret vectors as ordered lists of numbers.\nCompute dot products and norms.\nConnect vector length to distance.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/vectors.html#concept",
+    "href": "notebooks/linear-algebra/vectors.html#concept",
+    "title": "Vectors",
+    "section": "Concept",
+    "text": "Concept\nA vector stores multiple related numbers. In two dimensions, [3, 4] can represent a movement 3 units right and 4 units up.\n\nfrom edumath.linear_algebra.concepts import dot_product, vector_norm\n\ndot_product([1, 2], [3, 4]), vector_norm([3, 4])\n\n(11.0, 5.0)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/vectors.html#practice",
+    "href": "notebooks/linear-algebra/vectors.html#practice",
+    "title": "Vectors",
+    "section": "Practice",
+    "text": "Practice\n\n\nCompute the norm of [6, 8].\nCompute [1, 0] dot [0, 1].\nWhat does a dot product of zero suggest geometrically?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/eigenvalues-eigenvectors.html",
+    "href": "notebooks/linear-algebra/eigenvalues-eigenvectors.html",
+    "title": "Eigenvalues and Eigenvectors",
+    "section": "",
+    "text": "Define eigenvectors as directions that do not rotate.\nDefine eigenvalues as scaling factors.\nRecognize why eigenvalues matter in dynamic systems.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Eigenvalues and Eigenvectors"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/eigenvalues-eigenvectors.html#concept",
+    "href": "notebooks/linear-algebra/eigenvalues-eigenvectors.html#concept",
+    "title": "Eigenvalues and Eigenvectors",
+    "section": "Concept",
+    "text": "Concept\nAn eigenvector changes only by scaling when multiplied by a matrix.\nA v = lambda v",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Eigenvalues and Eigenvectors"
+    ]
+  },
+  {
+    "objectID": "notebooks/linear-algebra/eigenvalues-eigenvectors.html#practice",
+    "href": "notebooks/linear-algebra/eigenvalues-eigenvectors.html#practice",
+    "title": "Eigenvalues and Eigenvectors",
+    "section": "Practice",
+    "text": "Practice\n\n\nIf A v = 3v, what is the eigenvalue?\nDoes an eigenvector keep its direction?\nWhy might eigenvalues matter in repeated transformations?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Linear Algebra",
+      "Eigenvalues and Eigenvectors"
+    ]
+  },
+  {
+    "objectID": "notebooks/differential-equations/slope-fields.html",
+    "href": "notebooks/differential-equations/slope-fields.html",
+    "title": "Slope Fields",
+    "section": "",
+    "text": "Learning Objectives\n\nInterpret a slope field.\nUse slopes to understand solution behavior.\nApproximate solutions numerically.\n\n\n\nfrom edumath.differential_equations.solvers import euler_method\n\neuler_method(lambda x, y: y, initial_x=0, initial_y=1, step=0.1, steps=5)\n\n[(0, 1),\n (0.1, 1.1),\n (0.2, 1.2100000000000002),\n (0.30000000000000004, 1.3310000000000002),\n (0.4, 1.4641000000000002),\n (0.5, 1.61051)]\n\n\n\n\nWhat does each small segment in a slope field show?\nHow does Euler’s method use local slope?\nWhy is a smaller step often more accurate?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Differential Equations",
+      "Slope Fields"
+    ]
+  },
+  {
+    "objectID": "notebooks/differential-equations/systems.html",
+    "href": "notebooks/differential-equations/systems.html",
+    "title": "Systems of Differential Equations",
+    "section": "",
+    "text": "Learning Objectives\n\nRecognize systems of differential equations.\nInterpret coupled dynamics.\nConnect systems to linear algebra.\n\n\nSystems describe several variables changing at the same time.\ndx/dt = f(x, y)\ndy/dt = g(x, y)\n\n\nWhy might two variables influence each other?\nHow can matrices represent linear systems of ODEs?\nWhat is an equilibrium point?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Differential Equations",
+      "Systems of Differential Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/differential-equations/linear-equations.html",
+    "href": "notebooks/differential-equations/linear-equations.html",
+    "title": "Linear Differential Equations",
+    "section": "",
+    "text": "Learning Objectives\n\nRecognize the form of a first-order linear ODE.\nInterpret forcing and decay terms.\nPrepare for numerical solution methods.\n\n\nFirst-order linear equations have the form:\ndy/dx + p(x)y = q(x)\n\n\nIdentify p(x) and q(x) in dy/dx + 2y = x.\nWhat does the term involving y often represent?\nWhy are linear equations easier than nonlinear ones?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Differential Equations",
+      "Linear Differential Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/limits.html",
+    "href": "notebooks/calculus/limits.html",
+    "title": "Limits",
+    "section": "",
+    "text": "Explain a limit as an approached value.\nDistinguish a function value from a limiting value.\nRecognize why limits prepare us for derivatives.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Limits"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/limits.html#concept",
+    "href": "notebooks/calculus/limits.html#concept",
+    "title": "Limits",
+    "section": "Concept",
+    "text": "Concept\nA limit asks what value a function approaches as the input gets close to a point.\nlim f(x) as x -&gt; a\nThe function does not need to equal the limiting value at a. Limits describe nearby behavior.\n\nDerivatives and integrals both rely on limits: derivatives shrink a change in input, and integrals shrink rectangle widths.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Limits"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/limits.html#practice",
+    "href": "notebooks/calculus/limits.html#practice",
+    "title": "Limits",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhat value does x + 2 approach as x -&gt; 3?\nWhy can a limit exist even if the function is not defined at that point?\nExplain a limit in one sentence without symbols.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Limits"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/derivative-rules.html",
+    "href": "notebooks/calculus/derivative-rules.html",
+    "title": "Derivative Rules",
+    "section": "",
+    "text": "Use the power rule.\nRecognize when product, quotient, and chain rules are needed.\nCheck derivatives with symbolic helpers.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Derivative Rules"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/derivative-rules.html#core-rules",
+    "href": "notebooks/calculus/derivative-rules.html#core-rules",
+    "title": "Derivative Rules",
+    "section": "Core Rules",
+    "text": "Core Rules\n\nPower rule: if f(x) = x^n, then f'(x) = n*x^(n-1).\n\nProduct, quotient, and chain rules help with more complex expressions.\n\nfrom edumath.calculus.derivatives import derivative\n\nderivative(\"(x**2 + 1) * (x - 3)\")\n\n\\(\\displaystyle x^{2} + 2 x \\left(x - 3\\right) + 1\\)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Derivative Rules"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/derivative-rules.html#practice",
+    "href": "notebooks/calculus/derivative-rules.html#practice",
+    "title": "Derivative Rules",
+    "section": "Practice",
+    "text": "Practice\n\n\nDifferentiate x^5.\nWhich rule is needed for (x^2 + 1)^3?\nDifferentiate exp(x).",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Derivative Rules"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/optimization.html",
+    "href": "notebooks/calculus/optimization.html",
+    "title": "Optimization",
+    "section": "",
+    "text": "Identify critical points.\nUse derivatives to locate candidate maxima and minima.\nInterpret optimization in applied problems.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Optimization"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/optimization.html#concept",
+    "href": "notebooks/calculus/optimization.html#concept",
+    "title": "Optimization",
+    "section": "Concept",
+    "text": "Concept\nOptimization asks for the best value: largest profit, smallest cost, minimum error, or maximum growth. In calculus, smooth optima often occur where the derivative is zero.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Optimization"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/optimization.html#example",
+    "href": "notebooks/calculus/optimization.html#example",
+    "title": "Optimization",
+    "section": "Example",
+    "text": "Example\nFor f(x) = x^2 - 4x + 5, the derivative is 2x - 4. Setting it to zero gives x = 2.\n\nfrom edumath.calculus.derivatives import derivative\n\nderivative(\"x**2 - 4*x + 5\")\n\n\\(\\displaystyle 2 x - 4\\)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Optimization"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/optimization.html#practice",
+    "href": "notebooks/calculus/optimization.html#practice",
+    "title": "Optimization",
+    "section": "Practice",
+    "text": "Practice\n\n\nFind the critical point of x^2 - 6x + 10.\nIs the parabola x^2 minimized or maximized at x = 0?\nWhy do we check endpoints in constrained optimization?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Optimization"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/integrals.html",
+    "href": "notebooks/calculus/integrals.html",
+    "title": "Integrals",
+    "section": "",
+    "text": "Interpret definite integrals as accumulated change.\nCompute antiderivatives.\nApproximate area using Riemann sums.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Integrals"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/integrals.html#concept",
+    "href": "notebooks/calculus/integrals.html#concept",
+    "title": "Integrals",
+    "section": "Concept",
+    "text": "Concept\nAn integral accumulates small pieces. Graphically, a definite integral measures signed area under a curve.\n\nfrom edumath.calculus.integrals import antiderivative, definite_integral\n\nantiderivative(\"2*x\")\n\n\\(\\displaystyle x^{2}\\)\n\n\n\ndefinite_integral(\"2*x\", 0, 3)\n\n\\(\\displaystyle 9\\)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Integrals"
+    ]
+  },
+  {
+    "objectID": "notebooks/calculus/integrals.html#practice",
+    "href": "notebooks/calculus/integrals.html#practice",
+    "title": "Integrals",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhat is an antiderivative of 3x^2?\nWhat area does integral 1 dx from 0 to 5 represent?\nWhy are integrals useful for probability densities?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Calculus",
+      "Integrals"
+    ]
+  },
+  {
+    "objectID": "notebooks/review/diagnostic-quiz.html",
+    "href": "notebooks/review/diagnostic-quiz.html",
+    "title": "Diagnostic Quiz",
+    "section": "",
+    "text": "This diagnostic is a first-pass checklist. Use it to decide where to start.\n\n\nSolve 3x + 2 = 14.\nCompute the derivative of x^2.\nCompute C(5, 2).\nCompute the mean of [1, 2, 3].\nIs [1, 0] dot [0, 1] equal to zero?\n\n\nIf any question feels unfamiliar, start with that topic’s lesson section.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Review",
+      "Diagnostic Quiz"
+    ]
+  },
+  {
+    "objectID": "notebooks/review/mock-test.html",
+    "href": "notebooks/review/mock-test.html",
+    "title": "Mock Test",
+    "section": "",
+    "text": "Use this page as a timed review. Work without looking at earlier notes first, then return to the relevant topic pages.\n\n\nSolve 5x - 10 = 15.\nEvaluate f(3) for f(x) = x^2 + 1.\nDifferentiate x^3.\nIntegrate 2x from 0 to 4.\nCompute C(6, 3).\nCompute the standard deviation conceptually: what does it measure?\nWhat is the norm of [3, 4]?\nWhat does p -&gt; q mean?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Review",
+      "Mock Test"
     ]
   },
   {
@@ -769,6 +1812,341 @@
       "Notebooks",
       "Algebra",
       "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "notebooks/statistics/descriptive-statistics.html",
+    "href": "notebooks/statistics/descriptive-statistics.html",
+    "title": "Descriptive Statistics",
+    "section": "",
+    "text": "Learning Objectives\n\nCompute mean, median, variance, and standard deviation.\nInterpret center and spread.\nUse descriptive summaries carefully.\n\n\n\nfrom edumath.statistics.concepts import describe\n\ndescribe([1, 2, 3, 4, 10])\n\nDescriptiveStats(mean=4.0, median=3.0, variance=12.5, standard_deviation=3.5355339059327378, minimum=1.0, maximum=10.0)\n\n\n\n\nWhich is more sensitive to outliers: mean or median?\nWhat does standard deviation measure?\nWhy should summaries be paired with plots?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Statistics",
+      "Descriptive Statistics"
+    ]
+  },
+  {
+    "objectID": "notebooks/statistics/regression-basics.html",
+    "href": "notebooks/statistics/regression-basics.html",
+    "title": "Regression Basics",
+    "section": "",
+    "text": "Learning Objectives\n\nInterpret slope and intercept in simple linear regression.\nRecognize residuals.\nAvoid causal overclaims.\n\n\nRegression models a relationship between an explanatory variable and a response variable.\n\nSimple linear regression has the form y = beta_0 + beta_1 x + error.\n\n\n\nWhat does the slope represent?\nWhat is a residual?\nWhy does regression alone not prove causation?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Statistics",
+      "Regression Basics"
+    ]
+  },
+  {
+    "objectID": "notebooks/index.html",
+    "href": "notebooks/index.html",
+    "title": "Quantitative Mathematics Study Path",
+    "section": "",
+    "text": "This study path is organized for learners who want a practical foundation in quantitative mathematics. Each topic combines explanation, worked examples, Python code, visual intuition, and short checks for understanding.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Quantitative Mathematics Study Path"
+    ]
+  },
+  {
+    "objectID": "notebooks/index.html#topics",
+    "href": "notebooks/index.html#topics",
+    "title": "Quantitative Mathematics Study Path",
+    "section": "Topics",
+    "text": "Topics\n\n\nPython Fundamentals\nVariables, control flow, functions, NumPy arrays, and plotting for quantitative notebooks.\nStart Python Fundamentals\n\n\nCollege Algebra\nExpressions, equations, functions, graphs, polynomials, exponentials, logarithms, and systems.\nStart College Algebra\n\n\nTrigonometry\nUnit circle, sine and cosine, angle measures, graph transformations, and identity practice.\nExplore Sine and Cosine\n\n\nCalculus\nLimits, derivatives, optimization, integrals, and applications.\nStart Calculus\n\n\nLinear Algebra\nVectors, matrices, linear systems, transformations, and eigenvalues.\nStart Linear Algebra\n\n\nProbability and Statistics\nRandom variables, distributions, estimation, testing, and regression.\nStart Probability\n\n\nDiscrete Mathematics\nLogic, sets, relations, sequences, induction, and graph basics.\nStart Discrete Mathematics\n\n\nReview and Colab\nMixed practice, formula sheets, mock tests, and cloud notebook usage.\nOpen Review",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Quantitative Mathematics Study Path"
+    ]
+  },
+  {
+    "objectID": "notebooks/index.html#learning-pattern",
+    "href": "notebooks/index.html#learning-pattern",
+    "title": "Quantitative Mathematics Study Path",
+    "section": "Learning Pattern",
+    "text": "Learning Pattern\nMost lessons follow this sequence:\n\nMotivation: why the topic matters.\nConcept: intuitive explanation.\nDefinition: formal notation.\nVisual model: graph or interactive diagram.\nWorked example: step-by-step solution.\nCommon mistakes: errors to avoid.\nPractice: short exercises or quizzes.\nPython connection: reusable code for notebooks and Colab.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Quantitative Mathematics Study Path"
+    ]
+  },
+  {
+    "objectID": "notebooks/discrete-math/logic.html",
+    "href": "notebooks/discrete-math/logic.html",
+    "title": "Logic",
+    "section": "",
+    "text": "Learning Objectives\n\nWork with true/false propositions.\nInterpret logical implication.\nGenerate simple truth tables.\n\n\n\nfrom edumath.discrete_math.logic import implies, truth_table\n\ntruth_table((\"p\", \"q\"), implies)\n\n[{'p': False, 'q': False, 'result': True},\n {'p': False, 'q': True, 'result': True},\n {'p': True, 'q': False, 'result': False},\n {'p': True, 'q': True, 'result': True}]\n\n\n\n\nWhen is p -&gt; q false?\nWhat does a truth table show?\nWhy is logic useful for proofs and programming?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Discrete Mathematics",
+      "Logic"
+    ]
+  },
+  {
+    "objectID": "notebooks/discrete-math/sets.html",
+    "href": "notebooks/discrete-math/sets.html",
+    "title": "Sets",
+    "section": "",
+    "text": "Learning Objectives\n\nDefine set membership.\nCompute unions and intersections.\nConnect sets to events in probability.\n\n\n\na = {1, 2, 3}\nb = {3, 4, 5}\n\na | b, a & b\n\n({1, 2, 3, 4, 5}, {3})\n\n\n\n\nWhat is A union B?\nWhat is A intersection B?\nHow are events in probability related to sets?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Discrete Mathematics",
+      "Sets"
+    ]
+  },
+  {
+    "objectID": "notebooks/discrete-math/graphs.html",
+    "href": "notebooks/discrete-math/graphs.html",
+    "title": "Graphs",
+    "section": "",
+    "text": "Learning Objectives\n\nDefine vertices and edges.\nRecognize directed and undirected graphs.\nConnect graphs to networks.\n\n\nA graph is a collection of vertices connected by edges. Graphs model networks: web pages, roads, dependencies, and relationships.\n\n\nWhat is a vertex?\nWhat is an edge?\nGive one real-world network modeled by a graph.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Discrete Mathematics",
+      "Graphs"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html",
+    "href": "notebooks/python/numpy-and-arrays.html",
+    "title": "NumPy and Arrays",
+    "section": "",
+    "text": "Create NumPy arrays.\nPerform vectorized arithmetic.\nCompute basic summary statistics.\nUnderstand why arrays are useful for mathematical modeling.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html#motivation",
+    "href": "notebooks/python/numpy-and-arrays.html#motivation",
+    "title": "NumPy and Arrays",
+    "section": "Motivation",
+    "text": "Motivation\nLists are useful, but quantitative work usually needs fast operations over many numbers. NumPy arrays make those operations concise and efficient.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html#creating-arrays",
+    "href": "notebooks/python/numpy-and-arrays.html#creating-arrays",
+    "title": "NumPy and Arrays",
+    "section": "Creating Arrays",
+    "text": "Creating Arrays\n\nimport numpy as np\n\nvalues = np.array([1, 2, 3, 4, 5])\nvalues\n\narray([1, 2, 3, 4, 5])",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html#vectorized-arithmetic",
+    "href": "notebooks/python/numpy-and-arrays.html#vectorized-arithmetic",
+    "title": "NumPy and Arrays",
+    "section": "Vectorized Arithmetic",
+    "text": "Vectorized Arithmetic\nWhen you multiply an array by 2, NumPy multiplies every element.\n\nvalues * 2\n\narray([ 2,  4,  6,  8, 10])\n\n\nThis is different from a Python list:\n\n[1, 2, 3] * 2\n\n[1, 2, 3, 1, 2, 3]",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html#summary-statistics",
+    "href": "notebooks/python/numpy-and-arrays.html#summary-statistics",
+    "title": "NumPy and Arrays",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\n\nvalues.mean(), values.min(), values.max(), values.sum()\n\n(np.float64(3.0), np.int64(1), np.int64(5), np.int64(15))\n\n\nThe package includes a reusable summary helper.\n\nfrom edumath.python_fundamentals import array_summary\n\narray_summary(values)\n\nArraySummary(shape=(5,), mean=3.0, minimum=1.0, maximum=5.0, total=15.0)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html#common-mistakes",
+    "href": "notebooks/python/numpy-and-arrays.html#common-mistakes",
+    "title": "NumPy and Arrays",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nExpecting Lists and Arrays to Behave the Same Way\n[1, 2, 3] * 2 repeats a list. np.array([1, 2, 3]) * 2 doubles each value.\n\n\nIgnoring Shape\nArray shape tells you the dimensions of the data. Many numerical errors come from using arrays with incompatible shapes.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/numpy-and-arrays.html#practice",
+    "href": "notebooks/python/numpy-and-arrays.html#practice",
+    "title": "NumPy and Arrays",
+    "section": "Practice",
+    "text": "Practice\n\n\nCreate an array with values [10, 20, 30].\nDivide every value by 10.\nCompute the mean.\nUse array_summary(...) on the array.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "NumPy and Arrays"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html",
+    "href": "notebooks/python/plotting.html",
+    "title": "Plotting With Python",
+    "section": "",
+    "text": "Plot a sequence of values.\nPlot paired x/y values.\nInterpret axes, markers, and trends.\nUse reusable plotting helpers from edu-math.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html#motivation",
+    "href": "notebooks/python/plotting.html#motivation",
+    "title": "Plotting With Python",
+    "section": "Motivation",
+    "text": "Motivation\nGraphs help us see patterns that are hard to notice in tables: growth, variation, outliers, and relationships between variables.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html#line-plots",
+    "href": "notebooks/python/plotting.html#line-plots",
+    "title": "Plotting With Python",
+    "section": "Line Plots",
+    "text": "Line Plots\nA line plot is useful when values have a natural order, such as time.\n\nfrom edumath.python_fundamentals import plot_values\n\nbalances = [100, 105, 111, 118, 126]\nfig, ax = plot_values(balances, title=\"Account balance\")\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html#scatter-plots",
+    "href": "notebooks/python/plotting.html#scatter-plots",
+    "title": "Plotting With Python",
+    "section": "Scatter Plots",
+    "text": "Scatter Plots\nA scatter plot is useful for paired data.\n\nfrom edumath.python_fundamentals import scatter_values\n\nrisk = [1, 2, 3, 4, 5]\nexpected_return = [2, 3, 5, 6, 8]\n\nfig, ax = scatter_values(\n    risk,\n    expected_return,\n    title=\"Risk and expected return\",\n)\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html#reading-a-plot",
+    "href": "notebooks/python/plotting.html#reading-a-plot",
+    "title": "Plotting With Python",
+    "section": "Reading a Plot",
+    "text": "Reading a Plot\nAsk three questions:\n\nWhat does the x-axis represent?\nWhat does the y-axis represent?\nWhat pattern do the points or line show?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html#common-mistakes",
+    "href": "notebooks/python/plotting.html#common-mistakes",
+    "title": "Plotting With Python",
+    "section": "Common Mistakes",
+    "text": "Common Mistakes\n\nPlotting Without Labels\nUnlabeled axes make the graph hard to interpret. Always know what each axis means.\n\n\nAssuming Correlation Means Causation\nA scatter plot can show association, but it does not prove that one variable causes another.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/python/plotting.html#practice",
+    "href": "notebooks/python/plotting.html#practice",
+    "title": "Plotting With Python",
+    "section": "Practice",
+    "text": "Practice\n\n\nPlot [1, 4, 9, 16] as a line chart.\nCreate a scatter plot for x = [1, 2, 3] and y = [3, 2, 5].\nAdd a title that explains what the plot shows.\nExplain the pattern in one sentence.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Python",
+      "Plotting With Python"
+    ]
+  },
+  {
+    "objectID": "notebooks/probability/sample-spaces-events.html",
+    "href": "notebooks/probability/sample-spaces-events.html",
+    "title": "Sample Spaces and Events",
+    "section": "",
+    "text": "Learning Objectives\n\nDefine sample space.\nDefine event.\nCompute simple probabilities.\n\n\nThe sample space is the set of all possible outcomes. An event is a subset of that space.\n\n\nWhat is the sample space for one coin flip?\nWhat event means “getting heads”?\nWhat is the probability of rolling a 6 on a fair die?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Probability",
+      "Sample Spaces and Events"
+    ]
+  },
+  {
+    "objectID": "notebooks/probability/conditional-probability.html",
+    "href": "notebooks/probability/conditional-probability.html",
+    "title": "Conditional Probability",
+    "section": "",
+    "text": "Interpret conditional probability.\nRecognize independence.\nUse Bayes’ rule conceptually.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Probability",
+      "Conditional Probability"
+    ]
+  },
+  {
+    "objectID": "notebooks/probability/conditional-probability.html#practice",
+    "href": "notebooks/probability/conditional-probability.html#practice",
+    "title": "Conditional Probability",
+    "section": "Practice",
+    "text": "Practice\n\n\nWhat does P(A | B) mean in words?\nIf events are independent, how does P(A | B) relate to P(A)?\nWhy is conditional probability important for inference?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Probability",
+      "Conditional Probability"
+    ]
+  },
+  {
+    "objectID": "notebooks/probability/expectation-variance.html",
+    "href": "notebooks/probability/expectation-variance.html",
+    "title": "Expectation and Variance",
+    "section": "",
+    "text": "Learning Objectives\n\nInterpret expectation as long-run average.\nInterpret variance as spread.\nConnect probability to statistics.\n\n\nExpectation tells us the average value over many repetitions. Variance tells us how much values tend to vary around that average.\n\n\nWhat does high variance suggest?\nWhy is expected value not always a guaranteed outcome?\nHow does variance relate to risk?",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Probability",
+      "Expectation and Variance"
     ]
   }
 ]
