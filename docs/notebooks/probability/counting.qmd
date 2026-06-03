@@ -1,0 +1,24 @@
+---
+title: Counting
+description: Factorials and combinations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Compute factorials.
+- Compute combinations.
+- Use counting before probability.
+:::
+
+```{python}
+from edumath.probability.distributions import combinations, factorial
+
+factorial(5), combinations(5, 2)
+```
+
+::: {.practice-box}
+1. Compute `4!`.
+2. Compute `C(6, 2)`.
+3. Why does order matter in permutations but not combinations?
+:::

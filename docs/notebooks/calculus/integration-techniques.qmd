@@ -1,0 +1,30 @@
+---
+title: Integration Techniques
+description: Substitution, parts, and numeric approximation.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize when substitution can simplify an integral.
+- Recognize when integration by parts is useful.
+- Approximate integrals numerically.
+:::
+
+## Numeric Approximation
+
+When symbolic integration is hard, approximate the area.
+
+```{python}
+from edumath.calculus.integrals import midpoint_riemann_sum
+
+midpoint_riemann_sum("x**2", 0, 1, 100)
+```
+
+## Practice
+
+::: {.practice-box}
+1. Which technique fits `integral 2x*cos(x^2) dx`?
+2. Which technique fits `integral x*exp(x) dx`?
+3. Approximate `integral x^2 dx` from `0` to `1`.
+:::

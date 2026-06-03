@@ -1,0 +1,26 @@
+---
+title: Common Distributions
+description: Bernoulli, binomial, uniform, and normal distributions.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize common probability distributions.
+- Compute binomial probabilities.
+- Match distributions to situations.
+:::
+
+```{python}
+from edumath.probability.distributions import binomial_pmf
+
+binomial_pmf(trials=10, successes=3, probability=0.5)
+```
+
+## Practice
+
+::: {.practice-box}
+1. Which distribution models one yes/no trial?
+2. Which distribution models the number of successes in fixed trials?
+3. Which distribution is often used for measurement noise?
+:::

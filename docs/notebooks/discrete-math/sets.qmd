@@ -1,0 +1,25 @@
+---
+title: Sets
+description: Collections, membership, unions, and intersections.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Define set membership.
+- Compute unions and intersections.
+- Connect sets to events in probability.
+:::
+
+```{python}
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+a | b, a & b
+```
+
+::: {.practice-box}
+1. What is `A union B`?
+2. What is `A intersection B`?
+3. How are events in probability related to sets?
+:::

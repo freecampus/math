@@ -1,0 +1,24 @@
+---
+title: Linear Differential Equations
+description: First-order linear differential equations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize the form of a first-order linear ODE.
+- Interpret forcing and decay terms.
+- Prepare for numerical solution methods.
+:::
+
+First-order linear equations have the form:
+
+```text
+dy/dx + p(x)y = q(x)
+```
+
+::: {.practice-box}
+1. Identify `p(x)` and `q(x)` in `dy/dx + 2y = x`.
+2. What does the term involving `y` often represent?
+3. Why are linear equations easier than nonlinear ones?
+:::

@@ -1,0 +1,21 @@
+---
+title: Separable Equations
+description: Differential equations that can be separated and integrated.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize separable equations.
+- Separate variables conceptually.
+- Connect solving to integration.
+:::
+
+A separable equation can be rearranged so all `y` terms are on one side and all
+`x` terms are on the other.
+
+::: {.practice-box}
+1. Is `dy/dx = x*y` separable?
+2. What operation is used after separating variables?
+3. Why does a constant of integration appear?
+:::

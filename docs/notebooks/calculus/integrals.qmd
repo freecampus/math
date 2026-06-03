@@ -1,0 +1,35 @@
+---
+title: Integrals
+description: Integrals as accumulation and area.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret definite integrals as accumulated change.
+- Compute antiderivatives.
+- Approximate area using Riemann sums.
+:::
+
+## Concept
+
+An integral accumulates small pieces. Graphically, a definite integral measures
+signed area under a curve.
+
+```{python}
+from edumath.calculus.integrals import antiderivative, definite_integral
+
+antiderivative("2*x")
+```
+
+```{python}
+definite_integral("2*x", 0, 3)
+```
+
+## Practice
+
+::: {.practice-box}
+1. What is an antiderivative of `3x^2`?
+2. What area does `integral 1 dx` from `0` to `5` represent?
+3. Why are integrals useful for probability densities?
+:::

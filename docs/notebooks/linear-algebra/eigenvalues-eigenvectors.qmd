@@ -1,0 +1,28 @@
+---
+title: Eigenvalues and Eigenvectors
+description: Directions preserved by matrix transformations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Define eigenvectors as directions that do not rotate.
+- Define eigenvalues as scaling factors.
+- Recognize why eigenvalues matter in dynamic systems.
+:::
+
+## Concept
+
+An eigenvector changes only by scaling when multiplied by a matrix.
+
+```text
+A v = lambda v
+```
+
+## Practice
+
+::: {.practice-box}
+1. If `A v = 3v`, what is the eigenvalue?
+2. Does an eigenvector keep its direction?
+3. Why might eigenvalues matter in repeated transformations?
+:::

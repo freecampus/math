@@ -52,24 +52,40 @@ identity practice.
 ### Calculus
 
 Limits, derivatives, optimization, integrals, and applications.
+
+[Start Calculus](calculus/limits.qmd)
 :::
 
 ::: {.topic-card}
 ### Linear Algebra
 
 Vectors, matrices, linear systems, transformations, and eigenvalues.
+
+[Start Linear Algebra](linear-algebra/vectors.qmd)
 :::
 
 ::: {.topic-card}
 ### Probability and Statistics
 
 Random variables, distributions, estimation, testing, and regression.
+
+[Start Probability](probability/sample-spaces-events.qmd)
 :::
 
 ::: {.topic-card}
 ### Discrete Mathematics
 
 Logic, sets, relations, sequences, induction, and graph basics.
+
+[Start Discrete Mathematics](discrete-math/logic.qmd)
+:::
+
+::: {.topic-card}
+### Review and Colab
+
+Mixed practice, formula sheets, mock tests, and cloud notebook usage.
+
+[Open Review](review/diagnostic-quiz.qmd)
 :::
 :::
 

@@ -1,0 +1,27 @@
+---
+title: Hypothesis Tests
+description: Evidence against a baseline claim.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Define null and alternative hypotheses.
+- Interpret p-values cautiously.
+- Connect tests to uncertainty.
+:::
+
+A hypothesis test asks whether observed data are surprising under a baseline
+claim called the null hypothesis.
+
+::: {.common-mistake}
+### Misreading p-values
+
+A p-value is not the probability that the null hypothesis is true.
+:::
+
+::: {.practice-box}
+1. What is a null hypothesis?
+2. What does a small p-value suggest?
+3. Why does statistical significance not always mean practical importance?
+:::

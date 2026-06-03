@@ -1,0 +1,21 @@
+---
+title: Induction
+description: Prove statements about all positive integers.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Understand base case and induction step.
+- Interpret induction as a chain of implications.
+- Recognize proof structure.
+:::
+
+Induction proves infinitely many statements by proving the first one and then
+proving each statement implies the next.
+
+::: {.practice-box}
+1. What is a base case?
+2. What is the induction hypothesis?
+3. Why does the induction step matter?
+:::

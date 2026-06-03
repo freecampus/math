@@ -1,0 +1,32 @@
+---
+title: Formula Sheet
+description: Core formulas for review.
+---
+
+## Algebra
+
+::: {.formula-box}
+Line: `y = mx + b`
+:::
+
+## Calculus
+
+::: {.formula-box}
+Power rule: `d/dx x^n = n*x^(n-1)`
+:::
+
+::: {.formula-box}
+Definite integral: accumulated signed area.
+:::
+
+## Probability
+
+::: {.formula-box}
+Conditional probability: `P(A | B) = P(A and B) / P(B)`
+:::
+
+## Statistics
+
+::: {.formula-box}
+z-score: `(value - mean) / standard_deviation`
+:::

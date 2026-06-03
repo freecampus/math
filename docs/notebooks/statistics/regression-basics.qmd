@@ -1,0 +1,25 @@
+---
+title: Regression Basics
+description: Model relationships between variables.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret slope and intercept in simple linear regression.
+- Recognize residuals.
+- Avoid causal overclaims.
+:::
+
+Regression models a relationship between an explanatory variable and a response
+variable.
+
+::: {.formula-box}
+Simple linear regression has the form `y = beta_0 + beta_1 x + error`.
+:::
+
+::: {.practice-box}
+1. What does the slope represent?
+2. What is a residual?
+3. Why does regression alone not prove causation?
+:::

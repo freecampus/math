@@ -1,0 +1,21 @@
+---
+title: Sample Spaces and Events
+description: Probability starts with possible outcomes.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Define sample space.
+- Define event.
+- Compute simple probabilities.
+:::
+
+The sample space is the set of all possible outcomes. An event is a subset of
+that space.
+
+::: {.practice-box}
+1. What is the sample space for one coin flip?
+2. What event means "getting heads"?
+3. What is the probability of rolling a 6 on a fair die?
+:::

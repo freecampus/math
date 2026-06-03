@@ -1,0 +1,12 @@
+---
+title: Mixed Practice
+description: Practice prompts that combine topics.
+---
+
+::: {.practice-box}
+1. A value grows from `100` by `5%`. Compute the new value in Python.
+2. Graph `y = x^2 - 4`.
+3. Compute `P(X = 2)` for `X ~ Binomial(5, 0.5)`.
+4. Use a derivative to find the minimum of `x^2 - 2x + 3`.
+5. Solve `x + y = 4`, `x - y = 2`.
+:::

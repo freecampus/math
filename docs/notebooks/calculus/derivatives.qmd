@@ -1,0 +1,37 @@
+---
+title: Derivatives
+description: Derivatives as slopes and rates of change.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret derivatives as instantaneous rates of change.
+- Compute symbolic derivatives with Python.
+- Connect derivatives to tangent lines.
+:::
+
+## Concept
+
+The derivative tells us how fast a function is changing at a point. On a graph,
+it is the slope of the tangent line.
+
+## Python Connection
+
+```{python}
+from edumath.calculus.derivatives import derivative, tangent_line
+
+derivative("x**2 + 3*x")
+```
+
+```{python}
+tangent_line("x**2", 2)
+```
+
+## Practice
+
+::: {.practice-box}
+1. What is the derivative of `x^2`?
+2. What does a positive derivative mean graphically?
+3. What does a zero derivative suggest at a smooth turning point?
+:::

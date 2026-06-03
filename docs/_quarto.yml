@@ -61,6 +61,62 @@ website:
           - section: Trigonometry
             contents:
               - notebooks/trigonometry/sine-cosine.qmd
+          - section: Calculus
+            contents:
+              - notebooks/calculus/limits.qmd
+              - notebooks/calculus/derivatives.qmd
+              - notebooks/calculus/derivative-rules.qmd
+              - notebooks/calculus/optimization.qmd
+              - notebooks/calculus/integrals.qmd
+              - notebooks/calculus/integration-techniques.qmd
+              - notebooks/calculus/applications.qmd
+          - section: Linear Algebra
+            contents:
+              - notebooks/linear-algebra/vectors.qmd
+              - notebooks/linear-algebra/matrices.qmd
+              - notebooks/linear-algebra/matrix-operations.qmd
+              - notebooks/linear-algebra/systems-and-elimination.qmd
+              - notebooks/linear-algebra/linear-transformations.qmd
+              - notebooks/linear-algebra/eigenvalues-eigenvectors.qmd
+          - section: Probability
+            contents:
+              - notebooks/probability/sample-spaces-events.qmd
+              - notebooks/probability/counting.qmd
+              - notebooks/probability/conditional-probability.qmd
+              - notebooks/probability/random-variables.qmd
+              - notebooks/probability/common-distributions.qmd
+              - notebooks/probability/expectation-variance.qmd
+          - section: Statistics
+            contents:
+              - notebooks/statistics/descriptive-statistics.qmd
+              - notebooks/statistics/sampling.qmd
+              - notebooks/statistics/estimation.qmd
+              - notebooks/statistics/hypothesis-tests.qmd
+              - notebooks/statistics/regression-basics.qmd
+          - section: Differential Equations
+            contents:
+              - notebooks/differential-equations/first-order-equations.qmd
+              - notebooks/differential-equations/separable-equations.qmd
+              - notebooks/differential-equations/linear-equations.qmd
+              - notebooks/differential-equations/slope-fields.qmd
+              - notebooks/differential-equations/systems.qmd
+          - section: Discrete Mathematics
+            contents:
+              - notebooks/discrete-math/logic.qmd
+              - notebooks/discrete-math/sets.qmd
+              - notebooks/discrete-math/functions-relations.qmd
+              - notebooks/discrete-math/sequences.qmd
+              - notebooks/discrete-math/induction.qmd
+              - notebooks/discrete-math/graphs.qmd
+          - section: Review
+            contents:
+              - notebooks/review/diagnostic-quiz.qmd
+              - notebooks/review/formula-sheet.qmd
+              - notebooks/review/mixed-practice.qmd
+              - notebooks/review/mock-test.qmd
+          - section: Colab
+            contents:
+              - notebooks/colab/usage.qmd
       - changelog.qmd
 
 format:

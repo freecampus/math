@@ -1,0 +1,25 @@
+---
+title: Systems of Differential Equations
+description: Multiple changing quantities influencing each other.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize systems of differential equations.
+- Interpret coupled dynamics.
+- Connect systems to linear algebra.
+:::
+
+Systems describe several variables changing at the same time.
+
+```text
+dx/dt = f(x, y)
+dy/dt = g(x, y)
+```
+
+::: {.practice-box}
+1. Why might two variables influence each other?
+2. How can matrices represent linear systems of ODEs?
+3. What is an equilibrium point?
+:::

@@ -1,0 +1,26 @@
+---
+title: Matrix Operations
+description: Addition, scalar multiplication, and matrix-vector products.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Add matrices with matching shapes.
+- Multiply a matrix by a scalar.
+- Compute matrix-vector products.
+:::
+
+```{python}
+from edumath.linear_algebra.concepts import matrix_vector_product
+
+matrix_vector_product([[2, 0], [0, 3]], [5, 4])
+```
+
+## Practice
+
+::: {.practice-box}
+1. Multiply `[[1, 0], [0, 1]]` by `[2, 3]`.
+2. Can a 2x3 matrix multiply a length-2 vector?
+3. What does scalar multiplication do to every matrix entry?
+:::

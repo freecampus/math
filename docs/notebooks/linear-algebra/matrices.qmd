@@ -1,0 +1,32 @@
+---
+title: Matrices
+description: Matrices as structured numeric transformations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret matrices as rectangular arrays.
+- Multiply a matrix by a vector.
+- Recognize matrix shape.
+:::
+
+## Concept
+
+Matrices organize numbers in rows and columns. They can represent systems of
+equations, transformations, and data tables.
+
+```{python}
+import numpy as np
+
+matrix = np.array([[2, 0], [0, 3]])
+matrix.shape
+```
+
+## Practice
+
+::: {.practice-box}
+1. What is the shape of a 3-row, 2-column matrix?
+2. Why does shape matter for multiplication?
+3. Write the identity matrix in two dimensions.
+:::

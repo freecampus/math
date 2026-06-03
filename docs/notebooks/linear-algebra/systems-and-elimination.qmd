@@ -1,0 +1,26 @@
+---
+title: Systems and Elimination
+description: Solve linear systems with matrix notation.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Write a linear system as `A x = b`.
+- Solve small systems.
+- Connect elimination to matrix operations.
+:::
+
+```{python}
+from edumath.linear_algebra.concepts import solve_linear_system
+
+solve_linear_system([[1, 1], [1, -1]], [5, 1])
+```
+
+## Practice
+
+::: {.practice-box}
+1. Solve `x + y = 5`, `x - y = 1`.
+2. What does it mean if a system has no solution?
+3. What does it mean if a system has infinitely many solutions?
+:::

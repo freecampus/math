@@ -1,0 +1,31 @@
+---
+title: Vectors
+description: Vectors as quantities with magnitude and direction.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret vectors as ordered lists of numbers.
+- Compute dot products and norms.
+- Connect vector length to distance.
+:::
+
+## Concept
+
+A vector stores multiple related numbers. In two dimensions, `[3, 4]` can
+represent a movement 3 units right and 4 units up.
+
+```{python}
+from edumath.linear_algebra.concepts import dot_product, vector_norm
+
+dot_product([1, 2], [3, 4]), vector_norm([3, 4])
+```
+
+## Practice
+
+::: {.practice-box}
+1. Compute the norm of `[6, 8]`.
+2. Compute `[1, 0] dot [0, 1]`.
+3. What does a dot product of zero suggest geometrically?
+:::

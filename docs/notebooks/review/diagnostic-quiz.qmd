@@ -1,0 +1,16 @@
+---
+title: Diagnostic Quiz
+description: A short self-check across the study path.
+---
+
+This diagnostic is a first-pass checklist. Use it to decide where to start.
+
+::: {.practice-box}
+1. Solve `3x + 2 = 14`.
+2. Compute the derivative of `x^2`.
+3. Compute `C(5, 2)`.
+4. Compute the mean of `[1, 2, 3]`.
+5. Is `[1, 0] dot [0, 1]` equal to zero?
+:::
+
+If any question feels unfamiliar, start with that topic's lesson section.

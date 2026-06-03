@@ -1,0 +1,24 @@
+---
+title: Estimation
+description: Estimate unknown quantities from data.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret point estimates.
+- Interpret confidence intervals.
+- Understand uncertainty in estimates.
+:::
+
+An estimate uses sample data to approximate an unknown population quantity.
+
+::: {.key-idea}
+A confidence interval communicates both an estimate and uncertainty.
+:::
+
+::: {.practice-box}
+1. What is a point estimate?
+2. Why is an interval usually more informative?
+3. What happens to uncertainty with larger samples?
+:::

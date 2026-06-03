@@ -1,0 +1,37 @@
+---
+title: Optimization
+description: Use derivatives to find maxima and minima.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Identify critical points.
+- Use derivatives to locate candidate maxima and minima.
+- Interpret optimization in applied problems.
+:::
+
+## Concept
+
+Optimization asks for the best value: largest profit, smallest cost, minimum
+error, or maximum growth. In calculus, smooth optima often occur where the
+derivative is zero.
+
+## Example
+
+For `f(x) = x^2 - 4x + 5`, the derivative is `2x - 4`. Setting it to zero gives
+`x = 2`.
+
+```{python}
+from edumath.calculus.derivatives import derivative
+
+derivative("x**2 - 4*x + 5")
+```
+
+## Practice
+
+::: {.practice-box}
+1. Find the critical point of `x^2 - 6x + 10`.
+2. Is the parabola `x^2` minimized or maximized at `x = 0`?
+3. Why do we check endpoints in constrained optimization?
+:::

@@ -1,0 +1,24 @@
+---
+title: Logic
+description: Propositions, truth values, and implication.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Work with true/false propositions.
+- Interpret logical implication.
+- Generate simple truth tables.
+:::
+
+```{python}
+from edumath.discrete_math.logic import implies, truth_table
+
+truth_table(("p", "q"), implies)
+```
+
+::: {.practice-box}
+1. When is `p -> q` false?
+2. What does a truth table show?
+3. Why is logic useful for proofs and programming?
+:::

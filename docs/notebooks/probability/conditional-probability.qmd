@@ -1,0 +1,24 @@
+---
+title: Conditional Probability
+description: Probability after new information.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret conditional probability.
+- Recognize independence.
+- Use Bayes' rule conceptually.
+:::
+
+::: {.formula-box}
+`P(A | B) = P(A and B) / P(B)`
+:::
+
+## Practice
+
+::: {.practice-box}
+1. What does `P(A | B)` mean in words?
+2. If events are independent, how does `P(A | B)` relate to `P(A)`?
+3. Why is conditional probability important for inference?
+:::

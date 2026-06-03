@@ -1,0 +1,21 @@
+---
+title: Expectation and Variance
+description: Center and spread of random variables.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret expectation as long-run average.
+- Interpret variance as spread.
+- Connect probability to statistics.
+:::
+
+Expectation tells us the average value over many repetitions. Variance tells us
+how much values tend to vary around that average.
+
+::: {.practice-box}
+1. What does high variance suggest?
+2. Why is expected value not always a guaranteed outcome?
+3. How does variance relate to risk?
+:::

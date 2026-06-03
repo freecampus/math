@@ -1,0 +1,25 @@
+---
+title: Linear Transformations
+description: Matrices as functions that move vectors.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret a matrix as a vector transformation.
+- Recognize scaling, rotation, and projection examples.
+- Connect transformations to geometry.
+:::
+
+## Concept
+
+A linear transformation preserves vector addition and scalar multiplication. A
+matrix is a compact way to describe such a transformation.
+
+## Practice
+
+::: {.practice-box}
+1. What does `[[2, 0], [0, 2]]` do to every vector?
+2. What does `[[1, 0], [0, 0]]` do in the plane?
+3. Why are transformations useful for data and geometry?
+:::

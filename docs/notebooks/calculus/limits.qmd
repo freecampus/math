@@ -1,0 +1,37 @@
+---
+title: Limits
+description: Understand limits as values a function approaches.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Explain a limit as an approached value.
+- Distinguish a function value from a limiting value.
+- Recognize why limits prepare us for derivatives.
+:::
+
+## Concept
+
+A limit asks what value a function approaches as the input gets close to a
+point.
+
+```text
+lim f(x) as x -> a
+```
+
+The function does not need to equal the limiting value at `a`. Limits describe
+nearby behavior.
+
+::: {.key-idea}
+Derivatives and integrals both rely on limits: derivatives shrink a change in
+input, and integrals shrink rectangle widths.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. What value does `x + 2` approach as `x -> 3`?
+2. Why can a limit exist even if the function is not defined at that point?
+3. Explain a limit in one sentence without symbols.
+:::

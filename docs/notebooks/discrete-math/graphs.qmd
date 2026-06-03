@@ -1,0 +1,21 @@
+---
+title: Graphs
+description: Vertices, edges, and network structure.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Define vertices and edges.
+- Recognize directed and undirected graphs.
+- Connect graphs to networks.
+:::
+
+A graph is a collection of vertices connected by edges. Graphs model networks:
+web pages, roads, dependencies, and relationships.
+
+::: {.practice-box}
+1. What is a vertex?
+2. What is an edge?
+3. Give one real-world network modeled by a graph.
+:::

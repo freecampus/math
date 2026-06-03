@@ -1,0 +1,29 @@
+---
+title: Calculus Applications
+description: Rates, accumulation, optimization, and modeling.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Choose derivatives for rate problems.
+- Choose integrals for accumulation problems.
+- Connect calculus to quantitative modeling.
+:::
+
+## Choosing the Tool
+
+Use derivatives when the question asks about change at an instant. Use
+integrals when the question asks about total accumulation over an interval.
+
+::: {.key-idea}
+Derivative: local change. Integral: accumulated change.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Marginal cost is a derivative or an integral?
+2. Total distance from velocity is a derivative or an integral?
+3. Maximum profit usually requires which calculus tool first?
+:::

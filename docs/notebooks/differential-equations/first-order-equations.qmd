@@ -1,0 +1,24 @@
+---
+title: First-Order Differential Equations
+description: Equations involving a function and its first derivative.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize first-order differential equations.
+- Interpret them as dynamic rules.
+- Connect derivative rules to change over time.
+:::
+
+A differential equation relates an unknown function to its derivatives.
+
+```text
+dy/dx = f(x, y)
+```
+
+::: {.practice-box}
+1. What does `dy/dx` represent?
+2. Why do differential equations model dynamic systems?
+3. Give one real-world quantity that changes over time.
+:::

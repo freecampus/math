@@ -1,0 +1,34 @@
+---
+title: Derivative Rules
+description: Power, product, quotient, and chain rules.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Use the power rule.
+- Recognize when product, quotient, and chain rules are needed.
+- Check derivatives with symbolic helpers.
+:::
+
+## Core Rules
+
+::: {.formula-box}
+Power rule: if `f(x) = x^n`, then `f'(x) = n*x^(n-1)`.
+:::
+
+Product, quotient, and chain rules help with more complex expressions.
+
+```{python}
+from edumath.calculus.derivatives import derivative
+
+derivative("(x**2 + 1) * (x - 3)")
+```
+
+## Practice
+
+::: {.practice-box}
+1. Differentiate `x^5`.
+2. Which rule is needed for `(x^2 + 1)^3`?
+3. Differentiate `exp(x)`.
+:::

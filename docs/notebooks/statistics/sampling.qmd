@@ -1,0 +1,21 @@
+---
+title: Sampling
+description: Samples, populations, and variability.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Distinguish sample and population.
+- Explain sampling variability.
+- Recognize bias.
+:::
+
+A sample is a subset of a population. Good samples help us learn about the
+population without measuring everyone.
+
+::: {.practice-box}
+1. What is a population?
+2. What is sampling bias?
+3. Why do random samples help?
+:::

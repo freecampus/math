@@ -1,0 +1,24 @@
+---
+title: Descriptive Statistics
+description: Summarize data with center and spread.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Compute mean, median, variance, and standard deviation.
+- Interpret center and spread.
+- Use descriptive summaries carefully.
+:::
+
+```{python}
+from edumath.statistics.concepts import describe
+
+describe([1, 2, 3, 4, 10])
+```
+
+::: {.practice-box}
+1. Which is more sensitive to outliers: mean or median?
+2. What does standard deviation measure?
+3. Why should summaries be paired with plots?
+:::

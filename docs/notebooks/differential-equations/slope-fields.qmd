@@ -1,0 +1,24 @@
+---
+title: Slope Fields
+description: Visualize differential equations without solving them exactly.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret a slope field.
+- Use slopes to understand solution behavior.
+- Approximate solutions numerically.
+:::
+
+```{python}
+from edumath.differential_equations.solvers import euler_method
+
+euler_method(lambda x, y: y, initial_x=0, initial_y=1, step=0.1, steps=5)
+```
+
+::: {.practice-box}
+1. What does each small segment in a slope field show?
+2. How does Euler's method use local slope?
+3. Why is a smaller step often more accurate?
+:::
