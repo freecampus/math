@@ -1,0 +1,352 @@
+---
+title: Guessing Quiz
+description: Interactive algebra guessing quiz.
+format:
+  html:
+    code-fold: false
+    code-copy: false
+    code-tools: false
+---
+
+This page demonstrates the first interactive algebra quiz in `edu-math`.
+
+The package also provides a Python notebook widget, but rendered Quarto HTML
+does not keep a live Python kernel after publication. This page uses a
+browser-native version of the quiz so it remains interactive as a static HTML
+document.
+
+## Guess the expression
+
+Choose the expression that matches the graph.
+
+```{ojs}
+//| echo: false
+quiz = quizApp()
+```
+
+```{ojs}
+//| echo: false
+function quizApp() {
+  const root = html`<section class="quiz-shell"></section>`;
+  const state = {
+    total: 5,
+    index: 0,
+    score: 0,
+    question: null,
+    answered: false
+  };
+
+  renderStart();
+  return root;
+
+  function renderStart() {
+    root.innerHTML = "";
+
+    const input = html`<input class="quiz-count" type="number" min="1" max="100" value="${state.total}">`;
+    const button = html`<button type="button">Start quiz</button>`;
+    const controls = html`<div class="quiz-start">
+      <label>
+        <span>Number of questions</span>
+        ${input}
+      </label>
+      ${button}
+    </div>`;
+
+    button.addEventListener("click", () => {
+      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));
+      state.index = 0;
+      state.score = 0;
+      startQuestion();
+    });
+
+    root.append(controls);
+  }
+
+  function startQuestion() {
+    state.question = makeQuestion();
+    state.answered = false;
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const question = state.question;
+    root.innerHTML = "";
+
+    const progress = html`<div class="quiz-progress">
+      <span>Question ${state.index + 1} of ${state.total}</span>
+      <span>Score: ${state.score}/${state.total}</span>
+    </div>`;
+    const graph = drawGraph(question);
+    const prompt = html`<p class="quiz-prompt">Select an expression.</p>`;
+    const feedback = html`<p class="quiz-feedback" aria-live="polite"></p>`;
+    const next = html`<button type="button" disabled>Next question</button>`;
+    const options = radioList(question.options, option => {
+      if (state.answered) return;
+
+      state.answered = true;
+      const correct = option.id === question.answer.id;
+      if (correct) state.score += 1;
+
+      feedback.className = correct
+        ? "quiz-feedback correct"
+        : "quiz-feedback wrong";
+      feedback.innerHTML = correct
+        ? "Correct."
+        : `Not quite. The answer is <code>${question.answer.label}</code>.`;
+
+      for (const input of options.querySelectorAll("input")) {
+        input.disabled = true;
+      }
+
+      next.disabled = false;
+      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+    });
+
+    next.addEventListener("click", () => {
+      state.index += 1;
+      if (state.index < state.total) {
+        startQuestion();
+      } else {
+        renderComplete();
+      }
+    });
+
+    root.append(progress, graph, prompt, feedback, options, next);
+  }
+
+  function renderComplete() {
+    root.innerHTML = "";
+
+    const summary = html`<div class="quiz-complete">
+      <h3>Quiz complete</h3>
+      <p>Final score: ${state.score}/${state.total}</p>
+    </div>`;
+    const restart = html`<button type="button">Start another quiz</button>`;
+    restart.addEventListener("click", renderStart);
+
+    root.append(summary, restart);
+  }
+}
+```
+
+```{ojs}
+//| echo: false
+function makeQuestion() {
+  const answer = randomExpression();
+  const options = new Map([[answer.id, answer]]);
+
+  while (options.size < 4) {
+    const option = randomExpression();
+    options.set(option.id, option);
+  }
+
+  return {
+    answer,
+    options: shuffle(Array.from(options.values()))
+  };
+}
+```
+
+```{ojs}
+//| echo: false
+function randomExpression() {
+  const kind = choice(["linear", "quadratic", "cubic", "sine", "cosine"]);
+
+  if (kind === "linear") {
+    const m = nonzeroInt(-4, 4);
+    const b = int(-6, 6);
+    return expression(
+      `${formatCoeff(m)}x ${formatSigned(b)}`,
+      x => m * x + b
+    );
+  }
+
+  if (kind === "quadratic") {
+    const a = nonzeroInt(-3, 3);
+    const b = int(-5, 5);
+    const c = int(-6, 6);
+    return expression(
+      `${formatCoeff(a)}x² ${formatSignedTerm(b, "x")} ${formatSigned(c)}`,
+      x => a * x * x + b * x + c
+    );
+  }
+
+  if (kind === "cubic") {
+    const a = nonzeroInt(-2, 2);
+    const b = int(-3, 3);
+    const c = int(-4, 4);
+    return expression(
+      `${formatCoeff(a)}x³ ${formatSignedTerm(b, "x")} ${formatSigned(c)}`,
+      x => a * x * x * x + b * x + c
+    );
+  }
+
+  if (kind === "sine") {
+    const a = nonzeroInt(-4, 4);
+    const k = nonzeroInt(1, 4);
+    return expression(`${formatCoeff(a)}sin(${k}x)`, x => a * Math.sin(k * x));
+  }
+
+  const a = nonzeroInt(-4, 4);
+  const k = nonzeroInt(1, 4);
+  return expression(`${formatCoeff(a)}cos(${k}x)`, x => a * Math.cos(k * x));
+}
+```
+
+```{ojs}
+//| echo: false
+function expression(label, evaluate) {
+  return {
+    id: label.replace(/\s+/g, ""),
+    label,
+    evaluate,
+    toString: () => label
+  };
+}
+```
+
+```{ojs}
+//| echo: false
+function radioList(options, onSelect) {
+  const form = html`<form class="quiz-options" role="radiogroup" aria-label="Expression options"></form>`;
+  form.value = null;
+
+  for (const option of options) {
+    const input = html`<input type="radio" name="quiz-answer">`;
+    const label = html`<label class="quiz-option">${input}<span>${option.label}</span></label>`;
+
+    input.addEventListener("change", () => {
+      form.value = option;
+      form.dispatchEvent(new Event("input", { bubbles: true }));
+      onSelect(option);
+    });
+
+    form.append(label);
+  }
+
+  return form;
+}
+```
+
+```{ojs}
+//| echo: false
+function drawGraph(question) {
+  const width = 720;
+  const height = 360;
+  const margin = { top: 24, right: 24, bottom: 36, left: 46 };
+  const xs = Array.from({ length: 401 }, (_, i) => -10 + i * 20 / 400);
+  const points = xs
+    .map(x => ({ x, y: question.answer.evaluate(x) }))
+    .filter(d => Number.isFinite(d.y));
+
+  const yValues = points.map(d => d.y).sort((a, b) => a - b);
+  const low = Math.min(quantile(yValues, 0.02), -5);
+  const high = Math.max(quantile(yValues, 0.98), 5);
+  const yPadding = Math.max((high - low) * 0.08, 1);
+
+  const xScale = d3.scaleLinear()
+    .domain([-10, 10])
+    .range([margin.left, width - margin.right]);
+  const yScale = d3.scaleLinear()
+    .domain([low - yPadding, high + yPadding])
+    .range([height - margin.bottom, margin.top]);
+
+  const line = d3.line()
+    .x(d => xScale(d.x))
+    .y(d => yScale(d.y));
+
+  const svg = d3.create("svg")
+    .attr("viewBox", [0, 0, width, height])
+    .attr("role", "img")
+    .attr("aria-label", "Graph of an algebraic expression")
+    .attr("class", "quiz-graph");
+
+  svg.append("g")
+    .attr("transform", `translate(0,${yScale(0)})`)
+    .call(d3.axisBottom(xScale).ticks(10));
+
+  svg.append("g")
+    .attr("transform", `translate(${xScale(0)},0)`)
+    .call(d3.axisLeft(yScale).ticks(8));
+
+  svg.append("g")
+    .attr("class", "quiz-grid")
+    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(""));
+
+  svg.append("path")
+    .datum(points)
+    .attr("fill", "none")
+    .attr("stroke", "#1a73e8")
+    .attr("stroke-width", 3)
+    .attr("d", line);
+
+  return svg.node();
+}
+```
+
+```{ojs}
+//| echo: false
+function choice(values) {
+  return values[Math.floor(Math.random() * values.length)];
+}
+
+function int(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function nonzeroInt(min, max) {
+  let value = 0;
+  while (value === 0) value = int(min, max);
+  return value;
+}
+
+function shuffle(values) {
+  const copy = values.slice();
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function quantile(sortedValues, p) {
+  const index = Math.min(
+    sortedValues.length - 1,
+    Math.max(0, Math.floor(sortedValues.length * p))
+  );
+  return sortedValues[index];
+}
+```
+
+```{ojs}
+//| echo: false
+function formatCoeff(value) {
+  if (value === 1) return "";
+  if (value === -1) return "-";
+  return `${value}`;
+}
+
+function formatSigned(value) {
+  if (value === 0) return "+ 0";
+  return value > 0 ? `+ ${value}` : `- ${Math.abs(value)}`;
+}
+
+function formatSignedTerm(value, symbol) {
+  if (value === 0) return "+ 0";
+  const magnitude = Math.abs(value);
+  const coeff = magnitude === 1 ? "" : `${magnitude}`;
+  return value > 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;
+}
+```
+
+## Python notebook widget
+
+Use this version in a live Jupyter notebook or notebook-style Quarto preview
+with a running Python kernel.
+
+```python
+from edumath.algebra import GuessingQuizWidget
+
+quiz = GuessingQuizWidget(total_questions=5)
+quiz.display()
+```

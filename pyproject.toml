@@ -26,7 +26,13 @@ classifiers = [
   "Topic :: Education",
   "Topic :: Scientific/Engineering :: Mathematics",
 ]
-dependencies = []
+dependencies = [
+  "matplotlib>=2",
+  "numpy>=2",
+  "ipywidgets>=6",
+  "ipython>=7",
+  "sympy>=1"
+]
 
 [project.urls]
 Homepage = "https://github.com/osl-incubator/edu-math"
@@ -53,6 +59,7 @@ ruff = ">=0.6"
 mypy = ">=1.10"
 pre-commit = ">=3"
 makim = "==1.29.0"
+click = "^8.4.1"
 
 [build-system]
 requires = ["poetry-core>=2"]
@@ -102,3 +109,11 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unused_configs = true
 show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+  "IPython.*",
+  "ipywidgets.*",
+  "sympy.*",
+]
+ignore_missing_imports = true

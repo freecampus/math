@@ -1,0 +1,302 @@
+---
+title: Sine and Cosine
+description: Understanding sine and cosine through the unit circle.
+---
+
+Sine and cosine describe the coordinates of a point moving around the unit
+circle.
+
+The **unit circle** is a circle with radius `1` centered at the origin. If an
+angle starts on the positive x-axis and rotates counterclockwise, the point on
+the circle has coordinates:
+
+```text
+(cos(theta), sin(theta))
+```
+
+That means:
+
+- `cos(theta)` is the horizontal coordinate.
+- `sin(theta)` is the vertical coordinate.
+
+## A first angle
+
+At `30` degrees, the point is mostly to the right and slightly above the x-axis.
+The cosine value is the horizontal distance from the origin, and the sine value
+is the vertical height.
+
+```{python}
+from edumath.trigonometry.plots import plot_unit_circle
+
+fig, ax = plot_unit_circle(30)
+fig
+```
+
+## Reading the picture
+
+In the plot:
+
+- the black segment is the radius of the unit circle;
+- the red segment shows the cosine component;
+- the blue segment shows the sine component.
+
+Because every point is on a circle of radius `1`, sine and cosine always stay
+between `-1` and `1`.
+
+## Special angles
+
+Some common angles have exact sine and cosine values. These values are useful
+because they appear constantly in trigonometry, geometry, and calculus.
+
+```{python}
+from edumath.trigonometry.plots import unit_circle_point
+
+for angle in [0, 30, 45, 60, 90, 180, 270, 360]:
+    point = unit_circle_point(angle)
+    print(
+        f"{angle:>3} degrees: "
+        f"cos(theta) = {point.cosine: .3f}, "
+        f"sin(theta) = {point.sine: .3f}"
+    )
+```
+
+## Quadrants and signs
+
+The sign of sine and cosine depends on the quadrant.
+
+| Quadrant | Angle range | Cosine | Sine |
+|---|---:|---:|---:|
+| I | `0` to `90` degrees | positive | positive |
+| II | `90` to `180` degrees | negative | positive |
+| III | `180` to `270` degrees | negative | negative |
+| IV | `270` to `360` degrees | positive | negative |
+
+For example, at `225` degrees the point is in quadrant III, so both coordinates
+are negative.
+
+```{python}
+fig, ax = plot_unit_circle(225)
+fig
+```
+
+## Same circle, changing angle
+
+The angle changes the point, but the rule stays the same:
+
+```text
+horizontal position = cos(theta)
+vertical position = sin(theta)
+```
+
+The next examples show angles with the same reference angle but different signs
+because they are in different quadrants.
+
+```{python}
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 5), constrained_layout=True)
+
+plot_unit_circle(60, axis=axes[0])
+plot_unit_circle(120, axis=axes[1])
+
+fig
+```
+
+At `60` degrees, sine and cosine are both positive. At `120` degrees, sine is
+still positive, but cosine is negative because the point is now to the left of
+the y-axis.
+
+## In a live notebook
+
+The package also includes an interactive widget for live Jupyter notebooks.
+
+```python
+from edumath.trigonometry.plots import display_unit_circle_widget
+
+display_unit_circle_widget(initial_angle=45, min_angle=-360, max_angle=360)
+```
+
+## Interactive unit circle
+
+Use the slider or type an angle between `-360` and `360` degrees. Positive
+angles rotate counterclockwise; negative angles rotate clockwise.
+
+```{ojs}
+//| echo: false
+unitCircleExplorer()
+```
+
+```{ojs}
+//| echo: false
+function unitCircleExplorer() {
+  const root = html`<section class="trig-explorer"></section>`;
+  const slider = html`<input class="trig-angle-slider" type="range" min="-360" max="360" step="1" value="45">`;
+  const input = html`<input class="trig-angle-input" type="number" min="-360" max="360" step="1" value="45">`;
+  const chart = html`<div></div>`;
+  const values = html`<div class="trig-values"></div>`;
+
+  const controls = html`<div class="trig-controls">
+    <label>
+      <span>Angle</span>
+      ${slider}
+    </label>
+    <label>
+      <span>Degrees</span>
+      ${input}
+    </label>
+  </div>`;
+
+  slider.addEventListener("input", () => {
+    input.value = slider.value;
+    render();
+  });
+
+  input.addEventListener("input", () => {
+    const angle = clamp(Number(input.value) || 0, -360, 360);
+    input.value = angle;
+    slider.value = angle;
+    render();
+  });
+
+  root.append(controls, chart, values);
+  render();
+  return root;
+
+  function render() {
+    const angle = Number(slider.value);
+    chart.innerHTML = "";
+    chart.append(drawUnitCircle(angle));
+
+    const radians = angle * Math.PI / 180;
+    const cosine = Math.cos(radians);
+    const sine = Math.sin(radians);
+
+    values.innerHTML = `
+      <span>cos(${angle}°) = ${cosine.toFixed(3)}</span>
+      <span>sin(${angle}°) = ${sine.toFixed(3)}</span>
+    `;
+  }
+}
+```
+
+```{ojs}
+//| echo: false
+function drawUnitCircle(angleDegrees) {
+  const width = 560;
+  const height = 560;
+  const margin = 44;
+  const radius = 210;
+  const center = { x: width / 2, y: height / 2 };
+  const radians = angleDegrees * Math.PI / 180;
+  const point = {
+    x: center.x + radius * Math.cos(radians),
+    y: center.y - radius * Math.sin(radians)
+  };
+  const projection = { x: point.x, y: center.y };
+  const radiusLabel = {
+    x: (center.x + point.x) / 2 + 10,
+    y: (center.y + point.y) / 2 - 10
+  };
+  const cosineLabel = {
+    x: (center.x + projection.x) / 2,
+    y: center.y + 28
+  };
+  const sineLabel = {
+    x: projection.x + (projection.x >= center.x ? 12 : -12),
+    y: (projection.y + point.y) / 2
+  };
+
+  const svg = d3.create("svg")
+    .attr("viewBox", [0, 0, width, height])
+    .attr("role", "img")
+    .attr("aria-label", "Interactive unit circle showing sine and cosine")
+    .attr("class", "trig-unit-circle");
+
+  svg.append("circle")
+    .attr("cx", center.x)
+    .attr("cy", center.y)
+    .attr("r", radius)
+    .attr("fill", "none")
+    .attr("stroke", "#9aa0a6")
+    .attr("stroke-width", 2)
+    .attr("stroke-dasharray", "7 7");
+
+  svg.append("line")
+    .attr("x1", margin)
+    .attr("y1", center.y)
+    .attr("x2", width - margin)
+    .attr("y2", center.y)
+    .attr("class", "trig-axis");
+
+  svg.append("line")
+    .attr("x1", center.x)
+    .attr("y1", margin)
+    .attr("x2", center.x)
+    .attr("y2", height - margin)
+    .attr("class", "trig-axis");
+
+  svg.append("line")
+    .attr("x1", center.x)
+    .attr("y1", center.y)
+    .attr("x2", point.x)
+    .attr("y2", point.y)
+    .attr("class", "trig-radius");
+
+  svg.append("text")
+    .attr("x", radiusLabel.x)
+    .attr("y", radiusLabel.y)
+    .attr("class", "trig-label radius-label")
+    .text("radius");
+
+  svg.append("line")
+    .attr("x1", center.x)
+    .attr("y1", center.y)
+    .attr("x2", projection.x)
+    .attr("y2", projection.y)
+    .attr("class", "trig-cosine");
+
+  svg.append("text")
+    .attr("x", cosineLabel.x)
+    .attr("y", cosineLabel.y)
+    .attr("class", "trig-label cosine-label")
+    .attr("text-anchor", "middle")
+    .text("cosine");
+
+  svg.append("line")
+    .attr("x1", projection.x)
+    .attr("y1", projection.y)
+    .attr("x2", point.x)
+    .attr("y2", point.y)
+    .attr("class", "trig-sine");
+
+  svg.append("text")
+    .attr("x", sineLabel.x)
+    .attr("y", sineLabel.y)
+    .attr("class", "trig-label sine-label")
+    .attr("dominant-baseline", "middle")
+    .attr("text-anchor", projection.x >= center.x ? "start" : "end")
+    .text("sine");
+
+  svg.append("circle")
+    .attr("cx", point.x)
+    .attr("cy", point.y)
+    .attr("r", 6)
+    .attr("class", "trig-point");
+
+  svg.append("text")
+    .attr("x", width - margin + 8)
+    .attr("y", center.y + 5)
+    .text("x");
+
+  svg.append("text")
+    .attr("x", center.x + 8)
+    .attr("y", margin - 12)
+    .text("y");
+
+  return svg.node();
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+```
