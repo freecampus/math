@@ -22,6 +22,8 @@ website:
         text: API
       - href: notebooks/index.qmd
         text: Study Path
+      - href: notebooks/python/basics.qmd
+        text: Python
       - href: notebooks/algebra/guessing_quiz.qmd
         text: Algebra
       - href: notebooks/trigonometry/sine-cosine.qmd
@@ -42,6 +44,12 @@ website:
       - section: Notebooks
         contents:
           - notebooks/index.qmd
+          - section: Python
+            contents:
+              - notebooks/python/basics.qmd
+              - notebooks/python/functions-and-control-flow.qmd
+              - notebooks/python/numpy-and-arrays.qmd
+              - notebooks/python/plotting.qmd
           - section: Algebra
             contents:
               - notebooks/algebra/expressions-and-equations.qmd

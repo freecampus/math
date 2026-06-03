@@ -22,6 +22,15 @@ Python code, visual intuition, and short checks for understanding.
 
 ::: {.topic-grid}
 ::: {.topic-card}
+### Python Fundamentals
+
+Variables, control flow, functions, NumPy arrays, and plotting for quantitative
+notebooks.
+
+[Start Python Fundamentals](python/basics.qmd)
+:::
+
+::: {.topic-card}
 ### College Algebra
 
 Expressions, equations, functions, graphs, polynomials, exponentials,
