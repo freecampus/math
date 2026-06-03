@@ -1,0 +1,244 @@
+[
+  {
+    "objectID": "notebooks/algebra/guessing_quiz.html",
+    "href": "notebooks/algebra/guessing_quiz.html",
+    "title": "Guessing Quiz",
+    "section": "",
+    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Guessing Quiz"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/guessing_quiz.html#guess-the-expression",
+    "href": "notebooks/algebra/guessing_quiz.html#guess-the-expression",
+    "title": "Guessing Quiz",
+    "section": "Guess the expression",
+    "text": "Guess the expression\nChoose the expression that matches the graph.\n\nquiz = quizApp()\n\n\n\n\n\n\n\nfunction quizApp() {\n  const root = html`&lt;section class=\"quiz-shell\"&gt;&lt;/section&gt;`;\n  const state = {\n    total: 5,\n    index: 0,\n    score: 0,\n    question: null,\n    answered: false\n  };\n\n  renderStart();\n  return root;\n\n  function renderStart() {\n    root.innerHTML = \"\";\n\n    const input = html`&lt;input class=\"quiz-count\" type=\"number\" min=\"1\" max=\"100\" value=\"${state.total}\"&gt;`;\n    const button = html`&lt;button type=\"button\"&gt;Start quiz&lt;/button&gt;`;\n    const controls = html`&lt;div class=\"quiz-start\"&gt;\n      &lt;label&gt;\n        &lt;span&gt;Number of questions&lt;/span&gt;\n        ${input}\n      &lt;/label&gt;\n      ${button}\n    &lt;/div&gt;`;\n\n    button.addEventListener(\"click\", () =&gt; {\n      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));\n      state.index = 0;\n      state.score = 0;\n      startQuestion();\n    });\n\n    root.append(controls);\n  }\n\n  function startQuestion() {\n    state.question = makeQuestion();\n    state.answered = false;\n    renderQuestion();\n  }\n\n  function renderQuestion() {\n    const question = state.question;\n    root.innerHTML = \"\";\n\n    const progress = html`&lt;div class=\"quiz-progress\"&gt;\n      &lt;span&gt;Question ${state.index + 1} of ${state.total}&lt;/span&gt;\n      &lt;span&gt;Score: ${state.score}/${state.total}&lt;/span&gt;\n    &lt;/div&gt;`;\n    const graph = drawGraph(question);\n    const prompt = html`&lt;p class=\"quiz-prompt\"&gt;Select an expression.&lt;/p&gt;`;\n    const feedback = html`&lt;p class=\"quiz-feedback\" aria-live=\"polite\"&gt;&lt;/p&gt;`;\n    const next = html`&lt;button type=\"button\" disabled&gt;Next question&lt;/button&gt;`;\n    const options = radioList(question.options, option =&gt; {\n      if (state.answered) return;\n\n      state.answered = true;\n      const correct = option.id === question.answer.id;\n      if (correct) state.score += 1;\n\n      feedback.className = correct\n        ? \"quiz-feedback correct\"\n        : \"quiz-feedback wrong\";\n      feedback.innerHTML = correct\n        ? \"Correct.\"\n        : `Not quite. The answer is &lt;code&gt;${question.answer.label}&lt;/code&gt;.`;\n\n      for (const input of options.querySelectorAll(\"input\")) {\n        input.disabled = true;\n      }\n\n      next.disabled = false;\n      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;\n    });\n\n    next.addEventListener(\"click\", () =&gt; {\n      state.index += 1;\n      if (state.index &lt; state.total) {\n        startQuestion();\n      } else {\n        renderComplete();\n      }\n    });\n\n    root.append(progress, graph, prompt, feedback, options, next);\n  }\n\n  function renderComplete() {\n    root.innerHTML = \"\";\n\n    const summary = html`&lt;div class=\"quiz-complete\"&gt;\n      &lt;h3&gt;Quiz complete&lt;/h3&gt;\n      &lt;p&gt;Final score: ${state.score}/${state.total}&lt;/p&gt;\n    &lt;/div&gt;`;\n    const restart = html`&lt;button type=\"button\"&gt;Start another quiz&lt;/button&gt;`;\n    restart.addEventListener(\"click\", renderStart);\n\n    root.append(summary, restart);\n  }\n}\n\n\n\n\n\n\n\nfunction makeQuestion() {\n  const answer = randomExpression();\n  const options = new Map([[answer.id, answer]]);\n\n  while (options.size &lt; 4) {\n    const option = randomExpression();\n    options.set(option.id, option);\n  }\n\n  return {\n    answer,\n    options: shuffle(Array.from(options.values()))\n  };\n}\n\n\n\n\n\n\n\nfunction randomExpression() {\n  const kind = choice([\"linear\", \"quadratic\", \"cubic\", \"sine\", \"cosine\"]);\n\n  if (kind === \"linear\") {\n    const m = nonzeroInt(-4, 4);\n    const b = int(-6, 6);\n    return expression(\n      `${formatCoeff(m)}x ${formatSigned(b)}`,\n      x =&gt; m * x + b\n    );\n  }\n\n  if (kind === \"quadratic\") {\n    const a = nonzeroInt(-3, 3);\n    const b = int(-5, 5);\n    const c = int(-6, 6);\n    return expression(\n      `${formatCoeff(a)}x² ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"cubic\") {\n    const a = nonzeroInt(-2, 2);\n    const b = int(-3, 3);\n    const c = int(-4, 4);\n    return expression(\n      `${formatCoeff(a)}x³ ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"sine\") {\n    const a = nonzeroInt(-4, 4);\n    const k = nonzeroInt(1, 4);\n    return expression(`${formatCoeff(a)}sin(${k}x)`, x =&gt; a * Math.sin(k * x));\n  }\n\n  const a = nonzeroInt(-4, 4);\n  const k = nonzeroInt(1, 4);\n  return expression(`${formatCoeff(a)}cos(${k}x)`, x =&gt; a * Math.cos(k * x));\n}\n\n\n\n\n\n\n\nfunction expression(label, evaluate) {\n  return {\n    id: label.replace(/\\s+/g, \"\"),\n    label,\n    evaluate,\n    toString: () =&gt; label\n  };\n}\n\n\n\n\n\n\n\nfunction radioList(options, onSelect) {\n  const form = html`&lt;form class=\"quiz-options\" role=\"radiogroup\" aria-label=\"Expression options\"&gt;&lt;/form&gt;`;\n  form.value = null;\n\n  for (const option of options) {\n    const input = html`&lt;input type=\"radio\" name=\"quiz-answer\"&gt;`;\n    const label = html`&lt;label class=\"quiz-option\"&gt;${input}&lt;span&gt;${option.label}&lt;/span&gt;&lt;/label&gt;`;\n\n    input.addEventListener(\"change\", () =&gt; {\n      form.value = option;\n      form.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      onSelect(option);\n    });\n\n    form.append(label);\n  }\n\n  return form;\n}\n\n\n\n\n\n\n\nfunction drawGraph(question) {\n  const width = 720;\n  const height = 360;\n  const margin = { top: 24, right: 24, bottom: 36, left: 46 };\n  const xs = Array.from({ length: 401 }, (_, i) =&gt; -10 + i * 20 / 400);\n  const points = xs\n    .map(x =&gt; ({ x, y: question.answer.evaluate(x) }))\n    .filter(d =&gt; Number.isFinite(d.y));\n\n  const yValues = points.map(d =&gt; d.y).sort((a, b) =&gt; a - b);\n  const low = Math.min(quantile(yValues, 0.02), -5);\n  const high = Math.max(quantile(yValues, 0.98), 5);\n  const yPadding = Math.max((high - low) * 0.08, 1);\n\n  const xScale = d3.scaleLinear()\n    .domain([-10, 10])\n    .range([margin.left, width - margin.right]);\n  const yScale = d3.scaleLinear()\n    .domain([low - yPadding, high + yPadding])\n    .range([height - margin.bottom, margin.top]);\n\n  const line = d3.line()\n    .x(d =&gt; xScale(d.x))\n    .y(d =&gt; yScale(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Graph of an algebraic expression\")\n    .attr(\"class\", \"quiz-graph\");\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(0,${yScale(0)})`)\n    .call(d3.axisBottom(xScale).ticks(10));\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(${xScale(0)},0)`)\n    .call(d3.axisLeft(yScale).ticks(8));\n\n  svg.append(\"g\")\n    .attr(\"class\", \"quiz-grid\")\n    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(\"\"));\n\n  svg.append(\"path\")\n    .datum(points)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#1a73e8\")\n    .attr(\"stroke-width\", 3)\n    .attr(\"d\", line);\n\n  return svg.node();\n}\n\n\n\n\n\n\n\nfunction choice(values) {\n  return values[Math.floor(Math.random() * values.length)];\n}\n\nfunction int(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nfunction nonzeroInt(min, max) {\n  let value = 0;\n  while (value === 0) value = int(min, max);\n  return value;\n}\n\nfunction shuffle(values) {\n  const copy = values.slice();\n  for (let i = copy.length - 1; i &gt; 0; i -= 1) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [copy[i], copy[j]] = [copy[j], copy[i]];\n  }\n  return copy;\n}\n\nfunction quantile(sortedValues, p) {\n  const index = Math.min(\n    sortedValues.length - 1,\n    Math.max(0, Math.floor(sortedValues.length * p))\n  );\n  return sortedValues[index];\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction formatCoeff(value) {\n  if (value === 1) return \"\";\n  if (value === -1) return \"-\";\n  return `${value}`;\n}\n\nfunction formatSigned(value) {\n  if (value === 0) return \"+ 0\";\n  return value &gt; 0 ? `+ ${value}` : `- ${Math.abs(value)}`;\n}\n\nfunction formatSignedTerm(value, symbol) {\n  if (value === 0) return \"+ 0\";\n  const magnitude = Math.abs(value);\n  const coeff = magnitude === 1 ? \"\" : `${magnitude}`;\n  return value &gt; 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;\n}",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Guessing Quiz"
+    ]
+  },
+  {
+    "objectID": "notebooks/algebra/guessing_quiz.html#python-notebook-widget",
+    "href": "notebooks/algebra/guessing_quiz.html#python-notebook-widget",
+    "title": "Guessing Quiz",
+    "section": "Python notebook widget",
+    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Algebra",
+      "Guessing Quiz"
+    ]
+  },
+  {
+    "objectID": "installation.html",
+    "href": "installation.html",
+    "title": "Installation",
+    "section": "",
+    "text": "pip install edu-math",
+    "crumbs": [
+      "Home",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "installation.html#base-install",
+    "href": "installation.html#base-install",
+    "title": "Installation",
+    "section": "",
+    "text": "pip install edu-math",
+    "crumbs": [
+      "Home",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "installation.html#development-install",
+    "href": "installation.html#development-install",
+    "title": "Installation",
+    "section": "Development install",
+    "text": "Development install\nconda env create -f conda/dev.yaml\nconda activate edumath\npoetry config virtualenvs.create false\npoetry install --extras \"dev\"\nRun quality checks through Makim:\nmakim tests.linter\nmakim tests.unit\nmakim package.build\nmakim docs.build",
+    "crumbs": [
+      "Home",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "edu-math",
+    "section": "",
+    "text": "edu-math is a Python package for math education workflows.\nThe package is currently at its initial infrastructure stage. The project includes source packaging, tests, linting, documentation, release automation, and CI scaffolding.",
+    "crumbs": [
+      "Home",
+      "edu-math"
+    ]
+  },
+  {
+    "objectID": "index.html#development-status",
+    "href": "index.html#development-status",
+    "title": "edu-math",
+    "section": "Development status",
+    "text": "Development status\nThe public API is intentionally small while the package design is established. See API reference for the current exported interface.",
+    "crumbs": [
+      "Home",
+      "edu-math"
+    ]
+  },
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "API reference",
+    "section": "",
+    "text": "The public API is exported from edumath.",
+    "crumbs": [
+      "Home",
+      "API reference"
+    ]
+  },
+  {
+    "objectID": "api.html#metadata",
+    "href": "api.html#metadata",
+    "title": "API reference",
+    "section": "Metadata",
+    "text": "Metadata\n\nedumath.__version__",
+    "crumbs": [
+      "Home",
+      "API reference"
+    ]
+  },
+  {
+    "objectID": "changelog.html",
+    "href": "changelog.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "Initial package infrastructure.",
+    "crumbs": [
+      "Home",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "changelog.html#section",
+    "href": "changelog.html#section",
+    "title": "Changelog",
+    "section": "",
+    "text": "Initial package infrastructure.",
+    "crumbs": [
+      "Home",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html",
+    "href": "notebooks/trigonometry/sine-cosine.html",
+    "title": "Sine and Cosine",
+    "section": "",
+    "text": "Sine and cosine describe the coordinates of a point moving around the unit circle.\nThe unit circle is a circle with radius 1 centered at the origin. If an angle starts on the positive x-axis and rotates counterclockwise, the point on the circle has coordinates:\nThat means:",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#a-first-angle",
+    "href": "notebooks/trigonometry/sine-cosine.html#a-first-angle",
+    "title": "Sine and Cosine",
+    "section": "A first angle",
+    "text": "A first angle\nAt 30 degrees, the point is mostly to the right and slightly above the x-axis. The cosine value is the horizontal distance from the origin, and the sine value is the vertical height.\n\nfrom edumath.trigonometry.plots import plot_unit_circle\n\nfig, ax = plot_unit_circle(30)\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#reading-the-picture",
+    "href": "notebooks/trigonometry/sine-cosine.html#reading-the-picture",
+    "title": "Sine and Cosine",
+    "section": "Reading the picture",
+    "text": "Reading the picture\nIn the plot:\n\nthe black segment is the radius of the unit circle;\nthe red segment shows the cosine component;\nthe blue segment shows the sine component.\n\nBecause every point is on a circle of radius 1, sine and cosine always stay between -1 and 1.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#special-angles",
+    "href": "notebooks/trigonometry/sine-cosine.html#special-angles",
+    "title": "Sine and Cosine",
+    "section": "Special angles",
+    "text": "Special angles\nSome common angles have exact sine and cosine values. These values are useful because they appear constantly in trigonometry, geometry, and calculus.\n\nfrom edumath.trigonometry.plots import unit_circle_point\n\nfor angle in [0, 30, 45, 60, 90, 180, 270, 360]:\n    point = unit_circle_point(angle)\n    print(\n        f\"{angle:&gt;3} degrees: \"\n        f\"cos(theta) = {point.cosine: .3f}, \"\n        f\"sin(theta) = {point.sine: .3f}\"\n    )\n\n  0 degrees: cos(theta) =  1.000, sin(theta) =  0.000\n 30 degrees: cos(theta) =  0.866, sin(theta) =  0.500\n 45 degrees: cos(theta) =  0.707, sin(theta) =  0.707\n 60 degrees: cos(theta) =  0.500, sin(theta) =  0.866\n 90 degrees: cos(theta) =  0.000, sin(theta) =  1.000\n180 degrees: cos(theta) = -1.000, sin(theta) =  0.000\n270 degrees: cos(theta) = -0.000, sin(theta) = -1.000\n360 degrees: cos(theta) =  1.000, sin(theta) = -0.000",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#quadrants-and-signs",
+    "href": "notebooks/trigonometry/sine-cosine.html#quadrants-and-signs",
+    "title": "Sine and Cosine",
+    "section": "Quadrants and signs",
+    "text": "Quadrants and signs\nThe sign of sine and cosine depends on the quadrant.\n\n\n\nQuadrant\nAngle range\nCosine\nSine\n\n\n\n\nI\n0 to 90 degrees\npositive\npositive\n\n\nII\n90 to 180 degrees\nnegative\npositive\n\n\nIII\n180 to 270 degrees\nnegative\nnegative\n\n\nIV\n270 to 360 degrees\npositive\nnegative\n\n\n\nFor example, at 225 degrees the point is in quadrant III, so both coordinates are negative.\n\nfig, ax = plot_unit_circle(225)\nfig",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#same-circle-changing-angle",
+    "href": "notebooks/trigonometry/sine-cosine.html#same-circle-changing-angle",
+    "title": "Sine and Cosine",
+    "section": "Same circle, changing angle",
+    "text": "Same circle, changing angle\nThe angle changes the point, but the rule stays the same:\nhorizontal position = cos(theta)\nvertical position = sin(theta)\nThe next examples show angles with the same reference angle but different signs because they are in different quadrants.\n\nimport matplotlib.pyplot as plt\n\nfig, axes = plt.subplots(1, 2, figsize=(10, 5), constrained_layout=True)\n\nplot_unit_circle(60, axis=axes[0])\nplot_unit_circle(120, axis=axes[1])\n\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAt 60 degrees, sine and cosine are both positive. At 120 degrees, sine is still positive, but cosine is negative because the point is now to the left of the y-axis.",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#in-a-live-notebook",
+    "href": "notebooks/trigonometry/sine-cosine.html#in-a-live-notebook",
+    "title": "Sine and Cosine",
+    "section": "In a live notebook",
+    "text": "In a live notebook\nThe package also includes an interactive widget for live Jupyter notebooks.\nfrom edumath.trigonometry.plots import display_unit_circle_widget\n\ndisplay_unit_circle_widget(initial_angle=45, min_angle=-360, max_angle=360)",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  },
+  {
+    "objectID": "notebooks/trigonometry/sine-cosine.html#interactive-unit-circle",
+    "href": "notebooks/trigonometry/sine-cosine.html#interactive-unit-circle",
+    "title": "Sine and Cosine",
+    "section": "Interactive unit circle",
+    "text": "Interactive unit circle\nUse the slider or type an angle between -360 and 360 degrees. Positive angles rotate counterclockwise; negative angles rotate clockwise.\n\nunitCircleExplorer()\n\n\n\n\n\n\n\nfunction unitCircleExplorer() {\n  const root = html`&lt;section class=\"trig-explorer\"&gt;&lt;/section&gt;`;\n  const slider = html`&lt;input class=\"trig-angle-slider\" type=\"range\" min=\"-360\" max=\"360\" step=\"1\" value=\"45\"&gt;`;\n  const input = html`&lt;input class=\"trig-angle-input\" type=\"number\" min=\"-360\" max=\"360\" step=\"1\" value=\"45\"&gt;`;\n  const chart = html`&lt;div&gt;&lt;/div&gt;`;\n  const values = html`&lt;div class=\"trig-values\"&gt;&lt;/div&gt;`;\n\n  const controls = html`&lt;div class=\"trig-controls\"&gt;\n    &lt;label&gt;\n      &lt;span&gt;Angle&lt;/span&gt;\n      ${slider}\n    &lt;/label&gt;\n    &lt;label&gt;\n      &lt;span&gt;Degrees&lt;/span&gt;\n      ${input}\n    &lt;/label&gt;\n  &lt;/div&gt;`;\n\n  slider.addEventListener(\"input\", () =&gt; {\n    input.value = slider.value;\n    render();\n  });\n\n  input.addEventListener(\"input\", () =&gt; {\n    const angle = clamp(Number(input.value) || 0, -360, 360);\n    input.value = angle;\n    slider.value = angle;\n    render();\n  });\n\n  root.append(controls, chart, values);\n  render();\n  return root;\n\n  function render() {\n    const angle = Number(slider.value);\n    chart.innerHTML = \"\";\n    chart.append(drawUnitCircle(angle));\n\n    const radians = angle * Math.PI / 180;\n    const cosine = Math.cos(radians);\n    const sine = Math.sin(radians);\n\n    values.innerHTML = `\n      &lt;span&gt;cos(${angle}°) = ${cosine.toFixed(3)}&lt;/span&gt;\n      &lt;span&gt;sin(${angle}°) = ${sine.toFixed(3)}&lt;/span&gt;\n    `;\n  }\n}\n\n\n\n\n\n\n\nfunction drawUnitCircle(angleDegrees) {\n  const width = 560;\n  const height = 560;\n  const margin = 44;\n  const radius = 210;\n  const center = { x: width / 2, y: height / 2 };\n  const radians = angleDegrees * Math.PI / 180;\n  const point = {\n    x: center.x + radius * Math.cos(radians),\n    y: center.y - radius * Math.sin(radians)\n  };\n  const projection = { x: point.x, y: center.y };\n  const radiusLabel = {\n    x: (center.x + point.x) / 2 + 10,\n    y: (center.y + point.y) / 2 - 10\n  };\n  const cosineLabel = {\n    x: (center.x + projection.x) / 2,\n    y: center.y + 28\n  };\n  const sineLabel = {\n    x: projection.x + (projection.x &gt;= center.x ? 12 : -12),\n    y: (projection.y + point.y) / 2\n  };\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Interactive unit circle showing sine and cosine\")\n    .attr(\"class\", \"trig-unit-circle\");\n\n  svg.append(\"circle\")\n    .attr(\"cx\", center.x)\n    .attr(\"cy\", center.y)\n    .attr(\"r\", radius)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#9aa0a6\")\n    .attr(\"stroke-width\", 2)\n    .attr(\"stroke-dasharray\", \"7 7\");\n\n  svg.append(\"line\")\n    .attr(\"x1\", margin)\n    .attr(\"y1\", center.y)\n    .attr(\"x2\", width - margin)\n    .attr(\"y2\", center.y)\n    .attr(\"class\", \"trig-axis\");\n\n  svg.append(\"line\")\n    .attr(\"x1\", center.x)\n    .attr(\"y1\", margin)\n    .attr(\"x2\", center.x)\n    .attr(\"y2\", height - margin)\n    .attr(\"class\", \"trig-axis\");\n\n  svg.append(\"line\")\n    .attr(\"x1\", center.x)\n    .attr(\"y1\", center.y)\n    .attr(\"x2\", point.x)\n    .attr(\"y2\", point.y)\n    .attr(\"class\", \"trig-radius\");\n\n  svg.append(\"text\")\n    .attr(\"x\", radiusLabel.x)\n    .attr(\"y\", radiusLabel.y)\n    .attr(\"class\", \"trig-label radius-label\")\n    .text(\"radius\");\n\n  svg.append(\"line\")\n    .attr(\"x1\", center.x)\n    .attr(\"y1\", center.y)\n    .attr(\"x2\", projection.x)\n    .attr(\"y2\", projection.y)\n    .attr(\"class\", \"trig-cosine\");\n\n  svg.append(\"text\")\n    .attr(\"x\", cosineLabel.x)\n    .attr(\"y\", cosineLabel.y)\n    .attr(\"class\", \"trig-label cosine-label\")\n    .attr(\"text-anchor\", \"middle\")\n    .text(\"cosine\");\n\n  svg.append(\"line\")\n    .attr(\"x1\", projection.x)\n    .attr(\"y1\", projection.y)\n    .attr(\"x2\", point.x)\n    .attr(\"y2\", point.y)\n    .attr(\"class\", \"trig-sine\");\n\n  svg.append(\"text\")\n    .attr(\"x\", sineLabel.x)\n    .attr(\"y\", sineLabel.y)\n    .attr(\"class\", \"trig-label sine-label\")\n    .attr(\"dominant-baseline\", \"middle\")\n    .attr(\"text-anchor\", projection.x &gt;= center.x ? \"start\" : \"end\")\n    .text(\"sine\");\n\n  svg.append(\"circle\")\n    .attr(\"cx\", point.x)\n    .attr(\"cy\", point.y)\n    .attr(\"r\", 6)\n    .attr(\"class\", \"trig-point\");\n\n  svg.append(\"text\")\n    .attr(\"x\", width - margin + 8)\n    .attr(\"y\", center.y + 5)\n    .text(\"x\");\n\n  svg.append(\"text\")\n    .attr(\"x\", center.x + 8)\n    .attr(\"y\", margin - 12)\n    .text(\"y\");\n\n  return svg.node();\n}\n\nfunction clamp(value, min, max) {\n  return Math.max(min, Math.min(max, value));\n}",
+    "crumbs": [
+      "Home",
+      "Notebooks",
+      "Trigonometry",
+      "Sine and Cosine"
+    ]
+  }
+]
