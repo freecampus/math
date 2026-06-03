@@ -1,0 +1,144 @@
+---
+title: Expressions and Equations
+description: Learn how expressions differ from equations and how to solve linear equations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Distinguish an expression from an equation.
+- Evaluate expressions by substituting values.
+- Solve one-variable linear equations.
+- Check whether a proposed solution is correct.
+:::
+
+## Motivation
+
+Algebra is the language used to turn a quantitative situation into something
+we can compute. If a portfolio grows by a fixed amount, if a loan balance
+changes each month, or if a model has one unknown parameter, algebra gives us
+the structure for writing and solving the problem.
+
+## Expressions
+
+An **expression** is a mathematical phrase. It can contain numbers, variables,
+and operations, but it does not make a complete true-or-false statement.
+
+Examples:
+
+```text
+3x + 2
+x^2 - 5x + 6
+2(a + b)
+```
+
+If `x = 4`, then `3x + 2` evaluates to:
+
+```text
+3(4) + 2 = 14
+```
+
+## Equations
+
+An **equation** says that two expressions are equal.
+
+```text
+3x + 2 = 14
+```
+
+Solving an equation means finding the value of the variable that makes the
+statement true.
+
+::: {.key-idea}
+### Key Idea
+
+Whatever you do to one side of an equation, do the same thing to the other
+side. This keeps the equality balanced.
+:::
+
+## Worked Example
+
+Solve:
+
+```text
+3x + 2 = 14
+```
+
+Subtract `2` from both sides:
+
+```text
+3x = 12
+```
+
+Divide both sides by `3`:
+
+```text
+x = 4
+```
+
+Check:
+
+```text
+3(4) + 2 = 14
+```
+
+So the solution is `x = 4`.
+
+## Python Connection
+
+The package includes reusable exercise builders.
+
+```{python}
+from edumath.algebra import linear_equation_exercise
+
+exercise = linear_equation_exercise(seed=7)
+exercise.prompt
+```
+
+```{python}
+exercise.expected
+```
+
+```{python}
+exercise.check(exercise.expected).message
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Changing Only One Side
+
+If you subtract `2` from the left side but not the right side, the new equation
+is no longer equivalent to the original.
+:::
+
+::: {.common-mistake}
+### Losing the Negative Sign
+
+When solving `-3x = 12`, divide by `-3`, not by `3`. The solution is `x = -4`.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Evaluate `2x + 5` when `x = 3`.
+2. Solve `4x - 7 = 9`.
+3. Solve `-2x + 6 = 14`.
+4. Check whether `x = 5` solves `3x - 1 = 14`.
+:::
+
+## Quick Quiz
+
+```{python}
+from edumath.core import Question, QuizSession
+
+quiz = QuizSession(
+    questions=(
+        Question("What is 2*3 + 5?", expected=11),
+        Question("Solve 4*x - 7 = 9.", expected=4),
+    )
+)
+
+result = quiz.answer(0, 11)
+result.check.message
+```

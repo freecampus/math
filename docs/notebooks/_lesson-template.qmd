@@ -1,0 +1,44 @@
+---
+title: Lesson Template
+description: Authoring pattern for edu-math lessons.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- State what the learner should be able to do.
+- Use verbs that can be checked: compute, identify, explain, graph, solve.
+:::
+
+## Motivation
+
+Explain why the concept matters before introducing notation.
+
+## Concept
+
+Use plain language and a small example.
+
+## Definition
+
+Introduce formal notation.
+
+## Visual Model
+
+Use either a Python plot from `src/edumath` or a browser-side widget when the
+rendered documentation must stay interactive without a live Python kernel.
+
+## Worked Example
+
+Show every step.
+
+## Common Mistakes
+
+Name the mistake and show how to avoid it.
+
+## Practice
+
+Give short exercises and quizzes.
+
+## Python Connection
+
+Show how the concept maps to reusable code.

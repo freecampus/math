@@ -1,0 +1,92 @@
+---
+title: Systems of Equations
+description: Solve systems as shared solutions and line intersections.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret a system solution as a value satisfying all equations.
+- Solve small linear systems by substitution or elimination.
+- Understand line intersections as system solutions.
+- Connect systems to matrix methods later.
+:::
+
+## Motivation
+
+Systems of equations appear whenever several constraints must hold at the same
+time. In applications, one equation might describe a cost condition and another
+might describe a revenue condition. The solution is where both are true.
+
+## Two Lines, One Shared Point
+
+Consider:
+
+```text
+y = x + 1
+y = -x + 5
+```
+
+At the intersection, both equations give the same `y`.
+
+Set them equal:
+
+```text
+x + 1 = -x + 5
+```
+
+Solve:
+
+```text
+2x = 4
+x = 2
+```
+
+Then:
+
+```text
+y = 2 + 1 = 3
+```
+
+The solution is `(2, 3)`.
+
+## Visual Model
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("x + 1", "-x + 5"),
+    x_min=-1,
+    x_max=6,
+    y_min=-1,
+    y_max=7,
+    title="A system of two linear equations",
+)
+fig, ax = scene.render()
+fig
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Solving Only One Equation
+
+A solution to a system must satisfy every equation in the system, not just one.
+:::
+
+::: {.common-mistake}
+### Forgetting to Find Both Coordinates
+
+After solving for `x`, substitute back into either original equation to find
+`y`.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Solve `y = 2x` and `y = x + 3`.
+2. Solve `x + y = 5` and `x - y = 1`.
+3. What does it mean if two lines are parallel?
+4. What does it mean if two equations describe the same line?
+:::

@@ -1,0 +1,83 @@
+---
+title: Exponentials and Logarithms
+description: Learn exponential growth, decay, and logarithms as inverse operations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize exponential growth and decay.
+- Interpret logarithms as inverse operations.
+- Solve basic exponential and logarithmic equations.
+- Compare exponential functions with polynomial functions.
+:::
+
+## Motivation
+
+Exponential functions model repeated multiplication. They appear in compound
+interest, population growth, radioactive decay, and many risk models.
+
+## Exponential Functions
+
+An exponential function has the variable in the exponent:
+
+```text
+f(x) = a * b^x
+```
+
+If `b > 1`, the function grows. If `0 < b < 1`, the function decays.
+
+## Logarithms
+
+A logarithm is the inverse of an exponential.
+
+::: {.formula-box}
+`log_b(y) = x` means `b^x = y`.
+:::
+
+For example:
+
+```text
+log_2(8) = 3
+```
+
+because:
+
+```text
+2^3 = 8
+```
+
+## Visual Comparison
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("x**2", "2**x"),
+    x_min=-2,
+    x_max=6,
+    y_min=-2,
+    y_max=40,
+    title="Polynomial vs exponential growth",
+)
+fig, ax = scene.render()
+fig
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Treating `log(x + y)` as `log(x) + log(y)`
+
+Logarithms do not distribute over addition. Product rules apply to
+multiplication, not addition.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Compute `2^5`.
+2. Solve `log_10(x) = 3`.
+3. Is `0.5^x` growth or decay?
+4. Which eventually grows faster: `x^2` or `2^x`?
+:::

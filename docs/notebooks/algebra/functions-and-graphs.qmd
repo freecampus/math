@@ -1,0 +1,95 @@
+---
+title: Functions and Graphs
+description: Understand functions as input-output rules and connect formulas to graphs.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Interpret a function as an input-output rule.
+- Identify slope and intercepts for linear functions.
+- Connect symbolic formulas to visual graphs.
+- Use Python helpers to render function scenes.
+:::
+
+## Motivation
+
+Functions describe relationships. In quantitative work, a function might map
+time to account value, price to demand, or risk level to expected return.
+
+## What Is a Function?
+
+A **function** assigns each input exactly one output.
+
+```text
+f(x) = 2x + 1
+```
+
+If the input is `x = 3`, the output is:
+
+```text
+f(3) = 2(3) + 1 = 7
+```
+
+## Graphs
+
+The graph of a function is the set of points:
+
+```text
+(x, f(x))
+```
+
+For `f(x) = 2x + 1`, each x-value creates a y-value.
+
+::: {.formula-box}
+For a line `y = mx + b`, `m` is the slope and `b` is the y-intercept.
+:::
+
+## Python Connection
+
+```{python}
+from edumath.algebra import function_scene
+
+scene = function_scene("2*x + 1", x_min=-5, x_max=5, y_min=-10, y_max=10)
+fig, ax = scene.render()
+fig
+```
+
+## Comparing Functions
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("x", "2*x + 1", "x**2"),
+    x_min=-4,
+    x_max=4,
+    y_min=-6,
+    y_max=12,
+)
+fig, ax = scene.render()
+fig
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Confusing Input and Output
+
+In `f(3) = 7`, the input is `3` and the output is `7`.
+:::
+
+::: {.common-mistake}
+### Treating Every Curve as a Function
+
+A graph is a function of `x` only if each x-value has exactly one y-value.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Find `f(4)` for `f(x) = 3x - 2`.
+2. Identify the slope and y-intercept of `y = -2x + 5`.
+3. Which grows faster for large positive `x`: `x` or `x^2`?
+4. Sketch the graph of `y = x - 3`.
+:::

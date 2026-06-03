@@ -1,0 +1,100 @@
+---
+title: Polynomials
+description: Understand polynomial structure, factoring, roots, and graph behavior.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Recognize polynomial terms, degree, and leading coefficient.
+- Expand factored polynomial expressions.
+- Interpret roots as x-intercepts.
+- Connect factored and expanded forms.
+:::
+
+## Motivation
+
+Polynomials are simple enough to compute with but flexible enough to model
+curves. They appear in approximation, optimization, numerical methods, and
+many applied models.
+
+## Polynomial Structure
+
+A polynomial is a sum of terms like:
+
+```text
+constant * x^nonnegative_integer
+```
+
+Example:
+
+```text
+2x^3 - 5x^2 + x - 7
+```
+
+The highest power is the **degree**. This polynomial has degree `3`.
+
+## Factored Form and Roots
+
+The polynomial:
+
+```text
+(x - 2)(x + 3)
+```
+
+has roots:
+
+```text
+x = 2 and x = -3
+```
+
+because either factor can become zero.
+
+Expanded:
+
+```text
+(x - 2)(x + 3) = x^2 + x - 6
+```
+
+## Python Connection
+
+```{python}
+from edumath.algebra import expand_expression_exercise
+
+exercise = expand_expression_exercise(seed=4)
+exercise.prompt
+```
+
+```{python}
+exercise.expected
+```
+
+## Visual Model
+
+```{python}
+from edumath.algebra import function_scene
+
+scene = function_scene("(x - 2)*(x + 3)", x_min=-5, x_max=5, y_min=-10, y_max=10)
+fig, ax = scene.render()
+fig
+```
+
+The graph crosses the x-axis at the roots.
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Forgetting to Distribute Every Term
+
+When expanding `(x + 2)(x + 3)`, multiply each term in the first factor by each
+term in the second factor.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Expand `(x + 1)(x + 4)`.
+2. Find the roots of `(x - 5)(x + 2)`.
+3. What is the degree of `4x^5 - x^2 + 8`?
+4. Does `x = 3` make `(x - 3)(x + 1)` equal zero?
+:::

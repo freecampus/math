@@ -20,6 +20,8 @@ website:
         text: Install
       - href: api.qmd
         text: API
+      - href: notebooks/index.qmd
+        text: Study Path
       - href: notebooks/algebra/guessing_quiz.qmd
         text: Algebra
       - href: notebooks/trigonometry/sine-cosine.qmd
@@ -39,8 +41,14 @@ website:
       - api.qmd
       - section: Notebooks
         contents:
+          - notebooks/index.qmd
           - section: Algebra
             contents:
+              - notebooks/algebra/expressions-and-equations.qmd
+              - notebooks/algebra/functions-and-graphs.qmd
+              - notebooks/algebra/polynomials.qmd
+              - notebooks/algebra/exponentials-and-logarithms.qmd
+              - notebooks/algebra/systems-of-equations.qmd
               - notebooks/algebra/guessing_quiz.qmd
           - section: Trigonometry
             contents:

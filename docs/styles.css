@@ -2,6 +2,54 @@
   margin-block: 1.5rem;
 }
 
+.learning-objectives,
+.key-idea,
+.common-mistake,
+.formula-box,
+.practice-box {
+  border-left: 4px solid #1a73e8;
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+}
+
+.learning-objectives {
+  background: #eef4ff;
+}
+
+.key-idea {
+  background: #eef7f0;
+  border-left-color: #137333;
+}
+
+.common-mistake {
+  background: #fff4f1;
+  border-left-color: #d93025;
+}
+
+.formula-box {
+  background: #f8f9fa;
+  border-left-color: #5f6368;
+  font-weight: 700;
+}
+
+.practice-box {
+  background: #fff8e1;
+  border-left-color: #f9ab00;
+}
+
+.topic-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1rem 0;
+}
+
+.topic-card {
+  border: 1px solid #d8dee4;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
 .quiz-score {
   font-weight: 700;
   margin: 0.75rem 0;

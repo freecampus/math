@@ -1,0 +1,78 @@
+---
+title: Quantitative Mathematics Study Path
+description: Guided lessons, examples, plots, and quizzes for university-level quantitative mathematics.
+---
+
+This study path is organized for learners who want a practical foundation in
+quantitative mathematics. Each topic combines explanation, worked examples,
+Python code, visual intuition, and short checks for understanding.
+
+::: {.learning-objectives}
+### How to Use These Notebooks
+
+- Read each lesson in order the first time.
+- Run the Python examples in a local notebook or Google Colab when possible.
+- Use the interactive browser widgets when studying from the rendered site.
+- Attempt the practice questions before reading the explanation.
+- Return to earlier algebra and Python topics whenever later lessons feel
+  mechanical or confusing.
+:::
+
+## Topics
+
+::: {.topic-grid}
+::: {.topic-card}
+### College Algebra
+
+Expressions, equations, functions, graphs, polynomials, exponentials,
+logarithms, and systems.
+
+[Start College Algebra](algebra/expressions-and-equations.qmd)
+:::
+
+::: {.topic-card}
+### Trigonometry
+
+Unit circle, sine and cosine, angle measures, graph transformations, and
+identity practice.
+
+[Explore Sine and Cosine](trigonometry/sine-cosine.qmd)
+:::
+
+::: {.topic-card}
+### Calculus
+
+Limits, derivatives, optimization, integrals, and applications.
+:::
+
+::: {.topic-card}
+### Linear Algebra
+
+Vectors, matrices, linear systems, transformations, and eigenvalues.
+:::
+
+::: {.topic-card}
+### Probability and Statistics
+
+Random variables, distributions, estimation, testing, and regression.
+:::
+
+::: {.topic-card}
+### Discrete Mathematics
+
+Logic, sets, relations, sequences, induction, and graph basics.
+:::
+:::
+
+## Learning Pattern
+
+Most lessons follow this sequence:
+
+1. **Motivation**: why the topic matters.
+2. **Concept**: intuitive explanation.
+3. **Definition**: formal notation.
+4. **Visual model**: graph or interactive diagram.
+5. **Worked example**: step-by-step solution.
+6. **Common mistakes**: errors to avoid.
+7. **Practice**: short exercises or quizzes.
+8. **Python connection**: reusable code for notebooks and Colab.
