@@ -903,7 +903,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="creating-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="creating-arrays">Creating Arrays</h2>
-<div id="1fceeaf0" class="cell" data-execution_count="1">
+<div id="8774f8a1" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
@@ -916,14 +916,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="vectorized-arithmetic" class="level2">
 <h2 class="anchored" data-anchor-id="vectorized-arithmetic">Vectorized Arithmetic</h2>
 <p>When you multiply an array by <code>2</code>, NumPy multiplies every element.</p>
-<div id="9665f9c5" class="cell" data-execution_count="2">
+<div id="35a41502" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>values <span class="op">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>array([ 2,  4,  6,  8, 10])</code></pre>
 </div>
 </div>
 <p>This is different from a Python list:</p>
-<div id="ce4d9bf7" class="cell" data-execution_count="3">
+<div id="903a4c25" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="op">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>[1, 2, 3, 1, 2, 3]</code></pre>
@@ -932,14 +932,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="summary-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
-<div id="5f79ac3f" class="cell" data-execution_count="4">
+<div id="8cf71361" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>values.mean(), values.<span class="bu">min</span>(), values.<span class="bu">max</span>(), values.<span class="bu">sum</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(np.float64(3.0), np.int64(1), np.int64(5), np.int64(15))</code></pre>
 </div>
 </div>
 <p>The package includes a reusable summary helper.</p>
-<div id="635b71d1" class="cell" data-execution_count="5">
+<div id="44f88ace" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.python_fundamentals <span class="im">import</span> array_summary</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>array_summary(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
