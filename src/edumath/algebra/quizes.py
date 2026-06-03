@@ -10,6 +10,7 @@ from typing import cast
 import ipywidgets as widgets
 import matplotlib.pyplot as plt
 import numpy as np
+import numpy.typing as npt
 import sympy as sp
 from IPython.display import clear_output as ipython_clear_output
 from IPython.display import display as ipython_display
@@ -333,7 +334,7 @@ def expression_points(
     x_min: float = -10,
     x_max: float = 10,
     sample_count: int = 400,
-) -> tuple[np.ndarray, np.ndarray]:
+) -> tuple[npt.NDArray[np.float64], npt.NDArray[np.float64]]:
     """Evaluate an expression on an evenly spaced domain."""
 
     x_values = np.linspace(x_min, x_max, sample_count)
