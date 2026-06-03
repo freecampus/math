@@ -1,0 +1,99 @@
+---
+title: Functions and Control Flow
+description: Learn if-statements, loops, and reusable Python functions.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Use `if`, `elif`, and `else` to make decisions.
+- Use loops to process repeated values.
+- Define reusable functions.
+- Understand why functions make notebooks easier to maintain.
+:::
+
+## Motivation
+
+Quantitative notebooks often repeat the same logic: classify a value, compute a
+running total, or apply a formula to several inputs. Functions and control flow
+make that logic explicit.
+
+## Conditional Logic
+
+```{python}
+value = -2
+
+if value < 0:
+    label = "negative"
+elif value > 0:
+    label = "positive"
+else:
+    label = "zero"
+
+label
+```
+
+The package includes a small helper with the same logic.
+
+```{python}
+from edumath.python_fundamentals import classify_number
+
+classify_number(-2), classify_number(0), classify_number(5)
+```
+
+## Loops
+
+Loops let us process a sequence of values.
+
+```{python}
+values = [1, 2, 3]
+total = 0
+
+for value in values:
+    total = total + value
+
+total
+```
+
+## Functions
+
+A function gives a name to a reusable computation.
+
+```{python}
+def simple_interest(principal, rate, years):
+    return principal * rate * years
+
+simple_interest(1000, 0.05, 2)
+```
+
+## Running Totals
+
+```{python}
+from edumath.python_fundamentals import cumulative_sum
+
+cumulative_sum([100, -20, 50, 10])
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Indentation Is Syntax
+
+Python uses indentation to decide what belongs inside an `if`, loop, or
+function. Misaligned code changes the meaning.
+:::
+
+::: {.common-mistake}
+### Forgetting `return`
+
+If a function does not return a value, Python returns `None`.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Write a function that doubles a number.
+2. Write an `if` statement that labels a number as "large" if it is above `100`.
+3. Use a loop to sum `[2, 4, 6, 8]`.
+4. Use `cumulative_sum` on `[10, -3, 7]`.
+:::

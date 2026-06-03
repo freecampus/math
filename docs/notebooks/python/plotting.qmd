@@ -1,0 +1,81 @@
+---
+title: Plotting With Python
+description: Create line and scatter plots for quantitative data.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Plot a sequence of values.
+- Plot paired x/y values.
+- Interpret axes, markers, and trends.
+- Use reusable plotting helpers from `edu-math`.
+:::
+
+## Motivation
+
+Graphs help us see patterns that are hard to notice in tables: growth,
+variation, outliers, and relationships between variables.
+
+## Line Plots
+
+A line plot is useful when values have a natural order, such as time.
+
+```{python}
+from edumath.python_fundamentals import plot_values
+
+balances = [100, 105, 111, 118, 126]
+fig, ax = plot_values(balances, title="Account balance")
+fig
+```
+
+## Scatter Plots
+
+A scatter plot is useful for paired data.
+
+```{python}
+from edumath.python_fundamentals import scatter_values
+
+risk = [1, 2, 3, 4, 5]
+expected_return = [2, 3, 5, 6, 8]
+
+fig, ax = scatter_values(
+    risk,
+    expected_return,
+    title="Risk and expected return",
+)
+fig
+```
+
+## Reading a Plot
+
+Ask three questions:
+
+1. What does the x-axis represent?
+2. What does the y-axis represent?
+3. What pattern do the points or line show?
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Plotting Without Labels
+
+Unlabeled axes make the graph hard to interpret. Always know what each axis
+means.
+:::
+
+::: {.common-mistake}
+### Assuming Correlation Means Causation
+
+A scatter plot can show association, but it does not prove that one variable
+causes another.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Plot `[1, 4, 9, 16]` as a line chart.
+2. Create a scatter plot for `x = [1, 2, 3]` and `y = [3, 2, 5]`.
+3. Add a title that explains what the plot shows.
+4. Explain the pattern in one sentence.
+:::

@@ -1,0 +1,79 @@
+---
+title: NumPy and Arrays
+description: Use NumPy arrays for quantitative calculations.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Create NumPy arrays.
+- Perform vectorized arithmetic.
+- Compute basic summary statistics.
+- Understand why arrays are useful for mathematical modeling.
+:::
+
+## Motivation
+
+Lists are useful, but quantitative work usually needs fast operations over many
+numbers. NumPy arrays make those operations concise and efficient.
+
+## Creating Arrays
+
+```{python}
+import numpy as np
+
+values = np.array([1, 2, 3, 4, 5])
+values
+```
+
+## Vectorized Arithmetic
+
+When you multiply an array by `2`, NumPy multiplies every element.
+
+```{python}
+values * 2
+```
+
+This is different from a Python list:
+
+```{python}
+[1, 2, 3] * 2
+```
+
+## Summary Statistics
+
+```{python}
+values.mean(), values.min(), values.max(), values.sum()
+```
+
+The package includes a reusable summary helper.
+
+```{python}
+from edumath.python_fundamentals import array_summary
+
+array_summary(values)
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Expecting Lists and Arrays to Behave the Same Way
+
+`[1, 2, 3] * 2` repeats a list. `np.array([1, 2, 3]) * 2` doubles each value.
+:::
+
+::: {.common-mistake}
+### Ignoring Shape
+
+Array shape tells you the dimensions of the data. Many numerical errors come
+from using arrays with incompatible shapes.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Create an array with values `[10, 20, 30]`.
+2. Divide every value by `10`.
+3. Compute the mean.
+4. Use `array_summary(...)` on the array.
+:::

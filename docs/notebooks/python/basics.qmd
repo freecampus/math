@@ -1,0 +1,89 @@
+---
+title: Python Basics
+description: Variables, values, types, and arithmetic for quantitative notebooks.
+---
+
+::: {.learning-objectives}
+### Learning Objectives
+
+- Assign values to variables.
+- Recognize common Python types.
+- Use arithmetic operators.
+- Inspect values with helper functions.
+:::
+
+## Motivation
+
+Python is useful for quantitative mathematics because it lets us compute,
+visualize, and experiment. The first step is understanding how Python stores
+values.
+
+## Variables and Values
+
+A variable is a name that points to a value.
+
+```{python}
+price = 100
+growth_rate = 0.05
+name = "portfolio"
+
+price, growth_rate, name
+```
+
+Python keeps track of the type of each value.
+
+```{python}
+type(price), type(growth_rate), type(name)
+```
+
+## Arithmetic
+
+```{python}
+initial = 100
+rate = 0.05
+after_one_year = initial * (1 + rate)
+
+after_one_year
+```
+
+Common arithmetic operators:
+
+| Operator | Meaning |
+|---|---|
+| `+` | addition |
+| `-` | subtraction |
+| `*` | multiplication |
+| `/` | division |
+| `**` | exponentiation |
+
+## Python Connection
+
+```{python}
+from edumath.python_fundamentals import describe_value
+
+describe_value(after_one_year)
+```
+
+## Common Mistakes
+
+::: {.common-mistake}
+### Confusing Assignment With Equality
+
+In Python, `x = 3` assigns the value `3` to `x`. It does not mean "prove that
+`x` equals `3`."
+:::
+
+::: {.common-mistake}
+### Forgetting That Strings Are Text
+
+`"100"` is text. `100` is a number. They behave differently.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Create a variable named `principal` with value `250`.
+2. Create a variable named `rate` with value `0.08`.
+3. Compute `principal * (1 + rate)`.
+4. Use `describe_value(...)` on the result.
+:::
