@@ -357,19 +357,11 @@ def _linear_builder(x: sp.Symbol, rng: Random) -> sp.Expr:
 
 
 def _quadratic_builder(x: sp.Symbol, rng: Random) -> sp.Expr:
-    return (
-        _nonzero_int(rng, -3, 3) * x**2
-        + rng.randint(-5, 5) * x
-        + rng.randint(-6, 6)
-    )
+    return _nonzero_int(rng, -3, 3) * x**2 + rng.randint(-5, 5) * x + rng.randint(-6, 6)
 
 
 def _cubic_builder(x: sp.Symbol, rng: Random) -> sp.Expr:
-    return (
-        _nonzero_int(rng, -2, 2) * x**3
-        + rng.randint(-3, 3) * x
-        + rng.randint(-4, 4)
-    )
+    return _nonzero_int(rng, -2, 2) * x**3 + rng.randint(-3, 3) * x + rng.randint(-4, 4)
 
 
 def _sine_builder(x: sp.Symbol, rng: Random) -> sp.Expr:
@@ -397,8 +389,7 @@ DEFAULT_BUILDERS: tuple[ExpressionBuilder, ...] = (
 
 def _button_rows(buttons: list[widgets.Button]) -> list[widgets.HBox]:
     return [
-        widgets.HBox(buttons[index : index + 2])
-        for index in range(0, len(buttons), 2)
+        widgets.HBox(buttons[index : index + 2]) for index in range(0, len(buttons), 2)
     ]
 
 
