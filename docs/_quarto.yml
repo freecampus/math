@@ -20,13 +20,13 @@ website:
         text: Install
       - href: api.qmd
         text: API
-      - href: notebooks/index.qmd
+      - href: lessons/index.qmd
         text: Study Path
-      - href: notebooks/python/basics.qmd
+      - href: lessons/python/basics.qmd
         text: Python
-      - href: notebooks/algebra/guessing_quiz.qmd
+      - href: lessons/algebra/guessing_quiz.qmd
         text: Algebra
-      - href: notebooks/trigonometry/sine-cosine.qmd
+      - href: lessons/trigonometry/sine-cosine.qmd
         text: Trigonometry
       - href: changelog.qmd
         text: Changelog
@@ -41,82 +41,82 @@ website:
       - index.qmd
       - installation.qmd
       - api.qmd
-      - section: Notebooks
+      - section: Lessons
         contents:
-          - notebooks/index.qmd
+          - lessons/index.qmd
           - section: Python
             contents:
-              - notebooks/python/basics.qmd
-              - notebooks/python/functions-and-control-flow.qmd
-              - notebooks/python/numpy-and-arrays.qmd
-              - notebooks/python/plotting.qmd
+              - lessons/python/basics.qmd
+              - lessons/python/functions-and-control-flow.qmd
+              - lessons/python/numpy-and-arrays.qmd
+              - lessons/python/plotting.qmd
           - section: Algebra
             contents:
-              - notebooks/algebra/expressions-and-equations.qmd
-              - notebooks/algebra/functions-and-graphs.qmd
-              - notebooks/algebra/polynomials.qmd
-              - notebooks/algebra/exponentials-and-logarithms.qmd
-              - notebooks/algebra/systems-of-equations.qmd
-              - notebooks/algebra/guessing_quiz.qmd
+              - lessons/algebra/expressions-and-equations.qmd
+              - lessons/algebra/functions-and-graphs.qmd
+              - lessons/algebra/polynomials.qmd
+              - lessons/algebra/exponentials-and-logarithms.qmd
+              - lessons/algebra/systems-of-equations.qmd
+              - lessons/algebra/guessing_quiz.qmd
           - section: Trigonometry
             contents:
-              - notebooks/trigonometry/sine-cosine.qmd
+              - lessons/trigonometry/sine-cosine.qmd
           - section: Calculus
             contents:
-              - notebooks/calculus/limits.qmd
-              - notebooks/calculus/derivatives.qmd
-              - notebooks/calculus/derivative-rules.qmd
-              - notebooks/calculus/optimization.qmd
-              - notebooks/calculus/integrals.qmd
-              - notebooks/calculus/integration-techniques.qmd
-              - notebooks/calculus/applications.qmd
+              - lessons/calculus/limits.qmd
+              - lessons/calculus/derivatives.qmd
+              - lessons/calculus/derivative-rules.qmd
+              - lessons/calculus/optimization.qmd
+              - lessons/calculus/integrals.qmd
+              - lessons/calculus/integration-techniques.qmd
+              - lessons/calculus/applications.qmd
           - section: Linear Algebra
             contents:
-              - notebooks/linear-algebra/vectors.qmd
-              - notebooks/linear-algebra/matrices.qmd
-              - notebooks/linear-algebra/matrix-operations.qmd
-              - notebooks/linear-algebra/systems-and-elimination.qmd
-              - notebooks/linear-algebra/linear-transformations.qmd
-              - notebooks/linear-algebra/eigenvalues-eigenvectors.qmd
+              - lessons/linear-algebra/vectors.qmd
+              - lessons/linear-algebra/matrices.qmd
+              - lessons/linear-algebra/matrix-operations.qmd
+              - lessons/linear-algebra/systems-and-elimination.qmd
+              - lessons/linear-algebra/linear-transformations.qmd
+              - lessons/linear-algebra/eigenvalues-eigenvectors.qmd
           - section: Probability
             contents:
-              - notebooks/probability/sample-spaces-events.qmd
-              - notebooks/probability/counting.qmd
-              - notebooks/probability/conditional-probability.qmd
-              - notebooks/probability/random-variables.qmd
-              - notebooks/probability/common-distributions.qmd
-              - notebooks/probability/expectation-variance.qmd
+              - lessons/probability/sample-spaces-events.qmd
+              - lessons/probability/counting.qmd
+              - lessons/probability/conditional-probability.qmd
+              - lessons/probability/random-variables.qmd
+              - lessons/probability/common-distributions.qmd
+              - lessons/probability/expectation-variance.qmd
           - section: Statistics
             contents:
-              - notebooks/statistics/descriptive-statistics.qmd
-              - notebooks/statistics/sampling.qmd
-              - notebooks/statistics/estimation.qmd
-              - notebooks/statistics/hypothesis-tests.qmd
-              - notebooks/statistics/regression-basics.qmd
+              - lessons/statistics/descriptive-statistics.qmd
+              - lessons/statistics/sampling.qmd
+              - lessons/statistics/estimation.qmd
+              - lessons/statistics/hypothesis-tests.qmd
+              - lessons/statistics/regression-basics.qmd
           - section: Differential Equations
             contents:
-              - notebooks/differential-equations/first-order-equations.qmd
-              - notebooks/differential-equations/separable-equations.qmd
-              - notebooks/differential-equations/linear-equations.qmd
-              - notebooks/differential-equations/slope-fields.qmd
-              - notebooks/differential-equations/systems.qmd
+              - lessons/differential-equations/first-order-equations.qmd
+              - lessons/differential-equations/separable-equations.qmd
+              - lessons/differential-equations/linear-equations.qmd
+              - lessons/differential-equations/slope-fields.qmd
+              - lessons/differential-equations/systems.qmd
           - section: Discrete Mathematics
             contents:
-              - notebooks/discrete-math/logic.qmd
-              - notebooks/discrete-math/sets.qmd
-              - notebooks/discrete-math/functions-relations.qmd
-              - notebooks/discrete-math/sequences.qmd
-              - notebooks/discrete-math/induction.qmd
-              - notebooks/discrete-math/graphs.qmd
+              - lessons/discrete-math/logic.qmd
+              - lessons/discrete-math/sets.qmd
+              - lessons/discrete-math/functions-relations.qmd
+              - lessons/discrete-math/sequences.qmd
+              - lessons/discrete-math/induction.qmd
+              - lessons/discrete-math/graphs.qmd
           - section: Review
             contents:
-              - notebooks/review/diagnostic-quiz.qmd
-              - notebooks/review/formula-sheet.qmd
-              - notebooks/review/mixed-practice.qmd
-              - notebooks/review/mock-test.qmd
+              - lessons/review/diagnostic-quiz.qmd
+              - lessons/review/formula-sheet.qmd
+              - lessons/review/mixed-practice.qmd
+              - lessons/review/mock-test.qmd
           - section: Colab
             contents:
-              - notebooks/colab/usage.qmd
+              - lessons/colab/usage.qmd
       - changelog.qmd
 
 format:

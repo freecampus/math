@@ -9,12 +9,12 @@ description: Learn if-statements, loops, and reusable Python functions.
 - Use `if`, `elif`, and `else` to make decisions.
 - Use loops to process repeated values.
 - Define reusable functions.
-- Understand why functions make notebooks easier to maintain.
+- Understand why functions make quantitative code easier to maintain.
 :::
 
 ## Motivation
 
-Quantitative notebooks often repeat the same logic: classify a value, compute a
+Quantitative Python work often repeats the same logic: classify a value, compute a
 running total, or apply a formula to several inputs. Functions and control flow
 make that logic explicit.
 

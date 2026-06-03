@@ -1,6 +1,6 @@
 ---
 title: Using edu-math in Google Colab
-description: Install and use edu-math in cloud notebooks.
+description: Install and use edu-math in cloud Python environments.
 ---
 
 ## Install

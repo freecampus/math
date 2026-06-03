@@ -1,6 +1,6 @@
 ---
 title: Python Basics
-description: Variables, values, types, and arithmetic for quantitative notebooks.
+description: Variables, values, types, and arithmetic for quantitative Python.
 ---
 
 ::: {.learning-objectives}

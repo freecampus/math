@@ -8,7 +8,7 @@ quantitative mathematics. Each topic combines explanation, worked examples,
 Python code, visual intuition, and short checks for understanding.
 
 ::: {.learning-objectives}
-### How to Use These Notebooks
+### How to Use These Lessons
 
 - Read each lesson in order the first time.
 - Run the Python examples in a local notebook or Google Colab when possible.
@@ -25,7 +25,7 @@ Python code, visual intuition, and short checks for understanding.
 ### Python Fundamentals
 
 Variables, control flow, functions, NumPy arrays, and plotting for quantitative
-notebooks.
+Python work.
 
 [Start Python Fundamentals](python/basics.qmd)
 :::
@@ -83,7 +83,7 @@ Logic, sets, relations, sequences, induction, and graph basics.
 ::: {.topic-card}
 ### Review and Colab
 
-Mixed practice, formula sheets, mock tests, and cloud notebook usage.
+Mixed practice, formula sheets, mock tests, and Colab setup.
 
 [Open Review](review/diagnostic-quiz.qmd)
 :::
@@ -100,4 +100,4 @@ Most lessons follow this sequence:
 5. **Worked example**: step-by-step solution.
 6. **Common mistakes**: errors to avoid.
 7. **Practice**: short exercises or quizzes.
-8. **Python connection**: reusable code for notebooks and Colab.
+8. **Python connection**: reusable code for local Python and Colab.
