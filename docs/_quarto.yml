@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: ../build
+
+website:
+  title: edu-math
+  description: Python tools for math education workflows.
+  site-url: https://osl-incubator.github.io/edu-math/
+  repo-url: https://github.com/osl-incubator/edu-math
+  repo-actions: [edit, issue]
+  page-navigation: true
+  bread-crumbs: true
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: installation.qmd
+        text: Install
+      - href: api.qmd
+        text: API
+      - href: changelog.qmd
+        text: Changelog
+    right:
+      - icon: github
+        href: https://github.com/osl-incubator/edu-math
+        aria-label: GitHub repository
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - index.qmd
+      - installation.qmd
+      - api.qmd
+      - changelog.qmd
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    link-external-newwindow: true
+
+execute:
+  freeze: auto

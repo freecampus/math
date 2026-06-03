@@ -1,0 +1,9 @@
+---
+title: API reference
+---
+
+The public API is exported from `edumath`.
+
+## Metadata
+
+- `edumath.__version__`

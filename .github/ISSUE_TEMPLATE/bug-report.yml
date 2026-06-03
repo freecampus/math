@@ -1,0 +1,68 @@
+---
+name: Bug Report
+description: Create a report to help us improve
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thank you for wanting to report a bug in edu-math.
+
+        Please verify first that your issue is not already reported on GitHub:
+        https://github.com/osl-incubator/edu-math/issues?q=is%3Aopen+is%3Aissue+label%3Abug
+
+  - type: textarea
+    attributes:
+      label: Summary
+      description: Explain the problem briefly below.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: OS / Environment
+      description: Provide information on your operating system and environment.
+      render: console
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Describe exactly how to reproduce the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected Results
+      description: Describe what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Actual Results
+      description: Paste verbatim program or command output.
+      render: console
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: edu-math version
+      description: >
+        Paste the installed edu-math version, if available. For example:
+        python -c "import edumath; print(edumath.__version__)"
+      render: console
+    validations:
+      required: false
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      description: Read the Code of Conduct first.
+      options:
+        - label: I agree to follow the Code of Conduct
+          required: true

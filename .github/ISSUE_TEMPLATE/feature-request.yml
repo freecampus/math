@@ -1,0 +1,35 @@
+---
+name: Feature Request
+description: Suggest an idea for this project
+labels: ["feat/enhancement", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thank you for wanting to suggest a feature for edu-math.
+
+  - type: textarea
+    attributes:
+      label: Summary
+      description: >
+        Describe the feature or improvement you would like. Include the problem
+        it solves and how it would help real users.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: Add examples, references, or design notes if useful.
+      value: |
+        <!-- Add any extra context here. -->
+    validations:
+      required: false
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow the Code of Conduct
+          required: true

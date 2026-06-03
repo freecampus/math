@@ -1,0 +1,15 @@
+---
+title: edu-math
+description: Python tools for math education workflows.
+---
+
+`edu-math` is a Python package for math education workflows.
+
+The package is currently at its initial infrastructure stage. The project
+includes source packaging, tests, linting, documentation, release automation,
+and CI scaffolding.
+
+## Development status
+
+The public API is intentionally small while the package design is established.
+See [API reference](api.qmd) for the current exported interface.

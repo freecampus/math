@@ -1,0 +1,31 @@
+---
+name: Documentation Report
+description: Create a report for problems with the docs
+labels: ["docs", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thank you for wanting to report a problem with edu-math documentation.
+
+  - type: textarea
+    attributes:
+      label: Summary
+      description: Explain the problem briefly below.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Documentation Page Link
+      description: Paste the link to the documentation page.
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow the Code of Conduct
+          required: true

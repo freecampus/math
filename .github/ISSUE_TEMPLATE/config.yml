@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Usage Questions
+    url: https://github.com/osl-incubator/edu-math/discussions
+    about: Use GitHub Discussions for questions and design conversations.
+  - name: edu-math Code of Conduct
+    url: https://github.com/osl-incubator/edu-math/blob/main/CODE_OF_CONDUCT.md
+    about: Expectations for how contributors interact with each other.
