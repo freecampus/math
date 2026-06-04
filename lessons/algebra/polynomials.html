@@ -906,6 +906,7 @@ window.Quarto = {
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/polynomials.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -975,11 +976,7 @@ window.Quarto = {
 <p>Example:</p>
 <pre class="text"><code>2x^4 - 3x^2 + 7x - 5</code></pre>
 <p>has degree <code>4</code>, leading coefficient <code>2</code>, and constant term <code>-5</code>.</p>
-<div id="5c2013ae" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_summary</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"2*x**4 - 3*x**2 + 7*x - 5"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>summary.degree, summary.leading_coefficient</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="12922b27" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>(4, 2)</code></pre>
 </div>
@@ -996,12 +993,7 @@ window.Quarto = {
 <p>Expanded:</p>
 <pre class="text"><code>(x - 2)(x + 3) = x^2 + x - 6</code></pre>
 <p>The factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.</p>
-<div id="3d2ffa71" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_root_scene</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)*(x + 3)"</span>, x_min<span class="op">=-</span><span class="dv">5</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">10</span>, y_max<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e3b48c43" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -1022,10 +1014,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="building-polynomials-from-roots">Building polynomials from roots</h2>
 <p>If the roots are <code>-1</code>, <code>2</code>, and <code>4</code>, then one polynomial with those roots is:</p>
 <pre class="text"><code>(x + 1)(x - 2)(x - 4)</code></pre>
-<div id="fc8ae215" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_from_roots</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>polynomial_from_roots((<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5ab34c1e" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle x^{3} - 5 x^{2} + 2 x + 8\)</span></p>
 </div>
@@ -1038,9 +1027,7 @@ window.Quarto = {
 <p>Example:</p>
 <pre class="text"><code>p(x) = (x - 2)^2(x + 1)</code></pre>
 <p>Root <code>2</code> has multiplicity <code>2</code>. Root <code>-1</code> has multiplicity <code>1</code>.</p>
-<div id="148da94a" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"(x - 2)**2*(x + 1)"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>summary.root_multiplicities</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b783f912" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>((-1, 1), (2, 2))</code></pre>
 </div>
@@ -1050,10 +1037,7 @@ window.Quarto = {
 <li>odd multiplicity: the graph usually crosses the x-axis;</li>
 <li>even multiplicity: the graph touches/bounces off the x-axis.</li>
 </ul>
-<div id="6cd57f7b" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)**2*(x + 1)"</span>, x_min<span class="op">=-</span><span class="dv">4</span>, x_max<span class="op">=</span><span class="dv">4</span>, y_min<span class="op">=-</span><span class="dv">10</span>, y_max<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="511fa22b" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
@@ -1113,20 +1097,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="6c87840e" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> compare_functions_scene</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> compare_functions_scene(</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"x**4"</span>, <span class="st">"-x**4"</span>, <span class="st">"x**3"</span>, <span class="st">"-x**3"</span>),</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>(<span class="st">"even positive"</span>, <span class="st">"even negative"</span>, <span class="st">"odd positive"</span>, <span class="st">"odd negative"</span>),</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    x_min<span class="op">=-</span><span class="dv">3</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    x_max<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    y_min<span class="op">=-</span><span class="dv">20</span>,</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    y_max<span class="op">=</span><span class="dv">20</span>,</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Polynomial end behavior patterns"</span>,</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="3a064cf7" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <figure class="figure">
@@ -1393,6 +1364,38 @@ window.Quarto = {
 <li><strong>Statistics:</strong> polynomial regression models curved relationships.</li>
 <li><strong>Numerical methods:</strong> interpolation and root-finding often begin with polynomial approximations.</li>
 </ul>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>polynomial_summary</code> when you want a compact symbolic report, and use <code>polynomial_root_scene</code> when you want to connect roots to the graph.</p>
+<div id="fc93c056" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_root_scene, polynomial_summary</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"(x - 2)**2*(x + 1)"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>summary.degree, summary.leading_coefficient, summary.root_multiplicities</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(3, 1, ((-1, 1), (2, 2)))</code></pre>
+</div>
+</div>
+<div id="09867e06" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)**2*(x + 1)"</span>, x_min<span class="op">=-</span><span class="dv">4</span>, x_max<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-9-output-1.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-9-output-2.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="further-reading" class="level2">
 <h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>

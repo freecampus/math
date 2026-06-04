@@ -550,7 +550,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#linear-functions-constant-rate-of-change",
     "title": "Linear and Quadratic Functions",
     "section": "Linear functions: constant rate of change",
-    "text": "Linear functions: constant rate of change\nA linear function has the form:\ny = mx + b\nwhere:\n\nm is the slope;\nb is the y-intercept;\nthe graph is a line.\n\nSlope is change in output divided by change in input:\nm = (change in y)/(change in x)\nIf a line passes through (0, 1) and (2, 5), then:\nm = (5 - 1)/(2 - 0) = 2\nThe y-intercept is 1, so the line is:\ny = 2x + 1\n\nfrom edumath.algebra import line_from_points\n\nline = line_from_points((0, 1), (2, 5))\nline.expression\n\n\\(\\displaystyle 2 x + 1\\)",
+    "text": "Linear functions: constant rate of change\nA linear function has the form:\ny = mx + b\nwhere:\n\nm is the slope;\nb is the y-intercept;\nthe graph is a line.\n\nSlope is change in output divided by change in input:\nm = (change in y)/(change in x)\nIf a line passes through (0, 1) and (2, 5), then:\nm = (5 - 1)/(2 - 0) = 2\nThe y-intercept is 1, so the line is:\ny = 2x + 1\n\n\n\\(\\displaystyle 2 x + 1\\)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -563,7 +563,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#visualizing-slope-and-intercept",
     "title": "Linear and Quadratic Functions",
     "section": "Visualizing slope and intercept",
-    "text": "Visualizing slope and intercept\n\nfrom edumath.algebra import input_output_scene\n\nscene = input_output_scene(\n    \"2*x + 1\",\n    x_value=3,\n    x_min=-2,\n    x_max=5,\n    y_min=-2,\n    y_max=12,\n    title=\"The line y = 2x + 1 at x = 3\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe point (3, 7) lies on the line. Moving one unit to the right increases the output by 2, because the slope is 2.",
+    "text": "Visualizing slope and intercept\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe point (3, 7) lies on the line. Moving one unit to the right increases the output by 2, because the slope is 2.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -615,7 +615,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#vertex-and-discriminant",
     "title": "Linear and Quadratic Functions",
     "section": "Vertex and discriminant",
-    "text": "Vertex and discriminant\nFor:\nf(x) = ax^2 + bx + c\nthe vertex x-coordinate is:\nh = -b/(2a)\nThe discriminant is:\nD = b^2 - 4ac\nIt tells us how many real roots exist:\n\n\n\nDiscriminant\nReal roots\nGraph behavior\n\n\n\n\nD &gt; 0\ntwo\ncrosses the x-axis twice\n\n\nD = 0\none repeated\ntouches the x-axis at the vertex\n\n\nD &lt; 0\nnone\ndoes not cross the x-axis\n\n\n\n\nfrom edumath.algebra import QuadraticModel\n\nmodel = QuadraticModel(1, -4, 3)\nmodel.expression, model.discriminant, model.vertex, model.roots\n\n(x**2 - 4*x + 3, 4, (2, -1), (1, 3))",
+    "text": "Vertex and discriminant\nFor:\nf(x) = ax^2 + bx + c\nthe vertex x-coordinate is:\nh = -b/(2a)\nThe discriminant is:\nD = b^2 - 4ac\nIt tells us how many real roots exist:\n\n\n\nDiscriminant\nReal roots\nGraph behavior\n\n\n\n\nD &gt; 0\ntwo\ncrosses the x-axis twice\n\n\nD = 0\none repeated\ntouches the x-axis at the vertex\n\n\nD &lt; 0\nnone\ndoes not cross the x-axis\n\n\n\n\n\n(x**2 - 4*x + 3, 4, (2, -1), (1, 3))",
     "crumbs": [
       "Home",
       "Lessons",
@@ -628,7 +628,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#comparing-quadratic-parameters",
     "title": "Linear and Quadratic Functions",
     "section": "Comparing quadratic parameters",
-    "text": "Comparing quadratic parameters\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**2\", \"2*x**2\", \"0.5*x**2\", \"-x**2\"),\n    labels=(\"a = 1\", \"a = 2\", \"a = 0.5\", \"a = -1\"),\n    x_min=-4,\n    x_max=4,\n    y_min=-8,\n    y_max=16,\n    title=\"Changing the coefficient a in y = a*x^2\",\n)\nfig, ax = scene.render()\nfig",
+    "text": "Comparing quadratic parameters",
     "crumbs": [
       "Home",
       "Lessons",
@@ -641,7 +641,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#converting-vertex-form-to-standard-form",
     "title": "Linear and Quadratic Functions",
     "section": "Converting vertex form to standard form",
-    "text": "Converting vertex form to standard form\nThe vertex form:\n2(x - 3)^2 + 1\nhas vertex (3, 1) and opens upward. Expanding:\n\nfrom edumath.algebra import quadratic_from_vertex\n\nquadratic_from_vertex(a=2, h=3, k=1)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\nSo:\n2(x - 3)^2 + 1 = 2x^2 - 12x + 19",
+    "text": "Converting vertex form to standard form\nThe vertex form:\n2(x - 3)^2 + 1\nhas vertex (3, 1) and opens upward. Expanding:\n\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\nSo:\n2(x - 3)^2 + 1 = 2x^2 - 12x + 19",
     "crumbs": [
       "Home",
       "Lessons",
@@ -715,6 +715,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Linear and Quadratic Functions",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse the package helpers to compute line and quadratic facts exactly, then compare those facts with the graph you sketch by hand.\n\nfrom edumath.algebra import QuadraticModel, line_from_points\n\nline = line_from_points((0, 1), (2, 5))\nline.expression\n\n\\(\\displaystyle 2 x + 1\\)\n\n\n\nmodel = QuadraticModel(1, -4, 3)\nmodel.expression, model.discriminant, model.vertex, model.roots\n\n(x**2 - 4*x + 3, 4, (2, -1), (1, 3))",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/linear-and-quadratic-functions.html#further-reading",
     "href": "lessons/algebra/linear-and-quadratic-functions.html#further-reading",
     "title": "Linear and Quadratic Functions",
@@ -771,7 +784,7 @@
     "href": "lessons/algebra/systems-of-equations.html#visual-model",
     "title": "Systems of Equations",
     "section": "Visual Model",
-    "text": "Visual Model\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x + 1\", \"-x + 5\"),\n    x_min=-1,\n    x_max=6,\n    y_min=-1,\n    y_max=7,\n    title=\"A system of two linear equations\",\n)\nfig, ax = scene.render()\nfig",
+    "text": "Visual Model",
     "crumbs": [
       "Home",
       "Lessons",
@@ -811,6 +824,19 @@
     "title": "Systems of Equations",
     "section": "Solutions",
     "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: (x, y) = (3, 6).\nSet the right sides equal: 2x = x + 3, so x = 3. Then y = 2(3) = 6.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: (x, y) = (3, 2).\nAdd the equations: 2x = 6, so x = 3. Then 3 + y = 5, so y = 2.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: they do not intersect, so the system has no solution.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: every point on that line solves both equations, so the system has infinitely many solutions.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/systems-of-equations.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/systems-of-equations.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Systems of Equations",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse SymPy to solve systems symbolically, then use graphing helpers to interpret the solution as an intersection point.\n\nimport sympy as sp\n\nx, y = sp.symbols(\"x y\")\nsp.solve((sp.Eq(y, 2*x), sp.Eq(y, x + 3)), (x, y))\n\n{x: 3, y: 6}\n\n\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene((\"2*x\", \"x + 3\"), labels=(\"y = 2x\", \"y = x + 3\"))\nfig, ax = scene.render()\nfig",
     "crumbs": [
       "Home",
       "Lessons",
@@ -875,7 +901,7 @@
     "href": "lessons/algebra/expressions-and-equations.html#evaluating-an-expression",
     "title": "Expressions and Equations",
     "section": "Evaluating an expression",
-    "text": "Evaluating an expression\nTo evaluate an expression, substitute a value for the variable and follow the order of operations.\nExample:\n2x^2 - 3x + 1, when x = 4\nSubstitute:\n2(4)^2 - 3(4) + 1\nCompute powers before multiplication:\n2(16) - 12 + 1 = 32 - 12 + 1 = 21\nUse a table when you want to see many inputs at once.\n\nfrom edumath.algebra import expression_table\n\nexpression_table(\"2*x**2 - 3*x + 1\", inputs=(-2, -1, 0, 1, 2, 3, 4))\n\n((-2.0, 15.0),\n (-1.0, 6.0),\n (0.0, 1.0),\n (1.0, 0.0),\n (2.0, 3.0),\n (3.0, 10.0),\n (4.0, 21.0))",
+    "text": "Evaluating an expression\nTo evaluate an expression, substitute a value for the variable and follow the order of operations.\nExample:\n2x^2 - 3x + 1, when x = 4\nSubstitute:\n2(4)^2 - 3(4) + 1\nCompute powers before multiplication:\n2(16) - 12 + 1 = 32 - 12 + 1 = 21\nUse a table when you want to see many inputs at once.\n\n\n((-2.0, 15.0),\n (-1.0, 6.0),\n (0.0, 1.0),\n (1.0, 0.0),\n (2.0, 3.0),\n (3.0, 10.0),\n (4.0, 21.0))",
     "crumbs": [
       "Home",
       "Lessons",
@@ -888,7 +914,7 @@
     "href": "lessons/algebra/expressions-and-equations.html#equivalent-expressions",
     "title": "Expressions and Equations",
     "section": "Equivalent expressions",
-    "text": "Equivalent expressions\nTwo expressions are equivalent if they produce the same value for every allowed input.\nFor example:\n(x + 1)^2\nand\nx^2 + 2x + 1\nare equivalent. One form is factored around a repeated linear factor; the other form is expanded.\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"(x + 1)**2\", \"x**2 + 2*x + 1\"),\n    labels=(\"factored form\", \"expanded form\"),\n    x_min=-5,\n    x_max=3,\n    y_min=-1,\n    y_max=16,\n    title=\"Equivalent expressions have the same graph\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe graph is the same because the two formulas define the same function. The forms emphasize different information:\n\n(x + 1)^2 makes the root x = -1 visible.\nx^2 + 2x + 1 makes the coefficients visible.",
+    "text": "Equivalent expressions\nTwo expressions are equivalent if they produce the same value for every allowed input.\nFor example:\n(x + 1)^2\nand\nx^2 + 2x + 1\nare equivalent. One form is factored around a repeated linear factor; the other form is expanded.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe graph is the same because the two formulas define the same function. The forms emphasize different information:\n\n(x + 1)^2 makes the root x = -1 visible.\nx^2 + 2x + 1 makes the coefficients visible.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -901,7 +927,7 @@
     "href": "lessons/algebra/expressions-and-equations.html#expanding-factoring-and-simplifying",
     "title": "Expressions and Equations",
     "section": "Expanding, factoring, and simplifying",
-    "text": "Expanding, factoring, and simplifying\nAlgebra often asks you to choose the most useful form.\n\nExpanding\nExpanding uses distribution:\n(x + 3)(x - 2)\nMultiply every term in the first factor by every term in the second:\nx*x + x*(-2) + 3*x + 3*(-2)\n= x^2 - 2x + 3x - 6\n= x^2 + x - 6\n\n\nFactoring\nFactoring reverses expansion:\nx^2 + x - 6 = (x + 3)(x - 2)\nThis form immediately tells us the zeros: x = -3 and x = 2.\n\n\nSimplifying\nSimplifying means rewriting an expression in a cleaner equivalent form. It does not always mean \"shorter\"; it means \"more useful for the task.\"\n\nimport sympy as sp\n\nx = sp.Symbol(\"x\")\nsp.expand((x + 3) * (x - 2)), sp.factor(x**2 + x - 6)\n\n(x**2 + x - 6, (x - 2)*(x + 3))",
+    "text": "Expanding, factoring, and simplifying\nAlgebra often asks you to choose the most useful form.\n\nExpanding\nExpanding uses distribution:\n(x + 3)(x - 2)\nMultiply every term in the first factor by every term in the second:\nx*x + x*(-2) + 3*x + 3*(-2)\n= x^2 - 2x + 3x - 6\n= x^2 + x - 6\n\n\nFactoring\nFactoring reverses expansion:\nx^2 + x - 6 = (x + 3)(x - 2)\nThis form immediately tells us the zeros: x = -3 and x = 2.\n\n\nSimplifying\nSimplifying means rewriting an expression in a cleaner equivalent form. It does not always mean \"shorter\"; it means \"more useful for the task.\"\n\n\n(x**2 + x - 6, (x - 2)*(x + 3))",
     "crumbs": [
       "Home",
       "Lessons",
@@ -953,7 +979,7 @@
     "href": "lessons/algebra/expressions-and-equations.html#sympy-as-a-verification-tool",
     "title": "Expressions and Equations",
     "section": "SymPy as a verification tool",
-    "text": "SymPy as a verification tool\nThe package’s quiz helpers can generate questions where the expected answer is derived from the expression.\n\nfrom edumath.algebra import expand_question, factor_question\n\nexpand = expand_question((x + 1) ** 2)\nfactor = factor_question(x**2 - 5 * x + 6)\n\nexpand.check(\"x**2 + 2*x + 1\").message, factor.check(\"(x - 2)*(x - 3)\").message\n\n('Correct.', 'Correct.')\n\n\nUse this as a checker, not as a replacement for understanding. A computer algebra system can confirm equivalence, but you still need to know which form is useful and what restrictions apply.",
+    "text": "SymPy as a verification tool\nThe package’s quiz helpers can generate questions where the expected answer is derived from the expression.\n\n\n('Correct.', 'Correct.')\n\n\nUse this as a checker, not as a replacement for understanding. A computer algebra system can confirm equivalence, but you still need to know which form is useful and what restrictions apply.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1019,6 +1045,19 @@
     "title": "Expressions and Equations",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: simplifying before differentiating or integrating can turn a hard problem into an easy one.\nLinear algebra: equations become systems, and systems become matrix equations.\nStatistics: parameters are estimated by solving or optimizing algebraic expressions.\nOptimization: constraints are equations and inequalities that define the feasible set.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/expressions-and-equations.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Expressions and Equations",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse SymPy to check symbolic transformations and use edumath quiz helpers to turn those transformations into auto-checkable practice.\n\nimport sympy as sp\n\nfrom edumath.algebra import expand_question, factor_question\n\nx = sp.Symbol(\"x\")\nexpanded = sp.expand((x + 3) * (x - 2))\nfactored = sp.factor(x**2 + x - 6)\nexpanded, factored\n\n(x**2 + x - 6, (x - 2)*(x + 3))\n\n\n\nquestion = expand_question((x + 1) ** 2)\nquestion.check(\"x**2 + 2*x + 1\").message\n\n'Correct.'",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1096,7 +1135,7 @@
     "href": "lessons/algebra/functions-and-graphs.html#formula-to-table",
     "title": "Functions and Graphs",
     "section": "Formula to table",
-    "text": "Formula to table\nA table makes individual input-output pairs explicit.\n\nfrom edumath.algebra import expression_table\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\nThis table is not the function itself. It is a sample of the function. The formula tells us the output for every allowed input; the table shows selected inputs.",
+    "text": "Formula to table\nA table makes individual input-output pairs explicit.\n\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\nThis table is not the function itself. It is a sample of the function. The formula tells us the output for every allowed input; the table shows selected inputs.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1109,7 +1148,7 @@
     "href": "lessons/algebra/functions-and-graphs.html#formula-to-graph",
     "title": "Functions and Graphs",
     "section": "Formula to graph",
-    "text": "Formula to graph\nThe graph of a function is the set of points:\n(x, f(x))\nThe package includes reusable plotting helpers for this input-output view.\n\nfrom edumath.algebra import input_output_scene\n\nscene = input_output_scene(\n    \"x**2 - 3*x + 2\",\n    x_value=4,\n    x_min=-2,\n    x_max=5,\n    y_min=-2,\n    y_max=8,\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe dashed guides show that input x = 4 produces output f(4) = 6.",
+    "text": "Formula to graph\nThe graph of a function is the set of points:\n(x, f(x))\nThe package includes reusable plotting helpers for this input-output view.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe dashed guides show that input x = 4 produces output f(4) = 6.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1148,7 +1187,7 @@
     "href": "lessons/algebra/functions-and-graphs.html#comparing-function-families",
     "title": "Functions and Graphs",
     "section": "Comparing function families",
-    "text": "Comparing function families\nDifferent formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x\", \"x**2\", \"x**3\", \"sqrt(x + 4)\"),\n    labels=(\"linear\", \"quadratic\", \"cubic\", \"square root\"),\n    x_min=-4,\n    x_max=4,\n    y_min=-8,\n    y_max=16,\n    title=\"Common algebraic function families\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions to ask when reading a graph:\n\nIs it increasing, decreasing, or both?\nDoes it have a lowest or highest point?\nWhere does it cross the axes?\nIs it symmetric?\nDoes it grow slowly, linearly, quadratically, or faster?\nDoes the formula restrict the domain?",
+    "text": "Comparing function families\nDifferent formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions to ask when reading a graph:\n\nIs it increasing, decreasing, or both?\nDoes it have a lowest or highest point?\nWhere does it cross the axes?\nIs it symmetric?\nDoes it grow slowly, linearly, quadratically, or faster?\nDoes the formula restrict the domain?",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1235,6 +1274,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/functions-and-graphs.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/functions-and-graphs.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Functions and Graphs",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse edumath to move from formula to table to graph. This is useful when you want to test how a formula behaves before doing more formal analysis.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/functions-and-graphs.html#further-reading",
     "href": "lessons/algebra/functions-and-graphs.html#further-reading",
     "title": "Functions and Graphs",
@@ -1278,7 +1330,7 @@
     "href": "lessons/algebra/polynomials.html#polynomial-vocabulary",
     "title": "Polynomials",
     "section": "Polynomial vocabulary",
-    "text": "Polynomial vocabulary\nA polynomial in one variable has the form:\na_n*x^n + a_{n-1}*x^{n-1} + ... + a_1*x + a_0\nwhere:\n\nexponents are nonnegative integers;\ncoefficients are constants;\nthe degree is the highest exponent with a nonzero coefficient;\nthe leading coefficient is the coefficient of the highest-power term.\n\nExample:\n2x^4 - 3x^2 + 7x - 5\nhas degree 4, leading coefficient 2, and constant term -5.\n\nfrom edumath.algebra import polynomial_summary\n\nsummary = polynomial_summary(\"2*x**4 - 3*x**2 + 7*x - 5\")\nsummary.degree, summary.leading_coefficient\n\n(4, 2)",
+    "text": "Polynomial vocabulary\nA polynomial in one variable has the form:\na_n*x^n + a_{n-1}*x^{n-1} + ... + a_1*x + a_0\nwhere:\n\nexponents are nonnegative integers;\ncoefficients are constants;\nthe degree is the highest exponent with a nonzero coefficient;\nthe leading coefficient is the coefficient of the highest-power term.\n\nExample:\n2x^4 - 3x^2 + 7x - 5\nhas degree 4, leading coefficient 2, and constant term -5.\n\n\n(4, 2)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1291,7 +1343,7 @@
     "href": "lessons/algebra/polynomials.html#factored-form-roots-and-x-intercepts",
     "title": "Polynomials",
     "section": "Factored form, roots, and x-intercepts",
-    "text": "Factored form, roots, and x-intercepts\nIf a polynomial has a factor (x - r), then r is a root:\np(r) = 0\nFor example:\np(x) = (x - 2)(x + 3)\nhas roots:\nx = 2 and x = -3\nExpanded:\n(x - 2)(x + 3) = x^2 + x - 6\nThe factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.\n\nfrom edumath.algebra import polynomial_root_scene\n\nscene = polynomial_root_scene(\"(x - 2)*(x + 3)\", x_min=-5, x_max=5, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig",
+    "text": "Factored form, roots, and x-intercepts\nIf a polynomial has a factor (x - r), then r is a root:\np(r) = 0\nFor example:\np(x) = (x - 2)(x + 3)\nhas roots:\nx = 2 and x = -3\nExpanded:\n(x - 2)(x + 3) = x^2 + x - 6\nThe factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1304,7 +1356,7 @@
     "href": "lessons/algebra/polynomials.html#building-polynomials-from-roots",
     "title": "Polynomials",
     "section": "Building polynomials from roots",
-    "text": "Building polynomials from roots\nIf the roots are -1, 2, and 4, then one polynomial with those roots is:\n(x + 1)(x - 2)(x - 4)\n\nfrom edumath.algebra import polynomial_from_roots\n\npolynomial_from_roots((-1, 2, 4))\n\n\\(\\displaystyle x^{3} - 5 x^{2} + 2 x + 8\\)\n\n\nMultiplying by a nonzero leading coefficient changes the vertical scale but not the roots.",
+    "text": "Building polynomials from roots\nIf the roots are -1, 2, and 4, then one polynomial with those roots is:\n(x + 1)(x - 2)(x - 4)\n\n\n\\(\\displaystyle x^{3} - 5 x^{2} + 2 x + 8\\)\n\n\nMultiplying by a nonzero leading coefficient changes the vertical scale but not the roots.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1317,7 +1369,7 @@
     "href": "lessons/algebra/polynomials.html#multiplicity",
     "title": "Polynomials",
     "section": "Multiplicity",
-    "text": "Multiplicity\nA root can occur more than once. The number of times it appears as a factor is called its multiplicity.\nExample:\np(x) = (x - 2)^2(x + 1)\nRoot 2 has multiplicity 2. Root -1 has multiplicity 1.\n\nsummary = polynomial_summary(\"(x - 2)**2*(x + 1)\")\nsummary.root_multiplicities\n\n((-1, 1), (2, 2))\n\n\nGraph behavior:\n\nodd multiplicity: the graph usually crosses the x-axis;\neven multiplicity: the graph touches/bounces off the x-axis.\n\n\nscene = polynomial_root_scene(\"(x - 2)**2*(x + 1)\", x_min=-4, x_max=4, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig",
+    "text": "Multiplicity\nA root can occur more than once. The number of times it appears as a factor is called its multiplicity.\nExample:\np(x) = (x - 2)^2(x + 1)\nRoot 2 has multiplicity 2. Root -1 has multiplicity 1.\n\n\n((-1, 1), (2, 2))\n\n\nGraph behavior:\n\nodd multiplicity: the graph usually crosses the x-axis;\neven multiplicity: the graph touches/bounces off the x-axis.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1330,7 +1382,7 @@
     "href": "lessons/algebra/polynomials.html#end-behavior",
     "title": "Polynomials",
     "section": "End behavior",
-    "text": "End behavior\nFor large positive or negative inputs, the leading term dominates.\nFor:\np(x) = -2x^5 + 3x^2 - 1\nthe leading term is -2x^5. So for very large |x|, the graph behaves like -2x^5.\nRules:\n\n\n\nDegree\nLeading coefficient\nLeft end\nRight end\n\n\n\n\neven\npositive\nup\nup\n\n\neven\nnegative\ndown\ndown\n\n\nodd\npositive\ndown\nup\n\n\nodd\nnegative\nup\ndown\n\n\n\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**4\", \"-x**4\", \"x**3\", \"-x**3\"),\n    labels=(\"even positive\", \"even negative\", \"odd positive\", \"odd negative\"),\n    x_min=-3,\n    x_max=3,\n    y_min=-20,\n    y_max=20,\n    title=\"Polynomial end behavior patterns\",\n)\nfig, ax = scene.render()\nfig",
+    "text": "End behavior\nFor large positive or negative inputs, the leading term dominates.\nFor:\np(x) = -2x^5 + 3x^2 - 1\nthe leading term is -2x^5. So for very large |x|, the graph behaves like -2x^5.\nRules:\n\n\n\nDegree\nLeading coefficient\nLeft end\nRight end\n\n\n\n\neven\npositive\nup\nup\n\n\neven\nnegative\ndown\ndown\n\n\nodd\npositive\ndown\nup\n\n\nodd\nnegative\nup\ndown",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1409,6 +1461,19 @@
     "title": "Polynomials",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: polynomials are easy to differentiate and integrate and are used in Taylor approximations.\nLinear algebra: eigenvalues are roots of characteristic polynomials.\nStatistics: polynomial regression models curved relationships.\nNumerical methods: interpolation and root-finding often begin with polynomial approximations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/polynomials.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Polynomials",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse polynomial_summary when you want a compact symbolic report, and use polynomial_root_scene when you want to connect roots to the graph.\n\nfrom edumath.algebra import polynomial_root_scene, polynomial_summary\n\nsummary = polynomial_summary(\"(x - 2)**2*(x + 1)\")\nsummary.degree, summary.leading_coefficient, summary.root_multiplicities\n\n(3, 1, ((-1, 1), (2, 2)))\n\n\n\nscene = polynomial_root_scene(\"(x - 2)**2*(x + 1)\", x_min=-4, x_max=4)\nfig, ax = scene.render()\nfig",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2639,7 +2704,7 @@
     "href": "lessons/algebra/inequalities-and-absolute-value.html#visualizing-absolute-value",
     "title": "Inequalities and Absolute Value",
     "section": "Visualizing absolute value",
-    "text": "Visualizing absolute value\nThe graph of |x - a| forms a V-shape centered at x = a. A horizontal cutoff line tells you which points are close enough to the center.\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"Abs(x - 2)\", \"5\"),\n    labels=(\"distance from 2\", \"cutoff 5\"),\n    x_min=-6,\n    x_max=10,\n    y_min=-1,\n    y_max=9,\n    title=\"Solving |x - 2| &lt;= 5 visually\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe solution is where the V-shaped graph is at or below the cutoff line.",
+    "text": "Visualizing absolute value\nThe graph of |x - a| forms a V-shape centered at x = a. A horizontal cutoff line tells you which points are close enough to the center.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe solution is where the V-shaped graph is at or below the cutoff line.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2718,6 +2783,19 @@
     "title": "Inequalities and Absolute Value",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nOptimization: constraints are inequalities that define feasible regions.\nProbability: random variables often have restricted support such as x &gt;= 0.\nCalculus: domains determine where limits, derivatives, and integrals make sense.\nStatistics: confidence intervals and hypothesis-test rejection regions are sets defined by inequalities.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Inequalities and Absolute Value",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nSymPy can solve inequalities and show interval-style answers. Use it to verify your work after you solve the inequality by hand.\n\nimport sympy as sp\n\nx = sp.Symbol(\"x\", real=True)\nsp.solve_univariate_inequality(-2 &lt;= 3*x + 1, x)\n\n\\(\\displaystyle -1 \\leq x\\)\n\n\n\nsp.solve_univariate_inequality(sp.Abs(x - 2) &lt;= 5, x)\n\n\\(\\displaystyle -3 \\leq x \\wedge x \\leq 7\\)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2834,7 +2912,7 @@
     "href": "lessons/algebra/exponentials-and-logarithms.html#visual-comparison",
     "title": "Exponentials and Logarithms",
     "section": "Visual Comparison",
-    "text": "Visual Comparison\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**2\", \"2**x\"),\n    x_min=-2,\n    x_max=6,\n    y_min=-2,\n    y_max=40,\n    title=\"Polynomial vs exponential growth\",\n)\nfig, ax = scene.render()\nfig",
+    "text": "Visual Comparison",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2874,6 +2952,19 @@
     "title": "Exponentials and Logarithms",
     "section": "Solutions",
     "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 32.\n2^5 = 2 * 2 * 2 * 2 * 2 = 32.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: x = 1000.\nlog_10(x) = 3 means 10^3 = x.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: decay.\nThe base 0.5 is between 0 and 1, so the function shrinks as x increases.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: 2^x.\nExponential functions with base greater than 1 eventually grow faster than any fixed power such as x^2.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Exponentials and Logarithms",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse SymPy to solve exponential and logarithmic equations after you have set up the inverse relationship by hand.\n\nimport sympy as sp\n\nx = sp.Symbol(\"x\", positive=True)\nsp.solve(sp.Eq(2**x, 10), x)\n\n[1 + log(5)/log(2)]\n\n\n\nsp.solve(sp.Eq(sp.log(x, 10), 3), x)\n\n[1000]",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2938,7 +3029,7 @@
     "href": "lessons/algebra/index.html#a-small-auto-checkable-diagnostic",
     "title": "Algebra Study Path",
     "section": "A small auto-checkable diagnostic",
-    "text": "A small auto-checkable diagnostic\nThe package’s quiz model can use SymPy to derive answers. That means many questions do not need a manually typed expected value; the expected answer can come from a resolver such as expand, factor, or solve.\n\nimport sympy as sp\n\nfrom edumath.algebra import expand_question, factor_question\nfrom edumath.core import Question, QuizSession\n\nx = sp.Symbol(\"x\")\n\ndiagnostic = QuizSession(\n    questions=(\n        Question(\"Evaluate 2*3 + 5.\", expected=11),\n        expand_question((x + 1) ** 2),\n        factor_question(x**2 - 5 * x + 6),\n    )\n)\n\ndiagnostic.answer(1, \"x**2 + 2*x + 1\").check.message\n\n'Correct.'",
+    "text": "A small auto-checkable diagnostic\nThe package’s quiz model can use SymPy to derive answers. That means many questions do not need a manually typed expected value; the expected answer can come from a resolver such as expand, factor, or solve.\n\n\n'Correct.'",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2951,7 +3042,7 @@
     "href": "lessons/algebra/index.html#formula-table-graph-one-idea-in-three-forms",
     "title": "Algebra Study Path",
     "section": "Formula, table, graph: one idea in three forms",
-    "text": "Formula, table, graph: one idea in three forms\nAlgebra becomes powerful when you can translate among representations. The same function can be studied as a formula, a table, and a graph.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\n    \"x**2 - 3*x + 2\",\n    x_value=4,\n    x_min=-2,\n    x_max=5,\n    y_min=-2,\n    y_max=8,\n)\nfig, ax = scene.render()\nfig",
+    "text": "Formula, table, graph: one idea in three forms\nAlgebra becomes powerful when you can translate among representations. The same function can be studied as a formula, a table, and a graph.\n\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2965,6 +3056,19 @@
     "title": "Algebra Study Path",
     "section": "How to study these lessons",
     "text": "How to study these lessons\nFor each lesson:\n\nRead the motivation before looking at formulas.\nWork through each example by hand.\nRun the Python/SymPy cells when available.\nChange the inputs in the examples and predict what should happen.\nAttempt every exercise before opening the hidden solution.\nWrite a short explanation of the idea in your own words.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#using-this-path-with-edumath-and-sympy",
+    "href": "lessons/algebra/index.html#using-this-path-with-edumath-and-sympy",
+    "title": "Algebra Study Path",
+    "section": "Using this path with edumath and SymPy",
+    "text": "Using this path with edumath and SymPy\nThe lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()\nfig",
     "crumbs": [
       "Home",
       "Lessons",
@@ -3029,7 +3133,7 @@
     "href": "lessons/algebra/transformations-composition-inverses.html#visual-example",
     "title": "Transformations, Composition, and Inverses",
     "section": "Visual example",
-    "text": "Visual example\nCompare f(x)=x^2 with g(x)=2(x-3)^2+1.\n\nfrom edumath.algebra import transformation_scene, transformed_expression\n\ntransformed_expression(\n    \"x**2\",\n    vertical_scale=2,\n    horizontal_shift=3,\n    vertical_shift=1,\n)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\nscene = transformation_scene(\n    \"x**2\",\n    vertical_scale=2,\n    horizontal_shift=3,\n    vertical_shift=1,\n    x_min=-3,\n    x_max=8,\n    y_min=-2,\n    y_max=20,\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe base vertex (0, 0) becomes (3, 1), and the graph becomes narrower because of the vertical stretch by 2.",
+    "text": "Visual example\nCompare f(x)=x^2 with g(x)=2(x-3)^2+1.\n\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe base vertex (0, 0) becomes (3, 1), and the graph becomes narrower because of the vertical stretch by 2.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -3160,6 +3264,19 @@
     "title": "Transformations, Composition, and Inverses",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: the chain rule is about composition.\nProbability/statistics: transformations of variables change distributions.\nOptimization: parameters shift and stretch objective functions.\nLinear algebra: inverse functions generalize to inverse transformations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/transformations-composition-inverses.html#using-this-lesson-with-edumath-and-sympy",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nUse transformed_expression to generate transformed functions and then compare the base and transformed graphs.\n\nfrom edumath.algebra import transformation_scene, transformed_expression\n\ntransformed_expression(\"x**2\", vertical_scale=2, horizontal_shift=3, vertical_shift=1)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\nscene = transformation_scene(\"x**2\", vertical_scale=2, horizontal_shift=3, vertical_shift=1)\nfig, ax = scene.render()\nfig",
     "crumbs": [
       "Home",
       "Lessons",
