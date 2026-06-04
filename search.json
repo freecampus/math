@@ -4,7 +4,7 @@
     "href": "installation.html",
     "title": "Installation",
     "section": "",
-    "text": "pip install edu-math",
+    "text": "pip install osl-edu-math\nThe PyPI distribution is osl-edu-math; the import package remains edumath.",
     "crumbs": [
       "Home",
       "Installation"
@@ -15,7 +15,7 @@
     "href": "installation.html#base-install",
     "title": "Installation",
     "section": "",
-    "text": "pip install edu-math",
+    "text": "pip install osl-edu-math\nThe PyPI distribution is osl-edu-math; the import package remains edumath.",
     "crumbs": [
       "Home",
       "Installation"
@@ -2301,7 +2301,7 @@
     "href": "lessons/colab/usage.html",
     "title": "Using edu-math in Google Colab",
     "section": "",
-    "text": "pip install edu-math\nWhen working from a source checkout instead of a released package, install from the repository root:\npip install -e .",
+    "text": "pip install osl-edu-math\nWhen working from a source checkout instead of a released package, install from the repository root:\npip install -e .",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2314,7 +2314,7 @@
     "href": "lessons/colab/usage.html#install",
     "title": "Using edu-math in Google Colab",
     "section": "",
-    "text": "pip install edu-math\nWhen working from a source checkout instead of a released package, install from the repository root:\npip install -e .",
+    "text": "pip install osl-edu-math\nWhen working from a source checkout instead of a released package, install from the repository root:\npip install -e .",
     "crumbs": [
       "Home",
       "Lessons",
