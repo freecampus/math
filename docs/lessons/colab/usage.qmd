@@ -6,7 +6,7 @@ description: Install and use edu-math in cloud Python environments.
 ## Install
 
 ```python
-pip install osl-incubator-edu-math
+pip install osl-edu-math
 ```
 
 When working from a source checkout instead of a released package, install from

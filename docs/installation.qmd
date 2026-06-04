@@ -5,10 +5,10 @@ title: Installation
 ## Base install
 
 ```bash
-pip install osl-incubator-edu-math
+pip install osl-edu-math
 ```
 
-The PyPI distribution is `osl-incubator-edu-math`; the import package remains
+The PyPI distribution is `osl-edu-math`; the import package remains
 `edumath`.
 
 ## Development install

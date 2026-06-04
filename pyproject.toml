@@ -1,5 +1,5 @@
 [project]
-name = "edu-math"
+name = "osl-edu-math"
 version = "0.2.0"  # semantic-release
 description = "Python tools for math education workflows."
 readme = "README.md"
