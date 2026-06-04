@@ -1,4 +1,7 @@
+import sympy as sp
+
 from edumath.core import (
+    AnswerCheck,
     AnswerOption,
     Exercise,
     LearningObjective,
@@ -7,6 +10,7 @@ from edumath.core import (
     Question,
     QuizSession,
     StudyPath,
+    SympyResolver,
 )
 
 
@@ -43,3 +47,62 @@ def test_quiz_session_scores_answered_questions() -> None:
     assert result.check.correct
     assert session.score == 1
     assert session.complete
+
+
+def test_question_checks_symbolic_expected_answers() -> None:
+    x = sp.Symbol("x")
+    question = Question(
+        prompt="Expand (x + 1)^2.",
+        expected=x**2 + 2 * x + 1,
+        answer_type="symbolic",
+    )
+
+    assert question.check("(x + 1)**2").correct
+
+
+def test_question_resolves_expected_answer_from_expression() -> None:
+    x = sp.Symbol("x")
+    question = Question(
+        prompt="Expand the expression.",
+        expression=(x + 1) ** 2,
+        resolver="expand",
+        answer_type="symbolic",
+    )
+
+    assert question.resolve_expected() == x**2 + 2 * x + 1
+    assert question.check("x**2 + 2*x + 1").correct
+
+
+def test_question_resolver_accepts_operation_settings() -> None:
+    x = sp.Symbol("x")
+    question = Question(
+        prompt="Differentiate sin(x^2).",
+        expression=sp.sin(x**2),
+        resolver=SympyResolver("differentiate", variable=x),
+        answer_type="symbolic",
+    )
+
+    assert question.check("2*x*cos(x**2)").correct
+
+
+def test_question_uses_custom_validator_first() -> None:
+    question = Question(
+        prompt="Enter any even integer.",
+        validator=lambda received: AnswerCheck(
+            correct=int(received) % 2 == 0,
+            received=received,
+            expected="an even integer",
+        ),
+    )
+
+    assert question.check(4).correct
+    assert not question.check(5).correct
+
+
+def test_question_without_expected_answer_is_not_auto_checkable() -> None:
+    question = Question(prompt="Explain why the graph is increasing.")
+
+    result = question.check("It has positive slope.")
+
+    assert not result.correct
+    assert result.expected is None

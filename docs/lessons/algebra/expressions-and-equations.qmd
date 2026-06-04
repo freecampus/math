@@ -164,15 +164,23 @@ Substitute `x = 5`: `3(5) - 1 = 15 - 1 = 14`.
 ## Quick Quiz
 
 ```{python}
+import sympy as sp
+
 from edumath.core import Question, QuizSession
 
+x = sp.Symbol("x")
 quiz = QuizSession(
     questions=(
         Question("What is 2*3 + 5?", expected=11),
-        Question("Solve 4*x - 7 = 9.", expected=4),
+        Question(
+            "Expand `(x + 1)^2`.",
+            expression=(x + 1) ** 2,
+            resolver="expand",
+            answer_type="symbolic",
+        ),
     )
 )
 
-result = quiz.answer(0, 11)
+result = quiz.answer(1, "x**2 + 2*x + 1")
 result.check.message
 ```

@@ -31,7 +31,16 @@ from edumath.core.plots import (
     Segment2D,
     Viewport2D,
 )
-from edumath.core.quizzes import AnswerOption, Question, QuizResult, QuizSession
+from edumath.core.quizzes import (
+    AnswerOption,
+    Question,
+    QuestionAnswerType,
+    QuestionValidator,
+    QuizResult,
+    QuizSession,
+    SympyResolver,
+    SympyResolverName,
+)
 from edumath.core.solutions import (
     ExerciseSolution,
     SolutionReveal,
@@ -63,6 +72,8 @@ __all__ = [
     "Point2D",
     "PolarCurve2D",
     "Question",
+    "QuestionAnswerType",
+    "QuestionValidator",
     "QuizResult",
     "QuizSession",
     "SampledCurve2D",
@@ -70,6 +81,8 @@ __all__ = [
     "SolutionReveal",
     "SolutionStep",
     "StudyPath",
+    "SympyResolver",
+    "SympyResolverName",
     "Viewport2D",
     "WorkedSolution",
     "check_expression_answer",
