@@ -1,6 +1,14 @@
 # Release Notes
 ---
 
+## [0.2.1](https://github.com/osl-incubator/edu-math/compare/0.2.0...0.2.1) (2026-06-04)
+
+
+### Bug Fixes
+
+* Fix package name ([7b0cb15](https://github.com/osl-incubator/edu-math/commit/7b0cb15f6e7b827ad41c47843519fdc97cc34319))
+* Fix release workflow ([9a9f9ff](https://github.com/osl-incubator/edu-math/commit/9a9f9ffbba3ee6a8ec292e883ad631147ed935bf))
+
 # [0.2.0](https://github.com/osl-incubator/edu-math/compare/0.1.0...0.2.0) (2026-06-04)
 
 
