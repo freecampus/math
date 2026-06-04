@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Understand functions as input-output rules and connect formulas to graphs.">
+<meta name="description" content="Understand functions as mappings and connect formulas, tables, graphs, and rates of change.">
 
 <title>Functions and Graphs – edu-math</title>
 <style>
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/algebra/polynomials.html" rel="next">
-<link href="../../lessons/algebra/expressions-and-equations.html" rel="prev">
+<link href="../../lessons/algebra/transformations-composition-inverses.html" rel="next">
+<link href="../../lessons/algebra/inequalities-and-absolute-value.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7392739307969b5d5c25b2b2fcafa982.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -312,22 +312,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../lessons/index.html"> 
 <span class="menu-text">Study Path</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/python/basics.html"> 
-<span class="menu-text">Python</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/algebra/guessing_quiz.html"> 
-<span class="menu-text">Algebra</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/trigonometry/sine-cosine.html"> 
-<span class="menu-text">Trigonometry</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../changelog.html"> 
-<span class="menu-text">Changelog</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -347,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/functions-and-graphs.html">Functions and Graphs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/functions-and-graphs.html">Functions and Graphs</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -446,14 +430,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inequalities and Absolute Value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformations, Composition, and Inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear and Quadratic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -845,19 +853,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#what-is-a-function" id="toc-what-is-a-function" class="nav-link" data-scroll-target="#what-is-a-function">What Is a Function?</a></li>
-  <li><a href="#graphs" id="toc-graphs" class="nav-link" data-scroll-target="#graphs">Graphs</a></li>
-  <li><a href="#python-connection" id="toc-python-connection" class="nav-link" data-scroll-target="#python-connection">Python Connection</a></li>
-  <li><a href="#comparing-functions" id="toc-comparing-functions" class="nav-link" data-scroll-target="#comparing-functions">Comparing Functions</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a>
+  <li><a href="#what-is-a-function" id="toc-what-is-a-function" class="nav-link" data-scroll-target="#what-is-a-function">What is a function?</a>
   <ul class="collapse">
-  <li><a href="#confusing-input-and-output" id="toc-confusing-input-and-output" class="nav-link" data-scroll-target="#confusing-input-and-output">Confusing Input and Output</a></li>
-  <li><a href="#treating-every-curve-as-a-function" id="toc-treating-every-curve-as-a-function" class="nav-link" data-scroll-target="#treating-every-curve-as-a-function">Treating Every Curve as a Function</a></li>
+  <li><a href="#key-idea" id="toc-key-idea" class="nav-link" data-scroll-target="#key-idea">Key idea</a></li>
+  </ul></li>
+  <li><a href="#domain-and-range" id="toc-domain-and-range" class="nav-link" data-scroll-target="#domain-and-range">Domain and range</a></li>
+  <li><a href="#formula-to-table" id="toc-formula-to-table" class="nav-link" data-scroll-target="#formula-to-table">Formula to table</a></li>
+  <li><a href="#formula-to-graph" id="toc-formula-to-graph" class="nav-link" data-scroll-target="#formula-to-graph">Formula to graph</a></li>
+  <li><a href="#intercepts-and-zeros" id="toc-intercepts-and-zeros" class="nav-link" data-scroll-target="#intercepts-and-zeros">Intercepts and zeros</a></li>
+  <li><a href="#average-rate-of-change" id="toc-average-rate-of-change" class="nav-link" data-scroll-target="#average-rate-of-change">Average rate of change</a></li>
+  <li><a href="#comparing-function-families" id="toc-comparing-function-families" class="nav-link" data-scroll-target="#comparing-function-families">Comparing function families</a></li>
+  <li><a href="#vertical-line-test" id="toc-vertical-line-test" class="nav-link" data-scroll-target="#vertical-line-test">Vertical line test</a></li>
+  <li><a href="#worked-examples" id="toc-worked-examples" class="nav-link" data-scroll-target="#worked-examples">Worked examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-evaluate-and-interpret" id="toc-example-1-evaluate-and-interpret" class="nav-link" data-scroll-target="#example-1-evaluate-and-interpret">Example 1: evaluate and interpret</a></li>
+  <li><a href="#example-2-domain-from-a-formula" id="toc-example-2-domain-from-a-formula" class="nav-link" data-scroll-target="#example-2-domain-from-a-formula">Example 2: domain from a formula</a></li>
+  <li><a href="#example-3-average-rate-of-change" id="toc-example-3-average-rate-of-change" class="nav-link" data-scroll-target="#example-3-average-rate-of-change">Example 3: average rate of change</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common mistakes</a>
+  <ul class="collapse">
+  <li><a href="#confusing-input-and-output" id="toc-confusing-input-and-output" class="nav-link" data-scroll-target="#confusing-input-and-output">Confusing input and output</a></li>
+  <li><a href="#treating-every-curve-as-a-function" id="toc-treating-every-curve-as-a-function" class="nav-link" data-scroll-target="#treating-every-curve-as-a-function">Treating every curve as a function</a></li>
+  <li><a href="#forgetting-the-domain" id="toc-forgetting-the-domain" class="nav-link" data-scroll-target="#forgetting-the-domain">Forgetting the domain</a></li>
+  <li><a href="#thinking-a-sampled-table-proves-everything" id="toc-thinking-a-sampled-table-proves-everything" class="nav-link" data-scroll-target="#thinking-a-sampled-table-proves-everything">Thinking a sampled table proves everything</a></li>
   </ul></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/functions-and-graphs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -865,14 +890,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/functions-and-graphs.html">Functions and Graphs</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/functions-and-graphs.html">Functions and Graphs</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Functions and Graphs</h1>
 </div>
 
 <div>
   <div class="description">
-    Understand functions as input-output rules and connect formulas to graphs.
+    Understand functions as mappings and connect formulas, tables, graphs, and rates of change.
   </div>
 </div>
 
@@ -890,72 +915,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Interpret a function as an input-output rule.</li>
-<li>Identify slope and intercepts for linear functions.</li>
-<li>Connect symbolic formulas to visual graphs.</li>
-<li>Use Python helpers to render function scenes.</li>
+<li>explain a function as a rule that assigns each input exactly one output;</li>
+<li>translate among formulas, tables, graphs, and verbal descriptions;</li>
+<li>identify domain, range, intercepts, and zeros;</li>
+<li>compute and interpret average rate of change;</li>
+<li>use a graph to understand how changing inputs changes outputs;</li>
+<li>recognize common families of functions by shape.</li>
 </ul>
 </section>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Functions describe relationships. In quantitative work, a function might map time to account value, price to demand, or risk level to expected return.</p>
+<p>Functions are the central objects of quantitative mathematics. Calculus studies how functions change. Statistics uses functions to model relationships. Optimization searches for inputs that make a function large or small. Machine learning fits functions to data.</p>
+<p>Algebra prepares you for all of this by teaching you how to move fluently among four representations:</p>
+<ol type="1">
+<li>a formula,</li>
+<li>a table,</li>
+<li>a graph,</li>
+<li>a verbal description.</li>
+</ol>
 </section>
 <section id="what-is-a-function" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-function">What Is a Function?</h2>
+<h2 class="anchored" data-anchor-id="what-is-a-function">What is a function?</h2>
 <p>A <strong>function</strong> assigns each input exactly one output.</p>
 <pre class="text"><code>f(x) = 2x + 1</code></pre>
-<p>If the input is <code>x = 3</code>, the output is:</p>
+<p>If the input is <code>x = 3</code>, then:</p>
 <pre class="text"><code>f(3) = 2(3) + 1 = 7</code></pre>
+<p>The input is <code>3</code>. The output is <code>7</code>. The ordered pair is <code>(3, 7)</code>.</p>
+<section id="key-idea" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="key-idea">Key idea</h3>
+<p>A function can have many inputs, but each allowed input has exactly one output.</p>
 </section>
-<section id="graphs" class="level2">
-<h2 class="anchored" data-anchor-id="graphs">Graphs</h2>
+</section>
+<section id="domain-and-range" class="level2">
+<h2 class="anchored" data-anchor-id="domain-and-range">Domain and range</h2>
+<p>The <strong>domain</strong> is the set of allowed inputs. The <strong>range</strong> is the set of outputs the function actually produces.</p>
+<p>For:</p>
+<pre class="text"><code>f(x) = x^2</code></pre>
+<p>over all real numbers:</p>
+<ul>
+<li>domain: all real numbers;</li>
+<li>range: all real numbers greater than or equal to <code>0</code>.</li>
+</ul>
+<p>For:</p>
+<pre class="text"><code>g(x) = sqrt(x - 2)</code></pre>
+<p>over the real numbers:</p>
+<ul>
+<li>domain: <code>x &gt;= 2</code>;</li>
+<li>range: <code>g(x) &gt;= 0</code>.</li>
+</ul>
+<p>Domain restrictions often come from denominators, even roots, and logarithms.</p>
+</section>
+<section id="formula-to-table" class="level2">
+<h2 class="anchored" data-anchor-id="formula-to-table">Formula to table</h2>
+<p>A table makes individual input-output pairs explicit.</p>
+<div id="00344b20" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
+</div>
+</div>
+<p>This table is not the function itself. It is a sample of the function. The formula tells us the output for every allowed input; the table shows selected inputs.</p>
+</section>
+<section id="formula-to-graph" class="level2">
+<h2 class="anchored" data-anchor-id="formula-to-graph">Formula to graph</h2>
 <p>The graph of a function is the set of points:</p>
 <pre class="text"><code>(x, f(x))</code></pre>
-<p>For <code>f(x) = 2x + 1</code>, each x-value creates a y-value.</p>
-<div class="formula-box">
-<p>For a line <code>y = mx + b</code>, <code>m</code> is the slope and <code>b</code> is the y-intercept.</p>
-</div>
-</section>
-<section id="python-connection" class="level2">
-<h2 class="anchored" data-anchor-id="python-connection">Python Connection</h2>
-<div id="c9278b38" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> function_scene</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> function_scene(<span class="st">"2*x + 1"</span>, x_min<span class="op">=-</span><span class="dv">5</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">10</span>, y_max<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-<figure class="figure">
-<p><img src="functions-and-graphs_files/figure-html/cell-2-output-1.png" width="779" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="functions-and-graphs_files/figure-html/cell-2-output-2.png" width="779" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="comparing-functions" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-functions">Comparing Functions</h2>
-<div id="5eb64029" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> compare_functions_scene</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> compare_functions_scene(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"x"</span>, <span class="st">"2*x + 1"</span>, <span class="st">"x**2"</span>),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    x_min<span class="op">=-</span><span class="dv">4</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    x_max<span class="op">=</span><span class="dv">4</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    y_min<span class="op">=-</span><span class="dv">6</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    y_max<span class="op">=</span><span class="dv">12</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The package includes reusable plotting helpers for this input-output view.</p>
+<div id="e47a4faf" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> input_output_scene</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> input_output_scene(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x**2 - 3*x + 2"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    x_value<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    x_min<span class="op">=-</span><span class="dv">2</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    x_max<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    y_min<span class="op">=-</span><span class="dv">2</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    y_max<span class="op">=</span><span class="dv">8</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -971,16 +1014,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>The dashed guides show that input <code>x = 4</code> produces output <code>f(4) = 6</code>.</p>
+</section>
+<section id="intercepts-and-zeros" class="level2">
+<h2 class="anchored" data-anchor-id="intercepts-and-zeros">Intercepts and zeros</h2>
+<p>An <strong>x-intercept</strong> is a point where the graph crosses the x-axis. Algebraically, this means:</p>
+<pre class="text"><code>f(x) = 0</code></pre>
+<p>A <strong>zero</strong> or <strong>root</strong> of a function is an input that makes the output zero.</p>
+<p>For:</p>
+<pre class="text"><code>f(x) = x^2 - 3x + 2</code></pre>
+<p>factor:</p>
+<pre class="text"><code>f(x) = (x - 1)(x - 2)</code></pre>
+<p>The zeros are:</p>
+<pre class="text"><code>x = 1 and x = 2</code></pre>
+<p>The y-intercept occurs at <code>x = 0</code>:</p>
+<pre class="text"><code>f(0) = 2</code></pre>
+</section>
+<section id="average-rate-of-change" class="level2">
+<h2 class="anchored" data-anchor-id="average-rate-of-change">Average rate of change</h2>
+<p>The <strong>average rate of change</strong> from <code>x = a</code> to <code>x = b</code> is:</p>
+<pre class="text"><code>(f(b) - f(a))/(b - a)</code></pre>
+<p>This is the slope of the secant line through <code>(a, f(a))</code> and <code>(b, f(b))</code>.</p>
+<p>For <code>f(x) = x^2</code>, from <code>x = 1</code> to <code>x = 4</code>:</p>
+<pre class="text"><code>(f(4) - f(1))/(4 - 1) = (16 - 1)/3 = 5</code></pre>
+<p>This idea becomes the derivative in calculus when the interval becomes very small.</p>
+</section>
+<section id="comparing-function-families" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-function-families">Comparing function families</h2>
+<p>Different formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.</p>
+<div id="e6540490" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> compare_functions_scene</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> compare_functions_scene(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"x"</span>, <span class="st">"x**2"</span>, <span class="st">"x**3"</span>, <span class="st">"sqrt(x + 4)"</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>(<span class="st">"linear"</span>, <span class="st">"quadratic"</span>, <span class="st">"cubic"</span>, <span class="st">"square root"</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    x_min<span class="op">=-</span><span class="dv">4</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    x_max<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    y_min<span class="op">=-</span><span class="dv">8</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    y_max<span class="op">=</span><span class="dv">16</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Common algebraic function families"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<figure class="figure">
+<p><img src="functions-and-graphs_files/figure-html/cell-4-output-1.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="functions-and-graphs_files/figure-html/cell-4-output-2.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Questions to ask when reading a graph:</p>
+<ul>
+<li>Is it increasing, decreasing, or both?</li>
+<li>Does it have a lowest or highest point?</li>
+<li>Where does it cross the axes?</li>
+<li>Is it symmetric?</li>
+<li>Does it grow slowly, linearly, quadratically, or faster?</li>
+<li>Does the formula restrict the domain?</li>
+</ul>
+</section>
+<section id="vertical-line-test" class="level2">
+<h2 class="anchored" data-anchor-id="vertical-line-test">Vertical line test</h2>
+<p>A graph represents a function of <code>x</code> if every vertical line intersects the graph at most once.</p>
+<p>Why? A vertical line fixes one input <code>x</code>. If it touches the graph twice, then the same input has two outputs, which violates the definition of a function.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Limitation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The vertical line test is a graph test. It does not replace understanding the rule or the domain. A table or formula may be a function even before you draw it.</p>
+</div>
+</div>
+</section>
+<section id="worked-examples" class="level2">
+<h2 class="anchored" data-anchor-id="worked-examples">Worked examples</h2>
+<section id="example-1-evaluate-and-interpret" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-evaluate-and-interpret">Example 1: evaluate and interpret</h3>
+<p>Let:</p>
+<pre class="text"><code>f(x) = 3x - 2</code></pre>
+<p>Then:</p>
+<pre class="text"><code>f(4) = 3(4) - 2 = 10</code></pre>
+<p>The point <code>(4, 10)</code> lies on the graph.</p>
+</section>
+<section id="example-2-domain-from-a-formula" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-domain-from-a-formula">Example 2: domain from a formula</h3>
+<p>Find the real domain:</p>
+<pre class="text"><code>g(x) = 1/(x - 5)</code></pre>
+<p>The denominator cannot be zero:</p>
+<pre class="text"><code>x - 5 != 0</code></pre>
+<p>So:</p>
+<pre class="text"><code>x != 5</code></pre>
+<p>The domain is <code>(-∞, 5) ∪ (5, ∞)</code>.</p>
+</section>
+<section id="example-3-average-rate-of-change" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-average-rate-of-change">Example 3: average rate of change</h3>
+<p>Let:</p>
+<pre class="text"><code>h(x) = x^2 - 1</code></pre>
+<p>Average rate of change from <code>x = 2</code> to <code>x = 5</code>:</p>
+<pre class="text"><code>(h(5) - h(2))/(5 - 2)
+= ((25 - 1) - (4 - 1))/3
+= (24 - 3)/3
+= 7</code></pre>
+</section>
 </section>
 <section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
+<h2 class="anchored" data-anchor-id="common-mistakes">Common mistakes</h2>
 <section id="confusing-input-and-output" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="confusing-input-and-output">Confusing Input and Output</h3>
+<h3 class="anchored" data-anchor-id="confusing-input-and-output">Confusing input and output</h3>
 <p>In <code>f(3) = 7</code>, the input is <code>3</code> and the output is <code>7</code>.</p>
 </section>
 <section id="treating-every-curve-as-a-function" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="treating-every-curve-as-a-function">Treating Every Curve as a Function</h3>
-<p>A graph is a function of <code>x</code> only if each x-value has exactly one y-value.</p>
+<h3 class="anchored" data-anchor-id="treating-every-curve-as-a-function">Treating every curve as a function</h3>
+<p>A circle is not a function of <code>x</code> because many x-values correspond to two y-values.</p>
+</section>
+<section id="forgetting-the-domain" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="forgetting-the-domain">Forgetting the domain</h3>
+<p>The formula <code>1/(x - 5)</code> looks simple, but it excludes <code>x = 5</code>.</p>
+</section>
+<section id="thinking-a-sampled-table-proves-everything" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="thinking-a-sampled-table-proves-everything">Thinking a sampled table proves everything</h3>
+<p>A table shows selected values. It can suggest a pattern, but it does not prove the formula’s behavior for all inputs.</p>
 </section>
 </section>
 <section id="practice" class="level2">
@@ -988,16 +1154,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="practice-box">
 <ol type="1">
 <li>Find <code>f(4)</code> for <code>f(x) = 3x - 2</code>.</li>
+<li>Find <code>g(-1)</code> for <code>g(x) = x^2 + 2x</code>.</li>
 <li>Identify the slope and y-intercept of <code>y = -2x + 5</code>.</li>
-<li>Which grows faster for large positive <code>x</code>: <code>x</code> or <code>x^2</code>?</li>
-<li>Sketch the graph of <code>y = x - 3</code>.</li>
+<li>Find the domain of <code>1/(x + 4)</code>.</li>
+<li>Find the domain of <code>sqrt(2x - 6)</code>.</li>
+<li>Find the zeros of <code>f(x) = x^2 - 5x + 6</code>.</li>
+<li>Compute the average rate of change of <code>f(x)=x^2</code> from <code>x=2</code> to <code>x=6</code>.</li>
+<li>Which grows faster for large positive <code>x</code>: <code>x</code>, <code>x^2</code>, or <code>2^x</code>?</li>
+<li>Give an example of a relation that is not a function.</li>
+<li>Challenge: explain why a vertical line fails to be a function of <code>x</code>.</li>
 </ol>
 </div>
 </section>
 <section id="solutions" class="level2">
 <h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1006,27 +1178,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: <code>10</code>.</p>
-<p><code>f(4) = 3(4) - 2 = 12 - 2 = 10</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: slope <code>-2</code>; y-intercept <code>5</code>.</p>
-<p>The equation is already in slope-intercept form <code>y = mx + b</code>.</p>
+<p><code>f(4) = 3(4) - 2 = 10</code>.</p>
 </div>
 </div>
 </div>
@@ -1036,14 +1190,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<span class="screen-reader-only">Tip</span>Solution 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>x^2</code>.</p>
-<p>For large positive <code>x</code>, squaring grows faster than the linear function <code>x</code>.</p>
+<p><code>g(-1) = (-1)^2 + 2(-1) = 1 - 2 = -1</code>.</p>
 </div>
 </div>
 </div>
@@ -1053,17 +1206,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 4
+<span class="screen-reader-only">Tip</span>Solution 3
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: draw a line with slope <code>1</code> and y-intercept <code>-3</code>.</p>
-<p>Two easy points are <code>(0, -3)</code> and <code>(3, 0)</code>.</p>
+<p>Slope <code>-2</code>; y-intercept <code>5</code>.</p>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The denominator cannot be zero, so <code>x + 4 != 0</code>. Therefore <code>x != -4</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The radicand must be nonnegative: <code>2x - 6 &gt;= 0</code>. Therefore <code>x &gt;= 3</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 6
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Factor: <code>x^2 - 5x + 6 = (x - 2)(x - 3)</code>. The zeros are <code>x = 2</code> and <code>x = 3</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 7
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>(f(6)-f(2))/(6-2) = (36 - 4)/4 = 8</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 8
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>2^x</code> eventually grows faster than any fixed power such as <code>x</code> or <code>x^2</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 9
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The equation <code>x^2 + y^2 = 1</code> describes a circle, which is not a function of <code>x</code> because many x-values have two y-values.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 10
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A vertical line has one x-value and many y-values. A function of <code>x</code> must assign each input x-value exactly one output.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-this-matters-later" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-later">Why this matters later</h2>
+<ul>
+<li><strong>Calculus:</strong> derivatives and integrals are operations on functions.</li>
+<li><strong>Linear algebra:</strong> transformations are functions between vector spaces.</li>
+<li><strong>Statistics:</strong> regression models are functions with fitted parameters.</li>
+<li><strong>Optimization:</strong> objective functions are maximized or minimized over a domain.</li>
+</ul>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>College Algebra 2e</em>, Chapter 3: <a href="https://openstax.org/books/college-algebra-2e/pages/index" class="uri">https://openstax.org/books/college-algebra-2e/pages/index</a></li>
+<li>Gelfand, Saul, and Yaglom, <em>Functions and Graphs</em>.</li>
+<li>Khan Academy, Algebra 2, function transformations and modeling: <a href="https://www.khanacademy.org/algebra2" class="uri">https://www.khanacademy.org/algebra2</a></li>
+</ul>
 
 
 </section>
@@ -1489,13 +1770,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/algebra/expressions-and-equations.html" class="pagination-link" aria-label="Expressions and Equations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Expressions and Equations</span>
+      <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="pagination-link" aria-label="Inequalities and Absolute Value">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Inequalities and Absolute Value</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/algebra/polynomials.html" class="pagination-link" aria-label="Polynomials">
-        <span class="nav-page-text">Polynomials</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/algebra/transformations-composition-inverses.html" class="pagination-link" aria-label="Transformations, Composition, and Inverses">
+        <span class="nav-page-text">Transformations, Composition, and Inverses</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

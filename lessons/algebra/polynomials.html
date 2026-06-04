@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Understand polynomial structure, factoring, roots, and graph behavior.">
+<meta name="description" content="Understand polynomial structure, roots, multiplicity, end behavior, and graph interpretation.">
 
 <title>Polynomials – edu-math</title>
 <style>
@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../lessons/algebra/exponentials-and-logarithms.html" rel="next">
-<link href="../../lessons/algebra/functions-and-graphs.html" rel="prev">
+<link href="../../lessons/algebra/linear-and-quadratic-functions.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7392739307969b5d5c25b2b2fcafa982.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -341,22 +341,6 @@ window.Quarto = {
     <a class="nav-link" href="../../lessons/index.html"> 
 <span class="menu-text">Study Path</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/python/basics.html"> 
-<span class="menu-text">Python</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/algebra/guessing_quiz.html"> 
-<span class="menu-text">Algebra</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/trigonometry/sine-cosine.html"> 
-<span class="menu-text">Trigonometry</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../changelog.html"> 
-<span class="menu-text">Changelog</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -376,7 +360,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/polynomials.html">Polynomials</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/polynomials.html">Polynomials</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -475,14 +459,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inequalities and Absolute Value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformations, Composition, and Inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear and Quadratic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -874,18 +882,31 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#polynomial-structure" id="toc-polynomial-structure" class="nav-link" data-scroll-target="#polynomial-structure">Polynomial Structure</a></li>
-  <li><a href="#factored-form-and-roots" id="toc-factored-form-and-roots" class="nav-link" data-scroll-target="#factored-form-and-roots">Factored Form and Roots</a></li>
-  <li><a href="#python-connection" id="toc-python-connection" class="nav-link" data-scroll-target="#python-connection">Python Connection</a></li>
-  <li><a href="#visual-model" id="toc-visual-model" class="nav-link" data-scroll-target="#visual-model">Visual Model</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a>
+  <li><a href="#polynomial-vocabulary" id="toc-polynomial-vocabulary" class="nav-link" data-scroll-target="#polynomial-vocabulary">Polynomial vocabulary</a></li>
+  <li><a href="#factored-form-roots-and-x-intercepts" id="toc-factored-form-roots-and-x-intercepts" class="nav-link" data-scroll-target="#factored-form-roots-and-x-intercepts">Factored form, roots, and x-intercepts</a></li>
+  <li><a href="#building-polynomials-from-roots" id="toc-building-polynomials-from-roots" class="nav-link" data-scroll-target="#building-polynomials-from-roots">Building polynomials from roots</a></li>
+  <li><a href="#multiplicity" id="toc-multiplicity" class="nav-link" data-scroll-target="#multiplicity">Multiplicity</a></li>
+  <li><a href="#end-behavior" id="toc-end-behavior" class="nav-link" data-scroll-target="#end-behavior">End behavior</a></li>
+  <li><a href="#polynomial-division-and-the-factor-theorem" id="toc-polynomial-division-and-the-factor-theorem" class="nav-link" data-scroll-target="#polynomial-division-and-the-factor-theorem">Polynomial division and the Factor Theorem</a></li>
+  <li><a href="#worked-examples" id="toc-worked-examples" class="nav-link" data-scroll-target="#worked-examples">Worked examples</a>
   <ul class="collapse">
-  <li><a href="#forgetting-to-distribute-every-term" id="toc-forgetting-to-distribute-every-term" class="nav-link" data-scroll-target="#forgetting-to-distribute-every-term">Forgetting to Distribute Every Term</a></li>
+  <li><a href="#example-1-summarize-a-polynomial" id="toc-example-1-summarize-a-polynomial" class="nav-link" data-scroll-target="#example-1-summarize-a-polynomial">Example 1: summarize a polynomial</a></li>
+  <li><a href="#example-2-roots-from-factored-form" id="toc-example-2-roots-from-factored-form" class="nav-link" data-scroll-target="#example-2-roots-from-factored-form">Example 2: roots from factored form</a></li>
+  <li><a href="#example-3-construct-from-roots" id="toc-example-3-construct-from-roots" class="nav-link" data-scroll-target="#example-3-construct-from-roots">Example 3: construct from roots</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common mistakes</a>
+  <ul class="collapse">
+  <li><a href="#confusing-roots-and-coefficients" id="toc-confusing-roots-and-coefficients" class="nav-link" data-scroll-target="#confusing-roots-and-coefficients">Confusing roots and coefficients</a></li>
+  <li><a href="#forgetting-multiplicity" id="toc-forgetting-multiplicity" class="nav-link" data-scroll-target="#forgetting-multiplicity">Forgetting multiplicity</a></li>
+  <li><a href="#predicting-end-behavior-from-the-constant-term" id="toc-predicting-end-behavior-from-the-constant-term" class="nav-link" data-scroll-target="#predicting-end-behavior-from-the-constant-term">Predicting end behavior from the constant term</a></li>
+  <li><a href="#assuming-every-root-is-real" id="toc-assuming-every-root-is-real" class="nav-link" data-scroll-target="#assuming-every-root-is-real">Assuming every root is real</a></li>
   </ul></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/polynomials.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -893,14 +914,14 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/polynomials.html">Polynomials</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/polynomials.html">Polynomials</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Polynomials</h1>
 </div>
 
 <div>
   <div class="description">
-    Understand polynomial structure, factoring, roots, and graph behavior.
+    Understand polynomial structure, roots, multiplicity, end behavior, and graph interpretation.
   </div>
 </div>
 
@@ -918,84 +939,268 @@ window.Quarto = {
 
 
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Recognize polynomial terms, degree, and leading coefficient.</li>
-<li>Expand factored polynomial expressions.</li>
-<li>Interpret roots as x-intercepts.</li>
-<li>Connect factored and expanded forms.</li>
+<li>identify degree, leading coefficient, terms, and constant term;</li>
+<li>expand, factor, and divide polynomial expressions;</li>
+<li>connect roots, factors, and x-intercepts;</li>
+<li>interpret root multiplicity from a graph;</li>
+<li>predict end behavior from degree and leading coefficient;</li>
+<li>use SymPy helpers to summarize and visualize polynomial structure.</li>
 </ul>
 </section>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Polynomials are simple enough to compute with but flexible enough to model curves. They appear in approximation, optimization, numerical methods, and many applied models.</p>
+<p>Polynomials are algebra’s most flexible elementary functions. They are built from powers of <code>x</code>, but they can approximate complicated functions, model smooth curves, and support numerical methods.</p>
+<p>In advanced math, polynomials appear in:</p>
+<ul>
+<li>Taylor approximations in calculus;</li>
+<li>characteristic polynomials in linear algebra;</li>
+<li>regression and interpolation in statistics/numerical methods;</li>
+<li>optimization models and local approximations.</li>
+</ul>
 </section>
-<section id="polynomial-structure" class="level2">
-<h2 class="anchored" data-anchor-id="polynomial-structure">Polynomial Structure</h2>
-<p>A polynomial is a sum of terms like:</p>
-<pre class="text"><code>constant * x^nonnegative_integer</code></pre>
+<section id="polynomial-vocabulary" class="level2">
+<h2 class="anchored" data-anchor-id="polynomial-vocabulary">Polynomial vocabulary</h2>
+<p>A polynomial in one variable has the form:</p>
+<pre class="text"><code>a_n*x^n + a_{n-1}*x^{n-1} + ... + a_1*x + a_0</code></pre>
+<p>where:</p>
+<ul>
+<li>exponents are nonnegative integers;</li>
+<li>coefficients are constants;</li>
+<li>the degree is the highest exponent with a nonzero coefficient;</li>
+<li>the leading coefficient is the coefficient of the highest-power term.</li>
+</ul>
 <p>Example:</p>
-<pre class="text"><code>2x^3 - 5x^2 + x - 7</code></pre>
-<p>The highest power is the <strong>degree</strong>. This polynomial has degree <code>3</code>.</p>
+<pre class="text"><code>2x^4 - 3x^2 + 7x - 5</code></pre>
+<p>has degree <code>4</code>, leading coefficient <code>2</code>, and constant term <code>-5</code>.</p>
+<div id="5c2013ae" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_summary</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"2*x**4 - 3*x**2 + 7*x - 5"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>summary.degree, summary.leading_coefficient</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(4, 2)</code></pre>
+</div>
+</div>
 </section>
-<section id="factored-form-and-roots" class="level2">
-<h2 class="anchored" data-anchor-id="factored-form-and-roots">Factored Form and Roots</h2>
-<p>The polynomial:</p>
-<pre class="text"><code>(x - 2)(x + 3)</code></pre>
+<section id="factored-form-roots-and-x-intercepts" class="level2">
+<h2 class="anchored" data-anchor-id="factored-form-roots-and-x-intercepts">Factored form, roots, and x-intercepts</h2>
+<p>If a polynomial has a factor <code>(x - r)</code>, then <code>r</code> is a root:</p>
+<pre class="text"><code>p(r) = 0</code></pre>
+<p>For example:</p>
+<pre class="text"><code>p(x) = (x - 2)(x + 3)</code></pre>
 <p>has roots:</p>
 <pre class="text"><code>x = 2 and x = -3</code></pre>
-<p>because either factor can become zero.</p>
 <p>Expanded:</p>
 <pre class="text"><code>(x - 2)(x + 3) = x^2 + x - 6</code></pre>
-</section>
-<section id="python-connection" class="level2">
-<h2 class="anchored" data-anchor-id="python-connection">Python Connection</h2>
-<div id="e7439556" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_expression_exercise</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> expand_expression_exercise(seed<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>exercise.prompt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>'Expand: (x - 2)**2'</code></pre>
-</div>
-</div>
-<div id="b8a890ac" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>exercise.expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
-<p><span class="math inline">\(\displaystyle x^{2} - 4 x + 4\)</span></p>
-</div>
-</div>
-</section>
-<section id="visual-model" class="level2">
-<h2 class="anchored" data-anchor-id="visual-model">Visual Model</h2>
-<div id="1c74ef3b" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> function_scene</span>
+<p>The factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.</p>
+<div id="3d2ffa71" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_root_scene</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> function_scene(<span class="st">"(x - 2)*(x + 3)"</span>, x_min<span class="op">=-</span><span class="dv">5</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">10</span>, y_max<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)*(x + 3)"</span>, x_min<span class="op">=-</span><span class="dv">5</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">10</span>, y_max<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
-<p><img src="polynomials_files/figure-html/cell-4-output-1.png" width="779" height="491" class="figure-img"></p>
+<p><img src="polynomials_files/figure-html/cell-3-output-1.png" width="779" height="491" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="polynomials_files/figure-html/cell-4-output-2.png" width="779" height="491" class="figure-img"></p>
+<p><img src="polynomials_files/figure-html/cell-3-output-2.png" width="779" height="491" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The graph crosses the x-axis at the roots.</p>
+</section>
+<section id="building-polynomials-from-roots" class="level2">
+<h2 class="anchored" data-anchor-id="building-polynomials-from-roots">Building polynomials from roots</h2>
+<p>If the roots are <code>-1</code>, <code>2</code>, and <code>4</code>, then one polynomial with those roots is:</p>
+<pre class="text"><code>(x + 1)(x - 2)(x - 4)</code></pre>
+<div id="fc8ae215" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_from_roots</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>polynomial_from_roots((<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle x^{3} - 5 x^{2} + 2 x + 8\)</span></p>
+</div>
+</div>
+<p>Multiplying by a nonzero leading coefficient changes the vertical scale but not the roots.</p>
+</section>
+<section id="multiplicity" class="level2">
+<h2 class="anchored" data-anchor-id="multiplicity">Multiplicity</h2>
+<p>A root can occur more than once. The number of times it appears as a factor is called its <strong>multiplicity</strong>.</p>
+<p>Example:</p>
+<pre class="text"><code>p(x) = (x - 2)^2(x + 1)</code></pre>
+<p>Root <code>2</code> has multiplicity <code>2</code>. Root <code>-1</code> has multiplicity <code>1</code>.</p>
+<div id="148da94a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"(x - 2)**2*(x + 1)"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>summary.root_multiplicities</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>((-1, 1), (2, 2))</code></pre>
+</div>
+</div>
+<p>Graph behavior:</p>
+<ul>
+<li>odd multiplicity: the graph usually crosses the x-axis;</li>
+<li>even multiplicity: the graph touches/bounces off the x-axis.</li>
+</ul>
+<div id="6cd57f7b" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)**2*(x + 1)"</span>, x_min<span class="op">=-</span><span class="dv">4</span>, x_max<span class="op">=</span><span class="dv">4</span>, y_min<span class="op">=-</span><span class="dv">10</span>, y_max<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-6-output-1.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-6-output-2.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="end-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="end-behavior">End behavior</h2>
+<p>For large positive or negative inputs, the leading term dominates.</p>
+<p>For:</p>
+<pre class="text"><code>p(x) = -2x^5 + 3x^2 - 1</code></pre>
+<p>the leading term is <code>-2x^5</code>. So for very large <code>|x|</code>, the graph behaves like <code>-2x^5</code>.</p>
+<p>Rules:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Degree</th>
+<th style="text-align: right;">Leading coefficient</th>
+<th>Left end</th>
+<th>Right end</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>even</td>
+<td style="text-align: right;">positive</td>
+<td>up</td>
+<td>up</td>
+</tr>
+<tr class="even">
+<td>even</td>
+<td style="text-align: right;">negative</td>
+<td>down</td>
+<td>down</td>
+</tr>
+<tr class="odd">
+<td>odd</td>
+<td style="text-align: right;">positive</td>
+<td>down</td>
+<td>up</td>
+</tr>
+<tr class="even">
+<td>odd</td>
+<td style="text-align: right;">negative</td>
+<td>up</td>
+<td>down</td>
+</tr>
+</tbody>
+</table>
+<div id="6c87840e" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> compare_functions_scene</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> compare_functions_scene(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"x**4"</span>, <span class="st">"-x**4"</span>, <span class="st">"x**3"</span>, <span class="st">"-x**3"</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>(<span class="st">"even positive"</span>, <span class="st">"even negative"</span>, <span class="st">"odd positive"</span>, <span class="st">"odd negative"</span>),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    x_min<span class="op">=-</span><span class="dv">3</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    x_max<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    y_min<span class="op">=-</span><span class="dv">20</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    y_max<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Polynomial end behavior patterns"</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-7-output-1.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-7-output-2.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="polynomial-division-and-the-factor-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="polynomial-division-and-the-factor-theorem">Polynomial division and the Factor Theorem</h2>
+<p>The <strong>Factor Theorem</strong> says:</p>
+<pre class="text"><code>(x - r) is a factor of p(x)  exactly when  p(r) = 0</code></pre>
+<p>Example:</p>
+<pre class="text"><code>p(x) = x^3 - 3x^2 + 4</code></pre>
+<p>Check <code>x = 2</code>:</p>
+<pre class="text"><code>p(2) = 8 - 12 + 4 = 0</code></pre>
+<p>So <code>(x - 2)</code> is a factor. In fact:</p>
+<pre class="text"><code>x^3 - 3x^2 + 4 = (x - 2)^2(x + 1)</code></pre>
+</section>
+<section id="worked-examples" class="level2">
+<h2 class="anchored" data-anchor-id="worked-examples">Worked examples</h2>
+<section id="example-1-summarize-a-polynomial" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-summarize-a-polynomial">Example 1: summarize a polynomial</h3>
+<pre class="text"><code>p(x) = 4x^5 - x^2 + 8</code></pre>
+<ul>
+<li>degree: <code>5</code>;</li>
+<li>leading coefficient: <code>4</code>;</li>
+<li>constant term: <code>8</code>;</li>
+<li>end behavior: odd degree and positive leading coefficient, so left end down and right end up.</li>
+</ul>
+</section>
+<section id="example-2-roots-from-factored-form" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-roots-from-factored-form">Example 2: roots from factored form</h3>
+<pre class="text"><code>p(x) = -3(x - 1)(x + 2)^2</code></pre>
+<p>Roots:</p>
+<ul>
+<li><code>x = 1</code>, multiplicity <code>1</code>;</li>
+<li><code>x = -2</code>, multiplicity <code>2</code>.</li>
+</ul>
+<p>The graph crosses at <code>x=1</code> and bounces at <code>x=-2</code>.</p>
+</section>
+<section id="example-3-construct-from-roots" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-construct-from-roots">Example 3: construct from roots</h3>
+<p>Build a monic polynomial with roots <code>-2</code>, <code>0</code>, and <code>5</code>:</p>
+<pre class="text"><code>p(x) = (x + 2)x(x - 5)</code></pre>
+<p>Expand:</p>
+<pre class="text"><code>x(x + 2)(x - 5) = x(x^2 - 3x - 10) = x^3 - 3x^2 - 10x</code></pre>
+</section>
 </section>
 <section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<section id="forgetting-to-distribute-every-term" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="forgetting-to-distribute-every-term">Forgetting to Distribute Every Term</h3>
-<p>When expanding <code>(x + 2)(x + 3)</code>, multiply each term in the first factor by each term in the second factor.</p>
+<h2 class="anchored" data-anchor-id="common-mistakes">Common mistakes</h2>
+<section id="confusing-roots-and-coefficients" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="confusing-roots-and-coefficients">Confusing roots and coefficients</h3>
+<p>The roots are input values where the output is zero. They are not usually the same as the coefficients.</p>
+</section>
+<section id="forgetting-multiplicity" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="forgetting-multiplicity">Forgetting multiplicity</h3>
+<p>The root <code>2</code> in <code>(x - 2)^2</code> is not just a root; it is a repeated root. This changes the graph’s behavior.</p>
+</section>
+<section id="predicting-end-behavior-from-the-constant-term" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="predicting-end-behavior-from-the-constant-term">Predicting end behavior from the constant term</h3>
+<p>The leading term controls end behavior, not the constant term.</p>
+</section>
+<section id="assuming-every-root-is-real" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="assuming-every-root-is-real">Assuming every root is real</h3>
+<p>Polynomials can have complex roots. A degree <code>n</code> polynomial has <code>n</code> complex roots counted with multiplicity, but not necessarily <code>n</code> real roots.</p>
 </section>
 </section>
 <section id="practice" class="level2">
@@ -1005,7 +1210,13 @@ window.Quarto = {
 <li>Expand <code>(x + 1)(x + 4)</code>.</li>
 <li>Find the roots of <code>(x - 5)(x + 2)</code>.</li>
 <li>What is the degree of <code>4x^5 - x^2 + 8</code>?</li>
-<li>Does <code>x = 3</code> make <code>(x - 3)(x + 1)</code> equal zero?</li>
+<li>What is the leading coefficient of <code>-7x^4 + 3x - 1</code>?</li>
+<li>Build a monic polynomial with roots <code>1</code> and <code>-3</code>.</li>
+<li>Find the multiplicity of each root in <code>(x - 2)^3(x + 1)^2</code>.</li>
+<li>Predict the end behavior of <code>-x^6 + 2x - 1</code>.</li>
+<li>Predict the end behavior of <code>3x^5 - x^2</code>.</li>
+<li>Use the Factor Theorem to decide whether <code>(x - 2)</code> is a factor of <code>x^3 - 2x^2 + x - 2</code>.</li>
+<li>Challenge: explain why a degree <code>3</code> polynomial with real coefficients must have at least one real root.</li>
 </ol>
 </div>
 </section>
@@ -1023,8 +1234,7 @@ window.Quarto = {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>x^2 + 5x + 4</code>.</p>
-<p>Multiply each term: <code>x*x + 4x + 1x + 4</code>.</p>
+<p><code>(x + 1)(x + 4) = x^2 + 5x + 4</code>.</p>
 </div>
 </div>
 </div>
@@ -1040,8 +1250,7 @@ window.Quarto = {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>x = 5</code> and <code>x = -2</code>.</p>
-<p>A product is zero when at least one factor is zero.</p>
+<p>Roots are <code>x = 5</code> and <code>x = -2</code>.</p>
 </div>
 </div>
 </div>
@@ -1057,8 +1266,7 @@ window.Quarto = {
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: degree <code>5</code>.</p>
-<p>The highest power of <code>x</code> is <code>x^5</code>.</p>
+<p>Degree <code>5</code>.</p>
 </div>
 </div>
 </div>
@@ -1074,11 +1282,125 @@ window.Quarto = {
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: yes.</p>
-<p>Substitute <code>x = 3</code>: <code>(3 - 3)(3 + 1) = 0 * 4 = 0</code>.</p>
+<p>The leading coefficient is <code>-7</code>.</p>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>(x - 1)(x + 3) = x^2 + 2x - 3</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 6
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Root <code>2</code> has multiplicity <code>3</code>; root <code>-1</code> has multiplicity <code>2</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 7
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Even degree with negative leading coefficient: both ends go down.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 8
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Odd degree with positive leading coefficient: left end down, right end up.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 9
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Evaluate at <code>x=2</code>:</p>
+<p><code>2^3 - 2(2^2) + 2 - 2 = 8 - 8 + 2 - 2 = 0</code>.</p>
+<p>So <code>(x - 2)</code> is a factor.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 10
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>An odd-degree polynomial with real coefficients has opposite end behavior on the left and right. Because polynomial graphs are continuous, the graph must cross the x-axis at least once.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-this-matters-later" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-later">Why this matters later</h2>
+<ul>
+<li><strong>Calculus:</strong> polynomials are easy to differentiate and integrate and are used in Taylor approximations.</li>
+<li><strong>Linear algebra:</strong> eigenvalues are roots of characteristic polynomials.</li>
+<li><strong>Statistics:</strong> polynomial regression models curved relationships.</li>
+<li><strong>Numerical methods:</strong> interpolation and root-finding often begin with polynomial approximations.</li>
+</ul>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>College Algebra 2e</em>, polynomial functions: <a href="https://openstax.org/books/college-algebra-2e/pages/index" class="uri">https://openstax.org/books/college-algebra-2e/pages/index</a></li>
+<li>OpenStax, <em>Precalculus</em>, polynomial and rational functions: <a href="https://openstax.org/books/precalculus/pages/index" class="uri">https://openstax.org/books/precalculus/pages/index</a></li>
+<li>Paul’s Online Math Notes, polynomial functions: <a href="https://tutorial.math.lamar.edu/" class="uri">https://tutorial.math.lamar.edu/</a></li>
+</ul>
 
 
 </section>
@@ -1504,8 +1826,8 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/algebra/functions-and-graphs.html" class="pagination-link" aria-label="Functions and Graphs">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Functions and Graphs</span>
+      <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="pagination-link" aria-label="Linear and Quadratic Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear and Quadratic Functions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

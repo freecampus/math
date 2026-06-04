@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Learn how expressions differ from equations and how to solve linear equations.">
+<meta name="description" content="Build symbolic fluency with expressions, identities, equations, and solution sets.">
 
 <title>Expressions and Equations – edu-math</title>
 <style>
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/algebra/functions-and-graphs.html" rel="next">
-<link href="../../lessons/python/plotting.html" rel="prev">
+<link href="../../lessons/algebra/inequalities-and-absolute-value.html" rel="next">
+<link href="../../lessons/algebra/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7392739307969b5d5c25b2b2fcafa982.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cf759f11948af503b8e671fe696e347a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -312,22 +312,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../lessons/index.html"> 
 <span class="menu-text">Study Path</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/python/basics.html"> 
-<span class="menu-text">Python</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/algebra/guessing_quiz.html"> 
-<span class="menu-text">Algebra</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../lessons/trigonometry/sine-cosine.html"> 
-<span class="menu-text">Trigonometry</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../changelog.html"> 
-<span class="menu-text">Changelog</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -347,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Expressions and Equations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Expressions and Equations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -446,14 +430,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inequalities and Absolute Value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformations, Composition, and Inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear and Quadratic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -845,23 +853,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#expressions" id="toc-expressions" class="nav-link" data-scroll-target="#expressions">Expressions</a></li>
-  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a>
+  <li><a href="#expressions-equations-and-identities" id="toc-expressions-equations-and-identities" class="nav-link" data-scroll-target="#expressions-equations-and-identities">Expressions, equations, and identities</a></li>
+  <li><a href="#variables-constants-and-parameters" id="toc-variables-constants-and-parameters" class="nav-link" data-scroll-target="#variables-constants-and-parameters">Variables, constants, and parameters</a></li>
+  <li><a href="#evaluating-an-expression" id="toc-evaluating-an-expression" class="nav-link" data-scroll-target="#evaluating-an-expression">Evaluating an expression</a></li>
+  <li><a href="#equivalent-expressions" id="toc-equivalent-expressions" class="nav-link" data-scroll-target="#equivalent-expressions">Equivalent expressions</a></li>
+  <li><a href="#expanding-factoring-and-simplifying" id="toc-expanding-factoring-and-simplifying" class="nav-link" data-scroll-target="#expanding-factoring-and-simplifying">Expanding, factoring, and simplifying</a>
   <ul class="collapse">
-  <li><a href="#key-idea" id="toc-key-idea" class="nav-link" data-scroll-target="#key-idea">Key Idea</a></li>
+  <li><a href="#expanding" id="toc-expanding" class="nav-link" data-scroll-target="#expanding">Expanding</a></li>
+  <li><a href="#factoring" id="toc-factoring" class="nav-link" data-scroll-target="#factoring">Factoring</a></li>
+  <li><a href="#simplifying" id="toc-simplifying" class="nav-link" data-scroll-target="#simplifying">Simplifying</a></li>
   </ul></li>
-  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example">Worked Example</a></li>
-  <li><a href="#python-connection" id="toc-python-connection" class="nav-link" data-scroll-target="#python-connection">Python Connection</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a>
+  <li><a href="#equations-and-solution-sets" id="toc-equations-and-solution-sets" class="nav-link" data-scroll-target="#equations-and-solution-sets">Equations and solution sets</a>
   <ul class="collapse">
-  <li><a href="#changing-only-one-side" id="toc-changing-only-one-side" class="nav-link" data-scroll-target="#changing-only-one-side">Changing Only One Side</a></li>
-  <li><a href="#losing-the-negative-sign" id="toc-losing-the-negative-sign" class="nav-link" data-scroll-target="#losing-the-negative-sign">Losing the Negative Sign</a></li>
+  <li><a href="#balanced-operations" id="toc-balanced-operations" class="nav-link" data-scroll-target="#balanced-operations">Balanced operations</a></li>
+  </ul></li>
+  <li><a href="#identities-contradictions-and-conditional-equations" id="toc-identities-contradictions-and-conditional-equations" class="nav-link" data-scroll-target="#identities-contradictions-and-conditional-equations">Identities, contradictions, and conditional equations</a>
+  <ul class="collapse">
+  <li><a href="#identity" id="toc-identity" class="nav-link" data-scroll-target="#identity">Identity</a></li>
+  <li><a href="#contradiction" id="toc-contradiction" class="nav-link" data-scroll-target="#contradiction">Contradiction</a></li>
+  <li><a href="#conditional-equation" id="toc-conditional-equation" class="nav-link" data-scroll-target="#conditional-equation">Conditional equation</a></li>
+  </ul></li>
+  <li><a href="#domain-restrictions" id="toc-domain-restrictions" class="nav-link" data-scroll-target="#domain-restrictions">Domain restrictions</a></li>
+  <li><a href="#sympy-as-a-verification-tool" id="toc-sympy-as-a-verification-tool" class="nav-link" data-scroll-target="#sympy-as-a-verification-tool">SymPy as a verification tool</a></li>
+  <li><a href="#worked-examples" id="toc-worked-examples" class="nav-link" data-scroll-target="#worked-examples">Worked examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-expand-and-interpret" id="toc-example-1-expand-and-interpret" class="nav-link" data-scroll-target="#example-1-expand-and-interpret">Example 1: expand and interpret</a></li>
+  <li><a href="#example-2-solve-a-linear-equation" id="toc-example-2-solve-a-linear-equation" class="nav-link" data-scroll-target="#example-2-solve-a-linear-equation">Example 2: solve a linear equation</a></li>
+  <li><a href="#example-3-classify-an-equation" id="toc-example-3-classify-an-equation" class="nav-link" data-scroll-target="#example-3-classify-an-equation">Example 3: classify an equation</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common mistakes</a>
+  <ul class="collapse">
+  <li><a href="#changing-only-one-side" id="toc-changing-only-one-side" class="nav-link" data-scroll-target="#changing-only-one-side">Changing only one side</a></li>
+  <li><a href="#losing-a-negative-sign" id="toc-losing-a-negative-sign" class="nav-link" data-scroll-target="#losing-a-negative-sign">Losing a negative sign</a></li>
+  <li><a href="#cancelling-terms-instead-of-factors" id="toc-cancelling-terms-instead-of-factors" class="nav-link" data-scroll-target="#cancelling-terms-instead-of-factors">Cancelling terms instead of factors</a></li>
+  <li><a href="#ignoring-restrictions" id="toc-ignoring-restrictions" class="nav-link" data-scroll-target="#ignoring-restrictions">Ignoring restrictions</a></li>
   </ul></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
-  <li><a href="#quick-quiz" id="toc-quick-quiz" class="nav-link" data-scroll-target="#quick-quiz">Quick Quiz</a></li>
+  <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/expressions-and-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -869,14 +901,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Expressions and Equations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/expressions-and-equations.html">Expressions and Equations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Expressions and Equations</h1>
 </div>
 
 <div>
   <div class="description">
-    Learn how expressions differ from equations and how to solve linear equations.
+    Build symbolic fluency with expressions, identities, equations, and solution sets.
   </div>
 </div>
 
@@ -894,41 +926,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Distinguish an expression from an equation.</li>
-<li>Evaluate expressions by substituting values.</li>
-<li>Solve one-variable linear equations.</li>
-<li>Check whether a proposed solution is correct.</li>
+<li>distinguish expressions, equations, identities, contradictions, and solution sets;</li>
+<li>evaluate expressions by substitution while tracking the order of operations;</li>
+<li>recognize when two expressions are equivalent;</li>
+<li>expand, factor, collect, and simplify basic algebraic expressions;</li>
+<li>solve one-variable linear equations and check solutions;</li>
+<li>use SymPy to verify algebraic work without replacing mathematical reasoning.</li>
 </ul>
 </section>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Algebra is the language used to turn a quantitative situation into something we can compute. If a portfolio grows by a fixed amount, if a loan balance changes each month, or if a model has one unknown parameter, algebra gives us the structure for writing and solving the problem.</p>
+<p>Graduate-level quantitative courses assume that algebra is automatic. In calculus, you rearrange expressions before differentiating. In statistics, you solve for parameters and simplify likelihoods. In optimization, you transform constraints. In linear algebra, you solve systems whose entries may be symbolic.</p>
+<p>The goal is not to memorize isolated tricks. The goal is to develop a reliable habit:</p>
+<blockquote class="blockquote">
+<p>Convert a problem into symbols, transform the symbols without changing their meaning, and interpret the result in context.</p>
+</blockquote>
 </section>
-<section id="expressions" class="level2">
-<h2 class="anchored" data-anchor-id="expressions">Expressions</h2>
-<p>An <strong>expression</strong> is a mathematical phrase. It can contain numbers, variables, and operations, but it does not make a complete true-or-false statement.</p>
+<section id="expressions-equations-and-identities" class="level2">
+<h2 class="anchored" data-anchor-id="expressions-equations-and-identities">Expressions, equations, and identities</h2>
+<p>An <strong>expression</strong> is a mathematical phrase. It can be evaluated, simplified, or transformed, but by itself it is not true or false.</p>
 <p>Examples:</p>
 <pre class="text"><code>3x + 2
 x^2 - 5x + 6
-2(a + b)</code></pre>
-<p>If <code>x = 4</code>, then <code>3x + 2</code> evaluates to:</p>
-<pre class="text"><code>3(4) + 2 = 14</code></pre>
-</section>
-<section id="equations" class="level2">
-<h2 class="anchored" data-anchor-id="equations">Equations</h2>
-<p>An <strong>equation</strong> says that two expressions are equal.</p>
+2(a + b)
+sqrt(x - 1)</code></pre>
+<p>An <strong>equation</strong> states that two expressions are equal:</p>
 <pre class="text"><code>3x + 2 = 14</code></pre>
-<p>Solving an equation means finding the value of the variable that makes the statement true.</p>
-<section id="key-idea" class="level3 key-idea">
-<h3 class="anchored" data-anchor-id="key-idea">Key Idea</h3>
-<p>Whatever you do to one side of an equation, do the same thing to the other side. This keeps the equality balanced.</p>
+<p>An equation may be true for one value, many values, all values, or no values.</p>
+<p>An <strong>identity</strong> is true for every value in its domain:</p>
+<pre class="text"><code>2(x + 3) = 2x + 6</code></pre>
+<p>A <strong>contradiction</strong> is never true:</p>
+<pre class="text"><code>x + 1 = x + 2</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why this distinction matters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you simplify an expression, you are changing its form. When you solve an equation, you are finding values that make a statement true. Confusing these two tasks is one of the most common causes of algebra mistakes.</p>
+</div>
+</div>
+</section>
+<section id="variables-constants-and-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="variables-constants-and-parameters">Variables, constants, and parameters</h2>
+<p>A <strong>variable</strong> represents a quantity that can change. A <strong>constant</strong> is fixed. A <strong>parameter</strong> is fixed during one problem but may vary across problems.</p>
+<p>For example, in</p>
+<pre class="text"><code>f(x) = ax + b</code></pre>
+<p><code>x</code> is usually the input variable, while <code>a</code> and <code>b</code> are parameters. Changing <code>x</code> moves along one line. Changing <code>a</code> or <code>b</code> changes the line itself.</p>
+</section>
+<section id="evaluating-an-expression" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-an-expression">Evaluating an expression</h2>
+<p>To evaluate an expression, substitute a value for the variable and follow the order of operations.</p>
+<p>Example:</p>
+<pre class="text"><code>2x^2 - 3x + 1, when x = 4</code></pre>
+<p>Substitute:</p>
+<pre class="text"><code>2(4)^2 - 3(4) + 1</code></pre>
+<p>Compute powers before multiplication:</p>
+<pre class="text"><code>2(16) - 12 + 1 = 32 - 12 + 1 = 21</code></pre>
+<p>Use a table when you want to see many inputs at once.</p>
+<div id="d3988f9c" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"2*x**2 - 3*x + 1"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>((-2.0, 15.0),
+ (-1.0, 6.0),
+ (0.0, 1.0),
+ (1.0, 0.0),
+ (2.0, 3.0),
+ (3.0, 10.0),
+ (4.0, 21.0))</code></pre>
+</div>
+</div>
+</section>
+<section id="equivalent-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="equivalent-expressions">Equivalent expressions</h2>
+<p>Two expressions are <strong>equivalent</strong> if they produce the same value for every allowed input.</p>
+<p>For example:</p>
+<pre class="text"><code>(x + 1)^2</code></pre>
+<p>and</p>
+<pre class="text"><code>x^2 + 2x + 1</code></pre>
+<p>are equivalent. One form is factored around a repeated linear factor; the other form is expanded.</p>
+<div id="8ae260ab" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> compare_functions_scene</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> compare_functions_scene(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"(x + 1)**2"</span>, <span class="st">"x**2 + 2*x + 1"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>(<span class="st">"factored form"</span>, <span class="st">"expanded form"</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    x_min<span class="op">=-</span><span class="dv">5</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    x_max<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    y_min<span class="op">=-</span><span class="dv">1</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    y_max<span class="op">=</span><span class="dv">16</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Equivalent expressions have the same graph"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<figure class="figure">
+<p><img src="expressions-and-equations_files/figure-html/cell-3-output-1.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="expressions-and-equations_files/figure-html/cell-3-output-2.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The graph is the same because the two formulas define the same function. The forms emphasize different information:</p>
+<ul>
+<li><code>(x + 1)^2</code> makes the root <code>x = -1</code> visible.</li>
+<li><code>x^2 + 2x + 1</code> makes the coefficients visible.</li>
+</ul>
+</section>
+<section id="expanding-factoring-and-simplifying" class="level2">
+<h2 class="anchored" data-anchor-id="expanding-factoring-and-simplifying">Expanding, factoring, and simplifying</h2>
+<p>Algebra often asks you to choose the most useful form.</p>
+<section id="expanding" class="level3">
+<h3 class="anchored" data-anchor-id="expanding">Expanding</h3>
+<p>Expanding uses distribution:</p>
+<pre class="text"><code>(x + 3)(x - 2)</code></pre>
+<p>Multiply every term in the first factor by every term in the second:</p>
+<pre class="text"><code>x*x + x*(-2) + 3*x + 3*(-2)
+= x^2 - 2x + 3x - 6
+= x^2 + x - 6</code></pre>
+</section>
+<section id="factoring" class="level3">
+<h3 class="anchored" data-anchor-id="factoring">Factoring</h3>
+<p>Factoring reverses expansion:</p>
+<pre class="text"><code>x^2 + x - 6 = (x + 3)(x - 2)</code></pre>
+<p>This form immediately tells us the zeros: <code>x = -3</code> and <code>x = 2</code>.</p>
+</section>
+<section id="simplifying" class="level3">
+<h3 class="anchored" data-anchor-id="simplifying">Simplifying</h3>
+<p>Simplifying means rewriting an expression in a cleaner equivalent form. It does not always mean "shorter"; it means "more useful for the task."</p>
+<div id="0f5a5266" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>sp.expand((x <span class="op">+</span> <span class="dv">3</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">2</span>)), sp.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(x**2 + x - 6, (x - 2)*(x + 3))</code></pre>
+</div>
+</div>
 </section>
 </section>
-<section id="worked-example" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example">Worked Example</h2>
-<p>Solve:</p>
+<section id="equations-and-solution-sets" class="level2">
+<h2 class="anchored" data-anchor-id="equations-and-solution-sets">Equations and solution sets</h2>
+<p>Solving an equation means finding all values that make it true.</p>
+<p>Consider:</p>
 <pre class="text"><code>3x + 2 = 14</code></pre>
 <p>Subtract <code>2</code> from both sides:</p>
 <pre class="text"><code>3x = 12</code></pre>
@@ -936,42 +1092,126 @@ x^2 - 5x + 6
 <pre class="text"><code>x = 4</code></pre>
 <p>Check:</p>
 <pre class="text"><code>3(4) + 2 = 14</code></pre>
-<p>So the solution is <code>x = 4</code>.</p>
+<p>So the solution set is <code>{4}</code>.</p>
+<section id="balanced-operations" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="balanced-operations">Balanced operations</h3>
+<p>Whatever operation you perform on one side of an equation must be performed on the other side. The goal is to produce an equivalent equation with the same solution set.</p>
 </section>
-<section id="python-connection" class="level2">
-<h2 class="anchored" data-anchor-id="python-connection">Python Connection</h2>
-<p>The package includes reusable exercise builders.</p>
-<div id="405ed8db" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> linear_equation_exercise</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> linear_equation_exercise(seed<span class="op">=</span><span class="dv">7</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>exercise.prompt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>'Solve for x: Eq(2 - 4*x, -6)'</code></pre>
+</section>
+<section id="identities-contradictions-and-conditional-equations" class="level2">
+<h2 class="anchored" data-anchor-id="identities-contradictions-and-conditional-equations">Identities, contradictions, and conditional equations</h2>
+<p>Not every equation has exactly one answer.</p>
+<section id="identity" class="level3">
+<h3 class="anchored" data-anchor-id="identity">Identity</h3>
+<pre class="text"><code>2(x + 3) = 2x + 6</code></pre>
+<p>Expanding the left side gives:</p>
+<pre class="text"><code>2x + 6 = 2x + 6</code></pre>
+<p>This is true for every <code>x</code>.</p>
+</section>
+<section id="contradiction" class="level3">
+<h3 class="anchored" data-anchor-id="contradiction">Contradiction</h3>
+<pre class="text"><code>x + 1 = x + 2</code></pre>
+<p>Subtract <code>x</code> from both sides:</p>
+<pre class="text"><code>1 = 2</code></pre>
+<p>This is never true, so there is no solution.</p>
+</section>
+<section id="conditional-equation" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-equation">Conditional equation</h3>
+<pre class="text"><code>4x - 7 = 9</code></pre>
+<p>This is true only when <code>x = 4</code>.</p>
+</section>
+</section>
+<section id="domain-restrictions" class="level2">
+<h2 class="anchored" data-anchor-id="domain-restrictions">Domain restrictions</h2>
+<p>Algebraic transformations must respect domain restrictions.</p>
+<p>For example:</p>
+<pre class="text"><code>(x^2 - 1)/(x - 1)</code></pre>
+<p>can be simplified as:</p>
+<pre class="text"><code>((x - 1)(x + 1))/(x - 1) = x + 1</code></pre>
+<p>but the original expression is undefined at <code>x = 1</code>. The simplified expression <code>x + 1</code> is defined at <code>x = 1</code>, so the two expressions are equivalent only when <code>x != 1</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Important
 </div>
 </div>
-<div id="57080723" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>exercise.expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>2.0</code></pre>
+<div class="callout-body-container callout-body">
+<p>Cancelling a factor can remove visible evidence of a restriction. Always record values that make a denominator zero, a logarithm invalid, or an even root undefined over the real numbers.</p>
 </div>
 </div>
-<div id="90f9ee63" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>exercise.check(exercise.expected).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>'Correct.'</code></pre>
+</section>
+<section id="sympy-as-a-verification-tool" class="level2">
+<h2 class="anchored" data-anchor-id="sympy-as-a-verification-tool">SymPy as a verification tool</h2>
+<p>The package’s quiz helpers can generate questions where the expected answer is derived from the expression.</p>
+<div id="53cb863a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_question, factor_question</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>expand <span class="op">=</span> expand_question((x <span class="op">+</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>factor <span class="op">=</span> factor_question(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">6</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>expand.check(<span class="st">"x**2 + 2*x + 1"</span>).message, factor.check(<span class="st">"(x - 2)*(x - 3)"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>('Correct.', 'Correct.')</code></pre>
 </div>
 </div>
+<p>Use this as a checker, not as a replacement for understanding. A computer algebra system can confirm equivalence, but you still need to know which form is useful and what restrictions apply.</p>
+</section>
+<section id="worked-examples" class="level2">
+<h2 class="anchored" data-anchor-id="worked-examples">Worked examples</h2>
+<section id="example-1-expand-and-interpret" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-expand-and-interpret">Example 1: expand and interpret</h3>
+<p>Expand:</p>
+<pre class="text"><code>(x - 4)(x + 2)</code></pre>
+<p>Solution:</p>
+<pre class="text"><code>x^2 + 2x - 4x - 8 = x^2 - 2x - 8</code></pre>
+<p>Interpretation:</p>
+<ul>
+<li>Factored form shows zeros at <code>x = 4</code> and <code>x = -2</code>.</li>
+<li>Expanded form shows degree <code>2</code>, leading coefficient <code>1</code>, and constant term <code>-8</code>.</li>
+</ul>
+</section>
+<section id="example-2-solve-a-linear-equation" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-solve-a-linear-equation">Example 2: solve a linear equation</h3>
+<p>Solve:</p>
+<pre class="text"><code>5 - 2x = 17</code></pre>
+<p>Subtract <code>5</code>:</p>
+<pre class="text"><code>-2x = 12</code></pre>
+<p>Divide by <code>-2</code>:</p>
+<pre class="text"><code>x = -6</code></pre>
+<p>Check:</p>
+<pre class="text"><code>5 - 2(-6) = 5 + 12 = 17</code></pre>
+</section>
+<section id="example-3-classify-an-equation" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-classify-an-equation">Example 3: classify an equation</h3>
+<p>Classify:</p>
+<pre class="text"><code>3(x - 2) + 6 = 3x</code></pre>
+<p>Expand:</p>
+<pre class="text"><code>3x - 6 + 6 = 3x</code></pre>
+<p>Simplify:</p>
+<pre class="text"><code>3x = 3x</code></pre>
+<p>This is an identity.</p>
+</section>
 </section>
 <section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
+<h2 class="anchored" data-anchor-id="common-mistakes">Common mistakes</h2>
 <section id="changing-only-one-side" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="changing-only-one-side">Changing Only One Side</h3>
-<p>If you subtract <code>2</code> from the left side but not the right side, the new equation is no longer equivalent to the original.</p>
+<h3 class="anchored" data-anchor-id="changing-only-one-side">Changing only one side</h3>
+<p>If you subtract <code>2</code> from the left side but not the right side, the new equation is not equivalent to the original.</p>
 </section>
-<section id="losing-the-negative-sign" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="losing-the-negative-sign">Losing the Negative Sign</h3>
+<section id="losing-a-negative-sign" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="losing-a-negative-sign">Losing a negative sign</h3>
 <p>When solving <code>-3x = 12</code>, divide by <code>-3</code>, not by <code>3</code>. The solution is <code>x = -4</code>.</p>
+</section>
+<section id="cancelling-terms-instead-of-factors" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="cancelling-terms-instead-of-factors">Cancelling terms instead of factors</h3>
+<p>In <code>(x + 3)/x</code>, you cannot cancel the <code>x</code> in the denominator with the <code>x</code> inside <code>x + 3</code>. Cancellation applies to common factors, not pieces of sums.</p>
+</section>
+<section id="ignoring-restrictions" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="ignoring-restrictions">Ignoring restrictions</h3>
+<p>If an original denominator is zero at a value, that value is excluded even if a simplified expression appears to allow it.</p>
 </section>
 </section>
 <section id="practice" class="level2">
@@ -979,16 +1219,24 @@ x^2 - 5x + 6
 <div class="practice-box">
 <ol type="1">
 <li>Evaluate <code>2x + 5</code> when <code>x = 3</code>.</li>
+<li>Evaluate <code>x^2 - 4x + 1</code> when <code>x = -2</code>.</li>
+<li>Expand <code>(x + 5)(x - 1)</code>.</li>
+<li>Factor <code>x^2 - 7x + 10</code>.</li>
 <li>Solve <code>4x - 7 = 9</code>.</li>
 <li>Solve <code>-2x + 6 = 14</code>.</li>
-<li>Check whether <code>x = 5</code> solves <code>3x - 1 = 14</code>.</li>
+<li>Classify <code>2(x + 4) = 2x + 8</code> as identity, contradiction, or conditional equation.</li>
+<li>Classify <code>x + 5 = x - 1</code>.</li>
+<li>State the restriction for <code>(x^2 - 9)/(x - 3)</code>.</li>
+<li>Explain why <code>(x^2 - 9)/(x - 3)</code> is not exactly the same function as <code>x + 3</code> over all real numbers.</li>
+<li>Solve <code>a*x + b = c</code> for <code>x</code>, assuming <code>a != 0</code>.</li>
+<li>Challenge: create two different-looking expressions that are equivalent to <code>x^2 - 4</code>.</li>
 </ol>
 </div>
 </section>
 <section id="solutions" class="level2">
 <h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -997,44 +1245,10 @@ x^2 - 5x + 6
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Answer: <code>11</code>.</p>
 <p>Substitute <code>x = 3</code>: <code>2(3) + 5 = 6 + 5 = 11</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: <code>x = 4</code>.</p>
-<p>Add <code>7</code> to both sides to get <code>4x = 16</code>, then divide by <code>4</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: <code>x = -4</code>.</p>
-<p>Subtract <code>6</code> from both sides to get <code>-2x = 8</code>, then divide by <code>-2</code>.</p>
 </div>
 </div>
 </div>
@@ -1044,36 +1258,202 @@ x^2 - 5x + 6
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 4
+<span class="screen-reader-only">Tip</span>Solution 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: yes.</p>
-<p>Substitute <code>x = 5</code>: <code>3(5) - 1 = 15 - 1 = 14</code>.</p>
+<p>Answer: <code>13</code>.</p>
+<p><code>(-2)^2 - 4(-2) + 1 = 4 + 8 + 1 = 13</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: <code>x^2 + 4x - 5</code>.</p>
+<p><code>(x + 5)(x - 1) = x^2 - x + 5x - 5 = x^2 + 4x - 5</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: <code>(x - 5)(x - 2)</code>.</p>
+<p>We need two numbers that multiply to <code>10</code> and add to <code>-7</code>: <code>-5</code> and <code>-2</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: <code>x = 4</code>.</p>
+<p>Add <code>7</code> to both sides to get <code>4x = 16</code>, then divide by <code>4</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 6
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: <code>x = -4</code>.</p>
+<p>Subtract <code>6</code> from both sides to get <code>-2x = 8</code>, then divide by <code>-2</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 7
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: identity.</p>
+<p>The left side expands to <code>2x + 8</code>, so both sides are the same expression.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 8
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: contradiction.</p>
+<p>Subtracting <code>x</code> from both sides gives <code>5 = -1</code>, which is never true.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 9
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: <code>x != 3</code>.</p>
+<p>The denominator <code>x - 3</code> cannot equal zero.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 10
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>(x^2 - 9)/(x - 3)</code> simplifies to <code>x + 3</code> for <code>x != 3</code>, but the original expression is undefined at <code>x = 3</code>. The graph has a removable hole there.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 11
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Answer: <code>x = (c - b)/a</code>.</p>
+<p>Subtract <code>b</code> from both sides: <code>a*x = c - b</code>. Divide by <code>a</code>, assuming <code>a != 0</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution 12
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Two examples are <code>(x - 2)(x + 2)</code> and <code>(x^2 - 2x) + (2x - 4)</code>.</p>
+<p>There are infinitely many equivalent forms. The important skill is being able to prove equivalence by algebraic transformation.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="quick-quiz" class="level2">
-<h2 class="anchored" data-anchor-id="quick-quiz">Quick Quiz</h2>
-<div id="44c51e3d" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> Question, QuizSession</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>quiz <span class="op">=</span> QuizSession(</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    questions<span class="op">=</span>(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        Question(<span class="st">"What is 2*3 + 5?"</span>, expected<span class="op">=</span><span class="dv">11</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        Question(<span class="st">"Solve 4*x - 7 = 9."</span>, expected<span class="op">=</span><span class="dv">4</span>),</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> quiz.answer(<span class="dv">0</span>, <span class="dv">11</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>result.check.message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>'Correct.'</code></pre>
-</div>
-</div>
+<section id="why-this-matters-later" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-later">Why this matters later</h2>
+<ul>
+<li><strong>Calculus:</strong> simplifying before differentiating or integrating can turn a hard problem into an easy one.</li>
+<li><strong>Linear algebra:</strong> equations become systems, and systems become matrix equations.</li>
+<li><strong>Statistics:</strong> parameters are estimated by solving or optimizing algebraic expressions.</li>
+<li><strong>Optimization:</strong> constraints are equations and inequalities that define the feasible set.</li>
+</ul>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>College Algebra 2e</em>, Chapter 1 and Chapter 2: <a href="https://openstax.org/books/college-algebra-2e/pages/index" class="uri">https://openstax.org/books/college-algebra-2e/pages/index</a></li>
+<li>Paul’s Online Math Notes, Algebra: <a href="https://tutorial.math.lamar.edu/" class="uri">https://tutorial.math.lamar.edu/</a></li>
+</ul>
 
 
 </section>
@@ -1499,13 +1879,13 @@ x^2 - 5x + 6
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/python/plotting.html" class="pagination-link" aria-label="Plotting With Python">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Plotting With Python</span>
+      <a href="../../lessons/algebra/index.html" class="pagination-link" aria-label="Algebra Study Path">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Algebra Study Path</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/algebra/functions-and-graphs.html" class="pagination-link" aria-label="Functions and Graphs">
-        <span class="nav-page-text">Functions and Graphs</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="pagination-link" aria-label="Inequalities and Absolute Value">
+        <span class="nav-page-text">Inequalities and Absolute Value</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

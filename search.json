@@ -520,6 +520,214 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html",
+    "title": "Linear and Quadratic Functions",
+    "section": "",
+    "text": "After this lesson you should be able to:\n\ninterpret slope as constant rate of change;\nconstruct a line from slope-intercept form, point-slope form, or two points;\nidentify linear model parameters in context;\nmove among standard, factored, and vertex forms of a quadratic;\nuse the discriminant to predict the number and type of real roots;\nread roots, intercepts, vertex, and axis of symmetry from a quadratic graph.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#motivation",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#motivation",
+    "title": "Linear and Quadratic Functions",
+    "section": "Motivation",
+    "text": "Motivation\nLinear and quadratic functions are the first two major modeling families.\nLinear functions model constant change:\nf(x) = mx + b\nQuadratic functions model a rate of change that changes linearly:\nf(x) = ax^2 + bx + c\nThey appear everywhere: cost models, trend lines, projectile motion, least squares, optimization, Taylor approximations, and numerical algorithms.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#linear-functions-constant-rate-of-change",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#linear-functions-constant-rate-of-change",
+    "title": "Linear and Quadratic Functions",
+    "section": "Linear functions: constant rate of change",
+    "text": "Linear functions: constant rate of change\nA linear function has the form:\ny = mx + b\nwhere:\n\nm is the slope;\nb is the y-intercept;\nthe graph is a line.\n\nSlope is change in output divided by change in input:\nm = (change in y)/(change in x)\nIf a line passes through (0, 1) and (2, 5), then:\nm = (5 - 1)/(2 - 0) = 2\nThe y-intercept is 1, so the line is:\ny = 2x + 1\n\nfrom edumath.algebra import line_from_points\n\nline = line_from_points((0, 1), (2, 5))\nline.expression\n\n\\(\\displaystyle 2 x + 1\\)",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#visualizing-slope-and-intercept",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#visualizing-slope-and-intercept",
+    "title": "Linear and Quadratic Functions",
+    "section": "Visualizing slope and intercept",
+    "text": "Visualizing slope and intercept\n\nfrom edumath.algebra import input_output_scene\n\nscene = input_output_scene(\n    \"2*x + 1\",\n    x_value=3,\n    x_min=-2,\n    x_max=5,\n    y_min=-2,\n    y_max=12,\n    title=\"The line y = 2x + 1 at x = 3\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe point (3, 7) lies on the line. Moving one unit to the right increases the output by 2, because the slope is 2.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#linear-modeling",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#linear-modeling",
+    "title": "Linear and Quadratic Functions",
+    "section": "Linear modeling",
+    "text": "Linear modeling\nSuppose a service costs a fixed setup fee of $25 plus $8 per hour. If h is the number of hours, the cost is:\nC(h) = 8h + 25\nInterpretation:\n\nslope 8: each additional hour increases cost by $8;\nintercept 25: the cost when h = 0.\n\nIn applied work, interpreting parameters is often more important than only plotting the line.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#quadratic-functions",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#quadratic-functions",
+    "title": "Linear and Quadratic Functions",
+    "section": "Quadratic functions",
+    "text": "Quadratic functions\nA quadratic function has degree 2:\nf(x) = ax^2 + bx + c, where a != 0\nIts graph is a parabola.\nThe sign of a determines whether the parabola opens up or down:\n\na &gt; 0: opens upward;\na &lt; 0: opens downward.\n\nThe magnitude of a affects width:\n\nlarger |a|: narrower;\nsmaller |a|: wider.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#three-useful-forms",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#three-useful-forms",
+    "title": "Linear and Quadratic Functions",
+    "section": "Three useful forms",
+    "text": "Three useful forms\nQuadratics often appear in three forms.\n\nStandard form\nf(x) = ax^2 + bx + c\nThis makes the y-intercept visible: f(0)=c.\n\n\nFactored form\nf(x) = a(x-r1)(x-r2)\nThis makes roots visible: x = r1 and x = r2.\n\n\nVertex form\nf(x) = a(x-h)^2 + k\nThis makes the vertex visible: (h, k).",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#vertex-and-discriminant",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#vertex-and-discriminant",
+    "title": "Linear and Quadratic Functions",
+    "section": "Vertex and discriminant",
+    "text": "Vertex and discriminant\nFor:\nf(x) = ax^2 + bx + c\nthe vertex x-coordinate is:\nh = -b/(2a)\nThe discriminant is:\nD = b^2 - 4ac\nIt tells us how many real roots exist:\n\n\n\nDiscriminant\nReal roots\nGraph behavior\n\n\n\n\nD &gt; 0\ntwo\ncrosses the x-axis twice\n\n\nD = 0\none repeated\ntouches the x-axis at the vertex\n\n\nD &lt; 0\nnone\ndoes not cross the x-axis\n\n\n\n\nfrom edumath.algebra import QuadraticModel\n\nmodel = QuadraticModel(1, -4, 3)\nmodel.expression, model.discriminant, model.vertex, model.roots\n\n(x**2 - 4*x + 3, 4, (2, -1), (1, 3))",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#comparing-quadratic-parameters",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#comparing-quadratic-parameters",
+    "title": "Linear and Quadratic Functions",
+    "section": "Comparing quadratic parameters",
+    "text": "Comparing quadratic parameters\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**2\", \"2*x**2\", \"0.5*x**2\", \"-x**2\"),\n    labels=(\"a = 1\", \"a = 2\", \"a = 0.5\", \"a = -1\"),\n    x_min=-4,\n    x_max=4,\n    y_min=-8,\n    y_max=16,\n    title=\"Changing the coefficient a in y = a*x^2\",\n)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#converting-vertex-form-to-standard-form",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#converting-vertex-form-to-standard-form",
+    "title": "Linear and Quadratic Functions",
+    "section": "Converting vertex form to standard form",
+    "text": "Converting vertex form to standard form\nThe vertex form:\n2(x - 3)^2 + 1\nhas vertex (3, 1) and opens upward. Expanding:\n\nfrom edumath.algebra import quadratic_from_vertex\n\nquadratic_from_vertex(a=2, h=3, k=1)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\nSo:\n2(x - 3)^2 + 1 = 2x^2 - 12x + 19",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#worked-examples",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#worked-examples",
+    "title": "Linear and Quadratic Functions",
+    "section": "Worked examples",
+    "text": "Worked examples\n\nExample 1: line from two points\nFind the line through (1, 4) and (3, 10).\nSlope:\nm = (10 - 4)/(3 - 1) = 3\nUse y = mx + b with point (1, 4):\n4 = 3(1) + b\nb = 1\nTherefore:\ny = 3x + 1\n\n\nExample 2: solve a quadratic by factoring\nSolve:\nx^2 - 5x + 6 = 0\nFactor:\n(x - 2)(x - 3) = 0\nSo:\nx = 2 or x = 3\n\n\nExample 3: read the vertex\nFor:\nf(x) = -2(x + 1)^2 + 5\nthe vertex is (-1, 5), and the parabola opens downward because a = -2.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#common-mistakes",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#common-mistakes",
+    "title": "Linear and Quadratic Functions",
+    "section": "Common mistakes",
+    "text": "Common mistakes\n\nTreating the intercept as the slope\nIn y = 2x + 5, the slope is 2; the y-intercept is 5.\n\n\nForgetting that horizontal shifts look reversed\nThe vertex form (x - 3)^2 shifts right by 3, not left.\n\n\nAssuming every quadratic has two real roots\nIf the discriminant is negative, the roots are complex and the real graph does not cross the x-axis.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#practice",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#practice",
+    "title": "Linear and Quadratic Functions",
+    "section": "Practice",
+    "text": "Practice\n\n\nFind the slope of the line through (0, 2) and (4, 10).\nFind the equation of the line through (0, -3) with slope 5.\nInterpret the slope and intercept of C(h)=12h+40.\nConvert 3(x - 2)^2 - 1 to standard form.\nFind the vertex of f(x)=x^2 - 6x + 8.\nFind the roots of x^2 - 6x + 8.\nCompute the discriminant of 2x^2 + 4x + 5.\nDoes 2x^2 + 4x + 5 have real roots?\nWrite a quadratic with roots -1 and 4.\nChallenge: explain why the vertex x-coordinate is halfway between two real roots when a quadratic has two real roots.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#solutions",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#solutions",
+    "title": "Linear and Quadratic Functions",
+    "section": "Solutions",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nm = (10 - 2)/(4 - 0) = 8/4 = 2.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nThe y-intercept is -3, so the line is y = 5x - 3.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nThe slope 12 means each additional hour adds $12. The intercept 40 is the fixed starting cost.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\n3(x - 2)^2 - 1 = 3(x^2 - 4x + 4) - 1 = 3x^2 - 12x + 11.\n\n\n\n\n\n\n\n\n\nTipSolution 5\n\n\n\n\n\nFor a=1 and b=-6, the vertex x-coordinate is -b/(2a)=3. Then f(3)=9-18+8=-1. The vertex is (3, -1).\n\n\n\n\n\n\n\n\n\nTipSolution 6\n\n\n\n\n\nx^2 - 6x + 8 = (x - 2)(x - 4), so the roots are 2 and 4.\n\n\n\n\n\n\n\n\n\nTipSolution 7\n\n\n\n\n\nD = b^2 - 4ac = 4^2 - 4(2)(5) = 16 - 40 = -24.\n\n\n\n\n\n\n\n\n\nTipSolution 8\n\n\n\n\n\nNo. The discriminant is negative, so there are no real roots.\n\n\n\n\n\n\n\n\n\nTipSolution 9\n\n\n\n\n\nOne answer is (x + 1)(x - 4), or expanded: x^2 - 3x - 4.\n\n\n\n\n\n\n\n\n\nTipSolution 10\n\n\n\n\n\nIn factored form a(x-r1)(x-r2), the graph is symmetric around the axis halfway between the roots. The vertex lies on this axis, so its x-coordinate is (r1+r2)/2.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#why-this-matters-later",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#why-this-matters-later",
+    "title": "Linear and Quadratic Functions",
+    "section": "Why this matters later",
+    "text": "Why this matters later\n\nCalculus: lines approximate functions locally; quadratics model curvature.\nStatistics: linear regression fits lines to data.\nOptimization: many first optimization examples reduce to finding a quadratic vertex.\nNumerical methods: local polynomial approximations are central tools.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#further-reading",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#further-reading",
+    "title": "Linear and Quadratic Functions",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e, linear and quadratic functions: https://openstax.org/books/college-algebra-2e/pages/index\nOpenStax, Precalculus, polynomial and quadratic functions: https://openstax.org/books/precalculus/pages/index",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/systems-of-equations.html",
     "href": "lessons/algebra/systems-of-equations.html",
     "title": "Systems of Equations",
@@ -611,146 +819,614 @@
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html",
-    "href": "lessons/algebra/exponentials-and-logarithms.html",
-    "title": "Exponentials and Logarithms",
+    "objectID": "lessons/algebra/expressions-and-equations.html",
+    "href": "lessons/algebra/expressions-and-equations.html",
+    "title": "Expressions and Equations",
     "section": "",
-    "text": "Recognize exponential growth and decay.\nInterpret logarithms as inverse operations.\nSolve basic exponential and logarithmic equations.\nCompare exponential functions with polynomial functions.",
+    "text": "After this lesson you should be able to:\n\ndistinguish expressions, equations, identities, contradictions, and solution sets;\nevaluate expressions by substitution while tracking the order of operations;\nrecognize when two expressions are equivalent;\nexpand, factor, collect, and simplify basic algebraic expressions;\nsolve one-variable linear equations and check solutions;\nuse SymPy to verify algebraic work without replacing mathematical reasoning.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#motivation",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#motivation",
-    "title": "Exponentials and Logarithms",
+    "objectID": "lessons/algebra/expressions-and-equations.html#motivation",
+    "href": "lessons/algebra/expressions-and-equations.html#motivation",
+    "title": "Expressions and Equations",
     "section": "Motivation",
-    "text": "Motivation\nExponential functions model repeated multiplication. They appear in compound interest, population growth, radioactive decay, and many risk models.",
+    "text": "Motivation\nGraduate-level quantitative courses assume that algebra is automatic. In calculus, you rearrange expressions before differentiating. In statistics, you solve for parameters and simplify likelihoods. In optimization, you transform constraints. In linear algebra, you solve systems whose entries may be symbolic.\nThe goal is not to memorize isolated tricks. The goal is to develop a reliable habit:\n\nConvert a problem into symbols, transform the symbols without changing their meaning, and interpret the result in context.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#exponential-functions",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#exponential-functions",
-    "title": "Exponentials and Logarithms",
-    "section": "Exponential Functions",
-    "text": "Exponential Functions\nAn exponential function has the variable in the exponent:\nf(x) = a * b^x\nIf b &gt; 1, the function grows. If 0 &lt; b &lt; 1, the function decays.",
+    "objectID": "lessons/algebra/expressions-and-equations.html#expressions-equations-and-identities",
+    "href": "lessons/algebra/expressions-and-equations.html#expressions-equations-and-identities",
+    "title": "Expressions and Equations",
+    "section": "Expressions, equations, and identities",
+    "text": "Expressions, equations, and identities\nAn expression is a mathematical phrase. It can be evaluated, simplified, or transformed, but by itself it is not true or false.\nExamples:\n3x + 2\nx^2 - 5x + 6\n2(a + b)\nsqrt(x - 1)\nAn equation states that two expressions are equal:\n3x + 2 = 14\nAn equation may be true for one value, many values, all values, or no values.\nAn identity is true for every value in its domain:\n2(x + 3) = 2x + 6\nA contradiction is never true:\nx + 1 = x + 2\n\n\n\n\n\n\nTipWhy this distinction matters\n\n\n\nWhen you simplify an expression, you are changing its form. When you solve an equation, you are finding values that make a statement true. Confusing these two tasks is one of the most common causes of algebra mistakes.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#logarithms",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#logarithms",
-    "title": "Exponentials and Logarithms",
-    "section": "Logarithms",
-    "text": "Logarithms\nA logarithm is the inverse of an exponential.\n\nlog_b(y) = x means b^x = y.\n\nFor example:\nlog_2(8) = 3\nbecause:\n2^3 = 8",
+    "objectID": "lessons/algebra/expressions-and-equations.html#variables-constants-and-parameters",
+    "href": "lessons/algebra/expressions-and-equations.html#variables-constants-and-parameters",
+    "title": "Expressions and Equations",
+    "section": "Variables, constants, and parameters",
+    "text": "Variables, constants, and parameters\nA variable represents a quantity that can change. A constant is fixed. A parameter is fixed during one problem but may vary across problems.\nFor example, in\nf(x) = ax + b\nx is usually the input variable, while a and b are parameters. Changing x moves along one line. Changing a or b changes the line itself.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#visual-comparison",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#visual-comparison",
-    "title": "Exponentials and Logarithms",
-    "section": "Visual Comparison",
-    "text": "Visual Comparison\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**2\", \"2**x\"),\n    x_min=-2,\n    x_max=6,\n    y_min=-2,\n    y_max=40,\n    title=\"Polynomial vs exponential growth\",\n)\nfig, ax = scene.render()\nfig",
+    "objectID": "lessons/algebra/expressions-and-equations.html#evaluating-an-expression",
+    "href": "lessons/algebra/expressions-and-equations.html#evaluating-an-expression",
+    "title": "Expressions and Equations",
+    "section": "Evaluating an expression",
+    "text": "Evaluating an expression\nTo evaluate an expression, substitute a value for the variable and follow the order of operations.\nExample:\n2x^2 - 3x + 1, when x = 4\nSubstitute:\n2(4)^2 - 3(4) + 1\nCompute powers before multiplication:\n2(16) - 12 + 1 = 32 - 12 + 1 = 21\nUse a table when you want to see many inputs at once.\n\nfrom edumath.algebra import expression_table\n\nexpression_table(\"2*x**2 - 3*x + 1\", inputs=(-2, -1, 0, 1, 2, 3, 4))\n\n((-2.0, 15.0),\n (-1.0, 6.0),\n (0.0, 1.0),\n (1.0, 0.0),\n (2.0, 3.0),\n (3.0, 10.0),\n (4.0, 21.0))",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#common-mistakes",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#common-mistakes",
-    "title": "Exponentials and Logarithms",
-    "section": "Common Mistakes",
-    "text": "Common Mistakes\n\nTreating log(x + y) as log(x) + log(y)\nLogarithms do not distribute over addition. Product rules apply to multiplication, not addition.",
+    "objectID": "lessons/algebra/expressions-and-equations.html#equivalent-expressions",
+    "href": "lessons/algebra/expressions-and-equations.html#equivalent-expressions",
+    "title": "Expressions and Equations",
+    "section": "Equivalent expressions",
+    "text": "Equivalent expressions\nTwo expressions are equivalent if they produce the same value for every allowed input.\nFor example:\n(x + 1)^2\nand\nx^2 + 2x + 1\nare equivalent. One form is factored around a repeated linear factor; the other form is expanded.\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"(x + 1)**2\", \"x**2 + 2*x + 1\"),\n    labels=(\"factored form\", \"expanded form\"),\n    x_min=-5,\n    x_max=3,\n    y_min=-1,\n    y_max=16,\n    title=\"Equivalent expressions have the same graph\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe graph is the same because the two formulas define the same function. The forms emphasize different information:\n\n(x + 1)^2 makes the root x = -1 visible.\nx^2 + 2x + 1 makes the coefficients visible.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#practice",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#practice",
-    "title": "Exponentials and Logarithms",
+    "objectID": "lessons/algebra/expressions-and-equations.html#expanding-factoring-and-simplifying",
+    "href": "lessons/algebra/expressions-and-equations.html#expanding-factoring-and-simplifying",
+    "title": "Expressions and Equations",
+    "section": "Expanding, factoring, and simplifying",
+    "text": "Expanding, factoring, and simplifying\nAlgebra often asks you to choose the most useful form.\n\nExpanding\nExpanding uses distribution:\n(x + 3)(x - 2)\nMultiply every term in the first factor by every term in the second:\nx*x + x*(-2) + 3*x + 3*(-2)\n= x^2 - 2x + 3x - 6\n= x^2 + x - 6\n\n\nFactoring\nFactoring reverses expansion:\nx^2 + x - 6 = (x + 3)(x - 2)\nThis form immediately tells us the zeros: x = -3 and x = 2.\n\n\nSimplifying\nSimplifying means rewriting an expression in a cleaner equivalent form. It does not always mean \"shorter\"; it means \"more useful for the task.\"\n\nimport sympy as sp\n\nx = sp.Symbol(\"x\")\nsp.expand((x + 3) * (x - 2)), sp.factor(x**2 + x - 6)\n\n(x**2 + x - 6, (x - 2)*(x + 3))",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#equations-and-solution-sets",
+    "href": "lessons/algebra/expressions-and-equations.html#equations-and-solution-sets",
+    "title": "Expressions and Equations",
+    "section": "Equations and solution sets",
+    "text": "Equations and solution sets\nSolving an equation means finding all values that make it true.\nConsider:\n3x + 2 = 14\nSubtract 2 from both sides:\n3x = 12\nDivide both sides by 3:\nx = 4\nCheck:\n3(4) + 2 = 14\nSo the solution set is {4}.\n\nBalanced operations\nWhatever operation you perform on one side of an equation must be performed on the other side. The goal is to produce an equivalent equation with the same solution set.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#identities-contradictions-and-conditional-equations",
+    "href": "lessons/algebra/expressions-and-equations.html#identities-contradictions-and-conditional-equations",
+    "title": "Expressions and Equations",
+    "section": "Identities, contradictions, and conditional equations",
+    "text": "Identities, contradictions, and conditional equations\nNot every equation has exactly one answer.\n\nIdentity\n2(x + 3) = 2x + 6\nExpanding the left side gives:\n2x + 6 = 2x + 6\nThis is true for every x.\n\n\nContradiction\nx + 1 = x + 2\nSubtract x from both sides:\n1 = 2\nThis is never true, so there is no solution.\n\n\nConditional equation\n4x - 7 = 9\nThis is true only when x = 4.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#domain-restrictions",
+    "href": "lessons/algebra/expressions-and-equations.html#domain-restrictions",
+    "title": "Expressions and Equations",
+    "section": "Domain restrictions",
+    "text": "Domain restrictions\nAlgebraic transformations must respect domain restrictions.\nFor example:\n(x^2 - 1)/(x - 1)\ncan be simplified as:\n((x - 1)(x + 1))/(x - 1) = x + 1\nbut the original expression is undefined at x = 1. The simplified expression x + 1 is defined at x = 1, so the two expressions are equivalent only when x != 1.\n\n\n\n\n\n\nWarningImportant\n\n\n\nCancelling a factor can remove visible evidence of a restriction. Always record values that make a denominator zero, a logarithm invalid, or an even root undefined over the real numbers.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#sympy-as-a-verification-tool",
+    "href": "lessons/algebra/expressions-and-equations.html#sympy-as-a-verification-tool",
+    "title": "Expressions and Equations",
+    "section": "SymPy as a verification tool",
+    "text": "SymPy as a verification tool\nThe package’s quiz helpers can generate questions where the expected answer is derived from the expression.\n\nfrom edumath.algebra import expand_question, factor_question\n\nexpand = expand_question((x + 1) ** 2)\nfactor = factor_question(x**2 - 5 * x + 6)\n\nexpand.check(\"x**2 + 2*x + 1\").message, factor.check(\"(x - 2)*(x - 3)\").message\n\n('Correct.', 'Correct.')\n\n\nUse this as a checker, not as a replacement for understanding. A computer algebra system can confirm equivalence, but you still need to know which form is useful and what restrictions apply.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#worked-examples",
+    "href": "lessons/algebra/expressions-and-equations.html#worked-examples",
+    "title": "Expressions and Equations",
+    "section": "Worked examples",
+    "text": "Worked examples\n\nExample 1: expand and interpret\nExpand:\n(x - 4)(x + 2)\nSolution:\nx^2 + 2x - 4x - 8 = x^2 - 2x - 8\nInterpretation:\n\nFactored form shows zeros at x = 4 and x = -2.\nExpanded form shows degree 2, leading coefficient 1, and constant term -8.\n\n\n\nExample 2: solve a linear equation\nSolve:\n5 - 2x = 17\nSubtract 5:\n-2x = 12\nDivide by -2:\nx = -6\nCheck:\n5 - 2(-6) = 5 + 12 = 17\n\n\nExample 3: classify an equation\nClassify:\n3(x - 2) + 6 = 3x\nExpand:\n3x - 6 + 6 = 3x\nSimplify:\n3x = 3x\nThis is an identity.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#common-mistakes",
+    "href": "lessons/algebra/expressions-and-equations.html#common-mistakes",
+    "title": "Expressions and Equations",
+    "section": "Common mistakes",
+    "text": "Common mistakes\n\nChanging only one side\nIf you subtract 2 from the left side but not the right side, the new equation is not equivalent to the original.\n\n\nLosing a negative sign\nWhen solving -3x = 12, divide by -3, not by 3. The solution is x = -4.\n\n\nCancelling terms instead of factors\nIn (x + 3)/x, you cannot cancel the x in the denominator with the x inside x + 3. Cancellation applies to common factors, not pieces of sums.\n\n\nIgnoring restrictions\nIf an original denominator is zero at a value, that value is excluded even if a simplified expression appears to allow it.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#practice",
+    "href": "lessons/algebra/expressions-and-equations.html#practice",
+    "title": "Expressions and Equations",
     "section": "Practice",
-    "text": "Practice\n\n\nCompute 2^5.\nSolve log_10(x) = 3.\nIs 0.5^x growth or decay?\nWhich eventually grows faster: x^2 or 2^x?",
+    "text": "Practice\n\n\nEvaluate 2x + 5 when x = 3.\nEvaluate x^2 - 4x + 1 when x = -2.\nExpand (x + 5)(x - 1).\nFactor x^2 - 7x + 10.\nSolve 4x - 7 = 9.\nSolve -2x + 6 = 14.\nClassify 2(x + 4) = 2x + 8 as identity, contradiction, or conditional equation.\nClassify x + 5 = x - 1.\nState the restriction for (x^2 - 9)/(x - 3).\nExplain why (x^2 - 9)/(x - 3) is not exactly the same function as x + 3 over all real numbers.\nSolve a*x + b = c for x, assuming a != 0.\nChallenge: create two different-looking expressions that are equivalent to x^2 - 4.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/exponentials-and-logarithms.html#solutions",
-    "href": "lessons/algebra/exponentials-and-logarithms.html#solutions",
-    "title": "Exponentials and Logarithms",
+    "objectID": "lessons/algebra/expressions-and-equations.html#solutions",
+    "href": "lessons/algebra/expressions-and-equations.html#solutions",
+    "title": "Expressions and Equations",
     "section": "Solutions",
-    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 32.\n2^5 = 2 * 2 * 2 * 2 * 2 = 32.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: x = 1000.\nlog_10(x) = 3 means 10^3 = x.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: decay.\nThe base 0.5 is between 0 and 1, so the function shrinks as x increases.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: 2^x.\nExponential functions with base greater than 1 eventually grow faster than any fixed power such as x^2.",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 11.\nSubstitute x = 3: 2(3) + 5 = 6 + 5 = 11.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: 13.\n(-2)^2 - 4(-2) + 1 = 4 + 8 + 1 = 13.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: x^2 + 4x - 5.\n(x + 5)(x - 1) = x^2 - x + 5x - 5 = x^2 + 4x - 5.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: (x - 5)(x - 2).\nWe need two numbers that multiply to 10 and add to -7: -5 and -2.\n\n\n\n\n\n\n\n\n\nTipSolution 5\n\n\n\n\n\nAnswer: x = 4.\nAdd 7 to both sides to get 4x = 16, then divide by 4.\n\n\n\n\n\n\n\n\n\nTipSolution 6\n\n\n\n\n\nAnswer: x = -4.\nSubtract 6 from both sides to get -2x = 8, then divide by -2.\n\n\n\n\n\n\n\n\n\nTipSolution 7\n\n\n\n\n\nAnswer: identity.\nThe left side expands to 2x + 8, so both sides are the same expression.\n\n\n\n\n\n\n\n\n\nTipSolution 8\n\n\n\n\n\nAnswer: contradiction.\nSubtracting x from both sides gives 5 = -1, which is never true.\n\n\n\n\n\n\n\n\n\nTipSolution 9\n\n\n\n\n\nAnswer: x != 3.\nThe denominator x - 3 cannot equal zero.\n\n\n\n\n\n\n\n\n\nTipSolution 10\n\n\n\n\n\n(x^2 - 9)/(x - 3) simplifies to x + 3 for x != 3, but the original expression is undefined at x = 3. The graph has a removable hole there.\n\n\n\n\n\n\n\n\n\nTipSolution 11\n\n\n\n\n\nAnswer: x = (c - b)/a.\nSubtract b from both sides: a*x = c - b. Divide by a, assuming a != 0.\n\n\n\n\n\n\n\n\n\nTipSolution 12\n\n\n\n\n\nTwo examples are (x - 2)(x + 2) and (x^2 - 2x) + (2x - 4).\nThere are infinitely many equivalent forms. The important skill is being able to prove equivalence by algebraic transformation.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Exponentials and Logarithms"
+      "Expressions and Equations"
     ]
   },
   {
-    "objectID": "lessons/algebra/guessing_quiz.html",
-    "href": "lessons/algebra/guessing_quiz.html",
-    "title": "Guessing Quiz",
+    "objectID": "lessons/algebra/expressions-and-equations.html#why-this-matters-later",
+    "href": "lessons/algebra/expressions-and-equations.html#why-this-matters-later",
+    "title": "Expressions and Equations",
+    "section": "Why this matters later",
+    "text": "Why this matters later\n\nCalculus: simplifying before differentiating or integrating can turn a hard problem into an easy one.\nLinear algebra: equations become systems, and systems become matrix equations.\nStatistics: parameters are estimated by solving or optimizing algebraic expressions.\nOptimization: constraints are equations and inequalities that define the feasible set.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/expressions-and-equations.html#further-reading",
+    "href": "lessons/algebra/expressions-and-equations.html#further-reading",
+    "title": "Expressions and Equations",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e, Chapter 1 and Chapter 2: https://openstax.org/books/college-algebra-2e/pages/index\nPaul’s Online Math Notes, Algebra: https://tutorial.math.lamar.edu/",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html",
+    "href": "lessons/algebra/functions-and-graphs.html",
+    "title": "Functions and Graphs",
     "section": "",
-    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document.",
+    "text": "After this lesson you should be able to:\n\nexplain a function as a rule that assigns each input exactly one output;\ntranslate among formulas, tables, graphs, and verbal descriptions;\nidentify domain, range, intercepts, and zeros;\ncompute and interpret average rate of change;\nuse a graph to understand how changing inputs changes outputs;\nrecognize common families of functions by shape.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Guessing Quiz"
+      "Functions and Graphs"
     ]
   },
   {
-    "objectID": "lessons/algebra/guessing_quiz.html#guess-the-expression",
-    "href": "lessons/algebra/guessing_quiz.html#guess-the-expression",
-    "title": "Guessing Quiz",
-    "section": "Guess the expression",
-    "text": "Guess the expression\nChoose the expression that matches the graph.\n\nquiz = quizApp()\n\n\n\n\n\n\n\nfunction quizApp() {\n  const root = html`&lt;section class=\"quiz-shell\"&gt;&lt;/section&gt;`;\n  const state = {\n    total: 5,\n    index: 0,\n    score: 0,\n    question: null,\n    answered: false\n  };\n\n  renderStart();\n  return root;\n\n  function renderStart() {\n    root.innerHTML = \"\";\n\n    const input = html`&lt;input class=\"quiz-count\" type=\"number\" min=\"1\" max=\"100\" value=\"${state.total}\"&gt;`;\n    const button = html`&lt;button type=\"button\"&gt;Start quiz&lt;/button&gt;`;\n    const controls = html`&lt;div class=\"quiz-start\"&gt;\n      &lt;label&gt;\n        &lt;span&gt;Number of questions&lt;/span&gt;\n        ${input}\n      &lt;/label&gt;\n      ${button}\n    &lt;/div&gt;`;\n\n    button.addEventListener(\"click\", () =&gt; {\n      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));\n      state.index = 0;\n      state.score = 0;\n      startQuestion();\n    });\n\n    root.append(controls);\n  }\n\n  function startQuestion() {\n    state.question = makeQuestion();\n    state.answered = false;\n    renderQuestion();\n  }\n\n  function renderQuestion() {\n    const question = state.question;\n    root.innerHTML = \"\";\n\n    const progress = html`&lt;div class=\"quiz-progress\"&gt;\n      &lt;span&gt;Question ${state.index + 1} of ${state.total}&lt;/span&gt;\n      &lt;span&gt;Score: ${state.score}/${state.total}&lt;/span&gt;\n    &lt;/div&gt;`;\n    const graph = drawGraph(question);\n    const prompt = html`&lt;p class=\"quiz-prompt\"&gt;Select an expression.&lt;/p&gt;`;\n    const feedback = html`&lt;p class=\"quiz-feedback\" aria-live=\"polite\"&gt;&lt;/p&gt;`;\n    const next = html`&lt;button type=\"button\" disabled&gt;Next question&lt;/button&gt;`;\n    const options = radioList(question.options, option =&gt; {\n      if (state.answered) return;\n\n      state.answered = true;\n      const correct = option.id === question.answer.id;\n      if (correct) state.score += 1;\n\n      feedback.className = correct\n        ? \"quiz-feedback correct\"\n        : \"quiz-feedback wrong\";\n      feedback.innerHTML = correct\n        ? \"Correct.\"\n        : `Not quite. The answer is &lt;code&gt;${question.answer.label}&lt;/code&gt;.`;\n\n      for (const input of options.querySelectorAll(\"input\")) {\n        input.disabled = true;\n      }\n\n      next.disabled = false;\n      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;\n    });\n\n    next.addEventListener(\"click\", () =&gt; {\n      state.index += 1;\n      if (state.index &lt; state.total) {\n        startQuestion();\n      } else {\n        renderComplete();\n      }\n    });\n\n    root.append(progress, graph, prompt, feedback, options, next);\n  }\n\n  function renderComplete() {\n    root.innerHTML = \"\";\n\n    const summary = html`&lt;div class=\"quiz-complete\"&gt;\n      &lt;h3&gt;Quiz complete&lt;/h3&gt;\n      &lt;p&gt;Final score: ${state.score}/${state.total}&lt;/p&gt;\n    &lt;/div&gt;`;\n    const restart = html`&lt;button type=\"button\"&gt;Start another quiz&lt;/button&gt;`;\n    restart.addEventListener(\"click\", renderStart);\n\n    root.append(summary, restart);\n  }\n}\n\n\n\n\n\n\n\nfunction makeQuestion() {\n  const answer = randomExpression();\n  const options = new Map([[answer.id, answer]]);\n\n  while (options.size &lt; 4) {\n    const option = randomExpression();\n    options.set(option.id, option);\n  }\n\n  return {\n    answer,\n    options: shuffle(Array.from(options.values()))\n  };\n}\n\n\n\n\n\n\n\nfunction randomExpression() {\n  const kind = choice([\"linear\", \"quadratic\", \"cubic\", \"sine\", \"cosine\"]);\n\n  if (kind === \"linear\") {\n    const m = nonzeroInt(-4, 4);\n    const b = int(-6, 6);\n    return expression(\n      `${formatCoeff(m)}x ${formatSigned(b)}`,\n      x =&gt; m * x + b\n    );\n  }\n\n  if (kind === \"quadratic\") {\n    const a = nonzeroInt(-3, 3);\n    const b = int(-5, 5);\n    const c = int(-6, 6);\n    return expression(\n      `${formatCoeff(a)}x² ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"cubic\") {\n    const a = nonzeroInt(-2, 2);\n    const b = int(-3, 3);\n    const c = int(-4, 4);\n    return expression(\n      `${formatCoeff(a)}x³ ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"sine\") {\n    const a = nonzeroInt(-4, 4);\n    const k = nonzeroInt(1, 4);\n    return expression(`${formatCoeff(a)}sin(${k}x)`, x =&gt; a * Math.sin(k * x));\n  }\n\n  const a = nonzeroInt(-4, 4);\n  const k = nonzeroInt(1, 4);\n  return expression(`${formatCoeff(a)}cos(${k}x)`, x =&gt; a * Math.cos(k * x));\n}\n\n\n\n\n\n\n\nfunction expression(label, evaluate) {\n  return {\n    id: label.replace(/\\s+/g, \"\"),\n    label,\n    evaluate,\n    toString: () =&gt; label\n  };\n}\n\n\n\n\n\n\n\nfunction radioList(options, onSelect) {\n  const form = html`&lt;form class=\"quiz-options\" role=\"radiogroup\" aria-label=\"Expression options\"&gt;&lt;/form&gt;`;\n  form.value = null;\n\n  for (const option of options) {\n    const input = html`&lt;input type=\"radio\" name=\"quiz-answer\"&gt;`;\n    const label = html`&lt;label class=\"quiz-option\"&gt;${input}&lt;span&gt;${option.label}&lt;/span&gt;&lt;/label&gt;`;\n\n    input.addEventListener(\"change\", () =&gt; {\n      form.value = option;\n      form.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      onSelect(option);\n    });\n\n    form.append(label);\n  }\n\n  return form;\n}\n\n\n\n\n\n\n\nfunction drawGraph(question) {\n  const width = 720;\n  const height = 360;\n  const margin = { top: 24, right: 24, bottom: 36, left: 46 };\n  const xs = Array.from({ length: 401 }, (_, i) =&gt; -10 + i * 20 / 400);\n  const points = xs\n    .map(x =&gt; ({ x, y: question.answer.evaluate(x) }))\n    .filter(d =&gt; Number.isFinite(d.y));\n\n  const yValues = points.map(d =&gt; d.y).sort((a, b) =&gt; a - b);\n  const low = Math.min(quantile(yValues, 0.02), -5);\n  const high = Math.max(quantile(yValues, 0.98), 5);\n  const yPadding = Math.max((high - low) * 0.08, 1);\n\n  const xScale = d3.scaleLinear()\n    .domain([-10, 10])\n    .range([margin.left, width - margin.right]);\n  const yScale = d3.scaleLinear()\n    .domain([low - yPadding, high + yPadding])\n    .range([height - margin.bottom, margin.top]);\n\n  const line = d3.line()\n    .x(d =&gt; xScale(d.x))\n    .y(d =&gt; yScale(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Graph of an algebraic expression\")\n    .attr(\"class\", \"quiz-graph\");\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(0,${yScale(0)})`)\n    .call(d3.axisBottom(xScale).ticks(10));\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(${xScale(0)},0)`)\n    .call(d3.axisLeft(yScale).ticks(8));\n\n  svg.append(\"g\")\n    .attr(\"class\", \"quiz-grid\")\n    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(\"\"));\n\n  svg.append(\"path\")\n    .datum(points)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#1a73e8\")\n    .attr(\"stroke-width\", 3)\n    .attr(\"d\", line);\n\n  return svg.node();\n}\n\n\n\n\n\n\n\nfunction choice(values) {\n  return values[Math.floor(Math.random() * values.length)];\n}\n\nfunction int(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nfunction nonzeroInt(min, max) {\n  let value = 0;\n  while (value === 0) value = int(min, max);\n  return value;\n}\n\nfunction shuffle(values) {\n  const copy = values.slice();\n  for (let i = copy.length - 1; i &gt; 0; i -= 1) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [copy[i], copy[j]] = [copy[j], copy[i]];\n  }\n  return copy;\n}\n\nfunction quantile(sortedValues, p) {\n  const index = Math.min(\n    sortedValues.length - 1,\n    Math.max(0, Math.floor(sortedValues.length * p))\n  );\n  return sortedValues[index];\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction formatCoeff(value) {\n  if (value === 1) return \"\";\n  if (value === -1) return \"-\";\n  return `${value}`;\n}\n\nfunction formatSigned(value) {\n  if (value === 0) return \"+ 0\";\n  return value &gt; 0 ? `+ ${value}` : `- ${Math.abs(value)}`;\n}\n\nfunction formatSignedTerm(value, symbol) {\n  if (value === 0) return \"+ 0\";\n  const magnitude = Math.abs(value);\n  const coeff = magnitude === 1 ? \"\" : `${magnitude}`;\n  return value &gt; 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;\n}",
+    "objectID": "lessons/algebra/functions-and-graphs.html#motivation",
+    "href": "lessons/algebra/functions-and-graphs.html#motivation",
+    "title": "Functions and Graphs",
+    "section": "Motivation",
+    "text": "Motivation\nFunctions are the central objects of quantitative mathematics. Calculus studies how functions change. Statistics uses functions to model relationships. Optimization searches for inputs that make a function large or small. Machine learning fits functions to data.\nAlgebra prepares you for all of this by teaching you how to move fluently among four representations:\n\na formula,\na table,\na graph,\na verbal description.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Guessing Quiz"
+      "Functions and Graphs"
     ]
   },
   {
-    "objectID": "lessons/algebra/guessing_quiz.html#python-notebook-widget",
-    "href": "lessons/algebra/guessing_quiz.html#python-notebook-widget",
-    "title": "Guessing Quiz",
-    "section": "Python notebook widget",
-    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()",
+    "objectID": "lessons/algebra/functions-and-graphs.html#what-is-a-function",
+    "href": "lessons/algebra/functions-and-graphs.html#what-is-a-function",
+    "title": "Functions and Graphs",
+    "section": "What is a function?",
+    "text": "What is a function?\nA function assigns each input exactly one output.\nf(x) = 2x + 1\nIf the input is x = 3, then:\nf(3) = 2(3) + 1 = 7\nThe input is 3. The output is 7. The ordered pair is (3, 7).\n\nKey idea\nA function can have many inputs, but each allowed input has exactly one output.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Guessing Quiz"
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#domain-and-range",
+    "href": "lessons/algebra/functions-and-graphs.html#domain-and-range",
+    "title": "Functions and Graphs",
+    "section": "Domain and range",
+    "text": "Domain and range\nThe domain is the set of allowed inputs. The range is the set of outputs the function actually produces.\nFor:\nf(x) = x^2\nover all real numbers:\n\ndomain: all real numbers;\nrange: all real numbers greater than or equal to 0.\n\nFor:\ng(x) = sqrt(x - 2)\nover the real numbers:\n\ndomain: x &gt;= 2;\nrange: g(x) &gt;= 0.\n\nDomain restrictions often come from denominators, even roots, and logarithms.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#formula-to-table",
+    "href": "lessons/algebra/functions-and-graphs.html#formula-to-table",
+    "title": "Functions and Graphs",
+    "section": "Formula to table",
+    "text": "Formula to table\nA table makes individual input-output pairs explicit.\n\nfrom edumath.algebra import expression_table\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\nThis table is not the function itself. It is a sample of the function. The formula tells us the output for every allowed input; the table shows selected inputs.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#formula-to-graph",
+    "href": "lessons/algebra/functions-and-graphs.html#formula-to-graph",
+    "title": "Functions and Graphs",
+    "section": "Formula to graph",
+    "text": "Formula to graph\nThe graph of a function is the set of points:\n(x, f(x))\nThe package includes reusable plotting helpers for this input-output view.\n\nfrom edumath.algebra import input_output_scene\n\nscene = input_output_scene(\n    \"x**2 - 3*x + 2\",\n    x_value=4,\n    x_min=-2,\n    x_max=5,\n    y_min=-2,\n    y_max=8,\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe dashed guides show that input x = 4 produces output f(4) = 6.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#intercepts-and-zeros",
+    "href": "lessons/algebra/functions-and-graphs.html#intercepts-and-zeros",
+    "title": "Functions and Graphs",
+    "section": "Intercepts and zeros",
+    "text": "Intercepts and zeros\nAn x-intercept is a point where the graph crosses the x-axis. Algebraically, this means:\nf(x) = 0\nA zero or root of a function is an input that makes the output zero.\nFor:\nf(x) = x^2 - 3x + 2\nfactor:\nf(x) = (x - 1)(x - 2)\nThe zeros are:\nx = 1 and x = 2\nThe y-intercept occurs at x = 0:\nf(0) = 2",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#average-rate-of-change",
+    "href": "lessons/algebra/functions-and-graphs.html#average-rate-of-change",
+    "title": "Functions and Graphs",
+    "section": "Average rate of change",
+    "text": "Average rate of change\nThe average rate of change from x = a to x = b is:\n(f(b) - f(a))/(b - a)\nThis is the slope of the secant line through (a, f(a)) and (b, f(b)).\nFor f(x) = x^2, from x = 1 to x = 4:\n(f(4) - f(1))/(4 - 1) = (16 - 1)/3 = 5\nThis idea becomes the derivative in calculus when the interval becomes very small.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#comparing-function-families",
+    "href": "lessons/algebra/functions-and-graphs.html#comparing-function-families",
+    "title": "Functions and Graphs",
+    "section": "Comparing function families",
+    "text": "Comparing function families\nDifferent formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x\", \"x**2\", \"x**3\", \"sqrt(x + 4)\"),\n    labels=(\"linear\", \"quadratic\", \"cubic\", \"square root\"),\n    x_min=-4,\n    x_max=4,\n    y_min=-8,\n    y_max=16,\n    title=\"Common algebraic function families\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions to ask when reading a graph:\n\nIs it increasing, decreasing, or both?\nDoes it have a lowest or highest point?\nWhere does it cross the axes?\nIs it symmetric?\nDoes it grow slowly, linearly, quadratically, or faster?\nDoes the formula restrict the domain?",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#vertical-line-test",
+    "href": "lessons/algebra/functions-and-graphs.html#vertical-line-test",
+    "title": "Functions and Graphs",
+    "section": "Vertical line test",
+    "text": "Vertical line test\nA graph represents a function of x if every vertical line intersects the graph at most once.\nWhy? A vertical line fixes one input x. If it touches the graph twice, then the same input has two outputs, which violates the definition of a function.\n\n\n\n\n\n\nWarningLimitation\n\n\n\nThe vertical line test is a graph test. It does not replace understanding the rule or the domain. A table or formula may be a function even before you draw it.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#worked-examples",
+    "href": "lessons/algebra/functions-and-graphs.html#worked-examples",
+    "title": "Functions and Graphs",
+    "section": "Worked examples",
+    "text": "Worked examples\n\nExample 1: evaluate and interpret\nLet:\nf(x) = 3x - 2\nThen:\nf(4) = 3(4) - 2 = 10\nThe point (4, 10) lies on the graph.\n\n\nExample 2: domain from a formula\nFind the real domain:\ng(x) = 1/(x - 5)\nThe denominator cannot be zero:\nx - 5 != 0\nSo:\nx != 5\nThe domain is (-∞, 5) ∪ (5, ∞).\n\n\nExample 3: average rate of change\nLet:\nh(x) = x^2 - 1\nAverage rate of change from x = 2 to x = 5:\n(h(5) - h(2))/(5 - 2)\n= ((25 - 1) - (4 - 1))/3\n= (24 - 3)/3\n= 7",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#common-mistakes",
+    "href": "lessons/algebra/functions-and-graphs.html#common-mistakes",
+    "title": "Functions and Graphs",
+    "section": "Common mistakes",
+    "text": "Common mistakes\n\nConfusing input and output\nIn f(3) = 7, the input is 3 and the output is 7.\n\n\nTreating every curve as a function\nA circle is not a function of x because many x-values correspond to two y-values.\n\n\nForgetting the domain\nThe formula 1/(x - 5) looks simple, but it excludes x = 5.\n\n\nThinking a sampled table proves everything\nA table shows selected values. It can suggest a pattern, but it does not prove the formula’s behavior for all inputs.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#practice",
+    "href": "lessons/algebra/functions-and-graphs.html#practice",
+    "title": "Functions and Graphs",
+    "section": "Practice",
+    "text": "Practice\n\n\nFind f(4) for f(x) = 3x - 2.\nFind g(-1) for g(x) = x^2 + 2x.\nIdentify the slope and y-intercept of y = -2x + 5.\nFind the domain of 1/(x + 4).\nFind the domain of sqrt(2x - 6).\nFind the zeros of f(x) = x^2 - 5x + 6.\nCompute the average rate of change of f(x)=x^2 from x=2 to x=6.\nWhich grows faster for large positive x: x, x^2, or 2^x?\nGive an example of a relation that is not a function.\nChallenge: explain why a vertical line fails to be a function of x.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#solutions",
+    "href": "lessons/algebra/functions-and-graphs.html#solutions",
+    "title": "Functions and Graphs",
+    "section": "Solutions",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nf(4) = 3(4) - 2 = 10.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\ng(-1) = (-1)^2 + 2(-1) = 1 - 2 = -1.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nSlope -2; y-intercept 5.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nThe denominator cannot be zero, so x + 4 != 0. Therefore x != -4.\n\n\n\n\n\n\n\n\n\nTipSolution 5\n\n\n\n\n\nThe radicand must be nonnegative: 2x - 6 &gt;= 0. Therefore x &gt;= 3.\n\n\n\n\n\n\n\n\n\nTipSolution 6\n\n\n\n\n\nFactor: x^2 - 5x + 6 = (x - 2)(x - 3). The zeros are x = 2 and x = 3.\n\n\n\n\n\n\n\n\n\nTipSolution 7\n\n\n\n\n\n(f(6)-f(2))/(6-2) = (36 - 4)/4 = 8.\n\n\n\n\n\n\n\n\n\nTipSolution 8\n\n\n\n\n\n2^x eventually grows faster than any fixed power such as x or x^2.\n\n\n\n\n\n\n\n\n\nTipSolution 9\n\n\n\n\n\nThe equation x^2 + y^2 = 1 describes a circle, which is not a function of x because many x-values have two y-values.\n\n\n\n\n\n\n\n\n\nTipSolution 10\n\n\n\n\n\nA vertical line has one x-value and many y-values. A function of x must assign each input x-value exactly one output.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#why-this-matters-later",
+    "href": "lessons/algebra/functions-and-graphs.html#why-this-matters-later",
+    "title": "Functions and Graphs",
+    "section": "Why this matters later",
+    "text": "Why this matters later\n\nCalculus: derivatives and integrals are operations on functions.\nLinear algebra: transformations are functions between vector spaces.\nStatistics: regression models are functions with fitted parameters.\nOptimization: objective functions are maximized or minimized over a domain.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/functions-and-graphs.html#further-reading",
+    "href": "lessons/algebra/functions-and-graphs.html#further-reading",
+    "title": "Functions and Graphs",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e, Chapter 3: https://openstax.org/books/college-algebra-2e/pages/index\nGelfand, Saul, and Yaglom, Functions and Graphs.\nKhan Academy, Algebra 2, function transformations and modeling: https://www.khanacademy.org/algebra2",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html",
+    "href": "lessons/algebra/polynomials.html",
+    "title": "Polynomials",
+    "section": "",
+    "text": "After this lesson you should be able to:\n\nidentify degree, leading coefficient, terms, and constant term;\nexpand, factor, and divide polynomial expressions;\nconnect roots, factors, and x-intercepts;\ninterpret root multiplicity from a graph;\npredict end behavior from degree and leading coefficient;\nuse SymPy helpers to summarize and visualize polynomial structure.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#motivation",
+    "href": "lessons/algebra/polynomials.html#motivation",
+    "title": "Polynomials",
+    "section": "Motivation",
+    "text": "Motivation\nPolynomials are algebra’s most flexible elementary functions. They are built from powers of x, but they can approximate complicated functions, model smooth curves, and support numerical methods.\nIn advanced math, polynomials appear in:\n\nTaylor approximations in calculus;\ncharacteristic polynomials in linear algebra;\nregression and interpolation in statistics/numerical methods;\noptimization models and local approximations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#polynomial-vocabulary",
+    "href": "lessons/algebra/polynomials.html#polynomial-vocabulary",
+    "title": "Polynomials",
+    "section": "Polynomial vocabulary",
+    "text": "Polynomial vocabulary\nA polynomial in one variable has the form:\na_n*x^n + a_{n-1}*x^{n-1} + ... + a_1*x + a_0\nwhere:\n\nexponents are nonnegative integers;\ncoefficients are constants;\nthe degree is the highest exponent with a nonzero coefficient;\nthe leading coefficient is the coefficient of the highest-power term.\n\nExample:\n2x^4 - 3x^2 + 7x - 5\nhas degree 4, leading coefficient 2, and constant term -5.\n\nfrom edumath.algebra import polynomial_summary\n\nsummary = polynomial_summary(\"2*x**4 - 3*x**2 + 7*x - 5\")\nsummary.degree, summary.leading_coefficient\n\n(4, 2)",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#factored-form-roots-and-x-intercepts",
+    "href": "lessons/algebra/polynomials.html#factored-form-roots-and-x-intercepts",
+    "title": "Polynomials",
+    "section": "Factored form, roots, and x-intercepts",
+    "text": "Factored form, roots, and x-intercepts\nIf a polynomial has a factor (x - r), then r is a root:\np(r) = 0\nFor example:\np(x) = (x - 2)(x + 3)\nhas roots:\nx = 2 and x = -3\nExpanded:\n(x - 2)(x + 3) = x^2 + x - 6\nThe factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.\n\nfrom edumath.algebra import polynomial_root_scene\n\nscene = polynomial_root_scene(\"(x - 2)*(x + 3)\", x_min=-5, x_max=5, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#building-polynomials-from-roots",
+    "href": "lessons/algebra/polynomials.html#building-polynomials-from-roots",
+    "title": "Polynomials",
+    "section": "Building polynomials from roots",
+    "text": "Building polynomials from roots\nIf the roots are -1, 2, and 4, then one polynomial with those roots is:\n(x + 1)(x - 2)(x - 4)\n\nfrom edumath.algebra import polynomial_from_roots\n\npolynomial_from_roots((-1, 2, 4))\n\n\\(\\displaystyle x^{3} - 5 x^{2} + 2 x + 8\\)\n\n\nMultiplying by a nonzero leading coefficient changes the vertical scale but not the roots.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#multiplicity",
+    "href": "lessons/algebra/polynomials.html#multiplicity",
+    "title": "Polynomials",
+    "section": "Multiplicity",
+    "text": "Multiplicity\nA root can occur more than once. The number of times it appears as a factor is called its multiplicity.\nExample:\np(x) = (x - 2)^2(x + 1)\nRoot 2 has multiplicity 2. Root -1 has multiplicity 1.\n\nsummary = polynomial_summary(\"(x - 2)**2*(x + 1)\")\nsummary.root_multiplicities\n\n((-1, 1), (2, 2))\n\n\nGraph behavior:\n\nodd multiplicity: the graph usually crosses the x-axis;\neven multiplicity: the graph touches/bounces off the x-axis.\n\n\nscene = polynomial_root_scene(\"(x - 2)**2*(x + 1)\", x_min=-4, x_max=4, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#end-behavior",
+    "href": "lessons/algebra/polynomials.html#end-behavior",
+    "title": "Polynomials",
+    "section": "End behavior",
+    "text": "End behavior\nFor large positive or negative inputs, the leading term dominates.\nFor:\np(x) = -2x^5 + 3x^2 - 1\nthe leading term is -2x^5. So for very large |x|, the graph behaves like -2x^5.\nRules:\n\n\n\nDegree\nLeading coefficient\nLeft end\nRight end\n\n\n\n\neven\npositive\nup\nup\n\n\neven\nnegative\ndown\ndown\n\n\nodd\npositive\ndown\nup\n\n\nodd\nnegative\nup\ndown\n\n\n\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**4\", \"-x**4\", \"x**3\", \"-x**3\"),\n    labels=(\"even positive\", \"even negative\", \"odd positive\", \"odd negative\"),\n    x_min=-3,\n    x_max=3,\n    y_min=-20,\n    y_max=20,\n    title=\"Polynomial end behavior patterns\",\n)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#polynomial-division-and-the-factor-theorem",
+    "href": "lessons/algebra/polynomials.html#polynomial-division-and-the-factor-theorem",
+    "title": "Polynomials",
+    "section": "Polynomial division and the Factor Theorem",
+    "text": "Polynomial division and the Factor Theorem\nThe Factor Theorem says:\n(x - r) is a factor of p(x)  exactly when  p(r) = 0\nExample:\np(x) = x^3 - 3x^2 + 4\nCheck x = 2:\np(2) = 8 - 12 + 4 = 0\nSo (x - 2) is a factor. In fact:\nx^3 - 3x^2 + 4 = (x - 2)^2(x + 1)",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#worked-examples",
+    "href": "lessons/algebra/polynomials.html#worked-examples",
+    "title": "Polynomials",
+    "section": "Worked examples",
+    "text": "Worked examples\n\nExample 1: summarize a polynomial\np(x) = 4x^5 - x^2 + 8\n\ndegree: 5;\nleading coefficient: 4;\nconstant term: 8;\nend behavior: odd degree and positive leading coefficient, so left end down and right end up.\n\n\n\nExample 2: roots from factored form\np(x) = -3(x - 1)(x + 2)^2\nRoots:\n\nx = 1, multiplicity 1;\nx = -2, multiplicity 2.\n\nThe graph crosses at x=1 and bounces at x=-2.\n\n\nExample 3: construct from roots\nBuild a monic polynomial with roots -2, 0, and 5:\np(x) = (x + 2)x(x - 5)\nExpand:\nx(x + 2)(x - 5) = x(x^2 - 3x - 10) = x^3 - 3x^2 - 10x",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#common-mistakes",
+    "href": "lessons/algebra/polynomials.html#common-mistakes",
+    "title": "Polynomials",
+    "section": "Common mistakes",
+    "text": "Common mistakes\n\nConfusing roots and coefficients\nThe roots are input values where the output is zero. They are not usually the same as the coefficients.\n\n\nForgetting multiplicity\nThe root 2 in (x - 2)^2 is not just a root; it is a repeated root. This changes the graph’s behavior.\n\n\nPredicting end behavior from the constant term\nThe leading term controls end behavior, not the constant term.\n\n\nAssuming every root is real\nPolynomials can have complex roots. A degree n polynomial has n complex roots counted with multiplicity, but not necessarily n real roots.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#practice",
+    "href": "lessons/algebra/polynomials.html#practice",
+    "title": "Polynomials",
+    "section": "Practice",
+    "text": "Practice\n\n\nExpand (x + 1)(x + 4).\nFind the roots of (x - 5)(x + 2).\nWhat is the degree of 4x^5 - x^2 + 8?\nWhat is the leading coefficient of -7x^4 + 3x - 1?\nBuild a monic polynomial with roots 1 and -3.\nFind the multiplicity of each root in (x - 2)^3(x + 1)^2.\nPredict the end behavior of -x^6 + 2x - 1.\nPredict the end behavior of 3x^5 - x^2.\nUse the Factor Theorem to decide whether (x - 2) is a factor of x^3 - 2x^2 + x - 2.\nChallenge: explain why a degree 3 polynomial with real coefficients must have at least one real root.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#solutions",
+    "href": "lessons/algebra/polynomials.html#solutions",
+    "title": "Polynomials",
+    "section": "Solutions",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\n(x + 1)(x + 4) = x^2 + 5x + 4.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nRoots are x = 5 and x = -2.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nDegree 5.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nThe leading coefficient is -7.\n\n\n\n\n\n\n\n\n\nTipSolution 5\n\n\n\n\n\n(x - 1)(x + 3) = x^2 + 2x - 3.\n\n\n\n\n\n\n\n\n\nTipSolution 6\n\n\n\n\n\nRoot 2 has multiplicity 3; root -1 has multiplicity 2.\n\n\n\n\n\n\n\n\n\nTipSolution 7\n\n\n\n\n\nEven degree with negative leading coefficient: both ends go down.\n\n\n\n\n\n\n\n\n\nTipSolution 8\n\n\n\n\n\nOdd degree with positive leading coefficient: left end down, right end up.\n\n\n\n\n\n\n\n\n\nTipSolution 9\n\n\n\n\n\nEvaluate at x=2:\n2^3 - 2(2^2) + 2 - 2 = 8 - 8 + 2 - 2 = 0.\nSo (x - 2) is a factor.\n\n\n\n\n\n\n\n\n\nTipSolution 10\n\n\n\n\n\nAn odd-degree polynomial with real coefficients has opposite end behavior on the left and right. Because polynomial graphs are continuous, the graph must cross the x-axis at least once.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#why-this-matters-later",
+    "href": "lessons/algebra/polynomials.html#why-this-matters-later",
+    "title": "Polynomials",
+    "section": "Why this matters later",
+    "text": "Why this matters later\n\nCalculus: polynomials are easy to differentiate and integrate and are used in Taylor approximations.\nLinear algebra: eigenvalues are roots of characteristic polynomials.\nStatistics: polynomial regression models curved relationships.\nNumerical methods: interpolation and root-finding often begin with polynomial approximations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#further-reading",
+    "href": "lessons/algebra/polynomials.html#further-reading",
+    "title": "Polynomials",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e, polynomial functions: https://openstax.org/books/college-algebra-2e/pages/index\nOpenStax, Precalculus, polynomial and rational functions: https://openstax.org/books/precalculus/pages/index\nPaul’s Online Math Notes, polynomial functions: https://tutorial.math.lamar.edu/",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
     ]
   },
   {
@@ -1855,367 +2531,653 @@
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html",
-    "href": "lessons/algebra/polynomials.html",
-    "title": "Polynomials",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html",
+    "title": "Inequalities and Absolute Value",
     "section": "",
-    "text": "Recognize polynomial terms, degree, and leading coefficient.\nExpand factored polynomial expressions.\nInterpret roots as x-intercepts.\nConnect factored and expanded forms.",
+    "text": "After this lesson you should be able to:\n\nsolve linear inequalities and compound inequalities;\nwrite solution sets using interval notation;\nexplain why multiplying an inequality by a negative number reverses the sign;\ninterpret absolute value as distance;\nsolve absolute value equations and inequalities;\nidentify basic domain restrictions from denominators and radicals.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#motivation",
-    "href": "lessons/algebra/polynomials.html#motivation",
-    "title": "Polynomials",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#motivation",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#motivation",
+    "title": "Inequalities and Absolute Value",
     "section": "Motivation",
-    "text": "Motivation\nPolynomials are simple enough to compute with but flexible enough to model curves. They appear in approximation, optimization, numerical methods, and many applied models.",
+    "text": "Motivation\nEquations often ask for exact values. Inequalities describe allowable regions. That makes them essential for optimization, probability, statistics, and modeling.\nExamples:\n\nA portfolio weight must satisfy 0 &lt;= w &lt;= 1.\nA variance must be nonnegative.\nA logarithm input must be positive.\nA feasible region in optimization is defined by inequalities.\n\nAn inequality is not a weaker equation. It is a statement about a set of values.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#polynomial-structure",
-    "href": "lessons/algebra/polynomials.html#polynomial-structure",
-    "title": "Polynomials",
-    "section": "Polynomial Structure",
-    "text": "Polynomial Structure\nA polynomial is a sum of terms like:\nconstant * x^nonnegative_integer\nExample:\n2x^3 - 5x^2 + x - 7\nThe highest power is the degree. This polynomial has degree 3.",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#inequality-symbols",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#inequality-symbols",
+    "title": "Inequalities and Absolute Value",
+    "section": "Inequality symbols",
+    "text": "Inequality symbols\nx &lt; 3     x is less than 3\nx &lt;= 3    x is less than or equal to 3\nx &gt; 3     x is greater than 3\nx &gt;= 3    x is greater than or equal to 3\nThe solution to an inequality is usually an interval, not a single point.\nx &lt; 3\nmeans all real numbers to the left of 3.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#factored-form-and-roots",
-    "href": "lessons/algebra/polynomials.html#factored-form-and-roots",
-    "title": "Polynomials",
-    "section": "Factored Form and Roots",
-    "text": "Factored Form and Roots\nThe polynomial:\n(x - 2)(x + 3)\nhas roots:\nx = 2 and x = -3\nbecause either factor can become zero.\nExpanded:\n(x - 2)(x + 3) = x^2 + x - 6",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#interval-notation",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#interval-notation",
+    "title": "Inequalities and Absolute Value",
+    "section": "Interval notation",
+    "text": "Interval notation\nIntervals summarize solution sets.\n\n\n\nInequality\nInterval notation\nMeaning\n\n\n\n\nx &lt; 3\n(-∞, 3)\nall numbers less than 3\n\n\nx &lt;= 3\n(-∞, 3]\nall numbers less than or equal to 3\n\n\nx &gt; -2\n(-2, ∞)\nall numbers greater than -2\n\n\n-2 &lt;= x &lt; 3\n[-2, 3)\nfrom -2 included to 3 excluded\n\n\n\nParentheses mean an endpoint is not included. Brackets mean it is included.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#python-connection",
-    "href": "lessons/algebra/polynomials.html#python-connection",
-    "title": "Polynomials",
-    "section": "Python Connection",
-    "text": "Python Connection\n\nfrom edumath.algebra import expand_expression_exercise\n\nexercise = expand_expression_exercise(seed=4)\nexercise.prompt\n\n'Expand: (x - 2)**2'\n\n\n\nexercise.expected\n\n\\(\\displaystyle x^{2} - 4 x + 4\\)",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#solving-linear-inequalities",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#solving-linear-inequalities",
+    "title": "Inequalities and Absolute Value",
+    "section": "Solving linear inequalities",
+    "text": "Solving linear inequalities\nSolve:\n3x - 5 &lt; 7\nAdd 5 to both sides:\n3x &lt; 12\nDivide by 3:\nx &lt; 4\nSolution set:\n(-∞, 4)",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#visual-model",
-    "href": "lessons/algebra/polynomials.html#visual-model",
-    "title": "Polynomials",
-    "section": "Visual Model",
-    "text": "Visual Model\n\nfrom edumath.algebra import function_scene\n\nscene = function_scene(\"(x - 2)*(x + 3)\", x_min=-5, x_max=5, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe graph crosses the x-axis at the roots.",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#why-the-sign-flips",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#why-the-sign-flips",
+    "title": "Inequalities and Absolute Value",
+    "section": "Why the sign flips",
+    "text": "Why the sign flips\nWhen you multiply or divide by a negative number, the inequality direction reverses.\nExample:\n-2x &lt; 8\nDivide by -2:\nx &gt; -4\nWhy? Try one value. If x = -5, then -2x = 10, and 10 &lt; 8 is false. If x = -3, then -2x = 6, and 6 &lt; 8 is true. The correct side is x &gt; -4.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#common-mistakes",
-    "href": "lessons/algebra/polynomials.html#common-mistakes",
-    "title": "Polynomials",
-    "section": "Common Mistakes",
-    "text": "Common Mistakes\n\nForgetting to Distribute Every Term\nWhen expanding (x + 2)(x + 3), multiply each term in the first factor by each term in the second factor.",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#compound-inequalities",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#compound-inequalities",
+    "title": "Inequalities and Absolute Value",
+    "section": "Compound inequalities",
+    "text": "Compound inequalities\nA compound inequality combines two constraints:\n-2 &lt;= 3x + 1 &lt; 10\nSubtract 1 from all three parts:\n-3 &lt;= 3x &lt; 9\nDivide by 3:\n-1 &lt;= x &lt; 3\nInterval notation:\n[-1, 3)",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#practice",
-    "href": "lessons/algebra/polynomials.html#practice",
-    "title": "Polynomials",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#absolute-value-as-distance",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#absolute-value-as-distance",
+    "title": "Inequalities and Absolute Value",
+    "section": "Absolute value as distance",
+    "text": "Absolute value as distance\nThe expression |x - a| is the distance from x to a.\nFor example:\n|x - 2| &lt;= 5\nmeans \"the distance from x to 2 is at most 5.\" Therefore:\n-5 &lt;= x - 2 &lt;= 5\nAdd 2:\n-3 &lt;= x &lt;= 7\nSo the solution is:\n[-3, 7]",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#visualizing-absolute-value",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#visualizing-absolute-value",
+    "title": "Inequalities and Absolute Value",
+    "section": "Visualizing absolute value",
+    "text": "Visualizing absolute value\nThe graph of |x - a| forms a V-shape centered at x = a. A horizontal cutoff line tells you which points are close enough to the center.\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"Abs(x - 2)\", \"5\"),\n    labels=(\"distance from 2\", \"cutoff 5\"),\n    x_min=-6,\n    x_max=10,\n    y_min=-1,\n    y_max=9,\n    title=\"Solving |x - 2| &lt;= 5 visually\",\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe solution is where the V-shaped graph is at or below the cutoff line.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#domain-restrictions-as-inequalities",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#domain-restrictions-as-inequalities",
+    "title": "Inequalities and Absolute Value",
+    "section": "Domain restrictions as inequalities",
+    "text": "Domain restrictions as inequalities\nMany algebraic expressions only make sense for some inputs.\n\nDenominators\n1/(x + 1)\nrequires:\nx + 1 != 0\nso:\nx != -1\n\n\nSquare roots over the real numbers\nsqrt(x - 3)\nrequires:\nx - 3 &gt;= 0\nso:\nx &gt;= 3\n\n\nLogarithms\nlog(x - 4)\nrequires:\nx - 4 &gt; 0\nso:\nx &gt; 4",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#worked-examples",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#worked-examples",
+    "title": "Inequalities and Absolute Value",
+    "section": "Worked examples",
+    "text": "Worked examples\n\nExample 1: solve a negative-coefficient inequality\nSolve:\n5 - 2x &gt;= 17\nSubtract 5:\n-2x &gt;= 12\nDivide by -2 and reverse the sign:\nx &lt;= -6\n\n\nExample 2: solve an absolute value equation\nSolve:\n|x + 3| = 4\nThe distance from x to -3 is 4, so:\nx + 3 = 4  or  x + 3 = -4\nTherefore:\nx = 1  or  x = -7\n\n\nExample 3: find a domain\nFind the real domain of:\nsqrt(x - 2)/(x + 1)\nThe square root requires x - 2 &gt;= 0, so x &gt;= 2.\nThe denominator requires x + 1 != 0, so x != -1.\nBecause x &gt;= 2 already excludes -1, the domain is:\n[2, ∞)",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#common-mistakes",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#common-mistakes",
+    "title": "Inequalities and Absolute Value",
+    "section": "Common mistakes",
+    "text": "Common mistakes\n\nForgetting to reverse the inequality\nDividing by -2 changes &lt; into &gt; and &gt;= into &lt;=.\n\n\nTreating absolute value like parentheses\n|x - 2| &lt; 5 is not the same as x - 2 &lt; 5. It means the distance from x to 2 is less than 5, which creates a two-sided inequality.\n\n\nIgnoring endpoint types\nx &lt; 3 uses 3) in interval notation, while x &lt;= 3 uses 3].",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#practice",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#practice",
+    "title": "Inequalities and Absolute Value",
     "section": "Practice",
-    "text": "Practice\n\n\nExpand (x + 1)(x + 4).\nFind the roots of (x - 5)(x + 2).\nWhat is the degree of 4x^5 - x^2 + 8?\nDoes x = 3 make (x - 3)(x + 1) equal zero?",
+    "text": "Practice\n\n\nSolve 2x + 1 &lt;= 9.\nSolve -3x + 4 &gt; 16.\nSolve -1 &lt; 2x + 3 &lt;= 7.\nWrite (-4, 2] as inequalities.\nSolve |x - 5| &lt; 2.\nSolve |x + 1| &gt;= 3.\nFind the real domain of sqrt(x + 4).\nFind the real domain of 1/(x^2 - 9).\nFind the real domain of log(2x - 6).\nChallenge: explain why |x - a| &lt;= r has solution [a-r, a+r] when r &gt;= 0.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/polynomials.html#solutions",
-    "href": "lessons/algebra/polynomials.html#solutions",
-    "title": "Polynomials",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#solutions",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#solutions",
+    "title": "Inequalities and Absolute Value",
     "section": "Solutions",
-    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: x^2 + 5x + 4.\nMultiply each term: x*x + 4x + 1x + 4.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: x = 5 and x = -2.\nA product is zero when at least one factor is zero.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: degree 5.\nThe highest power of x is x^5.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: yes.\nSubstitute x = 3: (3 - 3)(3 + 1) = 0 * 4 = 0.",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\n2x + 1 &lt;= 9 gives 2x &lt;= 8, so x &lt;= 4.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\n-3x + 4 &gt; 16 gives -3x &gt; 12. Divide by -3 and reverse the sign: x &lt; -4.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nSubtract 3: -4 &lt; 2x &lt;= 4. Divide by 2: -2 &lt; x &lt;= 2. Interval notation: (-2, 2].\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\n-4 &lt; x &lt;= 2.\n\n\n\n\n\n\n\n\n\nTipSolution 5\n\n\n\n\n\n|x - 5| &lt; 2 means -2 &lt; x - 5 &lt; 2. Add 5: 3 &lt; x &lt; 7.\n\n\n\n\n\n\n\n\n\nTipSolution 6\n\n\n\n\n\n|x + 1| &gt;= 3 means the distance from x to -1 is at least 3. So x + 1 &lt;= -3 or x + 1 &gt;= 3. Therefore x &lt;= -4 or x &gt;= 2.\n\n\n\n\n\n\n\n\n\nTipSolution 7\n\n\n\n\n\nsqrt(x + 4) requires x + 4 &gt;= 0, so x &gt;= -4.\n\n\n\n\n\n\n\n\n\nTipSolution 8\n\n\n\n\n\nThe denominator cannot be zero. x^2 - 9 = (x - 3)(x + 3), so exclude x = 3 and x = -3.\n\n\n\n\n\n\n\n\n\nTipSolution 9\n\n\n\n\n\nThe logarithm input must be positive: 2x - 6 &gt; 0, so x &gt; 3.\n\n\n\n\n\n\n\n\n\nTipSolution 10\n\n\n\n\n\n|x - a| &lt;= r means the distance between x and a is at most r. That means x can be no more than r units left of a and no more than r units right of a, so a - r &lt;= x &lt;= a + r.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Polynomials"
+      "Inequalities and Absolute Value"
     ]
   },
   {
-    "objectID": "lessons/algebra/functions-and-graphs.html",
-    "href": "lessons/algebra/functions-and-graphs.html",
-    "title": "Functions and Graphs",
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#why-this-matters-later",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#why-this-matters-later",
+    "title": "Inequalities and Absolute Value",
+    "section": "Why this matters later",
+    "text": "Why this matters later\n\nOptimization: constraints are inequalities that define feasible regions.\nProbability: random variables often have restricted support such as x &gt;= 0.\nCalculus: domains determine where limits, derivatives, and integrals make sense.\nStatistics: confidence intervals and hypothesis-test rejection regions are sets defined by inequalities.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#further-reading",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#further-reading",
+    "title": "Inequalities and Absolute Value",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e, Section 2.7: https://openstax.org/books/college-algebra-2e/pages/index\nKhan Academy, Algebra 2: https://www.khanacademy.org/algebra2",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/guessing_quiz.html",
+    "href": "lessons/algebra/guessing_quiz.html",
+    "title": "Guessing Quiz",
     "section": "",
-    "text": "Interpret a function as an input-output rule.\nIdentify slope and intercepts for linear functions.\nConnect symbolic formulas to visual graphs.\nUse Python helpers to render function scenes.",
+    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Functions and Graphs"
+      "Guessing Quiz"
     ]
   },
   {
-    "objectID": "lessons/algebra/functions-and-graphs.html#motivation",
-    "href": "lessons/algebra/functions-and-graphs.html#motivation",
-    "title": "Functions and Graphs",
-    "section": "Motivation",
-    "text": "Motivation\nFunctions describe relationships. In quantitative work, a function might map time to account value, price to demand, or risk level to expected return.",
+    "objectID": "lessons/algebra/guessing_quiz.html#guess-the-expression",
+    "href": "lessons/algebra/guessing_quiz.html#guess-the-expression",
+    "title": "Guessing Quiz",
+    "section": "Guess the expression",
+    "text": "Guess the expression\nChoose the expression that matches the graph.\n\nquiz = quizApp()\n\n\n\n\n\n\n\nfunction quizApp() {\n  const root = html`&lt;section class=\"quiz-shell\"&gt;&lt;/section&gt;`;\n  const state = {\n    total: 5,\n    index: 0,\n    score: 0,\n    question: null,\n    answered: false\n  };\n\n  renderStart();\n  return root;\n\n  function renderStart() {\n    root.innerHTML = \"\";\n\n    const input = html`&lt;input class=\"quiz-count\" type=\"number\" min=\"1\" max=\"100\" value=\"${state.total}\"&gt;`;\n    const button = html`&lt;button type=\"button\"&gt;Start quiz&lt;/button&gt;`;\n    const controls = html`&lt;div class=\"quiz-start\"&gt;\n      &lt;label&gt;\n        &lt;span&gt;Number of questions&lt;/span&gt;\n        ${input}\n      &lt;/label&gt;\n      ${button}\n    &lt;/div&gt;`;\n\n    button.addEventListener(\"click\", () =&gt; {\n      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));\n      state.index = 0;\n      state.score = 0;\n      startQuestion();\n    });\n\n    root.append(controls);\n  }\n\n  function startQuestion() {\n    state.question = makeQuestion();\n    state.answered = false;\n    renderQuestion();\n  }\n\n  function renderQuestion() {\n    const question = state.question;\n    root.innerHTML = \"\";\n\n    const progress = html`&lt;div class=\"quiz-progress\"&gt;\n      &lt;span&gt;Question ${state.index + 1} of ${state.total}&lt;/span&gt;\n      &lt;span&gt;Score: ${state.score}/${state.total}&lt;/span&gt;\n    &lt;/div&gt;`;\n    const graph = drawGraph(question);\n    const prompt = html`&lt;p class=\"quiz-prompt\"&gt;Select an expression.&lt;/p&gt;`;\n    const feedback = html`&lt;p class=\"quiz-feedback\" aria-live=\"polite\"&gt;&lt;/p&gt;`;\n    const next = html`&lt;button type=\"button\" disabled&gt;Next question&lt;/button&gt;`;\n    const options = radioList(question.options, option =&gt; {\n      if (state.answered) return;\n\n      state.answered = true;\n      const correct = option.id === question.answer.id;\n      if (correct) state.score += 1;\n\n      feedback.className = correct\n        ? \"quiz-feedback correct\"\n        : \"quiz-feedback wrong\";\n      feedback.innerHTML = correct\n        ? \"Correct.\"\n        : `Not quite. The answer is &lt;code&gt;${question.answer.label}&lt;/code&gt;.`;\n\n      for (const input of options.querySelectorAll(\"input\")) {\n        input.disabled = true;\n      }\n\n      next.disabled = false;\n      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;\n    });\n\n    next.addEventListener(\"click\", () =&gt; {\n      state.index += 1;\n      if (state.index &lt; state.total) {\n        startQuestion();\n      } else {\n        renderComplete();\n      }\n    });\n\n    root.append(progress, graph, prompt, feedback, options, next);\n  }\n\n  function renderComplete() {\n    root.innerHTML = \"\";\n\n    const summary = html`&lt;div class=\"quiz-complete\"&gt;\n      &lt;h3&gt;Quiz complete&lt;/h3&gt;\n      &lt;p&gt;Final score: ${state.score}/${state.total}&lt;/p&gt;\n    &lt;/div&gt;`;\n    const restart = html`&lt;button type=\"button\"&gt;Start another quiz&lt;/button&gt;`;\n    restart.addEventListener(\"click\", renderStart);\n\n    root.append(summary, restart);\n  }\n}\n\n\n\n\n\n\n\nfunction makeQuestion() {\n  const answer = randomExpression();\n  const options = new Map([[answer.id, answer]]);\n\n  while (options.size &lt; 4) {\n    const option = randomExpression();\n    options.set(option.id, option);\n  }\n\n  return {\n    answer,\n    options: shuffle(Array.from(options.values()))\n  };\n}\n\n\n\n\n\n\n\nfunction randomExpression() {\n  const kind = choice([\"linear\", \"quadratic\", \"cubic\", \"sine\", \"cosine\"]);\n\n  if (kind === \"linear\") {\n    const m = nonzeroInt(-4, 4);\n    const b = int(-6, 6);\n    return expression(\n      `${formatCoeff(m)}x ${formatSigned(b)}`,\n      x =&gt; m * x + b\n    );\n  }\n\n  if (kind === \"quadratic\") {\n    const a = nonzeroInt(-3, 3);\n    const b = int(-5, 5);\n    const c = int(-6, 6);\n    return expression(\n      `${formatCoeff(a)}x² ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"cubic\") {\n    const a = nonzeroInt(-2, 2);\n    const b = int(-3, 3);\n    const c = int(-4, 4);\n    return expression(\n      `${formatCoeff(a)}x³ ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"sine\") {\n    const a = nonzeroInt(-4, 4);\n    const k = nonzeroInt(1, 4);\n    return expression(`${formatCoeff(a)}sin(${k}x)`, x =&gt; a * Math.sin(k * x));\n  }\n\n  const a = nonzeroInt(-4, 4);\n  const k = nonzeroInt(1, 4);\n  return expression(`${formatCoeff(a)}cos(${k}x)`, x =&gt; a * Math.cos(k * x));\n}\n\n\n\n\n\n\n\nfunction expression(label, evaluate) {\n  return {\n    id: label.replace(/\\s+/g, \"\"),\n    label,\n    evaluate,\n    toString: () =&gt; label\n  };\n}\n\n\n\n\n\n\n\nfunction radioList(options, onSelect) {\n  const form = html`&lt;form class=\"quiz-options\" role=\"radiogroup\" aria-label=\"Expression options\"&gt;&lt;/form&gt;`;\n  form.value = null;\n\n  for (const option of options) {\n    const input = html`&lt;input type=\"radio\" name=\"quiz-answer\"&gt;`;\n    const label = html`&lt;label class=\"quiz-option\"&gt;${input}&lt;span&gt;${option.label}&lt;/span&gt;&lt;/label&gt;`;\n\n    input.addEventListener(\"change\", () =&gt; {\n      form.value = option;\n      form.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      onSelect(option);\n    });\n\n    form.append(label);\n  }\n\n  return form;\n}\n\n\n\n\n\n\n\nfunction drawGraph(question) {\n  const width = 720;\n  const height = 360;\n  const margin = { top: 24, right: 24, bottom: 36, left: 46 };\n  const xs = Array.from({ length: 401 }, (_, i) =&gt; -10 + i * 20 / 400);\n  const points = xs\n    .map(x =&gt; ({ x, y: question.answer.evaluate(x) }))\n    .filter(d =&gt; Number.isFinite(d.y));\n\n  const yValues = points.map(d =&gt; d.y).sort((a, b) =&gt; a - b);\n  const low = Math.min(quantile(yValues, 0.02), -5);\n  const high = Math.max(quantile(yValues, 0.98), 5);\n  const yPadding = Math.max((high - low) * 0.08, 1);\n\n  const xScale = d3.scaleLinear()\n    .domain([-10, 10])\n    .range([margin.left, width - margin.right]);\n  const yScale = d3.scaleLinear()\n    .domain([low - yPadding, high + yPadding])\n    .range([height - margin.bottom, margin.top]);\n\n  const line = d3.line()\n    .x(d =&gt; xScale(d.x))\n    .y(d =&gt; yScale(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Graph of an algebraic expression\")\n    .attr(\"class\", \"quiz-graph\");\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(0,${yScale(0)})`)\n    .call(d3.axisBottom(xScale).ticks(10));\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(${xScale(0)},0)`)\n    .call(d3.axisLeft(yScale).ticks(8));\n\n  svg.append(\"g\")\n    .attr(\"class\", \"quiz-grid\")\n    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(\"\"));\n\n  svg.append(\"path\")\n    .datum(points)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#1a73e8\")\n    .attr(\"stroke-width\", 3)\n    .attr(\"d\", line);\n\n  return svg.node();\n}\n\n\n\n\n\n\n\nfunction choice(values) {\n  return values[Math.floor(Math.random() * values.length)];\n}\n\nfunction int(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nfunction nonzeroInt(min, max) {\n  let value = 0;\n  while (value === 0) value = int(min, max);\n  return value;\n}\n\nfunction shuffle(values) {\n  const copy = values.slice();\n  for (let i = copy.length - 1; i &gt; 0; i -= 1) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [copy[i], copy[j]] = [copy[j], copy[i]];\n  }\n  return copy;\n}\n\nfunction quantile(sortedValues, p) {\n  const index = Math.min(\n    sortedValues.length - 1,\n    Math.max(0, Math.floor(sortedValues.length * p))\n  );\n  return sortedValues[index];\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction formatCoeff(value) {\n  if (value === 1) return \"\";\n  if (value === -1) return \"-\";\n  return `${value}`;\n}\n\nfunction formatSigned(value) {\n  if (value === 0) return \"+ 0\";\n  return value &gt; 0 ? `+ ${value}` : `- ${Math.abs(value)}`;\n}\n\nfunction formatSignedTerm(value, symbol) {\n  if (value === 0) return \"+ 0\";\n  const magnitude = Math.abs(value);\n  const coeff = magnitude === 1 ? \"\" : `${magnitude}`;\n  return value &gt; 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;\n}",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Functions and Graphs"
+      "Guessing Quiz"
     ]
   },
   {
-    "objectID": "lessons/algebra/functions-and-graphs.html#what-is-a-function",
-    "href": "lessons/algebra/functions-and-graphs.html#what-is-a-function",
-    "title": "Functions and Graphs",
-    "section": "What Is a Function?",
-    "text": "What Is a Function?\nA function assigns each input exactly one output.\nf(x) = 2x + 1\nIf the input is x = 3, the output is:\nf(3) = 2(3) + 1 = 7",
+    "objectID": "lessons/algebra/guessing_quiz.html#python-notebook-widget",
+    "href": "lessons/algebra/guessing_quiz.html#python-notebook-widget",
+    "title": "Guessing Quiz",
+    "section": "Python notebook widget",
+    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Functions and Graphs"
+      "Guessing Quiz"
     ]
   },
   {
-    "objectID": "lessons/algebra/functions-and-graphs.html#graphs",
-    "href": "lessons/algebra/functions-and-graphs.html#graphs",
-    "title": "Functions and Graphs",
-    "section": "Graphs",
-    "text": "Graphs\nThe graph of a function is the set of points:\n(x, f(x))\nFor f(x) = 2x + 1, each x-value creates a y-value.\n\nFor a line y = mx + b, m is the slope and b is the y-intercept.",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Functions and Graphs"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/functions-and-graphs.html#python-connection",
-    "href": "lessons/algebra/functions-and-graphs.html#python-connection",
-    "title": "Functions and Graphs",
-    "section": "Python Connection",
-    "text": "Python Connection\n\nfrom edumath.algebra import function_scene\n\nscene = function_scene(\"2*x + 1\", x_min=-5, x_max=5, y_min=-10, y_max=10)\nfig, ax = scene.render()\nfig",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Functions and Graphs"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/functions-and-graphs.html#comparing-functions",
-    "href": "lessons/algebra/functions-and-graphs.html#comparing-functions",
-    "title": "Functions and Graphs",
-    "section": "Comparing Functions",
-    "text": "Comparing Functions\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x\", \"2*x + 1\", \"x**2\"),\n    x_min=-4,\n    x_max=4,\n    y_min=-6,\n    y_max=12,\n)\nfig, ax = scene.render()\nfig",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Functions and Graphs"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/functions-and-graphs.html#common-mistakes",
-    "href": "lessons/algebra/functions-and-graphs.html#common-mistakes",
-    "title": "Functions and Graphs",
-    "section": "Common Mistakes",
-    "text": "Common Mistakes\n\nConfusing Input and Output\nIn f(3) = 7, the input is 3 and the output is 7.\n\n\nTreating Every Curve as a Function\nA graph is a function of x only if each x-value has exactly one y-value.",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Functions and Graphs"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/functions-and-graphs.html#practice",
-    "href": "lessons/algebra/functions-and-graphs.html#practice",
-    "title": "Functions and Graphs",
-    "section": "Practice",
-    "text": "Practice\n\n\nFind f(4) for f(x) = 3x - 2.\nIdentify the slope and y-intercept of y = -2x + 5.\nWhich grows faster for large positive x: x or x^2?\nSketch the graph of y = x - 3.",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Functions and Graphs"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/functions-and-graphs.html#solutions",
-    "href": "lessons/algebra/functions-and-graphs.html#solutions",
-    "title": "Functions and Graphs",
-    "section": "Solutions",
-    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 10.\nf(4) = 3(4) - 2 = 12 - 2 = 10.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: slope -2; y-intercept 5.\nThe equation is already in slope-intercept form y = mx + b.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: x^2.\nFor large positive x, squaring grows faster than the linear function x.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: draw a line with slope 1 and y-intercept -3.\nTwo easy points are (0, -3) and (3, 0).",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Functions and Graphs"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/expressions-and-equations.html",
-    "href": "lessons/algebra/expressions-and-equations.html",
-    "title": "Expressions and Equations",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html",
+    "href": "lessons/algebra/exponentials-and-logarithms.html",
+    "title": "Exponentials and Logarithms",
     "section": "",
-    "text": "Distinguish an expression from an equation.\nEvaluate expressions by substituting values.\nSolve one-variable linear equations.\nCheck whether a proposed solution is correct.",
+    "text": "Recognize exponential growth and decay.\nInterpret logarithms as inverse operations.\nSolve basic exponential and logarithmic equations.\nCompare exponential functions with polynomial functions.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#motivation",
-    "href": "lessons/algebra/expressions-and-equations.html#motivation",
-    "title": "Expressions and Equations",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#motivation",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#motivation",
+    "title": "Exponentials and Logarithms",
     "section": "Motivation",
-    "text": "Motivation\nAlgebra is the language used to turn a quantitative situation into something we can compute. If a portfolio grows by a fixed amount, if a loan balance changes each month, or if a model has one unknown parameter, algebra gives us the structure for writing and solving the problem.",
+    "text": "Motivation\nExponential functions model repeated multiplication. They appear in compound interest, population growth, radioactive decay, and many risk models.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#expressions",
-    "href": "lessons/algebra/expressions-and-equations.html#expressions",
-    "title": "Expressions and Equations",
-    "section": "Expressions",
-    "text": "Expressions\nAn expression is a mathematical phrase. It can contain numbers, variables, and operations, but it does not make a complete true-or-false statement.\nExamples:\n3x + 2\nx^2 - 5x + 6\n2(a + b)\nIf x = 4, then 3x + 2 evaluates to:\n3(4) + 2 = 14",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#exponential-functions",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#exponential-functions",
+    "title": "Exponentials and Logarithms",
+    "section": "Exponential Functions",
+    "text": "Exponential Functions\nAn exponential function has the variable in the exponent:\nf(x) = a * b^x\nIf b &gt; 1, the function grows. If 0 &lt; b &lt; 1, the function decays.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#equations",
-    "href": "lessons/algebra/expressions-and-equations.html#equations",
-    "title": "Expressions and Equations",
-    "section": "Equations",
-    "text": "Equations\nAn equation says that two expressions are equal.\n3x + 2 = 14\nSolving an equation means finding the value of the variable that makes the statement true.\n\nKey Idea\nWhatever you do to one side of an equation, do the same thing to the other side. This keeps the equality balanced.",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#logarithms",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#logarithms",
+    "title": "Exponentials and Logarithms",
+    "section": "Logarithms",
+    "text": "Logarithms\nA logarithm is the inverse of an exponential.\n\nlog_b(y) = x means b^x = y.\n\nFor example:\nlog_2(8) = 3\nbecause:\n2^3 = 8",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#worked-example",
-    "href": "lessons/algebra/expressions-and-equations.html#worked-example",
-    "title": "Expressions and Equations",
-    "section": "Worked Example",
-    "text": "Worked Example\nSolve:\n3x + 2 = 14\nSubtract 2 from both sides:\n3x = 12\nDivide both sides by 3:\nx = 4\nCheck:\n3(4) + 2 = 14\nSo the solution is x = 4.",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#visual-comparison",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#visual-comparison",
+    "title": "Exponentials and Logarithms",
+    "section": "Visual Comparison",
+    "text": "Visual Comparison\n\nfrom edumath.algebra import compare_functions_scene\n\nscene = compare_functions_scene(\n    (\"x**2\", \"2**x\"),\n    x_min=-2,\n    x_max=6,\n    y_min=-2,\n    y_max=40,\n    title=\"Polynomial vs exponential growth\",\n)\nfig, ax = scene.render()\nfig",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#python-connection",
-    "href": "lessons/algebra/expressions-and-equations.html#python-connection",
-    "title": "Expressions and Equations",
-    "section": "Python Connection",
-    "text": "Python Connection\nThe package includes reusable exercise builders.\n\nfrom edumath.algebra import linear_equation_exercise\n\nexercise = linear_equation_exercise(seed=7)\nexercise.prompt\n\n'Solve for x: Eq(2 - 4*x, -6)'\n\n\n\nexercise.expected\n\n2.0\n\n\n\nexercise.check(exercise.expected).message\n\n'Correct.'",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Expressions and Equations"
-    ]
-  },
-  {
-    "objectID": "lessons/algebra/expressions-and-equations.html#common-mistakes",
-    "href": "lessons/algebra/expressions-and-equations.html#common-mistakes",
-    "title": "Expressions and Equations",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#common-mistakes",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#common-mistakes",
+    "title": "Exponentials and Logarithms",
     "section": "Common Mistakes",
-    "text": "Common Mistakes\n\nChanging Only One Side\nIf you subtract 2 from the left side but not the right side, the new equation is no longer equivalent to the original.\n\n\nLosing the Negative Sign\nWhen solving -3x = 12, divide by -3, not by 3. The solution is x = -4.",
+    "text": "Common Mistakes\n\nTreating log(x + y) as log(x) + log(y)\nLogarithms do not distribute over addition. Product rules apply to multiplication, not addition.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#practice",
-    "href": "lessons/algebra/expressions-and-equations.html#practice",
-    "title": "Expressions and Equations",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#practice",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#practice",
+    "title": "Exponentials and Logarithms",
     "section": "Practice",
-    "text": "Practice\n\n\nEvaluate 2x + 5 when x = 3.\nSolve 4x - 7 = 9.\nSolve -2x + 6 = 14.\nCheck whether x = 5 solves 3x - 1 = 14.",
+    "text": "Practice\n\n\nCompute 2^5.\nSolve log_10(x) = 3.\nIs 0.5^x growth or decay?\nWhich eventually grows faster: x^2 or 2^x?",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#solutions",
-    "href": "lessons/algebra/expressions-and-equations.html#solutions",
-    "title": "Expressions and Equations",
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#solutions",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#solutions",
+    "title": "Exponentials and Logarithms",
     "section": "Solutions",
-    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 11.\nSubstitute x = 3: 2(3) + 5 = 6 + 5 = 11.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: x = 4.\nAdd 7 to both sides to get 4x = 16, then divide by 4.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: x = -4.\nSubtract 6 from both sides to get -2x = 8, then divide by -2.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: yes.\nSubstitute x = 5: 3(5) - 1 = 15 - 1 = 14.",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 32.\n2^5 = 2 * 2 * 2 * 2 * 2 = 32.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: x = 1000.\nlog_10(x) = 3 means 10^3 = x.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: decay.\nThe base 0.5 is between 0 and 1, so the function shrinks as x increases.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: 2^x.\nExponential functions with base greater than 1 eventually grow faster than any fixed power such as x^2.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Exponentials and Logarithms"
     ]
   },
   {
-    "objectID": "lessons/algebra/expressions-and-equations.html#quick-quiz",
-    "href": "lessons/algebra/expressions-and-equations.html#quick-quiz",
-    "title": "Expressions and Equations",
-    "section": "Quick Quiz",
-    "text": "Quick Quiz\n\nfrom edumath.core import Question, QuizSession\n\nquiz = QuizSession(\n    questions=(\n        Question(\"What is 2*3 + 5?\", expected=11),\n        Question(\"Solve 4*x - 7 = 9.\", expected=4),\n    )\n)\n\nresult = quiz.answer(0, 11)\nresult.check.message\n\n'Correct.'",
+    "objectID": "lessons/algebra/index.html",
+    "href": "lessons/algebra/index.html",
+    "title": "Algebra Study Path",
+    "section": "",
+    "text": "Algebra is the language used to describe change, constraints, models, and unknown quantities. A learner preparing for graduate-level quantitative work does not need algebra as a list of tricks; they need algebra as a reliable way to move among formulas, graphs, tables, verbal descriptions, and computational experiments.\nThis section is being rebuilt as a complete preparation module. The goal is to make every algebraic idea usable in later lessons on calculus, linear algebra, probability, statistics, optimization, differential equations, and modeling.",
     "crumbs": [
       "Home",
       "Lessons",
       "Algebra",
-      "Expressions and Equations"
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#what-this-path-prepares-you-to-do",
+    "href": "lessons/algebra/index.html#what-this-path-prepares-you-to-do",
+    "title": "Algebra Study Path",
+    "section": "What this path prepares you to do",
+    "text": "What this path prepares you to do\nBy the end of this Algebra path, you should be able to:\n\nmanipulate expressions without losing domain restrictions;\nsolve equations and inequalities and interpret their solution sets;\nread and produce graphs from formulas;\nrecognize how parameters change the shape of a function;\nfactor, expand, and analyze polynomial expressions;\nwork with rational, radical, exponential, and logarithmic functions;\nsolve and graph systems of equations;\ntranslate word problems and data patterns into algebraic models;\nuse SymPy responsibly to check work, generate examples, and explore patterns.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#recommended-sequence",
+    "href": "lessons/algebra/index.html#recommended-sequence",
+    "title": "Algebra Study Path",
+    "section": "Recommended sequence",
+    "text": "Recommended sequence\n\n\n\n\n\n\nNoteFull preparation path\n\n\n\n\nExpressions and equations\nInequalities and absolute value\nFunctions and graphs\nTransformations, composition, and inverses\nLinear and quadratic functions\nPolynomials\nRational and radical functions\nExponentials and logarithms\nSystems of equations\nAlgebraic modeling\nSymbolic computation with SymPy\nCumulative review\n\n\n\nThe current implementation starts with the core foundations and will expand lesson by lesson. The pages already linked in the sidebar are safe to study now; additional pages will be added as the rebuild progresses.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#diagnostic-checklist",
+    "href": "lessons/algebra/index.html#diagnostic-checklist",
+    "title": "Algebra Study Path",
+    "section": "Diagnostic checklist",
+    "text": "Diagnostic checklist\nUse this checklist before moving quickly through Algebra. If any item feels uncomfortable, study that topic slowly and work the exercises.\n\n\nCan you explain the difference between an expression, an equation, and an identity?\nCan you solve 3x - 7 = 11 and check the answer?\nCan you solve -2 &lt;= 3x + 1 &lt; 10 and write the answer in interval notation?\nCan you compute f(4) for f(x) = x^2 - 3x + 2?\nCan you identify the domain of sqrt(x - 2)/(x + 1)?\nCan you describe how y = 2(x - 3)^2 + 1 differs from y = x^2?\nCan you factor x^2 - 5x + 6?\nCan you solve a two-equation linear system and interpret the intersection point graphically?\nCan you explain why logarithms undo exponentials?\nCan you use a graph to estimate roots and then verify them symbolically?",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#a-small-auto-checkable-diagnostic",
+    "href": "lessons/algebra/index.html#a-small-auto-checkable-diagnostic",
+    "title": "Algebra Study Path",
+    "section": "A small auto-checkable diagnostic",
+    "text": "A small auto-checkable diagnostic\nThe package’s quiz model can use SymPy to derive answers. That means many questions do not need a manually typed expected value; the expected answer can come from a resolver such as expand, factor, or solve.\n\nimport sympy as sp\n\nfrom edumath.algebra import expand_question, factor_question\nfrom edumath.core import Question, QuizSession\n\nx = sp.Symbol(\"x\")\n\ndiagnostic = QuizSession(\n    questions=(\n        Question(\"Evaluate 2*3 + 5.\", expected=11),\n        expand_question((x + 1) ** 2),\n        factor_question(x**2 - 5 * x + 6),\n    )\n)\n\ndiagnostic.answer(1, \"x**2 + 2*x + 1\").check.message\n\n'Correct.'",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#formula-table-graph-one-idea-in-three-forms",
+    "href": "lessons/algebra/index.html#formula-table-graph-one-idea-in-three-forms",
+    "title": "Algebra Study Path",
+    "section": "Formula, table, graph: one idea in three forms",
+    "text": "Formula, table, graph: one idea in three forms\nAlgebra becomes powerful when you can translate among representations. The same function can be studied as a formula, a table, and a graph.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\n    \"x**2 - 3*x + 2\",\n    x_value=4,\n    x_min=-2,\n    x_max=5,\n    y_min=-2,\n    y_max=8,\n)\nfig, ax = scene.render()\nfig",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#how-to-study-these-lessons",
+    "href": "lessons/algebra/index.html#how-to-study-these-lessons",
+    "title": "Algebra Study Path",
+    "section": "How to study these lessons",
+    "text": "How to study these lessons\nFor each lesson:\n\nRead the motivation before looking at formulas.\nWork through each example by hand.\nRun the Python/SymPy cells when available.\nChange the inputs in the examples and predict what should happen.\nAttempt every exercise before opening the hidden solution.\nWrite a short explanation of the idea in your own words.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/index.html#further-reading",
+    "href": "lessons/algebra/index.html#further-reading",
+    "title": "Algebra Study Path",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e: https://openstax.org/books/college-algebra-2e/pages/index\nOpenStax, Precalculus: https://openstax.org/books/precalculus/pages/index\nKhan Academy, Algebra 2: https://www.khanacademy.org/algebra2\nPaul’s Online Math Notes, Algebra: https://tutorial.math.lamar.edu/\nGelfand, Saul, and Yaglom, Functions and Graphs.\nSerge Lang, Basic Mathematics.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html",
+    "href": "lessons/algebra/transformations-composition-inverses.html",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "",
+    "text": "After this lesson you should be able to:\n\ndescribe vertical and horizontal shifts, stretches, compressions, and reflections;\ninterpret parameters in a*f(b*(x-h)) + k;\ncompute sums, differences, products, quotients, and compositions of functions;\ntrack domain restrictions under operations and composition;\nexplain what an inverse function does and when it exists.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#motivation",
+    "href": "lessons/algebra/transformations-composition-inverses.html#motivation",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Motivation",
+    "text": "Motivation\nOnce you understand a basic function family, transformations let you build many related functions without starting from scratch.\nFor example, y = x^2 is a base shape. The function:\ny = 2(x - 3)^2 + 1\nis still a quadratic, but it has been shifted, stretched, and moved. Being able to read this immediately is essential for graphing, modeling, optimization, and calculus.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#the-transformation-template",
+    "href": "lessons/algebra/transformations-composition-inverses.html#the-transformation-template",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "The transformation template",
+    "text": "The transformation template\nA useful general template is:\ng(x) = a*f(b*(x - h)) + k\nwhere:\n\na vertically stretches/compresses and may reflect across the x-axis;\nb horizontally compresses/stretches and may reflect across the y-axis;\nh shifts the graph horizontally;\nk shifts the graph vertically.\n\n\n\n\n\n\n\nWarningHorizontal transformations feel backward\n\n\n\nThe expression f(x - 3) shifts the graph right by 3, not left. The input must be 3 units larger before the base function sees the same internal value.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#visual-example",
+    "href": "lessons/algebra/transformations-composition-inverses.html#visual-example",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Visual example",
+    "text": "Visual example\nCompare f(x)=x^2 with g(x)=2(x-3)^2+1.\n\nfrom edumath.algebra import transformation_scene, transformed_expression\n\ntransformed_expression(\n    \"x**2\",\n    vertical_scale=2,\n    horizontal_shift=3,\n    vertical_shift=1,\n)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\nscene = transformation_scene(\n    \"x**2\",\n    vertical_scale=2,\n    horizontal_shift=3,\n    vertical_shift=1,\n    x_min=-3,\n    x_max=8,\n    y_min=-2,\n    y_max=20,\n)\nfig, ax = scene.render()\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe base vertex (0, 0) becomes (3, 1), and the graph becomes narrower because of the vertical stretch by 2.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#function-arithmetic",
+    "href": "lessons/algebra/transformations-composition-inverses.html#function-arithmetic",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Function arithmetic",
+    "text": "Function arithmetic\nIf two functions have compatible domains, we can combine them:\n(f + g)(x) = f(x) + g(x)\n(f - g)(x) = f(x) - g(x)\n(f*g)(x) = f(x)g(x)\n(f/g)(x) = f(x)/g(x), where g(x) != 0\nExample:\nf(x) = x^2\ng(x) = 3x - 1\nThen:\n(f + g)(x) = x^2 + 3x - 1\n(f*g)(x) = x^2(3x - 1) = 3x^3 - x^2\nFor a quotient, the denominator creates restrictions.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#composition",
+    "href": "lessons/algebra/transformations-composition-inverses.html#composition",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Composition",
+    "text": "Composition\nComposition means feeding the output of one function into another.\n(f ∘ g)(x) = f(g(x))\nIf:\nf(x) = x^2\ng(x) = x + 1\nthen:\n(f ∘ g)(x) = f(g(x)) = f(x + 1) = (x + 1)^2\nBut:\n(g ∘ f)(x) = g(f(x)) = g(x^2) = x^2 + 1\nComposition usually does not commute:\nf(g(x)) != g(f(x))",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#domain-under-composition",
+    "href": "lessons/algebra/transformations-composition-inverses.html#domain-under-composition",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Domain under composition",
+    "text": "Domain under composition\nThe domain of f(g(x)) must satisfy two requirements:\n\nx must be allowed in g.\ng(x) must be allowed as an input to f.\n\nExample:\nf(x) = sqrt(x)\ng(x) = x - 2\nThen:\nf(g(x)) = sqrt(x - 2)\nSo we require:\nx - 2 &gt;= 0\nTherefore:\nx &gt;= 2",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#inverse-functions",
+    "href": "lessons/algebra/transformations-composition-inverses.html#inverse-functions",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Inverse functions",
+    "text": "Inverse functions\nAn inverse function reverses the effect of another function.\nIf:\nf(x) = 2x + 3\nthen:\nf^{-1}(x) = (x - 3)/2\nbecause:\nf^{-1}(f(x)) = x\nand:\nf(f^{-1}(x)) = x",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#one-to-one-functions",
+    "href": "lessons/algebra/transformations-composition-inverses.html#one-to-one-functions",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "One-to-one functions",
+    "text": "One-to-one functions\nA function has an inverse function only when it is one-to-one: each output comes from exactly one input.\nThe horizontal line test checks this on a graph. If any horizontal line hits the graph more than once, the function is not one-to-one.\nExample:\n\nf(x)=2x+3 is one-to-one.\nf(x)=x^2 over all real numbers is not one-to-one because f(2)=4 and f(-2)=4.\n\nHowever, f(x)=x^2 restricted to x &gt;= 0 does have an inverse:\nf^{-1}(x) = sqrt(x)",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#worked-examples",
+    "href": "lessons/algebra/transformations-composition-inverses.html#worked-examples",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Worked examples",
+    "text": "Worked examples\n\nExample 1: describe a transformation\nDescribe:\ng(x) = -3(x + 2)^2 - 5\nFrom f(x)=x^2:\n\nx + 2 = x - (-2), so shift left 2;\nmultiply by -3, so reflect across the x-axis and vertically stretch by 3;\nsubtract 5, so shift down 5.\n\n\n\nExample 2: compose functions\nLet:\nf(x) = 1/(x - 1)\ng(x) = x^2\nThen:\nf(g(x)) = 1/(x^2 - 1)\nDomain restriction:\nx^2 - 1 != 0\nso:\nx != -1 and x != 1\n\n\nExample 3: find an inverse\nFind the inverse of:\nf(x) = 5x - 4\nWrite:\ny = 5x - 4\nSwap x and y:\nx = 5y - 4\nSolve for y:\nx + 4 = 5y\ny = (x + 4)/5\nSo:\nf^{-1}(x) = (x + 4)/5",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#common-mistakes",
+    "href": "lessons/algebra/transformations-composition-inverses.html#common-mistakes",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Common mistakes",
+    "text": "Common mistakes\n\nReversing the horizontal shift\nf(x - 4) shifts right by 4; f(x + 4) shifts left by 4.\n\n\nAssuming composition commutes\nUsually f(g(x)) and g(f(x)) are different functions.\n\n\nForgetting quotient restrictions\nFor (f/g)(x), any input where g(x)=0 must be excluded.\n\n\nFinding an inverse without checking one-to-one behavior\nSome functions need a restricted domain before an inverse function exists.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#practice",
+    "href": "lessons/algebra/transformations-composition-inverses.html#practice",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Practice",
+    "text": "Practice\n\n\nDescribe the transformation from y=x^2 to y=(x-5)^2+2.\nDescribe the transformation from y=sqrt(x) to y=-sqrt(x+1).\nIf f(x)=x^2 and g(x)=x+3, compute f(g(x)).\nIf f(x)=x^2 and g(x)=x+3, compute g(f(x)).\nFind the domain of 1/(x^2 - 4).\nFind the inverse of f(x)=3x+7.\nExplain why f(x)=x^2 is not one-to-one over all real numbers.\nRestrict the domain of f(x)=x^2 so that it has inverse sqrt(x).\nLet f(x)=sqrt(x) and g(x)=x-6. Find the domain of f(g(x)).\nChallenge: create a function whose inverse is itself.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#solutions",
+    "href": "lessons/algebra/transformations-composition-inverses.html#solutions",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Solutions",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nShift right 5 and up 2.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nx+1 shifts left 1. The negative sign reflects the graph across the x-axis.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nf(g(x)) = f(x+3) = (x+3)^2.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\ng(f(x)) = g(x^2) = x^2 + 3.\n\n\n\n\n\n\n\n\n\nTipSolution 5\n\n\n\n\n\nThe denominator cannot be zero. x^2 - 4 = (x-2)(x+2), so exclude x=2 and x=-2.\n\n\n\n\n\n\n\n\n\nTipSolution 6\n\n\n\n\n\nLet y=3x+7. Swap variables: x=3y+7. Solve: y=(x-7)/3. So f^{-1}(x)=(x-7)/3.\n\n\n\n\n\n\n\n\n\nTipSolution 7\n\n\n\n\n\nf(2)=4 and f(-2)=4, so two different inputs produce the same output.\n\n\n\n\n\n\n\n\n\nTipSolution 8\n\n\n\n\n\nRestrict to x &gt;= 0. Then each output has exactly one input, and the inverse is sqrt(x).\n\n\n\n\n\n\n\n\n\nTipSolution 9\n\n\n\n\n\nf(g(x)) = sqrt(x - 6), so require x - 6 &gt;= 0. The domain is x &gt;= 6.\n\n\n\n\n\n\n\n\n\nTipSolution 10\n\n\n\n\n\nOne example is f(x)=x. Another is f(x)=1/x on the domain x != 0, because applying it twice returns the original input.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#why-this-matters-later",
+    "href": "lessons/algebra/transformations-composition-inverses.html#why-this-matters-later",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Why this matters later",
+    "text": "Why this matters later\n\nCalculus: the chain rule is about composition.\nProbability/statistics: transformations of variables change distributions.\nOptimization: parameters shift and stretch objective functions.\nLinear algebra: inverse functions generalize to inverse transformations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#further-reading",
+    "href": "lessons/algebra/transformations-composition-inverses.html#further-reading",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Further reading",
+    "text": "Further reading\n\nOpenStax, College Algebra 2e, Sections 3.5 and 3.7: https://openstax.org/books/college-algebra-2e/pages/index\nOpenStax, Precalculus, function transformations and inverse functions: https://openstax.org/books/precalculus/pages/index",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
     ]
   },
   {
