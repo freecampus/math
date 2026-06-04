@@ -1,6 +1,8 @@
 ---
 title: Polynomials
 description: Understand polynomial structure, roots, multiplicity, end behavior, and graph interpretation.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -369,6 +371,26 @@ the x-axis at least once.
 - **Statistics:** polynomial regression models curved relationships.
 - **Numerical methods:** interpolation and root-finding often begin with
   polynomial approximations.
+
+## Using this lesson with edumath and SymPy
+
+Use `polynomial_summary` when you want a compact symbolic report, and use
+`polynomial_root_scene` when you want to connect roots to the graph.
+
+```{python}
+#| echo: true
+from edumath.algebra import polynomial_root_scene, polynomial_summary
+
+summary = polynomial_summary("(x - 2)**2*(x + 1)")
+summary.degree, summary.leading_coefficient, summary.root_multiplicities
+```
+
+```{python}
+#| echo: true
+scene = polynomial_root_scene("(x - 2)**2*(x + 1)", x_min=-4, x_max=4)
+fig, ax = scene.render()
+fig
+```
 
 ## Further reading
 

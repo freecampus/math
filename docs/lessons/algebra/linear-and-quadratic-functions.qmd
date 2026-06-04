@@ -1,6 +1,8 @@
 ---
 title: Linear and Quadratic Functions
 description: Study constant-rate and curved models through slope, intercepts, roots, vertices, and parameters.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -400,6 +402,25 @@ between the roots. The vertex lies on this axis, so its x-coordinate is
 - **Optimization:** many first optimization examples reduce to finding a
   quadratic vertex.
 - **Numerical methods:** local polynomial approximations are central tools.
+
+## Using this lesson with edumath and SymPy
+
+Use the package helpers to compute line and quadratic facts exactly, then compare
+those facts with the graph you sketch by hand.
+
+```{python}
+#| echo: true
+from edumath.algebra import QuadraticModel, line_from_points
+
+line = line_from_points((0, 1), (2, 5))
+line.expression
+```
+
+```{python}
+#| echo: true
+model = QuadraticModel(1, -4, 3)
+model.expression, model.discriminant, model.vertex, model.roots
+```
 
 ## Further reading
 

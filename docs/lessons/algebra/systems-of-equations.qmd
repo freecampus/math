@@ -1,6 +1,8 @@
 ---
 title: Systems of Equations
 description: Solve systems as shared solutions and line intersections.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -121,3 +123,25 @@ Answer: they do not intersect, so the system has no solution.
 Answer: every point on that line solves both equations, so the system has
 infinitely many solutions.
 :::
+
+## Using this lesson with edumath and SymPy
+
+Use SymPy to solve systems symbolically, then use graphing helpers to interpret
+the solution as an intersection point.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x, y = sp.symbols("x y")
+sp.solve((sp.Eq(y, 2*x), sp.Eq(y, x + 3)), (x, y))
+```
+
+```{python}
+#| echo: true
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(("2*x", "x + 3"), labels=("y = 2x", "y = x + 3"))
+fig, ax = scene.render()
+fig
+```

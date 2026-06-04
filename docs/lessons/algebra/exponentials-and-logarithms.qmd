@@ -1,6 +1,8 @@
 ---
 title: Exponentials and Logarithms
 description: Learn exponential growth, decay, and logarithms as inverse operations.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -117,3 +119,21 @@ Answer: `2^x`.
 Exponential functions with base greater than `1` eventually grow faster than
 any fixed power such as `x^2`.
 :::
+
+## Using this lesson with edumath and SymPy
+
+Use SymPy to solve exponential and logarithmic equations after you have set up
+the inverse relationship by hand.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x", positive=True)
+sp.solve(sp.Eq(2**x, 10), x)
+```
+
+```{python}
+#| echo: true
+sp.solve(sp.Eq(sp.log(x, 10), 3), x)
+```

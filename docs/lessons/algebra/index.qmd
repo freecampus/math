@@ -1,6 +1,8 @@
 ---
 title: Algebra Study Path
 description: A complete algebra preparation path for advanced quantitative study.
+execute:
+  echo: false
 ---
 
 Algebra is the language used to describe change, constraints, models, and
@@ -129,6 +131,26 @@ For each lesson:
 4. Change the inputs in the examples and predict what should happen.
 5. Attempt every exercise before opening the hidden solution.
 6. Write a short explanation of the idea in your own words.
+
+## Using this path with edumath and SymPy
+
+The lessons hide most implementation code so you can focus on mathematics. When
+you work in a notebook or Google Colab, you can import the same helpers directly
+and use them as study tools.
+
+```{python}
+#| echo: true
+from edumath.algebra import expression_table, input_output_scene
+
+expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
+```
+
+```{python}
+#| echo: true
+scene = input_output_scene("x**2 - 3*x + 2", x_value=4, x_min=-2, x_max=5)
+fig, ax = scene.render()
+fig
+```
 
 ## Further reading
 

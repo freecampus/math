@@ -1,6 +1,8 @@
 ---
 title: Inequalities and Absolute Value
 description: Understand solution sets, intervals, constraints, and absolute value as distance.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -416,6 +418,24 @@ That means `x` can be no more than `r` units left of `a` and no more than
   sense.
 - **Statistics:** confidence intervals and hypothesis-test rejection regions are
   sets defined by inequalities.
+
+## Using this lesson with edumath and SymPy
+
+SymPy can solve inequalities and show interval-style answers. Use it to verify
+your work after you solve the inequality by hand.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x", real=True)
+sp.solve_univariate_inequality(-2 <= 3*x + 1, x)
+```
+
+```{python}
+#| echo: true
+sp.solve_univariate_inequality(sp.Abs(x - 2) <= 5, x)
+```
 
 ## Further reading
 

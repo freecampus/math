@@ -1,6 +1,8 @@
 ---
 title: Functions and Graphs
 description: Understand functions as mappings and connect formulas, tables, graphs, and rates of change.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -394,6 +396,25 @@ each input x-value exactly one output.
 - **Statistics:** regression models are functions with fitted parameters.
 - **Optimization:** objective functions are maximized or minimized over a
   domain.
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to move from formula to table to graph. This is useful when you
+want to test how a formula behaves before doing more formal analysis.
+
+```{python}
+#| echo: true
+from edumath.algebra import expression_table, input_output_scene
+
+expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
+```
+
+```{python}
+#| echo: true
+scene = input_output_scene("x**2 - 3*x + 2", x_value=4, x_min=-2, x_max=5)
+fig, ax = scene.render()
+fig
+```
 
 ## Further reading
 

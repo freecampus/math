@@ -1,6 +1,8 @@
 ---
 title: Expressions and Equations
 description: Build symbolic fluency with expressions, identities, equations, and solution sets.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -552,6 +554,29 @@ prove equivalence by algebraic transformation.
   expressions.
 - **Optimization:** constraints are equations and inequalities that define the
   feasible set.
+
+## Using this lesson with edumath and SymPy
+
+Use SymPy to check symbolic transformations and use `edumath` quiz helpers to
+turn those transformations into auto-checkable practice.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+from edumath.algebra import expand_question, factor_question
+
+x = sp.Symbol("x")
+expanded = sp.expand((x + 3) * (x - 2))
+factored = sp.factor(x**2 + x - 6)
+expanded, factored
+```
+
+```{python}
+#| echo: true
+question = expand_question((x + 1) ** 2)
+question.check("x**2 + 2*x + 1").message
+```
 
 ## Further reading
 

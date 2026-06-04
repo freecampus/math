@@ -1,6 +1,8 @@
 ---
 title: Transformations, Composition, and Inverses
 description: Learn how functions move, combine, compose, and reverse.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
@@ -415,6 +417,25 @@ applying it twice returns the original input.
 - **Probability/statistics:** transformations of variables change distributions.
 - **Optimization:** parameters shift and stretch objective functions.
 - **Linear algebra:** inverse functions generalize to inverse transformations.
+
+## Using this lesson with edumath and SymPy
+
+Use `transformed_expression` to generate transformed functions and then compare
+the base and transformed graphs.
+
+```{python}
+#| echo: true
+from edumath.algebra import transformation_scene, transformed_expression
+
+transformed_expression("x**2", vertical_scale=2, horizontal_shift=3, vertical_shift=1)
+```
+
+```{python}
+#| echo: true
+scene = transformation_scene("x**2", vertical_scale=2, horizontal_shift=3, vertical_shift=1)
+fig, ax = scene.render()
+fig
+```
 
 ## Further reading
 
