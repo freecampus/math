@@ -22,14 +22,6 @@ website:
         text: API
       - href: lessons/index.qmd
         text: Study Path
-      - href: lessons/python/basics.qmd
-        text: Python
-      - href: lessons/algebra/guessing_quiz.qmd
-        text: Algebra
-      - href: lessons/trigonometry/sine-cosine.qmd
-        text: Trigonometry
-      - href: changelog.qmd
-        text: Changelog
     right:
       - icon: github
         href: https://github.com/osl-incubator/edu-math
