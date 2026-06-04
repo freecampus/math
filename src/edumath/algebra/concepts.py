@@ -52,6 +52,77 @@ FUNCTIONS_AND_GRAPHS = Lesson(
     tags=("algebra", "functions", "graphs"),
 )
 
+INEQUALITIES_AND_ABSOLUTE_VALUE = Lesson(
+    title="Inequalities and absolute value",
+    slug="inequalities-and-absolute-value",
+    objectives=(
+        LearningObjective("Solve linear and compound inequalities."),
+        LearningObjective("Interpret interval notation and number-line graphs."),
+        LearningObjective("Use absolute value as a distance from a center."),
+    ),
+    sections=(
+        LessonSection(
+            title="Intervals and constraints",
+            body=(
+                "Inequalities describe sets of allowed values instead of one "
+                "single solution."
+            ),
+        ),
+        LessonSection(
+            title="Distance interpretation",
+            body="The expression |x - a| measures the distance from x to a.",
+        ),
+    ),
+    tags=("algebra", "inequalities", "absolute-value"),
+)
+
+TRANSFORMATIONS_COMPOSITION_INVERSES = Lesson(
+    title="Transformations, composition, and inverses",
+    slug="transformations-composition-inverses",
+    objectives=(
+        LearningObjective("Describe shifts, stretches, and reflections of graphs."),
+        LearningObjective("Compose functions and track domains."),
+        LearningObjective("Interpret inverse functions as reversing a rule."),
+    ),
+    sections=(
+        LessonSection(
+            title="Transformations",
+            body="Parameters in a formula move, stretch, compress, or reflect graphs.",
+        ),
+        LessonSection(
+            title="Composition and inverses",
+            body=(
+                "Composition chains functions together; inverse functions undo "
+                "a previous function when that reversal is well-defined."
+            ),
+        ),
+    ),
+    tags=("algebra", "functions", "transformations", "inverses"),
+)
+
+LINEAR_AND_QUADRATIC_FUNCTIONS = Lesson(
+    title="Linear and quadratic functions",
+    slug="linear-and-quadratic-functions",
+    objectives=(
+        LearningObjective("Interpret slope and intercepts in linear functions."),
+        LearningObjective("Move among standard, factored, and vertex quadratic forms."),
+        LearningObjective("Use discriminants, roots, and vertices to read graphs."),
+    ),
+    sections=(
+        LessonSection(
+            title="Linear models",
+            body="A line models constant rate of change.",
+        ),
+        LessonSection(
+            title="Quadratic models",
+            body=(
+                "A quadratic models a changing rate of change and graphs as a parabola."
+            ),
+        ),
+    ),
+    tags=("algebra", "linear-functions", "quadratics"),
+)
+
 POLYNOMIALS = Lesson(
     title="Polynomials",
     slug="polynomials",
@@ -113,7 +184,10 @@ COLLEGE_ALGEBRA_PATH = StudyPath(
     title="College Algebra",
     lessons=(
         EXPRESSIONS_AND_EQUATIONS,
+        INEQUALITIES_AND_ABSOLUTE_VALUE,
         FUNCTIONS_AND_GRAPHS,
+        TRANSFORMATIONS_COMPOSITION_INVERSES,
+        LINEAR_AND_QUADRATIC_FUNCTIONS,
         POLYNOMIALS,
         EXPONENTIALS_AND_LOGARITHMS,
         SYSTEMS_OF_EQUATIONS,
@@ -126,6 +200,9 @@ __all__ = [
     "EXPONENTIALS_AND_LOGARITHMS",
     "EXPRESSIONS_AND_EQUATIONS",
     "FUNCTIONS_AND_GRAPHS",
+    "INEQUALITIES_AND_ABSOLUTE_VALUE",
+    "LINEAR_AND_QUADRATIC_FUNCTIONS",
     "POLYNOMIALS",
     "SYSTEMS_OF_EQUATIONS",
+    "TRANSFORMATIONS_COMPOSITION_INVERSES",
 ]

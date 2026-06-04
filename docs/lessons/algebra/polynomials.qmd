@@ -1,45 +1,76 @@
 ---
 title: Polynomials
-description: Understand polynomial structure, factoring, roots, and graph behavior.
+description: Understand polynomial structure, roots, multiplicity, end behavior, and graph interpretation.
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Recognize polynomial terms, degree, and leading coefficient.
-- Expand factored polynomial expressions.
-- Interpret roots as x-intercepts.
-- Connect factored and expanded forms.
+After this lesson you should be able to:
+
+- identify degree, leading coefficient, terms, and constant term;
+- expand, factor, and divide polynomial expressions;
+- connect roots, factors, and x-intercepts;
+- interpret root multiplicity from a graph;
+- predict end behavior from degree and leading coefficient;
+- use SymPy helpers to summarize and visualize polynomial structure.
 :::
 
 ## Motivation
 
-Polynomials are simple enough to compute with but flexible enough to model
-curves. They appear in approximation, optimization, numerical methods, and
-many applied models.
+Polynomials are algebra's most flexible elementary functions. They are built
+from powers of `x`, but they can approximate complicated functions, model smooth
+curves, and support numerical methods.
 
-## Polynomial Structure
+In advanced math, polynomials appear in:
 
-A polynomial is a sum of terms like:
+- Taylor approximations in calculus;
+- characteristic polynomials in linear algebra;
+- regression and interpolation in statistics/numerical methods;
+- optimization models and local approximations.
+
+## Polynomial vocabulary
+
+A polynomial in one variable has the form:
 
 ```text
-constant * x^nonnegative_integer
+a_n*x^n + a_{n-1}*x^{n-1} + ... + a_1*x + a_0
 ```
+
+where:
+
+- exponents are nonnegative integers;
+- coefficients are constants;
+- the degree is the highest exponent with a nonzero coefficient;
+- the leading coefficient is the coefficient of the highest-power term.
 
 Example:
 
 ```text
-2x^3 - 5x^2 + x - 7
+2x^4 - 3x^2 + 7x - 5
 ```
 
-The highest power is the **degree**. This polynomial has degree `3`.
+has degree `4`, leading coefficient `2`, and constant term `-5`.
 
-## Factored Form and Roots
+```{python}
+from edumath.algebra import polynomial_summary
 
-The polynomial:
+summary = polynomial_summary("2*x**4 - 3*x**2 + 7*x - 5")
+summary.degree, summary.leading_coefficient
+```
+
+## Factored form, roots, and x-intercepts
+
+If a polynomial has a factor `(x - r)`, then `r` is a root:
 
 ```text
-(x - 2)(x + 3)
+p(r) = 0
+```
+
+For example:
+
+```text
+p(x) = (x - 2)(x + 3)
 ```
 
 has roots:
@@ -48,46 +79,201 @@ has roots:
 x = 2 and x = -3
 ```
 
-because either factor can become zero.
-
 Expanded:
 
 ```text
 (x - 2)(x + 3) = x^2 + x - 6
 ```
 
-## Python Connection
+The factored form makes roots visible. The expanded form makes degree, leading
+coefficient, and constant term visible.
 
 ```{python}
-from edumath.algebra import expand_expression_exercise
+from edumath.algebra import polynomial_root_scene
 
-exercise = expand_expression_exercise(seed=4)
-exercise.prompt
-```
-
-```{python}
-exercise.expected
-```
-
-## Visual Model
-
-```{python}
-from edumath.algebra import function_scene
-
-scene = function_scene("(x - 2)*(x + 3)", x_min=-5, x_max=5, y_min=-10, y_max=10)
+scene = polynomial_root_scene("(x - 2)*(x + 3)", x_min=-5, x_max=5, y_min=-10, y_max=10)
 fig, ax = scene.render()
 fig
 ```
 
-The graph crosses the x-axis at the roots.
+## Building polynomials from roots
 
-## Common Mistakes
+If the roots are `-1`, `2`, and `4`, then one polynomial with those roots is:
+
+```text
+(x + 1)(x - 2)(x - 4)
+```
+
+```{python}
+from edumath.algebra import polynomial_from_roots
+
+polynomial_from_roots((-1, 2, 4))
+```
+
+Multiplying by a nonzero leading coefficient changes the vertical scale but not
+the roots.
+
+## Multiplicity
+
+A root can occur more than once. The number of times it appears as a factor is
+called its **multiplicity**.
+
+Example:
+
+```text
+p(x) = (x - 2)^2(x + 1)
+```
+
+Root `2` has multiplicity `2`. Root `-1` has multiplicity `1`.
+
+```{python}
+summary = polynomial_summary("(x - 2)**2*(x + 1)")
+summary.root_multiplicities
+```
+
+Graph behavior:
+
+- odd multiplicity: the graph usually crosses the x-axis;
+- even multiplicity: the graph touches/bounces off the x-axis.
+
+```{python}
+scene = polynomial_root_scene("(x - 2)**2*(x + 1)", x_min=-4, x_max=4, y_min=-10, y_max=10)
+fig, ax = scene.render()
+fig
+```
+
+## End behavior
+
+For large positive or negative inputs, the leading term dominates.
+
+For:
+
+```text
+p(x) = -2x^5 + 3x^2 - 1
+```
+
+the leading term is `-2x^5`. So for very large `|x|`, the graph behaves like
+`-2x^5`.
+
+Rules:
+
+| Degree | Leading coefficient | Left end | Right end |
+|---|---:|---|---|
+| even | positive | up | up |
+| even | negative | down | down |
+| odd | positive | down | up |
+| odd | negative | up | down |
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("x**4", "-x**4", "x**3", "-x**3"),
+    labels=("even positive", "even negative", "odd positive", "odd negative"),
+    x_min=-3,
+    x_max=3,
+    y_min=-20,
+    y_max=20,
+    title="Polynomial end behavior patterns",
+)
+fig, ax = scene.render()
+fig
+```
+
+## Polynomial division and the Factor Theorem
+
+The **Factor Theorem** says:
+
+```text
+(x - r) is a factor of p(x)  exactly when  p(r) = 0
+```
+
+Example:
+
+```text
+p(x) = x^3 - 3x^2 + 4
+```
+
+Check `x = 2`:
+
+```text
+p(2) = 8 - 12 + 4 = 0
+```
+
+So `(x - 2)` is a factor. In fact:
+
+```text
+x^3 - 3x^2 + 4 = (x - 2)^2(x + 1)
+```
+
+## Worked examples
+
+### Example 1: summarize a polynomial
+
+```text
+p(x) = 4x^5 - x^2 + 8
+```
+
+- degree: `5`;
+- leading coefficient: `4`;
+- constant term: `8`;
+- end behavior: odd degree and positive leading coefficient, so left end down
+  and right end up.
+
+### Example 2: roots from factored form
+
+```text
+p(x) = -3(x - 1)(x + 2)^2
+```
+
+Roots:
+
+- `x = 1`, multiplicity `1`;
+- `x = -2`, multiplicity `2`.
+
+The graph crosses at `x=1` and bounces at `x=-2`.
+
+### Example 3: construct from roots
+
+Build a monic polynomial with roots `-2`, `0`, and `5`:
+
+```text
+p(x) = (x + 2)x(x - 5)
+```
+
+Expand:
+
+```text
+x(x + 2)(x - 5) = x(x^2 - 3x - 10) = x^3 - 3x^2 - 10x
+```
+
+## Common mistakes
 
 ::: {.common-mistake}
-### Forgetting to Distribute Every Term
+### Confusing roots and coefficients
 
-When expanding `(x + 2)(x + 3)`, multiply each term in the first factor by each
-term in the second factor.
+The roots are input values where the output is zero. They are not usually the
+same as the coefficients.
+:::
+
+::: {.common-mistake}
+### Forgetting multiplicity
+
+The root `2` in `(x - 2)^2` is not just a root; it is a repeated root. This
+changes the graph's behavior.
+:::
+
+::: {.common-mistake}
+### Predicting end behavior from the constant term
+
+The leading term controls end behavior, not the constant term.
+:::
+
+::: {.common-mistake}
+### Assuming every root is real
+
+Polynomials can have complex roots. A degree `n` polynomial has `n` complex
+roots counted with multiplicity, but not necessarily `n` real roots.
 :::
 
 ## Practice
@@ -96,7 +282,15 @@ term in the second factor.
 1. Expand `(x + 1)(x + 4)`.
 2. Find the roots of `(x - 5)(x + 2)`.
 3. What is the degree of `4x^5 - x^2 + 8`?
-4. Does `x = 3` make `(x - 3)(x + 1)` equal zero?
+4. What is the leading coefficient of `-7x^4 + 3x - 1`?
+5. Build a monic polynomial with roots `1` and `-3`.
+6. Find the multiplicity of each root in `(x - 2)^3(x + 1)^2`.
+7. Predict the end behavior of `-x^6 + 2x - 1`.
+8. Predict the end behavior of `3x^5 - x^2`.
+9. Use the Factor Theorem to decide whether `(x - 2)` is a factor of
+   `x^3 - 2x^2 + x - 2`.
+10. Challenge: explain why a degree `3` polynomial with real coefficients must
+    have at least one real root.
 :::
 
 ## Solutions
@@ -104,31 +298,83 @@ term in the second factor.
 ::: {.callout-tip collapse="true"}
 ## Solution 1
 
-Answer: `x^2 + 5x + 4`.
-
-Multiply each term: `x*x + 4x + 1x + 4`.
+`(x + 1)(x + 4) = x^2 + 5x + 4`.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution 2
 
-Answer: `x = 5` and `x = -2`.
-
-A product is zero when at least one factor is zero.
+Roots are `x = 5` and `x = -2`.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution 3
 
-Answer: degree `5`.
-
-The highest power of `x` is `x^5`.
+Degree `5`.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution 4
 
-Answer: yes.
-
-Substitute `x = 3`: `(3 - 3)(3 + 1) = 0 * 4 = 0`.
+The leading coefficient is `-7`.
 :::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+`(x - 1)(x + 3) = x^2 + 2x - 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+Root `2` has multiplicity `3`; root `-1` has multiplicity `2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+Even degree with negative leading coefficient: both ends go down.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+Odd degree with positive leading coefficient: left end down, right end up.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+
+Evaluate at `x=2`:
+
+`2^3 - 2(2^2) + 2 - 2 = 8 - 8 + 2 - 2 = 0`.
+
+So `(x - 2)` is a factor.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+
+An odd-degree polynomial with real coefficients has opposite end behavior on the
+left and right. Because polynomial graphs are continuous, the graph must cross
+the x-axis at least once.
+:::
+
+## Why this matters later
+
+- **Calculus:** polynomials are easy to differentiate and integrate and are used
+  in Taylor approximations.
+- **Linear algebra:** eigenvalues are roots of characteristic polynomials.
+- **Statistics:** polynomial regression models curved relationships.
+- **Numerical methods:** interpolation and root-finding often begin with
+  polynomial approximations.
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*, polynomial functions:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- OpenStax, *Precalculus*, polynomial and rational functions:
+  <https://openstax.org/books/precalculus/pages/index>
+- Paul's Online Math Notes, polynomial functions:
+  <https://tutorial.math.lamar.edu/>

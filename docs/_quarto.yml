@@ -44,8 +44,12 @@ website:
               - lessons/python/plotting.qmd
           - section: Algebra
             contents:
+              - lessons/algebra/index.qmd
               - lessons/algebra/expressions-and-equations.qmd
+              - lessons/algebra/inequalities-and-absolute-value.qmd
               - lessons/algebra/functions-and-graphs.qmd
+              - lessons/algebra/transformations-composition-inverses.qmd
+              - lessons/algebra/linear-and-quadratic-functions.qmd
               - lessons/algebra/polynomials.qmd
               - lessons/algebra/exponentials-and-logarithms.qmd
               - lessons/algebra/systems-of-equations.qmd

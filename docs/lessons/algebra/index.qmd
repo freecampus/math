@@ -1,0 +1,144 @@
+---
+title: Algebra Study Path
+description: A complete algebra preparation path for advanced quantitative study.
+---
+
+Algebra is the language used to describe change, constraints, models, and
+unknown quantities. A learner preparing for graduate-level quantitative work
+does not need algebra as a list of tricks; they need algebra as a reliable way
+to move among formulas, graphs, tables, verbal descriptions, and computational
+experiments.
+
+This section is being rebuilt as a complete preparation module. The goal is to
+make every algebraic idea usable in later lessons on calculus, linear algebra,
+probability, statistics, optimization, differential equations, and modeling.
+
+## What this path prepares you to do
+
+By the end of this Algebra path, you should be able to:
+
+- manipulate expressions without losing domain restrictions;
+- solve equations and inequalities and interpret their solution sets;
+- read and produce graphs from formulas;
+- recognize how parameters change the shape of a function;
+- factor, expand, and analyze polynomial expressions;
+- work with rational, radical, exponential, and logarithmic functions;
+- solve and graph systems of equations;
+- translate word problems and data patterns into algebraic models;
+- use SymPy responsibly to check work, generate examples, and explore patterns.
+
+## Recommended sequence
+
+::: {.callout-note}
+## Full preparation path
+
+1. Expressions and equations
+2. Inequalities and absolute value
+3. Functions and graphs
+4. Transformations, composition, and inverses
+5. Linear and quadratic functions
+6. Polynomials
+7. Rational and radical functions
+8. Exponentials and logarithms
+9. Systems of equations
+10. Algebraic modeling
+11. Symbolic computation with SymPy
+12. Cumulative review
+:::
+
+The current implementation starts with the core foundations and will expand
+lesson by lesson. The pages already linked in the sidebar are safe to study now;
+additional pages will be added as the rebuild progresses.
+
+## Diagnostic checklist
+
+Use this checklist before moving quickly through Algebra. If any item feels
+uncomfortable, study that topic slowly and work the exercises.
+
+::: {.practice-box}
+1. Can you explain the difference between an expression, an equation, and an
+   identity?
+2. Can you solve `3x - 7 = 11` and check the answer?
+3. Can you solve `-2 <= 3x + 1 < 10` and write the answer in interval notation?
+4. Can you compute `f(4)` for `f(x) = x^2 - 3x + 2`?
+5. Can you identify the domain of `sqrt(x - 2)/(x + 1)`?
+6. Can you describe how `y = 2(x - 3)^2 + 1` differs from `y = x^2`?
+7. Can you factor `x^2 - 5x + 6`?
+8. Can you solve a two-equation linear system and interpret the intersection
+   point graphically?
+9. Can you explain why logarithms undo exponentials?
+10. Can you use a graph to estimate roots and then verify them symbolically?
+:::
+
+## A small auto-checkable diagnostic
+
+The package's quiz model can use SymPy to derive answers. That means many
+questions do not need a manually typed expected value; the expected answer can
+come from a resolver such as `expand`, `factor`, or `solve`.
+
+```{python}
+import sympy as sp
+
+from edumath.algebra import expand_question, factor_question
+from edumath.core import Question, QuizSession
+
+x = sp.Symbol("x")
+
+diagnostic = QuizSession(
+    questions=(
+        Question("Evaluate 2*3 + 5.", expected=11),
+        expand_question((x + 1) ** 2),
+        factor_question(x**2 - 5 * x + 6),
+    )
+)
+
+diagnostic.answer(1, "x**2 + 2*x + 1").check.message
+```
+
+## Formula, table, graph: one idea in three forms
+
+Algebra becomes powerful when you can translate among representations. The same
+function can be studied as a formula, a table, and a graph.
+
+```{python}
+from edumath.algebra import expression_table, input_output_scene
+
+expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
+```
+
+```{python}
+scene = input_output_scene(
+    "x**2 - 3*x + 2",
+    x_value=4,
+    x_min=-2,
+    x_max=5,
+    y_min=-2,
+    y_max=8,
+)
+fig, ax = scene.render()
+fig
+```
+
+## How to study these lessons
+
+For each lesson:
+
+1. Read the motivation before looking at formulas.
+2. Work through each example by hand.
+3. Run the Python/SymPy cells when available.
+4. Change the inputs in the examples and predict what should happen.
+5. Attempt every exercise before opening the hidden solution.
+6. Write a short explanation of the idea in your own words.
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- OpenStax, *Precalculus*:
+  <https://openstax.org/books/precalculus/pages/index>
+- Khan Academy, Algebra 2:
+  <https://www.khanacademy.org/algebra2>
+- Paul's Online Math Notes, Algebra:
+  <https://tutorial.math.lamar.edu/>
+- Gelfand, Saul, and Yaglom, *Functions and Graphs*.
+- Serge Lang, *Basic Mathematics*.

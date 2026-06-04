@@ -1,0 +1,425 @@
+---
+title: Inequalities and Absolute Value
+description: Understand solution sets, intervals, constraints, and absolute value as distance.
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- solve linear inequalities and compound inequalities;
+- write solution sets using interval notation;
+- explain why multiplying an inequality by a negative number reverses the sign;
+- interpret absolute value as distance;
+- solve absolute value equations and inequalities;
+- identify basic domain restrictions from denominators and radicals.
+:::
+
+## Motivation
+
+Equations often ask for exact values. Inequalities describe **allowable
+regions**. That makes them essential for optimization, probability, statistics,
+and modeling.
+
+Examples:
+
+- A portfolio weight must satisfy `0 <= w <= 1`.
+- A variance must be nonnegative.
+- A logarithm input must be positive.
+- A feasible region in optimization is defined by inequalities.
+
+An inequality is not a weaker equation. It is a statement about a set of values.
+
+## Inequality symbols
+
+```text
+x < 3     x is less than 3
+x <= 3    x is less than or equal to 3
+x > 3     x is greater than 3
+x >= 3    x is greater than or equal to 3
+```
+
+The solution to an inequality is usually an interval, not a single point.
+
+```text
+x < 3
+```
+
+means all real numbers to the left of `3`.
+
+## Interval notation
+
+Intervals summarize solution sets.
+
+| Inequality | Interval notation | Meaning |
+|---|---|---|
+| `x < 3` | `(-∞, 3)` | all numbers less than 3 |
+| `x <= 3` | `(-∞, 3]` | all numbers less than or equal to 3 |
+| `x > -2` | `(-2, ∞)` | all numbers greater than -2 |
+| `-2 <= x < 3` | `[-2, 3)` | from -2 included to 3 excluded |
+
+Parentheses mean an endpoint is not included. Brackets mean it is included.
+
+## Solving linear inequalities
+
+Solve:
+
+```text
+3x - 5 < 7
+```
+
+Add `5` to both sides:
+
+```text
+3x < 12
+```
+
+Divide by `3`:
+
+```text
+x < 4
+```
+
+Solution set:
+
+```text
+(-∞, 4)
+```
+
+## Why the sign flips
+
+When you multiply or divide by a negative number, the inequality direction
+reverses.
+
+Example:
+
+```text
+-2x < 8
+```
+
+Divide by `-2`:
+
+```text
+x > -4
+```
+
+Why? Try one value. If `x = -5`, then `-2x = 10`, and `10 < 8` is false. If
+`x = -3`, then `-2x = 6`, and `6 < 8` is true. The correct side is `x > -4`.
+
+## Compound inequalities
+
+A compound inequality combines two constraints:
+
+```text
+-2 <= 3x + 1 < 10
+```
+
+Subtract `1` from all three parts:
+
+```text
+-3 <= 3x < 9
+```
+
+Divide by `3`:
+
+```text
+-1 <= x < 3
+```
+
+Interval notation:
+
+```text
+[-1, 3)
+```
+
+## Absolute value as distance
+
+The expression `|x - a|` is the distance from `x` to `a`.
+
+For example:
+
+```text
+|x - 2| <= 5
+```
+
+means \"the distance from `x` to `2` is at most `5`.\" Therefore:
+
+```text
+-5 <= x - 2 <= 5
+```
+
+Add `2`:
+
+```text
+-3 <= x <= 7
+```
+
+So the solution is:
+
+```text
+[-3, 7]
+```
+
+## Visualizing absolute value
+
+The graph of `|x - a|` forms a V-shape centered at `x = a`. A horizontal cutoff
+line tells you which points are close enough to the center.
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("Abs(x - 2)", "5"),
+    labels=("distance from 2", "cutoff 5"),
+    x_min=-6,
+    x_max=10,
+    y_min=-1,
+    y_max=9,
+    title="Solving |x - 2| <= 5 visually",
+)
+fig, ax = scene.render()
+fig
+```
+
+The solution is where the V-shaped graph is at or below the cutoff line.
+
+## Domain restrictions as inequalities
+
+Many algebraic expressions only make sense for some inputs.
+
+### Denominators
+
+```text
+1/(x + 1)
+```
+
+requires:
+
+```text
+x + 1 != 0
+```
+
+so:
+
+```text
+x != -1
+```
+
+### Square roots over the real numbers
+
+```text
+sqrt(x - 3)
+```
+
+requires:
+
+```text
+x - 3 >= 0
+```
+
+so:
+
+```text
+x >= 3
+```
+
+### Logarithms
+
+```text
+log(x - 4)
+```
+
+requires:
+
+```text
+x - 4 > 0
+```
+
+so:
+
+```text
+x > 4
+```
+
+## Worked examples
+
+### Example 1: solve a negative-coefficient inequality
+
+Solve:
+
+```text
+5 - 2x >= 17
+```
+
+Subtract `5`:
+
+```text
+-2x >= 12
+```
+
+Divide by `-2` and reverse the sign:
+
+```text
+x <= -6
+```
+
+### Example 2: solve an absolute value equation
+
+Solve:
+
+```text
+|x + 3| = 4
+```
+
+The distance from `x` to `-3` is `4`, so:
+
+```text
+x + 3 = 4  or  x + 3 = -4
+```
+
+Therefore:
+
+```text
+x = 1  or  x = -7
+```
+
+### Example 3: find a domain
+
+Find the real domain of:
+
+```text
+sqrt(x - 2)/(x + 1)
+```
+
+The square root requires `x - 2 >= 0`, so `x >= 2`.
+
+The denominator requires `x + 1 != 0`, so `x != -1`.
+
+Because `x >= 2` already excludes `-1`, the domain is:
+
+```text
+[2, ∞)
+```
+
+## Common mistakes
+
+::: {.common-mistake}
+### Forgetting to reverse the inequality
+
+Dividing by `-2` changes `<` into `>` and `>=` into `<=`.
+:::
+
+::: {.common-mistake}
+### Treating absolute value like parentheses
+
+`|x - 2| < 5` is not the same as `x - 2 < 5`. It means the distance from `x` to
+`2` is less than `5`, which creates a two-sided inequality.
+:::
+
+::: {.common-mistake}
+### Ignoring endpoint types
+
+`x < 3` uses `3)` in interval notation, while `x <= 3` uses `3]`.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Solve `2x + 1 <= 9`.
+2. Solve `-3x + 4 > 16`.
+3. Solve `-1 < 2x + 3 <= 7`.
+4. Write `(-4, 2]` as inequalities.
+5. Solve `|x - 5| < 2`.
+6. Solve `|x + 1| >= 3`.
+7. Find the real domain of `sqrt(x + 4)`.
+8. Find the real domain of `1/(x^2 - 9)`.
+9. Find the real domain of `log(2x - 6)`.
+10. Challenge: explain why `|x - a| <= r` has solution `[a-r, a+r]` when
+    `r >= 0`.
+:::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+`2x + 1 <= 9` gives `2x <= 8`, so `x <= 4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+`-3x + 4 > 16` gives `-3x > 12`. Divide by `-3` and reverse the sign:
+`x < -4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Subtract `3`: `-4 < 2x <= 4`. Divide by `2`: `-2 < x <= 2`.
+Interval notation: `(-2, 2]`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+`-4 < x <= 2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+`|x - 5| < 2` means `-2 < x - 5 < 2`. Add `5`: `3 < x < 7`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+`|x + 1| >= 3` means the distance from `x` to `-1` is at least `3`.
+So `x + 1 <= -3` or `x + 1 >= 3`. Therefore `x <= -4` or `x >= 2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+`sqrt(x + 4)` requires `x + 4 >= 0`, so `x >= -4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+The denominator cannot be zero. `x^2 - 9 = (x - 3)(x + 3)`, so exclude
+`x = 3` and `x = -3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+
+The logarithm input must be positive: `2x - 6 > 0`, so `x > 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+
+`|x - a| <= r` means the distance between `x` and `a` is at most `r`.
+That means `x` can be no more than `r` units left of `a` and no more than
+`r` units right of `a`, so `a - r <= x <= a + r`.
+:::
+
+## Why this matters later
+
+- **Optimization:** constraints are inequalities that define feasible regions.
+- **Probability:** random variables often have restricted support such as
+  `x >= 0`.
+- **Calculus:** domains determine where limits, derivatives, and integrals make
+  sense.
+- **Statistics:** confidence intervals and hypothesis-test rejection regions are
+  sets defined by inequalities.
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*, Section 2.7:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- Khan Academy, Algebra 2:
+  <https://www.khanacademy.org/algebra2>

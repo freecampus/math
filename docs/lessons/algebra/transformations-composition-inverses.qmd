@@ -1,0 +1,424 @@
+---
+title: Transformations, Composition, and Inverses
+description: Learn how functions move, combine, compose, and reverse.
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- describe vertical and horizontal shifts, stretches, compressions, and
+  reflections;
+- interpret parameters in `a*f(b*(x-h)) + k`;
+- compute sums, differences, products, quotients, and compositions of functions;
+- track domain restrictions under operations and composition;
+- explain what an inverse function does and when it exists.
+:::
+
+## Motivation
+
+Once you understand a basic function family, transformations let you build many
+related functions without starting from scratch.
+
+For example, `y = x^2` is a base shape. The function:
+
+```text
+y = 2(x - 3)^2 + 1
+```
+
+is still a quadratic, but it has been shifted, stretched, and moved. Being able
+to read this immediately is essential for graphing, modeling, optimization, and
+calculus.
+
+## The transformation template
+
+A useful general template is:
+
+```text
+g(x) = a*f(b*(x - h)) + k
+```
+
+where:
+
+- `a` vertically stretches/compresses and may reflect across the x-axis;
+- `b` horizontally compresses/stretches and may reflect across the y-axis;
+- `h` shifts the graph horizontally;
+- `k` shifts the graph vertically.
+
+::: {.callout-warning}
+## Horizontal transformations feel backward
+
+The expression `f(x - 3)` shifts the graph right by `3`, not left. The input
+must be `3` units larger before the base function sees the same internal value.
+:::
+
+## Visual example
+
+Compare `f(x)=x^2` with `g(x)=2(x-3)^2+1`.
+
+```{python}
+from edumath.algebra import transformation_scene, transformed_expression
+
+transformed_expression(
+    "x**2",
+    vertical_scale=2,
+    horizontal_shift=3,
+    vertical_shift=1,
+)
+```
+
+```{python}
+scene = transformation_scene(
+    "x**2",
+    vertical_scale=2,
+    horizontal_shift=3,
+    vertical_shift=1,
+    x_min=-3,
+    x_max=8,
+    y_min=-2,
+    y_max=20,
+)
+fig, ax = scene.render()
+fig
+```
+
+The base vertex `(0, 0)` becomes `(3, 1)`, and the graph becomes narrower
+because of the vertical stretch by `2`.
+
+## Function arithmetic
+
+If two functions have compatible domains, we can combine them:
+
+```text
+(f + g)(x) = f(x) + g(x)
+(f - g)(x) = f(x) - g(x)
+(f*g)(x) = f(x)g(x)
+(f/g)(x) = f(x)/g(x), where g(x) != 0
+```
+
+Example:
+
+```text
+f(x) = x^2
+g(x) = 3x - 1
+```
+
+Then:
+
+```text
+(f + g)(x) = x^2 + 3x - 1
+(f*g)(x) = x^2(3x - 1) = 3x^3 - x^2
+```
+
+For a quotient, the denominator creates restrictions.
+
+## Composition
+
+Composition means feeding the output of one function into another.
+
+```text
+(f ∘ g)(x) = f(g(x))
+```
+
+If:
+
+```text
+f(x) = x^2
+g(x) = x + 1
+```
+
+then:
+
+```text
+(f ∘ g)(x) = f(g(x)) = f(x + 1) = (x + 1)^2
+```
+
+But:
+
+```text
+(g ∘ f)(x) = g(f(x)) = g(x^2) = x^2 + 1
+```
+
+Composition usually does not commute:
+
+```text
+f(g(x)) != g(f(x))
+```
+
+## Domain under composition
+
+The domain of `f(g(x))` must satisfy two requirements:
+
+1. `x` must be allowed in `g`.
+2. `g(x)` must be allowed as an input to `f`.
+
+Example:
+
+```text
+f(x) = sqrt(x)
+g(x) = x - 2
+```
+
+Then:
+
+```text
+f(g(x)) = sqrt(x - 2)
+```
+
+So we require:
+
+```text
+x - 2 >= 0
+```
+
+Therefore:
+
+```text
+x >= 2
+```
+
+## Inverse functions
+
+An inverse function reverses the effect of another function.
+
+If:
+
+```text
+f(x) = 2x + 3
+```
+
+then:
+
+```text
+f^{-1}(x) = (x - 3)/2
+```
+
+because:
+
+```text
+f^{-1}(f(x)) = x
+```
+
+and:
+
+```text
+f(f^{-1}(x)) = x
+```
+
+## One-to-one functions
+
+A function has an inverse function only when it is **one-to-one**: each output
+comes from exactly one input.
+
+The horizontal line test checks this on a graph. If any horizontal line hits the
+graph more than once, the function is not one-to-one.
+
+Example:
+
+- `f(x)=2x+3` is one-to-one.
+- `f(x)=x^2` over all real numbers is not one-to-one because `f(2)=4` and
+  `f(-2)=4`.
+
+However, `f(x)=x^2` restricted to `x >= 0` does have an inverse:
+
+```text
+f^{-1}(x) = sqrt(x)
+```
+
+## Worked examples
+
+### Example 1: describe a transformation
+
+Describe:
+
+```text
+g(x) = -3(x + 2)^2 - 5
+```
+
+From `f(x)=x^2`:
+
+- `x + 2 = x - (-2)`, so shift left `2`;
+- multiply by `-3`, so reflect across the x-axis and vertically stretch by `3`;
+- subtract `5`, so shift down `5`.
+
+### Example 2: compose functions
+
+Let:
+
+```text
+f(x) = 1/(x - 1)
+g(x) = x^2
+```
+
+Then:
+
+```text
+f(g(x)) = 1/(x^2 - 1)
+```
+
+Domain restriction:
+
+```text
+x^2 - 1 != 0
+```
+
+so:
+
+```text
+x != -1 and x != 1
+```
+
+### Example 3: find an inverse
+
+Find the inverse of:
+
+```text
+f(x) = 5x - 4
+```
+
+Write:
+
+```text
+y = 5x - 4
+```
+
+Swap `x` and `y`:
+
+```text
+x = 5y - 4
+```
+
+Solve for `y`:
+
+```text
+x + 4 = 5y
+y = (x + 4)/5
+```
+
+So:
+
+```text
+f^{-1}(x) = (x + 4)/5
+```
+
+## Common mistakes
+
+::: {.common-mistake}
+### Reversing the horizontal shift
+
+`f(x - 4)` shifts right by `4`; `f(x + 4)` shifts left by `4`.
+:::
+
+::: {.common-mistake}
+### Assuming composition commutes
+
+Usually `f(g(x))` and `g(f(x))` are different functions.
+:::
+
+::: {.common-mistake}
+### Forgetting quotient restrictions
+
+For `(f/g)(x)`, any input where `g(x)=0` must be excluded.
+:::
+
+::: {.common-mistake}
+### Finding an inverse without checking one-to-one behavior
+
+Some functions need a restricted domain before an inverse function exists.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Describe the transformation from `y=x^2` to `y=(x-5)^2+2`.
+2. Describe the transformation from `y=sqrt(x)` to `y=-sqrt(x+1)`.
+3. If `f(x)=x^2` and `g(x)=x+3`, compute `f(g(x))`.
+4. If `f(x)=x^2` and `g(x)=x+3`, compute `g(f(x))`.
+5. Find the domain of `1/(x^2 - 4)`.
+6. Find the inverse of `f(x)=3x+7`.
+7. Explain why `f(x)=x^2` is not one-to-one over all real numbers.
+8. Restrict the domain of `f(x)=x^2` so that it has inverse `sqrt(x)`.
+9. Let `f(x)=sqrt(x)` and `g(x)=x-6`. Find the domain of `f(g(x))`.
+10. Challenge: create a function whose inverse is itself.
+:::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Shift right `5` and up `2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+`x+1` shifts left `1`. The negative sign reflects the graph across the x-axis.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+`f(g(x)) = f(x+3) = (x+3)^2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+`g(f(x)) = g(x^2) = x^2 + 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+The denominator cannot be zero. `x^2 - 4 = (x-2)(x+2)`, so exclude `x=2` and
+`x=-2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+Let `y=3x+7`. Swap variables: `x=3y+7`. Solve: `y=(x-7)/3`.
+So `f^{-1}(x)=(x-7)/3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+`f(2)=4` and `f(-2)=4`, so two different inputs produce the same output.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+Restrict to `x >= 0`. Then each output has exactly one input, and the inverse is
+`sqrt(x)`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+
+`f(g(x)) = sqrt(x - 6)`, so require `x - 6 >= 0`. The domain is `x >= 6`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+
+One example is `f(x)=x`. Another is `f(x)=1/x` on the domain `x != 0`, because
+applying it twice returns the original input.
+:::
+
+## Why this matters later
+
+- **Calculus:** the chain rule is about composition.
+- **Probability/statistics:** transformations of variables change distributions.
+- **Optimization:** parameters shift and stretch objective functions.
+- **Linear algebra:** inverse functions generalize to inverse transformations.
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*, Sections 3.5 and 3.7:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- OpenStax, *Precalculus*, function transformations and inverse functions:
+  <https://openstax.org/books/precalculus/pages/index>

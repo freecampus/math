@@ -1,23 +1,37 @@
 ---
 title: Functions and Graphs
-description: Understand functions as input-output rules and connect formulas to graphs.
+description: Understand functions as mappings and connect formulas, tables, graphs, and rates of change.
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Interpret a function as an input-output rule.
-- Identify slope and intercepts for linear functions.
-- Connect symbolic formulas to visual graphs.
-- Use Python helpers to render function scenes.
+After this lesson you should be able to:
+
+- explain a function as a rule that assigns each input exactly one output;
+- translate among formulas, tables, graphs, and verbal descriptions;
+- identify domain, range, intercepts, and zeros;
+- compute and interpret average rate of change;
+- use a graph to understand how changing inputs changes outputs;
+- recognize common families of functions by shape.
 :::
 
 ## Motivation
 
-Functions describe relationships. In quantitative work, a function might map
-time to account value, price to demand, or risk level to expected return.
+Functions are the central objects of quantitative mathematics. Calculus studies
+how functions change. Statistics uses functions to model relationships.
+Optimization searches for inputs that make a function large or small. Machine
+learning fits functions to data.
 
-## What Is a Function?
+Algebra prepares you for all of this by teaching you how to move fluently among
+four representations:
+
+1. a formula,
+2. a table,
+3. a graph,
+4. a verbal description.
+
+## What is a function?
 
 A **function** assigns each input exactly one output.
 
@@ -25,13 +39,64 @@ A **function** assigns each input exactly one output.
 f(x) = 2x + 1
 ```
 
-If the input is `x = 3`, the output is:
+If the input is `x = 3`, then:
 
 ```text
 f(3) = 2(3) + 1 = 7
 ```
 
-## Graphs
+The input is `3`. The output is `7`. The ordered pair is `(3, 7)`.
+
+::: {.key-idea}
+### Key idea
+
+A function can have many inputs, but each allowed input has exactly one output.
+:::
+
+## Domain and range
+
+The **domain** is the set of allowed inputs. The **range** is the set of outputs
+the function actually produces.
+
+For:
+
+```text
+f(x) = x^2
+```
+
+over all real numbers:
+
+- domain: all real numbers;
+- range: all real numbers greater than or equal to `0`.
+
+For:
+
+```text
+g(x) = sqrt(x - 2)
+```
+
+over the real numbers:
+
+- domain: `x >= 2`;
+- range: `g(x) >= 0`.
+
+Domain restrictions often come from denominators, even roots, and logarithms.
+
+## Formula to table
+
+A table makes individual input-output pairs explicit.
+
+```{python}
+from edumath.algebra import expression_table
+
+expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
+```
+
+This table is not the function itself. It is a sample of the function. The
+formula tells us the output for every allowed input; the table shows selected
+inputs.
+
+## Formula to graph
 
 The graph of a function is the set of points:
 
@@ -39,59 +104,223 @@ The graph of a function is the set of points:
 (x, f(x))
 ```
 
-For `f(x) = 2x + 1`, each x-value creates a y-value.
-
-::: {.formula-box}
-For a line `y = mx + b`, `m` is the slope and `b` is the y-intercept.
-:::
-
-## Python Connection
+The package includes reusable plotting helpers for this input-output view.
 
 ```{python}
-from edumath.algebra import function_scene
+from edumath.algebra import input_output_scene
 
-scene = function_scene("2*x + 1", x_min=-5, x_max=5, y_min=-10, y_max=10)
-fig, ax = scene.render()
-fig
-```
-
-## Comparing Functions
-
-```{python}
-from edumath.algebra import compare_functions_scene
-
-scene = compare_functions_scene(
-    ("x", "2*x + 1", "x**2"),
-    x_min=-4,
-    x_max=4,
-    y_min=-6,
-    y_max=12,
+scene = input_output_scene(
+    "x**2 - 3*x + 2",
+    x_value=4,
+    x_min=-2,
+    x_max=5,
+    y_min=-2,
+    y_max=8,
 )
 fig, ax = scene.render()
 fig
 ```
 
-## Common Mistakes
+The dashed guides show that input `x = 4` produces output `f(4) = 6`.
+
+## Intercepts and zeros
+
+An **x-intercept** is a point where the graph crosses the x-axis. Algebraically,
+this means:
+
+```text
+f(x) = 0
+```
+
+A **zero** or **root** of a function is an input that makes the output zero.
+
+For:
+
+```text
+f(x) = x^2 - 3x + 2
+```
+
+factor:
+
+```text
+f(x) = (x - 1)(x - 2)
+```
+
+The zeros are:
+
+```text
+x = 1 and x = 2
+```
+
+The y-intercept occurs at `x = 0`:
+
+```text
+f(0) = 2
+```
+
+## Average rate of change
+
+The **average rate of change** from `x = a` to `x = b` is:
+
+```text
+(f(b) - f(a))/(b - a)
+```
+
+This is the slope of the secant line through `(a, f(a))` and `(b, f(b))`.
+
+For `f(x) = x^2`, from `x = 1` to `x = 4`:
+
+```text
+(f(4) - f(1))/(4 - 1) = (16 - 1)/3 = 5
+```
+
+This idea becomes the derivative in calculus when the interval becomes very
+small.
+
+## Comparing function families
+
+Different formulas create different shapes. Recognizing these shapes helps you
+guess models from data and understand transformations later.
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("x", "x**2", "x**3", "sqrt(x + 4)"),
+    labels=("linear", "quadratic", "cubic", "square root"),
+    x_min=-4,
+    x_max=4,
+    y_min=-8,
+    y_max=16,
+    title="Common algebraic function families",
+)
+fig, ax = scene.render()
+fig
+```
+
+Questions to ask when reading a graph:
+
+- Is it increasing, decreasing, or both?
+- Does it have a lowest or highest point?
+- Where does it cross the axes?
+- Is it symmetric?
+- Does it grow slowly, linearly, quadratically, or faster?
+- Does the formula restrict the domain?
+
+## Vertical line test
+
+A graph represents a function of `x` if every vertical line intersects the graph
+at most once.
+
+Why? A vertical line fixes one input `x`. If it touches the graph twice, then
+the same input has two outputs, which violates the definition of a function.
+
+::: {.callout-warning}
+## Limitation
+
+The vertical line test is a graph test. It does not replace understanding the
+rule or the domain. A table or formula may be a function even before you draw
+it.
+:::
+
+## Worked examples
+
+### Example 1: evaluate and interpret
+
+Let:
+
+```text
+f(x) = 3x - 2
+```
+
+Then:
+
+```text
+f(4) = 3(4) - 2 = 10
+```
+
+The point `(4, 10)` lies on the graph.
+
+### Example 2: domain from a formula
+
+Find the real domain:
+
+```text
+g(x) = 1/(x - 5)
+```
+
+The denominator cannot be zero:
+
+```text
+x - 5 != 0
+```
+
+So:
+
+```text
+x != 5
+```
+
+The domain is `(-∞, 5) ∪ (5, ∞)`.
+
+### Example 3: average rate of change
+
+Let:
+
+```text
+h(x) = x^2 - 1
+```
+
+Average rate of change from `x = 2` to `x = 5`:
+
+```text
+(h(5) - h(2))/(5 - 2)
+= ((25 - 1) - (4 - 1))/3
+= (24 - 3)/3
+= 7
+```
+
+## Common mistakes
 
 ::: {.common-mistake}
-### Confusing Input and Output
+### Confusing input and output
 
 In `f(3) = 7`, the input is `3` and the output is `7`.
 :::
 
 ::: {.common-mistake}
-### Treating Every Curve as a Function
+### Treating every curve as a function
 
-A graph is a function of `x` only if each x-value has exactly one y-value.
+A circle is not a function of `x` because many x-values correspond to two
+y-values.
+:::
+
+::: {.common-mistake}
+### Forgetting the domain
+
+The formula `1/(x - 5)` looks simple, but it excludes `x = 5`.
+:::
+
+::: {.common-mistake}
+### Thinking a sampled table proves everything
+
+A table shows selected values. It can suggest a pattern, but it does not prove
+the formula's behavior for all inputs.
 :::
 
 ## Practice
 
 ::: {.practice-box}
 1. Find `f(4)` for `f(x) = 3x - 2`.
-2. Identify the slope and y-intercept of `y = -2x + 5`.
-3. Which grows faster for large positive `x`: `x` or `x^2`?
-4. Sketch the graph of `y = x - 3`.
+2. Find `g(-1)` for `g(x) = x^2 + 2x`.
+3. Identify the slope and y-intercept of `y = -2x + 5`.
+4. Find the domain of `1/(x + 4)`.
+5. Find the domain of `sqrt(2x - 6)`.
+6. Find the zeros of `f(x) = x^2 - 5x + 6`.
+7. Compute the average rate of change of `f(x)=x^2` from `x=2` to `x=6`.
+8. Which grows faster for large positive `x`: `x`, `x^2`, or `2^x`?
+9. Give an example of a relation that is not a function.
+10. Challenge: explain why a vertical line fails to be a function of `x`.
 :::
 
 ## Solutions
@@ -99,31 +328,77 @@ A graph is a function of `x` only if each x-value has exactly one y-value.
 ::: {.callout-tip collapse="true"}
 ## Solution 1
 
-Answer: `10`.
-
-`f(4) = 3(4) - 2 = 12 - 2 = 10`.
+`f(4) = 3(4) - 2 = 10`.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution 2
 
-Answer: slope `-2`; y-intercept `5`.
-
-The equation is already in slope-intercept form `y = mx + b`.
+`g(-1) = (-1)^2 + 2(-1) = 1 - 2 = -1`.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution 3
 
-Answer: `x^2`.
-
-For large positive `x`, squaring grows faster than the linear function `x`.
+Slope `-2`; y-intercept `5`.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution 4
 
-Answer: draw a line with slope `1` and y-intercept `-3`.
-
-Two easy points are `(0, -3)` and `(3, 0)`.
+The denominator cannot be zero, so `x + 4 != 0`. Therefore `x != -4`.
 :::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+The radicand must be nonnegative: `2x - 6 >= 0`. Therefore `x >= 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+Factor: `x^2 - 5x + 6 = (x - 2)(x - 3)`. The zeros are `x = 2` and `x = 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+`(f(6)-f(2))/(6-2) = (36 - 4)/4 = 8`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+`2^x` eventually grows faster than any fixed power such as `x` or `x^2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+
+The equation `x^2 + y^2 = 1` describes a circle, which is not a function of `x`
+because many x-values have two y-values.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+
+A vertical line has one x-value and many y-values. A function of `x` must assign
+each input x-value exactly one output.
+:::
+
+## Why this matters later
+
+- **Calculus:** derivatives and integrals are operations on functions.
+- **Linear algebra:** transformations are functions between vector spaces.
+- **Statistics:** regression models are functions with fitted parameters.
+- **Optimization:** objective functions are maximized or minimized over a
+  domain.
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*, Chapter 3:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- Gelfand, Saul, and Yaglom, *Functions and Graphs*.
+- Khan Academy, Algebra 2, function transformations and modeling:
+  <https://www.khanacademy.org/algebra2>

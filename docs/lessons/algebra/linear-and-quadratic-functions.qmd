@@ -1,0 +1,409 @@
+---
+title: Linear and Quadratic Functions
+description: Study constant-rate and curved models through slope, intercepts, roots, vertices, and parameters.
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- interpret slope as constant rate of change;
+- construct a line from slope-intercept form, point-slope form, or two points;
+- identify linear model parameters in context;
+- move among standard, factored, and vertex forms of a quadratic;
+- use the discriminant to predict the number and type of real roots;
+- read roots, intercepts, vertex, and axis of symmetry from a quadratic graph.
+:::
+
+## Motivation
+
+Linear and quadratic functions are the first two major modeling families.
+
+Linear functions model constant change:
+
+```text
+f(x) = mx + b
+```
+
+Quadratic functions model a rate of change that changes linearly:
+
+```text
+f(x) = ax^2 + bx + c
+```
+
+They appear everywhere: cost models, trend lines, projectile motion, least
+squares, optimization, Taylor approximations, and numerical algorithms.
+
+## Linear functions: constant rate of change
+
+A linear function has the form:
+
+```text
+y = mx + b
+```
+
+where:
+
+- `m` is the slope;
+- `b` is the y-intercept;
+- the graph is a line.
+
+Slope is change in output divided by change in input:
+
+```text
+m = (change in y)/(change in x)
+```
+
+If a line passes through `(0, 1)` and `(2, 5)`, then:
+
+```text
+m = (5 - 1)/(2 - 0) = 2
+```
+
+The y-intercept is `1`, so the line is:
+
+```text
+y = 2x + 1
+```
+
+```{python}
+from edumath.algebra import line_from_points
+
+line = line_from_points((0, 1), (2, 5))
+line.expression
+```
+
+## Visualizing slope and intercept
+
+```{python}
+from edumath.algebra import input_output_scene
+
+scene = input_output_scene(
+    "2*x + 1",
+    x_value=3,
+    x_min=-2,
+    x_max=5,
+    y_min=-2,
+    y_max=12,
+    title="The line y = 2x + 1 at x = 3",
+)
+fig, ax = scene.render()
+fig
+```
+
+The point `(3, 7)` lies on the line. Moving one unit to the right increases the
+output by `2`, because the slope is `2`.
+
+## Linear modeling
+
+Suppose a service costs a fixed setup fee of `$25` plus `$8` per hour. If `h` is
+the number of hours, the cost is:
+
+```text
+C(h) = 8h + 25
+```
+
+Interpretation:
+
+- slope `8`: each additional hour increases cost by `$8`;
+- intercept `25`: the cost when `h = 0`.
+
+In applied work, interpreting parameters is often more important than only
+plotting the line.
+
+## Quadratic functions
+
+A quadratic function has degree `2`:
+
+```text
+f(x) = ax^2 + bx + c, where a != 0
+```
+
+Its graph is a parabola.
+
+The sign of `a` determines whether the parabola opens up or down:
+
+- `a > 0`: opens upward;
+- `a < 0`: opens downward.
+
+The magnitude of `a` affects width:
+
+- larger `|a|`: narrower;
+- smaller `|a|`: wider.
+
+## Three useful forms
+
+Quadratics often appear in three forms.
+
+### Standard form
+
+```text
+f(x) = ax^2 + bx + c
+```
+
+This makes the y-intercept visible: `f(0)=c`.
+
+### Factored form
+
+```text
+f(x) = a(x-r1)(x-r2)
+```
+
+This makes roots visible: `x = r1` and `x = r2`.
+
+### Vertex form
+
+```text
+f(x) = a(x-h)^2 + k
+```
+
+This makes the vertex visible: `(h, k)`.
+
+## Vertex and discriminant
+
+For:
+
+```text
+f(x) = ax^2 + bx + c
+```
+
+the vertex x-coordinate is:
+
+```text
+h = -b/(2a)
+```
+
+The discriminant is:
+
+```text
+D = b^2 - 4ac
+```
+
+It tells us how many real roots exist:
+
+| Discriminant | Real roots | Graph behavior |
+|---:|---:|---|
+| `D > 0` | two | crosses the x-axis twice |
+| `D = 0` | one repeated | touches the x-axis at the vertex |
+| `D < 0` | none | does not cross the x-axis |
+
+```{python}
+from edumath.algebra import QuadraticModel
+
+model = QuadraticModel(1, -4, 3)
+model.expression, model.discriminant, model.vertex, model.roots
+```
+
+## Comparing quadratic parameters
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("x**2", "2*x**2", "0.5*x**2", "-x**2"),
+    labels=("a = 1", "a = 2", "a = 0.5", "a = -1"),
+    x_min=-4,
+    x_max=4,
+    y_min=-8,
+    y_max=16,
+    title="Changing the coefficient a in y = a*x^2",
+)
+fig, ax = scene.render()
+fig
+```
+
+## Converting vertex form to standard form
+
+The vertex form:
+
+```text
+2(x - 3)^2 + 1
+```
+
+has vertex `(3, 1)` and opens upward. Expanding:
+
+```{python}
+from edumath.algebra import quadratic_from_vertex
+
+quadratic_from_vertex(a=2, h=3, k=1)
+```
+
+So:
+
+```text
+2(x - 3)^2 + 1 = 2x^2 - 12x + 19
+```
+
+## Worked examples
+
+### Example 1: line from two points
+
+Find the line through `(1, 4)` and `(3, 10)`.
+
+Slope:
+
+```text
+m = (10 - 4)/(3 - 1) = 3
+```
+
+Use `y = mx + b` with point `(1, 4)`:
+
+```text
+4 = 3(1) + b
+b = 1
+```
+
+Therefore:
+
+```text
+y = 3x + 1
+```
+
+### Example 2: solve a quadratic by factoring
+
+Solve:
+
+```text
+x^2 - 5x + 6 = 0
+```
+
+Factor:
+
+```text
+(x - 2)(x - 3) = 0
+```
+
+So:
+
+```text
+x = 2 or x = 3
+```
+
+### Example 3: read the vertex
+
+For:
+
+```text
+f(x) = -2(x + 1)^2 + 5
+```
+
+the vertex is `(-1, 5)`, and the parabola opens downward because `a = -2`.
+
+## Common mistakes
+
+::: {.common-mistake}
+### Treating the intercept as the slope
+
+In `y = 2x + 5`, the slope is `2`; the y-intercept is `5`.
+:::
+
+::: {.common-mistake}
+### Forgetting that horizontal shifts look reversed
+
+The vertex form `(x - 3)^2` shifts right by `3`, not left.
+:::
+
+::: {.common-mistake}
+### Assuming every quadratic has two real roots
+
+If the discriminant is negative, the roots are complex and the real graph does
+not cross the x-axis.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Find the slope of the line through `(0, 2)` and `(4, 10)`.
+2. Find the equation of the line through `(0, -3)` with slope `5`.
+3. Interpret the slope and intercept of `C(h)=12h+40`.
+4. Convert `3(x - 2)^2 - 1` to standard form.
+5. Find the vertex of `f(x)=x^2 - 6x + 8`.
+6. Find the roots of `x^2 - 6x + 8`.
+7. Compute the discriminant of `2x^2 + 4x + 5`.
+8. Does `2x^2 + 4x + 5` have real roots?
+9. Write a quadratic with roots `-1` and `4`.
+10. Challenge: explain why the vertex x-coordinate is halfway between two real
+    roots when a quadratic has two real roots.
+:::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+`m = (10 - 2)/(4 - 0) = 8/4 = 2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+The y-intercept is `-3`, so the line is `y = 5x - 3`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+The slope `12` means each additional hour adds `$12`. The intercept `40` is the
+fixed starting cost.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+`3(x - 2)^2 - 1 = 3(x^2 - 4x + 4) - 1 = 3x^2 - 12x + 11`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+For `a=1` and `b=-6`, the vertex x-coordinate is `-b/(2a)=3`.
+Then `f(3)=9-18+8=-1`. The vertex is `(3, -1)`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+`x^2 - 6x + 8 = (x - 2)(x - 4)`, so the roots are `2` and `4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+`D = b^2 - 4ac = 4^2 - 4(2)(5) = 16 - 40 = -24`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+No. The discriminant is negative, so there are no real roots.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+
+One answer is `(x + 1)(x - 4)`, or expanded: `x^2 - 3x - 4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+
+In factored form `a(x-r1)(x-r2)`, the graph is symmetric around the axis halfway
+between the roots. The vertex lies on this axis, so its x-coordinate is
+`(r1+r2)/2`.
+:::
+
+## Why this matters later
+
+- **Calculus:** lines approximate functions locally; quadratics model curvature.
+- **Statistics:** linear regression fits lines to data.
+- **Optimization:** many first optimization examples reduce to finding a
+  quadratic vertex.
+- **Numerical methods:** local polynomial approximations are central tools.
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*, linear and quadratic functions:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- OpenStax, *Precalculus*, polynomial and quadratic functions:
+  <https://openstax.org/books/precalculus/pages/index>
