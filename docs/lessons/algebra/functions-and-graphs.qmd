@@ -397,6 +397,22 @@ each input x-value exactly one output.
 - **Optimization:** objective functions are maximized or minimized over a
   domain.
 
+## Guessing game checkpoint
+
+Before moving to the Python/SymPy appendix, practice the core moves from this
+lesson. This short quiz may show an expression, graph, equation, solution set, or
+description and ask you to choose the matching mathematical object.
+
+<script type="application/json" class="edu-math-guessing-game-config">
+{
+  "topic": "functions-graphs",
+  "title": "Functions and graphs checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/guessing-game.qmd >}}
+
 ## Using this lesson with edumath and SymPy
 
 Use `edumath` to move from formula to table to graph. This is useful when you

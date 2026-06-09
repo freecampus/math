@@ -53,7 +53,6 @@ website:
               - lessons/algebra/polynomials.qmd
               - lessons/algebra/exponentials-and-logarithms.qmd
               - lessons/algebra/systems-of-equations.qmd
-              - lessons/algebra/guessing_quiz.qmd
           - section: Trigonometry
             contents:
               - lessons/trigonometry/sine-cosine.qmd

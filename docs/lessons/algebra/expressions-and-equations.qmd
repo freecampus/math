@@ -555,6 +555,22 @@ prove equivalence by algebraic transformation.
 - **Optimization:** constraints are equations and inequalities that define the
   feasible set.
 
+## Guessing game checkpoint
+
+Before moving to the Python/SymPy appendix, practice the core moves from this
+lesson. This short quiz may show an expression, graph, equation, solution set, or
+description and ask you to choose the matching mathematical object.
+
+<script type="application/json" class="edu-math-guessing-game-config">
+{
+  "topic": "expressions-equations",
+  "title": "Expressions and equations checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/guessing-game.qmd >}}
+
 ## Using this lesson with edumath and SymPy
 
 Use SymPy to check symbolic transformations and use `edumath` quiz helpers to

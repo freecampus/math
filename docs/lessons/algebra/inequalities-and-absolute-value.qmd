@@ -419,6 +419,22 @@ That means `x` can be no more than `r` units left of `a` and no more than
 - **Statistics:** confidence intervals and hypothesis-test rejection regions are
   sets defined by inequalities.
 
+## Guessing game checkpoint
+
+Before moving to the Python/SymPy appendix, practice the core moves from this
+lesson. This short quiz may show an expression, graph, equation, solution set, or
+description and ask you to choose the matching mathematical object.
+
+<script type="application/json" class="edu-math-guessing-game-config">
+{
+  "topic": "inequalities-absolute-value",
+  "title": "Inequalities and absolute value checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/guessing-game.qmd >}}
+
 ## Using this lesson with edumath and SymPy
 
 SymPy can solve inequalities and show interval-style answers. Use it to verify
