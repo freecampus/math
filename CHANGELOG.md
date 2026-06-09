@@ -1,6 +1,21 @@
 # Release Notes
 ---
 
+# [0.3.0](https://github.com/osl-incubator/edu-math/compare/0.2.1...0.3.0) (2026-06-09)
+
+
+### Bug Fixes
+
+* fix menu ([08e3e8a](https://github.com/osl-incubator/edu-math/commit/08e3e8a79b74d3ea8b258e660328ecf0f7820164))
+* fix Question class ([0934d45](https://github.com/osl-incubator/edu-math/commit/0934d45a285ca349ca488267f987d8cbfb4a529f))
+
+
+### Features
+
+* implement new content for algebra ([73de388](https://github.com/osl-incubator/edu-math/commit/73de3883aa26695c7050e635e218eaff872b9803))
+* Improve algebra content ([dc13578](https://github.com/osl-incubator/edu-math/commit/dc1357891ebbf2d4ff45e2802a164780799f06ab))
+* improve content format ([8f24dde](https://github.com/osl-incubator/edu-math/commit/8f24dde68805fbefcafea02ef38fe3e5b573a0ff))
+
 ## [0.2.1](https://github.com/osl-incubator/edu-math/compare/0.2.0...0.2.1) (2026-06-04)
 
 
