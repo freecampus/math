@@ -715,6 +715,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#guessing-game-checkpoint",
+    "title": "Linear and Quadratic Functions",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/linear-and-quadratic-functions.html#using-this-lesson-with-edumath-and-sympy",
     "href": "lessons/algebra/linear-and-quadratic-functions.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Linear and Quadratic Functions",
@@ -824,6 +837,19 @@
     "title": "Systems of Equations",
     "section": "Solutions",
     "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: (x, y) = (3, 6).\nSet the right sides equal: 2x = x + 3, so x = 3. Then y = 2(3) = 6.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: (x, y) = (3, 2).\nAdd the equations: 2x = 6, so x = 3. Then 3 + y = 5, so y = 2.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: they do not intersect, so the system has no solution.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: every point on that line solves both equations, so the system has infinitely many solutions.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/systems-of-equations.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/systems-of-equations.html#guessing-game-checkpoint",
+    "title": "Systems of Equations",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1053,6 +1079,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/expressions-and-equations.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/expressions-and-equations.html#guessing-game-checkpoint",
+    "title": "Expressions and Equations",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/expressions-and-equations.html#using-this-lesson-with-edumath-and-sympy",
     "href": "lessons/algebra/expressions-and-equations.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Expressions and Equations",
@@ -1274,6 +1313,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/functions-and-graphs.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/functions-and-graphs.html#guessing-game-checkpoint",
+    "title": "Functions and Graphs",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/functions-and-graphs.html#using-this-lesson-with-edumath-and-sympy",
     "href": "lessons/algebra/functions-and-graphs.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Functions and Graphs",
@@ -1461,6 +1513,19 @@
     "title": "Polynomials",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: polynomials are easy to differentiate and integrate and are used in Taylor approximations.\nLinear algebra: eigenvalues are roots of characteristic polynomials.\nStatistics: polynomial regression models curved relationships.\nNumerical methods: interpolation and root-finding often begin with polynomial approximations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/polynomials.html#guessing-game-checkpoint",
+    "title": "Polynomials",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2791,6 +2856,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#guessing-game-checkpoint",
+    "title": "Inequalities and Absolute Value",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/inequalities-and-absolute-value.html#using-this-lesson-with-edumath-and-sympy",
     "href": "lessons/algebra/inequalities-and-absolute-value.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Inequalities and Absolute Value",
@@ -2821,39 +2899,21 @@
     "href": "lessons/algebra/guessing_quiz.html",
     "title": "Guessing Quiz",
     "section": "",
-    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document.",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Guessing Quiz"
-    ]
+    "text": "This page demonstrates the first interactive algebra quiz in edu-math.\nThe package also provides a Python notebook widget, but rendered Quarto HTML does not keep a live Python kernel after publication. This page uses a browser-native version of the quiz so it remains interactive as a static HTML document."
   },
   {
     "objectID": "lessons/algebra/guessing_quiz.html#guess-the-expression",
     "href": "lessons/algebra/guessing_quiz.html#guess-the-expression",
     "title": "Guessing Quiz",
     "section": "Guess the expression",
-    "text": "Guess the expression\nChoose the expression that matches the graph.\n\nquiz = quizApp()\n\n\n\n\n\n\n\nfunction quizApp() {\n  const root = html`&lt;section class=\"quiz-shell\"&gt;&lt;/section&gt;`;\n  const state = {\n    total: 5,\n    index: 0,\n    score: 0,\n    question: null,\n    answered: false\n  };\n\n  renderStart();\n  return root;\n\n  function renderStart() {\n    root.innerHTML = \"\";\n\n    const input = html`&lt;input class=\"quiz-count\" type=\"number\" min=\"1\" max=\"100\" value=\"${state.total}\"&gt;`;\n    const button = html`&lt;button type=\"button\"&gt;Start quiz&lt;/button&gt;`;\n    const controls = html`&lt;div class=\"quiz-start\"&gt;\n      &lt;label&gt;\n        &lt;span&gt;Number of questions&lt;/span&gt;\n        ${input}\n      &lt;/label&gt;\n      ${button}\n    &lt;/div&gt;`;\n\n    button.addEventListener(\"click\", () =&gt; {\n      state.total = Math.max(1, Math.min(100, Number(input.value) || 5));\n      state.index = 0;\n      state.score = 0;\n      startQuestion();\n    });\n\n    root.append(controls);\n  }\n\n  function startQuestion() {\n    state.question = makeQuestion();\n    state.answered = false;\n    renderQuestion();\n  }\n\n  function renderQuestion() {\n    const question = state.question;\n    root.innerHTML = \"\";\n\n    const progress = html`&lt;div class=\"quiz-progress\"&gt;\n      &lt;span&gt;Question ${state.index + 1} of ${state.total}&lt;/span&gt;\n      &lt;span&gt;Score: ${state.score}/${state.total}&lt;/span&gt;\n    &lt;/div&gt;`;\n    const graph = drawGraph(question);\n    const prompt = html`&lt;p class=\"quiz-prompt\"&gt;Select an expression.&lt;/p&gt;`;\n    const feedback = html`&lt;p class=\"quiz-feedback\" aria-live=\"polite\"&gt;&lt;/p&gt;`;\n    const next = html`&lt;button type=\"button\" disabled&gt;Next question&lt;/button&gt;`;\n    const options = radioList(question.options, option =&gt; {\n      if (state.answered) return;\n\n      state.answered = true;\n      const correct = option.id === question.answer.id;\n      if (correct) state.score += 1;\n\n      feedback.className = correct\n        ? \"quiz-feedback correct\"\n        : \"quiz-feedback wrong\";\n      feedback.innerHTML = correct\n        ? \"Correct.\"\n        : `Not quite. The answer is &lt;code&gt;${question.answer.label}&lt;/code&gt;.`;\n\n      for (const input of options.querySelectorAll(\"input\")) {\n        input.disabled = true;\n      }\n\n      next.disabled = false;\n      progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;\n    });\n\n    next.addEventListener(\"click\", () =&gt; {\n      state.index += 1;\n      if (state.index &lt; state.total) {\n        startQuestion();\n      } else {\n        renderComplete();\n      }\n    });\n\n    root.append(progress, graph, prompt, feedback, options, next);\n  }\n\n  function renderComplete() {\n    root.innerHTML = \"\";\n\n    const summary = html`&lt;div class=\"quiz-complete\"&gt;\n      &lt;h3&gt;Quiz complete&lt;/h3&gt;\n      &lt;p&gt;Final score: ${state.score}/${state.total}&lt;/p&gt;\n    &lt;/div&gt;`;\n    const restart = html`&lt;button type=\"button\"&gt;Start another quiz&lt;/button&gt;`;\n    restart.addEventListener(\"click\", renderStart);\n\n    root.append(summary, restart);\n  }\n}\n\n\n\n\n\n\n\nfunction makeQuestion() {\n  const answer = randomExpression();\n  const options = new Map([[answer.id, answer]]);\n\n  while (options.size &lt; 4) {\n    const option = randomExpression();\n    options.set(option.id, option);\n  }\n\n  return {\n    answer,\n    options: shuffle(Array.from(options.values()))\n  };\n}\n\n\n\n\n\n\n\nfunction randomExpression() {\n  const kind = choice([\"linear\", \"quadratic\", \"cubic\", \"sine\", \"cosine\"]);\n\n  if (kind === \"linear\") {\n    const m = nonzeroInt(-4, 4);\n    const b = int(-6, 6);\n    return expression(\n      `${formatCoeff(m)}x ${formatSigned(b)}`,\n      x =&gt; m * x + b\n    );\n  }\n\n  if (kind === \"quadratic\") {\n    const a = nonzeroInt(-3, 3);\n    const b = int(-5, 5);\n    const c = int(-6, 6);\n    return expression(\n      `${formatCoeff(a)}x² ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"cubic\") {\n    const a = nonzeroInt(-2, 2);\n    const b = int(-3, 3);\n    const c = int(-4, 4);\n    return expression(\n      `${formatCoeff(a)}x³ ${formatSignedTerm(b, \"x\")} ${formatSigned(c)}`,\n      x =&gt; a * x * x * x + b * x + c\n    );\n  }\n\n  if (kind === \"sine\") {\n    const a = nonzeroInt(-4, 4);\n    const k = nonzeroInt(1, 4);\n    return expression(`${formatCoeff(a)}sin(${k}x)`, x =&gt; a * Math.sin(k * x));\n  }\n\n  const a = nonzeroInt(-4, 4);\n  const k = nonzeroInt(1, 4);\n  return expression(`${formatCoeff(a)}cos(${k}x)`, x =&gt; a * Math.cos(k * x));\n}\n\n\n\n\n\n\n\nfunction expression(label, evaluate) {\n  return {\n    id: label.replace(/\\s+/g, \"\"),\n    label,\n    evaluate,\n    toString: () =&gt; label\n  };\n}\n\n\n\n\n\n\n\nfunction radioList(options, onSelect) {\n  const form = html`&lt;form class=\"quiz-options\" role=\"radiogroup\" aria-label=\"Expression options\"&gt;&lt;/form&gt;`;\n  form.value = null;\n\n  for (const option of options) {\n    const input = html`&lt;input type=\"radio\" name=\"quiz-answer\"&gt;`;\n    const label = html`&lt;label class=\"quiz-option\"&gt;${input}&lt;span&gt;${option.label}&lt;/span&gt;&lt;/label&gt;`;\n\n    input.addEventListener(\"change\", () =&gt; {\n      form.value = option;\n      form.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      onSelect(option);\n    });\n\n    form.append(label);\n  }\n\n  return form;\n}\n\n\n\n\n\n\n\nfunction drawGraph(question) {\n  const width = 720;\n  const height = 360;\n  const margin = { top: 24, right: 24, bottom: 36, left: 46 };\n  const xs = Array.from({ length: 401 }, (_, i) =&gt; -10 + i * 20 / 400);\n  const points = xs\n    .map(x =&gt; ({ x, y: question.answer.evaluate(x) }))\n    .filter(d =&gt; Number.isFinite(d.y));\n\n  const yValues = points.map(d =&gt; d.y).sort((a, b) =&gt; a - b);\n  const low = Math.min(quantile(yValues, 0.02), -5);\n  const high = Math.max(quantile(yValues, 0.98), 5);\n  const yPadding = Math.max((high - low) * 0.08, 1);\n\n  const xScale = d3.scaleLinear()\n    .domain([-10, 10])\n    .range([margin.left, width - margin.right]);\n  const yScale = d3.scaleLinear()\n    .domain([low - yPadding, high + yPadding])\n    .range([height - margin.bottom, margin.top]);\n\n  const line = d3.line()\n    .x(d =&gt; xScale(d.x))\n    .y(d =&gt; yScale(d.y));\n\n  const svg = d3.create(\"svg\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"role\", \"img\")\n    .attr(\"aria-label\", \"Graph of an algebraic expression\")\n    .attr(\"class\", \"quiz-graph\");\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(0,${yScale(0)})`)\n    .call(d3.axisBottom(xScale).ticks(10));\n\n  svg.append(\"g\")\n    .attr(\"transform\", `translate(${xScale(0)},0)`)\n    .call(d3.axisLeft(yScale).ticks(8));\n\n  svg.append(\"g\")\n    .attr(\"class\", \"quiz-grid\")\n    .call(d3.axisLeft(yScale).ticks(8).tickSize(-(width - margin.left - margin.right)).tickFormat(\"\"));\n\n  svg.append(\"path\")\n    .datum(points)\n    .attr(\"fill\", \"none\")\n    .attr(\"stroke\", \"#1a73e8\")\n    .attr(\"stroke-width\", 3)\n    .attr(\"d\", line);\n\n  return svg.node();\n}\n\n\n\n\n\n\n\nfunction choice(values) {\n  return values[Math.floor(Math.random() * values.length)];\n}\n\nfunction int(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nfunction nonzeroInt(min, max) {\n  let value = 0;\n  while (value === 0) value = int(min, max);\n  return value;\n}\n\nfunction shuffle(values) {\n  const copy = values.slice();\n  for (let i = copy.length - 1; i &gt; 0; i -= 1) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [copy[i], copy[j]] = [copy[j], copy[i]];\n  }\n  return copy;\n}\n\nfunction quantile(sortedValues, p) {\n  const index = Math.min(\n    sortedValues.length - 1,\n    Math.max(0, Math.floor(sortedValues.length * p))\n  );\n  return sortedValues[index];\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction formatCoeff(value) {\n  if (value === 1) return \"\";\n  if (value === -1) return \"-\";\n  return `${value}`;\n}\n\nfunction formatSigned(value) {\n  if (value === 0) return \"+ 0\";\n  return value &gt; 0 ? `+ ${value}` : `- ${Math.abs(value)}`;\n}\n\nfunction formatSignedTerm(value, symbol) {\n  if (value === 0) return \"+ 0\";\n  const magnitude = Math.abs(value);\n  const coeff = magnitude === 1 ? \"\" : `${magnitude}`;\n  return value &gt; 0 ? `+ ${coeff}${symbol}` : `- ${coeff}${symbol}`;\n}",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Guessing Quiz"
-    ]
+    "text": "Guess the expression\nChoose the expression that matches the graph."
   },
   {
     "objectID": "lessons/algebra/guessing_quiz.html#python-notebook-widget",
     "href": "lessons/algebra/guessing_quiz.html#python-notebook-widget",
     "title": "Guessing Quiz",
     "section": "Python notebook widget",
-    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()",
-    "crumbs": [
-      "Home",
-      "Lessons",
-      "Algebra",
-      "Guessing Quiz"
-    ]
+    "text": "Python notebook widget\nUse this version in a live Jupyter notebook or notebook-style Quarto preview with a running Python kernel.\nfrom edumath.algebra import GuessingQuizWidget\n\nquiz = GuessingQuizWidget(total_questions=5)\nquiz.display()"
   },
   {
     "objectID": "lessons/algebra/exponentials-and-logarithms.html",
@@ -2952,6 +3012,19 @@
     "title": "Exponentials and Logarithms",
     "section": "Solutions",
     "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer: 32.\n2^5 = 2 * 2 * 2 * 2 * 2 = 32.\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer: x = 1000.\nlog_10(x) = 3 means 10^3 = x.\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer: decay.\nThe base 0.5 is between 0 and 1, so the function shrinks as x increases.\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: 2^x.\nExponential functions with base greater than 1 eventually grow faster than any fixed power such as x^2.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#guessing-game-checkpoint",
+    "title": "Exponentials and Logarithms",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -3264,6 +3337,19 @@
     "title": "Transformations, Composition, and Inverses",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: the chain rule is about composition.\nProbability/statistics: transformations of variables change distributions.\nOptimization: parameters shift and stretch objective functions.\nLinear algebra: inverse functions generalize to inverse transformations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#guessing-game-checkpoint",
+    "href": "lessons/algebra/transformations-composition-inverses.html#guessing-game-checkpoint",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Guessing game checkpoint",
+    "text": "Guessing game checkpoint\nBefore moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.",
     "crumbs": [
       "Home",
       "Lessons",
