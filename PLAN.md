@@ -1,50 +1,98 @@
-# PLAN: Calculus Lessons
+# PLAN: Differential Equations Lessons
 
-Target directory: `docs/lessons/calculus/`
+Target directory: `docs/lessons/differential-equations/`
 
-This plan describes how to rebuild the current Calculus lesson sequence into a
-complete, beginner-friendly preparation module. The current pages exist, but
-they are short starter lessons. The goal is to turn them into self-contained
-study material for learners who may know algebra but need careful explanations,
-visual intuition, worked examples, practice, interactive checkpoints, and
-visible `edumath`/SymPy appendices.
+This plan describes how to turn the Differential Equations lesson sequence into
+a complete, beginner-friendly preparation module. The current pages are short
+starter lessons. The goal is to write self-contained study material for learners
+who know basic algebra and calculus but may be seeing differential equations for
+the first time.
+
+The lessons should emphasize meaning before technique: a differential equation
+is not just an equation to solve, but a rule that describes how a quantity
+changes. Students should learn to interpret equations verbally, graphically,
+numerically, and symbolically.
 
 ## Current lesson files
 
-Current pages in `docs/lessons/calculus/`:
+Current pages in `docs/lessons/differential-equations/`:
 
-1. `limits.qmd`
-2. `derivatives.qmd`
-3. `derivative-rules.qmd`
-4. `optimization.qmd`
-5. `integrals.qmd`
-6. `integration-techniques.qmd`
-7. `applications.qmd`
+1. `first-order-equations.qmd`
+2. `separable-equations.qmd`
+3. `linear-equations.qmd`
+4. `slope-fields.qmd`
+5. `systems.qmd`
 
-Recommended addition:
+Also present:
 
-8. `index.qmd` — Calculus study path overview and diagnostic checklist
+- `slope-fields.quarto_ipynb` — likely a generated or old notebook-style file.
+  Before implementing content, inspect whether it is tracked and still needed.
+  If it is generated or obsolete, remove it from the lesson workflow. The site
+  should primarily use `.qmd` pages.
 
-The sidebar currently lists the seven lesson pages directly. Add the index page
-at the beginning of the Calculus section when implemented.
+Recommended additions:
+
+1. `index.qmd` — Differential Equations study path overview and readiness
+   checklist.
+2. Optional later page: `modeling-review.qmd` or `applications.qmd` if the
+   course needs a standalone applications lesson after the five core pages.
+
+Update `docs/_quarto.yml` so the Differential Equations sidebar starts with the
+new index page if `index.qmd` is added.
 
 ## Overall pedagogical goals
 
-The Calculus module should help students move from algebraic manipulation to
-reasoning about change and accumulation.
+The Differential Equations module should help students move from calculus facts
+to dynamic reasoning.
 
 By the end of the path, a student should be able to say:
 
-> Calculus studies how quantities change and accumulate. Limits describe nearby
-> behavior, derivatives measure instantaneous change, and integrals add up small
-> pieces. I can use formulas, graphs, tables, units, and computation together to
-> solve and check problems.
+> A differential equation describes how a quantity changes. A solution is a
+> function whose derivative follows that change rule. I can understand a
+> differential equation from its formula, slope field, numerical approximation,
+> symbolic solution, equilibrium behavior, and units.
+
+Students should learn to answer these questions repeatedly:
+
+- What is changing?
+- What variable measures the input, usually time or position?
+- What does the derivative mean in context?
+- Does the equation give a growth rule, decay rule, forcing term, or
+  interaction?
+- Is the solution a single function or a family of functions?
+- What initial condition selects one solution?
+- Can the equation be solved exactly, approximated numerically, or studied
+  qualitatively?
+- What does the result mean in plain language?
+
+## Prerequisites to reinforce throughout
+
+The lessons should quietly review prerequisite skills instead of assuming
+students remember everything perfectly:
+
+- interpreting derivatives as rates of change;
+- basic antiderivatives;
+- separation of variables and integration constants;
+- exponentials and logarithms;
+- algebraic rearrangement;
+- function notation;
+- reading graphs;
+- solving equations such as `Ce^{kt} = A`;
+- interpreting units;
+- basic matrix-vector multiplication for systems.
+
+Whenever a prerequisite appears, include a short reminder box. For example, in a
+separable equation lesson, remind students that `\int 1/y dy = ln|y| + C` and
+explain why the absolute value appears.
 
 ## Global lesson standards
 
-Every calculus lesson should follow the project lesson standards:
+Each Differential Equations lesson should follow the repository lesson
+standards.
 
-1. YAML front matter with a clear `title`, `description`, and usually:
+Use this structure for every `.qmd` page:
+
+1. YAML front matter with `title`, `description`, and usually:
 
    ```yaml
    execute:
@@ -52,869 +100,998 @@ Every calculus lesson should follow the project lesson standards:
    ```
 
 2. A short introduction explaining why the topic matters.
-3. Learning objectives.
+3. Learning objectives written as student-facing action statements.
 4. Concept sections with definitions, intuition, formulas, and common pitfalls.
 5. Worked examples with step-by-step reasoning.
 6. Practice exercises with answers or collapsed solutions.
-7. A topic-relevant interactive checkpoint or guessing game before the Python
+7. A topic-specific interactive checkpoint or guessing game before the Python
    appendix.
-8. A final section named `Using this lesson with edumath and SymPy` with visible
-   code examples using `#| echo: true`.
+8. A final section named exactly:
 
-Use hidden code for plots and setup in the main explanatory flow. Show visible
-code only when code is itself part of the learning objective or in the final
-appendix.
+   ```text
+   Using this lesson with edumath and SymPy
+   ```
 
-## Shared calculus interaction plan
+   This final section should use visible code blocks with `#| echo: true`.
 
-Create or update a reusable static checkpoint include under something like:
+Do not call the lesson pages notebooks in navigation or prose unless a page is
+specifically about notebook usage.
+
+## Code visibility guidelines
+
+In the main lesson body:
+
+- hide setup code with `execute: echo: false`;
+- show mathematical outputs, plots, tables, and explanations;
+- avoid raw implementation code unless the code itself is the lesson objective.
+
+In the final `Using this lesson with edumath and SymPy` appendix:
+
+- show visible Python examples with `#| echo: true`;
+- include examples that students can copy into Quarto, Jupyter, Colab, or a
+  local Python session;
+- explain how to interpret symbolic and numerical results;
+- show both exact SymPy workflows and reusable `edumath` helper functions when
+  available.
+
+## Shared interaction plan
+
+Create a reusable static checkpoint include:
 
 ```text
-docs/lessons/calculus/_includes/calculus-checkpoint.qmd
+docs/lessons/differential-equations/_includes/differential-equations-checkpoint.qmd
 ```
 
-The include should be browser-native JavaScript, similar in spirit to the
-Algebra guessing game, so published HTML remains interactive without a live
-Python kernel.
+The include should use browser-native JavaScript, similar to the Algebra and
+Calculus checkpoint patterns, so published HTML remains interactive without a
+live Python kernel.
 
 Potential topic keys:
 
-- `limits`
-- `derivatives`
-- `derivative-rules`
-- `optimization`
-- `integrals`
-- `integration-techniques`
-- `calculus-applications`
-- `calculus-cumulative-review`
+- `first-order-equations`
+- `separable-equations`
+- `linear-equations`
+- `slope-fields`
+- `systems`
+- `differential-equations-cumulative-review`
 
-Question types should be topic-specific, not generic decoration. Examples:
+The include should support flexible question types:
 
-- guess a limit from a table or graph;
-- choose the derivative meaning from a context;
-- select the rule needed for a derivative;
-- classify critical points;
-- estimate area from rectangles;
-- choose substitution, parts, or numeric approximation;
-- decide whether a context asks for a derivative or an integral.
+- multiple choice;
+- short numeric answer;
+- expression matching by normalized text where possible;
+- qualitative classification;
+- guess a solution from a differential equation;
+- guess an equation from a slope field description;
+- match a model to a real situation;
+- identify equilibrium points;
+- choose the next Euler step.
 
-## Shared `edumath` support plan
+Use one JSON configuration block per lesson, for example:
 
-Current calculus helpers:
-
-- `src/edumath/calculus/derivatives.py`
-  - `derivative`
-  - `tangent_line`
-  - `finite_difference`
-- `src/edumath/calculus/integrals.py`
-  - `antiderivative`
-  - `definite_integral`
-  - `midpoint_riemann_sum`
-
-Current empty or placeholder modules:
-
-- `src/edumath/calculus/concepts.py`
-- `src/edumath/calculus/exercises.py`
-- `src/edumath/calculus/plots.py`
-- `src/edumath/calculus/quizzes.py`
-- `src/edumath/calculus/validators.py`
-- `src/edumath/calculus/__init__.py`
-
-Proposed reusable helpers are listed per lesson below. Keep the public API small
-and add tests for each new helper.
-
-## Proposed Calculus study path metadata
-
-Add lesson metadata in `src/edumath/calculus/concepts.py`:
-
-- `CALCULUS_PATH`
-- `LIMITS`
-- `DERIVATIVES`
-- `DERIVATIVE_RULES`
-- `OPTIMIZATION`
-- `INTEGRALS`
-- `INTEGRATION_TECHNIQUES`
-- `CALCULUS_APPLICATIONS`
-
-Suggested `CALCULUS_PATH.slugs()`:
-
-```python
-[
-    "limits",
-    "derivatives",
-    "derivative-rules",
-    "optimization",
-    "integrals",
-    "integration-techniques",
-    "applications",
-]
+```html
+<script type="application/json" class="edu-math-de-checkpoint-config">
+  {
+    "topic": "separable-equations",
+    "title": "Separable equation checkpoint",
+    "defaultTotal": 4
+  }
+</script>
 ```
 
-## Lesson 0: Calculus Study Path (`index.qmd`)
+Then include the shared fragment:
 
-### Purpose
-
-Create a welcoming overview page for the calculus sequence.
-
-### Learning goals
-
-Students should understand:
-
-- what calculus studies;
-- how limits, derivatives, and integrals fit together;
-- what algebra skills should be reviewed first;
-- how to use the module and diagnostic checklist.
-
-### Suggested sections
-
-1. **What is calculus?**
-   - Change and accumulation.
-   - Local behavior versus total behavior.
-2. **Prerequisites**
-   - Algebra, functions, graphs, trigonometry basics, exponentials/logs.
-3. **Recommended sequence**
-   - Brief description of each lesson.
-4. **Diagnostic checklist**
-   - Function evaluation, slope, graph reading, factoring, exponentials/logs,
-     area of rectangles, units.
-5. **How to study calculus**
-   - Predict from graph, compute by hand, check with SymPy, explain in words.
-6. **Using this path with edumath and SymPy**
-   - Visible code showing derivative, tangent line, definite integral, and
-     Riemann sum helpers.
-
-### Interactive checkpoint
-
-A diagnostic guessing game that asks students whether a prompt is about:
-
-- a limit;
-- a derivative;
-- an integral;
-- an optimization problem;
-- an algebra prerequisite.
-
-## Lesson 1: Limits (`limits.qmd`)
-
-### Current state
-
-The page defines limits briefly and includes three short practice questions. It
-needs tables, one-sided limits, graphical intuition, algebraic simplification,
-common pitfalls, and a final SymPy appendix.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> A limit describes what function values approach as inputs get close to a
-> point. The function value at the point may be different, missing, or
-> undefined.
-
-### Learning objectives
-
-Students should be able to:
-
-1. explain a limit in words;
-2. estimate limits from tables and graphs;
-3. distinguish `f(a)` from `lim f(x)` as `x -> a`;
-4. recognize left-hand and right-hand limits;
-5. identify when a two-sided limit does not exist;
-6. use algebraic simplification to evaluate removable-hole limits;
-7. understand infinite limits and vertical asymptotes informally;
-8. use SymPy to compute and check simple limits.
-
-### Detailed structure
-
-1. **Motivation**
-   - Average speed approaching instantaneous speed.
-   - Zooming in on a graph near a point.
-2. **What a limit asks**
-   - Plain-language definition.
-   - Notation: `lim_{x -> a} f(x) = L`.
-3. **Tables near a point**
-   - Inputs approaching from the left and right.
-   - Example: `(x^2 - 1)/(x - 1)` near `x = 1`.
-4. **Graph intuition**
-   - Holes, jumps, and vertical asymptotes.
-   - The value at the point can differ from the limit.
-5. **One-sided limits**
-   - Left-hand and right-hand notation.
-   - Two-sided limit exists only if both agree.
-6. **Algebraic limit techniques**
-   - Direct substitution when continuous.
-   - Factor and cancel for removable holes.
-   - Rationalize simple radical expressions.
-7. **Limits that do not exist**
-   - Left/right disagreement.
-   - Infinite behavior.
-   - Oscillation as a preview only.
-8. **Common mistakes**
-   - Substituting into a formula and stopping when denominator is zero.
-   - Confusing undefined function value with no limit.
-   - Ignoring one-sided behavior.
-9. **Practice with solutions**
-   - Direct substitution limits.
-   - Hole limits.
-   - One-sided table questions.
-   - Graph interpretation questions.
-10. **Guessing game checkpoint**
-11. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Guess the limit from a table.
-- Decide whether a two-sided limit exists.
-- Match a graph feature with removable, jump, infinite, or continuous behavior.
-
-### Suggested edumath helpers
-
-- `limit_table(expression, point, offsets, variable="x")`
-- `limit_scene(expression, point, ...)`
-- `one_sided_limit_question(...)`
-- `validate_limit_estimate(...)`
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-import sympy as sp
-x = sp.symbols("x")
-sp.limit((x**2 - 1)/(x - 1), x, 1)
+```qmd
+{{< include _includes/differential-equations-checkpoint.qmd >}}
 ```
 
-```python
-#| echo: true
-sp.limit(1/x, x, 0, dir="+")
-sp.limit(1/x, x, 0, dir="-")
-```
-
-## Lesson 2: Derivatives (`derivatives.qmd`)
-
-### Current state
-
-The page explains derivative as slope/rate and shows existing helpers. It needs
-limit definition, secant-to-tangent intuition, units, examples, and more
-practice.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> A derivative measures instantaneous rate of change. It is the limiting slope
-> of secant lines and the slope of the tangent line at a point.
-
-### Learning objectives
-
-Students should be able to:
-
-1. interpret average rate of change;
-2. explain secant slopes approaching tangent slope;
-3. connect derivative notation to rate of change;
-4. estimate derivatives from graphs and tables;
-5. compute simple derivatives from power rules or SymPy checks;
-6. write tangent line equations;
-7. interpret derivative units in context;
-8. identify where derivatives may fail to exist.
-
-### Detailed structure
-
-1. **Motivation**
-   - Speedometer vs average speed.
-   - Marginal cost and slope.
-2. **Average rate of change**
-   - Secant slope formula.
-3. **Instantaneous rate of change**
-   - Shrinking interval idea.
-   - Informal derivative definition.
-4. **Derivative notation**
-   - `f'(x)`, `dy/dx`, `d/dx[f(x)]`.
-5. **Tangent lines**
-   - Point-slope form.
-   - Worked example for `x^2` at `x = 2`.
-6. **Units**
-   - If `s(t)` is meters and `t` is seconds, `s'(t)` is meters/second.
-7. **Where derivatives fail**
-   - Corners, cusps, vertical tangents, discontinuities.
-8. **Common mistakes**
-   - Treating derivative as a fraction without context.
-   - Forgetting derivative is a function and also can be evaluated.
-   - Thinking zero derivative always means maximum.
-9. **Practice with solutions**
-10. **Guessing game checkpoint**
-11. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Guess the tangent slope from a graph.
-- Match a context to derivative units.
-- Choose whether derivative is positive, negative, or zero at a point.
-
-### Suggested edumath helpers
-
-- `average_rate_of_change(expression, a, b, variable="x")`
-- `secant_slope_table(expression, point, steps, variable="x")`
-- `tangent_line_scene(expression, point, ...)`
-- `derivative_sign_question(...)`
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-from edumath.calculus.derivatives import derivative, tangent_line, finite_difference
-
-derivative("x**2 + 3*x")
-tangent_line("x**2", 2)
-finite_difference("x**2", 2)
-```
-
-## Lesson 3: Derivative Rules (`derivative-rules.qmd`)
-
-### Current state
-
-The page lists the power rule and mentions product, quotient, and chain rules.
-It needs conceptual rule selection, detailed worked examples, practice, and
-common mistakes.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> Derivative rules are patterns that let me compute rates without starting from
-> the limit definition every time. The hard part is often choosing the correct
-> rule and applying it in the right order.
-
-### Learning objectives
-
-Students should be able to:
-
-1. use constant, constant-multiple, sum, and difference rules;
-2. use the power rule;
-3. differentiate exponentials and logarithms at an introductory level;
-4. apply product and quotient rules;
-5. apply the chain rule;
-6. combine rules in multi-step examples;
-7. check derivatives with SymPy;
-8. identify common rule-selection errors.
-
-### Detailed structure
-
-1. **Why rules matter**
-2. **Linearity rules**
-   - Constants, multiples, sums, differences.
-3. **Power rule**
-   - Positive, zero, negative, and fractional powers if appropriate.
-4. **Basic exponential/log derivatives**
-   - `d/dx e^x = e^x`.
-   - `d/dx ln(x) = 1/x` for `x > 0`.
-5. **Product rule**
-   - Formula and worked examples.
-6. **Quotient rule**
-   - Formula and when to rewrite instead.
-7. **Chain rule**
-   - Outside/inside language.
-8. **Combining rules**
-   - Example: `(x^2 + 1)^3 * exp(x)`.
-9. **Common mistakes**
-   - Distributing derivatives over products.
-   - Forgetting the inner derivative.
-   - Sign errors in quotient rule.
-10. **Practice with solutions**
-11. **Guessing game checkpoint**
-12. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Given an expression, choose the first derivative rule to apply.
-- Predict the missing factor in a chain-rule derivative.
-- Match an incorrect derivative with its mistake.
-
-### Suggested edumath helpers
-
-- `derivative_rule_hint(expression, variable="x")`
-- `derivative_rule_question(seed=None)`
-- `check_derivative_answer(received, expected)`
-- `derivative_steps_basic(expression, variable="x")` as a conservative helper
-  for simple patterns only.
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-from edumath.calculus.derivatives import derivative
-
-derivative("(x**2 + 1)**3")
-derivative("(x**2 + 1) * (x - 3)")
-```
-
-## Lesson 4: Optimization (`optimization.qmd`)
-
-### Current state
-
-The page introduces critical points and a parabola. It needs a full workflow,
-first/second derivative tests, endpoints, word problems, and interpretation.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> Optimization uses derivatives to find candidate best values, but the final
-> answer comes from checking candidates, endpoints, and the problem context.
-
-### Learning objectives
-
-Students should be able to:
-
-1. define local and absolute maxima/minima;
-2. find critical points where `f'(x) = 0` or `f'` is undefined;
-3. use sign charts or first derivative test;
-4. use second derivative test for simple cases;
-5. check endpoints on closed intervals;
-6. solve basic applied optimization problems;
-7. interpret units and feasibility constraints;
-8. use SymPy to compute candidates and compare values.
-
-### Detailed structure
-
-1. **Motivation**
-   - Maximum profit, minimum cost, shortest distance.
-2. **What is an optimum?**
-   - Local vs absolute.
-3. **Critical points**
-4. **First derivative test**
-   - Increasing/decreasing sign changes.
-5. **Second derivative test**
-   - Concavity at critical points.
-6. **Closed intervals and endpoints**
-   - Candidate list method.
-7. **Worked example: quadratic minimum**
-8. **Worked example: rectangle/area or revenue model**
-9. **Common mistakes**
-   - Ignoring endpoints.
-   - Reporting `x` but not the optimized value.
-   - Accepting infeasible negative dimensions.
-10. **Practice with solutions**
-11. **Guessing game checkpoint**
-12. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Classify a critical point from derivative signs.
-- Choose the feasible domain from a word problem.
-- Pick the absolute maximum from a candidate table.
-
-### Suggested edumath helpers
-
-- `critical_points(expression, variable="x")`
-- `candidate_values(expression, candidates, variable="x")`
-- `classify_critical_point(expression, point, variable="x")`
-- `optimization_candidate_table(expression, interval, variable="x")`
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-import sympy as sp
-x = sp.symbols("x")
-f = x**2 - 6*x + 10
-critical = sp.solve(sp.Eq(sp.diff(f, x), 0), x)
-[(c, f.subs(x, c)) for c in critical]
-```
-
-## Lesson 5: Integrals (`integrals.qmd`)
-
-### Current state
-
-The page introduces accumulation and area and shows antiderivative and definite
-integral helpers. It needs Riemann sums, signed area, Fundamental Theorem of
-Calculus, units, and more practice.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> A definite integral accumulates small contributions over an interval. It can
-> represent signed area, total change, distance from velocity, probability from
-> a density, and many other totals.
-
-### Learning objectives
-
-Students should be able to:
-
-1. interpret definite integrals as accumulation;
-2. distinguish antiderivatives from definite integrals;
-3. approximate area with rectangles;
-4. understand signed area;
-5. use the Fundamental Theorem of Calculus in simple examples;
-6. compute basic antiderivatives;
-7. interpret integral units;
-8. use SymPy and `edumath` to compute and approximate integrals.
-
-### Detailed structure
-
-1. **Motivation**
-   - Total distance from velocity.
-   - Total cost from marginal cost.
-2. **Area as accumulation**
-3. **Riemann sums**
-   - Left, right, midpoint rectangles.
-4. **Definite integral notation**
-5. **Antiderivatives and `+ C`**
-6. **Fundamental Theorem of Calculus**
-   - If `F' = f`, then integral from `a` to `b` is `F(b)-F(a)`.
-7. **Signed area and total area**
-8. **Units**
-9. **Common mistakes**
-   - Forgetting `+ C` for indefinite integrals.
-   - Confusing signed area with geometric area.
-   - Losing bounds when using substitution later.
-10. **Practice with solutions**
-11. **Guessing game checkpoint**
-12. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Estimate area from a rectangle diagram.
-- Decide whether an integral is positive, negative, or zero from a graph.
-- Match a context with integral units.
-
-### Suggested edumath helpers
-
-- `left_riemann_sum`
-- `right_riemann_sum`
-- `trapezoid_rule`
-- `riemann_sum_scene`
-- `accumulation_table`
-- `integral_units_prompt`
-
-Current `midpoint_riemann_sum` exists and should be kept.
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-from edumath.calculus.integrals import antiderivative, definite_integral, midpoint_riemann_sum
-
-antiderivative("3*x**2")
-definite_integral("2*x", 0, 3)
-midpoint_riemann_sum("x**2", 0, 1, 10)
-```
-
-## Lesson 6: Integration Techniques (`integration-techniques.qmd`)
-
-### Current state
-
-The page mentions substitution, parts, and numerical approximation. It needs a
-method-selection focus, detailed worked examples, and a clear boundary around
-what beginners should master.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> Integration techniques are pattern-recognition tools. I choose a technique by
-> looking for composition, products, algebraic simplification, or when symbolic
-> methods are not practical.
-
-### Learning objectives
-
-Students should be able to:
-
-1. recognize when substitution is useful;
-2. carry out simple `u`-substitution;
-3. recognize when integration by parts is useful;
-4. apply integration by parts in simple examples;
-5. use algebraic simplification before integrating;
-6. approximate integrals numerically when exact integration is hard;
-7. check results by differentiating antiderivatives;
-8. use SymPy responsibly for verification.
-
-### Detailed structure
-
-1. **Why integration is harder than differentiation**
-2. **Technique-selection map**
-   - Simplify first.
-   - Substitution for chain-rule patterns.
-   - Parts for products where one factor simplifies when differentiated.
-   - Numeric approximation when symbolic methods are not needed or not feasible.
-3. **Substitution**
-   - `∫ 2x cos(x^2) dx`.
-   - Definite integral bounds transformation.
-4. **Integration by parts**
-   - Formula and intuition from product rule.
-   - `∫ x e^x dx`.
-5. **Algebraic simplification**
-   - Expand, split fractions, rewrite powers.
-6. **Numerical approximation**
-   - Midpoint, trapezoid, and error intuition.
-7. **Checking antiderivatives by differentiating**
-8. **Common mistakes**
-   - Forgetting `dx` transformation.
-   - Not changing bounds in definite substitution.
-   - Choosing parts when substitution is simpler.
-9. **Practice with solutions**
-10. **Guessing game checkpoint**
-11. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Choose the best technique for a given integral.
-- Identify a good `u` substitution.
-- Choose which factor should be `u` in integration by parts.
-
-### Suggested edumath helpers
-
-- `integration_technique_hint(expression, variable="x")`
-- `substitution_candidate_question(seed=None)`
-- `parts_choice_question(seed=None)`
-- `trapezoid_rule` if not already added with integrals.
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-import sympy as sp
-x = sp.symbols("x")
-sp.integrate(2*x*sp.cos(x**2), x)
-sp.integrate(x*sp.exp(x), x)
-```
-
-## Lesson 7: Calculus Applications (`applications.qmd`)
-
-### Current state
-
-The page contrasts derivatives and integrals. It needs full application
-categories, units, modeling workflow, worked examples, and cumulative practice.
-
-### Pedagogical promise
-
-By the end, a student should be able to say:
-
-> I can decide whether a real problem asks for local change, accumulated change,
-> or an optimum, then translate the context into calculus and interpret the
-> answer with units.
-
-### Learning objectives
-
-Students should be able to:
-
-1. choose derivatives for instantaneous rate and marginal analysis;
-2. choose integrals for accumulation;
-3. choose optimization workflows for best-value questions;
-4. use units to verify setup;
-5. interpret position, velocity, and acceleration;
-6. connect total change to integrating a rate;
-7. set up simple marginal cost/revenue/profit problems;
-8. use SymPy and `edumath` helpers for checking.
-
-### Detailed structure
-
-1. **Calculus decision guide**
-   - Derivative: local rate.
-   - Integral: accumulated total.
-   - Optimization: best value.
-2. **Motion**
-   - Position, velocity, acceleration.
-   - Total distance vs displacement.
-3. **Marginal analysis**
-   - Cost, revenue, profit.
-4. **Accumulation from rates**
-   - Water filling tank, total emissions, distance from velocity.
-5. **Optimization applications**
-   - Revenue/profit, area/volume, constrained resources.
-6. **Probability density preview**
-   - Integral as probability over interval.
-7. **Modeling workflow**
-   - Variables, units, assumptions, solve, interpret.
-8. **Common mistakes**
-   - Using derivative when a total is requested.
-   - Ignoring units.
-   - Confusing displacement and total distance.
-   - Reporting candidate point without checking endpoints/context.
-9. **Practice with solutions**
-10. **Cumulative guessing game checkpoint**
-11. **Using this lesson with edumath and SymPy**
-
-### Interactive checkpoint ideas
-
-- Choose derivative/integral/optimization from a context.
-- Match units to calculus operation.
-- Classify motion statements.
-
-### Suggested edumath helpers
-
-- `calculus_tool_classifier(prompt_or_tags)` as a data-backed quiz helper, not
-  an AI classifier.
-- `motion_summary(position_expression, variable="t")`
-- `marginal_to_total_change(rate_expression, lower, upper, variable="x")`
-- `application_question(seed=None)`
-
-### SymPy appendix examples
-
-```python
-#| echo: true
-from edumath.calculus.derivatives import derivative
-from edumath.calculus.integrals import definite_integral
-
-derivative("100 + 5*x + 0.2*x**2")
-definite_integral("3*t**2", 0, 2, variable="t")
-```
-
-## Source package implementation plan
-
-### `src/edumath/calculus/concepts.py`
-
-Implement path metadata for the Calculus lessons.
-
-### `src/edumath/calculus/plots.py`
-
-Add reusable plotting scene builders:
-
-- `secant_tangent_scene`
-- `derivative_sign_scene`
-- `riemann_sum_scene`
-- `accumulation_scene`
-- `optimization_scene`
-
-Use existing `edumath.core` plot primitives when possible.
-
-### `src/edumath/calculus/exercises.py`
+### Checkpoint game principles
+
+Each guessing game should teach the lesson topic, not merely decorate the page.
+Good differential-equation guessing games include:
+
+- guess whether an equation is separable, linear, both, or neither;
+- guess which symbolic solution matches an ODE and initial condition;
+- guess the long-term behavior from the sign of `dy/dt`;
+- guess the missing integration constant from an initial condition;
+- guess the next Euler point;
+- guess the equilibrium from a formula;
+- guess whether a system spirals, grows, decays, or stays steady based on a
+  simple coefficient matrix.
+
+Each game should give supportive feedback, not just right/wrong scoring.
+Feedback should explain the reasoning in one or two sentences.
+
+## Online symbolic computation options
+
+The main computational appendix should use SymPy because it is powerful,
+open-source, and already familiar from other lessons.
+
+Also mention, when useful, browser-side symbolic or numeric libraries that can
+support online exercises:
+
+- **PyScript/Pyodide + SymPy**: lets students run Python and SymPy in the
+  browser. This is the closest web equivalent to using SymPy directly.
+- **Math.js**: strong JavaScript library for numeric computation and expression
+  parsing; useful for checking arithmetic, plotting data, and evaluating right-
+  hand sides of differential equations.
+- **Nerdamer**: JavaScript symbolic algebra library that can solve and simplify
+  many expressions; useful for lightweight browser exercises.
+- **Algebrite**: JavaScript computer algebra system inspired by symbolic
+  manipulation systems; useful for some symbolic simplification and calculus.
+
+Do not add a heavy dependency automatically. Prefer static JavaScript for simple
+checkpoints. Propose PyScript/SymPy only for optional advanced interactive cells
+or future enhancement pages.
+
+## Proposed `edumath` package support
+
+The current source package contains `src/edumath/differential_equations/`, but
+most modules are empty except `solvers.py`, which currently includes Euler's
+method. The lesson implementation should add small, reusable helpers only when
+they directly improve pedagogy.
+
+Recommended public helpers:
+
+### `src/edumath/differential_equations/concepts.py`
+
+Add concept metadata similar to other branches:
+
+- `FIRST_ORDER_EQUATIONS`
+- `SEPARABLE_EQUATIONS`
+- `LINEAR_EQUATIONS`
+- `SLOPE_FIELDS`
+- `SYSTEMS`
+- `DIFFERENTIAL_EQUATIONS_PATH`
+
+Each concept should include:
+
+- title;
+- slug;
+- short description;
+- prerequisites;
+- learning goals;
+- common mistakes.
+
+### `src/edumath/differential_equations/solvers.py`
+
+Keep the existing `euler_method` and consider adding:
+
+- `improved_euler_method` or `heun_method` for optional comparison;
+- `rk4_method` only if needed for a later numerical methods lesson;
+- `direction_field_values(f, x_values, y_values)` returning normalized slope
+  segments or slope samples;
+- `equilibrium_points_1d(expression, variable="y")` for simple autonomous
+  equations;
+- `classify_equilibrium_1d(expression, point, variable="y")` using sign changes
+  on either side;
+- `solve_separable_sympy(...)` as a guided wrapper only if it can stay simple;
+- `solve_first_order_linear_sympy(...)` for integrating-factor examples, only if
+  the API remains clear.
+
+Avoid overpromising a general ODE solver. SymPy already provides `dsolve`; the
+`edumath` layer should help students understand steps and examples.
+
+### `src/edumath/differential_equations/plots.py`
+
+Add plotting-scene helpers returning reusable scene data or Matplotlib axes:
+
+- `slope_field_scene(...)`
+- `euler_method_scene(...)`
+- `solution_family_scene(...)`
+- `phase_line_scene(...)`
+- `linear_system_phase_plane_scene(...)` for simple two-dimensional systems.
+
+Keep helpers lightweight and testable. If existing `edumath.core.plots` has
+scene structures, reuse them.
+
+### `src/edumath/differential_equations/exercises.py`
 
 Add deterministic exercise builders:
 
-- `limit_estimate_exercise`
-- `tangent_line_exercise`
-- `derivative_rule_exercise`
-- `critical_point_exercise`
-- `riemann_sum_exercise`
-- `tool_choice_exercise`
+- `classify_ode_exercise(seed=...)`;
+- `separable_solution_exercise(seed=...)`;
+- `linear_integrating_factor_exercise(seed=...)`;
+- `euler_step_exercise(seed=...)`;
+- `equilibrium_exercise(seed=...)`;
+- `system_equilibrium_exercise(seed=...)`.
 
-### `src/edumath/calculus/quizzes.py`
+Each exercise should include prompt, answer, hints, and a short solution.
 
-Add question builders compatible with `edumath.core.Question` and `QuizSession`:
+### `src/edumath/differential_equations/validators.py`
 
-- `derivative_question`
-- `antiderivative_question`
-- `definite_integral_question`
-- `optimization_question`
-- `calculus_tool_question`
+Add small checkers:
 
-### `src/edumath/calculus/validators.py`
+- `validate_solution_satisfies_ode(candidate, ode_rhs, variable="x", function_name="y")`;
+- `validate_initial_condition(candidate, x0, y0, ...)`;
+- `validate_numeric_trajectory(points, expected, tolerance=...)`;
+- `validate_equilibrium(candidate, rhs, variable="y")`.
 
-Add reusable checkers:
+Use SymPy for symbolic checks where appropriate, but keep failure modes clear.
 
-- `validate_derivative_equivalence`
-- `validate_antiderivative_equivalence`
-- `validate_limit_value`
-- `validate_numeric_approximation`
-- `validate_critical_point`
+### `src/edumath/differential_equations/quizzes.py`
 
-### `src/edumath/calculus/__init__.py`
+Add reusable quiz-question builders:
 
-Export only the stable, tested public API. Avoid exporting every internal
-helper.
+- classify ODE type;
+- identify initial condition;
+- match slope field behavior;
+- compute an Euler step;
+- select a correct separable solution;
+- identify equilibrium and stability.
 
-## Tests to add
+### Tests
 
-Create or extend `tests/test_calculus_helpers.py`.
+Add `tests/test_differential_equations_helpers.py` covering:
 
-Minimum tests:
+- current and new solver behavior;
+- deterministic exercise generation;
+- validators for correct and incorrect answers;
+- concept path slugs;
+- plotting scene data shape;
+- quiz question structure.
 
-1. `CALCULUS_PATH.slugs()` returns the expected order.
-2. Existing derivative helpers still pass.
-3. Existing integral helpers still pass.
-4. New Riemann/trapezoid helpers approximate known integrals.
-5. Tangent/secant plot scenes render without image comparison.
-6. Exercise builders accept their expected answers.
-7. Validators accept equivalent symbolic answers and reject incorrect answers.
-8. Quiz question builders produce internally consistent answers.
+Keep API small. Do not add helpers merely because they are possible.
 
 ## Documentation implementation phases
 
-### Phase 1: structure and metadata
+### Phase 1 — Planning and structure
 
-- Add `docs/lessons/calculus/index.qmd`.
-- Add `execute: echo: false` to all calculus lesson front matter.
-- Add `CALCULUS_PATH` metadata.
-- Update sidebar with the new index page.
+1. Replace `PLAN.md` with this plan.
+2. Inspect all current differential-equation pages and source helpers.
+3. Decide whether to add `index.qmd` immediately.
+4. Decide whether to keep, remove, or ignore `slope-fields.quarto_ipynb`.
+5. Create the shared checkpoint include.
+6. Add sidebar entry for the new index page if created.
 
-### Phase 2: conceptual lesson expansion
+### Phase 2 — Source helper additions
 
-- Expand `limits.qmd`.
-- Expand `derivatives.qmd`.
-- Expand `derivative-rules.qmd`.
+1. Implement only the `edumath` helpers needed by the lesson content.
+2. Export the small public API from
+   `src/edumath/differential_equations/__init__.py`.
+3. Add tests before relying on helpers in docs.
+4. Run:
 
-### Phase 3: applications of derivatives and integrals
+   ```bash
+   poetry run pytest tests/test_differential_equations_helpers.py
+   ```
 
-- Expand `optimization.qmd`.
-- Expand `integrals.qmd`.
-- Expand `integration-techniques.qmd`.
+5. Run broader tests if helpers touch shared modules:
 
-### Phase 4: cumulative applications
+   ```bash
+   poetry run pytest
+   ```
 
-- Expand `applications.qmd`.
-- Add a cumulative checkpoint.
-- Ensure cross-links among calculus pages.
+### Phase 3 — Lesson writing
 
-### Phase 5: package support and tests
+Write the lessons in this order:
 
-- Add helpers only when lesson content actually uses them.
-- Add tests in the same change as helper additions.
-- Keep README/API docs in sync if public API changes.
+1. `index.qmd`
+2. `first-order-equations.qmd`
+3. `separable-equations.qmd`
+4. `linear-equations.qmd`
+5. `slope-fields.qmd`
+6. `systems.qmd`
 
-## Quarto and validation commands
+This order builds from meaning, to symbolic solving, to numerical/visual
+reasoning, to multi-variable dynamics.
 
-For a single docs-only lesson change:
+### Phase 4 — Validation
 
-```bash
-poetry run pre-commit run --files docs/lessons/calculus/<lesson>.qmd
-quarto render docs/lessons/calculus/<lesson>.qmd --no-execute
-```
-
-For multiple calculus pages:
-
-```bash
-poetry run pre-commit run --files docs/lessons/calculus/*.qmd
-quarto render docs/lessons/calculus/limits.qmd docs/lessons/calculus/derivatives.qmd --no-execute
-```
-
-If Quarto needs writable temp/cache directories in this environment, use local
-scratch paths and remove them before finishing:
+For docs-only changes, run scoped checks:
 
 ```bash
-mkdir -p .quarto-tmp .cache
-TMPDIR="$PWD/.quarto-tmp" XDG_CACHE_HOME="$PWD/.cache" DENO_DIR="$PWD/.cache/deno" \
-  quarto render docs/lessons/calculus/<lesson>.qmd --no-execute
+poetry run pre-commit run --files <changed files>
+quarto render <changed .qmd files> --no-execute
 ```
 
-Then remove `.quarto-tmp` and `.cache`.
-
-For package changes:
+For source changes, run:
 
 ```bash
-poetry run pre-commit run --files src/edumath/calculus/*.py tests/test_calculus_helpers.py
-poetry run pytest tests/test_calculus_helpers.py
+poetry run pytest
 ```
 
-For broad confidence:
+If Quarto creates temporary files, remove generated scratch/session folders,
+especially `docs/.quarto/quarto-session-temp*`.
 
-```bash
-makim docs.build
-makim all.ci
+## Lesson plan: `index.qmd`
+
+### Purpose
+
+Create a friendly overview page that explains what differential equations are,
+why they matter, and how the lesson sequence fits together.
+
+### Front matter
+
+```yaml
+---
+title: Differential Equations Study Path
+description:
+  A guided path through first-order equations, slope fields, and systems.
+execute:
+  echo: false
+---
 ```
 
-## Open questions before implementation
+### Content outline
 
-1. Should calculus get a dedicated static checkpoint include, or should the
-   Algebra guessing-game include be generalized across lesson branches?
-   Recommendation: create a small calculus-specific include first, then refactor
-   shared patterns later if duplication becomes significant.
-2. Should trigonometric derivatives and integrals be included now?
-   Recommendation: mention only basic sine/cosine examples unless the
-   Trigonometry path is expanded first.
-3. Should epsilon-delta rigor be covered in Calculus or Analysis?
-   Recommendation: Calculus should give intuition and simple limit laws;
-   rigorous epsilon-delta work belongs in a future Analysis path.
-4. Should PyScript be embedded in every lesson? Recommendation: no. Use visible
-   SymPy code blocks in the appendix and plan a single optional sandbox page
-   later if needed.
-5. Should generated build artifacts be committed? Recommendation: no. Do not
-   commit `build/`, Quarto session temp folders, or local cache directories.
+1. **Opening intuition**
+
+   - A regular equation asks for a number.
+   - A differential equation asks for a function.
+   - The equation gives a rule for the derivative.
+   - A solution is a function that follows the rule.
+
+2. **Why differential equations matter**
+
+   - population growth;
+   - cooling and heating;
+   - motion;
+   - medicine concentration;
+   - finance and interest;
+   - predator-prey models;
+   - electrical circuits.
+
+3. **Prerequisite checklist**
+
+   - derivative meaning;
+   - basic antiderivatives;
+   - exponentials/logarithms;
+   - graph reading;
+   - algebraic rearrangement;
+   - initial conditions.
+
+4. **The study path**
+
+   - first-order equations: language and meaning;
+   - separable equations: exact symbolic solving by separating variables;
+   - linear equations: integrating factors and forcing terms;
+   - slope fields: visual and numerical reasoning;
+   - systems: several changing quantities at once.
+
+5. **How to study**
+
+   - read equations aloud;
+   - check units;
+   - sketch direction before solving;
+   - verify by differentiating;
+   - use computation as a checker;
+   - explain results in words.
+
+6. **Readiness checkpoint game**
+
+   - use topic key `differential-equations-cumulative-review`;
+   - ask students to classify short prompts as derivative, solution, initial
+     condition, equilibrium, or model.
+
+7. **Using this lesson with edumath and SymPy**
+   - visible imports from `edumath.differential_equations`;
+   - show `euler_method` on `y' = y`;
+   - show SymPy `dsolve` for `y' = y`;
+   - explain that the exact solution and Euler approximation are different kinds
+     of answers.
+
+### Practice ideas
+
+- Identify whether each sentence describes a derivative, a solution, or an
+  initial condition.
+- Match a real situation to a differential equation form.
+- Explain in words what `dy/dt = 0.2y` means.
+
+## Lesson plan: `first-order-equations.qmd`
+
+### Purpose
+
+Teach students what a first-order differential equation is and how to interpret
+it before solving anything complicated.
+
+### Main learning objectives
+
+Students should be able to:
+
+- recognize an equation involving a first derivative;
+- distinguish the independent variable, dependent variable, derivative, and
+  right-hand side;
+- explain what a solution function means;
+- understand an initial condition;
+- verify a proposed solution by substitution;
+- interpret units in a first-order model.
+
+### Content outline
+
+1. **Motivation: rules for change**
+
+   - Compare `y = 3x + 2` with `dy/dx = 3`.
+   - Explain that a differential equation often tells how a quantity changes,
+     not the quantity directly.
+
+2. **Definition**
+
+   - A first-order ODE involves the first derivative of an unknown function.
+   - General form:
+
+     ```text
+     dy/dx = f(x, y)
+     ```
+
+   - Define `x`, `y`, `dy/dx`, and `f(x, y)`.
+
+3. **Solution functions**
+
+   - A solution is a function `y(x)` that makes the equation true.
+   - Demonstrate verification:
+
+     ```text
+     y = Ce^x solves dy/dx = y
+     ```
+
+   - Different constants give different curves.
+
+4. **Initial conditions**
+
+   - Explain `y(0) = 5` as a starting value.
+   - Show how it selects one solution from a family.
+
+5. **Units and meaning**
+
+   - If `y` is population and `t` is years, `dy/dt` is people per year.
+   - If `dy/dt = 0.1y`, then growth is proportional to current population.
+
+6. **Common forms**
+
+   - Constant rate: `dy/dt = k`.
+   - Proportional growth/decay: `dy/dt = ky`.
+   - Forced change: `dy/dt = input - output`.
+   - Autonomous equation: `dy/dt = f(y)`.
+
+7. **Worked examples**
+
+   - Verify `y = 2e^{3t}` solves `dy/dt = 3y`.
+   - Find the solution from a family `y = C e^{-2t}` using `y(0)=7`.
+   - Interpret `dT/dt = -0.4(T - 20)` in words.
+
+8. **Practice exercises**
+
+   - Identify the order of several equations.
+   - Verify or reject candidate solutions.
+   - Interpret an initial condition.
+   - Translate a sentence into a differential equation.
+
+9. **Guessing game**
+
+   - Topic key: `first-order-equations`.
+   - Game: "Guess the missing piece." Given a model sentence, choose the
+     derivative, initial condition, or solution interpretation.
+
+10. **Using this lesson with edumath and SymPy**
+    - Show SymPy `dsolve` for a simple equation.
+    - Show substituting a candidate solution into the ODE.
+    - Show `edumath` validator if implemented.
+
+### Common pitfalls to address
+
+- Thinking `dy/dx` is a fraction without context.
+- Confusing a differential equation with its solution.
+- Forgetting that a family of solutions needs an initial condition.
+- Ignoring units.
+- Treating `x` and `y` symmetrically when one is dependent on the other.
+
+## Lesson plan: `separable-equations.qmd`
+
+### Purpose
+
+Teach the first exact symbolic solution method: separate variables, integrate
+both sides, solve for the dependent variable when possible, and apply an initial
+condition.
+
+### Main learning objectives
+
+Students should be able to:
+
+- recognize separable equations;
+- rearrange `dy/dx = g(x)h(y)` into separated form;
+- integrate both sides;
+- include and combine constants of integration;
+- apply an initial condition;
+- check the solution by differentiating;
+- understand when constant solutions may be lost during division.
+
+### Content outline
+
+1. **Motivation: undoing a derivative rule**
+
+   - Separable equations work because each side can be integrated with respect
+     to its own variable.
+
+2. **Definition**
+
+   - A separable ODE can be written as:
+
+     ```text
+     dy/dx = g(x)h(y)
+     ```
+
+   - Rearranged as:
+
+     ```text
+     1/h(y) dy = g(x) dx
+     ```
+
+3. **The separation workflow**
+
+   - Identify `g(x)` and `h(y)`.
+   - Move all `y` terms with `dy`.
+   - Move all `x` terms with `dx`.
+   - Integrate both sides.
+   - Add a constant.
+   - Solve for `y` if useful.
+   - Apply an initial condition.
+   - Check by differentiating.
+
+4. **Example 1: exponential growth**
+
+   - Solve `dy/dt = ky`.
+   - Explain `ln|y| = kt + C`.
+   - Derive `y = Ce^{kt}`.
+   - Apply `y(0)=y0`.
+
+5. **Example 2: polynomial right side**
+
+   - Solve `dy/dx = x y^2`.
+   - Show why dividing by `y^2` can miss the constant solution `y=0`.
+
+6. **Example 3: cooling-style equation**
+
+   - Solve `dT/dt = -k(T - A)`.
+   - Interpret equilibrium temperature `A`.
+
+7. **Initial conditions**
+
+   - Show how `C` changes based on starting value.
+   - Emphasize that solving for `C` is algebra, not a new calculus idea.
+
+8. **Practice exercises**
+
+   - Classify equations as separable or not.
+   - Solve a simple separable ODE.
+   - Apply an initial condition.
+   - Check a solution.
+   - Identify a lost constant solution.
+
+9. **Guessing game**
+
+   - Topic key: `separable-equations`.
+   - Game: "Can it separate?" Students see an ODE and guess `separable`,
+     `not separable`, or `separable after algebra`.
+   - Include feedback explaining how to move terms.
+
+10. **Using this lesson with edumath and SymPy**
+    - Show SymPy `dsolve` for separable equations.
+    - Show manual verification by differentiating the solution.
+    - Show any `edumath` separable exercise or validator helpers.
+
+### Common pitfalls to address
+
+- Forgetting the `dy` and `dx` differential notation is a guide to integration.
+- Dividing by an expression that might be zero and losing equilibrium solutions.
+- Writing two constants instead of combining them into one.
+- Dropping absolute values in logarithms without explanation.
+- Solving for `y` too early or making algebra errors after integration.
+
+## Lesson plan: `linear-equations.qmd`
+
+### Purpose
+
+Teach first-order linear ODEs using integrating factors. Emphasize pattern
+recognition, the meaning of decay/growth plus forcing, and careful algebra.
+
+### Main learning objectives
+
+Students should be able to:
+
+- recognize standard linear form `dy/dx + p(x)y = q(x)`;
+- identify `p(x)` and `q(x)`;
+- compute an integrating factor;
+- multiply the equation by the integrating factor;
+- recognize the left side as a product derivative;
+- integrate and solve;
+- apply initial conditions;
+- interpret forcing and proportional feedback.
+
+### Content outline
+
+1. **Motivation: not every equation separates**
+
+   - Show `dy/dx + 2y = x`.
+   - Explain why it is not separable in the basic way.
+   - Introduce the linear structure.
+
+2. **Standard form**
+
+   - The equation must be written as:
+
+     ```text
+     dy/dx + p(x)y = q(x)
+     ```
+
+   - Define `p(x)` and `q(x)`.
+   - Warn students to divide by the coefficient of `dy/dx` if needed.
+
+3. **Intuition for the integrating factor**
+
+   - We want the left side to become the derivative of a product:
+
+     ```text
+     d/dx [mu(x)y]
+     ```
+
+   - The integrating factor is:
+
+     ```text
+     mu(x) = e^(∫p(x) dx)
+     ```
+
+4. **Step-by-step algorithm**
+
+   - Put in standard form.
+   - Identify `p(x)` and `q(x)`.
+   - Compute `mu(x)`.
+   - Multiply every term by `mu(x)`.
+   - Rewrite left side as `(mu y)'`.
+   - Integrate both sides.
+   - Solve for `y`.
+   - Apply initial condition.
+
+5. **Worked example 1: constant coefficient**
+
+   - Solve `dy/dx + 2y = 6`.
+   - Interpret stable equilibrium `y=3`.
+
+6. **Worked example 2: variable coefficient**
+
+   - Solve `dy/dx + (1/x)y = x` for `x > 0`.
+   - Discuss domain restriction.
+
+7. **Worked example 3: applied model**
+
+   - Mixing tank or cooling with external forcing.
+   - Keep arithmetic simple.
+
+8. **Practice exercises**
+
+   - Identify whether equations are linear.
+   - Put equations into standard form.
+   - Compute integrating factors.
+   - Complete missing step in solution.
+   - Solve one full equation with initial condition.
+
+9. **Guessing game**
+
+   - Topic key: `linear-equations`.
+   - Game: "Find the integrating factor." Students identify `p(x)` and choose
+     the correct `mu(x)`.
+
+10. **Using this lesson with edumath and SymPy**
+    - Show SymPy `dsolve` for linear equations.
+    - Show how to verify the solution.
+    - If an `edumath` helper exists, show a guided integrating-factor example.
+
+### Common pitfalls to address
+
+- Forgetting to put the equation in standard form first.
+- Using `q(x)` instead of `p(x)` in the integrating factor.
+- Multiplying only some terms by the integrating factor.
+- Not recognizing the product derivative.
+- Losing the constant of integration.
+- Ignoring domain restrictions such as `x > 0`.
+
+## Lesson plan: `slope-fields.qmd`
+
+### Purpose
+
+Teach qualitative and numerical understanding of ODEs without requiring exact
+symbolic solutions. Students should learn that a slope field is a map of local
+change directions.
+
+### Main learning objectives
+
+Students should be able to:
+
+- interpret a slope field as local derivative information;
+- sketch approximate solution curves through initial points;
+- connect slope fields to the formula `dy/dx = f(x,y)`;
+- identify equilibrium solutions in autonomous equations;
+- use Euler's method for a simple numerical approximation;
+- understand how step size affects approximation quality.
+
+### Content outline
+
+1. **Motivation: seeing change without solving**
+
+   - Some equations are hard or impossible to solve exactly.
+   - Slope fields let us understand behavior anyway.
+
+2. **What each segment means**
+
+   - At a point `(x,y)`, compute `f(x,y)`.
+   - Draw a short line segment with that slope.
+   - A solution curve follows the local directions.
+
+3. **Reading slope fields**
+
+   - horizontal segments mean derivative zero;
+   - steep positive segments mean rapid increase;
+   - steep negative segments mean rapid decrease;
+   - repeated patterns reveal autonomous equations;
+   - curves should not cross if the ODE has uniqueness.
+
+4. **Equilibrium solutions**
+
+   - In `dy/dt = f(y)`, equilibrium occurs where `f(y)=0`.
+   - Explain stable, unstable, and semistable behavior using arrows.
+
+5. **Euler's method**
+
+   - Formula:
+
+     ```text
+     y_{n+1} = y_n + h f(x_n, y_n)
+     x_{n+1} = x_n + h
+     ```
+
+   - Explain it as "use the current slope for one small step."
+
+6. **Worked example 1: slope field interpretation**
+
+   - For `dy/dx = x - y`, describe slopes in regions.
+
+7. **Worked example 2: phase line**
+
+   - For `dy/dt = y(1-y)`, find equilibria `0` and `1`.
+   - Explain stability from signs.
+
+8. **Worked example 3: Euler method**
+
+   - Approximate `dy/dx = y`, `y(0)=1`, step `0.1`, for three steps.
+   - Compare with exact `e^x` qualitatively.
+
+9. **Practice exercises**
+
+   - Match formulas to slope field descriptions.
+   - Identify equilibrium levels.
+   - Compute one or two Euler steps.
+   - Explain whether a solution increases or decreases from an initial value.
+
+10. **Guessing game**
+
+    - Topic key: `slope-fields`.
+    - Game: "Next Euler step." Given `(x_n, y_n)`, step size, and `f(x,y)`,
+      students guess `(x_{n+1}, y_{n+1})`.
+    - Alternate game: "Guess the equilibrium." Given `dy/dt = f(y)`, choose the
+      equilibrium and stability.
+
+11. **Using this lesson with edumath and SymPy**
+    - Show `euler_method` from `edumath.differential_equations.solvers`.
+    - Show a slope field plotting helper if implemented.
+    - Show SymPy exact solution for comparison where possible.
+
+### Common pitfalls to address
+
+- Treating the line segments as the solution curves themselves.
+- Thinking every ODE must be solved exactly.
+- Forgetting Euler's method updates both `x` and `y`.
+- Using the new slope too soon in basic Euler's method.
+- Thinking smaller step size makes the method exact.
+- Confusing equilibrium points with intercepts of a solution graph.
+
+## Lesson plan: `systems.qmd`
+
+### Purpose
+
+Introduce systems of differential equations as models for multiple quantities
+that change together. Keep the scope introductory and visual, with connections
+to linear algebra.
+
+### Main learning objectives
+
+Students should be able to:
+
+- recognize a system of first-order ODEs;
+- explain what coupled variables mean;
+- write a simple linear system in matrix form;
+- find equilibrium points by setting all derivatives equal to zero;
+- interpret phase-plane arrows and trajectories;
+- connect eigenvalue signs to basic growth/decay behavior in simple cases;
+- use numerical approximation for systems conceptually.
+
+### Content outline
+
+1. **Motivation: one variable is not always enough**
+
+   - predator and prey;
+   - position and velocity;
+   - competing populations;
+   - interacting chemical concentrations.
+
+2. **General form**
+
+   - Present:
+
+     ```text
+     dx/dt = f(x,y)
+     dy/dt = g(x,y)
+     ```
+
+   - Explain that the state is now a point `(x,y)` moving through the plane.
+
+3. **Coupling**
+
+   - `dx/dt` may depend on `y`.
+   - `dy/dt` may depend on `x`.
+   - Coupling means variables influence each other's rates.
+
+4. **Equilibria**
+
+   - Set every derivative to zero:
+
+     ```text
+     f(x,y)=0
+     g(x,y)=0
+     ```
+
+   - Solve the simultaneous equations.
+   - Interpret an equilibrium as a state with no movement.
+
+5. **Linear systems and matrices**
+
+   - Introduce:
+
+     ```text
+     x' = A x
+     ```
+
+   - Use `x` as a vector carefully; distinguish from scalar variable.
+   - Show simple diagonal matrix example:
+
+     ```text
+     u' = -2u
+     v' = 3v
+     ```
+
+   - Explain one component decays and the other grows.
+
+6. **Phase plane intuition**
+
+   - Arrows show velocity vector `(dx/dt, dy/dt)`.
+   - A trajectory follows the arrows.
+   - Equilibria are places where the arrow has zero length.
+
+7. **Worked example 1: independent equations**
+
+   - `x' = -x`, `y' = -2y`.
+   - Equilibrium `(0,0)`.
+   - Both components decay.
+
+8. **Worked example 2: coupled linear system**
+
+   - Use a simple matrix such as:
+
+     ```text
+     x' = y
+     y' = -x
+     ```
+
+   - Explain rotating behavior qualitatively.
+
+9. **Worked example 3: predator-prey interpretation**
+
+   - Keep formulas simple.
+   - Focus on signs and interactions, not full solution.
+
+10. **Practice exercises**
+
+    - Identify coupled vs uncoupled systems.
+    - Find equilibria for simple systems.
+    - Convert a linear system to matrix form.
+    - Interpret phase-plane arrows at selected points.
+    - Match real scenarios to system structures.
+
+11. **Guessing game**
+
+    - Topic key: `systems`.
+    - Game: "Guess the equilibrium." Given two derivative formulas, choose the
+      point where both rates are zero.
+    - Alternate game: "Guess the motion." Given a simple matrix, choose decay,
+      growth, rotation, or saddle-like behavior.
+
+12. **Using this lesson with edumath and SymPy**
+    - Show SymPy solving equilibrium equations.
+    - Show matrix form with `sympy.Matrix`.
+    - Show simple numerical stepping if an `edumath` system solver is added.
+
+### Common pitfalls to address
+
+- Setting only one derivative equal to zero when finding an equilibrium.
+- Confusing a state point `(x,y)` with a graph of `y` versus `x`.
+- Thinking every system has an easy formula solution.
+- Forgetting that vectors in the phase plane represent rates of change.
+- Overusing eigenvalues before students understand qualitative behavior.
+
+## Optional future lesson: `applications.qmd`
+
+If the module needs a final applications page, add it after `systems.qmd`.
+
+Possible topics:
+
+- exponential growth and decay;
+- Newton's law of cooling;
+- logistic growth;
+- mixing tanks;
+- falling objects with resistance;
+- predator-prey models;
+- RC circuits.
+
+The applications lesson should teach a modeling workflow:
+
+1. Define variables and units.
+2. Translate rate language into an equation.
+3. Identify initial conditions.
+4. Solve exactly if reasonable.
+5. Approximate numerically if needed.
+6. Interpret the result.
+7. Check whether the answer is realistic.
+
+## Suggested references for lesson authors
+
+Use these as conceptual references while writing. Avoid copying text.
+
+- OpenStax, _Calculus Volume 2_, differential equations chapters.
+- Paul Dawkins, Paul's Online Math Notes, Differential Equations.
+- MIT OpenCourseWare, Differential Equations materials.
+- Boyce and DiPrima, _Elementary Differential Equations and Boundary Value
+  Problems_.
+- Blanchard, Devaney, and Hall, _Differential Equations_.
+
+## Acceptance checklist
+
+Before considering the plan implemented, verify the following:
+
+### Content completeness
+
+- [ ] `index.qmd` exists and is linked in `docs/_quarto.yml`.
+- [ ] Every lesson has YAML front matter with title, description, and execution
+      settings.
+- [ ] Every lesson begins with motivation and learning objectives.
+- [ ] Every lesson contains definitions, intuition, formulas, and common
+      pitfalls.
+- [ ] Every lesson has at least two worked examples.
+- [ ] Every lesson has practice exercises with answers or collapsed solutions.
+- [ ] Every lesson has a topic-specific checkpoint or guessing game.
+- [ ] Every lesson ends with `Using this lesson with edumath and SymPy`.
+- [ ] SymPy examples show how to solve or verify the relevant ODEs.
+- [ ] Visible code appears primarily in the final appendix.
+
+### Pedagogy
+
+- [ ] Lessons are written for students with low confidence and limited prior
+      exposure.
+- [ ] Each symbolic step is explained in words.
+- [ ] Important algebra and calculus prerequisites are reviewed in context.
+- [ ] Examples include units or real interpretation where useful.
+- [ ] Common mistakes are explicitly named.
+- [ ] Guessing games provide explanatory feedback.
+
+### Package support
+
+- [ ] Any new `edumath` helper has tests.
+- [ ] Public API additions are exported intentionally.
+- [ ] Helpers are reusable across lessons.
+- [ ] General-purpose symbolic solving is delegated to SymPy rather than
+      reimplemented poorly.
+
+### Validation
+
+- [ ] `poetry run pre-commit run --files <changed files>` passes.
+- [ ] `poetry run pytest` passes if source files changed.
+- [ ] `quarto render <changed qmd files> --no-execute` passes.
+- [ ] Generated Quarto scratch/session files are removed before finishing.

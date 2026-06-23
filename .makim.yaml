@@ -24,6 +24,8 @@ groups:
           rm -fr .pytest_cache
           rm -fr .mypy_cache
           rm -fr .ruff_cache
+          rm -fr .quarto-tmp
+          rm -fr .cache
           find . -name '*.egg-info' -exec rm -fr {} +
           find . -name '*.egg' -exec rm -f {} +
           find . -name '*.pyc' -exec rm -f {} +
@@ -36,7 +38,12 @@ groups:
       build:
         help: Build the Quarto documentation website
         backend: bash
-        run: quarto render docs --no-execute-daemon
+        run: |
+          mkdir -p .quarto-tmp .cache/deno
+          TMPDIR="$PWD/.quarto-tmp" \
+            XDG_CACHE_HOME="$PWD/.cache" \
+            DENO_DIR="$PWD/.cache/deno" \
+            quarto render docs --no-execute-daemon
 
       render:
         help: Alias for docs.build
@@ -50,7 +57,12 @@ groups:
         hooks:
           pre-run:
             - task: docs.build
-        run: quarto preview docs
+        run: |
+          mkdir -p .quarto-tmp .cache/deno
+          TMPDIR="$PWD/.quarto-tmp" \
+            XDG_CACHE_HOME="$PWD/.cache" \
+            DENO_DIR="$PWD/.cache/deno" \
+            quarto preview docs
 
   tests:
     tasks:

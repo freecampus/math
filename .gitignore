@@ -206,6 +206,9 @@ tempCodeRunnerFile.py
 # Ruff stuff:
 .ruff_cache/
 
+# Quarto preview/build temp files when /tmp is unavailable.
+.quarto-tmp/
+
 # PyPI configuration file
 .pypirc
 
