@@ -143,6 +143,30 @@ POLYNOMIALS = Lesson(
     tags=("algebra", "polynomials"),
 )
 
+RATIONAL_AND_RADICAL_FUNCTIONS = Lesson(
+    title="Rational and radical functions",
+    slug="rational-and-radical-functions",
+    objectives=(
+        LearningObjective("Identify domain restrictions from denominators and roots."),
+        LearningObjective(
+            "Simplify rational expressions while preserving restrictions."
+        ),
+        LearningObjective(
+            "Solve rational and radical equations by checking candidates."
+        ),
+    ),
+    sections=(
+        LessonSection(
+            title="Restrictions and graphs",
+            body=(
+                "Rational and radical functions require careful attention to "
+                "allowed inputs, holes, asymptotes, and extraneous solutions."
+            ),
+        ),
+    ),
+    tags=("algebra", "rational-functions", "radicals"),
+)
+
 EXPONENTIALS_AND_LOGARITHMS = Lesson(
     title="Exponentials and logarithms",
     slug="exponentials-and-logarithms",
@@ -180,6 +204,66 @@ SYSTEMS_OF_EQUATIONS = Lesson(
     tags=("algebra", "systems"),
 )
 
+ALGEBRAIC_MODELING = Lesson(
+    title="Algebraic modeling",
+    slug="algebraic-modeling",
+    objectives=(
+        LearningObjective("Define variables and units from a context."),
+        LearningObjective("Translate relationships into algebraic models."),
+        LearningObjective("Interpret model outputs and limitations."),
+    ),
+    sections=(
+        LessonSection(
+            title="Modeling cycle",
+            body=(
+                "Algebraic modeling moves from context to variables, "
+                "equations, solutions, and interpretation."
+            ),
+        ),
+    ),
+    tags=("algebra", "modeling"),
+)
+
+SYMBOLIC_COMPUTATION_WITH_SYMPY = Lesson(
+    title="Symbolic computation with SymPy",
+    slug="symbolic-computation-with-sympy",
+    objectives=(
+        LearningObjective("Use SymPy to expand, factor, simplify, and solve."),
+        LearningObjective("Check solutions and domain restrictions."),
+        LearningObjective("Use computer algebra as a learning aid."),
+    ),
+    sections=(
+        LessonSection(
+            title="Responsible computer algebra",
+            body=(
+                "SymPy can verify and explore algebraic work, but learners "
+                "still need to reason about domains and meaning."
+            ),
+        ),
+    ),
+    tags=("algebra", "sympy", "symbolic-computation"),
+)
+
+CUMULATIVE_REVIEW = Lesson(
+    title="College algebra cumulative review",
+    slug="cumulative-review",
+    objectives=(
+        LearningObjective("Select methods for mixed algebra problems."),
+        LearningObjective("Check solutions across representations."),
+        LearningObjective("Build a personal review plan."),
+    ),
+    sections=(
+        LessonSection(
+            title="Mixed practice",
+            body=(
+                "Cumulative review integrates equations, inequalities, "
+                "functions, systems, modeling, and symbolic computation."
+            ),
+        ),
+    ),
+    tags=("algebra", "review"),
+)
+
 COLLEGE_ALGEBRA_PATH = StudyPath(
     title="College Algebra",
     lessons=(
@@ -189,20 +273,28 @@ COLLEGE_ALGEBRA_PATH = StudyPath(
         TRANSFORMATIONS_COMPOSITION_INVERSES,
         LINEAR_AND_QUADRATIC_FUNCTIONS,
         POLYNOMIALS,
+        RATIONAL_AND_RADICAL_FUNCTIONS,
         EXPONENTIALS_AND_LOGARITHMS,
         SYSTEMS_OF_EQUATIONS,
+        ALGEBRAIC_MODELING,
+        SYMBOLIC_COMPUTATION_WITH_SYMPY,
+        CUMULATIVE_REVIEW,
     ),
 )
 
 
 __all__ = [
+    "ALGEBRAIC_MODELING",
     "COLLEGE_ALGEBRA_PATH",
+    "CUMULATIVE_REVIEW",
     "EXPONENTIALS_AND_LOGARITHMS",
     "EXPRESSIONS_AND_EQUATIONS",
     "FUNCTIONS_AND_GRAPHS",
     "INEQUALITIES_AND_ABSOLUTE_VALUE",
     "LINEAR_AND_QUADRATIC_FUNCTIONS",
     "POLYNOMIALS",
+    "RATIONAL_AND_RADICAL_FUNCTIONS",
+    "SYMBOLIC_COMPUTATION_WITH_SYMPY",
     "SYSTEMS_OF_EQUATIONS",
     "TRANSFORMATIONS_COMPOSITION_INVERSES",
 ]

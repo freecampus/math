@@ -28,8 +28,12 @@ def test_college_algebra_path_has_lessons() -> None:
         "transformations-composition-inverses",
         "linear-and-quadratic-functions",
         "polynomials",
+        "rational-and-radical-functions",
         "exponentials-and-logarithms",
         "systems-of-equations",
+        "algebraic-modeling",
+        "symbolic-computation-with-sympy",
+        "cumulative-review",
     ]
 
 

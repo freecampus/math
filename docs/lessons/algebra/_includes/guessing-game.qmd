@@ -32,13 +32,45 @@
         polynomialEndBehaviorQuestion,
         polynomialMultiplicityQuestion,
       ],
+      "rational-radical-functions": [
+        rationalDomainQuestion,
+        rationalHoleQuestion,
+        radicalDomainQuestion,
+        radicalEquationQuestion,
+      ],
       "exponentials-logarithms": [
         exponentialValueQuestion,
         logarithmValueQuestion,
         exponentialEquationQuestion,
         logarithmRewriteQuestion,
+        growthDecayQuestion,
+        logarithmDomainQuestion,
       ],
       "systems-equations": [systemSolutionQuestion, systemClassificationQuestion],
+      "algebraic-modeling": [
+        modelFamilyQuestion,
+        parameterMeaningQuestion,
+        wordsToEquationQuestion,
+        tableModelQuestion,
+      ],
+      "symbolic-computation-sympy": [
+        sympyCommandQuestion,
+        sympyOutputQuestion,
+        sympySyntaxQuestion,
+        sympyDomainWarningQuestion,
+      ],
+      "algebra-cumulative-review": [
+        expandedFormQuestion,
+        linearInequalityQuestion,
+        functionValueQuestion,
+        transformationDescriptionQuestion,
+        quadraticRootsQuestion,
+        rationalDomainQuestion,
+        exponentialEquationQuestion,
+        systemSolutionQuestion,
+        modelFamilyQuestion,
+        sympyCommandQuestion,
+      ],
     };
 
     document
@@ -587,6 +619,70 @@
       });
     }
 
+    function rationalDomainQuestion() {
+      const roots = distinctInts(2, -6, 6).sort((a, b) => a - b);
+      const stimulus = mathStimulus(`f(x) = (x + 1)/${roots.map(formatRootFactor).join("")}`);
+      const answer = `x ≠ ${roots[0]} and x ≠ ${roots[1]}`;
+
+      return choiceQuestion({
+        prompt: "Select the domain restriction.",
+        stimulus,
+        answer,
+        distractors: [
+          `x = ${roots[0]} and x = ${roots[1]}`,
+          `x ≠ ${-roots[0]} and x ≠ ${-roots[1]}`,
+          `x > ${roots[0]} and x < ${roots[1]}`,
+          "all real numbers",
+        ],
+        explanation: "A rational function is undefined where its denominator is zero.",
+      });
+    }
+
+    function rationalHoleQuestion() {
+      const root = nonzeroInt(-5, 5);
+      const expressionLabel = `(x² - ${root * root})/${formatRootFactor(root)}`;
+
+      return choiceQuestion({
+        prompt: "What graph feature comes from the canceled factor?",
+        stimulus: mathStimulus(expressionLabel),
+        answer: `hole at x = ${root}`,
+        distractors: [
+          `vertical asymptote at x = ${root}`,
+          `hole at x = ${-root}`,
+          "horizontal asymptote only",
+          "no restriction",
+        ],
+        explanation: "A denominator factor that cancels creates a missing point rather than a vertical asymptote.",
+      });
+    }
+
+    function radicalDomainQuestion() {
+      const h = int(-6, 6);
+      const stimulus = mathStimulus(`g(x) = √(x ${formatSigned(-h)})`);
+
+      return choiceQuestion({
+        prompt: "Select the real-valued domain.",
+        stimulus,
+        answer: `x ≥ ${h}`,
+        distractors: [`x ≤ ${h}`, `x > ${h}`, "all real numbers", `x ≠ ${h}`],
+        explanation: "For a square root, the radicand must be nonnegative.",
+      });
+    }
+
+    function radicalEquationQuestion() {
+      const c = int(1, 8);
+      const value = int(2, 6);
+      const solution = value * value - c;
+
+      return choiceQuestion({
+        prompt: "Solve the radical equation.",
+        stimulus: mathStimulus(`√(x + ${c}) = ${value}`),
+        answer: `x = ${solution}`,
+        distractors: [`x = ${value - c}`, `x = ${value + c}`, `x = ${-solution}`, "no real solution"],
+        explanation: "Square both sides, then check the candidate in the original equation.",
+      });
+    }
+
     function exponentialValueQuestion() {
       const base = choice([2, 3, 4, 5]);
       const exponent = int(2, 5);
@@ -650,6 +746,40 @@
       });
     }
 
+    function growthDecayQuestion() {
+      const initial = choice([100, 200, 500, 1000]);
+      const rate = choice([3, 5, 8, 12, 20]);
+      const grows = choice([true, false]);
+      const factor = grows ? 1 + rate / 100 : 1 - rate / 100;
+      const label = `${initial}(${formatNumber(factor)})^t`;
+      const answer = grows ? `growth by ${rate}%` : `decay by ${rate}%`;
+
+      return choiceQuestion({
+        prompt: "Interpret the model.",
+        stimulus: mathStimulus(label),
+        answer,
+        distractors: [
+          grows ? `decay by ${rate}%` : `growth by ${rate}%`,
+          `growth by ${formatNumber(factor)}%`,
+          `initial value ${rate}`,
+          "linear change",
+        ],
+        explanation: "Compare the base with 1: above 1 grows; between 0 and 1 decays.",
+      });
+    }
+
+    function logarithmDomainQuestion() {
+      const h = int(-6, 6);
+
+      return choiceQuestion({
+        prompt: "Select the domain restriction.",
+        stimulus: mathStimulus(`log(x ${formatSigned(-h)})`),
+        answer: `x > ${h}`,
+        distractors: [`x ≥ ${h}`, `x < ${h}`, `x ≠ ${h}`, "all real numbers"],
+        explanation: "The input to a real logarithm must be positive.",
+      });
+    }
+
     function systemSolutionQuestion() {
       const x0 = int(-4, 4);
       const y0 = int(-4, 4);
@@ -701,6 +831,147 @@
         answer,
         distractors: ["one solution", "no solution", "infinitely many solutions", "not enough information"],
         explanation: "Compare slopes and constants: intersecting, parallel, or identical lines give different solution counts.",
+      });
+    }
+
+    function modelFamilyQuestion() {
+      const scenarios = [
+        ["A value increases by 6% each year.", "exponential"],
+        ["A fixed fee plus a charge per mile.", "linear"],
+        ["Area of a square from its side length.", "quadratic"],
+        ["Time equals distance divided by speed.", "rational"],
+        ["Side length of a square from its area.", "radical"],
+      ];
+      const [scenario, answer] = choice(scenarios);
+
+      return choiceQuestion({
+        prompt: "Choose the best model family.",
+        stimulus: mathStimulus(scenario),
+        answer,
+        distractors: ["linear", "quadratic", "rational", "exponential", "radical"].filter((item) => item !== answer),
+        explanation: "Match the model family to the kind of change or operation in the context.",
+      });
+    }
+
+    function parameterMeaningQuestion() {
+      const fixed = choice([20, 35, 50, 100]);
+      const rate = choice([4, 8, 12, 25]);
+
+      return choiceQuestion({
+        prompt: "Interpret the model parameters.",
+        stimulus: mathStimulus(`C(n) = ${fixed} + ${rate}n`),
+        answer: `fixed cost ${fixed}; per-item cost ${rate}`,
+        distractors: [
+          `fixed cost ${rate}; per-item cost ${fixed}`,
+          `growth rate ${rate}%`,
+          `maximum value ${fixed}`,
+          "not enough information",
+        ],
+        explanation: "In a linear cost model, the constant term is the starting cost and the coefficient is the rate.",
+      });
+    }
+
+    function wordsToEquationQuestion() {
+      const x = "x";
+      const scenarios = [
+        [`five more than twice ${x}`, "2x + 5", ["2(x + 5)", "5x + 2", "2x - 5"]],
+        [`three less than ${x}`, "x - 3", ["3 - x", "3x", "x + 3"]],
+        [`${x} decreased by 20%`, "0.8x", ["1.2x", "20x", "x - 0.2"]],
+      ];
+      const [scenario, answer, distractors] = choice(scenarios);
+
+      return choiceQuestion({
+        prompt: "Choose the matching algebraic expression.",
+        stimulus: mathStimulus(scenario),
+        answer,
+        distractors,
+        explanation: "Translate the words in order and keep track of rates and units.",
+      });
+    }
+
+    function tableModelQuestion() {
+      const kind = choice(["linear", "exponential"]);
+      const stimulus =
+        kind === "linear"
+          ? multiLineStimulus(["x: 0, 1, 2, 3", "y: 5, 8, 11, 14"])
+          : multiLineStimulus(["x: 0, 1, 2, 3", "y: 5, 10, 20, 40"]);
+
+      return choiceQuestion({
+        prompt: "Which model family best matches the table?",
+        stimulus,
+        answer: kind,
+        distractors: ["linear", "quadratic", "exponential", "radical"].filter((item) => item !== kind),
+        explanation: "Constant differences suggest linear; constant ratios suggest exponential.",
+      });
+    }
+
+    function sympyCommandQuestion() {
+      const tasks = [
+        ["Factor x² - 5x + 6.", "sp.factor(...)"],
+        ["Expand (x + 2)(x - 3).", "sp.expand(...)"],
+        ["Solve 3x - 7 = 11.", "sp.solve(...)"],
+        ["Combine rational terms.", "sp.together(...)"],
+        ["Check a candidate solution.", "sp.checksol(...)"],
+      ];
+      const [task, answer] = choice(tasks);
+
+      return choiceQuestion({
+        prompt: "Choose the best SymPy command.",
+        stimulus: mathStimulus(task),
+        answer,
+        distractors: ["sp.factor(...)", "sp.expand(...)", "sp.solve(...)", "sp.checksol(...)", "sp.together(...)"].filter((item) => item !== answer),
+        explanation: "Choose the command that matches the algebraic action.",
+      });
+    }
+
+    function sympyOutputQuestion() {
+      const a = int(-5, 5);
+      const b = int(-5, 5);
+      const middle = a + b;
+      const constant = a * b;
+      const expressionLabel = `sp.expand(${formatBinomial(a)}${formatBinomial(b)})`;
+      const answer = formatPolynomial([
+        [1, "x²"],
+        [middle, "x"],
+        [constant, ""],
+      ]);
+
+      return choiceQuestion({
+        prompt: "Predict the SymPy output in ordinary math notation.",
+        stimulus: mathStimulus(expressionLabel),
+        answer,
+        distractors: [
+          formatPolynomial([[1, "x²"], [a - b, "x"], [constant, ""]]),
+          formatPolynomial([[1, "x²"], [middle, "x"], [a + b, ""]]),
+          `${formatBinomial(a)}${formatBinomial(b)}`,
+          "True",
+        ],
+        explanation: "SymPy's expand command multiplies out the factors.",
+      });
+    }
+
+    function sympySyntaxQuestion() {
+      return choiceQuestion({
+        prompt: "Choose valid Python/SymPy syntax for two times x squared.",
+        stimulus: mathStimulus("two times x squared"),
+        answer: "2*x**2",
+        distractors: ["2x^2", "2*x^2", "2x**2", "2(x**2)"],
+        explanation: "Python requires explicit multiplication and uses ** for powers.",
+      });
+    }
+
+    function sympyDomainWarningQuestion() {
+      return choiceQuestion({
+        prompt: "What warning is needed after canceling?",
+        stimulus: mathStimulus("sp.cancel((x² - 1)/(x - 1)) → x + 1"),
+        answer: "original expression excludes x = 1",
+        distractors: [
+          "x + 1 is valid for every original input",
+          "original expression excludes x = -1 only",
+          "there is a vertical asymptote at x = 1",
+          "no warning is needed",
+        ],
+        explanation: "The canceled denominator factor creates a hole in the original expression.",
       });
     }
 

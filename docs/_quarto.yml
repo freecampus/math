@@ -51,8 +51,12 @@ website:
               - lessons/algebra/transformations-composition-inverses.qmd
               - lessons/algebra/linear-and-quadratic-functions.qmd
               - lessons/algebra/polynomials.qmd
+              - lessons/algebra/rational-and-radical-functions.qmd
               - lessons/algebra/exponentials-and-logarithms.qmd
               - lessons/algebra/systems-of-equations.qmd
+              - lessons/algebra/algebraic-modeling.qmd
+              - lessons/algebra/symbolic-computation-with-sympy.qmd
+              - lessons/algebra/cumulative-review.qmd
           - section: Trigonometry
             contents:
               - lessons/trigonometry/sine-cosine.qmd

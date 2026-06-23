@@ -1,0 +1,192 @@
+---
+title: Algebraic Modeling
+description: Translate real situations into algebraic models and interpret results.
+execute:
+  echo: false
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to define variables with units, translate words into equations, choose a model family, solve for unknowns, interpret results, and use SymPy to check model parameters.
+:::
+
+## Motivation: a model is a useful simplification
+
+A model is a simplified mathematical description. A road map is not the city, but it helps you travel. An algebraic model is not the full situation, but it helps you calculate, compare, predict, and decide.
+
+## The modeling cycle
+
+1. Understand the situation.
+2. Define variables with units.
+3. State assumptions.
+4. Choose a model family.
+5. Translate relationships into equations.
+6. Solve or analyze.
+7. Interpret the result.
+8. Check reasonableness and limitations.
+
+::: {.key-idea}
+### Key idea
+
+Choosing variables and interpreting answers are part of the mathematics.
+:::
+
+## Variables, parameters, and units
+
+In `C(n) = 50 + 12n`, `n` might be number of items, `C(n)` cost in dollars, `50` a fixed cost, and `12` dollars per item. Units help you catch mistakes.
+
+## Translating words into algebra
+
+| Words | Algebra |
+|---|---|
+| five more than `x` | `x + 5` |
+| five less than `x` | `x - 5` |
+| twice `x` | `2x` |
+| `x` decreased by `20%` | `0.80x` |
+| total adult and student tickets | `a + s` |
+| revenue from adult tickets at `$12` each | `12a` |
+
+::: {.common-mistake}
+### Common mistake
+
+Do not start solving before defining what each variable means.
+:::
+
+## Linear models
+
+Linear models have the form `y = mx + b`. The slope is a constant rate of change, and the intercept is the starting value.
+
+A repair service charges `$40` to visit and `$25` per hour:
+
+```text
+C(h) = 40 + 25h
+```
+
+A plant is `10 cm` tall on day `0` and `22 cm` tall on day `6`:
+
+```text
+slope = (22 - 10)/(6 - 0) = 2 cm/day
+H(t) = 10 + 2t
+```
+
+```{python}
+from edumath.algebra import line_from_points
+
+line = line_from_points((0, 10), (6, 22))
+line.expression
+```
+
+## Systems as models
+
+A club sold `50` tickets. Adult tickets cost `$10`, student tickets cost `$6`, and total revenue was `$380`.
+
+```text
+a + s = 50
+10a + 6s = 380
+```
+
+Substitute `s = 50 - a`:
+
+```text
+10a + 6(50 - a) = 380
+4a = 80
+a = 20
+s = 30
+```
+
+## Quadratic models
+
+Quadratic models describe curved relationships and often have a maximum or minimum. A height model such as `h(t) = -16t^2 + 64t + 5` opens downward, so its vertex is the maximum height.
+
+A vertex form model is:
+
+```text
+f(x) = a(x - h)^2 + k
+```
+
+If the vertex is `(3, 10)` and the graph passes through `(5, 2)`, then `2 = a(5 - 3)^2 + 10`, so `a = -2`.
+
+## Rational, radical, exponential, and logarithmic models
+
+- Rational: time for fixed distance, `T(r) = 120/r`, with `r > 0`.
+- Radical: side length from area, `s(A) = sqrt(A)`, with `A >= 0`.
+- Exponential: repeated percentage growth, `P(t)=P_0(1+r)^t`.
+- Logarithmic: solving an exponential model for time.
+
+## Model checking
+
+Ask whether units are consistent, the answer is in the domain, the size and sign are reasonable, whole numbers are required, and the model is being used outside its intended range.
+
+## Browser symbolic practice
+
+Use [math.js](https://mathjs.org/docs/index.html) for browser calculators, [Nerdamer](https://nerdamer.com/documentation.html) for parameter solving, [Algebrite](https://github.com/davidedc/Algebrite) for CAS exploration, or [PyScript](https://docs.pyscript.net/latest/) for a heavier Python/SymPy sandbox.
+
+Try entering two points to compute a line, evaluating a candidate formula at data points, and comparing linear and exponential predictions.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Translate: "seven more than twice `x`."
+2. A taxi charges `$4` plus `$2.50` per mile. Write a cost model.
+3. A line passes through `(1, 5)` and `(4, 17)`. Find a linear model.
+4. A store sells notebooks for `$3` and pens for `$2`. A customer buys `12` items for `$31`. Set up and solve a system.
+5. A square has area `A`. Write side length as a function of `A`.
+6. A value starts at `800` and decays by `6%` per year. Write a model.
+7. A quadratic has vertex `(2, 9)` and passes through `(4, 1)`. Find `a`.
+8. Explain one limitation of a taxi cost model.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `2x + 7`.
+2. `C(m)=4+2.50m`.
+3. `y = 4x + 1`.
+4. `n+p=12`, `3n+2p=31`; `n=7`, `p=5`.
+5. `s(A)=sqrt(A)`, `A >= 0`.
+6. `V(t)=800(0.94)^t`.
+7. `1=a(4-2)^2+9`, so `a=-2`.
+8. It may ignore minimum fares, traffic charges, rounding, or rate changes.
+:::
+
+## Guessing game checkpoint
+
+<script type="application/json" class="edu-math-guessing-game-config">
+{
+  "topic": "algebraic-modeling",
+  "title": "Algebraic modeling checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/guessing-game.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+```{python}
+#| echo: true
+import sympy as sp
+
+m, b = sp.symbols("m b")
+sp.solve((sp.Eq(m*2 + b, 7), sp.Eq(m*5 + b, 16)), (m, b))
+```
+
+```{python}
+#| echo: true
+a, x = sp.symbols("a x")
+model = a*(x - 3)**2 + 10
+sp.solve(sp.Eq(model.subs(x, 5), 2), a)
+```
+
+```{python}
+#| echo: true
+from edumath.algebra import expression_table
+
+expression_table("35 + 8*x", inputs=(0, 1, 2, 3, 4))
+```
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*: <https://openstax.org/books/college-algebra-2e/pages/index>
+- OpenStax, *Precalculus*: <https://openstax.org/books/precalculus/pages/index>

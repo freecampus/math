@@ -48,9 +48,26 @@ By the end of this Algebra path, you should be able to:
 12. Cumulative review
 :::
 
-The current implementation starts with the core foundations and will expand
-lesson by lesson. The pages already linked in the sidebar are safe to study now;
-additional pages will be added as the rebuild progresses.
+The full twelve-topic path is now represented in the sidebar. Study it in order
+if you are rebuilding algebra from the ground up, or use the cumulative review
+to diagnose which earlier pages deserve another pass.
+
+::: {.topic-grid}
+::: {.topic-card}
+**Foundations:** expressions, equations, inequalities, functions, graphs, and
+transformations.
+:::
+
+::: {.topic-card}
+**Function families:** linear, quadratic, polynomial, rational, radical,
+exponential, and logarithmic functions.
+:::
+
+::: {.topic-card}
+**Problem solving:** systems, modeling, symbolic computation, and cumulative
+mixed review.
+:::
+:::
 
 ## Diagnostic checklist
 

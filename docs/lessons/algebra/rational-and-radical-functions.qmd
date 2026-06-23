@@ -1,0 +1,370 @@
+---
+title: Rational and Radical Functions
+description: Learn domains, simplification, equations, graphs, asymptotes, and radicals.
+execute:
+  echo: false
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- identify rational and radical expressions and functions;
+- find domain restrictions from denominators and even roots;
+- simplify rational expressions while preserving excluded values;
+- solve rational and radical equations and check candidate solutions;
+- identify holes, vertical asymptotes, horizontal asymptotes, and intercepts;
+- use SymPy and browser symbolic tools to verify work without ignoring domain restrictions.
+:::
+
+## Motivation: restrictions are part of the mathematics
+
+A rational function such as `f(x) = 1/(x - 2)` looks harmless, but `x = 2` is not allowed because the denominator would be zero. A radical function such as `g(x) = sqrt(x - 3)` also carries a warning: in real-valued algebra, `x` must be at least `3`.
+
+Restrictions tell us which answers are allowed, where graphs break, and when a simplified formula is missing information from the original problem.
+
+::: {.key-idea}
+### Key idea
+
+Whenever a formula contains a variable in a denominator or an even root, ask: **which inputs are allowed?**
+:::
+
+## Rational expressions and functions
+
+A **rational expression** is a quotient of polynomials:
+
+```text
+(x + 1)/(x - 4)
+(x^2 - 9)/(x^2 - x - 6)
+```
+
+A **rational function** is a function defined by a rational expression. The denominator cannot be zero, so the first step is usually to solve:
+
+```text
+denominator = 0
+```
+
+and exclude those values from the domain.
+
+## Simplifying without losing restrictions
+
+Consider:
+
+```text
+(x^2 - 4)/(x - 2)
+```
+
+Factor the numerator:
+
+```text
+((x - 2)(x + 2))/(x - 2)
+```
+
+For allowed values, the common factor cancels and the visible formula becomes:
+
+```text
+x + 2
+```
+
+But the original denominator still forbids `x = 2`.
+
+::: {.common-mistake}
+### Common mistake
+
+The simplified formula `x + 2` is defined at `x = 2`, but the original expression is not. Always state restrictions from the original expression.
+:::
+
+### Worked example: simplify and state restrictions
+
+Simplify:
+
+```text
+(x^2 - 9)/(x^2 - x - 6)
+```
+
+Factor:
+
+```text
+x^2 - 9 = (x - 3)(x + 3)
+x^2 - x - 6 = (x - 3)(x + 2)
+```
+
+List denominator zeros before canceling:
+
+```text
+x = 3 or x = -2
+```
+
+Cancel the common factor:
+
+```text
+((x - 3)(x + 3))/((x - 3)(x + 2)) = (x + 3)/(x + 2)
+```
+
+Final answer:
+
+```text
+(x + 3)/(x + 2), with x != 3 and x != -2
+```
+
+The canceled factor produces a **hole** at `x = 3`. The remaining denominator factor produces a **vertical asymptote** at `x = -2`.
+
+## Operations with rational expressions
+
+Rational expressions follow fraction rules.
+
+### Multiplication
+
+```text
+(x^2 - 1)/(x + 3) * (x + 3)/(x - 1)
+= ((x - 1)(x + 1))/(x + 3) * (x + 3)/(x - 1)
+= x + 1
+```
+
+Restrictions from the original denominators: `x != -3` and `x != 1`.
+
+### Division
+
+Dividing by a rational expression means multiplying by its reciprocal:
+
+```text
+(x + 2)/(x - 5) ÷ (x + 2)/(x + 1)
+= (x + 2)/(x - 5) * (x + 1)/(x + 2)
+= (x + 1)/(x - 5)
+```
+
+Also exclude values that make the divisor zero.
+
+### Addition
+
+Use a common denominator:
+
+```text
+1/(x - 1) + 2/(x + 1)
+= (x + 1)/((x - 1)(x + 1)) + 2(x - 1)/((x - 1)(x + 1))
+= (3x - 1)/((x - 1)(x + 1))
+```
+
+Restrictions: `x != 1` and `x != -1`.
+
+## Solving rational equations
+
+A safe routine is:
+
+1. list forbidden values from all denominators;
+2. multiply both sides by the least common denominator;
+3. solve the resulting equation;
+4. check candidates in the original equation.
+
+### Worked example
+
+Solve:
+
+```text
+1/(x - 1) + 2/(x + 1) = 1
+```
+
+Forbidden values: `x != 1` and `x != -1`.
+
+Multiply by `(x - 1)(x + 1)`:
+
+```text
+x + 1 + 2(x - 1) = (x - 1)(x + 1)
+3x - 1 = x^2 - 1
+3x = x^2
+x(x - 3) = 0
+```
+
+Candidates are `x = 0` and `x = 3`. Both work in the original equation, so the solution set is `{0, 3}`.
+
+## Graph features of rational functions
+
+- A **vertical asymptote** usually comes from a denominator factor that does not cancel.
+- A **hole** comes from a denominator factor that cancels.
+- An **x-intercept** comes from a remaining numerator zero.
+- A **horizontal asymptote** describes long-run behavior.
+
+For horizontal asymptotes, compare degrees:
+
+| Degrees | Horizontal behavior |
+|---|---|
+| numerator degree smaller | `y = 0` |
+| equal degrees | ratio of leading coefficients |
+| numerator degree larger by one | slant asymptote preview |
+
+```{python}
+from edumath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("1/x", "1/(x - 2)", "(x**2 - 1)/(x - 1)"),
+    labels=("1/x", "1/(x - 2)", "line with a hole at x=1"),
+    x_min=-6,
+    x_max=6,
+    y_min=-8,
+    y_max=8,
+    title="Rational function comparison",
+)
+fig, ax = scene.render()
+fig
+```
+
+## Radical expressions and functions
+
+A **radical expression** contains a root, and the expression inside the root is the **radicand**.
+
+```text
+sqrt(x - 5)
+root_3(x + 2)
+```
+
+In real-valued algebra:
+
+- even roots require the radicand to be nonnegative;
+- odd roots can accept negative inputs.
+
+Examples:
+
+```text
+sqrt(x - 5) requires x >= 5
+root_3(x - 5) allows all real x
+```
+
+Radicals can also be written with rational exponents:
+
+```text
+sqrt(x) = x^(1/2)
+root_3(x^2) = x^(2/3)
+```
+
+::: {.common-mistake}
+### Square-root warning
+
+In real-valued algebra, `sqrt(x^2) = |x|`, not always `x`.
+:::
+
+## Solving radical equations
+
+Squaring both sides can introduce **extraneous solutions**, so always check.
+
+Solve:
+
+```text
+sqrt(x + 5) = x - 1
+```
+
+Since a square root is nonnegative, `x - 1 >= 0`, so `x >= 1`. Square both sides:
+
+```text
+x + 5 = (x - 1)^2
+x + 5 = x^2 - 2x + 1
+0 = x^2 - 3x - 4
+0 = (x - 4)(x + 1)
+```
+
+Candidates: `x = 4` and `x = -1`.
+
+Check:
+
+- `x = 4`: `sqrt(9) = 3` and `4 - 1 = 3`, works.
+- `x = -1`: `sqrt(4) = 2` but `-1 - 1 = -2`, fails.
+
+Final answer: `x = 4`.
+
+## Browser symbolic practice
+
+Browser-friendly symbolic tools can help you experiment:
+
+- [math.js](https://mathjs.org/docs/index.html) can parse, evaluate, simplify, and rationalize expressions in JavaScript.
+- [Nerdamer](https://nerdamer.com/documentation.html) provides browser-oriented algebra and solving modules.
+- [Algebrite](https://github.com/davidedc/Algebrite) is a JavaScript/TypeScript computer algebra system.
+- [PyScript](https://docs.pyscript.net/latest/) can run Python and SymPy in the browser, though it is heavier than plain JavaScript.
+
+Try these exercises online:
+
+1. Simplify `(x^2 - 9)/(x^2 - x - 6)`, then manually state restrictions.
+2. Factor a denominator and list every forbidden value.
+3. Test radical-equation candidates in the original equation.
+4. Compare a browser CAS answer with a hand-written domain explanation.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Find the domain of `(x + 5)/(x^2 - 4)`.
+2. Simplify `(x^2 - 16)/(x^2 - 2x - 8)` and state restrictions.
+3. Multiply `(x^2 - 1)/(x + 2)` by `(x + 2)/(x - 1)` and state restrictions.
+4. Solve `2/(x - 3) = 5/(x + 1)`.
+5. Identify the vertical asymptote of `(x + 1)/(x - 4)`.
+6. Identify the hole in `(x^2 - 25)/(x - 5)`.
+7. Find the domain of `sqrt(2x - 6)`.
+8. Rewrite `root_3(x^5)` using rational exponents.
+9. Solve `sqrt(x + 6) = x` and check for extraneous solutions.
+10. A square has area `A`. Write a radical model for side length and state a domain.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Exclude `x = -2` and `x = 2`.
+2. `(x + 4)/(x + 2)`, with `x != 4` and `x != -2`.
+3. Simplifies to `x + 1`, with `x != -2` and `x != 1`.
+4. `2(x + 1)=5(x - 3)`, so `x = 17/3`.
+5. `x = 4`.
+6. Simplifies to `x + 5`, but `x = 5` is missing, so the hole is `(5, 10)`.
+7. `2x - 6 >= 0`, so `x >= 3`.
+8. `x^(5/3)`.
+9. Squaring gives `x^2 - x - 6 = 0`; candidates `3` and `-2`; only `3` works.
+10. `s(A) = sqrt(A)`, with `A >= 0`.
+:::
+
+## Guessing game checkpoint
+
+Use this checkpoint to practice domains, holes, asymptotes, and radical checks.
+
+<script type="application/json" class="edu-math-guessing-game-config">
+{
+  "topic": "rational-radical-functions",
+  "title": "Rational and radical functions checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/guessing-game.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use SymPy to check algebraic forms, while you remain responsible for restrictions.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+expr = (x**2 - 9)/(x**2 - x - 6)
+sp.factor(expr), sp.cancel(expr)
+```
+
+```{python}
+#| echo: true
+denominator = sp.denom(expr)
+sp.factor(denominator), sp.solve(sp.Eq(denominator, 0), x)
+```
+
+```{python}
+#| echo: true
+equation = sp.Eq(1/(x - 1) + 2/(x + 1), 1)
+candidates = sp.solve(equation, x)
+[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]
+```
+
+```{python}
+#| echo: true
+radical_equation = sp.Eq(sp.sqrt(x + 5), x - 1)
+candidates = sp.solve(radical_equation, x)
+[(candidate, sp.checksol(radical_equation, x, candidate)) for candidate in candidates]
+```
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*: <https://openstax.org/books/college-algebra-2e/pages/index>
+- Paul's Online Math Notes: <https://tutorial.math.lamar.edu/>
