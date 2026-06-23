@@ -1,48 +1,227 @@
 ---
 title: Linear Differential Equations
-description: First-order linear differential equations.
+description: Solve first-order linear equations with integrating factors.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+First-order linear equations are another important solvable family. They may not
+separate easily, but they have a reliable method called an **integrating
+factor**.
 
-- Recognize the form of a first-order linear ODE.
-- Interpret forcing and decay terms.
-- Prepare for numerical solution methods.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- recognize standard linear form;
+- identify `p(x)` and `q(x)`;
+- compute the integrating factor;
+- multiply the whole equation by the integrating factor;
+- rewrite the left side as a product derivative;
+- solve and apply initial conditions;
+- interpret proportional feedback and forcing terms.
 :::
 
-First-order linear equations have the form:
+## Standard form
+
+A first-order linear differential equation has the form
 
 ```text
 dy/dx + p(x)y = q(x)
 ```
 
-::: {.practice-box}
-1. Identify `p(x)` and `q(x)` in `dy/dx + 2y = x`.
-2. What does the term involving `y` often represent?
-3. Why are linear equations easier than nonlinear ones?
+The term `p(x)y` often represents feedback, decay, growth, resistance, or a
+proportional response to the current state. The term `q(x)` is often called a
+forcing or input term.
+
+::: {.callout-warning}
+### Put the equation in standard form first
+
+If the equation starts as
+
+```text
+2 dy/dx + 6y = x
+```
+
+divide everything by `2` before identifying `p(x)` and `q(x)`:
+
+```text
+dy/dx + 3y = x/2
+```
 :::
 
+## The integrating factor
+
+The integrating factor is
+
+```text
+mu(x) = e^(∫ p(x) dx)
+```
+
+It is chosen so that after multiplying the equation by `mu(x)`, the left side
+becomes
+
+```text
+d/dx [mu(x)y]
+```
+
+That is the product rule working backward.
+
+## Workflow
+
+1. Put the equation in the form `y' + p(x)y = q(x)`.
+2. Compute `mu(x)=e^(∫p(x)dx)`.
+3. Multiply every term by `mu(x)`.
+4. Rewrite the left side as `(mu y)'`.
+5. Integrate both sides.
+6. Divide by `mu(x)` to solve for `y`.
+7. Use the initial condition if given.
+
+## Worked example 1: constant coefficient
+
+Solve
+
+```text
+dy/dx + 2y = 6
+```
+
+Here `p(x)=2`, so
+
+```text
+mu(x)=e^(∫2 dx)=e^(2x)
+```
+
+Multiply the equation by `e^(2x)`:
+
+```text
+e^(2x)y' + 2e^(2x)y = 6e^(2x)
+```
+
+The left side is a product derivative:
+
+```text
+d/dx [e^(2x)y] = 6e^(2x)
+```
+
+Integrate:
+
+```text
+e^(2x)y = 3e^(2x) + C
+```
+
+Divide by `e^(2x)`:
+
+```text
+y = 3 + Ce^(-2x)
+```
+
+The solution approaches `3` as `x` increases if `C` is finite.
+
+## Worked example 2: variable coefficient
+
+Solve for `x > 0`:
+
+```text
+dy/dx + (1/x)y = x
+```
+
+Here `p(x)=1/x`, so
+
+```text
+mu(x)=e^(∫1/x dx)=e^(ln x)=x
+```
+
+Multiply by `x`:
+
+```text
+x y' + y = x^2
+```
+
+The left side is `(xy)'`, so
+
+```text
+(xy)' = x^2
+```
+
+Integrate:
+
+```text
+xy = x^3/3 + C
+```
+
+Divide by `x`:
+
+```text
+y = x^2/3 + C/x
+```
+
+The restriction `x > 0` matters because `ln x` appeared during the process.
+
+## Common pitfalls
+
+- Using `q(x)` instead of `p(x)` in the integrating factor.
+- Forgetting to divide into standard form first.
+- Multiplying only part of the equation by the integrating factor.
+- Not recognizing the product derivative.
+- Dropping the constant after integration.
+- Ignoring domain restrictions such as `x > 0`.
+
+## Practice
+
+::: {.practice-box}
+1. Identify `p(x)` and `q(x)` in `y' + 5y = sin(x)`.
+
+2. Put `3y' + 6y = x` into standard form.
+
+3. Find the integrating factor for `y' - 4y = x^2`.
+
+4. Explain why the left side becomes a product derivative after multiplying by
+   the integrating factor.
+:::
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `p(x) = 2` and `q(x) = x`.
-
-Compare `dy/dx + 2y = x` with `dy/dx + p(x)y = q(x)`.
+1. `p(x)=5`, `q(x)=sin(x)`.
+2. Divide by `3`: `y' + 2y = x/3`.
+3. `p(x)=-4`, so `mu(x)=e^(-4x)`.
+4. The integrating factor is chosen so that the product rule gives exactly
+   `mu y' + mu p(x)y`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Linear equation checkpoint
 
-Answer: feedback, decay, growth, or resistance proportional to the current
-state.
-:::
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "linear-equations",
+  "title": "Linear equation checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/differential-equations-checkpoint.qmd >}}
 
-Answer: linear structure supports systematic solution methods and avoids many
-of the complications caused by products or powers of the unknown function.
-:::
+## Using this lesson with edumath and SymPy
+
+SymPy's `dsolve` can solve first-order linear equations.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x")
+y = sp.Function("y")
+ode = sp.Eq(sp.diff(y(x), x) + 2 * y(x), 6)
+sp.dsolve(ode)
+```
+
+Use `edumath` to generate integrating-factor practice.
+
+```{python}
+#| echo: true
+from edumath.differential_equations import linear_integrating_factor_exercise
+
+exercise = linear_integrating_factor_exercise(seed=3)
+exercise.prompt, exercise.expected
+```

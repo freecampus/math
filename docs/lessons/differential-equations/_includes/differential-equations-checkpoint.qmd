@@ -1,0 +1,318 @@
+<div class="quiz-shell edu-math-de-checkpoint" data-default-total="4"></div>
+
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "first-order-equations";
+    const BANKS = {
+      "first-order-equations": [odeMeaningQuestion, solutionQuestion, initialConditionQuestion],
+      "separable-equations": [separableClassQuestion, separationStepQuestion, constantQuestion],
+      "linear-equations": [linearFormQuestion, integratingFactorQuestion, productDerivativeQuestion],
+      "slope-fields": [slopeSegmentQuestion, eulerStepQuestion, equilibriumStabilityQuestion],
+      systems: [systemEquilibriumQuestion, couplingQuestion, phasePlaneQuestion],
+      "differential-equations-cumulative-review": [
+        odeMeaningQuestion,
+        separableClassQuestion,
+        integratingFactorQuestion,
+        eulerStepQuestion,
+        systemEquilibriumQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-de-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-de-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Differential equations checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function odeMeaningQuestion() {
+      return question({
+        prompt: "What does a first-order ODE usually describe?",
+        stimulus: "dy/dt = f(t, y)",
+        answer: "a rule for the rate of change",
+        distractors: ["only one number", "an area formula", "a matrix inverse"],
+        explanation: "The derivative tells how the unknown function changes.",
+      });
+    }
+
+    function solutionQuestion() {
+      return question({
+        prompt: "Which function solves y' = 2y?",
+        stimulus: "Differentiate each candidate mentally.",
+        answer: "Ce^(2x)",
+        distractors: ["2x + C", "C e^x", "x^2 + C"],
+        explanation: "The derivative of Ce^(2x) is 2Ce^(2x), which equals 2y.",
+      });
+    }
+
+    function initialConditionQuestion() {
+      return question({
+        prompt: "What does y(0)=5 do?",
+        stimulus: "Family: y = C e^x",
+        answer: "selects one solution curve",
+        distractors: ["changes the derivative rule", "removes x from the problem", "proves no solution exists"],
+        explanation: "The initial condition determines the constant C.",
+      });
+    }
+
+    function separableClassQuestion() {
+      return question({
+        prompt: "Is this equation separable?",
+        stimulus: "dy/dx = x y",
+        answer: "yes",
+        distractors: ["no", "only if x=0", "only after differentiating twice"],
+        explanation: "It can be written as (1/y) dy = x dx when y is not zero.",
+      });
+    }
+
+    function separationStepQuestion() {
+      return question({
+        prompt: "What is the separated form of y' = x y²?",
+        stimulus: "Move y terms with dy and x terms with dx.",
+        answer: "y^(-2) dy = x dx",
+        distractors: ["y² dy = x dx", "dy = x y² dx", "x dy = y² dx"],
+        explanation: "Divide both sides by y², then multiply by dx.",
+      });
+    }
+
+    function constantQuestion() {
+      return question({
+        prompt: "Why does +C appear after integrating?",
+        stimulus: "∫ y^(-1) dy = ∫ x dx",
+        answer: "indefinite integrals represent families",
+        distractors: ["C means cancel", "C is always zero", "C is the derivative"],
+        explanation: "One differential equation can have many solution curves.",
+      });
+    }
+
+    function linearFormQuestion() {
+      return question({
+        prompt: "Identify p(x) in y' + 3y = x.",
+        stimulus: "Standard form: y' + p(x)y = q(x)",
+        answer: "3",
+        distractors: ["x", "y", "1/3"],
+        explanation: "p(x) is the coefficient multiplying y in standard form.",
+      });
+    }
+
+    function integratingFactorQuestion() {
+      return question({
+        prompt: "What is the integrating factor for y' + 2y = x?",
+        stimulus: "mu(x) = e^(∫p(x)dx)",
+        answer: "e^(2x)",
+        distractors: ["e^x", "2e^x", "x²/2"],
+        explanation: "Here p(x)=2, so the integral is 2x.",
+      });
+    }
+
+    function productDerivativeQuestion() {
+      return question({
+        prompt: "After multiplying by mu, what should the left side become?",
+        stimulus: "linear ODE workflow",
+        answer: "the derivative of mu(x)y",
+        distractors: ["a second derivative", "zero", "a separated fraction"],
+        explanation: "That product derivative is why the integrating factor helps.",
+      });
+    }
+
+    function slopeSegmentQuestion() {
+      return question({
+        prompt: "What does one short segment in a slope field show?",
+        stimulus: "At a point (x,y)",
+        answer: "the local slope predicted by the ODE",
+        distractors: ["the final answer", "the x-intercept", "the area under a curve"],
+        explanation: "The segment visualizes dy/dx at that point.",
+      });
+    }
+
+    function eulerStepQuestion() {
+      return question({
+        prompt: "Use one Euler step for y'=y, y(0)=2, h=0.5. What is y1?",
+        stimulus: "y1 = y0 + h f(x0,y0)",
+        answer: "3",
+        distractors: ["2.5", "1", "4"],
+        explanation: "The current slope is 2, so y1 = 2 + 0.5·2 = 3.",
+      });
+    }
+
+    function equilibriumStabilityQuestion() {
+      return question({
+        prompt: "Which value is an equilibrium for y'=y(1-y)?",
+        stimulus: "Set the right-hand side equal to zero.",
+        answer: "1",
+        distractors: ["2", "-1", "1/2"],
+        explanation: "Both y=0 and y=1 are equilibria; 1 is one of them.",
+      });
+    }
+
+    function systemEquilibriumQuestion() {
+      return question({
+        prompt: "Find the equilibrium of x'=2-x, y'=3-y.",
+        stimulus: "Set both derivatives to zero.",
+        answer: "(2, 3)",
+        distractors: ["(0, 0)", "(-2, -3)", "(3, 2)"],
+        explanation: "Solving 2-x=0 and 3-y=0 gives (2,3).",
+      });
+    }
+
+    function couplingQuestion() {
+      return question({
+        prompt: "What does coupling mean in a system?",
+        stimulus: "x' may depend on y and y' may depend on x",
+        answer: "variables influence each other's rates",
+        distractors: ["variables are constant", "only one equation is used", "all derivatives are zero"],
+        explanation: "Coupled variables interact through the derivative rules.",
+      });
+    }
+
+    function phasePlaneQuestion() {
+      return question({
+        prompt: "In a phase plane, what does an arrow represent?",
+        stimulus: "State point (x,y)",
+        answer: "the velocity vector (x', y')",
+        distractors: ["only the value of y", "an antiderivative", "a probability"],
+        explanation: "The arrow shows how the state moves from that point.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return {
+        prompt,
+        stimulus,
+        answer,
+        explanation,
+        options: shuffle(unique([answer, ...distractors])).slice(0, 4),
+      };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `de-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>

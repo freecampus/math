@@ -72,6 +72,16 @@ Random variables, distributions, estimation, testing, and regression.
 [Start Probability](probability/sample-spaces-events.qmd)
 :::
 
+
+::: {.topic-card}
+### Differential Equations
+
+Change rules, symbolic solution methods, slope fields, numerical approximation,
+and systems.
+
+[Start Differential Equations](differential-equations/index.qmd)
+:::
+
 ::: {.topic-card}
 ### Discrete Mathematics
 

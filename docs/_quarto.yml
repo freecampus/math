@@ -95,6 +95,7 @@ website:
               - lessons/statistics/regression-basics.qmd
           - section: Differential Equations
             contents:
+              - lessons/differential-equations/index.qmd
               - lessons/differential-equations/first-order-equations.qmd
               - lessons/differential-equations/separable-equations.qmd
               - lessons/differential-equations/linear-equations.qmd

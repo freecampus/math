@@ -1,46 +1,204 @@
 ---
 title: First-Order Differential Equations
-description: Equations involving a function and its first derivative.
+description: Interpret equations involving a function and its first derivative.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A first-order differential equation describes a function by describing its first
+derivative. Instead of immediately telling you `y`, it tells you how `y` changes.
 
-- Recognize first-order differential equations.
-- Interpret them as dynamic rules.
-- Connect derivative rules to change over time.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- recognize a first-order differential equation;
+- identify the independent variable, dependent variable, and derivative;
+- explain what a solution function means;
+- use an initial condition to choose one solution;
+- verify a proposed solution by substitution;
+- interpret simple models with units.
 :::
 
-A differential equation relates an unknown function to its derivatives.
+## From equations to change rules
+
+Compare these two statements:
+
+```text
+y = 3x + 2
+```
+
+```text
+dy/dx = 3
+```
+
+The first statement gives `y` directly. The second statement says the rate of
+change of `y` with respect to `x` is always `3`. Many functions differ by a
+constant but have derivative `3`, so the differential equation describes a
+**family** of functions.
+
+::: {.formula-box}
+A common first-order form is
 
 ```text
 dy/dx = f(x, y)
 ```
 
-::: {.practice-box}
-1. What does `dy/dx` represent?
-2. Why do differential equations model dynamic systems?
-3. Give one real-world quantity that changes over time.
+The right-hand side tells you the slope that a solution should have at each
+point `(x,y)`.
 :::
 
+## Vocabulary
+
+- The **independent variable** is the input, often `x` or time `t`.
+- The **dependent variable** is the unknown function, often `y(x)` or `y(t)`.
+- The **derivative** `dy/dx` or `dy/dt` is the rate of change.
+- A **solution** is a function whose derivative satisfies the rule.
+- An **initial condition** such as `y(0)=5` gives a starting value.
+
+::: {.key-idea}
+### Solution test
+
+To check whether a function solves an ODE:
+
+1. Differentiate the candidate function.
+2. Substitute the candidate into the right-hand side.
+3. See whether the two expressions match.
+:::
+
+## Worked example 1: verify a solution
+
+Show that `y = 2e^{3x}` solves `dy/dx = 3y`.
+
+Step 1: Differentiate the candidate.
+
+```text
+y = 2e^{3x}
+y' = 6e^{3x}
+```
+
+Step 2: Compute the right-hand side `3y`.
+
+```text
+3y = 3(2e^{3x}) = 6e^{3x}
+```
+
+Step 3: Compare.
+
+```text
+y' = 6e^{3x} and 3y = 6e^{3x}
+```
+
+They match, so the candidate is a solution.
+
+## Worked example 2: use an initial condition
+
+Suppose the family of solutions is
+
+```text
+y = Ce^{-2t}
+```
+
+and the initial condition is `y(0)=7`. Substitute `t=0` and `y=7`:
+
+```text
+7 = C e^0
+7 = C
+```
+
+So the particular solution is
+
+```text
+y = 7e^{-2t}
+```
+
+## Worked example 3: interpret a model
+
+Newton's law of cooling is often written as
+
+```text
+dT/dt = -0.4(T - 20)
+```
+
+Here `T` is temperature and `t` is time. The expression `T - 20` measures how
+far the object is from the surrounding temperature `20`. The negative sign means
+that if the object is hotter than the room, the temperature decreases. If the
+object is colder than the room, the temperature increases.
+
+## Common first-order patterns
+
+| Pattern | Example | Meaning |
+|---|---:|---|
+| Constant rate | `dy/dt = 4` | add the same amount each time unit |
+| Proportional growth | `dy/dt = 0.2y` | bigger `y` grows faster |
+| Proportional decay | `dy/dt = -0.2y` | bigger `y` decays faster |
+| Autonomous | `dy/dt = y(1-y)` | rate depends only on current `y` |
+| Forced | `dy/dt + 2y = sin(t)` | outside input affects the motion |
+
+## Common pitfalls
+
+- Confusing the differential equation with its solution.
+- Forgetting that a solution is a function, not only one number.
+- Ignoring the initial condition.
+- Forgetting units: if `y` is meters and `t` is seconds, `dy/dt` is meters per
+  second.
+- Substituting into the ODE without differentiating first.
+
+## Practice
+
+::: {.practice-box}
+1. Is `dy/dx = x + y` first order? Explain.
+
+2. Verify that `y = 5e^x` solves `dy/dx = y`.
+
+3. The family `y = C e^{4t}` satisfies `y(0)=3`. Find `C`.
+
+4. Interpret `dP/dt = 0.03P` if `P` is population and `t` is years.
+:::
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: the rate of change of `y` with respect to `x`.
+1. Yes. It involves the first derivative `dy/dx` and no higher derivative.
+2. The derivative of `5e^x` is `5e^x`, which equals `y`.
+3. `3 = C e^0`, so `C=3`.
+4. The population grows at a rate equal to 3% of the current population per
+   year.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## First-order equation checkpoint
 
-Answer: dynamic systems are defined by how quantities change, and differential
-equations describe those rates of change directly.
-:::
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "first-order-equations",
+  "title": "First-order equation checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/differential-equations-checkpoint.qmd >}}
 
-Answer: examples include population size, temperature, position, velocity,
-account balance, or concentration.
-:::
+## Using this lesson with edumath and SymPy
+
+Use SymPy to verify that a candidate solution satisfies an ODE.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x")
+y_candidate = 2 * sp.exp(3 * x)
+left_side = sp.diff(y_candidate, x)
+right_side = 3 * y_candidate
+sp.simplify(left_side - right_side)
+```
+
+A result of `0` means the candidate satisfies the differential equation.
+
+```{python}
+#| echo: true
+from edumath.differential_equations import validate_solution_satisfies_ode
+
+validate_solution_satisfies_ode("2*exp(3*x)", "3*y").message
+```

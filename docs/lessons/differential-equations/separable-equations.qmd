@@ -1,46 +1,220 @@
 ---
 title: Separable Equations
-description: Differential equations that can be separated and integrated.
+description: Solve differential equations by separating variables and integrating.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A separable differential equation is one of the most friendly kinds of ODEs. It
+can be rearranged so all terms involving `y` stay with `dy`, and all terms
+involving `x` stay with `dx`.
 
-- Recognize separable equations.
-- Separate variables conceptually.
-- Connect solving to integration.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- recognize separable equations;
+- rearrange an equation into separated form;
+- integrate both sides and include a constant;
+- apply an initial condition;
+- check a solution by differentiating;
+- notice when dividing by a variable expression may lose constant solutions.
 :::
 
-A separable equation can be rearranged so all `y` terms are on one side and all
-`x` terms are on the other.
+## The separable pattern
+
+A separable equation can be written as
+
+```text
+dy/dx = g(x)h(y)
+```
+
+When `h(y)` is not zero, rearrange it as
+
+```text
+1/h(y) dy = g(x) dx
+```
+
+Then integrate both sides.
+
+::: {.key-idea}
+### The method in words
+
+Separate, integrate, simplify, use the initial condition, then check.
+:::
+
+## Step-by-step workflow
+
+1. Identify the `x` part and the `y` part.
+2. Move all `y` expressions to the side with `dy`.
+3. Move all `x` expressions to the side with `dx`.
+4. Integrate both sides.
+5. Use one constant of integration.
+6. Solve for `y` if the algebra is reasonable.
+7. Apply the initial condition if one is given.
+8. Differentiate to check.
+
+## Worked example 1: exponential growth
+
+Solve
+
+```text
+dy/dt = ky
+```
+
+where `k` is a constant.
+
+Separate variables:
+
+```text
+1/y dy = k dt
+```
+
+Integrate:
+
+```text
+ln|y| = kt + C
+```
+
+Exponentiate both sides:
+
+```text
+|y| = e^(kt+C) = e^C e^(kt)
+```
+
+The constant can absorb the sign and `e^C`, so we write
+
+```text
+y = Ce^(kt)
+```
+
+This is the familiar exponential growth or decay family.
+
+## Worked example 2: apply an initial condition
+
+Solve
+
+```text
+dy/dx = 2xy,     y(0)=3
+```
+
+Separate:
+
+```text
+1/y dy = 2x dx
+```
+
+Integrate:
+
+```text
+ln|y| = x^2 + C
+```
+
+Convert to exponential form:
+
+```text
+y = C e^(x^2)
+```
+
+Use `y(0)=3`:
+
+```text
+3 = C e^0
+C = 3
+```
+
+So the particular solution is
+
+```text
+y = 3e^(x^2)
+```
+
+## Worked example 3: watch for lost solutions
+
+Solve
+
+```text
+dy/dx = x y^2
+```
+
+If `y` is not zero, divide by `y^2`:
+
+```text
+y^(-2) dy = x dx
+```
+
+Integrate:
+
+```text
+-1/y = x^2/2 + C
+```
+
+This gives a family of nonzero solutions. But the original equation also has
+`y=0` as a solution, because both sides become zero. Dividing by `y^2` would
+hide that solution.
+
+::: {.callout-warning}
+### Important
+
+When you divide by an expression involving `y`, ask whether that expression
+could equal zero. If yes, check whether a constant solution was lost.
+:::
+
+## Practice
 
 ::: {.practice-box}
-1. Is `dy/dx = x*y` separable?
-2. What operation is used after separating variables?
-3. Why does a constant of integration appear?
+1. Is `dy/dx = x(1+y^2)` separable?
+
+2. Separate `dy/dx = x y^3`.
+
+3. Solve `dy/dx = 4y` with `y(0)=2`.
+
+4. What constant solution might be lost when solving `dy/dx = y(5-y)` by
+   dividing by `y(5-y)`?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: yes.
-
-It can be rearranged as `(1/y) dy = x dx`, assuming `y` is not zero.
+1. Yes. It has the form `g(x)h(y)` with `g(x)=x` and `h(y)=1+y^2`.
+2. `y^(-3) dy = x dx`.
+3. `y = Ce^(4x)`, and `y(0)=2` gives `C=2`, so `y=2e^(4x)`.
+4. Both `y=0` and `y=5` are equilibrium solutions.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Separable equation checkpoint
 
-Answer: integration.
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "separable-equations",
+  "title": "Separable equation checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-After separating variables, integrate both sides.
-:::
+{{< include _includes/differential-equations-checkpoint.qmd >}}
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Using this lesson with edumath and SymPy
 
-Answer: indefinite integration creates a family of solutions, and the constant
-selects one member of that family.
-:::
+SymPy can solve many separable equations with `dsolve`.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x")
+y = sp.Function("y")
+ode = sp.Eq(sp.diff(y(x), x), 2 * x * y(x))
+sp.dsolve(ode)
+```
+
+You can also build deterministic practice with `edumath`.
+
+```{python}
+#| echo: true
+from edumath.differential_equations import separable_solution_exercise
+
+exercise = separable_solution_exercise(seed=2)
+exercise.prompt, exercise.expected
+```

@@ -1,0 +1,147 @@
+---
+title: Differential Equations Study Path
+description: A guided path through first-order equations, slope fields, and systems.
+execute:
+  echo: false
+---
+
+Differential equations are equations about **change**. In algebra, an equation
+like `y = 3x + 2` tells you the value of a quantity. In differential equations,
+an equation like `dy/dt = 3y` tells you how fast the quantity is changing.
+
+That small shift is powerful. It lets us model populations, cooling coffee,
+falling objects, medicine in the bloodstream, savings accounts, predator-prey
+systems, and many other situations where the present state affects the future.
+
+::: {.learning-objectives}
+### What you should be able to do after this path
+
+- Explain that a solution of a differential equation is a function, not just a
+  number.
+- Identify the independent variable, dependent variable, derivative, and initial
+  condition.
+- Solve simple separable and first-order linear equations.
+- Read a slope field and use Euler's method for approximate solutions.
+- Find equilibrium points and explain long-term behavior.
+- Recognize simple systems of differential equations.
+- Use SymPy and `edumath` to verify and explore answers.
+:::
+
+## The big idea
+
+A derivative measures a rate of change. A differential equation uses that rate
+as part of the problem statement.
+
+::: {.key-idea}
+### Differential equation sentence frame
+
+When you see an equation such as
+
+```text
+dy/dt = f(t, y)
+```
+
+read it as:
+
+> The rate of change of `y` with respect to `t` is determined by `t`, by the
+> current value of `y`, or by both.
+:::
+
+A **solution** is a function `y(t)` whose derivative actually follows that rule.
+An **initial condition**, such as `y(0)=5`, selects one particular solution from
+a family of possible solutions.
+
+## Prerequisite checklist
+
+You do not need to be perfect before starting, but these skills will appear
+often:
+
+::: {.practice-box}
+1. Can you explain what a derivative means in words?
+2. Can you compute basic antiderivatives such as `∫ 2x dx`?
+3. Can you solve `Ce^{2t} = 10` for `C` or `t`?
+4. Can you rearrange an equation without changing its meaning?
+5. Can you read whether a graph is increasing or decreasing?
+6. Can you solve a small system such as `2-x=0`, `3-y=0`?
+7. Can you explain units such as meters per second or people per year?
+:::
+
+If one of these feels weak, continue anyway. Each lesson reviews the needed
+idea when it appears.
+
+## Lesson sequence
+
+1. **First-order equations** introduce the language: derivative, solution,
+   family of solutions, and initial condition.
+2. **Separable equations** teach the first exact solving method: move variables
+   apart and integrate.
+3. **Linear equations** introduce integrating factors for equations of the form
+   `y' + p(x)y = q(x)`.
+4. **Slope fields** show how to understand an equation visually and numerically
+   when an exact formula is not the main goal.
+5. **Systems** model several changing quantities at the same time.
+
+## How to study differential equations
+
+Use the same routine on every example:
+
+1. **Name the variables.** What is changing? What is the input variable?
+2. **Read the derivative.** What does the rate mean in the situation?
+3. **Classify the equation.** Is it separable, linear, autonomous, or a system?
+4. **Choose a method.** Solve exactly, approximate numerically, or reason from
+   a graph.
+5. **Check the answer.** Differentiate the solution and substitute it back.
+6. **Interpret.** State what the answer means in the original context.
+
+## Readiness checkpoint
+
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "differential-equations-cumulative-review",
+  "title": "Differential equations readiness checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/differential-equations-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+The code below shows the two main computational styles in this module: numerical
+approximation with `edumath`, and exact symbolic solving with SymPy.
+
+```{python}
+#| echo: true
+from edumath.differential_equations import euler_method
+
+points = euler_method(
+    lambda x, y: y,
+    initial_x=0,
+    initial_y=1,
+    step=0.1,
+    steps=5,
+)
+points
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x")
+y = sp.Function("y")
+solution = sp.dsolve(sp.diff(y(x), x) - y(x))
+solution
+```
+
+The Euler points approximate the solution step by step. SymPy's `dsolve` gives
+an exact family of functions. Both are useful, but they answer the problem in
+different ways.
+
+## Further reading
+
+- OpenStax, *Calculus Volume 2*, differential equations chapters:
+  <https://openstax.org/details/books/calculus-volume-2>
+- Paul's Online Math Notes, Differential Equations:
+  <https://tutorial.math.lamar.edu/Classes/DE/DE.aspx>
+- MIT OpenCourseWare differential equations materials: <https://ocw.mit.edu/>

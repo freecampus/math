@@ -1,46 +1,197 @@
 ---
 title: Slope Fields
-description: Visualize differential equations without solving them exactly.
+description: Visualize and approximate differential equations without solving them exactly.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Some differential equations are difficult to solve exactly. A slope field helps
+you understand the behavior of solutions anyway. It shows the slope predicted by
+the equation at many points.
 
-- Interpret a slope field.
-- Use slopes to understand solution behavior.
-- Approximate solutions numerically.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- interpret each segment in a slope field;
+- sketch an approximate solution through an initial point;
+- identify equilibrium solutions in autonomous equations;
+- compute basic Euler-method steps;
+- explain why smaller step sizes usually improve approximations;
+- compare exact and numerical answers.
 :::
 
-```{python}
-from edumath.differential_equations.solvers import euler_method
+## What a slope field shows
 
-euler_method(lambda x, y: y, initial_x=0, initial_y=1, step=0.1, steps=5)
+For an equation
+
+```text
+dy/dx = f(x,y)
 ```
 
-::: {.practice-box}
-1. What does each small segment in a slope field show?
-2. How does Euler's method use local slope?
-3. Why is a smaller step often more accurate?
+choose a point `(x,y)`, compute `f(x,y)`, and draw a short segment with that
+slope. Repeat this at many points. The result is a slope field.
+
+::: {.key-idea}
+A solution curve should follow the local directions in the slope field, like a
+leaf floating along a stream.
 :::
 
+## Reading a slope field
+
+- Horizontal segments mean `dy/dx = 0`.
+- Positive slopes mean the solution is increasing as `x` increases.
+- Negative slopes mean the solution is decreasing.
+- Steeper segments mean faster change.
+- In many well-behaved first-order ODEs, solution curves do not cross.
+
+## Equilibrium solutions
+
+For an autonomous equation
+
+```text
+dy/dt = f(y)
+```
+
+an equilibrium occurs where `f(y)=0`. If a solution starts at that value, its
+rate of change is zero, so it stays there.
+
+Example:
+
+```text
+dy/dt = y(1-y)
+```
+
+Equilibria occur when
+
+```text
+y(1-y)=0
+```
+
+so `y=0` and `y=1`.
+
+## Euler's method
+
+Euler's method is a simple numerical method. It says: use the current slope for
+one small step.
+
+::: {.formula-box}
+```text
+x_{n+1} = x_n + h
+y_{n+1} = y_n + h f(x_n, y_n)
+```
+
+Here `h` is the step size.
+:::
+
+## Worked example: one Euler step
+
+Approximate the solution to
+
+```text
+y' = y,     y(0)=2
+```
+
+using one step of size `h=0.5`.
+
+At the starting point, the slope is
+
+```text
+f(0,2)=2
+```
+
+Update `x`:
+
+```text
+x_1 = 0 + 0.5 = 0.5
+```
+
+Update `y`:
+
+```text
+y_1 = 2 + 0.5(2) = 3
+```
+
+So the next Euler point is `(0.5, 3)`.
+
+## Worked example: long-term behavior
+
+For
+
+```text
+dy/dt = y(1-y)
+```
+
+- if `0 < y < 1`, then `y(1-y)>0`, so `y` increases;
+- if `y > 1`, then `1-y<0`, so `y` decreases;
+- if `y < 0`, then `y<0` and `1-y>0`, so `y` decreases.
+
+The equilibrium `y=1` attracts nearby positive solutions. We call it stable.
+The equilibrium `y=0` pushes nearby solutions away. We call it unstable.
+
+## Common pitfalls
+
+- Thinking each small segment is a whole solution curve.
+- Forgetting that Euler's method updates both `x` and `y`.
+- Using the new slope too early in basic Euler's method.
+- Believing smaller step size makes the method exact.
+- Confusing an equilibrium value with an intercept on a graph.
+
+## Practice
+
+::: {.practice-box}
+1. What does a horizontal segment in a slope field mean?
+
+2. Use one Euler step for `y'=2y`, `y(0)=1`, `h=0.25`.
+
+3. Find the equilibria of `dy/dt = y(4-y)`.
+
+4. For `dy/dt = y(4-y)`, is the solution increasing or decreasing when `y=5`?
+:::
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: the slope `dy/dx` predicted by the differential equation at that point.
+1. The derivative is zero at that point.
+2. Slope is `2`; `x_1=0.25`; `y_1=1+0.25(2)=1.5`.
+3. `y=0` and `y=4`.
+4. It is decreasing because `5(4-5)=-5` is negative.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Slope-field checkpoint
 
-Answer: it moves a short distance in the direction suggested by the current
-slope, then repeats from the new point.
-:::
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "slope-fields",
+  "title": "Slope-field and Euler checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/differential-equations-checkpoint.qmd >}}
 
-Answer: a smaller step updates the slope more frequently, reducing the error
-from pretending the slope stays constant for too long.
-:::
+## Using this lesson with edumath and SymPy
+
+Use `edumath` for Euler approximations.
+
+```{python}
+#| echo: true
+from edumath.differential_equations import euler_method
+
+euler_method(lambda x, y: y, initial_x=0, initial_y=2, step=0.5, steps=3)
+```
+
+Use SymPy for an exact comparison when an exact solution exists.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x")
+y = sp.Function("y")
+sp.dsolve(sp.Eq(sp.diff(y(x), x), y(x)))
+```
+
+The exact solution of `y'=y` is exponential. Euler's method approximates that
+curve with small straight-line steps.
