@@ -1,23 +1,114 @@
 ---
 title: Calculus Applications
-description: Rates, accumulation, optimization, and modeling.
+description: Use derivatives, integrals, and optimization in modeling contexts.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Choose derivatives for rate problems.
-- Choose integrals for accumulation problems.
-- Connect calculus to quantitative modeling.
+After this lesson you should be able to:
+
+- choose derivatives for local rate problems;
+- choose integrals for accumulation problems;
+- choose optimization workflows for best-value problems;
+- use units to check setup;
+- connect position, velocity, and acceleration;
+- interpret marginal cost, revenue, and profit;
+- use SymPy and `edumath` helpers to check applied calculations.
 :::
 
-## Choosing the Tool
+## Choosing the calculus tool
 
-Use derivatives when the question asks about change at an instant. Use
-integrals when the question asks about total accumulation over an interval.
+Use this guide:
+
+| Question asks for... | Tool |
+|---|---|
+| instantaneous rate, slope, marginal change | derivative |
+| total accumulated change or area | integral |
+| largest or smallest feasible value | optimization |
 
 ::: {.key-idea}
-Derivative: local change. Integral: accumulated change.
+### Key idea
+
+Derivative: local change. Integral: accumulated change. Optimization: best
+value.
+:::
+
+## Motion
+
+If `s(t)` is position, then:
+
+```text
+s'(t) = velocity
+s''(t) = acceleration
+```
+
+The integral of velocity over time gives displacement. The integral of speed
+(nonnegative velocity magnitude) gives total distance.
+
+## Marginal analysis
+
+In economics, "marginal" usually means derivative.
+
+- Marginal cost: derivative of cost.
+- Marginal revenue: derivative of revenue.
+- Marginal profit: derivative of profit.
+
+If:
+
+```text
+C(x) = 100 + 5x + 0.2x^2
+```
+
+then marginal cost is:
+
+```text
+C'(x) = 5 + 0.4x
+```
+
+## Accumulation from rates
+
+If water flows into a tank at rate `r(t)` liters per minute, then:
+
+```text
+∫_a^b r(t) dt
+```
+
+is the amount of water added from time `a` to time `b`.
+
+## Optimization applications
+
+For a best-value problem:
+
+1. define variables and units;
+2. write the objective function;
+3. state the feasible domain;
+4. find critical points;
+5. check endpoints and constraints;
+6. interpret the best value.
+
+## Probability density preview
+
+If `f(x)` is a probability density, then probability over an interval is area:
+
+```text
+P(a <= X <= b) = ∫_a^b f(x) dx
+```
+
+This is why integrals are central in probability and statistics.
+
+## Common mistakes
+
+::: {.common-mistake}
+### Common mistakes
+
+- Using a derivative when the question asks for a total.
+- Using an integral when the question asks for an instantaneous rate.
+- Ignoring units.
+- Confusing displacement with total distance.
+- Forgetting to check endpoints in optimization.
 :::
 
 ## Practice
@@ -25,33 +116,61 @@ Derivative: local change. Integral: accumulated change.
 ::: {.practice-box}
 1. Marginal cost is a derivative or an integral?
 2. Total distance from velocity is a derivative or an integral?
-3. Maximum profit usually requires which calculus tool first?
+3. Maximum profit usually requires which calculus workflow first?
+4. If position is meters and time is seconds, what are velocity units?
+5. If a rate is liters per minute, what are the units of its integral over
+   minutes?
+6. Why do optimization problems need a feasible domain?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: derivative.
-
-Marginal cost means the rate at which cost changes when production increases
-slightly.
+1. Derivative.
+2. Integral, using speed for total distance.
+3. Optimization using derivatives to find candidates.
+4. Meters per second.
+5. Liters.
+6. The best value must make sense in the real context.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Guessing game checkpoint
 
-Answer: integral.
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "calculus-applications",
+  "title": "Calculus applications checkpoint",
+  "defaultTotal": 5
+}
+</script>
 
-Distance accumulates velocity over time.
-:::
+{{< include _includes/calculus-checkpoint.qmd >}}
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Using this lesson with edumath and SymPy
 
-Answer: derivative.
+```{python}
+#| echo: true
+from edumath.calculus import derivative, definite_integral
 
-Set the derivative of profit equal to zero to find candidate maxima, then check
-which candidate gives the largest profit.
-:::
+derivative("100 + 5*x + 0.2*x**2")
+```
+
+```{python}
+#| echo: true
+definite_integral("3*t**2", 0, 2, variable="t")
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import calculus_tool_question
+
+question = calculus_tool_question()
+question.prompt, question.check("integral").message
+```
+
+## Further reading
+
+- OpenStax, *Calculus Volume 1*, Applications of Derivatives and Integrals:
+  <https://openstax.org/details/books/calculus-volume-1>
+- Paul's Online Math Notes, Calculus I Applications:
+  <https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx>

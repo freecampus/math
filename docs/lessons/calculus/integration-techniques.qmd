@@ -1,57 +1,165 @@
 ---
 title: Integration Techniques
-description: Substitution, parts, and numeric approximation.
+description: Choose substitution, parts, simplification, or numerical approximation.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Recognize when substitution can simplify an integral.
-- Recognize when integration by parts is useful.
-- Approximate integrals numerically.
+After this lesson you should be able to:
+
+- recognize when substitution can simplify an integral;
+- recognize when integration by parts is useful;
+- simplify algebraic expressions before integrating;
+- approximate integrals numerically;
+- check antiderivatives by differentiating;
+- use SymPy to verify results.
 :::
 
-## Numeric Approximation
+## Why integration techniques matter
 
-When symbolic integration is hard, approximate the area.
+Differentiation rules are direct. Integration is more like puzzle solving: you
+look for a pattern that reverses a derivative rule.
+
+## Technique-selection map
+
+- **Simplify first** when algebra can make the expression easier.
+- **Substitution** when you see a composition and the derivative of the inside.
+- **Integration by parts** when you see a product and one factor simplifies when
+  differentiated.
+- **Numerical approximation** when an exact symbolic answer is unnecessary or
+  difficult.
+
+## Substitution
+
+Substitution reverses the chain rule.
+
+Example:
+
+```text
+∫ 2x cos(x^2) dx
+```
+
+Let:
+
+```text
+u = x^2
+```
+
+Then:
+
+```text
+du = 2x dx
+```
+
+So the integral becomes:
+
+```text
+∫ cos(u) du = sin(u) + C = sin(x^2) + C
+```
+
+## Integration by parts
+
+Integration by parts reverses the product rule:
+
+```text
+∫ u dv = uv - ∫ v du
+```
+
+Example:
+
+```text
+∫ x e^x dx
+```
+
+Let `u = x` and `dv = e^x dx`. Then `du = dx` and `v = e^x`.
+
+```text
+∫ x e^x dx = x e^x - ∫ e^x dx = x e^x - e^x + C
+```
+
+## Numerical approximation
+
+If symbolic integration is hard, approximate the area. Midpoint rectangles,
+trapezoids, and other numerical methods estimate definite integrals.
 
 ```{python}
-from edumath.calculus.integrals import midpoint_riemann_sum
+from edumath.calculus import midpoint_riemann_sum, trapezoid_rule
 
-midpoint_riemann_sum("x**2", 0, 1, 100)
+midpoint_riemann_sum("x**2", 0, 1, 100), trapezoid_rule("x**2", 0, 1, 100)
 ```
+
+## Checking antiderivatives
+
+If you claim `F(x)` is an antiderivative of `f(x)`, differentiate `F(x)`. You
+should get `f(x)`.
+
+::: {.key-idea}
+### Key idea
+
+The best integration technique is often the one whose answer is easiest to
+check.
+:::
 
 ## Practice
 
 ::: {.practice-box}
-1. Which technique fits `integral 2x*cos(x^2) dx`?
-2. Which technique fits `integral x*exp(x) dx`?
-3. Approximate `integral x^2 dx` from `0` to `1`.
+1. Which technique fits `∫ 2x cos(x^2) dx`?
+2. What is a good `u` for `∫ 3x^2 sin(x^3) dx`?
+3. Which technique fits `∫ x exp(x) dx`?
+4. Integrate `∫ 2x cos(x^2) dx`.
+5. Why might you use a numerical approximation?
+6. How do you check an antiderivative?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: substitution.
-
-Let `u = x^2`, so `du = 2x dx`.
+1. Substitution.
+2. `u = x^3`.
+3. Integration by parts.
+4. `sin(x^2) + C`.
+5. Exact integration may be hard, unnecessary, or unavailable.
+6. Differentiate it.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Guessing game checkpoint
 
-Answer: integration by parts.
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "integration-techniques",
+  "title": "Integration techniques checkpoint",
+  "defaultTotal": 5
+}
+</script>
 
-It is a product of `x` and `exp(x)`, and differentiating `x` makes the problem
-simpler.
-:::
+{{< include _includes/calculus-checkpoint.qmd >}}
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Using this lesson with edumath and SymPy
 
-Answer: approximately `1/3`, or `0.333...`.
+```{python}
+#| echo: true
+import sympy as sp
 
-The exact integral is `x^3 / 3` from `0` to `1`, which equals `1/3`.
-:::
+x = sp.symbols("x")
+sp.integrate(2*x*sp.cos(x**2), x)
+```
+
+```{python}
+#| echo: true
+sp.integrate(x*sp.exp(x), x)
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import midpoint_riemann_sum, trapezoid_rule
+
+midpoint_riemann_sum("x**2", 0, 1, 20), trapezoid_rule("x**2", 0, 1, 20)
+```
+
+## Further reading
+
+- OpenStax, *Calculus Volume 2*, Techniques of Integration: <https://openstax.org/details/books/calculus-volume-2>
+- Paul's Online Math Notes, Integration Techniques: <https://tutorial.math.lamar.edu/Classes/CalcII/CalcII.aspx>

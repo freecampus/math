@@ -7,6 +7,25 @@ import sympy as sp
 from edumath.core import parse_expression
 
 
+def average_rate_of_change(
+    expression: str | sp.Expr,
+    start: float,
+    stop: float,
+    *,
+    variable: str = "x",
+) -> sp.Expr:
+    """Return the average rate of change on ``[start, stop]``."""
+
+    if start == stop:
+        msg = "start and stop must be different"
+        raise ValueError(msg)
+
+    symbol = sp.Symbol(variable)
+    expr = parse_expression(expression, variables=(symbol,))
+    numerator = expr.subs(symbol, stop) - expr.subs(symbol, start)
+    return sp.simplify(numerator / (stop - start))
+
+
 def derivative(expression: str | sp.Expr, *, variable: str = "x") -> sp.Expr:
     """Return the symbolic derivative of an expression."""
 
@@ -44,4 +63,4 @@ def finite_difference(
     return float((function(point + step) - function(point - step)) / (2 * step))
 
 
-__all__ = ["derivative", "finite_difference", "tangent_line"]
+__all__ = ["average_rate_of_change", "derivative", "finite_difference", "tangent_line"]

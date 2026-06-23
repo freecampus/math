@@ -153,3 +153,21 @@ makim all.ci
 Do not commit generated scratch/session files. If Quarto creates temporary
 `docs/.quarto/quarto-session-temp*` folders during local rendering, remove them
 before finishing.
+
+## General Guidelines
+
+When a lesson involves solving equations, add a dedicated section that
+demonstrates how to solve the equations using SymPy. This section should
+include:
+
+- a clear explanation of the mathematical steps;
+- the equivalent SymPy code;
+- any important notes about interpreting the result;
+- examples that help students connect the symbolic solution with the underlying
+  math.
+
+Also, whenever you notice an opportunity to improve the `edumath` library,
+suggest new reusable features, helper functions, visualizations, or utilities
+that could support student learning. Prioritize proposals that are pedagogically
+useful, reusable across lessons, and easy to integrate into the existing
+library.

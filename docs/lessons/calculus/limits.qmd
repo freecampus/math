@@ -1,61 +1,217 @@
 ---
 title: Limits
-description: Understand limits as values a function approaches.
+description: Understand limits as nearby behavior and the foundation of calculus.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Explain a limit as an approached value.
-- Distinguish a function value from a limiting value.
-- Recognize why limits prepare us for derivatives.
+After this lesson you should be able to:
+
+- explain a limit as a value a function approaches;
+- estimate limits from tables and graphs;
+- distinguish a function value from a limiting value;
+- compare left-hand and right-hand limits;
+- identify simple cases where a limit does not exist;
+- evaluate removable-hole limits by simplifying first;
+- use SymPy to check basic limits.
 :::
 
-## Concept
+## Motivation
 
-A limit asks what value a function approaches as the input gets close to a
-point.
+Calculus begins with a simple question:
+
+> What is happening nearby?
+
+If a car's position is changing, average speed over an hour is useful. But a
+speedometer shows speed at an instant. To make sense of an instant, calculus
+looks at behavior over smaller and smaller intervals. That idea is a limit.
+
+## What a limit asks
+
+The notation:
 
 ```text
-lim f(x) as x -> a
+lim as x -> a of f(x) = L
 ```
 
-The function does not need to equal the limiting value at `a`. Limits describe
-nearby behavior.
+means that as `x` gets close to `a`, the output `f(x)` gets close to `L`.
+
+The function does not have to equal `L` at `x = a`. It may even be undefined at
+`a`. Limits describe nearby behavior, not necessarily the exact value at the
+point.
 
 ::: {.key-idea}
-Derivatives and integrals both rely on limits: derivatives shrink a change in
-input, and integrals shrink rectangle widths.
+### Key idea
+
+A limit asks where the outputs are heading as inputs approach a point.
 :::
+
+## Limits from tables
+
+Consider:
+
+```text
+f(x) = (x^2 - 1)/(x - 1)
+```
+
+At `x = 1`, the formula gives `0/0`, so the function is undefined. But for
+`x != 1`, factor and cancel:
+
+```text
+(x^2 - 1)/(x - 1) = ((x - 1)(x + 1))/(x - 1) = x + 1
+```
+
+As `x` gets close to `1`, `x + 1` gets close to `2`. So:
+
+```text
+lim as x -> 1 of (x^2 - 1)/(x - 1) = 2
+```
+
+## Function value versus limit
+
+A graph can have a hole at the limiting point. The nearby graph may approach
+`2`, even though `f(1)` is undefined or has a different assigned value.
+
+::: {.common-mistake}
+### Common mistake
+
+Do not stop at `0/0`. That means direct substitution failed; it does not mean
+the limit is automatically zero or nonexistent.
+:::
+
+## One-sided limits
+
+A **left-hand limit** approaches from values less than `a`. A **right-hand
+limit** approaches from values greater than `a`.
+
+The two-sided limit exists only when both one-sided limits agree.
+
+Example:
+
+```text
+left-hand limit = 3
+right-hand limit = 3
+```
+
+Then the two-sided limit is `3`.
+
+But if:
+
+```text
+left-hand limit = 2
+right-hand limit = 5
+```
+
+then the two-sided limit does not exist.
+
+## Infinite behavior
+
+For:
+
+```text
+f(x) = 1/x
+```
+
+as `x -> 0+`, the outputs grow without bound. As `x -> 0-`, the outputs become
+large negative numbers. The two-sided limit does not exist as a finite number.
+The graph has a vertical asymptote at `x = 0`.
+
+## Algebraic limit techniques
+
+Use these first tools:
+
+1. **Direct substitution** when the function is continuous at the point.
+2. **Factor and cancel** for removable holes.
+3. **Rationalize** simple radical expressions.
+4. **Check one-sided behavior** when a formula changes or has a vertical
+   asymptote.
+
+### Worked example
+
+Evaluate:
+
+```text
+lim as x -> 3 of (x^2 - 9)/(x - 3)
+```
+
+Factor:
+
+```text
+(x^2 - 9)/(x - 3) = ((x - 3)(x + 3))/(x - 3)
+```
+
+Cancel for `x != 3`:
+
+```text
+x + 3
+```
+
+Now substitute the approached value:
+
+```text
+3 + 3 = 6
+```
+
+The limit is `6`.
 
 ## Practice
 
 ::: {.practice-box}
 1. What value does `x + 2` approach as `x -> 3`?
-2. Why can a limit exist even if the function is not defined at that point?
-3. Explain a limit in one sentence without symbols.
+2. Evaluate `lim as x -> 2 of x^2 + 1`.
+3. Evaluate `lim as x -> 4 of (x^2 - 16)/(x - 4)`.
+4. If the left-hand limit is `1` and the right-hand limit is `1`, what is the
+   two-sided limit?
+5. If the left-hand limit is `1` and the right-hand limit is `3`, does the
+   two-sided limit exist?
+6. Explain why a limit can exist even when the function is not defined at the
+   point.
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `5`.
-
-As `x` gets close to `3`, `x + 2` gets close to `3 + 2 = 5`.
+1. `5`.
+2. `2^2 + 1 = 5`.
+3. Factor and cancel to get `x + 4`; the limit is `8`.
+4. The two-sided limit is `1`.
+5. No. The one-sided limits disagree.
+6. A limit depends on nearby values, not necessarily the exact value at the
+   point.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Guessing game checkpoint
 
-Answer: a limit depends on nearby behavior, not necessarily the exact function
-value at the point.
-:::
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "limits",
+  "title": "Limits checkpoint",
+  "defaultTotal": 5
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/calculus-checkpoint.qmd >}}
 
-Answer: a limit is the value a function approaches as the input gets close to a
-chosen point.
-:::
+## Using this lesson with edumath and SymPy
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+sp.limit((x**2 - 1)/(x - 1), x, 1)
+```
+
+```{python}
+#| echo: true
+sp.limit(1/x, x, 0, dir="+")
+sp.limit(1/x, x, 0, dir="-")
+```
+
+## Further reading
+
+- OpenStax, *Calculus Volume 1*, Limits: <https://openstax.org/details/books/calculus-volume-1>
+- Paul's Online Math Notes, Limits: <https://tutorial.math.lamar.edu/Classes/CalcI/LimitsIntro.aspx>

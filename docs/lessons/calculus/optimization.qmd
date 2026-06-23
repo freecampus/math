@@ -1,62 +1,171 @@
 ---
 title: Optimization
-description: Use derivatives to find maxima and minima.
+description: Use derivatives to find and interpret maximum and minimum values.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Identify critical points.
-- Use derivatives to locate candidate maxima and minima.
-- Interpret optimization in applied problems.
+After this lesson you should be able to:
+
+- distinguish local and absolute maxima and minima;
+- find critical points;
+- use derivative signs to classify candidates;
+- use the second derivative test in simple cases;
+- check endpoints on closed intervals;
+- solve basic applied optimization problems;
+- use SymPy to compute and compare candidates.
 :::
 
-## Concept
+## Motivation
 
-Optimization asks for the best value: largest profit, smallest cost, minimum
-error, or maximum growth. In calculus, smooth optima often occur where the
-derivative is zero.
+Optimization asks for the best value: largest profit, smallest cost, shortest
+path, maximum area, or minimum error. Derivatives help because smooth functions
+often turn around where the derivative is zero.
 
-## Example
+## Local and absolute optima
 
-For `f(x) = x^2 - 4x + 5`, the derivative is `2x - 4`. Setting it to zero gives
-`x = 2`.
+A **local maximum** is higher than nearby values. A **local minimum** is lower
+than nearby values.
+
+An **absolute maximum** is the highest value on the entire domain being
+considered. An **absolute minimum** is the lowest value on that domain.
+
+## Critical points
+
+Critical points occur where:
+
+```text
+f'(x) = 0
+```
+
+or where `f'(x)` is undefined while `f(x)` is defined.
+
+For:
+
+```text
+f(x) = x^2 - 6x + 10
+```
+
+we compute:
+
+```text
+f'(x) = 2x - 6
+```
+
+Set the derivative equal to zero:
+
+```text
+2x - 6 = 0
+x = 3
+```
+
+The critical point is at `x = 3`.
 
 ```{python}
-from edumath.calculus.derivatives import derivative
+from edumath.calculus import optimization_scene
 
-derivative("x**2 - 4*x + 5")
+scene = optimization_scene("x**2 - 6*x + 10", candidates=(3,), x_min=-1, x_max=7, y_min=-1, y_max=12)
+fig, ax = scene.render()
+fig
 ```
+
+## First derivative test
+
+The first derivative tells us where the function is increasing or decreasing.
+
+- If `f'` changes from positive to negative, the point is a local maximum.
+- If `f'` changes from negative to positive, the point is a local minimum.
+- If the sign does not change, the point may not be an extremum.
+
+## Second derivative test
+
+The second derivative measures concavity.
+
+- If `f''(c) > 0`, the graph is concave up at `c`, suggesting a local minimum.
+- If `f''(c) < 0`, the graph is concave down at `c`, suggesting a local maximum.
+- If `f''(c) = 0`, the test is inconclusive.
+
+## Closed intervals and endpoints
+
+On a closed interval `[a, b]`, the absolute maximum or minimum can occur at:
+
+- a critical point inside the interval;
+- the left endpoint;
+- the right endpoint.
+
+So make a candidate list and compare function values.
+
+## Applied optimization workflow
+
+1. Define variables and units.
+2. Write the quantity to optimize as a function.
+3. State the domain or constraints.
+4. Find critical points.
+5. Check endpoints if the domain is closed.
+6. Interpret the best feasible value.
 
 ## Practice
 
 ::: {.practice-box}
-1. Find the critical point of `x^2 - 6x + 10`.
-2. Is the parabola `x^2` minimized or maximized at `x = 0`?
-3. Why do we check endpoints in constrained optimization?
+1. Find the critical point of `x^2 - 8x + 3`.
+2. Is `x^2` minimized or maximized at `x = 0`?
+3. If `f'` changes from positive to negative, what kind of point is suggested?
+4. Why do we check endpoints on `[a,b]`?
+5. A revenue model is `R(x) = -x^2 + 10x`. Find the production level that
+   maximizes revenue.
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `x = 3`.
-
-The derivative is `2x - 6`. Set it equal to zero: `2x - 6 = 0`, so `x = 3`.
+1. `f'(x)=2x-8`, so `x=4`.
+2. Minimized.
+3. Local maximum.
+4. The absolute best value can occur at an endpoint.
+5. `R'(x)=-2x+10`; set to zero to get `x=5`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Guessing game checkpoint
 
-Answer: minimized.
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "optimization",
+  "title": "Optimization checkpoint",
+  "defaultTotal": 5
+}
+</script>
 
-The parabola opens upward, and its vertex is at `x = 0`.
-:::
+{{< include _includes/calculus-checkpoint.qmd >}}
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Using this lesson with edumath and SymPy
 
-Answer: the best value on a closed interval can occur at an endpoint, even when
-the derivative is not zero there.
-:::
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+f = x**2 - 6*x + 10
+critical = sp.solve(sp.Eq(sp.diff(f, x), 0), x)
+critical
+```
+
+```{python}
+#| echo: true
+[(c, f.subs(x, c)) for c in critical]
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import critical_point_exercise
+
+exercise = critical_point_exercise(seed=2)
+exercise.prompt, exercise.expected
+```
+
+## Further reading
+
+- OpenStax, *Calculus Volume 1*, Applied Optimization: <https://openstax.org/details/books/calculus-volume-1>
+- Paul's Online Math Notes, Optimization: <https://tutorial.math.lamar.edu/Classes/CalcI/Optimization.aspx>

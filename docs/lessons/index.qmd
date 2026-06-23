@@ -53,7 +53,7 @@ identity practice.
 
 Limits, derivatives, optimization, integrals, and applications.
 
-[Start Calculus](calculus/limits.qmd)
+[Start Calculus](calculus/index.qmd)
 :::
 
 ::: {.topic-card}

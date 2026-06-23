@@ -62,6 +62,7 @@ website:
               - lessons/trigonometry/sine-cosine.qmd
           - section: Calculus
             contents:
+              - lessons/calculus/index.qmd
               - lessons/calculus/limits.qmd
               - lessons/calculus/derivatives.qmd
               - lessons/calculus/derivative-rules.qmd

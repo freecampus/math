@@ -1,64 +1,167 @@
 ---
 title: Derivatives
-description: Derivatives as slopes and rates of change.
+description: Understand derivatives as slopes, tangent lines, and instantaneous rates of change.
+execute:
+  echo: false
 ---
 
 ::: {.learning-objectives}
-### Learning Objectives
+### Learning objectives
 
-- Interpret derivatives as instantaneous rates of change.
-- Compute symbolic derivatives with Python.
-- Connect derivatives to tangent lines.
+After this lesson you should be able to:
+
+- compute and interpret average rate of change;
+- explain a derivative as a limiting tangent slope;
+- use derivative notation;
+- write tangent line equations;
+- interpret derivative units;
+- recognize common places where derivatives fail to exist;
+- use `edumath` helpers to check derivatives and tangent lines.
 :::
 
-## Concept
+## Motivation
 
-The derivative tells us how fast a function is changing at a point. On a graph,
-it is the slope of the tangent line.
+Average speed over a trip is useful, but a speedometer reports speed at an
+instant. The derivative is calculus's way of making that instantaneous rate
+precise.
 
-## Python Connection
+On a graph, the derivative is the slope of the tangent line at a point.
 
-```{python}
-from edumath.calculus.derivatives import derivative, tangent_line
+## Average rate of change
 
-derivative("x**2 + 3*x")
+From `x = a` to `x = b`, average rate of change is:
+
+```text
+(f(b) - f(a))/(b - a)
+```
+
+This is the slope of the secant line through two points on the graph.
+
+Example for `f(x)=x^2` from `x=1` to `x=3`:
+
+```text
+(f(3)-f(1))/(3-1) = (9-1)/2 = 4
+```
+
+## Instantaneous rate of change
+
+To get an instantaneous rate, imagine moving the second point closer and closer
+to the first. The secant line approaches a tangent line. The limiting slope is
+the derivative.
+
+Common notation:
+
+```text
+f'(x)
+dy/dx
+d/dx [f(x)]
+```
+
+## Tangent lines
+
+If `f'(a)` is the slope and `(a, f(a))` is the point, the tangent line is:
+
+```text
+y - f(a) = f'(a)(x - a)
+```
+
+For `f(x)=x^2` at `x=2`:
+
+```text
+f(2)=4
+f'(x)=2x
+f'(2)=4
+```
+
+Tangent line:
+
+```text
+y - 4 = 4(x - 2)
+y = 4x - 4
 ```
 
 ```{python}
-tangent_line("x**2", 2)
+from edumath.calculus import secant_tangent_scene
+
+scene = secant_tangent_scene("x**2", point=2, step=1, y_min=-1, y_max=10)
+fig, ax = scene.render()
+fig
 ```
+
+## Units
+
+If `s(t)` is position in meters and `t` is time in seconds, then `s'(t)` has
+units:
+
+```text
+meters per second
+```
+
+Derivative units are output units divided by input units.
+
+## Where derivatives may fail
+
+A derivative may fail to exist at:
+
+- sharp corners;
+- cusps;
+- vertical tangents;
+- discontinuities.
+
+A graph must be locally smooth enough to have a tangent slope.
 
 ## Practice
 
 ::: {.practice-box}
-1. What is the derivative of `x^2`?
-2. What does a positive derivative mean graphically?
-3. What does a zero derivative suggest at a smooth turning point?
+1. Find the average rate of change of `f(x)=x^2` from `x=2` to `x=5`.
+2. What is the derivative of `x^2`?
+3. What is the tangent slope of `x^2` at `x=3`?
+4. Write the tangent line to `x^2` at `x=3`.
+5. If `f'(a) > 0`, what does that suggest graphically?
+6. If cost is dollars and production is items, what are the units of marginal
+   cost?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `2x`.
-
-Use the power rule with exponent `2`.
+1. `(25 - 4)/(5 - 2) = 7`.
+2. `2x`.
+3. `2(3)=6`.
+4. `f(3)=9`, slope `6`, so `y - 9 = 6(x - 3)`, or `y = 6x - 9`.
+5. The function is increasing locally.
+6. Dollars per item.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Guessing game checkpoint
 
-Answer: the graph is increasing at that point.
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "derivatives",
+  "title": "Derivatives checkpoint",
+  "defaultTotal": 5
+}
+</script>
 
-A positive derivative means the tangent line has positive slope.
-:::
+{{< include _includes/calculus-checkpoint.qmd >}}
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Using this lesson with edumath and SymPy
 
-Answer: a possible local maximum or local minimum.
+```{python}
+#| echo: true
+from edumath.calculus import average_rate_of_change, derivative, tangent_line, finite_difference
 
-The derivative being zero means the tangent line is horizontal, but more
-checking is needed to classify the point.
-:::
+average_rate_of_change("x**2", 1, 3)
+```
+
+```{python}
+#| echo: true
+derivative("x**2 + 3*x")
+tangent_line("x**2", 2)
+finite_difference("x**2", 2)
+```
+
+## Further reading
+
+- OpenStax, *Calculus Volume 1*, Derivatives: <https://openstax.org/details/books/calculus-volume-1>
+- Paul's Online Math Notes, Derivatives: <https://tutorial.math.lamar.edu/Classes/CalcI/DerivativeIntro.aspx>
