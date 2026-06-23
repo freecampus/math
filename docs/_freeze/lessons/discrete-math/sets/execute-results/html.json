@@ -1,0 +1,10 @@
+{
+  "hash": "0566109833dda12fcecbd6b7f2d30a1f",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Sets\ndescription: Collections, membership, unions, and intersections.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Define set membership.\n- Compute unions and intersections.\n- Connect sets to events in probability.\n:::\n\n::: {#14b4286c .cell execution_count=1}\n``` {.python .cell-code}\na = {1, 2, 3}\nb = {3, 4, 5}\n\na | b, a & b\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n({1, 2, 3, 4, 5}, {3})\n```\n:::\n:::\n\n\n::: {.practice-box}\n1. What is `A union B`?\n2. What is `A intersection B`?\n3. How are events in probability related to sets?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: all elements that are in `A`, in `B`, or in both.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: elements that are in both `A` and `B`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: events are subsets of a sample space, so set operations describe\ncombined events.\n:::\n\n",
+    "supporting": ["sets_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -47,6 +47,9 @@ groups:
       preview:
         help: Preview the Quarto documentation website locally
         backend: bash
+        hooks:
+          pre-run:
+            - task: docs.build
         run: quarto preview docs
 
   tests:

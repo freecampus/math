@@ -1,0 +1,10 @@
+{
+  "hash": "88cbba1a81490a79089f4aebea19338b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Vectors\ndescription: Vectors as quantities with magnitude and direction.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Interpret vectors as ordered lists of numbers.\n- Compute dot products and norms.\n- Connect vector length to distance.\n:::\n\n## Concept\n\nA vector stores multiple related numbers. In two dimensions, `[3, 4]` can\nrepresent a movement 3 units right and 4 units up.\n\n::: {#850c712f .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.linear_algebra.concepts import dot_product, vector_norm\n\ndot_product([1, 2], [3, 4]), vector_norm([3, 4])\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n(11.0, 5.0)\n```\n:::\n:::\n\n\n## Practice\n\n::: {.practice-box}\n1. Compute the norm of `[6, 8]`.\n2. Compute `[1, 0] dot [0, 1]`.\n3. What does a dot product of zero suggest geometrically?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: `10`.\n\nUse the distance formula: `sqrt(6^2 + 8^2) = sqrt(36 + 64) = sqrt(100) = 10`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: `0`.\n\nCompute `1*0 + 0*1 = 0`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: the vectors are perpendicular, assuming neither vector is the zero\nvector.\n:::\n\n",
+    "supporting": ["vectors_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "hash": "0933826ee38ab42da215b31cc1e1ccf3",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Common Distributions\ndescription: Bernoulli, binomial, uniform, and normal distributions.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Recognize common probability distributions.\n- Compute binomial probabilities.\n- Match distributions to situations.\n:::\n\n::: {#544de9d2 .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.probability.distributions import binomial_pmf\n\nbinomial_pmf(trials=10, successes=3, probability=0.5)\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n0.1171875\n```\n:::\n:::\n\n\n## Practice\n\n::: {.practice-box}\n1. Which distribution models one yes/no trial?\n2. Which distribution models the number of successes in fixed trials?\n3. Which distribution is often used for measurement noise?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: Bernoulli distribution.\n\nIt models a single trial with two outcomes, often coded as `0` and `1`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: binomial distribution.\n\nIt counts successes across a fixed number of independent Bernoulli trials.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: normal distribution.\n\nMany measurement errors are modeled as approximately normal because small\nindependent sources of variation accumulate.\n:::\n\n",
+    "supporting": ["common-distributions_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

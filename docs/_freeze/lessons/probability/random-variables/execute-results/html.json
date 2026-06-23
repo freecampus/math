@@ -1,0 +1,10 @@
+{
+  "hash": "892b23102779efba392e75d9f8156435",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Random Variables\ndescription: Numeric outcomes of random experiments.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Define a random variable.\n- Distinguish discrete and continuous variables.\n- Interpret expected value.\n:::\n\nA random variable assigns a number to each outcome of a random experiment.\n\n::: {#ba8c25bd .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.probability.distributions import expected_value\n\nexpected_value([0, 1], [0.4, 0.6])\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n0.6\n```\n:::\n:::\n\n\n## Practice\n\n::: {.practice-box}\n1. Is a coin-flip payout discrete or continuous?\n2. What does expected value represent?\n3. Can expected value be a value that never occurs exactly?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: discrete.\n\nA coin-flip payout has a finite list of possible values.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: the long-run average value across many repetitions.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: yes.\n\nThe expected value can be an average that is not itself a possible outcome, such\nas `3.5` for a fair die.\n:::\n\n",
+    "supporting": ["random-variables_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

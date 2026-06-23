@@ -1,0 +1,10 @@
+{
+  "hash": "ad2ad0e7ef68974c018607a399dd31e8",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Descriptive Statistics\ndescription: Summarize data with center and spread.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Compute mean, median, variance, and standard deviation.\n- Interpret center and spread.\n- Use descriptive summaries carefully.\n:::\n\n::: {#c6b2bd8b .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.statistics.concepts import describe\n\ndescribe([1, 2, 3, 4, 10])\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\nDescriptiveStats(mean=4.0, median=3.0, variance=12.5, standard_deviation=3.5355339059327378, minimum=1.0, maximum=10.0)\n```\n:::\n:::\n\n\n::: {.practice-box}\n1. Which is more sensitive to outliers: mean or median?\n2. What does standard deviation measure?\n3. Why should summaries be paired with plots?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: mean.\n\nThe mean uses every value directly, so an extreme value can pull it strongly.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: typical spread around the mean.\n\nA larger standard deviation means values tend to be farther from the mean.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: plots reveal shape, clusters, skew, and outliers that a few summary\nnumbers can hide.\n:::\n\n",
+    "supporting": ["descriptive-statistics_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

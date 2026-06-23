@@ -1,0 +1,10 @@
+{
+  "hash": "d799df2565561a34555618e09df52f31",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Slope Fields\ndescription: Visualize differential equations without solving them exactly.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Interpret a slope field.\n- Use slopes to understand solution behavior.\n- Approximate solutions numerically.\n:::\n\n::: {#842cbdff .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.differential_equations.solvers import euler_method\n\neuler_method(lambda x, y: y, initial_x=0, initial_y=1, step=0.1, steps=5)\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n[(0, 1),\n (0.1, 1.1),\n (0.2, 1.2100000000000002),\n (0.30000000000000004, 1.3310000000000002),\n (0.4, 1.4641000000000002),\n (0.5, 1.61051)]\n```\n:::\n:::\n\n\n::: {.practice-box}\n1. What does each small segment in a slope field show?\n2. How does Euler's method use local slope?\n3. Why is a smaller step often more accurate?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: the slope `dy/dx` predicted by the differential equation at that point.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: it moves a short distance in the direction suggested by the current\nslope, then repeats from the new point.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: a smaller step updates the slope more frequently, reducing the error\nfrom pretending the slope stays constant for too long.\n:::\n\n",
+    "supporting": ["slope-fields_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

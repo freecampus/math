@@ -1,0 +1,10 @@
+{
+  "hash": "6b8576d2cc12b17d7bc1f5a3ce53fbbc",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Logic\ndescription: Propositions, truth values, and implication.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Work with true/false propositions.\n- Interpret logical implication.\n- Generate simple truth tables.\n:::\n\n::: {#1b0021a8 .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.discrete_math.logic import implies, truth_table\n\ntruth_table((\"p\", \"q\"), implies)\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n[{'p': False, 'q': False, 'result': True},\n {'p': False, 'q': True, 'result': True},\n {'p': True, 'q': False, 'result': False},\n {'p': True, 'q': True, 'result': True}]\n```\n:::\n:::\n\n\n::: {.practice-box}\n1. When is `p -> q` false?\n2. What does a truth table show?\n3. Why is logic useful for proofs and programming?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: when `p` is true and `q` is false.\n\nThat is the only case where an implication fails.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: every combination of truth values for the inputs and the resulting\ntruth value of the expression.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: logic makes assumptions, conditions, implications, and correctness\nprecise.\n:::\n\n",
+    "supporting": ["logic_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

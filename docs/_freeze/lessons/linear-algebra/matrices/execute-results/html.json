@@ -1,0 +1,10 @@
+{
+  "hash": "54b829c4566876a9a8c8e6195a80001b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Matrices\ndescription: Matrices as structured numeric transformations.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Interpret matrices as rectangular arrays.\n- Multiply a matrix by a vector.\n- Recognize matrix shape.\n:::\n\n## Concept\n\nMatrices organize numbers in rows and columns. They can represent systems of\nequations, transformations, and data tables.\n\n::: {#dddc1c11 .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\n\nmatrix = np.array([[2, 0], [0, 3]])\nmatrix.shape\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n(2, 2)\n```\n:::\n:::\n\n\n## Practice\n\n::: {.practice-box}\n1. What is the shape of a 3-row, 2-column matrix?\n2. Why does shape matter for multiplication?\n3. Write the identity matrix in two dimensions.\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: `3 x 2`.\n\nMatrix shape is written as rows by columns.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: dimensions must match for products to be defined.\n\nFor example, an `m x n` matrix can multiply a length-`n` vector.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: `[[1, 0], [0, 1]]`.\n\nThe identity matrix leaves every vector unchanged.\n:::\n\n",
+    "supporting": ["matrices_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

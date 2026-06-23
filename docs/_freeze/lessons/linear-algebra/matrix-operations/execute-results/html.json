@@ -1,0 +1,10 @@
+{
+  "hash": "ab2cada44ea05d0ceea3d380d2774816",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Matrix Operations\ndescription: Addition, scalar multiplication, and matrix-vector products.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Add matrices with matching shapes.\n- Multiply a matrix by a scalar.\n- Compute matrix-vector products.\n:::\n\n::: {#a59f1da1 .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.linear_algebra.concepts import matrix_vector_product\n\nmatrix_vector_product([[2, 0], [0, 3]], [5, 4])\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\narray([10., 12.])\n```\n:::\n:::\n\n\n## Practice\n\n::: {.practice-box}\n1. Multiply `[[1, 0], [0, 1]]` by `[2, 3]`.\n2. Can a 2x3 matrix multiply a length-2 vector?\n3. What does scalar multiplication do to every matrix entry?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: `[2, 3]`.\n\nThe identity matrix leaves the vector unchanged.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: no.\n\nA `2 x 3` matrix needs a length-`3` vector on the right.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: it multiplies every entry by the same scalar.\n:::\n\n",
+    "supporting": ["matrix-operations_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "hash": "63df30776f02cdcf577f06fb8ec09bb6",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Counting\ndescription: Factorials and combinations.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Compute factorials.\n- Compute combinations.\n- Use counting before probability.\n:::\n\n::: {#a67a7872 .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.probability.distributions import combinations, factorial\n\nfactorial(5), combinations(5, 2)\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n(120, 10)\n```\n:::\n:::\n\n\n::: {.practice-box}\n1. Compute `4!`.\n2. Compute `C(6, 2)`.\n3. Why does order matter in permutations but not combinations?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: `24`.\n\n`4! = 4 * 3 * 2 * 1 = 24`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: `15`.\n\n`C(6, 2) = 6! / (2! 4!) = (6 * 5) / (2 * 1) = 15`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: permutations count arrangements, so `AB` and `BA` are different.\nCombinations count selections, so `AB` and `BA` are the same selection.\n:::\n\n",
+    "supporting": ["counting_files"],
+    "filters": [],
+    "includes": {}
+  }
+}

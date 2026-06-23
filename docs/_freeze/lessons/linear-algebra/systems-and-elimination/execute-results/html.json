@@ -1,0 +1,10 @@
+{
+  "hash": "813bf3b2563f90de735e577ec7242309",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Systems and Elimination\ndescription: Solve linear systems with matrix notation.\n---\n\n::: {.learning-objectives}\n### Learning Objectives\n\n- Write a linear system as `A x = b`.\n- Solve small systems.\n- Connect elimination to matrix operations.\n:::\n\n::: {#ef0e23e0 .cell execution_count=1}\n``` {.python .cell-code}\nfrom edumath.linear_algebra.concepts import solve_linear_system\n\nsolve_linear_system([[1, 1], [1, -1]], [5, 1])\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\narray([3., 2.])\n```\n:::\n:::\n\n\n## Practice\n\n::: {.practice-box}\n1. Solve `x + y = 5`, `x - y = 1`.\n2. What does it mean if a system has no solution?\n3. What does it mean if a system has infinitely many solutions?\n:::\n\n## Solutions\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 1\n\nAnswer: `(x, y) = (3, 2)`.\n\nAdd the equations to get `2x = 6`, so `x = 3`. Then `3 + y = 5`, so `y = 2`.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 2\n\nAnswer: the equations are inconsistent; there is no point or vector that\nsatisfies every equation at the same time.\n:::\n\n::: {.callout-tip collapse=\"true\"}\n## Solution 3\n\nAnswer: the equations are dependent; there is a whole line, plane, or higher\ndimensional set of solutions.\n:::\n\n",
+    "supporting": ["systems-and-elimination_files"],
+    "filters": [],
+    "includes": {}
+  }
+}
