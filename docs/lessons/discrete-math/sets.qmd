@@ -1,46 +1,191 @@
 ---
 title: Sets
-description: Collections, membership, unions, and intersections.
+description: Collections, membership, subsets, unions, intersections, and products.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A set is a collection of distinct objects. Sets are used in probability,
+databases, logic, graph theory, and almost every area of mathematics.
 
-- Define set membership.
-- Compute unions and intersections.
-- Connect sets to events in probability.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- use membership notation;
+- distinguish elements from subsets;
+- compute unions, intersections, differences, and complements;
+- list a small power set;
+- compute a Cartesian product;
+- connect set operations to Venn diagrams and probability events.
 :::
 
-```{python}
-a = {1, 2, 3}
-b = {3, 4, 5}
+## What is a set?
 
-a | b, a & b
+A **set** is a collection where order and repetition do not matter.
+
+```text
+{1, 2, 3} = {3, 2, 1} = {1, 1, 2, 3}
 ```
 
-::: {.practice-box}
-1. What is `A union B`?
-2. What is `A intersection B`?
-3. How are events in probability related to sets?
+The objects in a set are called **elements**.
+
+- `2 in {1,2,3}` is true.
+- `5 in {1,2,3}` is false.
+
+## Elements and subsets
+
+The statement `x in A` means `x` is an element of `A`.
+The statement `A subset B` means every element of `A` is also in `B`.
+
+::: {.callout-warning}
+### Element versus subset
+
+If `A = {1,2,3}`, then `2 in A` is true and `{2} subset A` is also true. But
+`2` and `{2}` are different objects.
 :::
 
+## Set operations
+
+Let `A={1,2,3}` and `B={3,4}`.
+
+| Operation | Meaning | Result |
+|---|---|---|
+| `A union B` | in A or B or both | `{1,2,3,4}` |
+| `A intersection B` | in both A and B | `{3}` |
+| `A - B` | in A but not B | `{1,2}` |
+| `B - A` | in B but not A | `{4}` |
+| `A symmetric_difference B` | in exactly one set | `{1,2,4}` |
+
+## Complements
+
+A complement depends on a **universe**. If the universe is
+`U={1,2,3,4,5}` and `A={1,2,3}`, then
+
+```text
+A complement = {4,5}
+```
+
+Without a universe, the complement is not well defined.
+
+## Power sets
+
+The **power set** of `A` is the set of all subsets of `A`.
+
+For `A={a,b}`, the power set is
+
+```text
+{ {}, {a}, {b}, {a,b} }
+```
+
+A set with `n` elements has `2^n` subsets.
+
+## Cartesian products
+
+The Cartesian product `A x B` is the set of ordered pairs whose first coordinate
+comes from `A` and second coordinate comes from `B`.
+
+If `A={1,2}` and `B={x,y}`, then
+
+```text
+A x B = {(1,x), (1,y), (2,x), (2,y)}
+```
+
+Order matters: usually `A x B` is not the same as `B x A`.
+
+## Worked example 1: Venn regions
+
+Let `A={1,2,3}`, `B={3,4,5}`, and universe `U={1,2,3,4,5,6}`.
+
+- only in `A`: `{1,2}`;
+- only in `B`: `{4,5}`;
+- in both: `{3}`;
+- in neither: `{6}`.
+
+## Worked example 2: event language
+
+In probability, events are sets. If `A` is "roll an even number" and `B` is
+"roll a number greater than 4" on a six-sided die, then
+
+```text
+A = {2,4,6}
+B = {5,6}
+A intersection B = {6}
+```
+
+The intersection means both events happen.
+
+## Common pitfalls
+
+- Forgetting that sets ignore repeated elements.
+- Confusing `in` with `subset`.
+- Thinking `A - B` equals `B - A`.
+- Computing a complement without knowing the universe.
+- Treating ordered pairs as unordered sets.
+
+## Practice
+
+::: {.practice-box}
+1. Compute `{1,2,3} union {3,4}`.
+2. Compute `{1,2,3} intersection {3,4}`.
+3. Is `{2,3}` a subset of `{1,2,3,4}`?
+4. List the power set of `{x,y}`.
+5. Compute `{1,2} x {a}`.
+:::
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: all elements that are in `A`, in `B`, or in both.
+1. `{1,2,3,4}`.
+2. `{3}`.
+3. Yes, because both `2` and `3` are in the larger set.
+4. `{ {}, {x}, {y}, {x,y} }`.
+5. `{(1,a), (2,a)}`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Sets checkpoint
 
-Answer: elements that are in both `A` and `B`.
-:::
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "sets",
+  "title": "Sets checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/discrete-math-checkpoint.qmd >}}
 
-Answer: events are subsets of a sample space, so set operations describe
-combined events.
-:::
+## Using this lesson with edumath and SymPy
+
+Python has built-in set operators.
+
+```{python}
+#| echo: true
+A = {1, 2, 3}
+B = {3, 4}
+A | B, A & B, A - B, A ^ B
+```
+
+Use `edumath` for a named table of operations.
+
+```{python}
+#| echo: true
+from edumath.discrete_math import cartesian_product, power_set, set_operation_table
+
+set_operation_table(A, B)
+```
+
+```{python}
+#| echo: true
+power_set({"a", "b"}), cartesian_product({1, 2}, {"x", "y"})
+```
+
+SymPy also has finite-set objects.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.FiniteSet(1, 2, 3).union(sp.FiniteSet(3, 4))
+```

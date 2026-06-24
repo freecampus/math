@@ -1,42 +1,190 @@
 ---
 title: Graphs
-description: Vertices, edges, and network structure.
+description: Vertices, edges, paths, degrees, and network structure.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+In discrete mathematics, a graph is not the graph of a function. It is a network
+made of objects and connections. Graphs model roads, friendships, links,
+prerequisites, dependencies, and communication networks.
 
-- Define vertices and edges.
-- Recognize directed and undirected graphs.
-- Connect graphs to networks.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- define vertices and edges;
+- distinguish directed and undirected graphs;
+- compute vertex degrees;
+- identify walks, paths, and cycles;
+- decide whether a small graph is connected;
+- represent a graph with an edge list or adjacency list.
 :::
 
-A graph is a collection of vertices connected by edges. Graphs model networks:
-web pages, roads, dependencies, and relationships.
+## Vertices and edges
+
+A **vertex** is a node or object. An **edge** is a connection between vertices.
+
+Example edge list:
+
+```text
+V = {A, B, C, D}
+E = {AB, AC, BC, CD}
+```
+
+This graph has four vertices and four edges.
+
+## Directed and undirected graphs
+
+In an undirected graph, an edge `AB` connects `A` and `B` both ways.
+In a directed graph, an edge has a direction, such as `A -> B`.
+
+Directed graphs model one-way streets, web links, task dependencies, and
+follower relationships.
+
+## Degree
+
+In an undirected graph, the degree of a vertex is the number of edges incident
+to it.
+
+For edges `AB, AC, BC, CD`:
+
+- degree of `A` is `2`;
+- degree of `B` is `2`;
+- degree of `C` is `3`;
+- degree of `D` is `1`.
+
+::: {.key-idea}
+### Handshake idea
+
+In an undirected graph, the sum of all degrees equals twice the number of edges,
+because each edge touches two endpoints.
+:::
+
+## Walks, paths, and cycles
+
+A **walk** is a sequence of vertices where consecutive vertices are connected.
+A **path** is a walk with no repeated vertices.
+A **cycle** starts and ends at the same vertex without repeating other vertices.
+
+Different textbooks vary slightly in advanced definitions, but these beginner
+versions are enough for this lesson.
+
+## Connected graphs
+
+An undirected graph is **connected** if every vertex can be reached from every
+other vertex by following edges.
+
+An isolated vertex with no edges can make a graph disconnected.
+
+## Representations
+
+A graph can be represented by:
+
+- a drawing;
+- an edge list;
+- an adjacency list;
+- an adjacency matrix.
+
+Adjacency list for edges `AB, AC, BC, CD`:
+
+```text
+A: B, C
+B: A, C
+C: A, B, D
+D: C
+```
+
+## Worked example 1: degree sequence
+
+For edges `AB, AC, BC, CD`, the degrees are:
+
+```text
+deg(A)=2
+deg(B)=2
+deg(C)=3
+deg(D)=1
+```
+
+The degree sequence is usually written from largest to smallest:
+
+```text
+3, 2, 2, 1
+```
+
+## Worked example 2: path or not?
+
+In the same graph, `A, B, C, D` is a path because each consecutive pair is
+connected and no vertex repeats.
+
+The sequence `A, B, A, C` is a walk, but not a path, because vertex `A` repeats.
+
+## Worked example 3: real model
+
+Suppose courses are vertices and an arrow `A -> B` means course `A` must be
+taken before course `B`. This directed graph helps identify valid course orders
+and prerequisite chains.
+
+## Common pitfalls
+
+- Confusing graph theory networks with function graphs.
+- Counting a directed edge as if it automatically goes both ways.
+- Double-counting or under-counting degrees.
+- Forgetting isolated vertices when checking connectedness.
+- Calling any walk a path even when vertices repeat.
+
+## Practice
 
 ::: {.practice-box}
-1. What is a vertex?
-2. What is an edge?
-3. Give one real-world network modeled by a graph.
+1. For edges `AB, AC, BC, CD`, find degree of `C`.
+2. Is `A, B, C, D` a path in that graph?
+3. Is `A, B, A, C` a path?
+4. Give one real-world example of a directed graph.
+5. What does connected mean?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: a node or object in a graph.
+1. `3`.
+2. Yes.
+3. No. Vertex `A` repeats, so it is a walk but not a path.
+4. Web links, one-way roads, prerequisites, or follower relationships.
+5. Every vertex can be reached from every other vertex.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Graphs checkpoint
 
-Answer: a connection between two vertices.
-:::
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "graphs",
+  "title": "Graphs checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/discrete-math-checkpoint.qmd >}}
 
-Answer: examples include roads between cities, friendships between people, web
-links between pages, or dependencies between tasks.
-:::
+## Using this lesson with edumath and SymPy
+
+Use `edumath` graph helpers for small finite graphs.
+
+```{python}
+#| echo: true
+from edumath.discrete_math import degree, degree_sequence, is_connected, is_path, neighbors
+
+vertices = ("A", "B", "C", "D")
+edges = (("A", "B"), ("A", "C"), ("B", "C"), ("C", "D"))
+
+degree(vertices, edges, "C"), degree_sequence(vertices, edges)
+```
+
+```{python}
+#| echo: true
+neighbors(vertices, edges, "A"), is_path(vertices, edges, ("A", "B", "C", "D")), is_connected(vertices, edges)
+```
+
+SymPy is not the main tool for introductory graph theory. For larger graph
+projects, a specialized library such as NetworkX is useful, but this lesson uses
+small built-in helpers to keep the ideas transparent.

@@ -1,48 +1,175 @@
 ---
 title: Logic
-description: Propositions, truth values, and implication.
+description: Propositions, truth values, connectives, implication, and truth tables.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Logic is the grammar of mathematical reasoning. It helps us say exactly what is
+being assumed, what must be proved, and when a statement is true or false.
 
-- Work with true/false propositions.
-- Interpret logical implication.
-- Generate simple truth tables.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- identify propositions;
+- use `not`, `and`, `or`, implication, and biconditional;
+- build and read truth tables;
+- explain when `p -> q` is false;
+- distinguish converse and contrapositive;
+- recognize tautologies and contradictions.
 :::
 
-```{python}
-from edumath.discrete_math.logic import implies, truth_table
+## Propositions
 
-truth_table(("p", "q"), implies)
+A **proposition** is a statement that is either true or false.
+
+Examples:
+
+- `7 is prime.` This is a proposition and it is true.
+- `10 < 4.` This is a proposition and it is false.
+- `Close the door.` This is not a proposition because it is a command.
+- `This number is large.` This is too vague unless "large" is defined.
+
+## Logical connectives
+
+| Symbol | Name | Meaning |
+|---|---|---|
+| `not p` | negation | the opposite truth value of `p` |
+| `p and q` | conjunction | true only when both are true |
+| `p or q` | disjunction | true when at least one is true |
+| `p -> q` | implication | if `p`, then `q` |
+| `p <-> q` | biconditional | `p` and `q` have the same truth value |
+
+::: {.callout-tip}
+### Inclusive or
+
+In mathematics, `or` usually means inclusive or. The statement `p or q` is true
+when `p` is true, when `q` is true, or when both are true.
+:::
+
+## Implication
+
+The implication `p -> q` is false only in one case: `p` is true and `q` is
+false.
+
+Think of it as a promise:
+
+> If `p` happens, then `q` must happen.
+
+The promise is broken only when `p` happens but `q` does not.
+
+## Converse and contrapositive
+
+For the statement `p -> q`:
+
+- converse: `q -> p`;
+- inverse: `not p -> not q`;
+- contrapositive: `not q -> not p`.
+
+The original implication and the contrapositive are logically equivalent. The
+converse is not always equivalent.
+
+## Worked example 1: truth table for implication
+
+| `p` | `q` | `p -> q` |
+|---|---|---|
+| false | false | true |
+| false | true | true |
+| true | false | false |
+| true | true | true |
+
+The only false row is the row where the premise `p` is true and the conclusion
+`q` is false.
+
+## Worked example 2: contrapositive
+
+Statement:
+
+```text
+If a number is divisible by 4, then it is even.
 ```
 
+Contrapositive:
+
+```text
+If a number is not even, then it is not divisible by 4.
+```
+
+These two statements are equivalent. The converse would be:
+
+```text
+If a number is even, then it is divisible by 4.
+```
+
+That converse is false because `6` is even but not divisible by `4`.
+
+## Tautologies and contradictions
+
+A **tautology** is always true, such as `p or not p`.
+A **contradiction** is always false, such as `p and not p`.
+
+## Common pitfalls
+
+- Treating mathematical `or` as exclusive.
+- Thinking `p -> q` is false whenever `q` is false.
+- Confusing the converse with the contrapositive.
+- Calling vague sentences propositions.
+- Forgetting one or more rows in a truth table.
+
+## Practice
+
 ::: {.practice-box}
-1. When is `p -> q` false?
-2. What does a truth table show?
-3. Why is logic useful for proofs and programming?
+1. Is `x + 2 = 5` a proposition before `x` is specified?
+2. When is `p and q` true?
+3. Write the converse of `p -> q`.
+4. Write the contrapositive of `p -> q`.
+5. Is `p or not p` a tautology?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: when `p` is true and `q` is false.
-
-That is the only case where an implication fails.
+1. Not by itself. Its truth depends on the value of `x`.
+2. Only when both `p` and `q` are true.
+3. `q -> p`.
+4. `not q -> not p`.
+5. Yes. It is always true.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Logic checkpoint
 
-Answer: every combination of truth values for the inputs and the resulting
-truth value of the expression.
-:::
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "logic",
+  "title": "Logic checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/discrete-math-checkpoint.qmd >}}
 
-Answer: logic makes assumptions, conditions, implications, and correctness
-precise.
-:::
+## Using this lesson with edumath and SymPy
+
+```{python}
+#| echo: true
+from edumath.discrete_math import implies, is_tautology, truth_table_rows
+
+truth_table_rows(("p", "q"), "Implies(p, q)")
+```
+
+```{python}
+#| echo: true
+is_tautology(truth_table_rows(("p",), "p | ~p"))
+```
+
+SymPy can also manipulate Boolean expressions directly.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+p, q = sp.symbols("p q")
+sp.Equivalent(sp.Implies(p, q), sp.Implies(~q, ~p))
+```

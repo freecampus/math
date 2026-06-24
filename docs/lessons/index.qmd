@@ -87,7 +87,7 @@ and systems.
 
 Logic, sets, relations, sequences, induction, and graph basics.
 
-[Start Discrete Mathematics](discrete-math/logic.qmd)
+[Start Discrete Mathematics](discrete-math/index.qmd)
 :::
 
 ::: {.topic-card}

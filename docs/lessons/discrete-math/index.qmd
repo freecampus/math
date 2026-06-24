@@ -1,0 +1,129 @@
+---
+title: Discrete Mathematics Study Path
+description: A guided path through logic, sets, relations, sequences, proofs, and graphs.
+execute:
+  echo: false
+---
+
+Discrete mathematics studies objects that come in separate pieces: truth values,
+set elements, ordered pairs, integer-indexed patterns, proof steps, and network
+nodes. It is the language behind programming, algorithms, databases, graph
+networks, probability, and many proof-based math courses.
+
+::: {.learning-objectives}
+### What you should be able to do after this path
+
+- Use logic to decide whether statements are true or false.
+- Compute set operations and explain membership.
+- Decide whether a relation is a function.
+- Work with explicit and recursive sequences.
+- Understand the structure of induction proofs.
+- Read small graph models made of vertices and edges.
+- Check examples with Python, SymPy, and `edumath`.
+:::
+
+## What makes discrete math different?
+
+In calculus, many ideas are about smooth change. In discrete math, many ideas
+are about exact structure. A question may ask:
+
+- Is this statement true?
+- Is this object a member of the set?
+- Is this relation a function?
+- What is the next term?
+- Does this proof step really follow?
+- Can this node be reached from that node?
+
+The answers often depend on definitions. If a problem feels confusing, slow
+down and ask: **which definition applies here?**
+
+::: {.key-idea}
+### The most useful habit
+
+Discrete math rewards examples and counterexamples. One counterexample is enough
+to disprove a false universal claim.
+:::
+
+## Prerequisite checklist
+
+::: {.practice-box}
+1. Can you tell whether a sentence is true or false?
+2. Can you work with small Python sets such as `{1, 2, 3}`?
+3. Can you read ordered pairs such as `(input, output)`?
+4. Can you recognize arithmetic and geometric patterns?
+5. Can you follow a short proof written in sentences?
+6. Can you draw a small network of dots and lines?
+:::
+
+You do not need to be perfect. Each lesson reviews the needed notation.
+
+## Lesson sequence
+
+1. **Logic**: propositions, connectives, implication, and truth tables.
+2. **Sets**: membership, subsets, operations, power sets, and Cartesian products.
+3. **Functions and relations**: ordered pairs, domains, ranges, and relation
+   properties.
+4. **Sequences**: explicit rules, recursive rules, arithmetic and geometric
+   patterns.
+5. **Induction**: proving statements for all positive integers.
+6. **Graphs**: vertices, edges, paths, degrees, and connectedness.
+
+## How to study this module
+
+1. Write each definition in your own words.
+2. Make the smallest example possible.
+3. Make a nonexample so you know where the definition fails.
+4. Draw a diagram or table.
+5. Check small examples with code.
+6. Explain why the answer is true.
+
+## Readiness checkpoint
+
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "discrete-math-cumulative-review",
+  "title": "Discrete mathematics readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+
+{{< include _includes/discrete-math-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` for small truth tables.
+
+```{python}
+#| echo: true
+from edumath.discrete_math import implies, truth_table
+
+truth_table(("p", "q"), implies)
+```
+
+Use Python sets for concrete set operations.
+
+```{python}
+#| echo: true
+A = {1, 2, 3}
+B = {3, 4}
+A | B, A & B, A - B
+```
+
+Use SymPy to check symbolic summations when studying sequences or induction.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+n = sp.Symbol("n", positive=True, integer=True)
+sp.summation(n, (n, 1, 5))
+```
+
+Code helps check examples. Proofs still require clear definitions and reasons.
+
+## Further reading
+
+- Oscar Levin, *Discrete Mathematics: An Open Introduction*:
+  <https://discrete.openmathbooks.org/>
+- MIT OpenCourseWare discrete mathematics materials: <https://ocw.mit.edu/>
+- Susanna Epp, *Discrete Mathematics with Applications*.

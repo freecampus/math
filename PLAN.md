@@ -1,94 +1,94 @@
-# PLAN: Differential Equations Lessons
+# PLAN: Discrete Mathematics Lessons
 
-Target directory: `docs/lessons/differential-equations/`
+Target directory: `docs/lessons/discrete-math/`
 
-This plan describes how to turn the Differential Equations lesson sequence into
+This plan describes how to rebuild the Discrete Mathematics lesson sequence into
 a complete, beginner-friendly preparation module. The current pages are short
 starter lessons. The goal is to write self-contained study material for learners
-who know basic algebra and calculus but may be seeing differential equations for
-the first time.
+who may know algebra and basic programming but are new to proof, logic, sets,
+relations, recurrence, induction, and graphs.
 
-The lessons should emphasize meaning before technique: a differential equation
-is not just an equation to solve, but a rule that describes how a quantity
-changes. Students should learn to interpret equations verbally, graphically,
-numerically, and symbolically.
+Discrete mathematics should feel concrete before it feels formal. Each lesson
+should connect symbols to everyday examples, computation, proof habits, and
+small interactive checkpoints.
 
 ## Current lesson files
 
-Current pages in `docs/lessons/differential-equations/`:
+Current pages in `docs/lessons/discrete-math/`:
 
-1. `first-order-equations.qmd`
-2. `separable-equations.qmd`
-3. `linear-equations.qmd`
-4. `slope-fields.qmd`
-5. `systems.qmd`
+1. `logic.qmd`
+2. `sets.qmd`
+3. `functions-relations.qmd`
+4. `sequences.qmd`
+5. `induction.qmd`
+6. `graphs.qmd`
 
-Also present:
+Also present during inspection:
 
-- `slope-fields.quarto_ipynb` — likely a generated or old notebook-style file.
-  Before implementing content, inspect whether it is tracked and still needed.
-  If it is generated or obsolete, remove it from the lesson workflow. The site
-  should primarily use `.qmd` pages.
+- `logic.quarto_ipynb`
+- `sets.quarto_ipynb`
 
-Recommended additions:
+These appear to be generated Quarto notebook artifacts rather than the intended
+source pages. Before implementation, verify whether they are tracked. If they
+are untracked/generated, remove them from the working tree. The lesson source
+should remain `.qmd` files.
 
-1. `index.qmd` — Differential Equations study path overview and readiness
+Recommended addition:
+
+7. `index.qmd` — Discrete Mathematics study path overview and readiness
    checklist.
-2. Optional later page: `modeling-review.qmd` or `applications.qmd` if the
-   course needs a standalone applications lesson after the five core pages.
 
-Update `docs/_quarto.yml` so the Differential Equations sidebar starts with the
-new index page if `index.qmd` is added.
+Update `docs/_quarto.yml` so the Discrete Mathematics sidebar starts with the
+new index page if `index.qmd` is added. Update `docs/lessons/index.qmd` so the
+Discrete Mathematics card links to `discrete-math/index.qmd` instead of the
+first content page.
 
 ## Overall pedagogical goals
 
-The Differential Equations module should help students move from calculus facts
-to dynamic reasoning.
+The Discrete Mathematics module should help students move from calculation to
+precise reasoning.
 
 By the end of the path, a student should be able to say:
 
-> A differential equation describes how a quantity changes. A solution is a
-> function whose derivative follows that change rule. I can understand a
-> differential equation from its formula, slope field, numerical approximation,
-> symbolic solution, equilibrium behavior, and units.
+> Discrete mathematics studies objects that are separate or countable: truth
+> values, sets, relations, sequences, proofs, and networks. I can use precise
+> definitions, examples, counterexamples, and simple algorithms to reason about
+> finite and countable structures.
 
-Students should learn to answer these questions repeatedly:
+Students should repeatedly practice these habits:
 
-- What is changing?
-- What variable measures the input, usually time or position?
-- What does the derivative mean in context?
-- Does the equation give a growth rule, decay rule, forcing term, or
-  interaction?
-- Is the solution a single function or a family of functions?
-- What initial condition selects one solution?
-- Can the equation be solved exactly, approximated numerically, or studied
-  qualitatively?
-- What does the result mean in plain language?
+- State exactly what the objects are.
+- Check definitions before guessing.
+- Use examples to understand a pattern.
+- Use counterexamples to disprove false claims.
+- Translate between words, symbols, tables, diagrams, and code.
+- Explain why an answer is true, not only what the answer is.
+- Distinguish a statement, its converse, its inverse, and its contrapositive.
+- Check whether a rule is a function, a relation, an equivalence relation, or a
+  graph property.
 
 ## Prerequisites to reinforce throughout
 
-The lessons should quietly review prerequisite skills instead of assuming
+The lessons should review prerequisite ideas in context instead of assuming
 students remember everything perfectly:
 
-- interpreting derivatives as rates of change;
-- basic antiderivatives;
-- separation of variables and integration constants;
-- exponentials and logarithms;
-- algebraic rearrangement;
+- basic algebraic notation;
 - function notation;
-- reading graphs;
-- solving equations such as `Ce^{kt} = A`;
-- interpreting units;
-- basic matrix-vector multiplication for systems.
+- ordered pairs;
+- simple equations and inequalities;
+- exponents and sums;
+- reading tables;
+- basic Python lists, sets, dictionaries, loops, and conditionals;
+- careful English reading;
+- basic proof vocabulary such as assume, therefore, and contradiction.
 
-Whenever a prerequisite appears, include a short reminder box. For example, in a
-separable equation lesson, remind students that `\int 1/y dy = ln|y| + C` and
-explain why the absolute value appears.
+Whenever a prerequisite appears, include a short reminder box. For example, in
+induction, remind students that `k+1` means "the next integer after `k`," not a
+separate unrelated variable.
 
 ## Global lesson standards
 
-Each Differential Equations lesson should follow the repository lesson
-standards.
+Each Discrete Mathematics lesson should follow the repository lesson standards.
 
 Use this structure for every `.qmd` page:
 
@@ -101,7 +101,8 @@ Use this structure for every `.qmd` page:
 
 2. A short introduction explaining why the topic matters.
 3. Learning objectives written as student-facing action statements.
-4. Concept sections with definitions, intuition, formulas, and common pitfalls.
+4. Concept sections with definitions, intuition, formulas, diagrams, and common
+   pitfalls.
 5. Worked examples with step-by-step reasoning.
 6. Practice exercises with answers or collapsed solutions.
 7. A topic-specific interactive checkpoint or guessing game before the Python
@@ -112,68 +113,72 @@ Use this structure for every `.qmd` page:
    Using this lesson with edumath and SymPy
    ```
 
-   This final section should use visible code blocks with `#| echo: true`.
+   Use visible code blocks with `#| echo: true` in this final section.
 
-Do not call the lesson pages notebooks in navigation or prose unless a page is
+Do not call these pages notebooks in navigation or lesson prose unless a page is
 specifically about notebook usage.
 
 ## Code visibility guidelines
 
 In the main lesson body:
 
-- hide setup code with `execute: echo: false`;
-- show mathematical outputs, plots, tables, and explanations;
-- avoid raw implementation code unless the code itself is the lesson objective.
+- hide helper code with `execute: echo: false`;
+- show tables, diagrams, truth tables, set calculations, graphs, and
+  conclusions;
+- avoid raw setup code unless the code itself is the teaching target.
 
 In the final `Using this lesson with edumath and SymPy` appendix:
 
 - show visible Python examples with `#| echo: true`;
-- include examples that students can copy into Quarto, Jupyter, Colab, or a
-  local Python session;
-- explain how to interpret symbolic and numerical results;
-- show both exact SymPy workflows and reusable `edumath` helper functions when
-  available.
+- use `edumath.discrete_math` helpers when available;
+- use SymPy for logic simplification, set notation, summations, recurrence
+  checking, and symbolic verification when appropriate;
+- use Python standard-library examples when they are clearer than SymPy.
+
+SymPy is useful for symbolic logic, sets, summations, and recurrence checking,
+but it is not a replacement for learning definitions and proof structure.
 
 ## Shared interaction plan
 
 Create a reusable static checkpoint include:
 
 ```text
-docs/lessons/differential-equations/_includes/differential-equations-checkpoint.qmd
+docs/lessons/discrete-math/_includes/discrete-math-checkpoint.qmd
 ```
 
-The include should use browser-native JavaScript, similar to the Algebra and
-Calculus checkpoint patterns, so published HTML remains interactive without a
-live Python kernel.
+The include should use browser-native JavaScript, similar to the Algebra,
+Calculus, and Differential Equations checkpoint patterns, so published HTML
+remains interactive without a live Python kernel.
 
 Potential topic keys:
 
-- `first-order-equations`
-- `separable-equations`
-- `linear-equations`
-- `slope-fields`
-- `systems`
-- `differential-equations-cumulative-review`
+- `logic`
+- `sets`
+- `functions-relations`
+- `sequences`
+- `induction`
+- `graphs`
+- `discrete-math-cumulative-review`
 
 The include should support flexible question types:
 
 - multiple choice;
-- short numeric answer;
-- expression matching by normalized text where possible;
-- qualitative classification;
-- guess a solution from a differential equation;
-- guess an equation from a slope field description;
-- match a model to a real situation;
-- identify equilibrium points;
-- choose the next Euler step.
+- true/false;
+- match a definition to an example;
+- choose a counterexample;
+- guess the next sequence term;
+- classify a relation property;
+- identify a graph property;
+- choose the correct induction step;
+- evaluate a small truth table row.
 
 Use one JSON configuration block per lesson, for example:
 
 ```html
-<script type="application/json" class="edu-math-de-checkpoint-config">
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
   {
-    "topic": "separable-equations",
-    "title": "Separable equation checkpoint",
+    "topic": "logic",
+    "title": "Logic checkpoint",
     "defaultTotal": 4
   }
 </script>
@@ -182,67 +187,66 @@ Use one JSON configuration block per lesson, for example:
 Then include the shared fragment:
 
 ```qmd
-{{< include _includes/differential-equations-checkpoint.qmd >}}
+{{< include _includes/discrete-math-checkpoint.qmd >}}
 ```
 
 ### Checkpoint game principles
 
 Each guessing game should teach the lesson topic, not merely decorate the page.
-Good differential-equation guessing games include:
+Good discrete-math guessing games include:
 
-- guess whether an equation is separable, linear, both, or neither;
-- guess which symbolic solution matches an ODE and initial condition;
-- guess the long-term behavior from the sign of `dy/dt`;
-- guess the missing integration constant from an initial condition;
-- guess the next Euler point;
-- guess the equilibrium from a formula;
-- guess whether a system spirals, grows, decays, or stays steady based on a
-  simple coefficient matrix.
+- guess the truth value of a compound proposition;
+- choose the row that makes an implication false;
+- guess a set union, intersection, complement, or difference;
+- classify a relation as reflexive, symmetric, transitive, function, or not;
+- guess the next term or closed form of a sequence;
+- choose the missing line in an induction proof;
+- classify a graph by degree, path, cycle, connectedness, or directedness;
+- choose a counterexample to a false statement.
 
-Each game should give supportive feedback, not just right/wrong scoring.
-Feedback should explain the reasoning in one or two sentences.
+Feedback should be explanatory and friendly. It should say why the answer is
+correct or why a common wrong answer is tempting.
 
-## Online symbolic computation options
+## Online computation options
 
-The main computational appendix should use SymPy because it is powerful,
-open-source, and already familiar from other lessons.
+The main computational appendix should use Python and SymPy where helpful.
+Discrete mathematics also benefits from lightweight browser-side tools.
 
-Also mention, when useful, browser-side symbolic or numeric libraries that can
-support online exercises:
+Potential online libraries and tools:
 
 - **PyScript/Pyodide + SymPy**: lets students run Python and SymPy in the
-  browser. This is the closest web equivalent to using SymPy directly.
-- **Math.js**: strong JavaScript library for numeric computation and expression
-  parsing; useful for checking arithmetic, plotting data, and evaluating right-
-  hand sides of differential equations.
-- **Nerdamer**: JavaScript symbolic algebra library that can solve and simplify
-  many expressions; useful for lightweight browser exercises.
-- **Algebrite**: JavaScript computer algebra system inspired by symbolic
-  manipulation systems; useful for some symbolic simplification and calculus.
+  browser. Good for truth tables, sets, summations, recurrence checks, and graph
+  algorithms on small examples.
+- **Math.js**: useful for evaluating numeric expressions, simple Boolean
+  expressions, and sequence rules in browser activities.
+- **Nerdamer**: useful for symbolic algebra and recurrence/summation checking in
+  simple browser exercises.
+- **Algebrite**: useful for lightweight symbolic manipulation.
+- **Cytoscape.js**: useful for future interactive graph visualizations.
+- **D3.js**: useful for custom set diagrams, graph diagrams, and interactive
+  finite structures.
 
-Do not add a heavy dependency automatically. Prefer static JavaScript for simple
-checkpoints. Propose PyScript/SymPy only for optional advanced interactive cells
-or future enhancement pages.
+Do not add heavy JavaScript dependencies automatically. Prefer static
+browser-native JavaScript for checkpoints. Propose PyScript or graph libraries
+only for optional future enhancements.
 
 ## Proposed `edumath` package support
 
-The current source package contains `src/edumath/differential_equations/`, but
-most modules are empty except `solvers.py`, which currently includes Euler's
-method. The lesson implementation should add small, reusable helpers only when
-they directly improve pedagogy.
+The current package contains `src/edumath/discrete_math/`, but most modules are
+empty except `logic.py`, which includes `truth_table` and `implies`. Add small,
+reusable helpers only when they directly improve pedagogy.
 
-Recommended public helpers:
-
-### `src/edumath/differential_equations/concepts.py`
+### `src/edumath/discrete_math/concepts.py`
 
 Add concept metadata similar to other branches:
 
-- `FIRST_ORDER_EQUATIONS`
-- `SEPARABLE_EQUATIONS`
-- `LINEAR_EQUATIONS`
-- `SLOPE_FIELDS`
-- `SYSTEMS`
-- `DIFFERENTIAL_EQUATIONS_PATH`
+- `LOGIC`
+- `SETS`
+- `FUNCTIONS_RELATIONS`
+- `SEQUENCES`
+- `INDUCTION`
+- `GRAPHS`
+- `DISCRETE_MATH_PATH`
 
 Each concept should include:
 
@@ -250,110 +254,159 @@ Each concept should include:
 - slug;
 - short description;
 - prerequisites;
-- learning goals;
-- common mistakes.
+- measurable learning goals;
+- common mistakes or tags.
 
-### `src/edumath/differential_equations/solvers.py`
+Expected path order:
 
-Keep the existing `euler_method` and consider adding:
+```text
+logic -> sets -> functions-relations -> sequences -> induction -> graphs
+```
 
-- `improved_euler_method` or `heun_method` for optional comparison;
-- `rk4_method` only if needed for a later numerical methods lesson;
-- `direction_field_values(f, x_values, y_values)` returning normalized slope
-  segments or slope samples;
-- `equilibrium_points_1d(expression, variable="y")` for simple autonomous
-  equations;
-- `classify_equilibrium_1d(expression, point, variable="y")` using sign changes
-  on either side;
-- `solve_separable_sympy(...)` as a guided wrapper only if it can stay simple;
-- `solve_first_order_linear_sympy(...)` for integrating-factor examples, only if
-  the API remains clear.
+### `src/edumath/discrete_math/logic.py`
 
-Avoid overpromising a general ODE solver. SymPy already provides `dsolve`; the
-`edumath` layer should help students understand steps and examples.
+Keep existing helpers and consider adding:
 
-### `src/edumath/differential_equations/plots.py`
+- `not_`, `and_`, `or_`, `xor`, `iff`;
+- `contrapositive_truth_table()` or a generic expression truth-table helper;
+- `truth_table_rows(variables, expression)` for simple expression strings;
+- `is_tautology(rows)`;
+- `is_contradiction(rows)`;
+- `is_equivalent(function_a, function_b, variables)`.
 
-Add plotting-scene helpers returning reusable scene data or Matplotlib axes:
+Keep names clear and avoid overriding Python keywords directly. For example, use
+`and_` instead of `and`.
 
-- `slope_field_scene(...)`
-- `euler_method_scene(...)`
-- `solution_family_scene(...)`
-- `phase_line_scene(...)`
-- `linear_system_phase_plane_scene(...)` for simple two-dimensional systems.
+### `src/edumath/discrete_math/sets.py` or `exercises.py`
 
-Keep helpers lightweight and testable. If existing `edumath.core.plots` has
-scene structures, reuse them.
+There is no `sets.py` currently. Consider either adding a small `sets.py` module
+or keeping set helpers in `exercises.py` and `validators.py`.
 
-### `src/edumath/differential_equations/exercises.py`
+Potential helpers:
+
+- `set_operation_table(a, b)` returning union, intersection, difference, and
+  symmetric difference;
+- `venn_region_counts(a, b, universe=None)`;
+- `power_set(iterable)` for small sets;
+- `cartesian_product(a, b)`;
+- `is_subset_answer(received, expected)` validator.
+
+### `src/edumath/discrete_math/exercises.py`
 
 Add deterministic exercise builders:
 
-- `classify_ode_exercise(seed=...)`;
-- `separable_solution_exercise(seed=...)`;
-- `linear_integrating_factor_exercise(seed=...)`;
-- `euler_step_exercise(seed=...)`;
-- `equilibrium_exercise(seed=...)`;
-- `system_equilibrium_exercise(seed=...)`.
+- `truth_table_exercise(seed=...)`;
+- `set_operation_exercise(seed=...)`;
+- `relation_classification_exercise(seed=...)`;
+- `sequence_next_term_exercise(seed=...)`;
+- `induction_step_exercise(seed=...)`;
+- `graph_degree_exercise(seed=...)`.
 
-Each exercise should include prompt, answer, hints, and a short solution.
+Each exercise should include prompt, expected answer, hints, explanation, tags,
+and validators where useful.
 
-### `src/edumath/differential_equations/validators.py`
+### `src/edumath/discrete_math/validators.py`
 
 Add small checkers:
 
-- `validate_solution_satisfies_ode(candidate, ode_rhs, variable="x", function_name="y")`;
-- `validate_initial_condition(candidate, x0, y0, ...)`;
-- `validate_numeric_trajectory(points, expected, tolerance=...)`;
-- `validate_equilibrium(candidate, rhs, variable="y")`.
+- `validate_truth_value(received, expected)`;
+- `validate_set_answer(received, expected)`;
+- `validate_ordered_pairs(received, expected)`;
+- `validate_sequence_terms(received, expected, tolerance=...)`;
+- `validate_relation_properties(received, expected)`;
+- `validate_graph_degree_sequence(received, expected)`.
 
-Use SymPy for symbolic checks where appropriate, but keep failure modes clear.
+Validators should accept natural student formats when practical, such as Python
+sets, lists, tuples, and simple comma-separated strings.
 
-### `src/edumath/differential_equations/quizzes.py`
+### `src/edumath/discrete_math/plots.py`
 
-Add reusable quiz-question builders:
+Add lightweight plotting or scene helpers:
 
-- classify ODE type;
-- identify initial condition;
-- match slope field behavior;
-- compute an Euler step;
-- select a correct separable solution;
-- identify equilibrium and stability.
+- `venn_two_set_scene(a, b, universe=None)` or a simple data structure for Venn
+  diagrams;
+- `relation_arrow_scene(domain, codomain, pairs)`;
+- `sequence_points_scene(terms)`;
+- `finite_graph_scene(vertices, edges, directed=False)`.
+
+Prefer small reusable scene data and Matplotlib drawings. Do not add NetworkX as
+a dependency unless a clear need is established. If NetworkX-like functionality
+is useful, implement tiny finite-graph helpers for lesson examples first.
+
+### `src/edumath/discrete_math/quizzes.py`
+
+Add quiz-question builders:
+
+- truth table row question;
+- implication false-case question;
+- set operation question;
+- relation/function classification question;
+- sequence pattern question;
+- induction proof structure question;
+- graph degree/path question;
+- cumulative discrete-math diagnostic quiz.
+
+### Optional `src/edumath/discrete_math/relations.py`
+
+If relation logic becomes substantial, add a dedicated module with:
+
+- `is_function(pairs)`;
+- `domain(pairs)`;
+- `range_(pairs)`;
+- `is_reflexive(pairs, universe)`;
+- `is_symmetric(pairs)`;
+- `is_transitive(pairs)`;
+- `compose_relations(r, s)`.
+
+### Optional `src/edumath/discrete_math/graphs.py`
+
+If graph helpers become substantial, add a dedicated module with:
+
+- `degree(vertices, edges, vertex)`;
+- `degree_sequence(vertices, edges)`;
+- `neighbors(vertices, edges, vertex)`;
+- `is_path(vertices, edges, walk)`;
+- `is_connected(vertices, edges)` for tiny undirected graphs;
+- `has_cycle(vertices, edges)` for tiny examples.
+
+Keep APIs intentionally small and testable.
 
 ### Tests
 
-Add `tests/test_differential_equations_helpers.py` covering:
+Add `tests/test_discrete_math_helpers.py` covering:
 
-- current and new solver behavior;
+- existing and new logic helpers;
 - deterministic exercise generation;
-- validators for correct and incorrect answers;
+- validators accepting correct and rejecting incorrect answers;
 - concept path slugs;
-- plotting scene data shape;
-- quiz question structure.
+- relation classification helpers if added;
+- graph degree/path helpers if added;
+- plotting scene render or scene-data shape;
+- quiz builder structure.
 
-Keep API small. Do not add helpers merely because they are possible.
+Run the full test suite if any shared helpers are changed.
 
 ## Documentation implementation phases
 
 ### Phase 1 — Planning and structure
 
 1. Replace `PLAN.md` with this plan.
-2. Inspect all current differential-equation pages and source helpers.
+2. Inspect all current discrete-math pages and source helpers.
 3. Decide whether to add `index.qmd` immediately.
-4. Decide whether to keep, remove, or ignore `slope-fields.quarto_ipynb`.
+4. Remove generated `.quarto_ipynb*` artifacts if they are untracked.
 5. Create the shared checkpoint include.
 6. Add sidebar entry for the new index page if created.
+7. Update the Discrete Mathematics card in `docs/lessons/index.qmd`.
 
 ### Phase 2 — Source helper additions
 
-1. Implement only the `edumath` helpers needed by the lesson content.
-2. Export the small public API from
-   `src/edumath/differential_equations/__init__.py`.
+1. Implement only `edumath` helpers needed by the lesson content.
+2. Export the small public API from `src/edumath/discrete_math/__init__.py`.
 3. Add tests before relying on helpers in docs.
 4. Run:
 
    ```bash
-   poetry run pytest tests/test_differential_equations_helpers.py
+   poetry run pytest tests/test_discrete_math_helpers.py
    ```
 
 5. Run broader tests if helpers touch shared modules:
@@ -367,14 +420,15 @@ Keep API small. Do not add helpers merely because they are possible.
 Write the lessons in this order:
 
 1. `index.qmd`
-2. `first-order-equations.qmd`
-3. `separable-equations.qmd`
-4. `linear-equations.qmd`
-5. `slope-fields.qmd`
-6. `systems.qmd`
+2. `logic.qmd`
+3. `sets.qmd`
+4. `functions-relations.qmd`
+5. `sequences.qmd`
+6. `induction.qmd`
+7. `graphs.qmd`
 
-This order builds from meaning, to symbolic solving, to numerical/visual
-reasoning, to multi-variable dynamics.
+This order builds from truth values, to collections, to mappings, to ordered
+patterns, to proof, to network structures.
 
 ### Phase 4 — Validation
 
@@ -392,22 +446,23 @@ poetry run pytest
 ```
 
 If Quarto creates temporary files, remove generated scratch/session folders,
-especially `docs/.quarto/quarto-session-temp*`.
+especially `docs/.quarto/quarto-session-temp*`, `.quarto-tmp/`, and unwanted
+`*.quarto_ipynb*` artifacts.
 
 ## Lesson plan: `index.qmd`
 
 ### Purpose
 
-Create a friendly overview page that explains what differential equations are,
-why they matter, and how the lesson sequence fits together.
+Create a friendly overview page that explains what discrete mathematics is, why
+it matters, and how the lesson sequence fits together.
 
 ### Front matter
 
 ```yaml
 ---
-title: Differential Equations Study Path
+title: Discrete Mathematics Study Path
 description:
-  A guided path through first-order equations, slope fields, and systems.
+  A guided path through logic, sets, relations, sequences, proofs, and graphs.
 execute:
   echo: false
 ---
@@ -417,667 +472,676 @@ execute:
 
 1. **Opening intuition**
 
-   - A regular equation asks for a number.
-   - A differential equation asks for a function.
-   - The equation gives a rule for the derivative.
-   - A solution is a function that follows the rule.
+   - Continuous math studies smooth change.
+   - Discrete math studies separate objects: truth values, elements, pairs,
+     integers, steps, and nodes.
+   - It supports computer science, algorithms, data structures, databases,
+     proofs, networks, and probability.
 
-2. **Why differential equations matter**
+2. **What makes discrete math different**
 
-   - population growth;
-   - cooling and heating;
-   - motion;
-   - medicine concentration;
-   - finance and interest;
-   - predator-prey models;
-   - electrical circuits.
+   - Definitions matter more than long formulas.
+   - Counterexamples are powerful.
+   - Many questions are yes/no or classification questions.
+   - Proof and algorithmic thinking appear often.
 
 3. **Prerequisite checklist**
 
-   - derivative meaning;
-   - basic antiderivatives;
-   - exponentials/logarithms;
-   - graph reading;
-   - algebraic rearrangement;
-   - initial conditions.
+   - basic algebra;
+   - functions;
+   - tables;
+   - simple Python;
+   - careful reading;
+   - willingness to explain reasoning.
 
 4. **The study path**
 
-   - first-order equations: language and meaning;
-   - separable equations: exact symbolic solving by separating variables;
-   - linear equations: integrating factors and forcing terms;
-   - slope fields: visual and numerical reasoning;
-   - systems: several changing quantities at once.
+   - logic: truth and implication;
+   - sets: membership and operations;
+   - functions and relations: pairs and structure;
+   - sequences: ordered patterns and recursion;
+   - induction: proof over infinitely many integers;
+   - graphs: vertices, edges, paths, and networks.
 
 5. **How to study**
 
-   - read equations aloud;
-   - check units;
-   - sketch direction before solving;
-   - verify by differentiating;
-   - use computation as a checker;
-   - explain results in words.
+   - write definitions in your own words;
+   - make tiny examples;
+   - search for counterexamples;
+   - draw diagrams;
+   - check with code;
+   - explain why, not only what.
 
 6. **Readiness checkpoint game**
 
-   - use topic key `differential-equations-cumulative-review`;
-   - ask students to classify short prompts as derivative, solution, initial
-     condition, equilibrium, or model.
+   - topic key `discrete-math-cumulative-review`;
+   - ask students to classify prompts as logic, set, relation, sequence,
+     induction, or graph ideas.
 
 7. **Using this lesson with edumath and SymPy**
-   - visible imports from `edumath.differential_equations`;
-   - show `euler_method` on `y' = y`;
-   - show SymPy `dsolve` for `y' = y`;
-   - explain that the exact solution and Euler approximation are different kinds
-     of answers.
+   - show `truth_table` and `implies`;
+   - show Python set operations;
+   - show SymPy logic simplification or symbolic summation;
+   - explain that code checks examples but does not replace proof.
 
 ### Practice ideas
 
-- Identify whether each sentence describes a derivative, a solution, or an
-  initial condition.
-- Match a real situation to a differential equation form.
-- Explain in words what `dy/dt = 0.2y` means.
+- Identify which discrete-math topic best fits a scenario.
+- Decide whether a statement is true, false, or not precise enough.
+- Give a tiny example of a set, relation, sequence, and graph.
 
-## Lesson plan: `first-order-equations.qmd`
+## Lesson plan: `logic.qmd`
 
 ### Purpose
 
-Teach students what a first-order differential equation is and how to interpret
-it before solving anything complicated.
+Teach propositions, truth values, logical connectives, implication, equivalence,
+and truth tables as foundations for proof and programming.
 
 ### Main learning objectives
 
 Students should be able to:
 
-- recognize an equation involving a first derivative;
-- distinguish the independent variable, dependent variable, derivative, and
-  right-hand side;
-- explain what a solution function means;
-- understand an initial condition;
-- verify a proposed solution by substitution;
-- interpret units in a first-order model.
+- identify propositions;
+- use `not`, `and`, `or`, implication, and biconditional;
+- build and read truth tables;
+- identify when `p -> q` is false;
+- distinguish converse and contrapositive;
+- recognize tautologies and contradictions;
+- connect logic to if-statements and proof structure.
 
 ### Content outline
 
-1. **Motivation: rules for change**
+1. **Motivation: precision in statements**
 
-   - Compare `y = 3x + 2` with `dy/dx = 3`.
-   - Explain that a differential equation often tells how a quantity changes,
-     not the quantity directly.
+   - A proposition is a statement that is true or false.
+   - Questions, commands, and vague sentences are not propositions.
 
-2. **Definition**
+2. **Truth values**
 
-   - A first-order ODE involves the first derivative of an unknown function.
-   - General form:
+   - Define true and false.
+   - Use examples from math and everyday language.
 
-     ```text
-     dy/dx = f(x, y)
-     ```
+3. **Connectives**
 
-   - Define `x`, `y`, `dy/dx`, and `f(x, y)`.
+   - `not p`;
+   - `p and q`;
+   - `p or q` inclusive meaning;
+   - `p -> q` implication;
+   - `p <-> q` if and only if.
 
-3. **Solution functions**
+4. **Implication carefully**
 
-   - A solution is a function `y(x)` that makes the equation true.
-   - Demonstrate verification:
+   - `p -> q` is false only when `p` is true and `q` is false.
+   - Explain why this feels strange at first.
+   - Connect to promises: if the condition happens, the result must happen.
 
-     ```text
-     y = Ce^x solves dy/dx = y
-     ```
+5. **Truth tables**
 
-   - Different constants give different curves.
+   - Show how to list all combinations.
+   - Work through `p -> q`.
+   - Work through `(p -> q) <-> (~q -> ~p)` to show contrapositive equivalence.
 
-4. **Initial conditions**
+6. **Converse, inverse, contrapositive**
 
-   - Explain `y(0) = 5` as a starting value.
-   - Show how it selects one solution from a family.
+   - Statement: `p -> q`.
+   - Converse: `q -> p`.
+   - Inverse: `~p -> ~q`.
+   - Contrapositive: `~q -> ~p`.
 
-5. **Units and meaning**
+7. **Tautology and contradiction**
 
-   - If `y` is population and `t` is years, `dy/dt` is people per year.
-   - If `dy/dt = 0.1y`, then growth is proportional to current population.
+   - Tautology always true.
+   - Contradiction always false.
 
-6. **Common forms**
+8. **Worked examples**
 
-   - Constant rate: `dy/dt = k`.
-   - Proportional growth/decay: `dy/dt = ky`.
-   - Forced change: `dy/dt = input - output`.
-   - Autonomous equation: `dy/dt = f(y)`.
-
-7. **Worked examples**
-
-   - Verify `y = 2e^{3t}` solves `dy/dt = 3y`.
-   - Find the solution from a family `y = C e^{-2t}` using `y(0)=7`.
-   - Interpret `dT/dt = -0.4(T - 20)` in words.
-
-8. **Practice exercises**
-
-   - Identify the order of several equations.
-   - Verify or reject candidate solutions.
-   - Interpret an initial condition.
-   - Translate a sentence into a differential equation.
-
-9. **Guessing game**
-
-   - Topic key: `first-order-equations`.
-   - Game: "Guess the missing piece." Given a model sentence, choose the
-     derivative, initial condition, or solution interpretation.
-
-10. **Using this lesson with edumath and SymPy**
-    - Show SymPy `dsolve` for a simple equation.
-    - Show substituting a candidate solution into the ODE.
-    - Show `edumath` validator if implemented.
-
-### Common pitfalls to address
-
-- Thinking `dy/dx` is a fraction without context.
-- Confusing a differential equation with its solution.
-- Forgetting that a family of solutions needs an initial condition.
-- Ignoring units.
-- Treating `x` and `y` symmetrically when one is dependent on the other.
-
-## Lesson plan: `separable-equations.qmd`
-
-### Purpose
-
-Teach the first exact symbolic solution method: separate variables, integrate
-both sides, solve for the dependent variable when possible, and apply an initial
-condition.
-
-### Main learning objectives
-
-Students should be able to:
-
-- recognize separable equations;
-- rearrange `dy/dx = g(x)h(y)` into separated form;
-- integrate both sides;
-- include and combine constants of integration;
-- apply an initial condition;
-- check the solution by differentiating;
-- understand when constant solutions may be lost during division.
-
-### Content outline
-
-1. **Motivation: undoing a derivative rule**
-
-   - Separable equations work because each side can be integrated with respect
-     to its own variable.
-
-2. **Definition**
-
-   - A separable ODE can be written as:
-
-     ```text
-     dy/dx = g(x)h(y)
-     ```
-
-   - Rearranged as:
-
-     ```text
-     1/h(y) dy = g(x) dx
-     ```
-
-3. **The separation workflow**
-
-   - Identify `g(x)` and `h(y)`.
-   - Move all `y` terms with `dy`.
-   - Move all `x` terms with `dx`.
-   - Integrate both sides.
-   - Add a constant.
-   - Solve for `y` if useful.
-   - Apply an initial condition.
-   - Check by differentiating.
-
-4. **Example 1: exponential growth**
-
-   - Solve `dy/dt = ky`.
-   - Explain `ln|y| = kt + C`.
-   - Derive `y = Ce^{kt}`.
-   - Apply `y(0)=y0`.
-
-5. **Example 2: polynomial right side**
-
-   - Solve `dy/dx = x y^2`.
-   - Show why dividing by `y^2` can miss the constant solution `y=0`.
-
-6. **Example 3: cooling-style equation**
-
-   - Solve `dT/dt = -k(T - A)`.
-   - Interpret equilibrium temperature `A`.
-
-7. **Initial conditions**
-
-   - Show how `C` changes based on starting value.
-   - Emphasize that solving for `C` is algebra, not a new calculus idea.
-
-8. **Practice exercises**
-
-   - Classify equations as separable or not.
-   - Solve a simple separable ODE.
-   - Apply an initial condition.
-   - Check a solution.
-   - Identify a lost constant solution.
-
-9. **Guessing game**
-
-   - Topic key: `separable-equations`.
-   - Game: "Can it separate?" Students see an ODE and guess `separable`,
-     `not separable`, or `separable after algebra`.
-   - Include feedback explaining how to move terms.
-
-10. **Using this lesson with edumath and SymPy**
-    - Show SymPy `dsolve` for separable equations.
-    - Show manual verification by differentiating the solution.
-    - Show any `edumath` separable exercise or validator helpers.
-
-### Common pitfalls to address
-
-- Forgetting the `dy` and `dx` differential notation is a guide to integration.
-- Dividing by an expression that might be zero and losing equilibrium solutions.
-- Writing two constants instead of combining them into one.
-- Dropping absolute values in logarithms without explanation.
-- Solving for `y` too early or making algebra errors after integration.
-
-## Lesson plan: `linear-equations.qmd`
-
-### Purpose
-
-Teach first-order linear ODEs using integrating factors. Emphasize pattern
-recognition, the meaning of decay/growth plus forcing, and careful algebra.
-
-### Main learning objectives
-
-Students should be able to:
-
-- recognize standard linear form `dy/dx + p(x)y = q(x)`;
-- identify `p(x)` and `q(x)`;
-- compute an integrating factor;
-- multiply the equation by the integrating factor;
-- recognize the left side as a product derivative;
-- integrate and solve;
-- apply initial conditions;
-- interpret forcing and proportional feedback.
-
-### Content outline
-
-1. **Motivation: not every equation separates**
-
-   - Show `dy/dx + 2y = x`.
-   - Explain why it is not separable in the basic way.
-   - Introduce the linear structure.
-
-2. **Standard form**
-
-   - The equation must be written as:
-
-     ```text
-     dy/dx + p(x)y = q(x)
-     ```
-
-   - Define `p(x)` and `q(x)`.
-   - Warn students to divide by the coefficient of `dy/dx` if needed.
-
-3. **Intuition for the integrating factor**
-
-   - We want the left side to become the derivative of a product:
-
-     ```text
-     d/dx [mu(x)y]
-     ```
-
-   - The integrating factor is:
-
-     ```text
-     mu(x) = e^(∫p(x) dx)
-     ```
-
-4. **Step-by-step algorithm**
-
-   - Put in standard form.
-   - Identify `p(x)` and `q(x)`.
-   - Compute `mu(x)`.
-   - Multiply every term by `mu(x)`.
-   - Rewrite left side as `(mu y)'`.
-   - Integrate both sides.
-   - Solve for `y`.
-   - Apply initial condition.
-
-5. **Worked example 1: constant coefficient**
-
-   - Solve `dy/dx + 2y = 6`.
-   - Interpret stable equilibrium `y=3`.
-
-6. **Worked example 2: variable coefficient**
-
-   - Solve `dy/dx + (1/x)y = x` for `x > 0`.
-   - Discuss domain restriction.
-
-7. **Worked example 3: applied model**
-
-   - Mixing tank or cooling with external forcing.
-   - Keep arithmetic simple.
-
-8. **Practice exercises**
-
-   - Identify whether equations are linear.
-   - Put equations into standard form.
-   - Compute integrating factors.
-   - Complete missing step in solution.
-   - Solve one full equation with initial condition.
-
-9. **Guessing game**
-
-   - Topic key: `linear-equations`.
-   - Game: "Find the integrating factor." Students identify `p(x)` and choose
-     the correct `mu(x)`.
-
-10. **Using this lesson with edumath and SymPy**
-    - Show SymPy `dsolve` for linear equations.
-    - Show how to verify the solution.
-    - If an `edumath` helper exists, show a guided integrating-factor example.
-
-### Common pitfalls to address
-
-- Forgetting to put the equation in standard form first.
-- Using `q(x)` instead of `p(x)` in the integrating factor.
-- Multiplying only some terms by the integrating factor.
-- Not recognizing the product derivative.
-- Losing the constant of integration.
-- Ignoring domain restrictions such as `x > 0`.
-
-## Lesson plan: `slope-fields.qmd`
-
-### Purpose
-
-Teach qualitative and numerical understanding of ODEs without requiring exact
-symbolic solutions. Students should learn that a slope field is a map of local
-change directions.
-
-### Main learning objectives
-
-Students should be able to:
-
-- interpret a slope field as local derivative information;
-- sketch approximate solution curves through initial points;
-- connect slope fields to the formula `dy/dx = f(x,y)`;
-- identify equilibrium solutions in autonomous equations;
-- use Euler's method for a simple numerical approximation;
-- understand how step size affects approximation quality.
-
-### Content outline
-
-1. **Motivation: seeing change without solving**
-
-   - Some equations are hard or impossible to solve exactly.
-   - Slope fields let us understand behavior anyway.
-
-2. **What each segment means**
-
-   - At a point `(x,y)`, compute `f(x,y)`.
-   - Draw a short line segment with that slope.
-   - A solution curve follows the local directions.
-
-3. **Reading slope fields**
-
-   - horizontal segments mean derivative zero;
-   - steep positive segments mean rapid increase;
-   - steep negative segments mean rapid decrease;
-   - repeated patterns reveal autonomous equations;
-   - curves should not cross if the ODE has uniqueness.
-
-4. **Equilibrium solutions**
-
-   - In `dy/dt = f(y)`, equilibrium occurs where `f(y)=0`.
-   - Explain stable, unstable, and semistable behavior using arrows.
-
-5. **Euler's method**
-
-   - Formula:
-
-     ```text
-     y_{n+1} = y_n + h f(x_n, y_n)
-     x_{n+1} = x_n + h
-     ```
-
-   - Explain it as "use the current slope for one small step."
-
-6. **Worked example 1: slope field interpretation**
-
-   - For `dy/dx = x - y`, describe slopes in regions.
-
-7. **Worked example 2: phase line**
-
-   - For `dy/dt = y(1-y)`, find equilibria `0` and `1`.
-   - Explain stability from signs.
-
-8. **Worked example 3: Euler method**
-
-   - Approximate `dy/dx = y`, `y(0)=1`, step `0.1`, for three steps.
-   - Compare with exact `e^x` qualitatively.
+   - Build a truth table for `p and not q`.
+   - Decide whether a conditional and its converse are equivalent.
+   - Translate a programming `if` statement into implication language.
 
 9. **Practice exercises**
 
-   - Match formulas to slope field descriptions.
-   - Identify equilibrium levels.
-   - Compute one or two Euler steps.
-   - Explain whether a solution increases or decreases from an initial value.
+   - Identify propositions.
+   - Complete truth table rows.
+   - Find when an implication is false.
+   - Write converse and contrapositive.
 
 10. **Guessing game**
 
-    - Topic key: `slope-fields`.
-    - Game: "Next Euler step." Given `(x_n, y_n)`, step size, and `f(x,y)`,
-      students guess `(x_{n+1}, y_{n+1})`.
-    - Alternate game: "Guess the equilibrium." Given `dy/dt = f(y)`, choose the
-      equilibrium and stability.
+    - Topic key: `logic`.
+    - Game: "Truth value challenge." Given truth values for `p` and `q`, guess
+      the truth value of a compound statement.
 
 11. **Using this lesson with edumath and SymPy**
-    - Show `euler_method` from `edumath.differential_equations.solvers`.
-    - Show a slope field plotting helper if implemented.
-    - Show SymPy exact solution for comparison where possible.
+    - Show `truth_table(("p", "q"), implies)`.
+    - Show SymPy Boolean expressions with `Implies`, `Equivalent`, `And`, `Or`,
+      `Not`.
+    - Show how to check a tautology.
 
 ### Common pitfalls to address
 
-- Treating the line segments as the solution curves themselves.
-- Thinking every ODE must be solved exactly.
-- Forgetting Euler's method updates both `x` and `y`.
-- Using the new slope too soon in basic Euler's method.
-- Thinking smaller step size makes the method exact.
-- Confusing equilibrium points with intercepts of a solution graph.
+- Treating `or` as exclusive when math usually uses inclusive `or`.
+- Thinking an implication is false whenever the conclusion is false.
+- Confusing converse with contrapositive.
+- Forgetting to include all truth-value combinations in a truth table.
+- Calling vague sentences propositions.
 
-## Lesson plan: `systems.qmd`
+## Lesson plan: `sets.qmd`
 
 ### Purpose
 
-Introduce systems of differential equations as models for multiple quantities
-that change together. Keep the scope introductory and visual, with connections
-to linear algebra.
+Teach sets as collections of distinct objects, including membership, subsets,
+common operations, complements, Cartesian products, and Venn-diagram reasoning.
 
 ### Main learning objectives
 
 Students should be able to:
 
-- recognize a system of first-order ODEs;
-- explain what coupled variables mean;
-- write a simple linear system in matrix form;
-- find equilibrium points by setting all derivatives equal to zero;
-- interpret phase-plane arrows and trajectories;
-- connect eigenvalue signs to basic growth/decay behavior in simple cases;
-- use numerical approximation for systems conceptually.
+- define membership and non-membership;
+- distinguish an element from a subset;
+- compute union, intersection, difference, complement, and symmetric difference;
+- determine whether one set is a subset of another;
+- list a small power set;
+- compute a Cartesian product;
+- connect sets to probability events and database filters.
 
 ### Content outline
 
-1. **Motivation: one variable is not always enough**
+1. **Motivation: collections without duplicates**
 
-   - predator and prey;
-   - position and velocity;
-   - competing populations;
-   - interacting chemical concentrations.
+   - A set is a collection where order and repetition do not matter.
+   - `{1,2,3}` is the same set as `{3,2,1}`.
 
-2. **General form**
+2. **Membership and notation**
 
-   - Present:
+   - `x in A`;
+   - `x notin A`;
+   - roster notation;
+   - set-builder notation in beginner-friendly form.
 
-     ```text
-     dx/dt = f(x,y)
-     dy/dt = g(x,y)
-     ```
+3. **Subsets**
 
-   - Explain that the state is now a point `(x,y)` moving through the plane.
+   - `A subset B` means every element of `A` is in `B`.
+   - Distinguish `2 in A` from `{2} subset A`.
 
-3. **Coupling**
+4. **Operations**
 
-   - `dx/dt` may depend on `y`.
-   - `dy/dt` may depend on `x`.
-   - Coupling means variables influence each other's rates.
+   - union;
+   - intersection;
+   - difference;
+   - complement relative to a universe;
+   - symmetric difference.
 
-4. **Equilibria**
+5. **Power sets**
 
-   - Set every derivative to zero:
+   - A power set is the set of all subsets.
+   - For a set with `n` elements, the power set has `2^n` subsets.
 
-     ```text
-     f(x,y)=0
-     g(x,y)=0
-     ```
+6. **Cartesian products**
 
-   - Solve the simultaneous equations.
-   - Interpret an equilibrium as a state with no movement.
+   - Ordered pairs from two sets.
+   - `A x B` differs from `B x A`.
 
-5. **Linear systems and matrices**
+7. **Venn diagram intuition**
 
-   - Introduce:
+   - Use regions: only A, only B, both, neither.
 
-     ```text
-     x' = A x
-     ```
+8. **Worked examples**
 
-   - Use `x` as a vector carefully; distinguish from scalar variable.
-   - Show simple diagonal matrix example:
+   - Compute operations for `A={1,2,3}` and `B={3,4}`.
+   - List the power set of `{a,b}`.
+   - Compute `{1,2} x {x,y}`.
 
-     ```text
-     u' = -2u
-     v' = 3v
-     ```
+9. **Practice exercises**
 
-   - Explain one component decays and the other grows.
+   - Determine membership/subset truth values.
+   - Compute set operations.
+   - Draw or describe Venn regions.
+   - Count power-set elements.
 
-6. **Phase plane intuition**
+10. **Guessing game**
 
-   - Arrows show velocity vector `(dx/dt, dy/dt)`.
-   - A trajectory follows the arrows.
-   - Equilibria are places where the arrow has zero length.
+    - Topic key: `sets`.
+    - Game: "Set operation guesser." Given two small sets, guess union,
+      intersection, difference, or Cartesian product.
 
-7. **Worked example 1: independent equations**
-
-   - `x' = -x`, `y' = -2y`.
-   - Equilibrium `(0,0)`.
-   - Both components decay.
-
-8. **Worked example 2: coupled linear system**
-
-   - Use a simple matrix such as:
-
-     ```text
-     x' = y
-     y' = -x
-     ```
-
-   - Explain rotating behavior qualitatively.
-
-9. **Worked example 3: predator-prey interpretation**
-
-   - Keep formulas simple.
-   - Focus on signs and interactions, not full solution.
-
-10. **Practice exercises**
-
-    - Identify coupled vs uncoupled systems.
-    - Find equilibria for simple systems.
-    - Convert a linear system to matrix form.
-    - Interpret phase-plane arrows at selected points.
-    - Match real scenarios to system structures.
-
-11. **Guessing game**
-
-    - Topic key: `systems`.
-    - Game: "Guess the equilibrium." Given two derivative formulas, choose the
-      point where both rates are zero.
-    - Alternate game: "Guess the motion." Given a simple matrix, choose decay,
-      growth, rotation, or saddle-like behavior.
-
-12. **Using this lesson with edumath and SymPy**
-    - Show SymPy solving equilibrium equations.
-    - Show matrix form with `sympy.Matrix`.
-    - Show simple numerical stepping if an `edumath` system solver is added.
+11. **Using this lesson with edumath and SymPy**
+    - Show Python set operators: `|`, `&`, `-`, `^`.
+    - Show SymPy `FiniteSet` operations.
+    - Show optional `edumath` set helpers if implemented.
 
 ### Common pitfalls to address
 
-- Setting only one derivative equal to zero when finding an equilibrium.
-- Confusing a state point `(x,y)` with a graph of `y` versus `x`.
-- Thinking every system has an easy formula solution.
-- Forgetting that vectors in the phase plane represent rates of change.
-- Overusing eigenvalues before students understand qualitative behavior.
+- Confusing element and subset notation.
+- Forgetting that sets ignore repeated elements.
+- Thinking `A-B` equals `B-A`.
+- Forgetting the universe when computing complements.
+- Confusing Cartesian product ordered pairs with ordinary multiplication.
 
-## Optional future lesson: `applications.qmd`
+## Lesson plan: `functions-relations.qmd`
 
-If the module needs a final applications page, add it after `systems.qmd`.
+### Purpose
+
+Teach relations as sets of ordered pairs and functions as special relations.
+Introduce domain, codomain, range, inverse relations, composition, and relation
+properties.
+
+### Main learning objectives
+
+Students should be able to:
+
+- define a relation as a set of ordered pairs;
+- identify domain, codomain, and range;
+- decide whether a relation is a function;
+- explain why each input can have only one output in a function;
+- classify simple relations as reflexive, symmetric, antisymmetric, or
+  transitive;
+- recognize equivalence relation basics;
+- compose small relations or functions.
+
+### Content outline
+
+1. **Motivation: structured pairs**
+
+   - Relations describe connections: person-to-course, number-to-square,
+     city-to-road, input-to-output.
+
+2. **Ordered pairs**
+
+   - `(a,b)` is not the same as `(b,a)` unless `a=b`.
+   - The first coordinate often represents input.
+
+3. **Relations**
+
+   - A relation from `A` to `B` is a subset of `A x B`.
+   - Examples with small finite sets.
+
+4. **Functions**
+
+   - A function assigns each input exactly one output.
+   - A relation can fail by missing an input or giving an input two outputs,
+     depending on the stated domain.
+
+5. **Domain, codomain, range**
+
+   - Domain: allowed inputs.
+   - Codomain: allowed target outputs.
+   - Range/image: outputs actually used.
+
+6. **Relation properties**
+
+   - Reflexive: every element relates to itself.
+   - Symmetric: if `aRb`, then `bRa`.
+   - Antisymmetric: if both directions happen, then the elements are equal.
+   - Transitive: if `aRb` and `bRc`, then `aRc`.
+
+7. **Equivalence relations**
+
+   - Reflexive + symmetric + transitive.
+   - Example: same remainder modulo `n`.
+
+8. **Worked examples**
+
+   - Decide whether `{(1,2),(1,3)}` is a function.
+   - Find domain and range of a finite relation.
+   - Classify equality or divisibility on a small set.
+
+9. **Practice exercises**
+
+   - Function or not?
+   - Domain/range identification.
+   - Relation property classification.
+   - Give a counterexample for transitivity.
+
+10. **Guessing game**
+
+    - Topic key: `functions-relations`.
+    - Game: "Function or relation?" Given pairs, guess whether it is a function
+      and explain which input causes trouble if not.
+
+11. **Using this lesson with edumath and SymPy**
+    - Use Python tuples and sets to represent relations.
+    - Use `edumath` relation helpers if implemented.
+    - Use SymPy or Python to test small relation properties by exhaustive
+      checking.
+
+### Common pitfalls to address
+
+- Forgetting ordered pairs have order.
+- Saying a relation is not a function because two inputs share an output.
+- Confusing codomain and range.
+- Checking relation properties on only one example pair.
+- Assuming symmetric and antisymmetric are opposites; they are not.
+
+## Lesson plan: `sequences.qmd`
+
+### Purpose
+
+Teach sequences as ordered lists generated by explicit or recursive rules.
+Connect arithmetic and geometric sequences to functions on integers, summations,
+recurrence, and algorithmic thinking.
+
+### Main learning objectives
+
+Students should be able to:
+
+- define a sequence as a function from integers to values;
+- compute terms from explicit formulas;
+- compute terms from recursive definitions;
+- recognize arithmetic and geometric sequences;
+- write simple closed forms;
+- compute finite sums;
+- connect recurrence to loops and repeated processes.
+
+### Content outline
+
+1. **Motivation: patterns with positions**
+
+   - A sequence is not just a set because order matters.
+   - `2, 4, 8` differs from `8, 4, 2`.
+
+2. **Notation**
+
+   - `a_n` means the term at position `n`.
+   - Clarify whether indexing starts at `0` or `1`.
+
+3. **Explicit rules**
+
+   - Formula directly gives `a_n`.
+   - Example: `a_n = 3n + 2`.
+
+4. **Recursive rules**
+
+   - Rule gives next term from previous term(s).
+   - Example: `a_1=2`, `a_{n+1}=a_n+3`.
+
+5. **Arithmetic sequences**
+
+   - Add a common difference.
+   - Closed form `a_n = a_1 + (n-1)d`.
+
+6. **Geometric sequences**
+
+   - Multiply by a common ratio.
+   - Closed form `a_n = a_1 r^{n-1}`.
+
+7. **Finite sums**
+
+   - Sigma notation.
+   - Arithmetic and geometric sum intuition.
+
+8. **Worked examples**
+
+   - Find next terms.
+   - Convert a recursive arithmetic rule to closed form.
+   - Compute a small finite sum.
+   - Interpret repeated percentage growth as geometric.
+
+9. **Practice exercises**
+
+   - Identify arithmetic, geometric, or neither.
+   - Compute terms from explicit and recursive rules.
+   - Write a recurrence for a word problem.
+   - Evaluate a finite sum.
+
+10. **Guessing game**
+
+    - Topic key: `sequences`.
+    - Game: "Next term or rule?" Given a sequence, guess the next term and
+      classify the pattern.
+
+11. **Using this lesson with edumath and SymPy**
+    - Use Python list comprehensions for terms.
+    - Use SymPy `summation` for finite sums.
+    - Use `edumath` sequence exercise helpers if implemented.
+
+### Common pitfalls to address
+
+- Confusing term value with term number.
+- Assuming every sequence starts at `n=1`.
+- Treating an unordered set as a sequence.
+- Using an arithmetic formula for a geometric sequence.
+- Forgetting the initial condition in a recurrence.
+
+## Lesson plan: `induction.qmd`
+
+### Purpose
+
+Teach mathematical induction as a proof technique for statements indexed by
+integers. Emphasize the structure and meaning of the proof before algebraic
+complexity.
+
+### Main learning objectives
+
+Students should be able to:
+
+- identify statements suitable for induction;
+- write a base case;
+- state an induction hypothesis;
+- prove an induction step;
+- explain the chain-of-dominoes intuition;
+- use induction for sums, divisibility, and inequalities;
+- recognize common proof gaps.
+
+### Content outline
+
+1. **Motivation: infinitely many checks**
+
+   - You cannot verify every positive integer one at a time.
+   - Induction proves the first case and the rule that truth passes forward.
+
+2. **Domino intuition**
+
+   - Base case knocks over the first domino.
+   - Induction step proves each domino knocks over the next.
+
+3. **Proof structure**
+
+   - State the proposition `P(n)`.
+   - Base case.
+   - Induction hypothesis: assume `P(k)`.
+   - Induction step: prove `P(k+1)`.
+   - Conclusion.
+
+4. **Worked example 1: sum formula**
+
+   - Prove `1+2+...+n = n(n+1)/2`.
+   - Show exactly where the induction hypothesis is used.
+
+5. **Worked example 2: divisibility**
+
+   - Prove a simple statement such as `3` divides `4^n-1` for `n>=1`.
+
+6. **Worked example 3: inequality or sequence**
+
+   - Keep algebra gentle.
+   - Focus on proof logic.
+
+7. **Common proof templates**
+
+   - Sum statements.
+   - Divisibility statements.
+   - Recursive sequence statements.
+
+8. **Practice exercises**
+
+   - Identify `P(n)`.
+   - Fill a missing base case.
+   - Identify the induction hypothesis.
+   - Complete a small induction step.
+   - Find the flaw in a bad induction proof.
+
+9. **Guessing game**
+
+   - Topic key: `induction`.
+   - Game: "Missing proof step." Students choose the correct induction
+     hypothesis or the next algebraic line.
+
+10. **Using this lesson with edumath and SymPy**
+    - Use SymPy to verify the first several cases of a formula.
+    - Use SymPy simplification to check algebra in the induction step.
+    - Explain that checking examples is not a proof, but it builds confidence.
+
+### Common pitfalls to address
+
+- Proving only examples and calling it induction.
+- Forgetting the base case.
+- Assuming what must be proved for `k+1`.
+- Not using the induction hypothesis.
+- Confusing `k` and `k+1`.
+- Writing algebra without explaining the logical structure.
+
+## Lesson plan: `graphs.qmd`
+
+### Purpose
+
+Introduce graph theory as the study of vertices and edges. Teach terminology,
+small graph properties, paths, cycles, degrees, connectedness, directed graphs,
+and real network models.
+
+### Main learning objectives
+
+Students should be able to:
+
+- define vertices and edges;
+- distinguish directed and undirected graphs;
+- compute vertex degrees;
+- identify paths, walks, trails, and cycles at an introductory level;
+- determine whether a small graph is connected;
+- represent a graph with an edge list or adjacency list;
+- connect graph models to real-world networks.
+
+### Content outline
+
+1. **Motivation: networks everywhere**
+
+   - roads between cities;
+   - friendships;
+   - web links;
+   - prerequisites;
+   - computer networks;
+   - dependency graphs.
+
+2. **Definitions**
+
+   - Vertex/node.
+   - Edge/link.
+   - Directed vs undirected.
+   - Simple graph vs graph with loops or repeated edges.
+
+3. **Representations**
+
+   - Drawing.
+   - Edge list.
+   - Adjacency list.
+   - Adjacency matrix, optional and gentle.
+
+4. **Degree**
+
+   - Number of incident edges in an undirected graph.
+   - In-degree and out-degree for directed graphs.
+
+5. **Walks, paths, trails, cycles**
+
+   - Keep definitions beginner-friendly.
+   - Emphasize repeated vertices/edges differences.
+
+6. **Connectedness**
+
+   - A graph is connected if every vertex can be reached from every other
+     vertex.
+
+7. **Worked examples**
+
+   - Compute degrees from an edge list.
+   - Decide whether a graph is connected.
+   - Identify a path and a cycle.
+   - Translate a small real scenario into a graph.
+
+8. **Practice exercises**
+
+   - Count vertices and edges.
+   - Compute degrees.
+   - Find neighbors.
+   - Decide whether a proposed walk is a path.
+   - Determine connectedness.
+
+9. **Guessing game**
+
+   - Topic key: `graphs`.
+   - Game: "Graph property challenge." Given a tiny edge list, guess degree,
+     connectedness, whether a sequence is a path, or whether a cycle exists.
+
+10. **Using this lesson with edumath and SymPy**
+    - Use Python dictionaries or sets for adjacency lists.
+    - Use `edumath` graph helpers if implemented.
+    - Mention that NetworkX is a powerful external graph library, but avoid
+      adding it as a dependency unless the project chooses to support advanced
+      graph work.
+
+### Common pitfalls to address
+
+- Confusing a graph of a function with a graph theory network.
+- Counting directed edges as if they were undirected.
+- Double-counting edges when computing degree.
+- Thinking a path can repeat vertices.
+- Forgetting isolated vertices when checking connectedness.
+
+## Optional future lesson: `counting-and-combinatorics.qmd`
+
+The current site has probability lessons that include counting. If the Discrete
+Mathematics module later needs a dedicated counting lesson, add it after sets or
+sequences.
 
 Possible topics:
 
-- exponential growth and decay;
-- Newton's law of cooling;
-- logistic growth;
-- mixing tanks;
-- falling objects with resistance;
-- predator-prey models;
-- RC circuits.
+- product rule;
+- sum rule;
+- permutations;
+- combinations;
+- binomial coefficients;
+- pigeonhole principle;
+- inclusion-exclusion.
 
-The applications lesson should teach a modeling workflow:
-
-1. Define variables and units.
-2. Translate rate language into an equation.
-3. Identify initial conditions.
-4. Solve exactly if reasonable.
-5. Approximate numerically if needed.
-6. Interpret the result.
-7. Check whether the answer is realistic.
+This would support probability, algorithms, and graph counting.
 
 ## Suggested references for lesson authors
 
 Use these as conceptual references while writing. Avoid copying text.
 
-- OpenStax, _Calculus Volume 2_, differential equations chapters.
-- Paul Dawkins, Paul's Online Math Notes, Differential Equations.
-- MIT OpenCourseWare, Differential Equations materials.
-- Boyce and DiPrima, _Elementary Differential Equations and Boundary Value
-  Problems_.
-- Blanchard, Devaney, and Hall, _Differential Equations_.
+- Oscar Levin, _Discrete Mathematics: An Open Introduction_.
+- Kenneth Rosen, _Discrete Mathematics and Its Applications_.
+- Susanna Epp, _Discrete Mathematics with Applications_.
+- MIT OpenCourseWare discrete mathematics materials.
+- OpenStax or other open resources for logic, sets, and proof foundations.
 
 ## Acceptance checklist
 
-Before considering the plan implemented, verify the following:
+Before considering the plan implemented, verify the following.
 
 ### Content completeness
 
 - [ ] `index.qmd` exists and is linked in `docs/_quarto.yml`.
+- [ ] `docs/lessons/index.qmd` points to `discrete-math/index.qmd`.
+- [ ] Generated `.quarto_ipynb*` artifacts are removed or ignored.
 - [ ] Every lesson has YAML front matter with title, description, and execution
       settings.
 - [ ] Every lesson begins with motivation and learning objectives.
-- [ ] Every lesson contains definitions, intuition, formulas, and common
-      pitfalls.
+- [ ] Every lesson contains definitions, intuition, formulas or diagrams, and
+      common pitfalls.
 - [ ] Every lesson has at least two worked examples.
 - [ ] Every lesson has practice exercises with answers or collapsed solutions.
 - [ ] Every lesson has a topic-specific checkpoint or guessing game.
 - [ ] Every lesson ends with `Using this lesson with edumath and SymPy`.
-- [ ] SymPy examples show how to solve or verify the relevant ODEs.
 - [ ] Visible code appears primarily in the final appendix.
 
 ### Pedagogy
 
 - [ ] Lessons are written for students with low confidence and limited prior
       exposure.
-- [ ] Each symbolic step is explained in words.
-- [ ] Important algebra and calculus prerequisites are reviewed in context.
-- [ ] Examples include units or real interpretation where useful.
+- [ ] Definitions are explained with examples and nonexamples.
+- [ ] Proof-related lessons explain logic before algebra.
+- [ ] Counterexamples are used to disprove false claims.
 - [ ] Common mistakes are explicitly named.
 - [ ] Guessing games provide explanatory feedback.
 
@@ -1086,8 +1150,8 @@ Before considering the plan implemented, verify the following:
 - [ ] Any new `edumath` helper has tests.
 - [ ] Public API additions are exported intentionally.
 - [ ] Helpers are reusable across lessons.
-- [ ] General-purpose symbolic solving is delegated to SymPy rather than
-      reimplemented poorly.
+- [ ] Heavy dependencies such as NetworkX or D3 are not added without a clear
+      project decision.
 
 ### Validation
 

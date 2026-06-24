@@ -103,6 +103,7 @@ website:
               - lessons/differential-equations/systems.qmd
           - section: Discrete Mathematics
             contents:
+              - lessons/discrete-math/index.qmd
               - lessons/discrete-math/logic.qmd
               - lessons/discrete-math/sets.qmd
               - lessons/discrete-math/functions-relations.qmd

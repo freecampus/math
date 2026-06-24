@@ -1,0 +1,344 @@
+<div class="quiz-shell edu-math-discrete-checkpoint" data-default-total="4"></div>
+
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "logic";
+    const BANKS = {
+      logic: [implicationFalseQuestion, connectiveQuestion, contrapositiveQuestion],
+      sets: [unionQuestion, intersectionQuestion, subsetQuestion],
+      "functions-relations": [functionQuestion, domainQuestion, relationPropertyQuestion],
+      sequences: [arithmeticQuestion, geometricQuestion, recursiveQuestion],
+      induction: [baseCaseQuestion, hypothesisQuestion, inductionStepQuestion],
+      graphs: [degreeQuestion, pathQuestion, connectedQuestion],
+      "discrete-math-cumulative-review": [
+        implicationFalseQuestion,
+        unionQuestion,
+        functionQuestion,
+        arithmeticQuestion,
+        hypothesisQuestion,
+        degreeQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-discrete-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-discrete-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Discrete mathematics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function implicationFalseQuestion() {
+      return question({
+        prompt: "When is p -> q false?",
+        stimulus: "implication",
+        answer: "p true, q false",
+        distractors: ["p false, q false", "p false, q true", "p true, q true"],
+        explanation: "An implication fails only when the promise starts but the conclusion fails.",
+      });
+    }
+
+    function connectiveQuestion() {
+      return question({
+        prompt: "What is true OR false in inclusive mathematical logic?",
+        stimulus: "p ∨ q",
+        answer: "true",
+        distractors: ["false", "undefined", "not a proposition"],
+        explanation: "Inclusive or is true when at least one part is true.",
+      });
+    }
+
+    function contrapositiveQuestion() {
+      return question({
+        prompt: "Which statement is the contrapositive of p -> q?",
+        stimulus: "p -> q",
+        answer: "not q -> not p",
+        distractors: ["q -> p", "not p -> not q", "p and q"],
+        explanation: "The contrapositive reverses direction and negates both parts.",
+      });
+    }
+
+    function unionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A union B?",
+        stimulus: "A ∪ B",
+        answer: "{1,2,3,4}",
+        distractors: ["{3}", "{1,2}", "{4}"],
+        explanation: "The union contains elements in A, in B, or in both.",
+      });
+    }
+
+    function intersectionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A intersection B?",
+        stimulus: "A ∩ B",
+        answer: "{3}",
+        distractors: ["{1,2,3,4}", "{1,2}", "{}"],
+        explanation: "The intersection contains only elements shared by both sets.",
+      });
+    }
+
+    function subsetQuestion() {
+      return question({
+        prompt: "Is {2,3} a subset of {1,2,3,4}?",
+        stimulus: "subset check",
+        answer: "yes",
+        distractors: ["no", "only if order matches", "only if both sets have same size"],
+        explanation: "Every element of {2,3} appears in the larger set.",
+      });
+    }
+
+    function functionQuestion() {
+      return question({
+        prompt: "Is {(1,2), (1,3), (2,4)} a function?",
+        stimulus: "function test",
+        answer: "no",
+        distractors: ["yes", "only if 2=3", "not enough information"],
+        explanation: "Input 1 has two different outputs.",
+      });
+    }
+
+    function domainQuestion() {
+      return question({
+        prompt: "What is the domain of {(1,a), (2,b), (4,b)}?",
+        stimulus: "first coordinates",
+        answer: "{1,2,4}",
+        distractors: ["{a,b}", "{1,2,4,a,b}", "{b}"],
+        explanation: "The domain is the set of first coordinates.",
+      });
+    }
+
+    function relationPropertyQuestion() {
+      return question({
+        prompt: "What property says that aRa for every a?",
+        stimulus: "relation property",
+        answer: "reflexive",
+        distractors: ["symmetric", "transitive", "antisymmetric"],
+        explanation: "Reflexive means every element relates to itself.",
+      });
+    }
+
+    function arithmeticQuestion() {
+      return question({
+        prompt: "Find the next term: 2, 5, 8, 11, ...",
+        stimulus: "sequence",
+        answer: "14",
+        distractors: ["13", "16", "22"],
+        explanation: "The sequence adds 3 each time.",
+      });
+    }
+
+    function geometricQuestion() {
+      return question({
+        prompt: "Find the next term: 3, 6, 12, 24, ...",
+        stimulus: "sequence",
+        answer: "48",
+        distractors: ["30", "36", "27"],
+        explanation: "The sequence multiplies by 2 each time.",
+      });
+    }
+
+    function recursiveQuestion() {
+      return question({
+        prompt: "If a1=4 and a(n+1)=a(n)+5, what is a2?",
+        stimulus: "recurrence",
+        answer: "9",
+        distractors: ["5", "20", "4"],
+        explanation: "Use the rule once: 4+5=9.",
+      });
+    }
+
+    function baseCaseQuestion() {
+      return question({
+        prompt: "What does the base case prove?",
+        stimulus: "induction",
+        answer: "the first case",
+        distractors: ["the converse", "the graph degree", "all cases by itself"],
+        explanation: "The base case starts the chain of implications.",
+      });
+    }
+
+    function hypothesisQuestion() {
+      return question({
+        prompt: "In the induction step, what do you assume temporarily?",
+        stimulus: "prove P(k+1)",
+        answer: "P(k)",
+        distractors: ["P(k+1)", "P(0) is false", "nothing"],
+        explanation: "The induction hypothesis assumes P(k) so you can prove P(k+1).",
+      });
+    }
+
+    function inductionStepQuestion() {
+      return question({
+        prompt: "What does the induction step prove?",
+        stimulus: "P(k) -> P(k+1)",
+        answer: "truth passes to the next case",
+        distractors: ["only one example", "the statement is false", "the domain is empty"],
+        explanation: "It creates the chain from one integer to the next.",
+      });
+    }
+
+    function degreeQuestion() {
+      return question({
+        prompt: "Edges are AB, AC, BC, CD. What is degree(C)?",
+        stimulus: "graph degree",
+        answer: "3",
+        distractors: ["1", "2", "4"],
+        explanation: "C is incident to AC, BC, and CD.",
+      });
+    }
+
+    function pathQuestion() {
+      return question({
+        prompt: "Can a path repeat a vertex?",
+        stimulus: "path definition",
+        answer: "no",
+        distractors: ["yes", "only in directed graphs", "only if it is isolated"],
+        explanation: "A path has no repeated vertices in the introductory definition.",
+      });
+    }
+
+    function connectedQuestion() {
+      return question({
+        prompt: "What does connected mean for an undirected graph?",
+        stimulus: "connectedness",
+        answer: "every vertex can be reached from every other",
+        distractors: ["every degree is zero", "there are no edges", "all edges point right"],
+        explanation: "Connectedness is about reachability.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, explanation, options: shuffle(unique([answer, ...distractors])).slice(0, 4) };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `discrete-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
