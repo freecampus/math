@@ -20,6 +20,32 @@ template used by `prisma-flow`.
 pip install osl-edu-math
 ```
 
+## Symbolic equation solving
+
+`edumath.solvers` provides SymPy-backed equation solving with structured
+solution steps. The math is computed locally and can be used without any API
+key:
+
+```python
+from edumath.solvers import solve_equation_steps
+
+solution = solve_equation_steps("2(x - 3) + 4 = 10")
+print(solution.answer)
+print(solution.render_text())
+```
+
+Optional AI tutor explanations can be requested by passing an API key. The AI
+text is added after SymPy/edumath has solved and checked the equation, so the
+symbolic result remains the source of truth:
+
+```python
+solution = solve_equation_steps(
+    "2(x - 3) + 4 = 10",
+    api_key="YOUR_OPENAI_API_KEY",
+)
+print(solution.explanation)
+```
+
 ## Development
 
 ```bash

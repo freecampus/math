@@ -2,8 +2,65 @@
 title: API reference
 ---
 
-The public API is exported from `edumath`.
+The root package exports metadata. Feature APIs are organized by math branch or
+shared utility area.
 
 ## Metadata
 
 - `edumath.__version__`
+
+## Solvers
+
+`edumath.solvers` contains reusable symbolic solving helpers for lessons and
+student-facing apps.
+
+### Equation solving
+
+Use `solve_equation_steps()` to solve a single-variable equation and return a
+structured `EquationSolution`. The answer and transformations are computed with
+SymPy/edumath; no network access or API key is required.
+
+```{python}
+#| echo: true
+from edumath.solvers import solve_equation_steps
+
+solution = solve_equation_steps("2(x - 3) + 4 = 10")
+solution.answer
+```
+
+The same object can be rendered as text or Markdown for lessons:
+
+```{python}
+#| echo: true
+print(solution.render_text())
+```
+
+### Optional AI explanations
+
+If an OpenAI API key is provided, `solve_equation_steps()` can add an optional
+tutor explanation after the symbolic solution has already been computed and
+checked. Without a key, the function simply returns the solved result with no AI
+explanation.
+
+```python
+from edumath.solvers import solve_equation_steps
+
+solution = solve_equation_steps(
+    "2(x - 3) + 4 = 10",
+    api_key="YOUR_OPENAI_API_KEY",
+)
+print(solution.explanation)
+```
+
+The OpenAI model can be changed with the `model=` argument, and tests or
+applications can provide a custom `explanation_client=` that follows the
+`EquationExplanationClient` protocol.
+
+### Main objects
+
+- `EquationStep`: one algebraic transformation.
+- `EquationSolutionCheck`: verification result for a candidate solution.
+- `EquationSolution`: final answer, solution set, steps, checks, and optional
+  tutor explanation.
+- `OpenAIEquationExplanationClient`: small standard-library client for optional
+  explanations through the OpenAI Responses API.
