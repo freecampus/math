@@ -93,6 +93,21 @@ Use the same routine on every example:
 5. **Check the answer.** Differentiate the solution and substitute it back.
 6. **Interpret.** State what the answer means in the original context.
 
+## How the upgraded lessons are organized
+
+Each lesson in this path now includes a guided practice layer:
+
+- **guess first** prompts that train qualitative prediction;
+- **guided exercises** that show one mathematical action at a time;
+- **checkpoint exercises** so you can repeat the reasoning independently;
+- a browser-native checkpoint/guessing game before the final appendix;
+- a final `edumath` and SymPy section with visible code for computational
+  verification.
+
+When solving a differential equation, copy the structure: classify the equation,
+write each algebraic or calculus move on its own line, carry constants of
+integration, apply initial conditions last, and verify by differentiating.
+
 ## Readiness checkpoint
 
 <script type="application/json" class="edu-math-de-checkpoint-config">

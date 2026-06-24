@@ -190,6 +190,109 @@ The restriction `x > 0` matters because `ln x` appeared during the process.
    `mu y' + mu p(x)y`.
 :::
 
+## Subtopic guided practice and checkpoints
+
+The integrating-factor method is reliable when you follow the same order every
+time. Most mistakes happen before the integration: wrong standard form, wrong
+`p(x)`, or multiplying only part of the equation.
+
+### Lab 1: put the equation in standard form
+
+**Guess first.** In `4y' + 8y = 12x`, is `p(x)` equal to `8` or `2`?
+
+**Guided exercise.**
+
+First divide every term by `4`:
+
+```text
+4y' + 8y = 12x
+y' + 2y = 3x
+```
+
+Now compare with `y' + p(x)y = q(x)`:
+
+```text
+p(x) = 2
+q(x) = 3x
+```
+
+::: {.practice-box}
+**Checkpoint.** Put `3y' - 6y = x^2` in standard form. Identify `p(x)` and
+`q(x)`.
+:::
+
+### Lab 2: compute the integrating factor
+
+**Guess first.** For `y' - 5y = x`, should the exponent in the integrating
+factor be `5x` or `-5x`?
+
+**Guided exercise.**
+
+```text
+p(x) = -5
+mu(x) = e^(∫p(x) dx)
+      = e^(∫-5 dx)
+      = e^(-5x)
+```
+
+The sign comes from the coefficient of `y` in standard form.
+
+::: {.practice-box}
+**Checkpoint.** Find the integrating factor for `y' + (2/x)y = x`, assuming
+`x > 0`.
+:::
+
+### Lab 3: use the product derivative
+
+**Guess first.** After multiplying `y' + 2y = 6` by `e^{2x}`, what product should
+appear on the left?
+
+**Guided exercise.**
+
+```text
+y' + 2y = 6
+mu = e^(2x)
+e^(2x)y' + 2e^(2x)y = 6e^(2x)
+```
+
+The left side is exactly the derivative of `e^{2x}y`:
+
+```text
+d/dx[e^(2x)y] = e^(2x)y' + 2e^(2x)y
+```
+
+::: {.practice-box}
+**Checkpoint.** For `y' - 3y = 9`, multiply by the integrating factor and write
+the left side as a product derivative.
+:::
+
+### Lab 4: integrate, divide, and use an initial condition
+
+**Guess first.** If `(e^{2x}y)' = 6e^{2x}`, what do you do next?
+
+**Guided exercise.**
+
+```text
+(e^(2x)y)' = 6e^(2x)
+e^(2x)y = ∫6e^(2x) dx
+e^(2x)y = 3e^(2x) + C
+y = 3 + Ce^(-2x)
+```
+
+If `y(0)=5`, then:
+
+```text
+5 = 3 + C
+C = 2
+```
+
+The particular solution is `y = 3 + 2e^{-2x}`.
+
+::: {.practice-box}
+**Checkpoint.** Solve `y' + y = 4`, `y(0)=1`. Show the integrating factor, the
+product derivative, and the value of `C`.
+:::
+
 ## Linear equation checkpoint
 
 <script type="application/json" class="edu-math-de-checkpoint-config">

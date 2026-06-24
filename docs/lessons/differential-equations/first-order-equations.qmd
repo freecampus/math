@@ -167,6 +167,88 @@ object is colder than the room, the temperature increases.
    year.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Use these mini-labs to turn the vocabulary into a repeatable routine. In each
+lab, **guess first**, then follow the steps, then try the checkpoint without
+looking at the worked lines.
+
+### Lab 1: identify the pieces of an ODE
+
+**Guess first.** In `dP/dt = 0.04P`, what is changing, and with respect to what
+input?
+
+**Guided exercise.**
+
+1. The dependent variable is `P`; it is the quantity whose value changes.
+2. The independent variable is `t`; it is usually time.
+3. The derivative `dP/dt` means “rate of change of `P` per unit of `t`.”
+4. The right side `0.04P` says the rate is proportional to the current amount.
+
+So a good sentence is: “The quantity `P` grows at a rate equal to `4%` of its
+current size per unit time.”
+
+::: {.practice-box}
+**Checkpoint.** For `dT/dt = -0.2(T - 70)`, identify the dependent variable,
+independent variable, derivative, and meaning of the negative sign.
+:::
+
+### Lab 2: verify a candidate solution
+
+**Guess first.** If `y = 4e^{-2x}`, should it solve `y' = -2y`?
+
+**Guided exercise.**
+
+```text
+y = 4e^(-2x)
+y' = -8e^(-2x)                 differentiate
+-2y = -2(4e^(-2x)) = -8e^(-2x)
+```
+
+Since `y'` and `-2y` are the same expression, the candidate solves the ODE.
+
+::: {.practice-box}
+**Checkpoint.** Verify that `y = 3e^{5x}` solves `y' = 5y`. Show the derivative
+and the substituted right-hand side.
+:::
+
+### Lab 3: use an initial condition
+
+**Guess first.** If the family is `y = Ce^{3t}` and `y(0)=10`, what should `C`
+be?
+
+**Guided exercise.**
+
+```text
+y = Ce^(3t)
+10 = Ce^(3*0)          substitute t=0 and y=10
+10 = C e^0
+10 = C
+```
+
+So the particular solution is `y = 10e^{3t}`.
+
+::: {.practice-box}
+**Checkpoint.** The family `y = C e^{-4t}` satisfies `y(0)=8`. Find the
+particular solution and explain what happens as `t` increases.
+:::
+
+### Lab 4: interpret units and direction
+
+**Guess first.** If `dA/dt = -0.15A` and `A` is grams, what are the units of the
+right side?
+
+**Guided exercise.**
+
+The derivative `dA/dt` has units “grams per time.” Therefore `0.15` must have
+units “per time,” and the negative sign means `A` is decreasing. Bigger amounts
+lose more grams per time because the rate is proportional to `A`.
+
+::: {.practice-box}
+**Checkpoint.** Interpret `dM/dt = 12 - 0.5M` if `M` is milligrams of medicine in
+a body. Which term is input, and which term is removal?
+:::
+
 ## First-order equation checkpoint
 
 <script type="application/json" class="edu-math-de-checkpoint-config">

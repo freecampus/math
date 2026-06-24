@@ -169,6 +169,105 @@ pattern produces rotation around the origin.
 4. `(x',y')=(2,-1)`.
 :::
 
+## Subtopic guided practice and checkpoints
+
+For systems, every state has a vector of rates. Learn to read the vector before
+trying to solve formulas.
+
+### Lab 1: identify state variables and coupling
+
+**Guess first.** In `x' = y`, `y' = -x`, does each variable influence the other?
+
+**Guided exercise.**
+
+```text
+x' = y      the rate of x depends on y
+y' = -x     the rate of y depends on x
+```
+
+The system is coupled because the variables appear in each other's derivative
+rules.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether `x' = 2x`, `y' = -3y` is coupled. Then decide
+whether `x' = x + y`, `y' = y` is coupled.
+:::
+
+### Lab 2: find an equilibrium point
+
+**Guess first.** For `x' = 4 - 2x`, `y' = y + 1`, where might motion stop?
+
+**Guided exercise.**
+
+Set both derivatives equal to zero:
+
+```text
+4 - 2x = 0
+-2x = -4
+x = 2
+```
+
+and
+
+```text
+y + 1 = 0
+y = -1
+```
+
+The equilibrium point is `(2, -1)`.
+
+::: {.practice-box}
+**Checkpoint.** Find the equilibrium of `x' = 3 - x + y`, `y' = x - 1`. Solve
+the two equations carefully.
+:::
+
+### Lab 3: evaluate a phase-plane vector
+
+**Guess first.** For `x' = y`, `y' = -x`, what direction should the vector at
+`(0, 2)` point?
+
+**Guided exercise.**
+
+```text
+x' = y = 2
+y' = -x = 0
+```
+
+The vector is `(2, 0)`, so it points to the right.
+
+::: {.practice-box}
+**Checkpoint.** For `x' = x - y`, `y' = x + y`, find the vector at `(1, -2)`.
+:::
+
+### Lab 4: connect matrix form to behavior
+
+**Guess first.** In `u' = Au`, what does the matrix do?
+
+**Guided exercise.**
+
+For
+
+```text
+x' = -2x
+y' = 3y
+```
+
+the matrix is diagonal:
+
+```text
+A = [-2  0]
+    [ 0  3]
+```
+
+The `x` component decays because its coefficient is negative. The `y` component
+grows because its coefficient is positive. Different directions have different
+behaviors, which is the beginning of phase-plane analysis.
+
+::: {.practice-box}
+**Checkpoint.** Write the matrix for `x' = x + 2y`, `y' = -3x + y`. Which
+entries show coupling?
+:::
+
 ## Systems checkpoint
 
 <script type="application/json" class="edu-math-de-checkpoint-config">

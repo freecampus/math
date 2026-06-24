@@ -183,6 +183,95 @@ could equal zero. If yes, check whether a constant solution was lost.
 4. Both `y=0` and `y=5` are equilibrium solutions.
 :::
 
+## Subtopic guided practice and checkpoints
+
+A separable-equation solution should read like a careful algebra story: classify,
+separate, integrate, solve for the constant, and check for lost solutions.
+
+### Lab 1: recognize separability
+
+**Guess first.** Is `dy/dx = x(1 + y^2)` separable?
+
+**Guided exercise.**
+
+A separable equation can be written as `g(x)h(y)`. Here
+
+```text
+dy/dx = x(1 + y^2)
+```
+
+has `g(x)=x` and `h(y)=1+y^2`, so it is separable.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether each is separable: `y' = x^2 y`,
+`y' = x + y`, and `y' = sin(x) e^y`.
+:::
+
+### Lab 2: separate variables without skipping algebra
+
+**Guess first.** For `dy/dx = 3xy`, what should be divided away from the right
+side?
+
+**Guided exercise.**
+
+```text
+dy/dx = 3xy
+(1/y) dy/dx = 3x          divide by y, assuming y != 0
+(1/y) dy = 3x dx          multiply by dx
+```
+
+Now the `y` expression is with `dy`, and the `x` expression is with `dx`.
+
+::: {.practice-box}
+**Checkpoint.** Separate `dy/dx = x^2 y^3`. State the value of `y` that needs
+special attention before dividing.
+:::
+
+### Lab 3: integrate and solve for the family
+
+**Guess first.** When integrating `(1/y) dy = 3x dx`, which side produces a
+logarithm?
+
+**Guided exercise.**
+
+```text
+(1/y) dy = 3x dx
+∫(1/y) dy = ∫3x dx
+ln|y| = (3/2)x^2 + C
+y = C e^((3/2)x^2)
+```
+
+The constant changes form after exponentiating; that is normal.
+
+::: {.practice-box}
+**Checkpoint.** Solve the separated equation `y^{-2} dy = 4x dx` for `y` if
+possible. Keep a constant of integration.
+:::
+
+### Lab 4: apply an initial condition and check
+
+**Guess first.** If `y = C e^{x^2}` and `y(0)=5`, what is `C`?
+
+**Guided exercise.**
+
+```text
+5 = C e^(0^2)
+5 = C
+```
+
+So `y = 5e^{x^2}`. Check by differentiating:
+
+```text
+y' = 5e^(x^2) * 2x = 2xy
+```
+
+That matches `dy/dx = 2xy`.
+
+::: {.practice-box}
+**Checkpoint.** Solve `dy/dx = -2xy`, `y(0)=4`. Differentiate your answer and
+substitute it into the original ODE.
+:::
+
 ## Separable equation checkpoint
 
 <script type="application/json" class="edu-math-de-checkpoint-config">
