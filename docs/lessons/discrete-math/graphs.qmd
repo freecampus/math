@@ -154,6 +154,107 @@ and prerequisite chains.
 5. Every vertex can be reached from every other vertex.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Graph theory problems are easiest when you translate every word into vertices,
+edges, and movement rules.
+
+### Lab 1: identify vertices and edges
+
+**Guess first.** If `V = {A, B, C}` and `E = {AB, BC}`, which vertices are
+adjacent to `B`?
+
+**Guided exercise.**
+
+An edge touches its endpoints. Since `AB` touches `A` and `B`, and `BC` touches
+`B` and `C`, vertex `B` is adjacent to both `A` and `C`.
+
+::: {.practice-box}
+**Checkpoint.** For `V = {1, 2, 3, 4}` and `E = {12, 14, 23}`, list the
+neighbors of vertex `1`.
+:::
+
+### Lab 2: compute degrees and check the handshake rule
+
+**Guess first.** For edges `AB, AC, BC, CD`, which vertex has the largest
+degree?
+
+**Guided exercise.**
+
+Count how many edges touch each vertex:
+
+```text
+deg(A) = 2  from AB, AC
+deg(B) = 2  from AB, BC
+deg(C) = 3  from AC, BC, CD
+deg(D) = 1  from CD
+```
+
+The degree sum is `2 + 2 + 3 + 1 = 8`, which equals `2 * 4 edges`. This checks
+the handshake rule.
+
+::: {.practice-box}
+**Checkpoint.** For edges `AB, AD, BD, CD`, compute every degree and check the
+degree-sum formula.
+:::
+
+### Lab 3: distinguish walks, paths, and cycles
+
+**Guess first.** Is `A, B, A, C` a path?
+
+**Guided exercise.**
+
+A walk only needs consecutive vertices to be connected. A path cannot repeat
+vertices. `A, B, A, C` repeats `A`, so it may be a walk, but it is not a path.
+
+A cycle starts and ends at the same vertex while avoiding repeated internal
+vertices.
+
+::: {.practice-box}
+**Checkpoint.** In a graph with edges `AB, BC, CD, DA`, classify `A, B, C, D,
+A` as a walk, path, cycle, or more than one of these.
+:::
+
+### Lab 4: choose a representation
+
+**Guess first.** Which representation is better for checking neighbors quickly:
+an edge list or an adjacency list?
+
+**Guided exercise.**
+
+Edge lists are compact:
+
+```text
+AB, AC, BC, CD
+```
+
+Adjacency lists make neighbors obvious:
+
+```text
+A: B, C
+B: A, C
+C: A, B, D
+D: C
+```
+
+::: {.practice-box}
+**Checkpoint.** Convert the edge list `AB, AC, CD` into an adjacency list. Is
+the graph connected?
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. Vertex `1` is adjacent to `2` and `4`.
+2. For edges `AB, AD, BD, CD`, the degrees are `deg(A)=2`, `deg(B)=2`,
+   `deg(C)=1`, and `deg(D)=3`. The degree sum is `8`, which equals twice the
+   number of edges.
+3. `A, B, C, D, A` is a walk and a cycle. It is not a path under the beginner
+   definition because the starting vertex repeats at the end.
+4. The adjacency list is `A: B, C`, `B: A`, `C: A, D`, `D: C`. The graph is
+   connected.
+:::
+
 ## Graphs checkpoint
 
 <script type="application/json" class="edu-math-discrete-checkpoint-config">

@@ -145,6 +145,100 @@ chain of two related steps has the required shortcut pair.
 5. Transitive.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Relations are sets of ordered pairs. Functions are relations with a special
+input rule: one input, one output.
+
+### Lab 1: read ordered pairs
+
+**Guess first.** Is `(2, 5)` the same as `(5, 2)`?
+
+**Guided exercise.**
+
+In an ordered pair, position matters. `(2, 5)` has first coordinate `2` and
+second coordinate `5`. `(5, 2)` reverses those roles. They are different unless
+the coordinates are equal.
+
+::: {.practice-box}
+**Checkpoint.** For `R = {(1, a), (2, b), (2, c)}`, list the first coordinates
+and second coordinates separately.
+:::
+
+### Lab 2: find domain, codomain, and range
+
+**Guess first.** In `R = {(1, a), (2, b), (3, b)}`, is `a` in the domain or in
+the range?
+
+**Guided exercise.**
+
+Read the first coordinates for the domain and the second coordinates for the
+range:
+
+```text
+domain from pairs = {1, 2, 3}
+range from pairs  = {a, b}
+```
+
+The codomain must be declared separately. It is the set of allowed target
+values, while the range is the set actually used.
+
+::: {.practice-box}
+**Checkpoint.** If the codomain is `{a, b, c, d}` and the pairs are
+`{(1, a), (2, a), (3, c)}`, find the domain, codomain, and range.
+:::
+
+### Lab 3: test whether a relation is a function
+
+**Guess first.** Does sharing an output break the function rule?
+
+**Guided exercise.**
+
+`{(1, a), (2, a)}` is a function because each input has one output. Shared
+outputs are allowed. But `{(1, a), (1, b)}` is not a function because input `1`
+has two outputs.
+
+A quick test is to scan the first coordinates. If a first coordinate repeats
+with different second coordinates, the relation is not a function.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether `{(0, 1), (1, 1), (2, 4), (2, 5)}` is a
+function. Explain your answer using the input rule.
+:::
+
+### Lab 4: check relation properties carefully
+
+**Guess first.** To test reflexive on `{1, 2, 3}`, how many self-pairs must
+appear?
+
+**Guided exercise.**
+
+Reflexive requires every self-pair:
+
+```text
+(1, 1), (2, 2), and (3, 3)
+```
+
+Symmetric requires reversing every pair. Transitive requires checking chains: if
+`(a, b)` and `(b, c)` appear, then `(a, c)` must appear.
+
+::: {.practice-box}
+**Checkpoint.** On `{1, 2}`, classify `R = {(1, 1), (2, 2), (1, 2)}` as
+reflexive, symmetric, antisymmetric, and/or transitive.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. The first coordinates are `{1, 2}` and the second coordinates are
+   `{a, b, c}`.
+2. Domain: `{1, 2, 3}`. Codomain: `{a, b, c, d}`. Range: `{a, c}`.
+3. `{(0, 1), (1, 1), (2, 4), (2, 5)}` is not a function because input `2` has
+   two outputs.
+4. `R = {(1, 1), (2, 2), (1, 2)}` is reflexive, not symmetric, antisymmetric,
+   and transitive.
+:::
+
 ## Functions and relations checkpoint
 
 <script type="application/json" class="edu-math-discrete-checkpoint-config">

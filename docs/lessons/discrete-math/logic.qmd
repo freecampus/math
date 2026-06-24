@@ -138,6 +138,106 @@ A **contradiction** is always false, such as `p and not p`.
 5. Yes. It is always true.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Logic problems are safest when you slow down and name the statement form before
+deciding whether it is true or false.
+
+### Lab 1: decide whether a sentence is a proposition
+
+**Guess first.** Is “`x` is large” a proposition?
+
+**Guided exercise.**
+
+1. A proposition must have a definite truth value.
+2. “`x` is large” depends on what `x` is and what “large” means.
+3. Without definitions, it is not a proposition.
+4. “`7` is prime” is a proposition because it is definitely true.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether each sentence is a proposition: “`12` is even,”
+“Close the window,” and “`n + 1` is positive.” Explain any dependence on
+undefined variables.
+:::
+
+### Lab 2: build a truth table row by row
+
+**Guess first.** When `p` is false and `q` is false, is `p -> q` true or false?
+
+**Guided exercise.**
+
+```text
+p -> q is false only when p is true and q is false.
+```
+
+So the implication column is:
+
+```text
+p=false, q=false -> true
+p=false, q=true  -> true
+p=true,  q=false -> false
+p=true,  q=true  -> true
+```
+
+The first row is true because the promise “if `p`, then `q`” was never tested:
+`p` did not happen.
+
+::: {.practice-box}
+**Checkpoint.** Make the truth table for `p and not q`. Which row or rows are
+true?
+:::
+
+### Lab 3: use the contrapositive correctly
+
+**Guess first.** Is the contrapositive of “if `p`, then `q`” the same as the
+converse?
+
+**Guided exercise.**
+
+```text
+Original:       p -> q
+Converse:       q -> p
+Contrapositive: not q -> not p
+```
+
+The original and contrapositive always have the same truth value. The converse
+may be false even when the original is true.
+
+::: {.practice-box}
+**Checkpoint.** Write the converse and contrapositive of “If an integer is
+divisible by `6`, then it is divisible by `3`.” Which one is guaranteed
+equivalent to the original?
+:::
+
+### Lab 4: recognize tautologies and contradictions
+
+**Guess first.** Can `p and not p` ever be true?
+
+**Guided exercise.**
+
+If `p` is true, then `not p` is false. If `p` is false, then `not p` is true.
+They are never both true, so `p and not p` is a contradiction.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether `p or not p` is a tautology, contradiction, or
+neither. Justify your answer with a two-row truth table.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. “`12` is even” is a proposition and it is true. “Close the window” is not a
+   proposition because it is a command. “`n + 1` is positive” is not a definite
+   proposition until `n` and its allowed values are specified.
+2. `p and not q` is true only when `p` is true and `q` is false.
+3. Converse: if an integer is divisible by `3`, then it is divisible by `6`.
+   Contrapositive: if an integer is not divisible by `3`, then it is not
+   divisible by `6`. The contrapositive is guaranteed equivalent to the
+   original.
+4. `p or not p` is a tautology: when `p` is true, the first part is true; when
+   `p` is false, `not p` is true.
+:::
+
 ## Logic checkpoint
 
 <script type="application/json" class="edu-math-discrete-checkpoint-config">

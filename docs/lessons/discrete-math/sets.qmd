@@ -144,6 +144,118 @@ The intersection means both events happen.
 5. `{(1,a), (2,a)}`.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Set problems become easier when you decide membership one element at a time.
+
+### Lab 1: element or subset?
+
+**Guess first.** If `A = {1, 2, 3}`, which statement is correct: `2 in A` or
+`{2} in A`?
+
+**Guided exercise.**
+
+`2 in A` is true because `2` is an element of `A`. The set `{2}` is not listed
+as an element of `A`, so `{2} in A` is false. However, `{2} subset A` is true
+because every element of `{2}` is in `A`.
+
+::: {.practice-box}
+**Checkpoint.** For `B = {a, {b}, c}`, decide whether `b in B`, `{b} in B`, and
+`{b} subset B` are true. Say which question is about membership and which is
+about subsets.
+:::
+
+### Lab 2: compute operations by asking membership questions
+
+**Guess first.** For `A = {1, 2, 3}` and `B = {3, 4, 5}`, which elements are in
+both sets?
+
+**Guided exercise.**
+
+Check each possible element:
+
+```text
+1 is in A only
+2 is in A only
+3 is in both A and B
+4 is in B only
+5 is in B only
+```
+
+Therefore:
+
+```text
+A union B        = {1, 2, 3, 4, 5}
+A intersection B = {3}
+A - B            = {1, 2}
+B - A            = {4, 5}
+```
+
+::: {.practice-box}
+**Checkpoint.** Let `A = {red, blue, green}` and `B = {green, yellow}`. Compute
+`A union B`, `A intersection B`, and `A - B`.
+:::
+
+### Lab 3: use complements only after naming the universe
+
+**Guess first.** Can you find `A complement` if no universe is given?
+
+**Guided exercise.**
+
+Let `U = {1, 2, 3, 4, 5, 6}` and `A = {2, 4, 6}`. The complement of `A` is
+everything in `U` that is not in `A`:
+
+```text
+A complement = {1, 3, 5}
+```
+
+If the universe changed to all positive integers, the complement would be much
+larger. That is why the universe must be declared.
+
+::: {.practice-box}
+**Checkpoint.** If `U = {a, b, c, d, e}` and `C = {b, d}`, find `C complement`.
+Then explain why the answer would change if the universe changed.
+:::
+
+### Lab 4: list power sets and Cartesian products systematically
+
+**Guess first.** How many subsets should a two-element set have?
+
+**Guided exercise.**
+
+For `A = {x, y}`, each element has two choices: include it or leave it out.
+That gives four subsets:
+
+```text
+{}        choose neither
+{x}       choose x only
+{y}       choose y only
+{x, y}    choose both
+```
+
+For `A = {1, 2}` and `B = {a, b}`:
+
+```text
+A x B = {(1, a), (1, b), (2, a), (2, b)}
+```
+
+::: {.practice-box}
+**Checkpoint.** List the power set of `{p, q}` and the Cartesian product
+`{0, 1} x {L, R}`.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. For `B = {a, {b}, c}`, `b in B` is false, `{b} in B` is true, and `{b}
+   subset B` is false because the element `b` itself is not in `B`.
+2. `A union B = {red, blue, green, yellow}`, `A intersection B = {green}`, and
+   `A - B = {red, blue}`.
+3. `C complement = {a, c, e}` relative to `U = {a, b, c, d, e}`.
+4. The power set of `{p, q}` is `{ {}, {p}, {q}, {p, q} }`. The Cartesian
+   product is `{(0, L), (0, R), (1, L), (1, R)}`.
+:::
+
 ## Sets checkpoint
 
 <script type="application/json" class="edu-math-discrete-checkpoint-config">

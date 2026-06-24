@@ -77,6 +77,22 @@ You do not need to be perfect. Each lesson reviews the needed notation.
 5. Check small examples with code.
 6. Explain why the answer is true.
 
+## How the upgraded lessons are organized
+
+Each lesson now includes a guided practice layer so you can move from reading a
+concept to using it independently:
+
+- **guess first** prompts that build prediction habits before formal work;
+- **guided exercises** that unpack definitions one decision at a time;
+- **checkpoint exercises** that ask you to repeat the same reasoning without as
+  much support;
+- a browser-native checkpoint or guessing game before the final appendix;
+- final visible `edumath`, Python, and SymPy examples for computational checks.
+
+When a discrete math problem feels unclear, write the relevant definition,
+construct a tiny example, and test the definition against that example. This
+habit is more reliable than trying to memorize many special cases.
+
 ## Readiness checkpoint
 
 <script type="application/json" class="edu-math-discrete-checkpoint-config">
