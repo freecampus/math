@@ -555,6 +555,106 @@ prove equivalence by algebraic transformation.
 - **Optimization:** constraints are equations and inequalities that define the
   feasible set.
 
+## Subtopic guided practice and checkpoints
+
+Use these mini-labs after the main explanations. Each lab asks you to **guess
+first**, then follow the steps, then try a checkpoint without looking back.
+
+### Lab 1: expression, equation, or identity?
+
+**Guess first.** Decide whether each object is an expression, an equation, or an
+identity.
+
+```text
+A. 3x - 7
+B. 3x - 7 = 11
+C. 2(x + 1) = 2x + 2
+```
+
+**Guided exercise.**
+
+1. Look for an equals sign. No equals sign means expression, so A is an
+   expression.
+2. If there is an equals sign, ask whether it is true for all allowed values or
+   only some values.
+3. B is an equation because it is true only for `x = 6`.
+4. C is an identity because expanding the left side gives `2x + 2`, so both
+   sides match for every `x`.
+
+::: {.practice-box}
+**Checkpoint.** Classify each: `5 - y`, `y^2 = 9`, `(x - 4)^2 = x^2 - 8x + 16`.
+Then write one sentence explaining how you decided.
+:::
+
+### Lab 2: substitute carefully
+
+**Guess first.** For `E = 2a^2 - 3b`, estimate whether the value is positive or
+negative when `a = -2` and `b = 5`.
+
+**Guided exercise.**
+
+```text
+E = 2a^2 - 3b
+  = 2(-2)^2 - 3(5)
+  = 2(4) - 15
+  = 8 - 15
+  = -7
+```
+
+Notice that `(-2)^2 = 4`. Parentheses protect the negative sign.
+
+::: {.practice-box}
+**Checkpoint.** Evaluate `4p - 2q^2` when `p = -3` and `q = -2`. Show the
+substitution line before simplifying.
+:::
+
+### Lab 3: build equivalent forms
+
+**Guess first.** Is `(x + 5)(x - 2)` equivalent to `x^2 + 3x - 10`,
+`x^2 - 3x - 10`, or `x^2 + 7x - 10`?
+
+**Guided exercise.**
+
+```text
+(x + 5)(x - 2)
+= x(x - 2) + 5(x - 2)
+= x^2 - 2x + 5x - 10
+= x^2 + 3x - 10
+```
+
+Every equivalent form tells a different story: expanded form shows coefficients,
+while factored form shows roots.
+
+::: {.practice-box}
+**Checkpoint.** Expand `(2x - 1)(x + 4)`. Then factor your result back to check.
+:::
+
+### Lab 4: solve and check a linear equation
+
+**Guess first.** In `4(x - 2) + 3 = 19`, should `x` be smaller than 5, equal to
+5, or larger than 5?
+
+**Guided exercise.**
+
+```text
+4(x - 2) + 3 = 19
+4x - 8 + 3 = 19        expand
+4x - 5 = 19            combine like terms
+4x = 24                add 5 to both sides
+x = 6                  divide by 4
+```
+
+Check in the original equation:
+
+```text
+4(6 - 2) + 3 = 16 + 3 = 19
+```
+
+::: {.practice-box}
+**Checkpoint.** Solve `3(2x + 1) - 5 = 16`. Show each balanced operation and
+check the answer in the original equation.
+:::
+
 ## Guessing game checkpoint
 
 Before moving to the Python/SymPy appendix, practice the core moves from this
@@ -572,6 +672,19 @@ description and ask you to choose the matching mathematical object.
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+Use the parser/solver workflow when a text equation should become a SymPy
+equation first and a step-by-step `edumath` solution second.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+step_solution = solve_equation_steps(parse_equation("4(x - 2) + 3 = 19"))
+print(step_solution.render_text())
+```
 
 Use SymPy to check symbolic transformations and use `edumath` quiz helpers to
 turn those transformations into auto-checkable practice.

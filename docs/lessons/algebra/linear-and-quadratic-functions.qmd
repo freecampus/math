@@ -403,6 +403,87 @@ between the roots. The vertex lies on this axis, so its x-coordinate is
   quadratic vertex.
 - **Numerical methods:** local polynomial approximations are central tools.
 
+## Subtopic guided practice and checkpoints
+
+Linear functions tell constant-rate stories. Quadratic functions tell turning
+point stories. Use each form for the feature it reveals.
+
+### Lab 1: slope and intercept
+
+**Guess first.** For `y = -3x + 8`, does the line rise or fall from left to
+right?
+
+**Guided exercise.**
+
+The slope is `-3`, so each time `x` increases by `1`, `y` decreases by `3`.
+The y-intercept is `8`, so the graph crosses the y-axis at `(0, 8)`.
+
+::: {.practice-box}
+**Checkpoint.** For `y = (1/2)x - 4`, identify the slope, y-intercept, and two
+points on the line.
+:::
+
+### Lab 2: build a line from two points
+
+**Guess first.** Through `(1, 5)` and `(4, 11)`, is the slope positive,
+negative, or zero?
+
+**Guided exercise.**
+
+```text
+m = (11 - 5)/(4 - 1) = 6/3 = 2
+y - 5 = 2(x - 1)             point-slope form
+y - 5 = 2x - 2
+y = 2x + 3                   slope-intercept form
+```
+
+::: {.practice-box}
+**Checkpoint.** Find the equation of the line through `(-2, 1)` and `(2, 9)`.
+Check that both points satisfy your equation.
+:::
+
+### Lab 3: solve a quadratic by factoring
+
+**Guess first.** For `x^2 - 7x + 12 = 0`, which pair of numbers multiplies to
+`12` and adds to `-7`?
+
+**Guided exercise.**
+
+```text
+x^2 - 7x + 12 = 0
+(x - 3)(x - 4) = 0       factor
+x - 3 = 0 or x - 4 = 0   zero-product property
+x = 3 or x = 4
+```
+
+::: {.practice-box}
+**Checkpoint.** Solve `x^2 - 9x + 20 = 0` by factoring. Then check both roots
+in the original equation.
+:::
+
+### Lab 4: vertex form and the discriminant
+
+**Guess first.** Does `y = 2(x + 1)^2 - 8` open up or down? Where is its vertex?
+
+**Guided exercise.**
+
+In `y = a(x - h)^2 + k`, the vertex is `(h, k)`. Here `a = 2`, `h = -1`, and
+`k = -8`, so the vertex is `(-1, -8)` and the parabola opens up.
+
+For standard form `ax^2 + bx + c`, the discriminant `b^2 - 4ac` predicts real
+roots:
+
+```text
+positive: two real roots
+zero: one repeated real root
+negative: no real roots
+```
+
+::: {.practice-box}
+**Checkpoint.** For `y = x^2 + 6x + 10`, compute the discriminant and explain
+how many real x-intercepts the graph has.
+:::
+
 ## Guessing game checkpoint
 
 Before moving to the Python/SymPy appendix, practice the core moves from this
@@ -420,6 +501,19 @@ description and ask you to choose the matching mathematical object.
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+Use `edumath`'s parser and solver to check equation-solving steps, then connect
+the answer back to the graph.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+quadratic_solution = solve_equation_steps(parse_equation("x^2 - 7x + 12 = 0"))
+print(quadratic_solution.render_text())
+```
 
 Use the package helpers to compute line and quadratic facts exactly, then compare
 those facts with the graph you sketch by hand.

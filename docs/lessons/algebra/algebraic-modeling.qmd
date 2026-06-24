@@ -150,6 +150,104 @@ Try entering two points to compute a line, evaluating a candidate formula at dat
 8. It may ignore minimum fares, traffic charges, rounding, or rate changes.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Modeling is not just solving. It is choosing variables, translating conditions,
+solving, and checking whether the result makes sense in context.
+
+### Lab 1: define variables and units
+
+**Guess first.** If a problem asks for time and distance, why is it dangerous to
+write equations before defining variables?
+
+**Guided exercise.**
+
+Suppose a taxi charges `$4` plus `$2.50` per mile. Define:
+
+```text
+m = number of miles
+C = total cost in dollars
+```
+
+Then the model is:
+
+```text
+C = 4 + 2.50m
+```
+
+::: {.practice-box}
+**Checkpoint.** A gym charges a `$25` sign-up fee plus `$18` per month. Define
+variables with units and write a cost model.
+:::
+
+### Lab 2: translate words into equations
+
+**Guess first.** In “five more than twice a number is seventeen,” which part is
+the variable expression?
+
+**Guided exercise.**
+
+```text
+number -> n
+twice a number -> 2n
+five more than twice a number -> 2n + 5
+is seventeen -> = 17
+```
+
+So:
+
+```text
+2n + 5 = 17
+2n = 12
+n = 6
+```
+
+::: {.practice-box}
+**Checkpoint.** Translate and solve: “Three less than four times a number is
+twenty-one.”
+:::
+
+### Lab 3: linear model from two data points
+
+**Guess first.** If data points are `(2, 11)` and `(6, 23)`, is the rate of
+change positive or negative?
+
+**Guided exercise.**
+
+```text
+m = (23 - 11)/(6 - 2) = 12/4 = 3
+y - 11 = 3(x - 2)
+y = 3x + 5
+```
+
+The model predicts an output of `5` when `x = 0`.
+
+::: {.practice-box}
+**Checkpoint.** Build a linear model through `(1, 9)` and `(5, 21)`.
+Interpret the slope.
+:::
+
+### Lab 4: check a model result
+
+**Guess first.** If a ticket problem gives `a = -3` adult tickets, should you
+accept the algebraic answer?
+
+**Guided exercise.**
+
+A model answer must satisfy three tests:
+
+1. It satisfies the equation or system.
+2. It has the right units.
+3. It makes sense in the context.
+
+Negative ticket counts, negative lengths, and fractional people usually mean the
+model or interpretation needs review.
+
+::: {.practice-box}
+**Checkpoint.** A calculation gives `2.4` buses for a field trip. What final
+answer should the planner use, and why?
+:::
+
 ## Guessing game checkpoint
 
 <script type="application/json" class="edu-math-guessing-game-config">
@@ -163,6 +261,19 @@ Try entering two points to compute a line, evaluating a candidate formula at dat
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+Use parsed equations to check the algebra after you have defined variables and
+units. The computer can solve, but you must decide whether the model makes sense.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+model_solution = solve_equation_steps(parse_equation("2*n + 5 = 17"))
+print(model_solution.render_text())
+```
 
 ```{python}
 #| echo: true

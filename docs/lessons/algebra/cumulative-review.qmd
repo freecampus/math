@@ -165,6 +165,96 @@ n + d = 18
 
 Use [math.js](https://mathjs.org/docs/index.html), [Nerdamer](https://nerdamer.com/documentation.html), [Algebrite](https://github.com/davidedc/Algebrite), or [PyScript](https://docs.pyscript.net/latest/) to verify answers. Then write what the tool confirmed and what you still had to decide.
 
+## Subtopic guided practice and checkpoints
+
+Mixed review is about choosing a method before calculating. Use these labs to
+practice recognizing problem types.
+
+### Lab 1: choose the method
+
+**Guess first.** Which method fits each problem: factor, isolate, graph,
+substitute, or use logarithms?
+
+```text
+A. 3x - 5 = 16
+B. x^2 - 9x + 20 = 0
+C. 2^x = 13
+D. y = x + 1 and y = -x + 5
+```
+
+**Guided exercise.**
+
+```text
+A isolate the variable
+B factor the quadratic
+C use logarithms or numerical solving
+D substitute or graph the two lines
+```
+
+::: {.practice-box}
+**Checkpoint.** For each problem in your current homework, write the method name
+before the first algebraic step.
+:::
+
+### Lab 2: execute step by step
+
+**Guess first.** In a mixed problem set, why is skipping steps risky?
+
+**Guided exercise.** Solve `2(x + 4) - 3 = 13`.
+
+```text
+2(x + 4) - 3 = 13
+2x + 8 - 3 = 13
+2x + 5 = 13
+2x = 8
+x = 4
+```
+
+Every line changes one thing, so errors are easier to find.
+
+::: {.practice-box}
+**Checkpoint.** Solve `5 - 3(2x - 1) = 20`, writing one operation per line.
+:::
+
+### Lab 3: check and repair
+
+**Guess first.** If your answer does not check, should you erase everything or
+search for the first wrong line?
+
+**Guided exercise.**
+
+Use this repair routine:
+
+1. Substitute the answer into the original problem.
+2. If it fails, compare each line with the previous line.
+3. Look first for sign errors, distribution errors, and illegal cancellation.
+4. Correct the earliest wrong line, then continue.
+
+::: {.practice-box}
+**Checkpoint.** Create a deliberate sign error while solving a linear equation.
+Then use the repair routine to find and fix it.
+:::
+
+### Lab 4: explain the answer
+
+**Guess first.** What is missing from an answer that says only `x = 3`?
+
+**Guided exercise.**
+
+A complete answer often includes:
+
+```text
+solution value or set
+restriction check
+meaning in context
+units, if the problem has units
+```
+
+::: {.practice-box}
+**Checkpoint.** Write a complete final sentence for a ticket-sales problem where
+`a = 20` adult tickets and `s = 30` student tickets.
+:::
+
 ## Guessing game checkpoint
 
 <script type="application/json" class="edu-math-guessing-game-config">
@@ -178,6 +268,19 @@ Use [math.js](https://mathjs.org/docs/index.html), [Nerdamer](https://nerdamer.c
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+Use `edumath`'s parser and solver as a checking partner after you have selected
+a method and tried the problem by hand.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+review_solution = solve_equation_steps(parse_equation("2(x + 4) - 3 = 13"))
+print(review_solution.render_text())
+```
 
 ```{python}
 #| echo: true

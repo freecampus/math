@@ -372,6 +372,90 @@ the x-axis at least once.
 - **Numerical methods:** interpolation and root-finding often begin with
   polynomial approximations.
 
+## Subtopic guided practice and checkpoints
+
+Polynomial questions usually ask for structure: degree, leading behavior,
+roots, multiplicity, or factors. Guess the structure before expanding.
+
+### Lab 1: vocabulary from a polynomial
+
+**Guess first.** For `p(x) = -2x^4 + 3x^2 - 7`, what controls the end behavior?
+
+**Guided exercise.**
+
+The leading term is `-2x^4`. Therefore:
+
+```text
+degree = 4
+leading coefficient = -2
+even degree + negative leading coefficient -> both ends go down
+```
+
+::: {.practice-box}
+**Checkpoint.** For `q(x) = 5x^3 - x^2 + 9`, identify the degree, leading
+coefficient, constant term, and end behavior.
+:::
+
+### Lab 2: roots from factored form
+
+**Guess first.** How many roots can you read from `p(x) = (x - 4)(x + 2)^2`?
+
+**Guided exercise.**
+
+```text
+x - 4 = 0      -> x = 4
+x + 2 = 0      -> x = -2
+```
+
+The root `-2` has multiplicity `2`, so the graph touches and turns there. The
+root `4` has multiplicity `1`, so the graph crosses there.
+
+::: {.practice-box}
+**Checkpoint.** List the roots and multiplicities of
+`r(x) = (x + 5)^3(x - 1)^2`.
+:::
+
+### Lab 3: build from roots
+
+**Guess first.** A polynomial with roots `-3`, `2`, and `2` should contain which
+factors?
+
+**Guided exercise.**
+
+```text
+root -3 -> factor x + 3
+root 2  -> factor x - 2
+root 2 again -> another factor x - 2
+p(x) = (x + 3)(x - 2)^2
+```
+
+You can leave the answer factored when roots are the important feature.
+
+::: {.practice-box}
+**Checkpoint.** Build a least-degree polynomial with roots `0`, `4`, and `-1`,
+where `4` has multiplicity `2`.
+:::
+
+### Lab 4: Factor Theorem thinking
+
+**Guess first.** If `p(3) = 0`, what factor must divide `p(x)`?
+
+**Guided exercise.**
+
+The Factor Theorem says:
+
+```text
+p(c) = 0  means  (x - c) is a factor
+```
+
+So if `p(3) = 0`, then `(x - 3)` is a factor. If `p(-5) = 0`, then `(x + 5)` is
+a factor.
+
+::: {.practice-box}
+**Checkpoint.** If `p(2) = 0` and `p(-1) = 0`, name two factors of `p(x)`. Then
+write a possible degree-2 polynomial with those roots.
+:::
+
 ## Guessing game checkpoint
 
 Before moving to the Python/SymPy appendix, practice the core moves from this

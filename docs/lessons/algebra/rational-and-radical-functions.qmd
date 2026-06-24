@@ -317,6 +317,96 @@ Try these exercises online:
 10. `s(A) = sqrt(A)`, with `A >= 0`.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Rational and radical problems are solved safely only when restrictions stay
+visible. Guess the restrictions before simplifying or solving.
+
+### Lab 1: find restrictions first
+
+**Guess first.** What value is forbidden in `(x + 5)/(x - 4)`?
+
+**Guided exercise.**
+
+Set the denominator equal to zero:
+
+```text
+x - 4 = 0
+x = 4
+```
+
+So the domain is all real numbers except `4`.
+
+::: {.practice-box}
+**Checkpoint.** Find the forbidden values for `(x^2 + 1)/(x^2 - 9)`.
+:::
+
+### Lab 2: simplify and keep the hole
+
+**Guess first.** In `(x^2 - 1)/(x - 1)`, does canceling remove every memory of
+`x = 1`?
+
+**Guided exercise.**
+
+```text
+(x^2 - 1)/(x - 1)
+= ((x - 1)(x + 1))/(x - 1)
+= x + 1, but x != 1
+```
+
+The visible graph follows the line `y = x + 1`, but the original function has a
+hole at `x = 1`.
+
+::: {.practice-box}
+**Checkpoint.** Simplify `(x^2 - 4)/(x + 2)` and state the excluded value.
+:::
+
+### Lab 3: solve a rational equation
+
+**Guess first.** For `1/(x - 2) = 3`, should the solution be greater than `2` or
+less than `2`?
+
+**Guided exercise.**
+
+```text
+1/(x - 2) = 3
+x != 2                         restriction
+1 = 3(x - 2)                   multiply by x - 2
+1 = 3x - 6
+7 = 3x
+x = 7/3
+```
+
+Check: `7/3` is not forbidden, and `1/(7/3 - 2) = 1/(1/3) = 3`.
+
+::: {.practice-box}
+**Checkpoint.** Solve `2/(x + 1) = 5`. State the restriction and check the
+candidate.
+:::
+
+### Lab 4: solve a radical equation
+
+**Guess first.** For `sqrt(x + 5) = x - 1`, must `x - 1` be nonnegative?
+
+**Guided exercise.**
+
+```text
+sqrt(x + 5) = x - 1
+x - 1 >= 0, so x >= 1        because square roots are nonnegative
+x + 5 = (x - 1)^2            square both sides
+x + 5 = x^2 - 2x + 1
+0 = x^2 - 3x - 4
+0 = (x - 4)(x + 1)
+x = 4 or x = -1
+```
+
+Only `x = 4` satisfies the restriction and the original equation.
+
+::: {.practice-box}
+**Checkpoint.** Solve `sqrt(x + 1) = x - 1`. Check every candidate in the
+original radical equation.
+:::
+
 ## Guessing game checkpoint
 
 Use this checkpoint to practice domains, holes, asymptotes, and radical checks.
@@ -332,6 +422,19 @@ Use this checkpoint to practice domains, holes, asymptotes, and radical checks.
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+Use the parser/solver workflow to check candidate solutions. For rational and
+radical equations, still inspect restrictions and original-equation checks.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+rational_solution = solve_equation_steps(parse_equation("1/(x - 2) = 3"))
+print(rational_solution.render_text())
+```
 
 Use SymPy to check algebraic forms, while you remain responsible for restrictions.
 

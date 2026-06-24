@@ -138,6 +138,22 @@ fig, ax = scene.render()
 fig
 ```
 
+## How the upgraded lessons are organized
+
+Each Algebra lesson now includes a guided practice layer in addition to the main
+examples:
+
+- **guess first** prompts that train estimation and method selection;
+- **guided exercises** that show one small algebraic move at a time;
+- **checkpoint exercises** that ask you to repeat the same reasoning without the
+  solution immediately visible;
+- a topic-specific browser guessing game near the end of the lesson;
+- a final `edumath` and SymPy appendix for checking work computationally.
+
+When a problem involves solving, copy the step format by hand: write the original
+problem, change one thing per line, name the operation, and check the result in
+the original problem.
+
 ## How to study these lessons
 
 For each lesson:
@@ -149,7 +165,7 @@ For each lesson:
 5. Attempt every exercise before opening the hidden solution.
 6. Write a short explanation of the idea in your own words.
 
-## Using this path with edumath and SymPy
+## Using this lesson with edumath and SymPy
 
 The lessons hide most implementation code so you can focus on mathematics. When
 you work in a notebook or Google Colab, you can import the same helpers directly

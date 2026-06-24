@@ -397,6 +397,81 @@ each input x-value exactly one output.
 - **Optimization:** objective functions are maximized or minimized over a
   domain.
 
+## Subtopic guided practice and checkpoints
+
+Functions connect formulas, tables, graphs, and verbal descriptions. In each
+lab, make a prediction before calculating.
+
+### Lab 1: decide whether a relation is a function
+
+**Guess first.** Can one input have two outputs and still be a function?
+
+**Guided exercise.**
+
+A relation is a function when each input has exactly one output. The set
+`{(1, 4), (2, 5), (1, 6)}` is not a function because input `1` points to both
+`4` and `6`.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether `{(-1, 3), (0, 3), (2, 7), (3, 7)}` is a
+function. Explain your reason using the words input and output.
+:::
+
+### Lab 2: evaluate a function from a formula
+
+**Guess first.** For `f(x) = x^2 - 3x + 2`, do you expect `f(4)` to be positive,
+negative, or zero?
+
+**Guided exercise.**
+
+```text
+f(x) = x^2 - 3x + 2
+f(4) = 4^2 - 3(4) + 2
+     = 16 - 12 + 2
+     = 6
+```
+
+::: {.practice-box}
+**Checkpoint.** For `g(t) = 2t^2 + t - 1`, compute `g(-2)` and `g(0)`.
+Show the substitution step.
+:::
+
+### Lab 3: find domain restrictions from a formula
+
+**Guess first.** Which inputs are forbidden in `h(x) = sqrt(x - 1)/(x + 3)`?
+
+**Guided exercise.**
+
+1. The square root requires `x - 1 >= 0`, so `x >= 1`.
+2. The denominator requires `x + 3 != 0`, so `x != -3`.
+3. Since `x >= 1` already excludes `-3`, the domain is `[1, infinity)`.
+
+::: {.practice-box}
+**Checkpoint.** Find the domain of `p(x) = sqrt(5 - x)/(x - 2)`. State both the
+root condition and the denominator condition before combining them.
+:::
+
+### Lab 4: average rate of change
+
+**Guess first.** If a graph rises from `y = 2` to `y = 10` while `x` moves from
+`1` to `5`, is the average rate positive or negative?
+
+**Guided exercise.**
+
+```text
+average rate = change in output / change in input
+             = (10 - 2)/(5 - 1)
+             = 8/4
+             = 2
+```
+
+For a formula, compute the two output values first, then use the same fraction.
+
+::: {.practice-box}
+**Checkpoint.** For `f(x) = x^2`, find the average rate of change from `x = 1`
+to `x = 4`. Interpret the answer in one sentence.
+:::
+
 ## Guessing game checkpoint
 
 Before moving to the Python/SymPy appendix, practice the core moves from this

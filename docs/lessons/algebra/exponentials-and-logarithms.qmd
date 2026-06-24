@@ -228,6 +228,93 @@ Useful browser tools include [math.js](https://mathjs.org/docs/index.html), [Ner
 10. `A(t) = 1000(0.88)^t`.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Exponentials build repeated multiplication. Logarithms answer exponent
+questions. Guess which inverse operation you need before solving.
+
+### Lab 1: exponent rules with meaning
+
+**Guess first.** Is `a^3 * a^4` closer to `a^7` or `a^12`?
+
+**Guided exercise.**
+
+```text
+a^3 * a^4 = (a*a*a)(a*a*a*a) = a^7
+```
+
+Add exponents only when the bases match and you are multiplying powers.
+
+::: {.practice-box}
+**Checkpoint.** Simplify `x^5/x^2` and `(2x^3)^2`. State which rule you used.
+:::
+
+### Lab 2: growth and decay
+
+**Guess first.** In `P(t) = 500(1.08)^t`, is the quantity growing or decaying?
+
+**Guided exercise.**
+
+The base is `1.08`, which is larger than `1`, so the model grows by `8%` each
+time period. At `t = 3`:
+
+```text
+P(3) = 500(1.08)^3
+     = 629.856
+```
+
+::: {.practice-box}
+**Checkpoint.** Interpret `A(t) = 1200(0.85)^t`. Is it growth or decay? What is
+the percent change each time period?
+:::
+
+### Lab 3: logarithms as inverse questions
+
+**Guess first.** What power of `2` gives `32`?
+
+**Guided exercise.**
+
+```text
+log_2(32) = ?
+2^? = 32
+2^5 = 32
+log_2(32) = 5
+```
+
+::: {.practice-box}
+**Checkpoint.** Rewrite `log_3(81) = 4` in exponential form. Then evaluate
+`log_5(1/25)`.
+:::
+
+### Lab 4: solve exponential and logarithmic equations
+
+**Guess first.** To solve `3^(x - 1) = 27`, should you use common bases or logs?
+
+**Guided exercise.**
+
+```text
+3^(x - 1) = 27
+3^(x - 1) = 3^3
+x - 1 = 3
+x = 4
+```
+
+For a logarithmic equation, rewrite in exponential form:
+
+```text
+log_2(x + 6) = 5
+x + 6 = 2^5
+x + 6 = 32
+x = 26
+```
+
+Check the log domain: `x + 6 > 0`, and `26` works.
+
+::: {.practice-box}
+**Checkpoint.** Solve `5^(2x) = 125` and `log_3(x - 1) = 2`. Include a domain
+check for the logarithmic equation.
+:::
+
 ## Guessing game checkpoint
 
 <script type="application/json" class="edu-math-guessing-game-config">
@@ -241,6 +328,19 @@ Useful browser tools include [math.js](https://mathjs.org/docs/index.html), [Ner
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+Use parsed equations with the solver for exact symbolic answers, then interpret
+them using exponent and logarithm rules.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+exponential_solution = solve_equation_steps(parse_equation("3^(x - 1) = 27"))
+print(exponential_solution.render_text())
+```
 
 ```{python}
 #| echo: true

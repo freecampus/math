@@ -419,6 +419,96 @@ That means `x` can be no more than `r` units left of `a` and no more than
 - **Statistics:** confidence intervals and hypothesis-test rejection regions are
   sets defined by inequalities.
 
+## Subtopic guided practice and checkpoints
+
+Inequality work is about preserving the direction of comparison. Guess first,
+solve carefully, then test a value from your answer set.
+
+### Lab 1: interval notation and endpoints
+
+**Guess first.** Does `[-2, 5)` include `-2`? Does it include `5`?
+
+**Guided exercise.**
+
+1. A square bracket means the endpoint is included.
+2. A parenthesis means the endpoint is not included.
+3. Therefore `[-2, 5)` includes `-2`, all numbers between `-2` and `5`, but not
+   `5`.
+
+::: {.practice-box}
+**Checkpoint.** Write `x > -3` and `x <= 4` in interval notation. Then draw the
+number-line endpoint types in your notes.
+:::
+
+### Lab 2: solve a linear inequality
+
+**Guess first.** For `-2x + 5 < 13`, will the final inequality point left or
+right?
+
+**Guided exercise.**
+
+```text
+-2x + 5 < 13
+-2x < 8                subtract 5
+x > -4                 divide by -2 and reverse the inequality
+```
+
+Test `x = 0`, which is greater than `-4`:
+
+```text
+-2(0) + 5 < 13
+5 < 13                 true
+```
+
+::: {.practice-box}
+**Checkpoint.** Solve `7 - 3x >= 16`. Explain exactly when and why the sign
+changes direction.
+:::
+
+### Lab 3: solve a compound inequality
+
+**Guess first.** Does `-1 <= 2x + 3 < 9` produce one interval or two separate
+intervals?
+
+**Guided exercise.**
+
+```text
+-1 <= 2x + 3 < 9
+-4 <= 2x < 6           subtract 3 from all three parts
+-2 <= x < 3            divide all three parts by 2
+```
+
+The answer is one connected interval: `[-2, 3)`.
+
+::: {.practice-box}
+**Checkpoint.** Solve `4 < 3x - 2 <= 13` and write the answer in interval
+notation.
+:::
+
+### Lab 4: absolute value as distance
+
+**Guess first.** If `|x - 4| = 6`, should there be one solution or two?
+
+**Guided exercise.**
+
+`|x - 4| = 6` means “the distance from `x` to `4` is `6`.”
+
+```text
+x - 4 = 6      or      x - 4 = -6
+x = 10                 x = -2
+```
+
+For inequalities, translate distance language:
+
+```text
+|x - 4| < 6  means  -6 < x - 4 < 6
+```
+
+::: {.practice-box}
+**Checkpoint.** Solve `|2x + 1| <= 7`. Then test one number inside the interval
+and one number outside it.
+:::
+
 ## Guessing game checkpoint
 
 Before moving to the Python/SymPy appendix, practice the core moves from this

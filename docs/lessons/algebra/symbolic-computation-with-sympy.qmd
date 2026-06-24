@@ -161,6 +161,82 @@ A PyScript sandbox could load SymPy using a package configuration. Verify the ex
 8. The original expression excludes `x = 1`.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Symbolic computation is powerful when you know what question you are asking.
+Guess the command, run it, and then interpret the result mathematically.
+
+### Lab 1: create symbols and parse expressions
+
+**Guess first.** Should `x` be typed as a Python string or a SymPy symbol before
+building `x^2 + 1`?
+
+**Guided exercise.**
+
+```python
+import sympy as sp
+x = sp.Symbol("x")
+expr = x**2 + 1
+```
+
+The expression is symbolic, so SymPy can expand, factor, differentiate later,
+and substitute exact values.
+
+::: {.practice-box}
+**Checkpoint.** Create symbols `a` and `b`, then build the expression
+`(a + b)^2`. Which SymPy command expands it?
+:::
+
+### Lab 2: expressions versus equations
+
+**Guess first.** Is `x**2 - 4` an equation by itself?
+
+**Guided exercise.**
+
+```python
+expr = x**2 - 4          # expression
+Eq(expr, 0)              # equation
+```
+
+An expression can be simplified or factored. An equation can be solved.
+
+::: {.practice-box}
+**Checkpoint.** Write a SymPy equation for `3x + 2 = 11`. Then solve it.
+:::
+
+### Lab 3: solve and check
+
+**Guess first.** Why should you check a symbolic answer after solving?
+
+**Guided exercise.**
+
+```text
+solve gives candidates
+checksol tests candidates in the original equation
+```
+
+This matters especially for rational and radical equations, where restrictions
+or squaring can create invalid candidates.
+
+::: {.practice-box}
+**Checkpoint.** Solve `sqrt(x + 5) = x - 1` with SymPy, then check each solution
+in the original equation.
+:::
+
+### Lab 4: exact versus approximate output
+
+**Guess first.** Which is more informative: `sqrt(2)` or `1.41421356`?
+
+**Guided exercise.**
+
+Exact forms preserve structure. Decimal approximations help with measurement and
+graphing. Use exact answers while solving, then approximate when interpreting.
+
+::: {.practice-box}
+**Checkpoint.** Compute an exact value for `log(5)` and then a decimal
+approximation. State when each form is useful.
+:::
+
 ## Guessing game checkpoint
 
 <script type="application/json" class="edu-math-guessing-game-config">
@@ -174,6 +250,20 @@ A PyScript sandbox could load SymPy using a package configuration. Verify the ex
 {{< include _includes/guessing-game.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+
+The solver layer expects SymPy objects. If a student starts with typed text,
+parse it first, then solve the parsed equation.
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation
+from edumath.solvers import solve_equation_steps
+
+parsed = parse_equation("3x + 2 = 11")
+solution = solve_equation_steps(parsed)
+print(solution.render_text())
+```
 
 ```{python}
 #| echo: true

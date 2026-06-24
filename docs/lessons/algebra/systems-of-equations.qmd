@@ -209,6 +209,99 @@ Try checking systems with [math.js](https://mathjs.org/docs/index.html), [Nerdam
 8. They never intersect, so no ordered pair lies on both.
 :::
 
+## Subtopic guided practice and checkpoints
+
+A system solution must satisfy every equation at the same time. Guess the graph
+picture before choosing a method.
+
+### Lab 1: test an ordered pair
+
+**Guess first.** Does `(2, 3)` look likely to solve `x + y = 5` and
+`2x - y = 1`?
+
+**Guided exercise.**
+
+```text
+x + y = 5       -> 2 + 3 = 5       true
+2x - y = 1      -> 2(2) - 3 = 1    true
+```
+
+Because both equations are true, `(2, 3)` is a solution.
+
+::: {.practice-box}
+**Checkpoint.** Test whether `(4, -1)` solves `x + y = 3` and `x - 2y = 6`.
+:::
+
+### Lab 2: substitution
+
+**Guess first.** In `y = x + 4` and `2x + y = 10`, which expression should you
+substitute?
+
+**Guided exercise.**
+
+```text
+y = x + 4
+2x + y = 10
+2x + (x + 4) = 10       substitute x + 4 for y
+3x + 4 = 10
+3x = 6
+x = 2
+y = 2 + 4 = 6
+```
+
+Solution: `(2, 6)`.
+
+::: {.practice-box}
+**Checkpoint.** Solve `y = 3x - 1` and `x + y = 11` by substitution.
+:::
+
+### Lab 3: elimination
+
+**Guess first.** In `3x + 2y = 16` and `x - 2y = 4`, what happens if you add the
+equations?
+
+**Guided exercise.**
+
+```text
+ 3x + 2y = 16
++x - 2y = 4
+-------------
+ 4x      = 20
+ x = 5
+```
+
+Substitute back:
+
+```text
+5 - 2y = 4
+-2y = -1
+y = 1/2
+```
+
+::: {.practice-box}
+**Checkpoint.** Solve `2x + y = 11` and `3x - y = 9` by elimination.
+:::
+
+### Lab 4: classify the system
+
+**Guess first.** Do the equations `2x + 4y = 8` and `x + 2y = 4` represent
+parallel lines or the same line?
+
+**Guided exercise.**
+
+Multiplying the second equation by `2` gives the first equation exactly:
+
+```text
+2(x + 2y = 4) -> 2x + 4y = 8
+```
+
+So the system has infinitely many solutions.
+
+::: {.practice-box}
+**Checkpoint.** Classify `2x + 4y = 8` and `x + 2y = 5`. Explain using the idea
+of multiples.
+:::
+
 ## Guessing game checkpoint
 
 <script type="application/json" class="edu-math-guessing-game-config">
