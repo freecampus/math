@@ -5,124 +5,266 @@ execute:
   echo: false
 ---
 
+Integration often feels harder than differentiation because you are working
+backward. A derivative rule usually tells you what to do directly. An integral
+asks: **which derivative rule might this be reversing?**
+
 ::: {.learning-objectives}
 ### Learning objectives
 
 After this lesson you should be able to:
 
+- recognize when algebraic simplification should come first;
 - recognize when substitution can simplify an integral;
+- evaluate simple definite integrals with substitution;
 - recognize when integration by parts is useful;
-- simplify algebraic expressions before integrating;
-- approximate integrals numerically;
+- approximate integrals numerically when exact antiderivatives are difficult;
 - check antiderivatives by differentiating;
-- use SymPy to verify results.
+- use SymPy to verify results and interpret equivalent forms.
 :::
-
-## Why integration techniques matter
-
-Differentiation rules are direct. Integration is more like puzzle solving: you
-look for a pattern that reverses a derivative rule.
 
 ## Technique-selection map
 
-- **Simplify first** when algebra can make the expression easier.
-- **Substitution** when you see a composition and the derivative of the inside.
-- **Integration by parts** when you see a product and one factor simplifies when
-  differentiated.
-- **Numerical approximation** when an exact symbolic answer is unnecessary or
-  difficult.
+| Pattern in the integral | Try this first |
+|---|---|
+| algebra can simplify the integrand | simplify first |
+| inside function and its derivative both appear | substitution |
+| product where one factor simplifies when differentiated | integration by parts |
+| definite integral with hard exact form or data | numerical approximation |
+| answer found by hand | check by differentiating |
+
+::: {.key-idea}
+### Main question
+
+When choosing a technique, ask: "What derivative rule could have produced this
+integrand?"
+:::
+
+## Simplify first
+
+Sometimes the best integration technique is algebra.
+
+### Walkthrough: rewrite before integrating
+
+Compute
+
+$$
+\int \frac{x^2+3x}{x}\,dx.
+$$
+
+1. **Notice the algebra.** Every term in the numerator can be divided by $x$.
+2. **Rewrite.**
+   $$
+   \frac{x^2+3x}{x}=x+3.
+   $$
+3. **Integrate term by term.**
+   $$
+   \int(x+3)\,dx=\frac{x^2}{2}+3x+C.
+   $$
+4. **Check.** Differentiate $x^2/2+3x+C$ to get $x+3$, which equals the
+   simplified integrand.
 
 ## Substitution
 
-Substitution reverses the chain rule.
+Substitution reverses the chain rule. Use it when you see a composition and the
+derivative of the inside function is also present.
 
-Example:
+### Substitution workflow
 
-```text
-∫ 2x cos(x^2) dx
-```
+1. Identify the inside function: $u=g(x)$.
+2. Compute $du=g'(x)\,dx$.
+3. Match the remaining factor in the integral.
+4. Rewrite the integral in terms of $u$.
+5. Integrate in $u$.
+6. Substitute back to $x$.
+7. Add $+C$ for indefinite integrals.
+8. Check by differentiating.
 
-Let:
+### Walkthrough: substitution
 
-```text
-u = x^2
-```
+Compute
 
-Then:
+$$
+\int 2x\cos(x^2)\,dx.
+$$
 
-```text
-du = 2x dx
-```
+1. **Choose inside function.** The cosine contains $x^2$, so let
+   $$
+   u=x^2.
+   $$
+2. **Differentiate.**
+   $$
+   du=2x\,dx.
+   $$
+3. **Match the integral.** The factor $2x\,dx$ is already present.
+4. **Rewrite in $u$.**
+   $$
+   \int 2x\cos(x^2)\,dx=\int \cos(u)\,du.
+   $$
+5. **Integrate.**
+   $$
+   \int \cos(u)\,du=\sin(u)+C.
+   $$
+6. **Substitute back.**
+   $$
+   \sin(x^2)+C.
+   $$
+7. **Check.** By chain rule, the derivative of $\sin(x^2)$ is
+   $\cos(x^2)2x$.
 
-So the integral becomes:
+### Guided exercise: choose `u`
 
-```text
-∫ cos(u) du = sin(u) + C = sin(x^2) + C
-```
+::: {.practice-box}
+Compute $\int 3x^2\sin(x^3)\,dx$.
+
+1. What is the inside function?
+2. What is `du`?
+3. Rewrite the integral in `u`.
+4. Integrate and substitute back.
+:::
+
+::: {.callout-tip collapse="true"}
+## Guided solution
+
+1. Let $u=x^3$.
+2. Then $du=3x^2\,dx$.
+3. The integral becomes $\int \sin(u)\,du$.
+4. The antiderivative is $-\cos(u)+C=-\cos(x^3)+C$.
+:::
+
+## Definite integrals with substitution
+
+For definite integrals, you have two choices:
+
+1. Change the bounds into $u$-values and never substitute back.
+2. Find an antiderivative in $x$, then use the original bounds.
+
+### Walkthrough: changing bounds
+
+Compute
+
+$$
+\int_0^1 2x\cos(x^2)\,dx.
+$$
+
+1. Let $u=x^2$, so $du=2x\,dx$.
+2. Change bounds:
+   - when $x=0$, $u=0$;
+   - when $x=1$, $u=1$.
+3. Rewrite:
+   $$
+   \int_0^1 2x\cos(x^2)\,dx=\int_0^1 \cos(u)\,du.
+   $$
+4. Integrate:
+   $$
+   \sin(u)\Big|_0^1=\sin(1)-\sin(0)=\sin(1).
+   $$
 
 ## Integration by parts
 
 Integration by parts reverses the product rule:
 
-```text
-∫ u dv = uv - ∫ v du
-```
+$$
+\int u\,dv=uv-\int v\,du.
+$$
 
-Example:
+It is useful when you see a product and one factor becomes simpler when
+differentiated.
 
-```text
-∫ x e^x dx
-```
+### By-parts workflow
 
-Let `u = x` and `dv = e^x dx`. Then `du = dx` and `v = e^x`.
+1. Choose $u$ and $dv$.
+2. Compute $du$ and $v$.
+3. Substitute into $\int u\,dv=uv-\int v\,du$.
+4. Integrate the remaining integral.
+5. Add $+C$ if the integral is indefinite.
+6. Check by differentiating.
 
-```text
-∫ x e^x dx = x e^x - ∫ e^x dx = x e^x - e^x + C
-```
+### Walkthrough: integration by parts
+
+Compute
+
+$$
+\int xe^x\,dx.
+$$
+
+1. **Choose pieces.** Let $u=x$ because it becomes simpler when differentiated.
+   Let $dv=e^x\,dx$.
+2. **Compute $du$ and $v$.**
+   $$
+   du=dx, \qquad v=e^x.
+   $$
+3. **Apply the formula.**
+   $$
+   \int xe^x\,dx=xe^x-\int e^x\,dx.
+   $$
+4. **Finish.**
+   $$
+   xe^x-e^x+C.
+   $$
+5. **Check.** Differentiate $xe^x-e^x$:
+   $$
+   (e^x+xe^x)-e^x=xe^x.
+   $$
 
 ## Numerical approximation
 
-If symbolic integration is hard, approximate the area. Midpoint rectangles,
-trapezoids, and other numerical methods estimate definite integrals.
+Sometimes exact symbolic integration is difficult, unnecessary, or impossible
+from available data. Then a numerical approximation is appropriate.
 
-```{python}
-from edumath.calculus import midpoint_riemann_sum, trapezoid_rule
+Use midpoint rectangles, trapezoids, or more advanced numerical methods.
+The answer should be reported as an approximation, and the number of intervals
+or rectangles should be stated.
 
-midpoint_riemann_sum("x**2", 0, 1, 100), trapezoid_rule("x**2", 0, 1, 100)
-```
+## Common mistakes and repairs
 
-## Checking antiderivatives
+::: {.common-mistake}
+### Substitution mistake
 
-If you claim `F(x)` is an antiderivative of `f(x)`, differentiate `F(x)`. You
-should get `f(x)`.
+Mistake: choosing $u$ but not matching $du$.
 
-::: {.key-idea}
-### Key idea
-
-The best integration technique is often the one whose answer is easiest to
-check.
+Repair: after choosing $u$, always compute $du$ and compare it to the remaining
+factors.
 :::
 
-## Practice
+::: {.common-mistake}
+### Definite substitution mistake
+
+Mistake: changing to $u$ but keeping old $x$-bounds.
+
+Repair: either change bounds to $u$-values or substitute back before evaluating.
+:::
+
+::: {.common-mistake}
+### By-parts mistake
+
+Mistake: forgetting the minus sign in $uv-\int v\,du$.
+
+Repair: write the formula before substituting values.
+:::
+
+## Mixed practice
 
 ::: {.practice-box}
-1. Which technique fits `∫ 2x cos(x^2) dx`?
-2. What is a good `u` for `∫ 3x^2 sin(x^3) dx`?
-3. Which technique fits `∫ x exp(x) dx`?
-4. Integrate `∫ 2x cos(x^2) dx`.
-5. Why might you use a numerical approximation?
-6. How do you check an antiderivative?
+1. Which technique fits $\int 2x\cos(x^2)\,dx$?
+2. What is a good $u$ for $\int 3x^2\sin(x^3)\,dx$?
+3. Which technique fits $\int xe^x\,dx$?
+4. Integrate $\int 2x\cos(x^2)\,dx$.
+5. Integrate $\int xe^x\,dx$.
+6. Why might you use a numerical approximation?
+7. How do you check an antiderivative?
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solutions
 
 1. Substitution.
-2. `u = x^3`.
+2. $u=x^3$.
 3. Integration by parts.
-4. `sin(x^2) + C`.
-5. Exact integration may be hard, unnecessary, or unavailable.
-6. Differentiate it.
+4. $\sin(x^2)+C$.
+5. $xe^x-e^x+C$.
+6. Exact integration may be hard, unnecessary, or unavailable from data.
+7. Differentiate it and compare with the original integrand.
 :::
 
 ## Guessing game checkpoint
@@ -139,12 +281,21 @@ check.
 
 ## Using this lesson with edumath and SymPy
 
+SymPy can verify antiderivatives. Remember that it may return an equivalent form
+or a special function for harder integrals.
+
 ```{python}
 #| echo: true
 import sympy as sp
 
 x = sp.symbols("x")
-sp.integrate(2*x*sp.cos(x**2), x)
+answer = sp.integrate(2*x*sp.cos(x**2), x)
+answer
+```
+
+```{python}
+#| echo: true
+sp.diff(answer, x)
 ```
 
 ```{python}
@@ -154,9 +305,16 @@ sp.integrate(x*sp.exp(x), x)
 
 ```{python}
 #| echo: true
-from edumath.calculus import midpoint_riemann_sum, trapezoid_rule
+from edumath.calculus import midpoint_riemann_sum, trapezoid_rule, substitution_exercise
 
 midpoint_riemann_sum("x**2", 0, 1, 20), trapezoid_rule("x**2", 0, 1, 20)
+```
+
+```{python}
+#| echo: true
+exercise = substitution_exercise(seed=1)
+print(exercise.prompt)
+print(exercise.expected)
 ```
 
 ## Further reading

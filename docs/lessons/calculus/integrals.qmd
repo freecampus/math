@@ -5,129 +5,220 @@ execute:
   echo: false
 ---
 
+An **integral** adds many small pieces. If a velocity tells how position changes
+at each moment, an integral accumulates velocity into displacement. If marginal
+cost tells how cost changes per item, an integral accumulates marginal cost into
+total cost change.
+
 ::: {.learning-objectives}
 ### Learning objectives
 
 After this lesson you should be able to:
 
 - interpret definite integrals as accumulated change;
-- approximate area with Riemann sums;
+- distinguish signed area from total geometric area;
+- approximate area with left, right, and midpoint Riemann sums;
 - distinguish indefinite and definite integrals;
 - compute basic antiderivatives;
 - use the Fundamental Theorem of Calculus in simple cases;
 - interpret integral units;
-- use `edumath` helpers to compute and approximate integrals.
+- use `edumath` helpers and SymPy to compute and approximate integrals.
 :::
 
-## Motivation
+## Integral roadmap
 
-If velocity tells how fast position changes, then total displacement comes from
-adding up velocity over time. If marginal cost tells how cost changes per item,
-then total cost change comes from adding up marginal cost.
+When you see an integral, first ask what kind it is.
 
-An integral adds small pieces.
+1. **Definite integral** $\int_a^b f(x)\,dx$: compute accumulated signed area on
+   an interval.
+2. **Indefinite integral** $\int f(x)\,dx$: find a family of antiderivatives.
+3. **Riemann sum**: approximate a definite integral with rectangles.
+4. **Application**: identify rate units and accumulated units.
 
-## Area and accumulation
+## Accumulation from small pieces
 
-A definite integral:
+Suppose water flows into a tank at rate $r(t)$ liters per minute. Over a very
+small time interval $\Delta t$, the amount added is approximately
 
-```text
-∫_a^b f(x) dx
-```
+$$
+r(t)\Delta t.
+$$
 
-can be interpreted as signed area under the graph of `f` from `a` to `b`.
-Positive area above the x-axis counts positively. Area below the x-axis counts
-negatively.
+An integral adds many such pieces:
+
+$$
+\int_a^b r(t)\,dt.
+$$
+
+The result is measured in liters because
+
+$$
+\frac{\text{liters}}{\text{minute}}\cdot \text{minutes}=\text{liters}.
+$$
+
+## Signed area
+
+A definite integral
+
+$$
+\int_a^b f(x)\,dx
+$$
+
+can be interpreted as signed area under the graph.
+
+- Area above the x-axis counts positive.
+- Area below the x-axis counts negative.
+- If positive and negative regions cancel, the integral may be zero even though
+  there is visible geometric area.
+
+::: {.callout-warning}
+## Signed area vs total area
+
+Displacement from velocity uses signed area. Total distance uses area under
+speed, which is $|v(t)|$. Always read the question carefully.
+:::
 
 ## Riemann sums
 
-Before exact integrals, approximate area with rectangles. For a midpoint Riemann
-sum:
+A Riemann sum approximates area with rectangles.
 
-1. split the interval into equal widths;
-2. evaluate the function at each midpoint;
-3. multiply height by width;
-4. add all rectangle areas.
+### Riemann-sum workflow
 
-```{python}
-from edumath.calculus import riemann_sum_scene
+1. Split $[a,b]$ into $n$ equal subintervals.
+2. Compute the width:
+   $$
+   \Delta x=\frac{b-a}{n}.
+   $$
+3. Choose sample points: left endpoint, right endpoint, or midpoint.
+4. Evaluate the function at each sample point to get rectangle heights.
+5. Multiply height by width.
+6. Add all rectangle areas.
 
-scene = riemann_sum_scene("x**2", 0, 1, 6, method="midpoint", y_min=-0.2, y_max=1.2)
-fig, ax = scene.render()
-fig
-```
+### Walkthrough: midpoint Riemann sum
 
-## Antiderivatives
+Approximate
 
-An **antiderivative** of `f(x)` is a function whose derivative is `f(x)`.
+$$
+\int_0^1 x^2\,dx
+$$
 
-```text
-∫ 3x^2 dx = x^3 + C
-```
+with 4 midpoint rectangles.
 
-The `+ C` matters because all constant shifts have the same derivative.
+1. **Compute width.**
+   $$
+   \Delta x=\frac{1-0}{4}=\frac14.
+   $$
+2. **List intervals and midpoints.**
+
+   | Interval | Midpoint | Height $f(m)=m^2$ | Area |
+   |---|---:|---:|---:|
+   | $[0,1/4]$ | $1/8$ | $1/64$ | $1/256$ |
+   | $[1/4,1/2]$ | $3/8$ | $9/64$ | $9/256$ |
+   | $[1/2,3/4]$ | $5/8$ | $25/64$ | $25/256$ |
+   | $[3/4,1]$ | $7/8$ | $49/64$ | $49/256$ |
+
+3. **Add areas.**
+   $$
+   \frac{1+9+25+49}{256}=\frac{84}{256}=0.328125.
+   $$
+4. **Interpret.** The exact integral is $1/3\approx0.3333$, so the midpoint
+   estimate is close.
+
+## Antiderivatives and indefinite integrals
+
+An **antiderivative** of $f(x)$ is a function whose derivative is $f(x)$.
+
+For example,
+
+$$
+\int 4x^3\,dx=x^4+C.
+$$
+
+Why `+ C`? Because $x^4$, $x^4+7$, and $x^4-100$ all have derivative $4x^3$.
+
+### Walkthrough: antiderivative
+
+Find
+
+$$
+\int (3x^2-2)\,dx.
+$$
+
+1. **Split terms.** Integrate $3x^2$ and $-2$ separately.
+2. **Reverse the power rule.** Since $d(x^3)/dx=3x^2$, an antiderivative of
+   $3x^2$ is $x^3$.
+3. **Integrate the constant.** An antiderivative of $-2$ is $-2x$.
+4. **Add the constant of integration.**
+   $$
+   \int(3x^2-2)\,dx=x^3-2x+C.
+   $$
+5. **Check.** Differentiate $x^3-2x+C$ to get $3x^2-2$.
 
 ## Fundamental Theorem of Calculus
 
-If `F'(x) = f(x)`, then:
+If $F'(x)=f(x)$, then
 
-```text
-∫_a^b f(x) dx = F(b) - F(a)
-```
+$$
+\int_a^b f(x)\,dx=F(b)-F(a).
+$$
 
-Example:
+### Walkthrough: definite integral
 
-```text
-∫_0^3 2x dx
-```
+Compute
 
-An antiderivative of `2x` is `x^2`, so:
+$$
+\int_0^3 2x\,dx.
+$$
 
-```text
-3^2 - 0^2 = 9
-```
+1. **Find an antiderivative.**
+   $$
+   F(x)=x^2.
+   $$
+2. **Evaluate at the upper bound.**
+   $$
+   F(3)=9.
+   $$
+3. **Evaluate at the lower bound.**
+   $$
+   F(0)=0.
+   $$
+4. **Subtract.**
+   $$
+   F(3)-F(0)=9-0=9.
+   $$
+5. **Interpret.** The accumulated signed area under $2x$ from 0 to 3 is 9.
 
-## Units
+::: {.callout-note}
+## Definite vs indefinite integrals
 
-Integral units are output units times input units. If velocity is meters per
-second and time is seconds, then:
-
-```text
-(meters/second) * seconds = meters
-```
-
-## Common mistakes
-
-::: {.common-mistake}
-### Common mistakes
-
-- Forgetting `+ C` for indefinite integrals.
-- Confusing signed area with total geometric area.
-- Forgetting bounds on definite integrals.
-- Treating an integral as a tangent slope instead of an accumulated total.
+Use `+ C` for indefinite integrals. Do not add `+ C` to a definite integral
+answer after evaluating bounds.
 :::
 
-## Practice
+## Mixed practice
 
 ::: {.practice-box}
-1. What is an antiderivative of `4x^3`?
-2. Compute `∫_0^5 1 dx`.
-3. Compute `∫_0^3 2x dx`.
+1. What is an antiderivative of $4x^3$?
+2. Compute $\int_0^5 1\,dx$.
+3. Compute $\int_0^3 2x\,dx$.
 4. What does the integral of velocity over time represent?
 5. Why can signed area be negative?
-6. Approximate `∫_0^1 x^2 dx` using midpoint rectangles. Should it be close to
-   `1/3`?
+6. Approximate $\int_0^1 x^2\,dx$ using 2 midpoint rectangles.
+7. If a rate is dollars per month and you integrate over months, what units
+   result?
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solutions
 
-1. `x^4 + C`.
-2. `5`.
-3. `9`.
-4. Displacement; with absolute velocity it represents total distance.
-5. Area below the x-axis counts negatively in a signed integral.
-6. Yes. More rectangles should move the approximation closer to `1/3`.
+1. $x^4+C$.
+2. The antiderivative of 1 is $x$, so $5-0=5$.
+3. $9$.
+4. Displacement; integrating speed gives total distance.
+5. Graph regions below the x-axis count negatively.
+6. Midpoints are $1/4$ and $3/4$, width is $1/2$, so the estimate is
+   $(1/16)(1/2)+(9/16)(1/2)=10/32=0.3125$.
+7. Dollars.
 :::
 
 ## Guessing game checkpoint
@@ -143,6 +234,9 @@ second and time is seconds, then:
 {{< include _includes/calculus-checkpoint.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+Use `edumath` to compute common integral quantities and to build tables that
+show every rectangle in a Riemann sum.
 
 ```{python}
 #| echo: true
@@ -162,6 +256,23 @@ midpoint_riemann_sum("x**2", 0, 1, 10)
 from edumath.calculus import left_riemann_sum, right_riemann_sum, trapezoid_rule
 
 left_riemann_sum("x", 0, 1, 10), right_riemann_sum("x", 0, 1, 10), trapezoid_rule("x", 0, 1, 10)
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import riemann_sum_table
+
+rows = riemann_sum_table("x**2", 0, 1, 4, method="midpoint")
+[(row.index, row.sample, row.height, row.area) for row in rows]
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+F = sp.integrate(3*x**2 - 2, x)
+sp.diff(F, x)
 ```
 
 ## Further reading

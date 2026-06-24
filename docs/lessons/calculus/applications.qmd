@@ -1,9 +1,16 @@
 ---
 title: Calculus Applications
-description: Use derivatives, integrals, and optimization in modeling contexts.
+description: Use derivatives, integrals, optimization, and units in modeling contexts.
 execute:
   echo: false
 ---
+
+Applied calculus problems are translation problems. The hard part is often not
+computing a derivative or integral. The hard part is deciding what the words
+mean mathematically.
+
+This lesson shows how to choose the right calculus tool and how to write a full
+solution with units and interpretation.
 
 ::: {.learning-objectives}
 ### Learning objectives
@@ -16,122 +23,292 @@ After this lesson you should be able to:
 - use units to check setup;
 - connect position, velocity, and acceleration;
 - interpret marginal cost, revenue, and profit;
+- solve simple related-rates problems;
 - use SymPy and `edumath` helpers to check applied calculations.
 :::
 
-## Choosing the calculus tool
+## Application problem roadmap
 
-Use this guide:
+1. **Read the question.** Underline the requested quantity.
+2. **Identify units.** Units often reveal the correct operation.
+3. **Choose the tool.** Derivative, integral, optimization, limit, or related
+   rates.
+4. **Define variables.** State what each variable means and its units.
+5. **Set up equations.** Translate words into formulas.
+6. **Solve step by step.** Use calculus only after the setup is clear.
+7. **Check reasonableness.** Units, sign, size, and context should make sense.
+8. **Interpret.** Answer the original question in a sentence.
 
-| Question asks for... | Tool |
-|---|---|
-| instantaneous rate, slope, marginal change | derivative |
-| total accumulated change or area | integral |
-| largest or smallest feasible value | optimization |
+## Tool selection guide
 
-::: {.key-idea}
-### Key idea
-
-Derivative: local change. Integral: accumulated change. Optimization: best
-value.
-:::
+| Wording in the problem | Meaning | Tool |
+|---|---|---|
+| instantaneous, marginal, slope, velocity | local rate | derivative |
+| total, accumulated, area, amount added | accumulation | integral |
+| maximum, minimum, largest, smallest, best | compare candidates | optimization |
+| approaches, near, as input tends to | nearby behavior | limit |
+| how fast one quantity changes when another changes | linked rates | related rates |
 
 ## Motion
 
-If `s(t)` is position, then:
+If $s(t)$ is position, then
 
-```text
-s'(t) = velocity
-s''(t) = acceleration
-```
+$$
+s'(t)=v(t) \quad \text{velocity}
+$$
 
-The integral of velocity over time gives displacement. The integral of speed
-(nonnegative velocity magnitude) gives total distance.
+and
+
+$$
+s''(t)=v'(t)=a(t) \quad \text{acceleration}.
+$$
+
+The integral of velocity gives displacement:
+
+$$
+\int_a^b v(t)\,dt.
+$$
+
+The integral of speed, $|v(t)|$, gives total distance.
+
+### Walkthrough: velocity from position
+
+A particle has position
+
+$$
+s(t)=t^2+3t
+$$
+
+meters at time $t$ seconds. Find its velocity at $t=2$.
+
+1. **Read the question.** It asks for velocity at one instant.
+2. **Choose the tool.** Velocity is derivative of position.
+3. **Differentiate.**
+   $$
+   v(t)=s'(t)=2t+3.
+   $$
+4. **Evaluate at $t=2$.**
+   $$
+   v(2)=2(2)+3=7.
+   $$
+5. **Interpret.** At 2 seconds, the particle is moving at 7 meters per second.
+
+### Walkthrough: displacement from velocity
+
+Velocity is $v(t)=3t^2$ meters per second. Find displacement from $t=0$ to
+$t=2$.
+
+1. **Read the question.** It asks for accumulated position change.
+2. **Choose the tool.** Accumulated change from a rate uses an integral.
+3. **Set up.**
+   $$
+   \int_0^2 3t^2\,dt.
+   $$
+4. **Find antiderivative.**
+   $$
+   \int 3t^2\,dt=t^3.
+   $$
+5. **Evaluate.**
+   $$
+   t^3\Big|_0^2=8-0=8.
+   $$
+6. **Interpret.** The displacement is 8 meters.
 
 ## Marginal analysis
 
-In economics, "marginal" usually means derivative.
+In economics and business contexts, "marginal" usually means derivative.
 
 - Marginal cost: derivative of cost.
 - Marginal revenue: derivative of revenue.
 - Marginal profit: derivative of profit.
 
-If:
+### Walkthrough: marginal cost
 
-```text
-C(x) = 100 + 5x + 0.2x^2
-```
+Suppose
 
-then marginal cost is:
+$$
+C(x)=100+5x+0.2x^2
+$$
 
-```text
-C'(x) = 5 + 0.4x
-```
+is cost in dollars to produce $x$ items. Find and interpret marginal cost at
+$x=10$.
+
+1. **Read the question.** Marginal cost means local rate of change of cost.
+2. **Choose the tool.** Use a derivative.
+3. **Differentiate.**
+   $$
+   C'(x)=5+0.4x.
+   $$
+4. **Evaluate.**
+   $$
+   C'(10)=5+0.4(10)=9.
+   $$
+5. **Units.** Dollars per item.
+6. **Interpret.** Near 10 items, producing one more item increases cost by about
+   9 dollars.
 
 ## Accumulation from rates
 
-If water flows into a tank at rate `r(t)` liters per minute, then:
+If a rate is measured in units per input, an integral over the input interval
+returns accumulated units.
 
-```text
-∫_a^b r(t) dt
-```
+### Walkthrough: water flow
 
-is the amount of water added from time `a` to time `b`.
+Water flows into a tank at rate
+
+$$
+r(t)=2t+1
+$$
+
+liters per minute. How much water enters from $t=0$ to $t=3$?
+
+1. **Identify rate and interval.** Rate is liters/minute, interval is minutes 0
+   to 3.
+2. **Choose the tool.** Total amount from a rate uses an integral.
+3. **Set up.**
+   $$
+   \int_0^3(2t+1)\,dt.
+   $$
+4. **Find antiderivative.**
+   $$
+   t^2+t.
+   $$
+5. **Evaluate.**
+   $$
+   (3^2+3)-(0^2+0)=12.
+   $$
+6. **Interpret.** The tank receives 12 liters of water.
+
+## Related rates introduction
+
+Related rates problems involve quantities connected by an equation while they
+change with time.
+
+### Related-rates workflow
+
+1. Draw or describe the situation.
+2. Define variables as functions of time.
+3. Write an equation connecting the variables.
+4. Differentiate both sides with respect to time.
+5. Substitute known values after differentiating.
+6. Solve for the requested rate.
+
+### Walkthrough: growing square
+
+A square has side length $s$ centimeters. Its side length grows at
+$ds/dt=3$ cm/s. How fast is area changing when $s=5$ cm?
+
+1. **Equation.** Area is
+   $$
+   A=s^2.
+   $$
+2. **Differentiate with respect to time.**
+   $$
+   \frac{dA}{dt}=2s\frac{ds}{dt}.
+   $$
+3. **Substitute after differentiating.**
+   $$
+   \frac{dA}{dt}=2(5)(3)=30.
+   $$
+4. **Interpret.** The area is increasing at 30 square centimeters per second.
+
+::: {.callout-warning}
+## Related-rates mistake
+
+Do not substitute the side length before differentiating. If you replace $s$ by
+5 too early, the equation becomes $A=25$, whose derivative incorrectly suggests
+no change.
+:::
 
 ## Optimization applications
 
-For a best-value problem:
+Applied optimization combines modeling with the optimization workflow.
 
-1. define variables and units;
-2. write the objective function;
-3. state the feasible domain;
-4. find critical points;
-5. check endpoints and constraints;
-6. interpret the best value.
+### Walkthrough: maximum revenue
+
+Revenue is modeled by
+
+$$
+R(x)=-x^2+10x,
+$$
+
+where $x$ is the number of units sold. Find the production level that maximizes
+revenue.
+
+1. **Read the question.** It asks for a maximum.
+2. **Choose the tool.** Use optimization with derivatives.
+3. **Differentiate.**
+   $$
+   R'(x)=-2x+10.
+   $$
+4. **Find critical point.**
+   $$
+   -2x+10=0 \Rightarrow x=5.
+   $$
+5. **Classify.** Since $R''(x)=-2<0$, the graph is concave down, so this is a
+   maximum.
+6. **Interpret.** The revenue is maximized at 5 units in this model.
 
 ## Probability density preview
 
-If `f(x)` is a probability density, then probability over an interval is area:
+If $f(x)$ is a probability density, probability over an interval is area:
 
-```text
-P(a <= X <= b) = ∫_a^b f(x) dx
-```
+$$
+P(a\le X\le b)=\int_a^b f(x)\,dx.
+$$
 
-This is why integrals are central in probability and statistics.
+This is why integrals are central in probability and statistics. The units work
+because density has units of probability per input unit, and integration returns
+probability.
 
-## Common mistakes
+## Common mistakes and repairs
 
 ::: {.common-mistake}
-### Common mistakes
+### Mistake: using a derivative for a total
 
-- Using a derivative when the question asks for a total.
-- Using an integral when the question asks for an instantaneous rate.
-- Ignoring units.
-- Confusing displacement with total distance.
-- Forgetting to check endpoints in optimization.
+Repair: if the question asks for total amount, accumulated change, or area, use
+an integral.
 :::
 
-## Practice
+::: {.common-mistake}
+### Mistake: using an integral for an instantaneous rate
+
+Repair: if the question says instantaneous, marginal, or "at time `t=a`," use a
+derivative.
+:::
+
+::: {.common-mistake}
+### Mistake: ignoring units
+
+Repair: write units after every major result. Units often reveal whether the
+setup is wrong.
+:::
+
+## Mixed practice
 
 ::: {.practice-box}
 1. Marginal cost is a derivative or an integral?
-2. Total distance from velocity is a derivative or an integral?
+2. Total distance from velocity uses a derivative or an integral?
 3. Maximum profit usually requires which calculus workflow first?
 4. If position is meters and time is seconds, what are velocity units?
 5. If a rate is liters per minute, what are the units of its integral over
    minutes?
-6. Why do optimization problems need a feasible domain?
+6. Given $s(t)=t^3$, find velocity at $t=2$.
+7. Given $v(t)=4t$, find displacement on $[0,3]$.
+8. If $A=s^2$ and $ds/dt=2$, find $dA/dt$ when $s=6$.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solutions
 
 1. Derivative.
-2. Integral, using speed for total distance.
-3. Optimization using derivatives to find candidates.
+2. Integral of speed. Integral of velocity gives displacement.
+3. Optimization: define objective, differentiate, find candidates, check.
 4. Meters per second.
 5. Liters.
-6. The best value must make sense in the real context.
+6. $v(t)=s'(t)=3t^2$, so $v(2)=12$.
+7. $\int_0^3 4t\,dt=2t^2\big|_0^3=18$.
+8. $dA/dt=2s(ds/dt)=2(6)(2)=24$ square units per time unit.
 :::
 
 ## Guessing game checkpoint
@@ -148,6 +325,9 @@ This is why integrals are central in probability and statistics.
 
 ## Using this lesson with edumath and SymPy
 
+Use computation to check derivative, integral, and optimization calculations.
+Then translate the output into units and context.
+
 ```{python}
 #| echo: true
 from edumath.calculus import derivative, definite_integral
@@ -162,15 +342,24 @@ definite_integral("3*t**2", 0, 2, variable="t")
 
 ```{python}
 #| echo: true
-from edumath.calculus import calculus_tool_question
+import sympy as sp
 
-question = calculus_tool_question()
-question.prompt, question.check("integral").message
+x = sp.symbols("x")
+R = -x**2 + 10*x
+critical = sp.solve(sp.Eq(sp.diff(R, x), 0), x)
+critical
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import calculus_application_tool_choice_exercise
+
+exercise = calculus_application_tool_choice_exercise(seed=2)
+print(exercise.prompt)
+print(exercise.expected)
 ```
 
 ## Further reading
 
-- OpenStax, *Calculus Volume 1*, Applications of Derivatives and Integrals:
-  <https://openstax.org/details/books/calculus-volume-1>
-- Paul's Online Math Notes, Calculus I Applications:
-  <https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx>
+- OpenStax, *Calculus Volume 1*, Applications of Derivatives and Integrals: <https://openstax.org/details/books/calculus-volume-1>
+- Paul's Online Math Notes, Calculus I Applications: <https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx>

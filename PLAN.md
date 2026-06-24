@@ -1,114 +1,82 @@
-# PLAN: Linear Algebra Lessons
+# PLAN: Improve Calculus Lessons with Step-by-Step Problem Solving
 
-Target directory: `docs/lessons/linear-algebra/`
+Target directory: `docs/lessons/calculus/`
 
-This plan describes how to turn the Linear Algebra lesson sequence into a
-complete, beginner-friendly preparation module. The current pages are useful
-starters, but they are short. The goal is to write self-contained study material
-for learners who may know algebra and coordinates but are new to vectors,
-matrices, systems, transformations, and eigenvectors.
+This plan describes how to revise the Calculus study path so it teaches students
+how to **solve calculus problems step by step**, not merely recognize formulas.
+The current lessons already provide a solid overview, checkpoint games, and
+SymPy appendices. The next improvement should make each lesson more like a
+patient tutor: every major subtopic should include a clear workflow, a fully
+worked walkthrough, guided practice, checkpoint exercises, and a topic-specific
+guessing game.
 
-Linear algebra should be taught as a language for organizing numbers and
-understanding movement in space. Students should see every idea in multiple
-forms: words, coordinates, geometry, tables, equations, and code.
+The target learner is a student with weak preparation who needs to know what to
+do first, why each step is legal, how to avoid common mistakes, and how to check
+the result by hand and with software.
 
-## Current lesson files
+## Current calculus lesson files
 
-Current pages in `docs/lessons/linear-algebra/`:
+Current source pages in `docs/lessons/calculus/`:
 
-1. `vectors.qmd`
-2. `matrices.qmd`
-3. `matrix-operations.qmd`
-4. `systems-and-elimination.qmd`
-5. `linear-transformations.qmd`
-6. `eigenvalues-eigenvectors.qmd`
+1. `index.qmd`
+2. `limits.qmd`
+3. `derivatives.qmd`
+4. `derivative-rules.qmd`
+5. `optimization.qmd`
+6. `integrals.qmd`
+7. `integration-techniques.qmd`
+8. `applications.qmd`
+9. `_includes/calculus-checkpoint.qmd`
 
-Also present during inspection:
+The navigation already points to `lessons/calculus/index.qmd` first in
+`docs/_quarto.yml`, and the lessons index already links to the calculus index.
+No new navigation page is required.
 
-- `vectors.quarto_ipynb`
-- `matrices.quarto_ipynb`
-- `matrix-operations.quarto_ipynb`
-- `systems-and-elimination.quarto_ipynb`
+Generated-looking Quarto artifacts are also present, such as `*.quarto_ipynb`
+and `*.quarto_ipynb_1`. During implementation, verify whether these files are
+tracked before removing or modifying them. Do not commit new scratch/session
+artifacts.
 
-These appear to be generated Quarto notebook artifacts rather than intended
-source pages. Before implementation, verify whether they are tracked. If they
-are untracked/generated, remove them from the working tree. The lesson source
-should remain `.qmd` files.
+## Core pedagogical goal
 
-Recommended addition:
+Each calculus lesson should train a reusable problem-solving habit:
 
-7. `index.qmd` — Linear Algebra study path overview and readiness checklist.
+> Understand the question, translate it into calculus language, choose a method,
+> execute the method one step at a time, check the answer, and interpret the
+> result in words and units.
 
-Update `docs/_quarto.yml` so the Linear Algebra sidebar starts with the new
-index page if `index.qmd` is added. Update `docs/lessons/index.qmd` so the
-Linear Algebra card links to `linear-algebra/index.qmd` instead of the first
-content page.
+Every worked problem should make this thinking visible. A student should be able
+to copy the workflow for a similar exercise.
 
-## Overall pedagogical goals
+Use a recurring six-step template where appropriate:
 
-The Linear Algebra module should help students move from single-number algebra
-to structured reasoning about vectors, matrices, spaces, systems, and
-transformations.
+1. **Read the problem.** Identify what is given and what is being asked.
+2. **Classify the task.** Limit, derivative, rule selection, optimization,
+   integral, technique choice, or application.
+3. **Choose a strategy.** Explain why the method fits.
+4. **Solve step by step.** Show algebra, calculus rules, substitutions, and
+   simplification.
+5. **Check.** Substitute, differentiate, estimate, inspect units, compare
+   endpoints, or verify with SymPy.
+6. **Interpret.** Write the answer in a sentence, including units when relevant.
 
-By the end of the path, a student should be able to say:
+## Global lesson standards to preserve
 
-> Linear algebra studies vectors and the transformations that move them. A
-> vector stores several numbers at once, a matrix describes a rule for combining
-> or transforming vectors, and systems of linear equations ask which vectors
-> satisfy several conditions at the same time.
+Each `.qmd` page should continue to follow repository lesson standards:
 
-Students should repeatedly practice these habits:
-
-- Track dimensions and shapes before calculating.
-- Interpret vectors geometrically and numerically.
-- Read matrix-vector products as combinations of columns.
-- Connect systems of equations to intersections and matrix notation.
-- Explain what a transformation does to basis vectors.
-- Use row operations as legal equation-preserving moves.
-- Check whether an answer makes sense from units, shape, and geometry.
-- Use NumPy and SymPy to compute and verify, not to skip understanding.
-
-## Prerequisites to reinforce throughout
-
-The lessons should review prerequisite ideas in context instead of assuming
-students remember everything perfectly:
-
-- coordinate plane and ordered pairs;
-- basic algebraic equations;
-- systems of two equations;
-- graphing lines;
-- arithmetic with negatives and fractions;
-- square roots and distance formula;
-- function notation;
-- basic Python lists and arrays;
-- interpreting tables of numbers;
-- simple trigonometry for optional rotations.
-
-Whenever a prerequisite appears, include a short reminder box. For example, in
-vectors, remind students that the distance formula is a form of the Pythagorean
-theorem. In systems, remind students that replacing one equation by a sum of two
-equations can preserve the solution set.
-
-## Global lesson standards
-
-Each Linear Algebra lesson should follow the repository lesson standards.
-
-Use this structure for every `.qmd` page:
-
-1. YAML front matter with `title`, `description`, and usually:
+1. YAML front matter with `title`, `description`, and:
 
    ```yaml
    execute:
      echo: false
    ```
 
-2. A short introduction explaining why the topic matters.
-3. Learning objectives written as student-facing action statements.
-4. Concept sections with definitions, intuition, formulas, diagrams, and common
-   pitfalls.
+2. Short introduction explaining why the topic matters.
+3. Learning goals written as student-facing action statements.
+4. Concept sections with definitions, intuition, formulas, and common pitfalls.
 5. Worked examples with step-by-step reasoning.
 6. Practice exercises with answers or collapsed solutions.
-7. A topic-specific interactive checkpoint or guessing game before the Python
+7. A topic-relevant interactive checkpoint or guessing game before the Python
    appendix.
 8. A final section named exactly:
 
@@ -116,1000 +84,1291 @@ Use this structure for every `.qmd` page:
    Using this lesson with edumath and SymPy
    ```
 
-   Use visible code blocks with `#| echo: true` in this final section. NumPy may
-   also appear in this section because it is central to linear algebra
-   computation, but keep the section title consistent with the project standard.
+The main explanatory flow should hide helper code unless the code itself is the
+lesson objective. The final edumath/SymPy section should show visible code with
+`#| echo: true`.
 
-Do not call these pages notebooks in navigation or lesson prose unless a page is
-specifically about notebook usage.
+## Proposed page-level structure
 
-## Code visibility guidelines
+Use this structure for each content lesson, adapting section names as needed:
 
-In the main lesson body:
+1. **Why this topic matters**
+2. **Learning goals**
+3. **Vocabulary and notation**
+4. **Problem-solving roadmap**
+5. **Subtopic 1**
+   - concept explanation;
+   - guided walkthrough;
+   - guided exercise with partial hints;
+   - checkpoint exercise with collapsed answer.
+6. **Subtopic 2**
+   - same pattern.
+7. **Common mistakes and how to repair them**
+8. **Mixed practice set**
+9. **Guessing game checkpoint**
+10. **Using this lesson with edumath and SymPy**
+11. **Further reading**
 
-- hide helper code with `execute: echo: false`;
-- show vectors, matrices, plots, tables, row-reduction steps, and conclusions;
-- avoid raw setup code unless the code itself is the teaching target.
+A lesson does not need every subtopic to be equally long. Use the most detailed
+walkthroughs where students usually struggle.
 
-In the final `Using this lesson with edumath and SymPy` appendix:
+## Guided exercise pattern
 
-- show visible Python examples with `#| echo: true`;
-- use `edumath.linear_algebra` helpers when available;
-- use NumPy for numeric arrays and matrix products;
-- use SymPy for exact arithmetic, row reduction, determinants, eigenvalues, and
-  symbolic verification;
-- explain how to interpret the computational output.
+For guided exercises, use a consistent design:
 
-## Shared interaction plan
+```markdown
+::: {.practice-box}
 
-Create a reusable static checkpoint include:
+### Guided exercise
 
-```text
-docs/lessons/linear-algebra/_includes/linear-algebra-checkpoint.qmd
+Problem: ...
+
+1. What type of problem is this?
+2. What method should you try first?
+3. Complete the first algebra/calculus step.
+4. Finish the calculation.
+5. Check or interpret the answer. :::
+
+::: {.callout-tip collapse="true"}
+
+## Guided solution
+
+Step-by-step solution with reasoning. :::
 ```
 
-The include should use browser-native JavaScript, similar to the Algebra,
-Calculus, Differential Equations, and Discrete Mathematics checkpoint patterns,
-so published HTML remains interactive without a live Python kernel.
+Use collapsed answers so students can try first without losing access to help.
 
-Potential topic keys:
+## Checkpoint exercise pattern
 
-- `vectors`
-- `matrices`
-- `matrix-operations`
-- `systems-and-elimination`
-- `linear-transformations`
-- `eigenvalues-eigenvectors`
-- `linear-algebra-cumulative-review`
+Checkpoint exercises should be shorter than guided exercises. They test one
+specific decision or skill:
 
-The include should support flexible question types:
+- choose a method;
+- identify a missing step;
+- compute one derivative or limit;
+- classify a graph behavior;
+- check a candidate answer;
+- interpret units.
 
-- multiple choice;
-- numeric answer;
-- vector or matrix entry selection;
-- shape/dimension checks;
-- guess a dot product;
-- guess a matrix-vector product;
-- classify a system as one solution, no solution, or infinitely many;
-- identify a transformation from a matrix;
-- identify whether a vector is an eigenvector.
+Each checkpoint answer should explain **why** the answer is right, not only give
+the final value.
 
-Use one JSON configuration block per lesson, for example:
+## Guessing game plan
 
-```html
-<script
-  type="application/json"
-  class="edu-math-linear-algebra-checkpoint-config"
->
-  {
-    "topic": "vectors",
-    "title": "Vectors checkpoint",
-    "defaultTotal": 4
-  }
-</script>
-```
+The existing shared include
+`docs/lessons/calculus/_includes/calculus-checkpoint.qmd` already supports
+topic-based browser-native checkpoints. Improve it only if needed, keeping it
+dependency-free.
 
-Then include the shared fragment:
+Potential improvements:
 
-```qmd
-{{< include _includes/linear-algebra-checkpoint.qmd >}}
-```
+- add more question types for each lesson;
+- add feedback that names the exact method used;
+- add "What should you try first?" prompts;
+- add step-order questions, such as "Which step comes next?";
+- add mistake-diagnosis prompts, such as "What went wrong in this solution?";
+- keep the game lightweight and static so it works in published HTML.
 
-### Checkpoint game principles
+Potential topic keys already present:
 
-Each guessing game should teach the lesson topic, not merely decorate the page.
-Good linear-algebra guessing games include:
-
-- guess the vector norm;
-- guess whether two vectors are perpendicular;
-- guess matrix shape;
-- guess whether a product is defined;
-- guess a matrix-vector product entry;
-- guess the row operation needed next;
-- guess whether a system is inconsistent, dependent, or independent;
-- guess the geometric action of a 2-by-2 matrix;
-- guess whether a vector is an eigenvector of a matrix;
-- guess the eigenvalue from `A v = lambda v`.
-
-Feedback should be explanatory and supportive. For example, after a wrong shape
-answer, explain exactly which inner dimensions must match.
+- `limits`
+- `derivatives`
+- `derivative-rules`
+- `optimization`
+- `integrals`
+- `integration-techniques`
+- `calculus-applications`
+- `calculus-cumulative-review`
 
 ## Online computation options
 
-The main computational appendix should use `edumath`, NumPy, and SymPy. Linear
-algebra also benefits from browser-side visual tools.
+Use the final section of each lesson to show students how to check results with
+`edumath`, SymPy, and sometimes NumPy. Do not add heavy JavaScript dependencies
+unless there is a clear benefit.
 
-Potential online libraries and tools:
+Recommended approach:
 
-- **PyScript/Pyodide + SymPy**: lets students run exact matrix calculations, row
-  reduction, determinants, and eigenvalues in the browser.
-- **NumPy in Pyodide**: useful for numeric vectors, matrix products, and quick
-  experimentation.
-- **Math.js**: useful for lightweight browser matrix arithmetic and numeric
+- Keep primary examples in visible Python code blocks.
+- Mention that the same SymPy code can run in Jupyter, Colab, or a PyScript /
+  Pyodide page if SymPy is available.
+- Use SymPy for exact limits, derivatives, integrals, equation solving,
+  simplification, and critical points.
+- Use `edumath.calculus` helpers for student-friendly wrappers and reusable
   exercises.
-- **D3.js or SVG-only JavaScript**: useful for future interactive vector and
-  transformation visualizations.
-- **Plotly.js**: useful for interactive 2D or 3D vector plots if the project
-  later chooses richer visuals.
+- Use plots in the main flow only when they clarify the concept.
 
-Do not add heavy JavaScript dependencies automatically. Prefer static
-browser-native JavaScript for checkpoints. Propose PyScript or visualization
-libraries only for optional future enhancements.
+Optional future online enhancements:
 
-## Proposed `edumath` package support
+- PyScript cells for browser-based symbolic checking;
+- Math.js for lightweight numeric previews;
+- Plotly or SVG-only widgets for sliders and dynamic graphs.
 
-The current package contains `src/edumath/linear_algebra/`. At inspection time,
-most modules were empty except `concepts.py`, which includes numeric helpers:
+Do not add these dependencies automatically in the content revision.
 
-- `dot_product`
-- `vector_norm`
-- `matrix_vector_product`
-- `solve_linear_system`
+## Proposed `edumath.calculus` improvements
 
-These helpers are useful and should remain available for compatibility. However,
-lesson work may benefit from adding concept metadata, validators, exercises,
-quizzes, and plotting helpers.
+The current package already provides useful helpers for derivatives, integrals,
+plots, validators, exercises, and quizzes. During implementation, add or propose
+small reusable features only when they directly improve pedagogy.
 
-### Organization note
+Potential source additions:
 
-Because `concepts.py` currently contains computational helpers, implementation
-has two reasonable options:
+### Step-by-step helpers
 
-1. Keep the existing helper functions in `concepts.py` and add concept metadata
-   there as well.
-2. Move computational helpers to a new `operations.py` module and re-export them
-   from `concepts.py` and `__init__.py` for backward compatibility.
+- `limit_factor_cancel_steps(expression, point)` for simple removable-hole
+  examples.
+- `tangent_line_steps(expression, point)` returning ordered explanation steps.
+- `derivative_rule_trace(expression)` for beginner-friendly rule selection.
+- `optimization_candidate_table(expression, domain=None)` returning candidates,
+  values, and classification notes.
+- `riemann_sum_table(expression, lower, upper, rectangles, method=...)` showing
+  subintervals, sample points, heights, widths, and areas.
+- `u_substitution_steps(expression, substitution)` for basic chain-rule reverse
+  examples.
 
-Prefer the smallest safe change. Do not break existing imports such as:
+### Exercise builders
 
-```python
-from edumath.linear_algebra.concepts import matrix_vector_product
-```
+- `limit_factor_cancel_exercise(seed=...)`.
+- `one_sided_limit_exercise(seed=...)`.
+- `tangent_line_walkthrough_exercise(seed=...)`.
+- `rule_selection_exercise(seed=...)`.
+- `optimization_word_problem_exercise(seed=...)`.
+- `riemann_sum_table_exercise(seed=...)`.
+- `substitution_exercise(seed=...)`.
+- `integration_by_parts_exercise(seed=...)`.
+- `calculus_application_tool_choice_exercise(seed=...)` with units.
 
-### `src/edumath/linear_algebra/concepts.py`
+### Validators
 
-Add concept metadata similar to other branches:
+- `validate_limit_answer(received, expression, point, direction=None)`.
+- `validate_tangent_line(received, expression, point)`.
+- `validate_critical_points(received, expression)`.
+- `validate_antiderivative_with_constant(received, expected)`; current
+  antiderivative validator already compares up to constant, but docs can make
+  this behavior explicit.
+- `validate_units_answer(received, expected_units)` for applied problems.
 
-- `VECTORS`
-- `MATRICES`
-- `MATRIX_OPERATIONS`
-- `SYSTEMS_AND_ELIMINATION`
-- `LINEAR_TRANSFORMATIONS`
-- `EIGENVALUES_EIGENVECTORS`
-- `LINEAR_ALGEBRA_PATH`
+### Plotting and visual support
 
-Each concept should include:
+- mark secant points and tangent point labels more clearly;
+- add an area-vs-signed-area plot helper;
+- add endpoint and critical-point labels for optimization scenes;
+- add a simple accumulation-from-rate plot.
 
-- title;
-- slug;
-- short description;
-- prerequisites;
-- measurable learning goals;
-- tags or common mistakes.
+Keep the public API small. Add tests for any package changes.
 
-Expected path order:
+## Tests and validation for implementation
 
-```text
-vectors -> matrices -> matrix-operations -> systems-and-elimination -> linear-transformations -> eigenvalues-eigenvectors
-```
-
-### `src/edumath/linear_algebra/operations.py` or additions to `concepts.py`
-
-Consider adding small, well-tested helpers:
-
-- `vector_add(left, right)`;
-- `scalar_multiply(scalar, vector_or_matrix)`;
-- `matrix_shape(matrix)`;
-- `can_multiply(left_shape, right_shape)`;
-- `matrix_product(left, right)`;
-- `identity_matrix(size)`;
-- `determinant_2x2(matrix)`;
-- `inverse_2x2(matrix)`;
-- `row_echelon_steps(matrix, values=None)` for pedagogical row-reduction steps,
-  only if the API can remain simple;
-- `eigenvalues_2x2(matrix)` for small exact/numeric examples.
-
-Avoid creating a full replacement for NumPy or SymPy. The `edumath` layer should
-make examples easier to teach.
-
-### `src/edumath/linear_algebra/exercises.py`
-
-Add deterministic exercise builders:
-
-- `vector_norm_exercise(seed=...)`;
-- `dot_product_exercise(seed=...)`;
-- `matrix_shape_exercise(seed=...)`;
-- `matrix_vector_product_exercise(seed=...)`;
-- `linear_system_exercise(seed=...)`;
-- `transformation_classification_exercise(seed=...)`;
-- `eigenvector_check_exercise(seed=...)`.
-
-Each exercise should include prompt, expected answer, hints, explanation, tags,
-and validators where useful.
-
-### `src/edumath/linear_algebra/validators.py`
-
-Add small checkers:
-
-- `validate_vector_answer(received, expected, tolerance=...)`;
-- `validate_matrix_answer(received, expected, tolerance=...)`;
-- `validate_scalar_answer(received, expected, tolerance=...)`;
-- `validate_solution_vector(received, matrix, values, tolerance=...)`;
-- `validate_eigenpair(matrix, vector, eigenvalue, tolerance=...)`;
-- `validate_shape_answer(received, expected)`.
-
-Validators should accept common student formats when practical, such as Python
-lists, tuples, NumPy arrays, and comma-separated strings.
-
-### `src/edumath/linear_algebra/plots.py`
-
-Add lightweight plotting-scene helpers using existing core plot primitives:
-
-- `vector_scene(vectors, labels=None)`;
-- `vector_addition_scene(left, right)`;
-- `matrix_transformation_scene(matrix, vectors=None)`;
-- `basis_transformation_scene(matrix)`;
-- `system_lines_scene(matrix, values)` for 2-by-2 systems;
-- `eigenvector_scene(matrix, vector)`.
-
-For 2D lessons, scenes should make geometry visible. Keep them Matplotlib-based
-and testable. Do not add a heavy plotting dependency.
-
-### `src/edumath/linear_algebra/quizzes.py`
-
-Add quiz-question builders:
-
-- vector norm question;
-- dot product/perpendicular question;
-- matrix shape question;
-- product-defined question;
-- matrix-vector product question;
-- system classification question;
-- transformation action question;
-- eigenvalue/eigenvector question;
-- cumulative linear algebra diagnostic quiz.
-
-### Tests
-
-Add `tests/test_linear_algebra_helpers.py` covering:
-
-- existing helper behavior;
-- any new operations;
-- deterministic exercise generation;
-- validators accepting correct and rejecting incorrect answers;
-- concept path slugs;
-- plotting scene render or scene-data shape;
-- quiz builder structure.
-
-Run the full test suite if any shared helpers are changed.
-
-## Documentation implementation phases
-
-### Phase 1 — Planning and structure
-
-1. Replace `PLAN.md` with this plan.
-2. Inspect all current linear-algebra pages and source helpers.
-3. Decide whether to add `index.qmd` immediately.
-4. Remove generated `.quarto_ipynb*` artifacts if they are untracked.
-5. Create the shared checkpoint include.
-6. Add sidebar entry for the new index page if created.
-7. Update the Linear Algebra card in `docs/lessons/index.qmd`.
-
-### Phase 2 — Source helper additions
-
-1. Implement only `edumath` helpers needed by the lesson content.
-2. Export the small public API from `src/edumath/linear_algebra/__init__.py`.
-3. Preserve existing imports from `src/edumath/linear_algebra/concepts.py`.
-4. Add tests before relying on helpers in docs.
-5. Run:
-
-   ```bash
-   poetry run pytest tests/test_linear_algebra_helpers.py
-   ```
-
-6. Run broader tests if helpers touch shared modules:
-
-   ```bash
-   poetry run pytest
-   ```
-
-### Phase 3 — Lesson writing
-
-Write the lessons in this order:
-
-1. `index.qmd`
-2. `vectors.qmd`
-3. `matrices.qmd`
-4. `matrix-operations.qmd`
-5. `systems-and-elimination.qmd`
-6. `linear-transformations.qmd`
-7. `eigenvalues-eigenvectors.qmd`
-
-This order builds from vector objects, to matrix objects, to operations, to
-systems, to transformations, to special directions.
-
-### Phase 4 — Validation
-
-For docs-only changes, run scoped checks:
+For docs-only edits:
 
 ```bash
 poetry run pre-commit run --files <changed files>
-quarto render <changed .qmd files> --no-execute
+mkdir -p .quarto-tmp .cache/deno
+TMPDIR="$PWD/.quarto-tmp" \
+XDG_CACHE_HOME="$PWD/.cache" \
+DENO_DIR="$PWD/.cache/deno" \
+quarto render <changed calculus .qmd files> --no-execute
 ```
 
-For source changes, run:
+For source changes:
 
 ```bash
+poetry run pytest tests/test_calculus_helpers.py
 poetry run pytest
 ```
 
-If Quarto creates temporary files, remove generated scratch/session folders,
-especially `docs/.quarto/quarto-session-temp*`, `.quarto-tmp/`, and unwanted
-`*.quarto_ipynb*` artifacts.
+After rendering, remove generated scratch files:
 
-## Lesson plan: `index.qmd`
-
-### Purpose
-
-Create a friendly overview page that explains what linear algebra is, why it
-matters, and how the lesson sequence fits together.
-
-### Front matter
-
-```yaml
----
-title: Linear Algebra Study Path
-description:
-  A guided path through vectors, matrices, systems, transformations, and
-  eigenvectors.
-execute:
-  echo: false
----
+```bash
+rm -rf .quarto-tmp .cache docs/.quarto/quarto-session-temp*
 ```
 
-### Content outline
+If Quarto creates new `*.quarto_ipynb*` files or `_freeze` updates, inspect
+whether they are expected. Do not keep accidental scratch artifacts.
 
-1. **Opening intuition**
+---
 
-   - Algebra often studies one number at a time.
-   - Linear algebra studies lists of numbers and rules that transform them.
-   - Vectors can represent positions, directions, data points, or unknowns.
-   - Matrices can represent systems, transformations, or organized data.
+# Lesson-specific implementation plan
 
-2. **Why linear algebra matters**
+## 1. `index.qmd` — Calculus Study Path
 
-   - solving systems of equations;
-   - computer graphics;
-   - data science and machine learning;
-   - optimization;
-   - networks;
-   - differential equations;
-   - quantum mechanics and engineering models.
+### Goal
 
-3. **Prerequisite checklist**
+Turn the index into a detailed orientation page that teaches students how to
+study calculus and how to decide which tool a problem needs.
 
-   - coordinate plane;
-   - systems of equations;
-   - basic algebra;
-   - square roots and distance;
+### Add or expand sections
+
+1. **What calculus is really about**
+
+   - Change, accumulation, approximation, and modeling.
+   - Relationship between algebra and calculus.
+   - Why "nearby behavior" matters.
+
+2. **The core problem-solving loop**
+
+   - Read the question.
+   - Classify the problem.
+   - Choose a calculus tool.
+   - Solve step by step.
+   - Check.
+   - Interpret.
+
+3. **Calculus tool map**
+
+   | If the problem asks for... | Think...              | Tool         |
+   | -------------------------- | --------------------- | ------------ |
+   | nearby value               | approach              | limit        |
+   | instantaneous rate         | slope now             | derivative   |
+   | best value                 | turn-around/candidate | optimization |
+   | total change               | accumulation          | integral     |
+   | reverse derivative         | antiderivative        | integration  |
+
+4. **Readiness checklist with mini-solutions**
+
+   - slope;
+   - factoring;
    - function notation;
-   - Python lists or arrays.
+   - graph interpretation;
+   - units;
+   - basic exponentials/logarithms.
 
-4. **The study path**
+5. **How to use SymPy responsibly**
 
-   - vectors: multi-number objects;
-   - matrices: rectangular arrays;
-   - operations: addition, products, shape checks;
-   - systems: solving `A x = b`;
-   - transformations: matrices as functions;
-   - eigenvalues/eigenvectors: directions preserved by transformations.
+   - compute by hand first for small examples;
+   - use SymPy to check;
+   - compare exact and approximate answers;
+   - do not paste output without interpretation.
 
-5. **How to study**
+6. **Diagnostic checkpoint**
+   - keep cumulative checkpoint;
+   - add questions about tool selection and study habits if needed.
 
-   - draw small 2D examples;
-   - track shape before multiplying;
-   - say what each row or column means;
-   - compute by hand first;
-   - verify with NumPy or SymPy;
-   - interpret results geometrically.
+### Suggested guided exercises
 
-6. **Readiness checkpoint game**
+- Given 6 short problem statements, classify each as limit, derivative,
+  optimization, integral, or algebra review.
+- Given a solved problem with missing labels, identify which step is the
+  strategy, calculation, check, and interpretation.
 
-   - topic key `linear-algebra-cumulative-review`;
-   - ask students to classify prompts as vector, matrix, system, transformation,
-     or eigenvector ideas.
+### SymPy section
 
-7. **Using this lesson with edumath and SymPy**
-   - show `dot_product`, `vector_norm`, `matrix_vector_product`;
-   - show NumPy arrays;
-   - show SymPy Matrix exact arithmetic;
-   - explain numeric versus exact computation.
+Show how to load `edumath.calculus`, compute one derivative, one tangent line,
+one integral, and one diagnostic quiz question.
 
-### Practice ideas
+---
 
-- Identify whether each object is a scalar, vector, matrix, or system.
-- Match a real-world scenario to a linear-algebra object.
-- Explain why matrix shape matters before multiplying.
+## 2. `limits.qmd` — Limits
 
-## Lesson plan: `vectors.qmd`
+### Goal
 
-### Purpose
+Teach limits as a decision process: try direct substitution, inspect the result,
+then choose a repair method if needed.
 
-Teach vectors as ordered lists of numbers with both geometric and data
-interpretations. Build comfort with addition, scalar multiplication, norms, dot
-products, and perpendicularity.
+### Subtopics to expand
 
-### Main learning objectives
+#### A. What a limit asks
 
-Students should be able to:
+Explain in words:
 
-- interpret vectors as arrows, positions, displacements, or data rows;
-- add and subtract vectors component by component;
-- multiply a vector by a scalar;
-- compute vector norm in 2D and 3D;
-- compute dot products;
-- interpret dot products geometrically;
-- recognize perpendicular vectors from dot product zero.
+- input approaches a point;
+- output approaches a value;
+- function value at the point may differ;
+- limits are about nearby behavior.
 
-### Content outline
+Add a table-based walkthrough:
 
-1. **Motivation: one object, many numbers**
+1. Choose values near the target from the left and right.
+2. Evaluate the function.
+3. Look for the value the outputs approach.
+4. State the limit cautiously.
 
-   - A vector stores multiple related numbers.
-   - Examples: movement, velocity, color, data record, unknown variables.
+#### B. Direct substitution
 
-2. **Coordinate and arrow interpretations**
+Workflow:
 
-   - `[3,4]` as a point;
-   - `[3,4]` as an arrow from origin;
-   - `[3,4]` as a displacement.
+1. Substitute the approached value.
+2. If the expression is defined and continuous, that value is the limit.
+3. If the result is undefined or indeterminate, choose another method.
 
-3. **Vector addition**
+Worked example:
 
-   - Component-wise rule.
-   - Geometric tip-to-tail interpretation.
+```text
+lim as x -> 2 of x^2 + 3x
+```
 
-4. **Scalar multiplication**
+Show each substitution step.
 
-   - Stretch, shrink, reverse.
-   - Negative scalars flip direction.
+#### C. Removable holes: factor and cancel
 
-5. **Norm/length**
+Workflow:
 
-   - `||v|| = sqrt(v_1^2 + ... + v_n^2)`.
-   - Connect to distance formula.
+1. Substitute and notice `0/0`.
+2. Factor numerator and denominator.
+3. Cancel the common factor only for `x != a`.
+4. Substitute into the simplified expression.
+5. Explain that the original function may still be undefined at the point.
 
-6. **Dot product**
+Worked examples:
 
-   - Formula `u dot v = sum u_i v_i`.
-   - Perpendicularity when dot product is zero.
-   - Optional projection intuition.
+- `(x^2 - 9)/(x - 3)` at `x = 3`.
+- `(x^2 - 5x + 6)/(x - 2)` at `x = 2`.
 
-7. **Worked examples**
+#### D. Rationalizing radical expressions
 
-   - Add `[2, -1] + [3, 4]`.
-   - Compute `||[6,8]||`.
-   - Compute `[1,2] dot [3,4]`.
-   - Check whether `[1,0]` and `[0,1]` are perpendicular.
+Workflow:
 
-8. **Practice exercises**
+1. Substitute and identify `0/0`.
+2. Multiply by the conjugate.
+3. Simplify using difference of squares.
+4. Cancel and substitute.
 
-   - Addition and scalar multiplication.
-   - Norms.
-   - Dot products.
-   - Geometric interpretation.
+Beginner example:
 
-9. **Guessing game**
+```text
+lim as x -> 0 of (sqrt(x+1)-1)/x
+```
 
-   - Topic key: `vectors`.
-   - Game: "Vector quick check." Guess norm, dot product, or perpendicularity.
+#### E. One-sided limits
 
-10. **Using this lesson with edumath and SymPy**
-    - Show `dot_product`, `vector_norm`.
-    - Show NumPy arrays.
-    - Show SymPy Matrix dot products and exact square roots.
+Workflow:
 
-### Common pitfalls to address
+1. Compute or reason from the left.
+2. Compute or reason from the right.
+3. Compare the two values.
+4. State whether the two-sided limit exists.
 
-- Treating a vector like a single number.
-- Adding vectors with different dimensions.
-- Forgetting square roots in norms.
-- Thinking dot product produces another vector.
-- Forgetting that dot product zero means perpendicular only for nonzero vectors.
+Include piecewise-function examples and vertical-asymptote examples.
 
-## Lesson plan: `matrices.qmd`
+#### F. Infinite limits and asymptotes
 
-### Purpose
+Explain:
 
-Teach matrices as rectangular arrays with shape, entries, rows, columns, and
-multiple meanings: data tables, coefficient arrays, and transformation rules.
+- grows without bound vs equals infinity;
+- left/right behavior may differ;
+- vertical asymptotes.
 
-### Main learning objectives
+Use `1/x` and `1/x^2` as contrasting examples.
 
-Students should be able to:
+### Common mistakes to emphasize
 
-- identify rows, columns, entries, and shape;
-- write matrix entries using row-column notation;
-- recognize row vectors and column vectors;
-- identify zero and identity matrices;
-- explain why shape matters;
-- connect matrices to data, systems, and transformations.
+- Thinking `0/0` means the limit is 0.
+- Forgetting to compare both sides for two-sided limits.
+- Confusing `f(a)` with `lim_{x->a} f(x)`.
+- Cancelling factors that are not common factors.
+- Saying "equals infinity" without describing one-sided behavior.
 
-### Content outline
+### Guided exercises
 
-1. **Motivation: organized numbers**
+- Direct substitution drill with explanation.
+- Factor-and-cancel drill.
+- Rationalization drill with a partially completed conjugate step.
+- One-sided limit classification from a table or piecewise rule.
 
-   - Matrices organize many related numbers.
-   - Examples: data table, image pixels, system coefficients, transformations.
+### Guessing game additions
 
-2. **Rows and columns**
+- Guess the first method: substitute, factor, rationalize, or one-sided check.
+- Guess whether `0/0` means hole, asymptote, or more work needed.
+- Guess the limit after cancellation.
 
-   - Shape is rows by columns.
-   - Entry notation `a_ij` means row `i`, column `j`.
+### SymPy section
 
-3. **Matrix equality**
+Include visible examples for:
 
-   - Same shape and same corresponding entries.
+```python
+sp.limit(expression, x, point)
+sp.limit(expression, x, point, dir="+")
+sp.limit(expression, x, point, dir="-")
+```
 
-4. **Special matrices**
+Also show that SymPy output should be translated into a sentence.
 
-   - Zero matrix.
-   - Identity matrix.
-   - Diagonal matrix.
-   - Square matrix.
-   - Column vectors as `n x 1` matrices.
+---
 
-5. **Shape as a safety check**
+## 3. `derivatives.qmd` — Derivatives
 
-   - Students should say shape before performing operations.
+### Goal
 
-6. **Worked examples**
+Teach derivatives as a sequence from average rate to instantaneous rate to
+usable tangent-line calculations.
 
-   - Find the shape of a matrix.
-   - Identify a specific entry.
-   - Write a 2-by-2 identity matrix.
-   - Interpret a matrix as a data table.
+### Subtopics to expand
 
-7. **Practice exercises**
+#### A. Average rate of change
 
-   - Shape checks.
-   - Entry identification.
-   - Special matrix recognition.
-   - Data interpretation.
+Workflow:
 
-8. **Guessing game**
+1. Identify interval endpoints.
+2. Evaluate the function at both endpoints.
+3. Compute change in output divided by change in input.
+4. Interpret the slope with units.
 
-   - Topic key: `matrices`.
-   - Game: "Shape detective." Guess shape, entry, or special matrix type.
+Worked example:
 
-9. **Using this lesson with edumath and SymPy**
-   - Show `matrix_shape` if implemented.
-   - Show NumPy `.shape`.
-   - Show SymPy `Matrix` and indexing.
+```text
+f(x)=x^2 from x=1 to x=3
+```
 
-### Common pitfalls to address
+#### B. From secant slope to tangent slope
 
-- Reversing rows and columns.
-- Thinking all matrices must be square.
-- Confusing entry `a_ij` with `a_ji`.
-- Treating row vectors and column vectors as interchangeable.
-- Forgetting identity matrix size.
+Explain:
 
-## Lesson plan: `matrix-operations.qmd`
+- secant line uses two points;
+- tangent line is limiting position of secant lines;
+- derivative is the limiting slope.
 
-### Purpose
+Use a table of smaller `h` values:
 
-Teach matrix addition, scalar multiplication, matrix-vector products, matrix
-products, identity matrices, and dimension compatibility.
+```text
+[f(a+h)-f(a)]/h
+```
 
-### Main learning objectives
+#### C. Derivative definition
 
-Students should be able to:
+Use the limit definition carefully:
 
-- add matrices with the same shape;
-- multiply matrices by scalars;
-- decide whether products are defined;
-- compute matrix-vector products;
-- interpret matrix-vector products as combinations of columns;
-- multiply small matrices;
-- use identity matrices correctly.
+```text
+f'(a) = lim_{h -> 0} [f(a+h)-f(a)]/h
+```
 
-### Content outline
+Guided walkthrough for `f(x)=x^2` at `a=2`:
 
-1. **Motivation: operations with shape rules**
+1. Substitute into the difference quotient.
+2. Expand `(2+h)^2`.
+3. Simplify numerator.
+4. Cancel `h`.
+5. Take the limit.
+6. Interpret slope.
 
-   - Matrix operations are not arbitrary; dimensions control what is legal.
+#### D. Derivative function
 
-2. **Addition and subtraction**
+Show how the point-specific derivative becomes a function:
 
-   - Same shape required.
-   - Component-wise calculation.
+```text
+f'(x) = lim_{h -> 0} [f(x+h)-f(x)]/h
+```
 
-3. **Scalar multiplication**
+Use `x^2` to get `2x`.
 
-   - Multiply every entry.
+#### E. Tangent lines
 
-4. **Matrix-vector products**
+Workflow:
 
-   - Row-dot-vector calculation.
-   - Column-combination interpretation.
+1. Find the point `(a, f(a))`.
+2. Find the slope `f'(a)`.
+3. Use point-slope form.
+4. Simplify only after the structure is correct.
+5. Check that the line goes through the point.
 
-5. **Matrix-matrix products**
+Worked examples:
 
-   - Inner dimensions must match.
-   - Product shape: `(m x n)(n x p) = m x p`.
+- tangent to `x^2` at `x=3`;
+- tangent to `x^2 + 3x` at `x=1`.
 
-6. **Identity matrix**
+#### F. Units and meaning
 
-   - Leaves compatible vectors or matrices unchanged.
+Examples:
 
-7. **Worked examples**
+- position/time -> velocity;
+- cost/items -> marginal cost;
+- temperature/time -> rate of warming/cooling.
 
-   - Add two 2-by-2 matrices.
-   - Compute scalar multiple.
-   - Compute `[[2,0],[0,3]] [5,4]`.
-   - Decide whether a 2-by-3 matrix can multiply a length-2 vector.
-   - Compute a small 2-by-2 matrix product.
+#### G. Where derivatives fail
 
-8. **Practice exercises**
+Explain with intuitive examples:
 
-   - Shape compatibility.
-   - Matrix addition.
-   - Matrix-vector products.
-   - Matrix products.
+- corner: `abs(x)` at 0;
+- cusp;
+- vertical tangent;
+- discontinuity.
 
-9. **Guessing game**
+### Common mistakes to emphasize
 
-   - Topic key: `matrix-operations`.
-   - Game: "Product defined?" or "Guess the missing entry."
+- Treating average rate as instantaneous rate.
+- Forgetting to evaluate the derivative at the point for tangent slope.
+- Writing tangent line slope but not the full line.
+- Losing units.
+- Assuming every continuous function is differentiable.
 
-10. **Using this lesson with edumath and SymPy**
-    - Show `matrix_vector_product`.
-    - Show NumPy `@` operator.
-    - Show SymPy exact matrix products.
+### Guided exercises
 
-### Common pitfalls to address
+- Average rate with units.
+- Difference quotient for a quadratic.
+- Tangent line with point-slope form.
+- Determine whether derivative is positive, negative, or zero from a graph.
 
-- Adding matrices with different shapes.
-- Multiplying entry-by-entry when a matrix product is requested.
-- Forgetting that matrix multiplication is usually not commutative.
-- Reversing product shape.
-- Forgetting to check inner dimensions.
+### Guessing game additions
 
-## Lesson plan: `systems-and-elimination.qmd`
+- Guess tangent slope from `f'(x)` and `x=a`.
+- Guess whether graph is increasing/decreasing from derivative sign.
+- Guess which graph feature prevents differentiability.
 
-### Purpose
+### SymPy section
 
-Teach linear systems through equations, augmented matrices, row operations,
-elimination, matrix notation `A x = b`, and solution classification.
+Show:
 
-### Main learning objectives
+```python
+average_rate_of_change("x**2", 1, 3)
+derivative("x**2")
+tangent_line("x**2", 3)
+finite_difference("x**2", 3)
+```
 
-Students should be able to:
+Also show the raw SymPy version with `sp.diff`.
 
-- write a system as `A x = b`;
-- build an augmented matrix;
-- use row operations to simplify a system;
-- solve small systems by elimination;
-- identify one solution, no solution, or infinitely many solutions;
-- interpret systems geometrically in two variables;
-- verify a solution by substitution.
+---
 
-### Content outline
+## 4. `derivative-rules.qmd` — Derivative Rules
 
-1. **Motivation: many conditions at once**
+### Goal
 
-   - A system asks for values satisfying every equation simultaneously.
+Teach derivative rules as a decision tree. Students should learn how to choose a
+rule before computing.
 
-2. **Matrix form**
+### Subtopics to expand
 
-   - Coefficient matrix `A`;
-   - unknown vector `x`;
-   - right-hand side vector `b`.
+#### A. Rule selection roadmap
 
-3. **Augmented matrices**
+Ask:
 
-   - Store coefficients and constants compactly.
+1. Is it a constant?
+2. Is it a sum or difference?
+3. Is it a constant multiple?
+4. Is it a power of `x`?
+5. Is it a product of changing factors?
+6. Is it a quotient?
+7. Is it a composition requiring the chain rule?
+8. Are multiple rules needed?
 
-4. **Legal row operations**
+#### B. Linearity rules
 
-   - Swap rows.
-   - Multiply a row by a nonzero constant.
-   - Add a multiple of one row to another row.
+Walkthrough examples:
 
-5. **Elimination**
+- derivative of a constant;
+- derivative of `5x^3`;
+- derivative of `4x^3 - 2x + 9`.
 
-   - Use row operations to create zeros.
-   - Back-substitute.
+Explain why each term can be treated separately.
 
-6. **Solution types**
+#### C. Power rule
 
-   - One solution: independent equations.
-   - No solution: contradiction such as `0 = 5`.
-   - Infinitely many solutions: free variable or repeated condition.
+Include integer, negative, and fractional powers:
 
-7. **Geometry**
+- `x^5`;
+- `1/x = x^-1`;
+- `sqrt(x)=x^(1/2)`.
 
-   - In two variables: lines intersect, parallel lines, same line.
-   - In three variables: planes.
+Give step-by-step exponent manipulation.
 
-8. **Worked examples**
+#### D. Product rule
 
-   - Solve `x+y=5`, `x-y=1`.
-   - Show an inconsistent system.
-   - Show a dependent system.
-   - Verify a solution vector.
+Workflow:
 
-9. **Practice exercises**
+1. Identify first factor `f` and second factor `g`.
+2. Compute `f'` and `g'` separately.
+3. Substitute into `f'g + fg'`.
+4. Simplify if useful.
 
-   - Convert to matrix form.
-   - Perform one row operation.
-   - Solve 2-by-2 systems.
-   - Classify solution type.
+Worked example:
 
-10. **Guessing game**
+```text
+(x^2+1)(x-3)
+```
 
-    - Topic key: `systems-and-elimination`.
-    - Game: "System classifier." Guess one solution, no solution, or infinitely
-      many from equations or reduced rows.
+#### E. Quotient rule
 
-11. **Using this lesson with edumath and SymPy**
-    - Show `solve_linear_system` for numeric systems.
-    - Show SymPy `Matrix.rref()` for exact row reduction.
-    - Show substitution verification.
+Workflow:
 
-### Common pitfalls to address
+1. Identify numerator and denominator.
+2. Compute both derivatives.
+3. Use `(low*dhigh - high*dlow)/low^2` or a clearly named formula.
+4. Simplify carefully.
+5. Check whether rewriting is easier.
 
-- Changing one equation without applying a legal row operation.
-- Losing a sign during elimination.
-- Confusing no solution with infinitely many solutions.
-- Forgetting to check the solution in original equations.
-- Treating row operations as changing the solution set instead of preserving it.
+Worked example:
 
-## Lesson plan: `linear-transformations.qmd`
+```text
+(x^2+1)/(x-1)
+```
 
-### Purpose
+#### F. Chain rule
 
-Teach matrices as functions that transform vectors. Emphasize basis vectors,
-geometry, linearity, and common transformations such as scaling, reflection,
-projection, shear, and rotation.
+Workflow:
 
-### Main learning objectives
+1. Identify the outside function.
+2. Identify the inside function.
+3. Differentiate the outside, leaving the inside unchanged.
+4. Multiply by the derivative of the inside.
 
-Students should be able to:
+Examples:
 
-- interpret a matrix as a transformation;
-- explain what linearity means;
-- compute images of vectors under a matrix;
-- predict transformations from columns of a matrix;
-- identify scaling, reflection, projection, shear, and rotation matrices;
-- understand why basis vectors determine a linear transformation.
+- `(x^2+1)^3`;
+- `sin(x^2)`;
+- `e^(3x)`.
 
-### Content outline
+#### G. Combining rules
 
-1. **Motivation: matrices move vectors**
+Use a rule tree for examples like:
 
-   - A 2-by-2 matrix takes 2D vectors to 2D vectors.
-   - This is the foundation of graphics, rotations, projections, and coordinate
-     changes.
+```text
+(x^2+1)^3 * e^x
+sin(x^2)/(x+1)
+```
 
-2. **Function viewpoint**
+The first rule is determined by the outermost operation.
 
-   - `T(v)=A v`.
-   - Input vector, output vector.
+### Common mistakes to emphasize
 
-3. **Linearity**
+- Forgetting the inside derivative in the chain rule.
+- Using product rule when a constant multiple rule is enough.
+- Applying quotient rule sign in the wrong order.
+- Simplifying too early and making algebra mistakes.
+- Forgetting derivative of a constant is zero.
 
-   - `T(u+v)=T(u)+T(v)`.
-   - `T(cu)=cT(u)`.
-   - Linear transformations preserve the origin.
+### Guided exercises
 
-4. **Basis vector interpretation**
+- Rule selection only: no computation.
+- Complete missing derivative-rule step.
+- Differentiate and then check by SymPy.
+- Diagnose a wrong derivative.
 
-   - Columns of `A` show where standard basis vectors go.
-   - Every vector is a combination of basis vectors.
+### Guessing game additions
 
-5. **Common transformations**
+- Guess the first rule to apply.
+- Guess the missing chain-rule factor.
+- Guess whether a proposed derivative is correct.
 
-   - Scaling.
-   - Reflection.
-   - Projection.
-   - Shear.
-   - Rotation, optional with simple angles.
+### SymPy section
 
-6. **Worked examples**
+Show:
 
-   - Interpret `[[2,0],[0,2]]`.
-   - Interpret `[[1,0],[0,0]]`.
-   - Compute image of `[3,4]` under a matrix.
-   - Use columns to describe transformation geometry.
+```python
+derivative("(x**2 + 1)**3")
+validate_derivative_equivalence("6*x*(x**2+1)**2", expected)
+```
 
-7. **Practice exercises**
+Also show `sp.diff` and `sp.simplify` for checking equivalent forms.
 
-   - Matrix-vector images.
-   - Identify transformations.
-   - Check linearity from a rule.
-   - Predict basis-vector images.
+---
 
-8. **Guessing game**
+## 5. `optimization.qmd` — Optimization
 
-   - Topic key: `linear-transformations`.
-   - Game: "What does this matrix do?" Guess scaling, projection, reflection,
-     shear, or rotation.
+### Goal
 
-9. **Using this lesson with edumath and SymPy**
-   - Show `matrix_vector_product`.
-   - Show transformation plotting helper if implemented.
-   - Show SymPy exact matrix actions.
+Teach optimization as an organized workflow with candidate generation,
+classification, endpoint checking, and interpretation.
 
-### Common pitfalls to address
+### Subtopics to expand
 
-- Confusing matrix entries with output coordinates directly.
-- Forgetting that columns are images of basis vectors.
-- Thinking every function is linear.
-- Calling a translation linear even though it moves the origin.
-- Mixing up projection and reflection.
+#### A. What optimization asks
 
-## Lesson plan: `eigenvalues-eigenvectors.qmd`
+Explain local vs absolute maximum/minimum using graphs and plain language.
 
-### Purpose
+#### B. Critical points
 
-Introduce eigenvalues and eigenvectors as special directions preserved by a
-matrix transformation. Keep the lesson conceptual and computationally gentle.
+Workflow:
 
-### Main learning objectives
+1. Find the domain.
+2. Compute `f'(x)`.
+3. Solve `f'(x)=0`.
+4. Include points where `f'` is undefined but `f` is defined.
+5. Keep only candidates in the domain.
 
-Students should be able to:
+Worked example:
 
-- explain eigenvectors as nonzero vectors whose direction is preserved;
-- explain eigenvalues as scale factors;
-- check whether a proposed vector is an eigenvector;
-- find simple eigenpairs by inspection for diagonal or triangular matrices;
-- compute characteristic polynomial for a 2-by-2 matrix at an introductory
-  level;
-- connect eigenvalues to repeated transformations and dynamic systems.
+```text
+f(x)=x^2-6x+10
+```
 
-### Content outline
+#### C. First derivative test
 
-1. **Motivation: special directions**
+Workflow:
 
-   - Most vectors rotate or change direction under a matrix.
-   - Eigenvectors stay on their own line.
+1. Put critical points on a number line.
+2. Choose test points in each interval.
+3. Evaluate sign of `f'`.
+4. Translate signs into increasing/decreasing.
+5. Classify max/min.
 
-2. **Definition**
+#### D. Second derivative test
 
-   - `A v = lambda v`.
-   - `v` must be nonzero.
-   - `lambda` is a scalar.
+Workflow:
 
-3. **Geometric meaning**
+1. Compute `f''(x)`.
+2. Evaluate at a critical point.
+3. Interpret positive as concave up/min, negative as concave down/max.
+4. If zero, use another method.
 
-   - Positive eigenvalue: stretch/shrink same direction.
-   - Negative eigenvalue: flip direction.
-   - Zero eigenvalue: collapse to zero vector.
+#### E. Absolute extrema on closed intervals
 
-4. **Checking an eigenpair**
+Workflow:
 
-   - Multiply `A v`.
-   - Compare to `lambda v`.
+1. Find interior critical points.
+2. Add endpoints.
+3. Evaluate original function at every candidate.
+4. Compare values.
+5. State absolute max/min with both input and output.
 
-5. **Diagonal matrices**
+Worked example:
 
-   - Eigenvalues appear on the diagonal.
-   - Standard basis vectors are eigenvectors.
+```text
+f(x)=x^3-3x on [-2,2]
+```
 
-6. **Characteristic equation**
+#### F. Applied optimization word problems
 
-   - For small 2-by-2 matrices, eigenvalues solve `det(A - lambda I)=0`.
-   - Keep algebra gentle.
+Use a consistent modeling template:
 
-7. **Repeated transformations**
+1. Draw or describe the situation.
+2. Define variables and units.
+3. Write the objective quantity.
+4. Use constraints to get one-variable function.
+5. State feasible domain.
+6. Differentiate.
+7. Find candidates.
+8. Check endpoints and context.
+9. Interpret in a sentence.
 
-   - If `A v = lambda v`, then `A^2 v = lambda^2 v`.
-   - This explains long-run behavior.
+Begin with accessible examples:
 
-8. **Worked examples**
+- maximum area rectangle with fixed perimeter;
+- maximum revenue for a quadratic revenue model;
+- minimum cost with a simple quadratic.
 
-   - Check `A v = 3v`.
-   - Find eigenpairs for a diagonal matrix.
-   - Compute eigenvalues of a simple 2-by-2 matrix.
-   - Interpret a negative eigenvalue.
+### Common mistakes to emphasize
 
-9. **Practice exercises**
+- Optimizing the wrong quantity.
+- Forgetting the domain.
+- Finding critical points but not checking endpoints.
+- Comparing derivative values instead of original function values.
+- Reporting only `x` when the problem asks for maximum value or dimensions.
 
-   - Identify eigenvalue from `A v = lambda v`.
-   - Check a proposed eigenvector.
-   - Find eigenvalues of a diagonal matrix.
-   - Explain why the zero vector is not called an eigenvector.
+### Guided exercises
 
-10. **Guessing game**
+- Candidate table completion.
+- First derivative sign chart.
+- Closed interval endpoint comparison.
+- Word problem setup only.
+- Full word problem solution.
 
-    - Topic key: `eigenvalues-eigenvectors`.
-    - Game: "Eigenpair check." Given `A`, `v`, and candidates for `lambda`,
-      guess whether the vector is an eigenvector and identify the eigenvalue.
+### Guessing game additions
 
-11. **Using this lesson with edumath and SymPy**
-    - Show `validate_eigenpair` if implemented.
-    - Show NumPy `np.linalg.eig` for numeric eigenvalues.
-    - Show SymPy `Matrix.eigenvals()` and `Matrix.eigenvects()` for exact
-      examples.
+- Guess whether a critical point is max/min/neither from derivative signs.
+- Guess which candidates must be checked.
+- Guess what the objective function is in a word problem.
 
-### Common pitfalls to address
+### SymPy section
 
-- Forgetting the eigenvector must be nonzero.
-- Thinking every vector is an eigenvector.
-- Confusing eigenvalue with determinant.
-- Forgetting that negative eigenvalues reverse direction.
-- Treating approximate numeric eigenvectors as exact without checking.
+Show:
 
-## Optional future lesson: `orthogonality-and-projections.qmd`
+```python
+sp.diff(f, x)
+sp.solve(sp.Eq(sp.diff(f, x), 0), x)
+[(c, f.subs(x, c)) for c in candidates]
+```
 
-If the module needs additional depth later, add an orthogonality/projections
-lesson after matrix operations or after transformations.
+Use `edumath.calculus.critical_point_exercise` and any new candidate-table
+helper if implemented.
 
-Possible topics:
+---
 
-- unit vectors;
-- orthogonal and orthonormal vectors;
-- projections;
-- least squares intuition;
-- Gram-Schmidt overview.
+## 6. `integrals.qmd` — Integrals
 
-This would support statistics, optimization, and machine learning preparation.
+### Goal
 
-## Suggested references for lesson authors
+Teach integrals as accumulation first, then area, then antiderivatives and the
+Fundamental Theorem of Calculus.
 
-Use these as conceptual references while writing. Avoid copying text.
+### Subtopics to expand
 
-- Gilbert Strang, _Introduction to Linear Algebra_.
-- David C. Lay, _Linear Algebra and Its Applications_.
-- Jim Hefferon, _Linear Algebra_ (open text).
-- 3Blue1Brown, _Essence of Linear Algebra_.
-- MIT OpenCourseWare linear algebra materials.
-- Khan Academy linear algebra refreshers for beginner explanations.
+#### A. Accumulation from small pieces
 
-## Acceptance checklist
+Explain:
 
-Before considering the plan implemented, verify the following.
+- rate times small input change gives small accumulated amount;
+- add many small pieces;
+- integral is the limit of these sums.
 
-### Content completeness
+Use a rate example before formal notation.
 
-- [ ] `index.qmd` exists and is linked in `docs/_quarto.yml`.
-- [ ] `docs/lessons/index.qmd` points to `linear-algebra/index.qmd`.
-- [ ] Generated `.quarto_ipynb*` artifacts are removed or ignored.
-- [ ] Every lesson has YAML front matter with title, description, and execution
-      settings.
-- [ ] Every lesson begins with motivation and learning objectives.
-- [ ] Every lesson contains definitions, intuition, formulas or diagrams, and
-      common pitfalls.
-- [ ] Every lesson has at least two worked examples.
-- [ ] Every lesson has practice exercises with answers or collapsed solutions.
-- [ ] Every lesson has a topic-specific checkpoint or guessing game.
-- [ ] Every lesson ends with `Using this lesson with edumath and SymPy`.
-- [ ] Visible code appears primarily in the final appendix.
+#### B. Signed area
 
-### Pedagogy
+Explain:
 
-- [ ] Lessons are written for students with low confidence and limited prior
-      exposure.
-- [ ] Dimension and shape checks are explained before operations.
-- [ ] Geometry and computation are connected throughout.
-- [ ] Examples include both numeric calculation and interpretation.
-- [ ] Common mistakes are explicitly named.
-- [ ] Guessing games provide explanatory feedback.
+- area above the x-axis counts positive;
+- area below counts negative;
+- signed area differs from total geometric area.
 
-### Package support
+Include a guided example with a piecewise or simple line crossing the x-axis.
 
-- [ ] Any new `edumath` helper has tests.
-- [ ] Public API additions are exported intentionally.
-- [ ] Existing public imports from `edumath.linear_algebra.concepts` remain
-      compatible.
-- [ ] Helpers are reusable across lessons.
-- [ ] Heavy dependencies are not added without a clear project decision.
+#### C. Riemann sums
 
-### Validation
+Workflow:
 
-- [ ] `poetry run pre-commit run --files <changed files>` passes.
-- [ ] `poetry run pytest` passes if source files changed.
-- [ ] `quarto render <changed qmd files> --no-execute` passes.
-- [ ] Generated Quarto scratch/session files are removed before finishing.
+1. Split interval into `n` equal widths.
+2. Compute `Delta x`.
+3. Choose sample points: left, right, or midpoint.
+4. Evaluate heights.
+5. Multiply height by width.
+6. Add rectangles.
+7. Interpret approximation.
+
+Worked example:
+
+```text
+Approximate integral of x^2 on [0,1] with 4 midpoint rectangles.
+```
+
+Show a table of intervals, midpoints, heights, and areas.
+
+#### D. Indefinite integrals and antiderivatives
+
+Workflow:
+
+1. Ask what function has the given derivative.
+2. Reverse a derivative rule.
+3. Add `+ C` for indefinite integrals.
+4. Check by differentiating.
+
+Examples:
+
+- `∫ 4x^3 dx`;
+- `∫ (3x^2 - 2) dx`.
+
+#### E. Definite integrals with the Fundamental Theorem
+
+Workflow:
+
+1. Find an antiderivative `F`.
+2. Evaluate `F(b)` and `F(a)`.
+3. Subtract `F(b)-F(a)`.
+4. Interpret units.
+
+Worked example:
+
+```text
+∫_0^3 2x dx
+```
+
+#### F. Units
+
+Explain integral units as output units times input units.
+
+Examples:
+
+- velocity `(meters/second)` integrated over seconds gives meters;
+- rate `(liters/minute)` integrated over minutes gives liters.
+
+### Common mistakes to emphasize
+
+- Forgetting `+ C` for indefinite integrals.
+- Adding `+ C` to definite integrals.
+- Confusing signed area and total area.
+- Forgetting `Delta x` in a Riemann sum.
+- Evaluating the derivative instead of the antiderivative at bounds.
+
+### Guided exercises
+
+- Complete a Riemann-sum table.
+- Find and check an antiderivative.
+- Use FTC on a simple polynomial.
+- Interpret units from a rate problem.
+
+### Guessing game additions
+
+- Guess left/right/midpoint rectangle height.
+- Guess whether an integral is signed area, total area, or displacement.
+- Guess the missing `+ C` or bound evaluation step.
+
+### SymPy section
+
+Show:
+
+```python
+antiderivative("3*x**2")
+definite_integral("2*x", 0, 3)
+midpoint_riemann_sum("x**2", 0, 1, 4)
+```
+
+Also show `sp.integrate` and how to differentiate an antiderivative to check it.
+
+---
+
+## 7. `integration-techniques.qmd` — Integration Techniques
+
+### Goal
+
+Teach integration techniques as method selection. Students should ask: "What
+derivative rule might this integral be reversing?"
+
+### Subtopics to expand
+
+#### A. Technique selection map
+
+Use a decision table:
+
+| Pattern                                                 | Try                                 |
+| ------------------------------------------------------- | ----------------------------------- |
+| algebra can simplify                                    | simplify first                      |
+| composition with inside derivative nearby               | substitution                        |
+| product where one factor simplifies when differentiated | integration by parts                |
+| rational function                                       | algebra / partial fractions preview |
+| exact form is hard or unnecessary                       | numerical approximation             |
+
+#### B. Simplify first
+
+Examples:
+
+- expand before integrating;
+- split fractions;
+- rewrite radicals and reciprocals as powers.
+
+Workflow:
+
+1. Rewrite the integrand.
+2. Integrate term by term.
+3. Check by differentiating.
+
+#### C. Substitution
+
+Workflow:
+
+1. Identify inside function `u=g(x)`.
+2. Compute `du=g'(x) dx`.
+3. Match the remaining factor.
+4. Rewrite integral in `u`.
+5. Integrate.
+6. Substitute back.
+7. Add `+ C` for indefinite integrals.
+8. Check by differentiating.
+
+Worked examples:
+
+- `∫ 2x cos(x^2) dx`;
+- `∫ 3x^2 sin(x^3) dx`.
+
+#### D. Definite integrals with substitution
+
+Show two options:
+
+1. change bounds to `u` bounds;
+2. substitute back into `x`, then evaluate old bounds.
+
+Use a beginner-friendly example.
+
+#### E. Integration by parts
+
+Workflow:
+
+1. Choose `u` and `dv`.
+2. Compute `du` and `v`.
+3. Substitute into `∫u dv = uv - ∫v du`.
+4. Integrate the remaining integral.
+5. Add `+ C` if indefinite.
+6. Check by differentiating.
+
+Examples:
+
+- `∫ x e^x dx`;
+- `∫ x cos(x) dx`.
+
+Include a simple LIATE-style guideline but emphasize judgment over memorization.
+
+#### F. Numerical approximation
+
+Explain when numerical methods are appropriate:
+
+- no elementary antiderivative;
+- data table instead of formula;
+- approximate answer is enough.
+
+Use midpoint and trapezoid examples already available in `edumath`.
+
+### Common mistakes to emphasize
+
+- Choosing substitution without the inside derivative.
+- Forgetting to substitute back.
+- Forgetting changed bounds in definite substitution.
+- Choosing `u` poorly for integration by parts.
+- Forgetting the minus sign in integration by parts.
+- Not checking antiderivatives by differentiating.
+
+### Guided exercises
+
+- Choose the technique only.
+- Fill in missing `u`, `du`, and rewritten integral.
+- Complete integration by parts table.
+- Decide whether numerical approximation is appropriate.
+
+### Guessing game additions
+
+- Guess the best technique.
+- Guess the correct `u`.
+- Guess the missing `du` factor.
+- Guess which factor should be `u` in integration by parts.
+
+### SymPy section
+
+Show:
+
+```python
+sp.integrate(2*x*sp.cos(x**2), x)
+sp.integrate(x*sp.exp(x), x)
+sp.diff(answer, x)
+```
+
+Add a note that SymPy may return equivalent forms or special functions, so the
+student must still interpret the result.
+
+---
+
+## 8. `applications.qmd` — Calculus Applications
+
+### Goal
+
+Teach students to translate word problems into calculus decisions. The page
+should become a modeling guide, not only a list of contexts.
+
+### Subtopics to expand
+
+#### A. Tool selection in applications
+
+Use a decision workflow:
+
+1. Does the question ask for a value nearby or at a point? Limit.
+2. Does it ask for instantaneous rate, slope, or marginal change? Derivative.
+3. Does it ask for total change, accumulated amount, or area? Integral.
+4. Does it ask for largest/smallest/best? Optimization.
+5. Does it involve a changing relationship between variables? Possibly related
+   rates.
+
+#### B. Motion
+
+Explain:
+
+- position `s(t)`;
+- velocity `v(t)=s'(t)`;
+- acceleration `a(t)=v'(t)=s''(t)`;
+- displacement `∫v(t)dt`;
+- total distance `∫|v(t)|dt`.
+
+Guided walkthrough:
+
+- Given `s(t)=t^2+3t`, find velocity at `t=2`.
+- Given `v(t)=3t^2`, find displacement on `[0,2]`.
+
+#### C. Marginal analysis
+
+Workflow:
+
+1. Identify cost/revenue/profit function.
+2. Differentiate for marginal function.
+3. Evaluate at production level.
+4. Interpret units as dollars per item.
+
+Worked example with `C(x)=100+5x+0.2x^2`.
+
+#### D. Accumulation from rates
+
+Workflow:
+
+1. Identify rate and units.
+2. Identify time/input interval.
+3. Integrate rate over interval.
+4. Interpret accumulated units.
+
+Examples:
+
+- water flow rate;
+- infection rate or population change rate;
+- energy/power relation.
+
+#### E. Related rates introduction
+
+Add a gentle introduction if appropriate:
+
+1. Draw or describe related quantities.
+2. Write an equation connecting variables.
+3. Differentiate both sides with respect to time.
+4. Substitute known values after differentiating.
+5. Solve for requested rate.
+
+Begin with a very simple area example:
+
+```text
+A = s^2, ds/dt known, find dA/dt
+```
+
+Keep this introductory; do not turn the page into a full related-rates unit
+unless desired.
+
+#### F. Optimization applications
+
+Link back to optimization workflow and include one full word problem with
+variables, units, domain, derivative, candidates, and interpretation.
+
+#### G. Probability density preview
+
+Keep a short preview:
+
+- probability density integrates to probability;
+- area under density over interval is probability;
+- connect to future probability/statistics lessons.
+
+### Common mistakes to emphasize
+
+- Ignoring units.
+- Using derivative for total or integral for instantaneous rate.
+- Confusing velocity and speed.
+- Confusing displacement and total distance.
+- Substituting numbers too early in related rates.
+- Reporting a number without context.
+
+### Guided exercises
+
+- Tool-choice classification from word prompts.
+- Motion derivative/integral problem.
+- Marginal cost interpretation.
+- Accumulation from a rate.
+- Simple related rates walkthrough.
+- Optimization setup from a word problem.
+
+### Guessing game additions
+
+- Guess the calculus tool from problem wording.
+- Guess units of an answer.
+- Guess whether a motion question asks for velocity, acceleration, displacement,
+  or distance.
+
+### SymPy section
+
+Show:
+
+```python
+derivative("100 + 5*x + 0.2*x**2")
+definite_integral("3*t**2", 0, 2, variable="t")
+sp.solve(...)
+```
+
+Add examples using `calculus_tool_question()` and any new application exercise
+builders if implemented.
+
+---
+
+# Shared checkpoint include improvements
+
+The current calculus checkpoint include already works. Implementation should
+only modify it if lesson content needs richer questions.
+
+Potential additions by topic:
+
+## Limits
+
+- first method to try;
+- direct substitution result;
+- factor-and-cancel answer;
+- one-sided agreement;
+- vertical asymptote behavior.
+
+## Derivatives
+
+- average vs instantaneous rate;
+- tangent slope;
+- derivative sign;
+- differentiability obstacle;
+- tangent-line missing step.
+
+## Derivative rules
+
+- first rule selection;
+- power rule exponent;
+- chain-rule inside derivative;
+- product vs chain distinction;
+- diagnose incorrect derivative.
+
+## Optimization
+
+- candidate source;
+- derivative sign classification;
+- endpoint checking;
+- objective function identification;
+- max/min interpretation.
+
+## Integrals
+
+- signed area vs total area;
+- Riemann-sum rectangle height;
+- antiderivative check;
+- FTC evaluation;
+- units of integral.
+
+## Integration techniques
+
+- technique selection;
+- choose `u`;
+- identify `du`;
+- by-parts `u` and `dv`;
+- numerical approximation reason.
+
+## Applications
+
+- tool choice;
+- units;
+- motion relationships;
+- marginal meaning;
+- accumulation from rates;
+- related rates first step.
+
+---
+
+# Implementation phases
+
+## Phase 1 — Content planning and preservation
+
+1. Keep this `PLAN.md` as the implementation guide.
+2. Inspect the current working tree carefully before editing because other files
+   may already be modified.
+3. Do not overwrite unrelated user changes.
+4. Confirm whether generated `*.quarto_ipynb*` files are tracked or untracked
+   before deleting them.
+
+## Phase 2 — Shared pattern updates
+
+1. Decide whether to update `_includes/calculus-checkpoint.qmd` now or after
+   lesson rewrites.
+2. If updating, keep the implementation browser-native and dependency-free.
+3. Add question types that support step-order, method-choice, and mistake
+   diagnosis.
+
+## Phase 3 — Lesson rewrites
+
+Recommended order:
+
+1. `index.qmd`
+2. `limits.qmd`
+3. `derivatives.qmd`
+4. `derivative-rules.qmd`
+5. `optimization.qmd`
+6. `integrals.qmd`
+7. `integration-techniques.qmd`
+8. `applications.qmd`
+
+This order follows conceptual dependence: limits support derivatives;
+derivatives support rules and optimization; integrals support techniques and
+applications.
+
+## Phase 4 — Optional `edumath.calculus` additions
+
+1. Add only helpers that are reused in lessons or tests.
+2. Keep public API small and documented.
+3. Add tests for every behavior change.
+4. Update `src/edumath/calculus/__init__.py` exports deliberately.
+
+## Phase 5 — Validation and cleanup
+
+1. Run scoped pre-commit on changed files.
+2. Run tests if source code changed.
+3. Render changed calculus pages with `--no-execute` and local temp/cache env.
+4. Clean Quarto temp/cache/session artifacts.
+5. Run `git diff --check`.
+6. Summarize changed lesson files and validation commands.

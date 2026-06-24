@@ -7,23 +7,36 @@ from edumath.calculus import (
     CALCULUS_PATH,
     antiderivative_question,
     average_rate_of_change,
+    calculus_application_tool_choice_exercise,
     calculus_diagnostic_quiz,
     calculus_tool_question,
     critical_point_exercise,
     derivative_question,
     derivative_rule_exercise,
+    derivative_rule_trace,
     derivative_sign_scene,
     left_riemann_sum,
+    limit_factor_cancel_exercise,
+    limit_factor_cancel_steps,
+    optimization_candidate_table,
     optimization_scene,
     riemann_sum_exercise,
     riemann_sum_scene,
+    riemann_sum_table,
+    riemann_sum_table_exercise,
     right_riemann_sum,
+    rule_selection_exercise,
     secant_tangent_scene,
+    substitution_exercise,
     tangent_line_exercise,
+    tangent_line_steps,
     tool_choice_exercise,
     trapezoid_rule,
     validate_antiderivative_equivalence,
+    validate_critical_points,
     validate_derivative_equivalence,
+    validate_limit_answer,
+    validate_tangent_line,
 )
 
 
@@ -56,13 +69,51 @@ def test_calculus_validators_accept_equivalent_answers() -> None:
     assert validate_antiderivative_equivalence("x**2 + 7", x**2).correct
 
 
+def test_step_by_step_calculus_helpers() -> None:
+    limit_solution = limit_factor_cancel_steps("(x**2 - 9)/(x - 3)", 3)
+    assert limit_solution.answer == "6"
+    assert len(limit_solution.steps) == 4
+
+    tangent_solution = tangent_line_steps("x**2", 3)
+    assert tangent_solution.answer == "6*x - 9"
+
+    trace = derivative_rule_trace("(x**2 + 1)**3")
+    assert any("chain rule" in step for step in trace)
+
+    candidates = optimization_candidate_table("x**2 - 6*x + 10", domain=(0, 5))
+    candidate_rows = [
+        (candidate.location, candidate.value, candidate.source)
+        for candidate in candidates
+    ]
+    assert candidate_rows == [
+        (sp.Integer(3), sp.Integer(1), "critical point"),
+        (sp.Integer(0), sp.Integer(10), "endpoint"),
+        (sp.Integer(5), sp.Integer(5), "endpoint"),
+    ]
+
+    rows = riemann_sum_table("x**2", 0, 1, 2, method="midpoint")
+    assert len(rows) == 2
+    assert math.isclose(sum(row.area for row in rows), 0.3125)
+
+
+def test_calculus_validators_for_problem_solving_answers() -> None:
+    assert validate_limit_answer(6, "(x**2 - 9)/(x - 3)", 3).correct
+    assert validate_tangent_line("6*x - 9", "x**2", 3).correct
+    assert validate_critical_points("3", "x**2 - 6*x + 10").correct
+
+
 def test_exercise_builders_accept_expected_answers() -> None:
     for exercise in (
         tangent_line_exercise(seed=1),
+        limit_factor_cancel_exercise(seed=1),
         derivative_rule_exercise(seed=1),
+        rule_selection_exercise(seed=1),
         critical_point_exercise(seed=1),
         riemann_sum_exercise(seed=1),
+        riemann_sum_table_exercise(seed=1),
+        substitution_exercise(seed=1),
         tool_choice_exercise(seed=1),
+        calculus_application_tool_choice_exercise(seed=1),
     ):
         assert exercise.check(exercise.expected).correct
 

@@ -1,9 +1,18 @@
 ---
 title: Limits
-description: Understand limits as nearby behavior and the foundation of calculus.
+description: Understand limits as nearby behavior and learn step-by-step limit workflows.
 execute:
   echo: false
 ---
+
+A **limit** describes what a function's outputs approach as the input gets close
+to a target value. Limits are the foundation of derivatives, integrals, and much
+of calculus because they let us reason about values that are approached, even
+when a formula is undefined at one point.
+
+The most important beginner habit is this:
+
+> A limit is about **nearby behavior**, not only the value at the target point.
 
 ::: {.learning-objectives}
 ### Learning objectives
@@ -13,174 +22,332 @@ After this lesson you should be able to:
 - explain a limit as a value a function approaches;
 - estimate limits from tables and graphs;
 - distinguish a function value from a limiting value;
+- use direct substitution when appropriate;
+- evaluate removable-hole limits by factoring and canceling;
+- rationalize simple radical limits;
 - compare left-hand and right-hand limits;
-- identify simple cases where a limit does not exist;
-- evaluate removable-hole limits by simplifying first;
-- use SymPy to check basic limits.
+- identify simple infinite limits and vertical asymptotes;
+- check limits with SymPy.
 :::
 
-## Motivation
+## Vocabulary and notation
 
-Calculus begins with a simple question:
+The notation
 
-> What is happening nearby?
+$$
+\lim_{x\to a} f(x)=L
+$$
 
-If a car's position is changing, average speed over an hour is useful. But a
-speedometer shows speed at an instant. To make sense of an instant, calculus
-looks at behavior over smaller and smaller intervals. That idea is a limit.
+means: as $x$ gets close to $a$, the output $f(x)$ gets close to $L$.
 
-## What a limit asks
+Important words:
 
-The notation:
+- **approaches**: gets close to, not necessarily equals;
+- **target value**: the input value $a$;
+- **limiting value**: the output value $L$;
+- **left-hand limit**: approach from values less than $a$;
+- **right-hand limit**: approach from values greater than $a$.
 
-```text
-lim as x -> a of f(x) = L
-```
+## Limit problem-solving roadmap
 
-means that as `x` gets close to `a`, the output `f(x)` gets close to `L`.
+Use this order for most beginner limit problems.
 
-The function does not have to equal `L` at `x = a`. It may even be undefined at
-`a`. Limits describe nearby behavior, not necessarily the exact value at the
-point.
+1. **Try direct substitution.** Put the target value into the expression.
+2. **Interpret the result.**
+   - A normal number usually gives the limit.
+   - `0/0` means more work is needed.
+   - nonzero divided by zero suggests one-sided or infinite behavior.
+3. **Choose a repair method.** Factor, cancel, rationalize, or check one-sided
+   behavior.
+4. **Simplify carefully.** Only cancel common factors, not terms.
+5. **Substitute again.** Use the simplified expression when it matches the
+   original nearby.
+6. **State the result in words.** Say what the outputs approach.
 
-::: {.key-idea}
-### Key idea
+## Direct substitution
 
-A limit asks where the outputs are heading as inputs approach a point.
+If the function is continuous at the target value, direct substitution works.
+Polynomials are continuous everywhere, so limits of polynomial expressions can
+be found by substituting.
+
+### Walkthrough: direct substitution
+
+Evaluate
+
+$$
+\lim_{x\to 2}(x^2+3x).
+$$
+
+1. **Read the problem.** We need the output approached as $x$ gets close to 2.
+2. **Classify the function.** This is a polynomial, so direct substitution is
+   allowed.
+3. **Substitute.**
+   $$
+   2^2+3(2)=4+6=10.
+   $$
+4. **Check.** Values near 2, such as 1.9 and 2.1, produce outputs near 10.
+5. **Interpret.** As $x$ approaches 2, $x^2+3x$ approaches 10.
+
+So
+
+$$
+\lim_{x\to 2}(x^2+3x)=10.
+$$
+
+::: {.practice-box}
+### Guided exercise: direct substitution
+
+Evaluate $\lim_{x\to -1}(x^2-4x+1)$.
+
+1. What type of expression is it?
+2. What value should you substitute?
+3. Compute the output.
+4. State the limit in a sentence.
+:::
+
+::: {.callout-tip collapse="true"}
+## Guided solution
+
+1. It is a polynomial, so direct substitution works.
+2. Substitute $x=-1$.
+3. $(-1)^2-4(-1)+1=1+4+1=6$.
+4. As $x$ approaches $-1$, the function approaches 6.
 :::
 
 ## Limits from tables
 
-Consider:
+A table helps when a graph or formula is hard to read. Choose input values close
+to the target from both sides.
 
-```text
-f(x) = (x^2 - 1)/(x - 1)
-```
+For
 
-At `x = 1`, the formula gives `0/0`, so the function is undefined. But for
-`x != 1`, factor and cancel:
+$$
+f(x)=\frac{x^2-1}{x-1},
+$$
 
-```text
-(x^2 - 1)/(x - 1) = ((x - 1)(x + 1))/(x - 1) = x + 1
-```
+direct substitution at $x=1$ gives $0/0$. But nearby values suggest a limit:
 
-As `x` gets close to `1`, `x + 1` gets close to `2`. So:
+| $x$ | $f(x)$ |
+|---:|---:|
+| 0.9 | 1.9 |
+| 0.99 | 1.99 |
+| 1.01 | 2.01 |
+| 1.1 | 2.1 |
 
-```text
-lim as x -> 1 of (x^2 - 1)/(x - 1) = 2
-```
+The outputs approach 2. The table is evidence; algebra explains why.
 
-## Function value versus limit
+## Removable holes: factor and cancel
 
-A graph can have a hole at the limiting point. The nearby graph may approach
-`2`, even though `f(1)` is undefined or has a different assigned value.
+When direct substitution gives `0/0`, the expression may have a removable hole.
+That does not mean the limit is zero. It means the original formula needs to be
+simplified for nearby values.
 
-::: {.common-mistake}
-### Common mistake
+### Walkthrough: factor and cancel
 
-Do not stop at `0/0`. That means direct substitution failed; it does not mean
-the limit is automatically zero or nonexistent.
+Evaluate
+
+$$
+\lim_{x\to 3}\frac{x^2-9}{x-3}.
+$$
+
+1. **Try substitution.**
+   $$
+   \frac{3^2-9}{3-3}=\frac{0}{0}.
+   $$
+   This is indeterminate, so we do not stop.
+2. **Factor.**
+   $$
+   x^2-9=(x-3)(x+3).
+   $$
+3. **Rewrite the expression.**
+   $$
+   \frac{x^2-9}{x-3}=\frac{(x-3)(x+3)}{x-3}.
+   $$
+4. **Cancel the common factor for $x\ne 3$.**
+   $$
+   \frac{(x-3)(x+3)}{x-3}=x+3.
+   $$
+   We are allowed to use this simplified expression for nearby values, even
+   though the original expression is undefined exactly at $x=3$.
+5. **Substitute again.**
+   $$
+   3+3=6.
+   $$
+6. **Interpret.** The original function has a hole at $x=3$, but nearby outputs
+   approach 6.
+
+Therefore,
+
+$$
+\lim_{x\to 3}\frac{x^2-9}{x-3}=6.
+$$
+
+::: {.callout-warning}
+## Common mistake
+
+Do not cancel terms that are added or subtracted. You may cancel common
+**factors**. For example, in $\frac{(x-3)(x+3)}{x-3}$, the factor $x-3$ is
+common. In $\frac{x^2-9}{x-3}$, you must factor first.
 :::
+
+### Guided exercise: another factor-and-cancel limit
+
+::: {.practice-box}
+Evaluate
+
+$$
+\lim_{x\to 2}\frac{x^2-5x+6}{x-2}.
+$$
+
+1. What happens with direct substitution?
+2. Factor the numerator.
+3. Cancel the common factor.
+4. Substitute into the simplified expression.
+:::
+
+::: {.callout-tip collapse="true"}
+## Guided solution
+
+1. Direct substitution gives $(4-10+6)/(0)=0/0$, so more work is needed.
+2. $x^2-5x+6=(x-2)(x-3)$.
+3. For $x\ne 2$,
+   $$
+   \frac{(x-2)(x-3)}{x-2}=x-3.
+   $$
+4. Substitute $x=2$: $2-3=-1$.
+
+The limit is $-1$.
+:::
+
+## Radical limits: rationalize
+
+Some `0/0` limits contain square roots. Multiplying by the conjugate can reveal
+a canceling factor.
+
+### Walkthrough: rationalizing
+
+Evaluate
+
+$$
+\lim_{x\to 0}\frac{\sqrt{x+1}-1}{x}.
+$$
+
+1. **Try substitution.**
+   $$
+   \frac{\sqrt{1}-1}{0}=\frac{0}{0}.
+   $$
+2. **Multiply by the conjugate.**
+   $$
+   \frac{\sqrt{x+1}-1}{x}\cdot
+   \frac{\sqrt{x+1}+1}{\sqrt{x+1}+1}.
+   $$
+3. **Use difference of squares in the numerator.**
+   $$
+   (\sqrt{x+1}-1)(\sqrt{x+1}+1)=(x+1)-1=x.
+   $$
+4. **Simplify.**
+   $$
+   \frac{x}{x(\sqrt{x+1}+1)}=\frac{1}{\sqrt{x+1}+1}.
+   $$
+5. **Substitute.**
+   $$
+   \frac{1}{\sqrt{1}+1}=\frac12.
+   $$
+
+So the limit is $\frac12$.
 
 ## One-sided limits
 
-A **left-hand limit** approaches from values less than `a`. A **right-hand
-limit** approaches from values greater than `a`.
+A two-sided limit exists only when the left-hand and right-hand limits agree.
 
-The two-sided limit exists only when both one-sided limits agree.
+### Walkthrough: compare sides
 
-Example:
+Suppose a piecewise function has this behavior near $x=1$:
 
-```text
-left-hand limit = 3
-right-hand limit = 3
-```
+$$
+\lim_{x\to 1^-}f(x)=2,
+\qquad
+\lim_{x\to 1^+}f(x)=5.
+$$
 
-Then the two-sided limit is `3`.
+1. The left-hand approach gives 2.
+2. The right-hand approach gives 5.
+3. These values do not match.
+4. Therefore the two-sided limit does not exist.
 
-But if:
+If both one-sided limits were 2, then the two-sided limit would be 2.
 
-```text
-left-hand limit = 2
-right-hand limit = 5
-```
+## Infinite limits and vertical asymptotes
 
-then the two-sided limit does not exist.
+For $f(x)=1/x$ near $x=0$:
 
-## Infinite behavior
+- as $x\to 0^+$, outputs grow positive without bound;
+- as $x\to 0^-$, outputs grow negative without bound.
 
-For:
+So the two-sided finite limit does not exist. The graph has a vertical asymptote
+at $x=0$.
 
-```text
-f(x) = 1/x
-```
+For $f(x)=1/x^2$ near $x=0$, both sides grow positive without bound. We often
+write
 
-as `x -> 0+`, the outputs grow without bound. As `x -> 0-`, the outputs become
-large negative numbers. The two-sided limit does not exist as a finite number.
-The graph has a vertical asymptote at `x = 0`.
+$$
+\lim_{x\to 0}\frac1{x^2}=\infty,
+$$
 
-## Algebraic limit techniques
+but this means the outputs grow without bound, not that infinity is an ordinary
+number.
 
-Use these first tools:
+## Common mistakes and repairs
 
-1. **Direct substitution** when the function is continuous at the point.
-2. **Factor and cancel** for removable holes.
-3. **Rationalize** simple radical expressions.
-4. **Check one-sided behavior** when a formula changes or has a vertical
-   asymptote.
+::: {.common-mistake}
+### Mistake 1: stopping at `0/0`
 
-### Worked example
+Repair: say "direct substitution is inconclusive" and try factoring,
+rationalizing, or another method.
+:::
 
-Evaluate:
+::: {.common-mistake}
+### Mistake 2: confusing $f(a)$ with the limit
 
-```text
-lim as x -> 3 of (x^2 - 9)/(x - 3)
-```
+Repair: remember that a hole can make $f(a)$ undefined while the limit still
+exists.
+:::
 
-Factor:
+::: {.common-mistake}
+### Mistake 3: ignoring one-sided behavior
 
-```text
-(x^2 - 9)/(x - 3) = ((x - 3)(x + 3))/(x - 3)
-```
+Repair: when a formula changes, a denominator becomes zero, or a graph jumps,
+check from the left and right separately.
+:::
 
-Cancel for `x != 3`:
-
-```text
-x + 3
-```
-
-Now substitute the approached value:
-
-```text
-3 + 3 = 6
-```
-
-The limit is `6`.
-
-## Practice
+## Mixed practice
 
 ::: {.practice-box}
-1. What value does `x + 2` approach as `x -> 3`?
-2. Evaluate `lim as x -> 2 of x^2 + 1`.
-3. Evaluate `lim as x -> 4 of (x^2 - 16)/(x - 4)`.
-4. If the left-hand limit is `1` and the right-hand limit is `1`, what is the
+1. Evaluate $\lim_{x\to 4}(x^2-2x)$.
+2. Evaluate $\lim_{x\to 4}\frac{x^2-16}{x-4}$.
+3. Evaluate $\lim_{x\to 0}\frac{\sqrt{x+9}-3}{x}$.
+4. If the left-hand limit is `-1` and the right-hand limit is `-1`, what is the
    two-sided limit?
-5. If the left-hand limit is `1` and the right-hand limit is `3`, does the
+5. If the left-hand limit is `-1` and the right-hand limit is `1`, does the
    two-sided limit exist?
-6. Explain why a limit can exist even when the function is not defined at the
-   point.
+6. Explain why $\lim_{x\to 0}1/x$ does not exist as a two-sided finite limit.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solutions
 
-1. `5`.
-2. `2^2 + 1 = 5`.
-3. Factor and cancel to get `x + 4`; the limit is `8`.
-4. The two-sided limit is `1`.
+1. Direct substitution gives $16-8=8$.
+2. Factor: $(x^2-16)/(x-4)=((x-4)(x+4))/(x-4)=x+4$, so the limit is 8.
+3. Multiply by the conjugate:
+   $$
+   \frac{\sqrt{x+9}-3}{x}\cdot\frac{\sqrt{x+9}+3}{\sqrt{x+9}+3}
+   =\frac{1}{\sqrt{x+9}+3}.
+   $$
+   Substitute $x=0$ to get $1/6$.
+4. The two-sided limit is `-1`.
 5. No. The one-sided limits disagree.
-6. A limit depends on nearby values, not necessarily the exact value at the
-   point.
+6. From the right the outputs go to positive infinity; from the left they go to
+   negative infinity.
 :::
 
 ## Guessing game checkpoint
@@ -197,18 +364,34 @@ The limit is `6`.
 
 ## Using this lesson with edumath and SymPy
 
+Use SymPy to check a limit after you have chosen a method by hand.
+
 ```{python}
 #| echo: true
 import sympy as sp
 
 x = sp.symbols("x")
-sp.limit((x**2 - 1)/(x - 1), x, 1)
+sp.limit((x**2 - 9)/(x - 3), x, 3)
 ```
 
 ```{python}
 #| echo: true
-sp.limit(1/x, x, 0, dir="+")
-sp.limit(1/x, x, 0, dir="-")
+sp.limit((sp.sqrt(x + 1) - 1) / x, x, 0)
+```
+
+```{python}
+#| echo: true
+sp.limit(1 / x, x, 0, dir="+")
+sp.limit(1 / x, x, 0, dir="-")
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import limit_factor_cancel_steps, validate_limit_answer
+
+solution = limit_factor_cancel_steps("(x**2 - 9)/(x - 3)", 3)
+print(solution.answer)
+print(validate_limit_answer(6, "(x**2 - 9)/(x - 3)", 3).message)
 ```
 
 ## Further reading

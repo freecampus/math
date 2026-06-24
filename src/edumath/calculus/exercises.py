@@ -9,9 +9,12 @@ import sympy as sp
 
 from edumath.calculus.derivatives import derivative, tangent_line
 from edumath.calculus.integrals import midpoint_riemann_sum
+from edumath.calculus.steps import riemann_sum_table
 from edumath.calculus.validators import (
+    validate_antiderivative_equivalence,
     validate_critical_point,
     validate_derivative_equivalence,
+    validate_limit_answer,
     validate_numeric_approximation,
 )
 from edumath.core import (
@@ -153,6 +156,113 @@ def limit_estimate_exercise(*, seed: int | None = None) -> Exercise:
     )
 
 
+def limit_factor_cancel_exercise(*, seed: int | None = None) -> Exercise:
+    """Generate a factor-and-cancel limit exercise."""
+
+    rng = Random(seed)
+    point = rng.choice([1, 2, 3, 4])
+    expression = (X**2 - point**2) / (X - point)
+    expected = sp.limit(expression, X, point)
+    return Exercise(
+        prompt=(
+            "Evaluate the limit by factoring and canceling: "
+            f"lim as x -> {point} of {sp.sstr(expression)}."
+        ),
+        expected=expected,
+        validator=lambda received: validate_limit_answer(received, expression, point),
+        hint="Direct substitution gives 0/0, so factor before substituting again.",
+        explanation=(
+            "Factor the numerator as a difference of squares, cancel, then substitute."
+        ),
+        tags=("calculus", "limits", "factor-and-cancel"),
+        answer_type="symbolic",
+    )
+
+
+def rule_selection_exercise(*, seed: int | None = None) -> Exercise:
+    """Generate a derivative-rule selection exercise."""
+
+    rng = Random(seed)
+    options = (
+        (
+            "(x**2 + 1)**5",
+            "chain rule",
+            "The outside fifth power contains an inside expression.",
+        ),
+        ("(x**2 + 1)*(x - 4)", "product rule", "Two changing factors are multiplied."),
+        (
+            "(x**2 + 1)/(x - 4)",
+            "quotient rule",
+            "One changing expression is divided by another.",
+        ),
+        (
+            "7*x**4",
+            "power rule",
+            "A constant multiple times a power can use the power rule.",
+        ),
+    )
+    expression, expected, explanation = rng.choice(options)
+    return Exercise(
+        prompt=f"Which derivative rule should you choose first for {expression}?",
+        expected=expected,
+        validator=lambda received: _check_string(received, expected),
+        hint="Look at the outermost operation before doing algebra.",
+        explanation=explanation,
+        tags=("calculus", "derivative-rules", "rule-selection"),
+        answer_type="multiple_choice",
+    )
+
+
+def riemann_sum_table_exercise(*, seed: int | None = None) -> Exercise:
+    """Generate a midpoint Riemann-sum table exercise."""
+
+    rng = Random(seed)
+    rectangles = rng.choice([2, 4, 5])
+    rows = riemann_sum_table("x**2", 0, 1, rectangles, method="midpoint")
+    expected = sum(row.area for row in rows)
+    return Exercise(
+        prompt=(
+            "Approximate the integral of x^2 on [0, 1] with "
+            f"{rectangles} midpoint rectangles."
+        ),
+        expected=expected,
+        validator=lambda received: validate_numeric_approximation(received, expected),
+        hint="Make a table of midpoint, height, width, and area for each rectangle.",
+        explanation="Add height times width across all midpoint rectangles.",
+        tags=("calculus", "integrals", "riemann-sums", "tables"),
+        answer_type="numeric",
+    )
+
+
+def substitution_exercise(*, seed: int | None = None) -> Exercise:
+    """Generate a basic substitution antiderivative exercise."""
+
+    rng = Random(seed)
+    options = (
+        (2 * X * sp.cos(X**2), sp.sin(X**2), "Use u = x^2, so du = 2x dx."),
+        (3 * X**2 * sp.sin(X**3), -sp.cos(X**3), "Use u = x^3, so du = 3x^2 dx."),
+    )
+    expression, expected, explanation = rng.choice(options)
+    return Exercise(
+        prompt=f"Integrate using substitution: ∫ {sp.sstr(expression)} dx.",
+        expected=expected,
+        validator=lambda received: validate_antiderivative_equivalence(
+            cast(str | sp.Expr, received),
+            expected,
+        ),
+        hint="Choose u as the inside function whose derivative is also present.",
+        explanation=explanation,
+        tags=("calculus", "integration-techniques", "substitution"),
+        answer_type="symbolic",
+    )
+
+
+def calculus_application_tool_choice_exercise(*, seed: int | None = None) -> Exercise:
+    """Generate an applied tool-choice exercise with unit reasoning."""
+
+    return tool_choice_exercise(seed=seed)
+
+
 def _check_string(received: object, expected: str) -> AnswerCheck:
     normalized = str(received).strip().lower()
     correct = normalized == expected
@@ -165,10 +275,15 @@ def _check_string(received: object, expected: str) -> AnswerCheck:
 
 
 __all__ = [
+    "calculus_application_tool_choice_exercise",
     "critical_point_exercise",
     "derivative_rule_exercise",
     "limit_estimate_exercise",
+    "limit_factor_cancel_exercise",
     "riemann_sum_exercise",
+    "riemann_sum_table_exercise",
+    "rule_selection_exercise",
+    "substitution_exercise",
     "tangent_line_exercise",
     "tool_choice_exercise",
 ]

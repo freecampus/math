@@ -5,6 +5,13 @@ execute:
   echo: false
 ---
 
+A **derivative** measures how fast a function is changing at one input. On a
+graph, it is the slope of the tangent line. In an application, it is an
+instantaneous rate: velocity at one time, marginal cost at one production level,
+or temperature change at one moment.
+
+This lesson builds derivatives from a familiar idea: slope between two points.
+
 ::: {.learning-objectives}
 ### Learning objectives
 
@@ -13,111 +20,227 @@ After this lesson you should be able to:
 - compute and interpret average rate of change;
 - explain a derivative as a limiting tangent slope;
 - use derivative notation;
-- write tangent line equations;
+- compute a derivative from the limit definition for simple quadratics;
+- write tangent line equations step by step;
 - interpret derivative units;
 - recognize common places where derivatives fail to exist;
-- use `edumath` helpers to check derivatives and tangent lines.
+- use `edumath` helpers and SymPy to check derivatives and tangent lines.
 :::
 
-## Motivation
+## Vocabulary and notation
 
-Average speed over a trip is useful, but a speedometer reports speed at an
-instant. The derivative is calculus's way of making that instantaneous rate
-precise.
+Common derivative notations include:
 
-On a graph, the derivative is the slope of the tangent line at a point.
+$$
+f'(x), \qquad \frac{dy}{dx}, \qquad \frac{d}{dx}[f(x)].
+$$
+
+They all describe a rate of change with respect to the input variable.
+
+## Derivative problem-solving roadmap
+
+1. **Identify the function and input.** What is $f(x)$? At what point, if any,
+   do you need the rate?
+2. **Decide the type of rate.** Average rate uses two inputs. Instantaneous rate
+   uses a derivative at one input.
+3. **Compute the derivative or slope.** Use a difference quotient, a derivative
+   rule, or a known derivative.
+4. **Evaluate if needed.** A tangent slope at $x=a$ is $f'(a)$, not just
+   $f'(x)$.
+5. **Use the result.** Write a tangent line, interpret units, or determine
+   increasing/decreasing behavior.
+6. **Check.** Use units, nearby slopes, or SymPy.
 
 ## Average rate of change
 
-From `x = a` to `x = b`, average rate of change is:
+Average rate of change from $x=a$ to $x=b$ is
 
-```text
-(f(b) - f(a))/(b - a)
-```
+$$
+\frac{f(b)-f(a)}{b-a}.
+$$
 
 This is the slope of the secant line through two points on the graph.
 
-Example for `f(x)=x^2` from `x=1` to `x=3`:
+### Walkthrough: average rate
 
-```text
-(f(3)-f(1))/(3-1) = (9-1)/2 = 4
-```
+Find the average rate of change of $f(x)=x^2$ from $x=1$ to $x=3$.
 
-## Instantaneous rate of change
+1. **Identify endpoints.** $a=1$ and $b=3$.
+2. **Evaluate the function.**
+   $$
+   f(1)=1^2=1, \qquad f(3)=3^2=9.
+   $$
+3. **Compute output change over input change.**
+   $$
+   \frac{f(3)-f(1)}{3-1}=\frac{9-1}{2}=4.
+   $$
+4. **Interpret.** On average, the output increases 4 units for each 1-unit
+   increase in $x$ over this interval.
 
-To get an instantaneous rate, imagine moving the second point closer and closer
-to the first. The secant line approaches a tangent line. The limiting slope is
-the derivative.
+::: {.practice-box}
+### Guided exercise: average rate with units
 
-Common notation:
+A position function is $s(t)=t^2+2t$ meters. Find the average velocity from
+$t=1$ to $t=4$.
 
-```text
-f'(x)
-dy/dx
-d/dx [f(x)]
-```
+1. What are the endpoint times?
+2. Compute $s(1)$ and $s(4)$.
+3. Divide change in position by change in time.
+4. What are the units?
+:::
+
+::: {.callout-tip collapse="true"}
+## Guided solution
+
+1. The endpoints are $t=1$ and $t=4$.
+2. $s(1)=1+2=3$ and $s(4)=16+8=24$.
+3. Average velocity is $(24-3)/(4-1)=21/3=7$.
+4. The units are meters per second if time is measured in seconds.
+:::
+
+## From secant slope to tangent slope
+
+A secant line uses two points. A tangent line describes the graph's direction at
+one point. To get a tangent slope, move the second point closer and closer to
+the first.
+
+For a point $x=a$, the difference quotient is
+
+$$
+\frac{f(a+h)-f(a)}{h}.
+$$
+
+As $h$ approaches 0, this secant slope may approach a limiting slope. That limit
+is the derivative at $a$:
+
+$$
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}.
+$$
+
+## The derivative definition
+
+### Walkthrough: derivative of $x^2$ at one point
+
+Find $f'(2)$ for $f(x)=x^2$ using the definition.
+
+1. **Start with the definition.**
+   $$
+   f'(2)=\lim_{h\to0}\frac{f(2+h)-f(2)}{h}.
+   $$
+2. **Substitute the function.**
+   $$
+   f(2+h)=(2+h)^2, \qquad f(2)=4.
+   $$
+3. **Expand.**
+   $$
+   (2+h)^2=4+4h+h^2.
+   $$
+4. **Simplify the numerator.**
+   $$
+   \frac{(4+4h+h^2)-4}{h}=\frac{4h+h^2}{h}.
+   $$
+5. **Factor and cancel $h$ for $h\ne0$.**
+   $$
+   \frac{h(4+h)}{h}=4+h.
+   $$
+6. **Take the limit.**
+   $$
+   \lim_{h\to0}(4+h)=4.
+   $$
+
+So $f'(2)=4$. The tangent slope of $y=x^2$ at $x=2$ is 4.
+
+### Derivative function
+
+The same process can be done at a general input $x$:
+
+$$
+f'(x)=\lim_{h\to0}\frac{(x+h)^2-x^2}{h}
+=\lim_{h\to0}\frac{2xh+h^2}{h}
+=\lim_{h\to0}(2x+h)=2x.
+$$
+
+So the derivative function of $x^2$ is $2x$.
 
 ## Tangent lines
 
-If `f'(a)` is the slope and `(a, f(a))` is the point, the tangent line is:
+A tangent line needs two pieces of information:
 
-```text
-y - f(a) = f'(a)(x - a)
-```
+- the point $(a,f(a))$;
+- the slope $f'(a)$.
 
-For `f(x)=x^2` at `x=2`:
+Then use point-slope form:
 
-```text
-f(2)=4
-f'(x)=2x
-f'(2)=4
-```
+$$
+y-f(a)=f'(a)(x-a).
+$$
 
-Tangent line:
+### Walkthrough: tangent line
 
-```text
-y - 4 = 4(x - 2)
-y = 4x - 4
-```
+Find the tangent line to $f(x)=x^2$ at $x=3$.
 
-```{python}
-from edumath.calculus import secant_tangent_scene
+1. **Find the point.**
+   $$
+   f(3)=9,
+   $$
+   so the point is $(3,9)$.
+2. **Find the derivative.**
+   $$
+   f'(x)=2x.
+   $$
+3. **Evaluate the slope.**
+   $$
+   f'(3)=6.
+   $$
+4. **Use point-slope form.**
+   $$
+   y-9=6(x-3).
+   $$
+5. **Simplify if requested.**
+   $$
+   y=6x-9.
+   $$
+6. **Check.** At $x=3$, the line gives $y=18-9=9$, so it passes through the
+   point.
 
-scene = secant_tangent_scene("x**2", point=2, step=1, y_min=-1, y_max=10)
-fig, ax = scene.render()
-fig
-```
+::: {.callout-warning}
+## Common tangent-line mistake
 
-## Units
+Do not stop after finding $f'(x)$. A tangent line at $x=a$ needs the numerical
+slope $f'(a)$ and the point $(a,f(a))$.
+:::
 
-If `s(t)` is position in meters and `t` is time in seconds, then `s'(t)` has
-units:
-
-```text
-meters per second
-```
+## Units and meaning
 
 Derivative units are output units divided by input units.
 
+- If $s(t)$ is position in meters and $t$ is seconds, then $s'(t)$ is meters per
+  second.
+- If $C(x)$ is cost in dollars and $x$ is items, then $C'(x)$ is dollars per
+  item.
+- If $T(t)$ is temperature in degrees and $t$ is hours, then $T'(t)$ is degrees
+  per hour.
+
 ## Where derivatives may fail
 
-A derivative may fail to exist at:
+A function may fail to have a derivative at:
 
-- sharp corners;
-- cusps;
-- vertical tangents;
-- discontinuities.
+- a **corner**, such as $|x|$ at $x=0$;
+- a **cusp**, where slopes become extremely steep in opposite directions;
+- a **vertical tangent**, where slope is undefined;
+- a **discontinuity**, where the graph breaks.
 
-A graph must be locally smooth enough to have a tangent slope.
+Continuity is necessary for differentiability, but continuity alone is not
+enough. A corner can be continuous but not differentiable.
 
-## Practice
+## Mixed practice
 
 ::: {.practice-box}
-1. Find the average rate of change of `f(x)=x^2` from `x=2` to `x=5`.
-2. What is the derivative of `x^2`?
-3. What is the tangent slope of `x^2` at `x=3`?
-4. Write the tangent line to `x^2` at `x=3`.
-5. If `f'(a) > 0`, what does that suggest graphically?
+1. Find the average rate of change of $f(x)=x^2$ from $x=2$ to $x=5$.
+2. Use the derivative definition to find the slope of $x^2$ at $x=1$.
+3. If $f'(x)=3x^2$, what is $f'(2)$?
+4. Write the tangent line to $f(x)=x^2+3x$ at $x=1$.
+5. If $f'(a)<0$, what does that suggest graphically?
 6. If cost is dollars and production is items, what are the units of marginal
    cost?
 :::
@@ -125,11 +248,12 @@ A graph must be locally smooth enough to have a tangent slope.
 ::: {.callout-tip collapse="true"}
 ## Solutions
 
-1. `(25 - 4)/(5 - 2) = 7`.
-2. `2x`.
-3. `2(3)=6`.
-4. `f(3)=9`, slope `6`, so `y - 9 = 6(x - 3)`, or `y = 6x - 9`.
-5. The function is increasing locally.
+1. $(25-4)/(5-2)=21/3=7$.
+2. $[(1+h)^2-1]/h=(2h+h^2)/h=2+h$, so the limit is 2.
+3. $f'(2)=3(2^2)=12$.
+4. $f(1)=4$. The derivative is $2x+3$, so the slope is 5. The line is
+   $y-4=5(x-1)$, or $y=5x-1$.
+5. The function is decreasing locally.
 6. Dollars per item.
 :::
 
@@ -147,6 +271,8 @@ A graph must be locally smooth enough to have a tangent slope.
 
 ## Using this lesson with edumath and SymPy
 
+Use `edumath` for lesson-friendly helpers and SymPy for exact symbolic checks.
+
 ```{python}
 #| echo: true
 from edumath.calculus import average_rate_of_change, derivative, tangent_line, finite_difference
@@ -157,8 +283,24 @@ average_rate_of_change("x**2", 1, 3)
 ```{python}
 #| echo: true
 derivative("x**2 + 3*x")
-tangent_line("x**2", 2)
-finite_difference("x**2", 2)
+tangent_line("x**2", 3)
+finite_difference("x**2", 3)
+```
+
+```{python}
+#| echo: true
+from edumath.calculus import tangent_line_steps
+
+solution = tangent_line_steps("x**2", 3)
+print(solution.render_markdown())
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+sp.diff(x**2 + 3*x, x)
 ```
 
 ## Further reading

@@ -5,6 +5,11 @@ execute:
   echo: false
 ---
 
+**Optimization** means finding the best value: largest profit, smallest cost,
+maximum area, minimum error, shortest time, or highest efficiency. Derivatives
+help because smooth functions often have their best interior values where the
+rate of change is zero.
+
 ::: {.learning-objectives}
 ### Learning objectives
 
@@ -12,120 +17,216 @@ After this lesson you should be able to:
 
 - distinguish local and absolute maxima and minima;
 - find critical points;
-- use derivative signs to classify candidates;
+- classify candidates with derivative signs;
 - use the second derivative test in simple cases;
 - check endpoints on closed intervals;
-- solve basic applied optimization problems;
-- use SymPy to compute and compare candidates.
+- solve basic applied optimization problems step by step;
+- use SymPy and `edumath` to compute and compare candidates.
 :::
 
-## Motivation
+## Vocabulary
 
-Optimization asks for the best value: largest profit, smallest cost, shortest
-path, maximum area, or minimum error. Derivatives help because smooth functions
-often turn around where the derivative is zero.
+- **Local maximum**: higher than nearby values.
+- **Local minimum**: lower than nearby values.
+- **Absolute maximum**: highest value on the entire domain being considered.
+- **Absolute minimum**: lowest value on the entire domain being considered.
+- **Critical point**: a point in the domain where $f'(x)=0$ or where $f'(x)$ is
+  undefined.
+- **Candidate**: a point that might produce a maximum or minimum.
 
-## Local and absolute optima
+## Optimization roadmap
 
-A **local maximum** is higher than nearby values. A **local minimum** is lower
-than nearby values.
-
-An **absolute maximum** is the highest value on the entire domain being
-considered. An **absolute minimum** is the lowest value on that domain.
+1. **Read the goal.** Are you maximizing or minimizing? Which quantity?
+2. **Find the domain.** Are there endpoints, physical restrictions, or
+   constraints?
+3. **Differentiate.** Compute $f'(x)$.
+4. **Find critical points.** Solve $f'(x)=0$ and consider where $f'$ is
+   undefined while $f$ exists.
+5. **Build a candidate list.** Include endpoints if the domain is closed.
+6. **Classify or compare.** Use derivative signs, second derivative, or a table
+   of function values.
+7. **Interpret.** State both the input and output, with units when needed.
 
 ## Critical points
 
-Critical points occur where:
+### Walkthrough: find a critical point
 
-```text
-f'(x) = 0
-```
+Find the critical point of
 
-or where `f'(x)` is undefined while `f(x)` is defined.
+$$
+f(x)=x^2-6x+10.
+$$
 
-For:
-
-```text
-f(x) = x^2 - 6x + 10
-```
-
-we compute:
-
-```text
-f'(x) = 2x - 6
-```
-
-Set the derivative equal to zero:
-
-```text
-2x - 6 = 0
-x = 3
-```
-
-The critical point is at `x = 3`.
-
-```{python}
-from edumath.calculus import optimization_scene
-
-scene = optimization_scene("x**2 - 6*x + 10", candidates=(3,), x_min=-1, x_max=7, y_min=-1, y_max=12)
-fig, ax = scene.render()
-fig
-```
+1. **Differentiate.**
+   $$
+   f'(x)=2x-6.
+   $$
+2. **Set derivative equal to zero.**
+   $$
+   2x-6=0.
+   $$
+3. **Solve.**
+   $$
+   2x=6, \qquad x=3.
+   $$
+4. **Check domain.** The function is a polynomial, so $x=3$ is in the domain.
+5. **Interpret.** The only critical point is $x=3$.
 
 ## First derivative test
 
-The first derivative tells us where the function is increasing or decreasing.
+The first derivative tells whether the function is increasing or decreasing.
 
-- If `f'` changes from positive to negative, the point is a local maximum.
-- If `f'` changes from negative to positive, the point is a local minimum.
-- If the sign does not change, the point may not be an extremum.
+- If $f'$ changes from positive to negative, the function changes from
+  increasing to decreasing: local maximum.
+- If $f'$ changes from negative to positive, the function changes from
+  decreasing to increasing: local minimum.
+- If $f'$ does not change sign, the critical point may not be an extremum.
+
+### Walkthrough: sign chart
+
+Classify the critical point of $f(x)=x^2-6x+10$.
+
+1. We found $f'(x)=2x-6$ and critical point $x=3$.
+2. Choose test points around 3.
+   - At $x=2$, $f'(2)=4-6=-2$, so the function is decreasing.
+   - At $x=4$, $f'(4)=8-6=2$, so the function is increasing.
+3. The sign changes from negative to positive.
+4. Therefore $x=3$ is a local minimum.
+5. The minimum value is
+   $$
+   f(3)=9-18+10=1.
+   $$
 
 ## Second derivative test
 
 The second derivative measures concavity.
 
-- If `f''(c) > 0`, the graph is concave up at `c`, suggesting a local minimum.
-- If `f''(c) < 0`, the graph is concave down at `c`, suggesting a local maximum.
-- If `f''(c) = 0`, the test is inconclusive.
+- If $f''(c)>0$ and $f'(c)=0$, the graph is concave up at $c$: local minimum.
+- If $f''(c)<0$ and $f'(c)=0$, the graph is concave down at $c$: local maximum.
+- If $f''(c)=0$, the test is inconclusive.
 
-## Closed intervals and endpoints
+For $f(x)=x^2-6x+10$, we have $f''(x)=2>0$, so the critical point at $x=3$ is a
+local minimum.
 
-On a closed interval `[a, b]`, the absolute maximum or minimum can occur at:
+## Absolute extrema on closed intervals
 
-- a critical point inside the interval;
-- the left endpoint;
-- the right endpoint.
+On a closed interval $[a,b]$, absolute maximum and minimum values can occur at
+critical points or endpoints.
 
-So make a candidate list and compare function values.
+### Walkthrough: closed interval candidate table
+
+Find the absolute maximum and minimum of
+
+$$
+f(x)=x^3-3x
+$$
+
+on $[-2,2]$.
+
+1. **Differentiate.**
+   $$
+   f'(x)=3x^2-3=3(x^2-1).
+   $$
+2. **Solve $f'(x)=0$.**
+   $$
+   3(x^2-1)=0 \Rightarrow x^2=1 \Rightarrow x=-1,1.
+   $$
+3. **Build candidate list.** Include endpoints and critical points:
+   $$
+   x=-2,-1,1,2.
+   $$
+4. **Evaluate original function.**
+
+   | Candidate | Source | $f(x)$ |
+   |---:|---|---:|
+   | -2 | endpoint | $-8+6=-2$ |
+   | -1 | critical point | $-1+3=2$ |
+   | 1 | critical point | $1-3=-2$ |
+   | 2 | endpoint | $8-6=2$ |
+
+5. **Compare values.** The absolute maximum value is 2 at $x=-1$ and $x=2$.
+   The absolute minimum value is -2 at $x=-2$ and $x=1$.
+
+::: {.callout-warning}
+## Common mistake
+
+Do not compare derivative values when looking for absolute maxima and minima.
+After finding candidates, evaluate the **original function** at each candidate.
+:::
 
 ## Applied optimization workflow
 
-1. Define variables and units.
-2. Write the quantity to optimize as a function.
-3. State the domain or constraints.
-4. Find critical points.
-5. Check endpoints if the domain is closed.
-6. Interpret the best feasible value.
+Word problems need modeling before calculus.
 
-## Practice
+1. Draw or describe the situation.
+2. Define variables and units.
+3. Write the objective quantity.
+4. Use constraints to rewrite the objective with one variable.
+5. State the feasible domain.
+6. Differentiate and find candidates.
+7. Check endpoints and context.
+8. Interpret the answer in a sentence.
+
+### Walkthrough: maximum area with fixed perimeter
+
+A rectangle has perimeter 40 meters. What dimensions maximize its area?
+
+1. **Define variables.** Let length be $L$ meters and width be $W$ meters.
+2. **Write the objective.** Area is
+   $$
+   A=LW.
+   $$
+3. **Use the constraint.** Perimeter is
+   $$
+   2L+2W=40.
+   $$
+   Divide by 2:
+   $$
+   L+W=20.
+   $$
+   Solve for $L$:
+   $$
+   L=20-W.
+   $$
+4. **Write area as one-variable function.**
+   $$
+   A(W)=W(20-W)=20W-W^2.
+   $$
+5. **State domain.** Width must be between 0 and 20.
+6. **Differentiate.**
+   $$
+   A'(W)=20-2W.
+   $$
+7. **Find critical point.**
+   $$
+   20-2W=0 \Rightarrow W=10.
+   $$
+8. **Find length.**
+   $$
+   L=20-10=10.
+   $$
+9. **Check endpoints.** At $W=0$ or $W=20$, area is 0. At $W=10$, area is 100.
+10. **Interpret.** The maximum-area rectangle is a $10$ m by $10$ m square.
+
+## Guided exercises
 
 ::: {.practice-box}
-1. Find the critical point of `x^2 - 8x + 3`.
-2. Is `x^2` minimized or maximized at `x = 0`?
-3. If `f'` changes from positive to negative, what kind of point is suggested?
-4. Why do we check endpoints on `[a,b]`?
-5. A revenue model is `R(x) = -x^2 + 10x`. Find the production level that
-   maximizes revenue.
+1. Find the critical point of $x^2-8x+3$.
+2. Classify the critical point of $x^2$ at $x=0$.
+3. If $f'$ changes from positive to negative, what kind of point is suggested?
+4. Why do we check endpoints on $[a,b]$?
+5. A revenue model is $R(x)=-x^2+10x$. Find the production level that maximizes
+   revenue.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solutions
 
-1. `f'(x)=2x-8`, so `x=4`.
-2. Minimized.
-3. Local maximum.
-4. The absolute best value can occur at an endpoint.
-5. `R'(x)=-2x+10`; set to zero to get `x=5`.
+1. $f'(x)=2x-8$, so $2x-8=0$ and $x=4$.
+2. $x=0$ is a minimum because $x^2$ decreases before 0 and increases after 0.
+3. A local maximum.
+4. The absolute best value can occur at the boundary of the interval.
+5. $R'(x)=-2x+10$. Set to zero: $x=5$.
 :::
 
 ## Guessing game checkpoint
@@ -141,6 +242,8 @@ So make a candidate list and compare function values.
 {{< include _includes/calculus-checkpoint.qmd >}}
 
 ## Using this lesson with edumath and SymPy
+
+Use SymPy to compute candidates, but still build the interpretation yourself.
 
 ```{python}
 #| echo: true
@@ -159,10 +262,14 @@ critical
 
 ```{python}
 #| echo: true
-from edumath.calculus import critical_point_exercise
+from edumath.calculus import optimization_candidate_table, validate_critical_points
 
-exercise = critical_point_exercise(seed=2)
-exercise.prompt, exercise.expected
+optimization_candidate_table("x**3 - 3*x", domain=(-2, 2))
+```
+
+```{python}
+#| echo: true
+validate_critical_points("3", "x**2 - 6*x + 10").message
 ```
 
 ## Further reading
