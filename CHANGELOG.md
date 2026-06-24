@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+# [0.4.0](https://github.com/osl-incubator/edu-math/compare/0.3.0...0.4.0) (2026-06-24)
+
+
+### Features
+
+* Add more content for algebra ([31fcde9](https://github.com/osl-incubator/edu-math/commit/31fcde9a5792a88fceb961c8afbd742cc03aeebe))
+
 # [0.3.0](https://github.com/osl-incubator/edu-math/compare/0.2.1...0.3.0) (2026-06-09)
 
 
