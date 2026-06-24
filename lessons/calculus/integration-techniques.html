@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Substitution, parts, and numeric approximation.">
+<meta name="description" content="Choose substitution, parts, simplification, or numerical approximation.">
 
 <title>Integration Techniques – edu-math</title>
 <style>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/integration-techniques.html">Integration Techniques</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/integration-techniques.html">Integration Techniques</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -472,6 +501,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -480,6 +515,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -510,6 +563,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -563,6 +622,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -700,6 +765,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -739,6 +810,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -847,10 +924,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#numeric-approximation" id="toc-numeric-approximation" class="nav-link" data-scroll-target="#numeric-approximation">Numeric Approximation</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#technique-selection-map" id="toc-technique-selection-map" class="nav-link" data-scroll-target="#technique-selection-map">Technique-selection map</a>
+  <ul class="collapse">
+  <li><a href="#main-question" id="toc-main-question" class="nav-link" data-scroll-target="#main-question">Main question</a></li>
+  </ul></li>
+  <li><a href="#simplify-first" id="toc-simplify-first" class="nav-link" data-scroll-target="#simplify-first">Simplify first</a>
+  <ul class="collapse">
+  <li><a href="#walkthrough-rewrite-before-integrating" id="toc-walkthrough-rewrite-before-integrating" class="nav-link" data-scroll-target="#walkthrough-rewrite-before-integrating">Walkthrough: rewrite before integrating</a></li>
+  </ul></li>
+  <li><a href="#substitution" id="toc-substitution" class="nav-link" data-scroll-target="#substitution">Substitution</a>
+  <ul class="collapse">
+  <li><a href="#substitution-workflow" id="toc-substitution-workflow" class="nav-link" data-scroll-target="#substitution-workflow">Substitution workflow</a></li>
+  <li><a href="#walkthrough-substitution" id="toc-walkthrough-substitution" class="nav-link" data-scroll-target="#walkthrough-substitution">Walkthrough: substitution</a></li>
+  <li><a href="#guided-exercise-choose-u" id="toc-guided-exercise-choose-u" class="nav-link" data-scroll-target="#guided-exercise-choose-u">Guided exercise: choose <code>u</code></a></li>
+  </ul></li>
+  <li><a href="#definite-integrals-with-substitution" id="toc-definite-integrals-with-substitution" class="nav-link" data-scroll-target="#definite-integrals-with-substitution">Definite integrals with substitution</a>
+  <ul class="collapse">
+  <li><a href="#walkthrough-changing-bounds" id="toc-walkthrough-changing-bounds" class="nav-link" data-scroll-target="#walkthrough-changing-bounds">Walkthrough: changing bounds</a></li>
+  </ul></li>
+  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts">Integration by parts</a>
+  <ul class="collapse">
+  <li><a href="#by-parts-workflow" id="toc-by-parts-workflow" class="nav-link" data-scroll-target="#by-parts-workflow">By-parts workflow</a></li>
+  <li><a href="#walkthrough-integration-by-parts" id="toc-walkthrough-integration-by-parts" class="nav-link" data-scroll-target="#walkthrough-integration-by-parts">Walkthrough: integration by parts</a></li>
+  </ul></li>
+  <li><a href="#numerical-approximation" id="toc-numerical-approximation" class="nav-link" data-scroll-target="#numerical-approximation">Numerical approximation</a></li>
+  <li><a href="#common-mistakes-and-repairs" id="toc-common-mistakes-and-repairs" class="nav-link" data-scroll-target="#common-mistakes-and-repairs">Common mistakes and repairs</a>
+  <ul class="collapse">
+  <li><a href="#substitution-mistake" id="toc-substitution-mistake" class="nav-link" data-scroll-target="#substitution-mistake">Substitution mistake</a></li>
+  <li><a href="#definite-substitution-mistake" id="toc-definite-substitution-mistake" class="nav-link" data-scroll-target="#definite-substitution-mistake">Definite substitution mistake</a></li>
+  <li><a href="#by-parts-mistake" id="toc-by-parts-mistake" class="nav-link" data-scroll-target="#by-parts-mistake">By-parts mistake</a></li>
+  </ul></li>
+  <li><a href="#mixed-practice" id="toc-mixed-practice" class="nav-link" data-scroll-target="#mixed-practice">Mixed practice</a></li>
+  <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/calculus/integration-techniques.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -858,14 +966,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/integration-techniques.html">Integration Techniques</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/integration-techniques.html">Integration Techniques</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Integration Techniques</h1>
 </div>
 
 <div>
   <div class="description">
-    Substitution, parts, and numeric approximation.
+    Choose substitution, parts, simplification, or numerical approximation.
   </div>
 </div>
 
@@ -882,54 +990,263 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Integration often feels harder than differentiation because you are working backward. A derivative rule usually tells you what to do directly. An integral asks: <strong>which derivative rule might this be reversing?</strong></p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Recognize when substitution can simplify an integral.</li>
-<li>Recognize when integration by parts is useful.</li>
-<li>Approximate integrals numerically.</li>
+<li>recognize when algebraic simplification should come first;</li>
+<li>recognize when substitution can simplify an integral;</li>
+<li>evaluate simple definite integrals with substitution;</li>
+<li>recognize when integration by parts is useful;</li>
+<li>approximate integrals numerically when exact antiderivatives are difficult;</li>
+<li>check antiderivatives by differentiating;</li>
+<li>use SymPy to verify results and interpret equivalent forms.</li>
 </ul>
 </section>
-<section id="numeric-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="numeric-approximation">Numeric Approximation</h2>
-<p>When symbolic integration is hard, approximate the area.</p>
-<div id="495f5a86" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.calculus.integrals <span class="im">import</span> midpoint_riemann_sum</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>midpoint_riemann_sum(<span class="st">"x**2"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>0.33332500000000004</code></pre>
-</div>
-</div>
+<section id="technique-selection-map" class="level2">
+<h2 class="anchored" data-anchor-id="technique-selection-map">Technique-selection map</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern in the integral</th>
+<th>Try this first</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>algebra can simplify the integrand</td>
+<td>simplify first</td>
+</tr>
+<tr class="even">
+<td>inside function and its derivative both appear</td>
+<td>substitution</td>
+</tr>
+<tr class="odd">
+<td>product where one factor simplifies when differentiated</td>
+<td>integration by parts</td>
+</tr>
+<tr class="even">
+<td>definite integral with hard exact form or data</td>
+<td>numerical approximation</td>
+</tr>
+<tr class="odd">
+<td>answer found by hand</td>
+<td>check by differentiating</td>
+</tr>
+</tbody>
+</table>
+<section id="main-question" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="main-question">Main question</h3>
+<p>When choosing a technique, ask: “What derivative rule could have produced this integrand?”</p>
 </section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="practice-box">
+</section>
+<section id="simplify-first" class="level2">
+<h2 class="anchored" data-anchor-id="simplify-first">Simplify first</h2>
+<p>Sometimes the best integration technique is algebra.</p>
+<section id="walkthrough-rewrite-before-integrating" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-rewrite-before-integrating">Walkthrough: rewrite before integrating</h3>
+<p>Compute</p>
+<p><span class="math display">\[
+\int \frac{x^2+3x}{x}\,dx.
+\]</span></p>
 <ol type="1">
-<li>Which technique fits <code>integral 2x*cos(x^2) dx</code>?</li>
-<li>Which technique fits <code>integral x*exp(x) dx</code>?</li>
-<li>Approximate <code>integral x^2 dx</code> from <code>0</code> to <code>1</code>.</li>
+<li><strong>Notice the algebra.</strong> Every term in the numerator can be divided by <span class="math inline">\(x\)</span>.</li>
+<li><strong>Rewrite.</strong> <span class="math display">\[
+\frac{x^2+3x}{x}=x+3.
+\]</span></li>
+<li><strong>Integrate term by term.</strong> <span class="math display">\[
+\int(x+3)\,dx=\frac{x^2}{2}+3x+C.
+\]</span></li>
+<li><strong>Check.</strong> Differentiate <span class="math inline">\(x^2/2+3x+C\)</span> to get <span class="math inline">\(x+3\)</span>, which equals the simplified integrand.</li>
+</ol>
+</section>
+</section>
+<section id="substitution" class="level2">
+<h2 class="anchored" data-anchor-id="substitution">Substitution</h2>
+<p>Substitution reverses the chain rule. Use it when you see a composition and the derivative of the inside function is also present.</p>
+<section id="substitution-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="substitution-workflow">Substitution workflow</h3>
+<ol type="1">
+<li>Identify the inside function: <span class="math inline">\(u=g(x)\)</span>.</li>
+<li>Compute <span class="math inline">\(du=g'(x)\,dx\)</span>.</li>
+<li>Match the remaining factor in the integral.</li>
+<li>Rewrite the integral in terms of <span class="math inline">\(u\)</span>.</li>
+<li>Integrate in <span class="math inline">\(u\)</span>.</li>
+<li>Substitute back to <span class="math inline">\(x\)</span>.</li>
+<li>Add <span class="math inline">\(+C\)</span> for indefinite integrals.</li>
+<li>Check by differentiating.</li>
+</ol>
+</section>
+<section id="walkthrough-substitution" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-substitution">Walkthrough: substitution</h3>
+<p>Compute</p>
+<p><span class="math display">\[
+\int 2x\cos(x^2)\,dx.
+\]</span></p>
+<ol type="1">
+<li><strong>Choose inside function.</strong> The cosine contains <span class="math inline">\(x^2\)</span>, so let <span class="math display">\[
+u=x^2.
+\]</span></li>
+<li><strong>Differentiate.</strong> <span class="math display">\[
+du=2x\,dx.
+\]</span></li>
+<li><strong>Match the integral.</strong> The factor <span class="math inline">\(2x\,dx\)</span> is already present.</li>
+<li><strong>Rewrite in <span class="math inline">\(u\)</span>.</strong> <span class="math display">\[
+\int 2x\cos(x^2)\,dx=\int \cos(u)\,du.
+\]</span></li>
+<li><strong>Integrate.</strong> <span class="math display">\[
+\int \cos(u)\,du=\sin(u)+C.
+\]</span></li>
+<li><strong>Substitute back.</strong> <span class="math display">\[
+\sin(x^2)+C.
+\]</span></li>
+<li><strong>Check.</strong> By chain rule, the derivative of <span class="math inline">\(\sin(x^2)\)</span> is <span class="math inline">\(\cos(x^2)2x\)</span>.</li>
+</ol>
+</section>
+<section id="guided-exercise-choose-u" class="level3">
+<h3 class="anchored" data-anchor-id="guided-exercise-choose-u">Guided exercise: choose <code>u</code></h3>
+<div class="practice-box">
+<p>Compute <span class="math inline">\(\int 3x^2\sin(x^3)\,dx\)</span>.</p>
+<ol type="1">
+<li>What is the inside function?</li>
+<li>What is <code>du</code>?</li>
+<li>Rewrite the integral in <code>u</code>.</li>
+<li>Integrate and substitute back.</li>
 </ol>
 </div>
-</section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Guided solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: substitution.</p>
-<p>Let <code>u = x^2</code>, so <code>du = 2x dx</code>.</p>
+<ol type="1">
+<li>Let <span class="math inline">\(u=x^3\)</span>.</li>
+<li>Then <span class="math inline">\(du=3x^2\,dx\)</span>.</li>
+<li>The integral becomes <span class="math inline">\(\int \sin(u)\,du\)</span>.</li>
+<li>The antiderivative is <span class="math inline">\(-\cos(u)+C=-\cos(x^3)+C\)</span>.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+</section>
+<section id="definite-integrals-with-substitution" class="level2">
+<h2 class="anchored" data-anchor-id="definite-integrals-with-substitution">Definite integrals with substitution</h2>
+<p>For definite integrals, you have two choices:</p>
+<ol type="1">
+<li>Change the bounds into <span class="math inline">\(u\)</span>-values and never substitute back.</li>
+<li>Find an antiderivative in <span class="math inline">\(x\)</span>, then use the original bounds.</li>
+</ol>
+<section id="walkthrough-changing-bounds" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-changing-bounds">Walkthrough: changing bounds</h3>
+<p>Compute</p>
+<p><span class="math display">\[
+\int_0^1 2x\cos(x^2)\,dx.
+\]</span></p>
+<ol type="1">
+<li>Let <span class="math inline">\(u=x^2\)</span>, so <span class="math inline">\(du=2x\,dx\)</span>.</li>
+<li>Change bounds:
+<ul>
+<li>when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(u=0\)</span>;</li>
+<li>when <span class="math inline">\(x=1\)</span>, <span class="math inline">\(u=1\)</span>.</li>
+</ul></li>
+<li>Rewrite: <span class="math display">\[
+\int_0^1 2x\cos(x^2)\,dx=\int_0^1 \cos(u)\,du.
+\]</span></li>
+<li>Integrate: <span class="math display">\[
+\sin(u)\Big|_0^1=\sin(1)-\sin(0)=\sin(1).
+\]</span></li>
+</ol>
+</section>
+</section>
+<section id="integration-by-parts" class="level2">
+<h2 class="anchored" data-anchor-id="integration-by-parts">Integration by parts</h2>
+<p>Integration by parts reverses the product rule:</p>
+<p><span class="math display">\[
+\int u\,dv=uv-\int v\,du.
+\]</span></p>
+<p>It is useful when you see a product and one factor becomes simpler when differentiated.</p>
+<section id="by-parts-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="by-parts-workflow">By-parts workflow</h3>
+<ol type="1">
+<li>Choose <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span>.</li>
+<li>Compute <span class="math inline">\(du\)</span> and <span class="math inline">\(v\)</span>.</li>
+<li>Substitute into <span class="math inline">\(\int u\,dv=uv-\int v\,du\)</span>.</li>
+<li>Integrate the remaining integral.</li>
+<li>Add <span class="math inline">\(+C\)</span> if the integral is indefinite.</li>
+<li>Check by differentiating.</li>
+</ol>
+</section>
+<section id="walkthrough-integration-by-parts" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-integration-by-parts">Walkthrough: integration by parts</h3>
+<p>Compute</p>
+<p><span class="math display">\[
+\int xe^x\,dx.
+\]</span></p>
+<ol type="1">
+<li><strong>Choose pieces.</strong> Let <span class="math inline">\(u=x\)</span> because it becomes simpler when differentiated. Let <span class="math inline">\(dv=e^x\,dx\)</span>.</li>
+<li><strong>Compute <span class="math inline">\(du\)</span> and <span class="math inline">\(v\)</span>.</strong> <span class="math display">\[
+du=dx, \qquad v=e^x.
+\]</span></li>
+<li><strong>Apply the formula.</strong> <span class="math display">\[
+\int xe^x\,dx=xe^x-\int e^x\,dx.
+\]</span></li>
+<li><strong>Finish.</strong> <span class="math display">\[
+xe^x-e^x+C.
+\]</span></li>
+<li><strong>Check.</strong> Differentiate <span class="math inline">\(xe^x-e^x\)</span>: <span class="math display">\[
+(e^x+xe^x)-e^x=xe^x.
+\]</span></li>
+</ol>
+</section>
+</section>
+<section id="numerical-approximation" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-approximation">Numerical approximation</h2>
+<p>Sometimes exact symbolic integration is difficult, unnecessary, or impossible from available data. Then a numerical approximation is appropriate.</p>
+<p>Use midpoint rectangles, trapezoids, or more advanced numerical methods. The answer should be reported as an approximation, and the number of intervals or rectangles should be stated.</p>
+</section>
+<section id="common-mistakes-and-repairs" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-repairs">Common mistakes and repairs</h2>
+<section id="substitution-mistake" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="substitution-mistake">Substitution mistake</h3>
+<p>Mistake: choosing <span class="math inline">\(u\)</span> but not matching <span class="math inline">\(du\)</span>.</p>
+<p>Repair: after choosing <span class="math inline">\(u\)</span>, always compute <span class="math inline">\(du\)</span> and compare it to the remaining factors.</p>
+</section>
+<section id="definite-substitution-mistake" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="definite-substitution-mistake">Definite substitution mistake</h3>
+<p>Mistake: changing to <span class="math inline">\(u\)</span> but keeping old <span class="math inline">\(x\)</span>-bounds.</p>
+<p>Repair: either change bounds to <span class="math inline">\(u\)</span>-values or substitute back before evaluating.</p>
+</section>
+<section id="by-parts-mistake" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="by-parts-mistake">By-parts mistake</h3>
+<p>Mistake: forgetting the minus sign in <span class="math inline">\(uv-\int v\,du\)</span>.</p>
+<p>Repair: write the formula before substituting values.</p>
+</section>
+</section>
+<section id="mixed-practice" class="level2">
+<h2 class="anchored" data-anchor-id="mixed-practice">Mixed practice</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Which technique fits <span class="math inline">\(\int 2x\cos(x^2)\,dx\)</span>?</li>
+<li>What is a good <span class="math inline">\(u\)</span> for <span class="math inline">\(\int 3x^2\sin(x^3)\,dx\)</span>?</li>
+<li>Which technique fits <span class="math inline">\(\int xe^x\,dx\)</span>?</li>
+<li>Integrate <span class="math inline">\(\int 2x\cos(x^2)\,dx\)</span>.</li>
+<li>Integrate <span class="math inline">\(\int xe^x\,dx\)</span>.</li>
+<li>Why might you use a numerical approximation?</li>
+<li>How do you check an antiderivative?</li>
+</ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -937,34 +1254,587 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: integration by parts.</p>
-<p>It is a product of <code>x</code> and <code>exp(x)</code>, and differentiating <code>x</code> makes the problem simpler.</p>
+<ol type="1">
+<li>Substitution.</li>
+<li><span class="math inline">\(u=x^3\)</span>.</li>
+<li>Integration by parts.</li>
+<li><span class="math inline">\(\sin(x^2)+C\)</span>.</li>
+<li><span class="math inline">\(xe^x-e^x+C\)</span>.</li>
+<li>Exact integration may be hard, unnecessary, or unavailable from data.</li>
+<li>Differentiate it and compare with the original integrand.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="guessing-game-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "integration-techniques",
+  "title": "Integration techniques checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-calculus-checkpoint" data-default-total="5">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "limits";
+    const BANKS = {
+      limits: [limitMethodQuestion, factorCancelQuestion, oneSidedQuestion, radicalQuestion, valueVsLimitQuestion],
+      derivatives: [averageRateQuestion, tangentSlopeQuestion, tangentLineStepQuestion, derivativeSignQuestion, differentiabilityQuestion],
+      "derivative-rules": [firstRuleQuestion, powerRuleQuestion, chainFactorQuestion, productRuleQuestion, quotientSignQuestion],
+      optimization: [candidateQuestion, signChartQuestion, endpointQuestion, secondDerivativeQuestion, objectiveQuestion],
+      integrals: [riemannHeightQuestion, antiderivativeQuestion, ftcQuestion, signedAreaQuestion, integralUnitsQuestion],
+      "integration-techniques": [techniqueQuestion, substitutionQuestion, substitutionBackQuestion, partsChoiceQuestion, numericalReasonQuestion],
+      "calculus-applications": [applicationToolQuestion, unitsQuestion, motionQuestion, marginalQuestion, relatedRatesQuestion],
+      "calculus-cumulative-review": [limitMethodQuestion, tangentSlopeQuestion, firstRuleQuestion, candidateQuestion, ftcQuestion, applicationToolQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-calculus-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-calculus-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Calculus checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 5))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 5));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function limitMethodQuestion() {
+      return question({
+        prompt: "What should you try first for this limit?",
+        stimulus: "lim as x→2 of (x²+3x)",
+        answer: "direct substitution",
+        distractors: ["product rule", "integration by parts", "endpoint comparison"],
+        explanation: "Continuous polynomials can be evaluated by substituting the approached value.",
+      });
+    }
+
+    function factorCancelQuestion() {
+      return question({
+        prompt: "After factoring, what is the limit?",
+        stimulus: "lim as x→3 of (x²-9)/(x-3)",
+        answer: "6",
+        distractors: ["0", "3", "does not exist"],
+        explanation: "Factor x²-9=(x-3)(x+3), cancel for x≠3, then substitute 3 into x+3.",
+      });
+    }
+
+    function oneSidedQuestion() {
+      return question({
+        prompt: "Does the two-sided limit exist?",
+        stimulus: "left-hand limit = 2; right-hand limit = 5",
+        answer: "no",
+        distractors: ["yes", "only if f(a)=2", "only if f(a)=5"],
+        explanation: "A two-sided limit exists only when the one-sided limits agree.",
+      });
+    }
+
+    function radicalQuestion() {
+      return question({
+        prompt: "What algebra move helps first?",
+        stimulus: "(sqrt(x+1)-1)/x as x→0",
+        answer: "multiply by the conjugate",
+        distractors: ["take a derivative", "compare endpoints", "use product rule"],
+        explanation: "The conjugate removes the radical difference and reveals a canceling factor.",
+      });
+    }
+
+    function valueVsLimitQuestion() {
+      return question({
+        prompt: "Can a limit exist when f(a) is undefined?",
+        stimulus: "hole in a graph",
+        answer: "yes",
+        distractors: ["no", "only for lines", "only when the answer is 0"],
+        explanation: "Limits depend on nearby behavior, not only the value at the point.",
+      });
+    }
+
+    function averageRateQuestion() {
+      return question({
+        prompt: "Find the average rate of change.",
+        stimulus: "f(x)=x² from x=1 to x=3",
+        answer: "4",
+        distractors: ["2", "6", "8"],
+        explanation: "Compute (f(3)-f(1))/(3-1)=(9-1)/2=4.",
+      });
+    }
+
+    function tangentSlopeQuestion() {
+      return question({
+        prompt: "What is the tangent slope?",
+        stimulus: "f(x)=x², x=3",
+        answer: "6",
+        distractors: ["3", "9", "12"],
+        explanation: "f'(x)=2x, so f'(3)=6.",
+      });
+    }
+
+    function tangentLineStepQuestion() {
+      return question({
+        prompt: "Which information do you need for a tangent line?",
+        stimulus: "point-slope form",
+        answer: "a point and a slope",
+        distractors: ["two endpoints only", "area and width", "upper and lower bounds"],
+        explanation: "Use (a,f(a)) and slope f'(a) in y-f(a)=f'(a)(x-a).",
+      });
+    }
+
+    function derivativeSignQuestion() {
+      return question({
+        prompt: "If f'(a)>0, what is happening locally?",
+        stimulus: "derivative sign",
+        answer: "the function is increasing",
+        distractors: ["the function is decreasing", "area is negative", "the limit fails"],
+        explanation: "A positive derivative means positive tangent slope.",
+      });
+    }
+
+    function differentiabilityQuestion() {
+      return question({
+        prompt: "Which feature can make a derivative fail?",
+        stimulus: "graph of |x| at x=0",
+        answer: "a sharp corner",
+        distractors: ["a horizontal tangent", "a positive slope", "a closed interval"],
+        explanation: "At a corner, left and right slopes do not match.",
+      });
+    }
+
+    function firstRuleQuestion() {
+      return question({
+        prompt: "Which rule comes first?",
+        stimulus: "d/dx [(x²+1)⁵]",
+        answer: "chain rule",
+        distractors: ["product rule", "quotient rule", "constant rule"],
+        explanation: "The outside fifth power is applied to the inside x²+1.",
+      });
+    }
+
+    function powerRuleQuestion() {
+      return question({
+        prompt: "Differentiate using the power rule.",
+        stimulus: "x⁶",
+        answer: "6x⁵",
+        distractors: ["x⁵", "5x⁶", "6x⁶"],
+        explanation: "Bring the exponent down and subtract 1 from the exponent.",
+      });
+    }
+
+    function chainFactorQuestion() {
+      return question({
+        prompt: "What factor is easy to forget?",
+        stimulus: "d/dx sin(x²)",
+        answer: "2x",
+        distractors: ["sin(x)", "x²", "1/2"],
+        explanation: "The chain rule multiplies by the derivative of the inside x².",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "Which structure triggers product rule?",
+        stimulus: "(x²+1)(x-4)",
+        answer: "two changing factors multiplied",
+        distractors: ["one expression divided by another", "a constant only", "a definite integral"],
+        explanation: "Both factors depend on x, so differentiate both using f'g+fg'.",
+      });
+    }
+
+    function quotientSignQuestion() {
+      return question({
+        prompt: "What denominator appears in the quotient rule?",
+        stimulus: "d/dx [f(x)/g(x)]",
+        answer: "g(x)²",
+        distractors: ["f(x)²", "f'(x)g'(x)", "g'(x)²"],
+        explanation: "The denominator is the square of the original denominator.",
+      });
+    }
+
+    function candidateQuestion() {
+      return question({
+        prompt: "Which candidate type must be checked on [a,b]?",
+        stimulus: "absolute max/min on a closed interval",
+        answer: "critical points and endpoints",
+        distractors: ["only critical points", "only endpoints", "only x-intercepts"],
+        explanation: "Absolute extrema can occur inside or at the boundary.",
+      });
+    }
+
+    function signChartQuestion() {
+      return question({
+        prompt: "Classify the critical point.",
+        stimulus: "f' changes from + to -",
+        answer: "local maximum",
+        distractors: ["local minimum", "no extremum", "vertical asymptote"],
+        explanation: "The function increases, then decreases.",
+      });
+    }
+
+    function endpointQuestion() {
+      return question({
+        prompt: "Why check endpoints?",
+        stimulus: "closed interval optimization",
+        answer: "the absolute best value may occur there",
+        distractors: ["derivatives never work", "endpoints are always maxima", "to remove units"],
+        explanation: "The derivative only finds interior candidates.",
+      });
+    }
+
+    function secondDerivativeQuestion() {
+      return question({
+        prompt: "What does f''(c)>0 suggest at a critical point?",
+        stimulus: "second derivative test",
+        answer: "local minimum",
+        distractors: ["local maximum", "no domain", "left-hand limit only"],
+        explanation: "Positive second derivative means concave up.",
+      });
+    }
+
+    function objectiveQuestion() {
+      return question({
+        prompt: "In a word problem, what is the objective?",
+        stimulus: "maximize area with fixed perimeter",
+        answer: "the quantity to maximize or minimize",
+        distractors: ["the derivative only", "the endpoint only", "the unit label only"],
+        explanation: "Optimization begins by naming the target quantity.",
+      });
+    }
+
+    function riemannHeightQuestion() {
+      return question({
+        prompt: "For midpoint rectangles, where is the height measured?",
+        stimulus: "Riemann sum",
+        answer: "at the midpoint of each subinterval",
+        distractors: ["only at the left endpoint", "only at x=0", "at the derivative"],
+        explanation: "Midpoint sums use f(midpoint) as each rectangle height.",
+      });
+    }
+
+    function antiderivativeQuestion() {
+      return question({
+        prompt: "Find an antiderivative.",
+        stimulus: "∫ 4x³ dx",
+        answer: "x⁴ + C",
+        distractors: ["12x²", "4x⁴ + C", "x³ + C"],
+        explanation: "Reverse the power rule: x⁴ differentiates to 4x³.",
+      });
+    }
+
+    function ftcQuestion() {
+      return question({
+        prompt: "Evaluate the definite integral.",
+        stimulus: "∫₀³ 2x dx",
+        answer: "9",
+        distractors: ["3", "6", "18"],
+        explanation: "An antiderivative is x², so compute 3²-0²=9.",
+      });
+    }
+
+    function signedAreaQuestion() {
+      return question({
+        prompt: "Area below the x-axis counts how in a signed integral?",
+        stimulus: "signed area",
+        answer: "negative",
+        distractors: ["positive", "ignored", "always zero"],
+        explanation: "Definite integrals add signed area, not just geometric area.",
+      });
+    }
+
+    function integralUnitsQuestion() {
+      return question({
+        prompt: "What are the units after integrating liters/minute over minutes?",
+        stimulus: "rate accumulation",
+        answer: "liters",
+        distractors: ["liters per minute", "minutes per liter", "liters squared"],
+        explanation: "Rate units times input units give accumulated units.",
+      });
+    }
+
+    function techniqueQuestion() {
+      return question({
+        prompt: "Which technique best fits?",
+        stimulus: "∫ 2x cos(x²) dx",
+        answer: "substitution",
+        distractors: ["integration by parts", "endpoint comparison", "quotient rule"],
+        explanation: "The inside x² has derivative 2x, which is present.",
+      });
+    }
+
+    function substitutionQuestion() {
+      return question({
+        prompt: "Choose u.",
+        stimulus: "∫ 3x² sin(x³) dx",
+        answer: "u = x³",
+        distractors: ["u = sin(x)", "u = 3x", "u = dx"],
+        explanation: "The derivative of x³ is 3x² dx, which appears.",
+      });
+    }
+
+    function substitutionBackQuestion() {
+      return question({
+        prompt: "What must you do after integrating in u for an indefinite integral?",
+        stimulus: "substitution workflow",
+        answer: "substitute back to x and add C",
+        distractors: ["drop the constant", "differentiate the bounds", "compare endpoints only"],
+        explanation: "The final antiderivative should be in the original variable.",
+      });
+    }
+
+    function partsChoiceQuestion() {
+      return question({
+        prompt: "For ∫ x eˣ dx, what is a good u?",
+        stimulus: "integration by parts",
+        answer: "u = x",
+        distractors: ["u = eˣ dx", "u = 0", "u = x eˣ"],
+        explanation: "x becomes simpler when differentiated; eˣ is easy to integrate.",
+      });
+    }
+
+    function numericalReasonQuestion() {
+      return question({
+        prompt: "When is numerical integration reasonable?",
+        stimulus: "data or hard antiderivative",
+        answer: "when an exact formula is hard or unnecessary",
+        distractors: ["only for constants", "never in applications", "only before learning derivatives"],
+        explanation: "Approximation is a useful tool when exact symbolic work is not the goal.",
+      });
+    }
+
+    function applicationToolQuestion() {
+      return question({
+        prompt: "Which tool finds marginal cost?",
+        stimulus: "marginal means local change",
+        answer: "derivative",
+        distractors: ["integral", "Riemann sum", "endpoint only"],
+        explanation: "Marginal quantities are instantaneous rates of change.",
+      });
+    }
+
+    function unitsQuestion() {
+      return question({
+        prompt: "If position is meters and time is seconds, velocity units are...",
+        stimulus: "s'(t)",
+        answer: "meters per second",
+        distractors: ["meters squared", "seconds per meter", "meters"],
+        explanation: "Derivative units are output units divided by input units.",
+      });
+    }
+
+    function motionQuestion() {
+      return question({
+        prompt: "What is ∫ v(t) dt over a time interval?",
+        stimulus: "velocity accumulation",
+        answer: "displacement",
+        distractors: ["acceleration", "instantaneous velocity", "slope of position only"],
+        explanation: "Integrating velocity accumulates signed change in position.",
+      });
+    }
+
+    function marginalQuestion() {
+      return question({
+        prompt: "What does C'(100) approximate?",
+        stimulus: "cost function C(x)",
+        answer: "cost of one more item near 100 items",
+        distractors: ["total cost of 100 items", "average cost exactly", "area under cost"],
+        explanation: "A derivative gives local change per additional item.",
+      });
+    }
+
+    function relatedRatesQuestion() {
+      return question({
+        prompt: "In related rates, when should you substitute numbers?",
+        stimulus: "differentiate an equation involving time",
+        answer: "after differentiating",
+        distractors: ["before differentiating", "never", "only after integrating"],
+        explanation: "Substituting too early can erase variables whose rates are needed.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `calculus-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>SymPy can verify antiderivatives. Remember that it may return an equivalent form or a special function for harder integrals.</p>
+<div id="58380905" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.integrate(<span class="dv">2</span><span class="op">*</span>x<span class="op">*</span>sp.cos(x<span class="op">**</span><span class="dv">2</span>), x)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>answer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
+<p><span class="math inline">\(\displaystyle \sin{\left(x^{2} \right)}\)</span></p>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: approximately <code>1/3</code>, or <code>0.333...</code>.</p>
-<p>The exact integral is <code>x^3 / 3</code> from <code>0</code> to <code>1</code>, which equals <code>1/3</code>.</p>
-</div>
+<div id="d839f358" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sp.diff(answer, x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle 2 x \cos{\left(x^{2} \right)}\)</span></p>
 </div>
 </div>
+<div id="63a2818a" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sp.integrate(x<span class="op">*</span>sp.exp(x), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle \left(x - 1\right) e^{x}\)</span></p>
+</div>
+</div>
+<div id="bc7b2e5c" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.calculus <span class="im">import</span> midpoint_riemann_sum, trapezoid_rule, substitution_exercise</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>midpoint_riemann_sum(<span class="st">"x**2"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">20</span>), trapezoid_rule(<span class="st">"x**2"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>(0.33312500000000006, 0.33375000000000005)</code></pre>
+</div>
+</div>
+<div id="97a26276" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> substitution_exercise(seed<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(exercise.prompt)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(exercise.expected)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Integrate using substitution: ∫ 2*x*cos(x**2) dx.
+sin(x**2)</code></pre>
+</div>
+</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>Calculus Volume 2</em>, Techniques of Integration: <a href="https://openstax.org/details/books/calculus-volume-2" class="uri">https://openstax.org/details/books/calculus-volume-2</a></li>
+<li>Paul’s Online Math Notes, Integration Techniques: <a href="https://tutorial.math.lamar.edu/Classes/CalcII/CalcII.aspx" class="uri">https://tutorial.math.lamar.edu/Classes/CalcII/CalcII.aspx</a></li>
+</ul>
 
 
 </section>

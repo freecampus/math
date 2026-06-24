@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Multiple changing quantities influencing each other.">
+<meta name="description" content="Model several changing quantities that influence each other.">
 
 <title>Systems of Differential Equations – edu-math</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/discrete-math/logic.html" rel="next">
+<link href="../../lessons/discrete-math/index.html" rel="next">
 <link href="../../lessons/differential-equations/slope-fields.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/systems.html">Systems of Differential Equations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/index.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/systems.html">Systems of Differential Equations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +472,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +486,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +534,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -528,6 +593,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +736,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +781,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,8 +895,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#general-form" id="toc-general-form" class="nav-link" data-scroll-target="#general-form">General form</a></li>
+  <li><a href="#coupling" id="toc-coupling" class="nav-link" data-scroll-target="#coupling">Coupling</a></li>
+  <li><a href="#equilibrium-points" id="toc-equilibrium-points" class="nav-link" data-scroll-target="#equilibrium-points">Equilibrium points</a></li>
+  <li><a href="#worked-example-1-find-an-equilibrium" id="toc-worked-example-1-find-an-equilibrium" class="nav-link" data-scroll-target="#worked-example-1-find-an-equilibrium">Worked example 1: find an equilibrium</a></li>
+  <li><a href="#linear-systems-and-matrices" id="toc-linear-systems-and-matrices" class="nav-link" data-scroll-target="#linear-systems-and-matrices">Linear systems and matrices</a></li>
+  <li><a href="#phase-plane-intuition" id="toc-phase-plane-intuition" class="nav-link" data-scroll-target="#phase-plane-intuition">Phase-plane intuition</a></li>
+  <li><a href="#worked-example-2-rotation" id="toc-worked-example-2-rotation" class="nav-link" data-scroll-target="#worked-example-2-rotation">Worked example 2: rotation</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#systems-checkpoint" id="toc-systems-checkpoint" class="nav-link" data-scroll-target="#systems-checkpoint">Systems checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/differential-equations/systems.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -821,14 +914,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/systems.html">Systems of Differential Equations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/index.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/systems.html">Systems of Differential Equations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Systems of Differential Equations</h1>
 </div>
 
 <div>
   <div class="description">
-    Multiple changing quantities influencing each other.
+    Model several changing quantities that influence each other.
   </div>
 </div>
 
@@ -845,72 +938,488 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>A system of differential equations tracks more than one changing quantity. This is useful when variables interact, such as predators and prey, position and velocity, or two chemical concentrations.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Recognize systems of differential equations.</li>
-<li>Interpret coupled dynamics.</li>
-<li>Connect systems to linear algebra.</li>
+<li>recognize a system of first-order differential equations;</li>
+<li>explain coupled variables;</li>
+<li>find equilibrium points by setting all derivatives equal to zero;</li>
+<li>write simple linear systems in matrix form;</li>
+<li>interpret phase-plane arrows;</li>
+<li>connect simple matrix systems to growth, decay, rotation, or saddle behavior.</li>
 </ul>
 </section>
-<p>Systems describe several variables changing at the same time.</p>
-<pre class="text"><code>dx/dt = f(x, y)
-dy/dt = g(x, y)</code></pre>
+<section id="general-form" class="level2">
+<h2 class="anchored" data-anchor-id="general-form">General form</h2>
+<p>A two-variable first-order system often looks like</p>
+<pre class="text"><code>dx/dt = f(x,y)
+dy/dt = g(x,y)</code></pre>
+<p>The state is the point <code>(x,y)</code>. As time changes, the state moves through the plane.</p>
+<div class="key-idea">
+<p>In a single ODE, the solution is a curve <code>y(t)</code>. In a two-variable system, the solution is a moving point <code>(x(t), y(t))</code>.</p>
+</div>
+</section>
+<section id="coupling" class="level2">
+<h2 class="anchored" data-anchor-id="coupling">Coupling</h2>
+<p>A system is <strong>coupled</strong> when one variable affects the other variable’s rate of change.</p>
+<p>Example:</p>
+<pre class="text"><code>x' = y
+y' = -x</code></pre>
+<p>Here <code>x'</code> depends on <code>y</code>, and <code>y'</code> depends on <code>x</code>. Neither equation is fully independent.</p>
+</section>
+<section id="equilibrium-points" class="level2">
+<h2 class="anchored" data-anchor-id="equilibrium-points">Equilibrium points</h2>
+<p>An equilibrium point is a state where nothing changes. For a two-variable system, set both derivatives equal to zero:</p>
+<pre class="text"><code>f(x,y)=0
+g(x,y)=0</code></pre>
+<p>Both equations must be true at the same time.</p>
+</section>
+<section id="worked-example-1-find-an-equilibrium" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-find-an-equilibrium">Worked example 1: find an equilibrium</h2>
+<p>Find the equilibrium of</p>
+<pre class="text"><code>x' = 2 - x
+y' = 3 - y</code></pre>
+<p>Set each derivative to zero:</p>
+<pre class="text"><code>2 - x = 0
+3 - y = 0</code></pre>
+<p>Solve:</p>
+<pre class="text"><code>x = 2
+y = 3</code></pre>
+<p>The equilibrium point is <code>(2,3)</code>.</p>
+</section>
+<section id="linear-systems-and-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="linear-systems-and-matrices">Linear systems and matrices</h2>
+<p>A linear homogeneous system can be written as</p>
+<pre class="text"><code>u' = A u</code></pre>
+<p>where <code>u</code> is a vector of variables and <code>A</code> is a matrix of coefficients.</p>
+<p>For example,</p>
+<pre class="text"><code>x' = -2x
+y' = 3y</code></pre>
+<p>can be written as</p>
+<pre class="text"><code>[x']   [-2  0][x]
+[y'] = [ 0  3][y]</code></pre>
+<p>The <code>x</code> component decays while the <code>y</code> component grows.</p>
+</section>
+<section id="phase-plane-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="phase-plane-intuition">Phase-plane intuition</h2>
+<p>At each point <code>(x,y)</code>, the system gives a vector <code>(x',y')</code>. A phase plane draws many of these vectors. A trajectory follows the arrows.</p>
+<ul>
+<li>Arrows pointing toward an equilibrium suggest stability.</li>
+<li>Arrows pointing away suggest instability.</li>
+<li>Circular or rotating arrows suggest oscillation.</li>
+<li>Different directions along different axes can create saddle-like behavior.</li>
+</ul>
+</section>
+<section id="worked-example-2-rotation" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-rotation">Worked example 2: rotation</h2>
+<p>Consider</p>
+<pre class="text"><code>x' = y
+y' = -x</code></pre>
+<p>At <code>(1,0)</code>, the derivative vector is <code>(0,-1)</code>, so the state moves downward. At <code>(0,-1)</code>, the derivative vector is <code>(-1,0)</code>, so the state moves left. This pattern produces rotation around the origin.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Setting only one derivative equal to zero when finding an equilibrium.</li>
+<li>Confusing the phase plane <code>(x,y)</code> with a graph of <code>y</code> versus <code>x</code>.</li>
+<li>Assuming every system has a simple formula solution.</li>
+<li>Forgetting that a vector in the phase plane represents a rate of change.</li>
+<li>Using eigenvalues before understanding the qualitative picture.</li>
+</ul>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
 <div class="practice-box">
 <ol type="1">
-<li>Why might two variables influence each other?</li>
-<li>How can matrices represent linear systems of ODEs?</li>
-<li>What is an equilibrium point?</li>
+<li><p>Is <code>x'=x+y</code>, <code>y'=y</code> coupled? Explain.</p></li>
+<li><p>Find the equilibrium of <code>x'=5-x</code>, <code>y'=-2-y</code>.</p></li>
+<li><p>Write <code>x'=2x+y</code>, <code>y'=3x-y</code> in matrix form.</p></li>
+<li><p>At the point <code>(1,2)</code>, what is the vector for <code>x'=y</code>, <code>y'=-x</code>?</p></li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: each variable may affect the other’s rate of change, such as predator and prey populations or position and velocity.</p>
+<ol type="1">
+<li>Yes. The rate <code>x'</code> depends on <code>y</code>.</li>
+<li>Set derivatives to zero: <code>x=5</code>, <code>y=-2</code>, so the equilibrium is <code>(5,-2)</code>.</li>
+<li><code>u' = A u</code> with <code>A = [[2,1],[3,-1]]</code>.</li>
+<li><code>(x',y')=(2,-1)</code>.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="systems-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="systems-checkpoint">Systems checkpoint</h2>
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "systems",
+  "title": "Systems checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-de-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "first-order-equations";
+    const BANKS = {
+      "first-order-equations": [odeMeaningQuestion, solutionQuestion, initialConditionQuestion],
+      "separable-equations": [separableClassQuestion, separationStepQuestion, constantQuestion],
+      "linear-equations": [linearFormQuestion, integratingFactorQuestion, productDerivativeQuestion],
+      "slope-fields": [slopeSegmentQuestion, eulerStepQuestion, equilibriumStabilityQuestion],
+      systems: [systemEquilibriumQuestion, couplingQuestion, phasePlaneQuestion],
+      "differential-equations-cumulative-review": [
+        odeMeaningQuestion,
+        separableClassQuestion,
+        integratingFactorQuestion,
+        eulerStepQuestion,
+        systemEquilibriumQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-de-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-de-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Differential equations checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function odeMeaningQuestion() {
+      return question({
+        prompt: "What does a first-order ODE usually describe?",
+        stimulus: "dy/dt = f(t, y)",
+        answer: "a rule for the rate of change",
+        distractors: ["only one number", "an area formula", "a matrix inverse"],
+        explanation: "The derivative tells how the unknown function changes.",
+      });
+    }
+
+    function solutionQuestion() {
+      return question({
+        prompt: "Which function solves y' = 2y?",
+        stimulus: "Differentiate each candidate mentally.",
+        answer: "Ce^(2x)",
+        distractors: ["2x + C", "C e^x", "x^2 + C"],
+        explanation: "The derivative of Ce^(2x) is 2Ce^(2x), which equals 2y.",
+      });
+    }
+
+    function initialConditionQuestion() {
+      return question({
+        prompt: "What does y(0)=5 do?",
+        stimulus: "Family: y = C e^x",
+        answer: "selects one solution curve",
+        distractors: ["changes the derivative rule", "removes x from the problem", "proves no solution exists"],
+        explanation: "The initial condition determines the constant C.",
+      });
+    }
+
+    function separableClassQuestion() {
+      return question({
+        prompt: "Is this equation separable?",
+        stimulus: "dy/dx = x y",
+        answer: "yes",
+        distractors: ["no", "only if x=0", "only after differentiating twice"],
+        explanation: "It can be written as (1/y) dy = x dx when y is not zero.",
+      });
+    }
+
+    function separationStepQuestion() {
+      return question({
+        prompt: "What is the separated form of y' = x y²?",
+        stimulus: "Move y terms with dy and x terms with dx.",
+        answer: "y^(-2) dy = x dx",
+        distractors: ["y² dy = x dx", "dy = x y² dx", "x dy = y² dx"],
+        explanation: "Divide both sides by y², then multiply by dx.",
+      });
+    }
+
+    function constantQuestion() {
+      return question({
+        prompt: "Why does +C appear after integrating?",
+        stimulus: "∫ y^(-1) dy = ∫ x dx",
+        answer: "indefinite integrals represent families",
+        distractors: ["C means cancel", "C is always zero", "C is the derivative"],
+        explanation: "One differential equation can have many solution curves.",
+      });
+    }
+
+    function linearFormQuestion() {
+      return question({
+        prompt: "Identify p(x) in y' + 3y = x.",
+        stimulus: "Standard form: y' + p(x)y = q(x)",
+        answer: "3",
+        distractors: ["x", "y", "1/3"],
+        explanation: "p(x) is the coefficient multiplying y in standard form.",
+      });
+    }
+
+    function integratingFactorQuestion() {
+      return question({
+        prompt: "What is the integrating factor for y' + 2y = x?",
+        stimulus: "mu(x) = e^(∫p(x)dx)",
+        answer: "e^(2x)",
+        distractors: ["e^x", "2e^x", "x²/2"],
+        explanation: "Here p(x)=2, so the integral is 2x.",
+      });
+    }
+
+    function productDerivativeQuestion() {
+      return question({
+        prompt: "After multiplying by mu, what should the left side become?",
+        stimulus: "linear ODE workflow",
+        answer: "the derivative of mu(x)y",
+        distractors: ["a second derivative", "zero", "a separated fraction"],
+        explanation: "That product derivative is why the integrating factor helps.",
+      });
+    }
+
+    function slopeSegmentQuestion() {
+      return question({
+        prompt: "What does one short segment in a slope field show?",
+        stimulus: "At a point (x,y)",
+        answer: "the local slope predicted by the ODE",
+        distractors: ["the final answer", "the x-intercept", "the area under a curve"],
+        explanation: "The segment visualizes dy/dx at that point.",
+      });
+    }
+
+    function eulerStepQuestion() {
+      return question({
+        prompt: "Use one Euler step for y'=y, y(0)=2, h=0.5. What is y1?",
+        stimulus: "y1 = y0 + h f(x0,y0)",
+        answer: "3",
+        distractors: ["2.5", "1", "4"],
+        explanation: "The current slope is 2, so y1 = 2 + 0.5·2 = 3.",
+      });
+    }
+
+    function equilibriumStabilityQuestion() {
+      return question({
+        prompt: "Which value is an equilibrium for y'=y(1-y)?",
+        stimulus: "Set the right-hand side equal to zero.",
+        answer: "1",
+        distractors: ["2", "-1", "1/2"],
+        explanation: "Both y=0 and y=1 are equilibria; 1 is one of them.",
+      });
+    }
+
+    function systemEquilibriumQuestion() {
+      return question({
+        prompt: "Find the equilibrium of x'=2-x, y'=3-y.",
+        stimulus: "Set both derivatives to zero.",
+        answer: "(2, 3)",
+        distractors: ["(0, 0)", "(-2, -3)", "(3, 2)"],
+        explanation: "Solving 2-x=0 and 3-y=0 gives (2,3).",
+      });
+    }
+
+    function couplingQuestion() {
+      return question({
+        prompt: "What does coupling mean in a system?",
+        stimulus: "x' may depend on y and y' may depend on x",
+        answer: "variables influence each other's rates",
+        distractors: ["variables are constant", "only one equation is used", "all derivatives are zero"],
+        explanation: "Coupled variables interact through the derivative rules.",
+      });
+    }
+
+    function phasePlaneQuestion() {
+      return question({
+        prompt: "In a phase plane, what does an arrow represent?",
+        stimulus: "State point (x,y)",
+        answer: "the velocity vector (x', y')",
+        distractors: ["only the value of y", "an antiderivative", "a probability"],
+        explanation: "The arrow shows how the state moves from that point.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return {
+        prompt,
+        stimulus,
+        answer,
+        explanation,
+        options: shuffle(unique([answer, ...distractors])).slice(0, 4),
+      };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `de-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use SymPy to find equilibrium points by solving simultaneous equations.</p>
+<div id="48746d22" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(<span class="dv">2</span> <span class="op">-</span> x, <span class="dv">0</span>), sp.Eq(<span class="dv">3</span> <span class="op">-</span> y, <span class="dv">0</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>{x: 2, y: 3}</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: a matrix can store the coefficients that multiply the state variables in a system like <code>x' = A x</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: a state where all derivatives are zero, so the system does not move away if it starts there.</p>
-</div>
+<p>Use <code>edumath</code> to approximate a simple system numerically.</p>
+<div id="011e4944" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.differential_equations <span class="im">import</span> system_euler_method</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>system_euler_method(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> t, state: (state[<span class="dv">1</span>], <span class="op">-</span>state[<span class="dv">0</span>]),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    initial_t<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    initial_state<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    step<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    steps<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>[(0, (1.0, 0.0)),
+ (0.1, (1.0, -0.1)),
+ (0.2, (0.99, -0.2)),
+ (0.30000000000000004, (0.97, -0.29900000000000004)),
+ (0.4, (0.9400999999999999, -0.396)),
+ (0.5, (0.9005, -0.49001))]</code></pre>
 </div>
 </div>
 
@@ -1343,8 +1852,8 @@ dy/dt = g(x, y)</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/discrete-math/logic.html" class="pagination-link" aria-label="Logic">
-        <span class="nav-page-text">Logic</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/discrete-math/index.html" class="pagination-link" aria-label="Discrete Mathematics Study Path">
+        <span class="nav-page-text">Discrete Mathematics Study Path</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

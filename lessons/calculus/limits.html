@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Understand limits as values a function approaches.">
+<meta name="description" content="Understand limits as nearby behavior and learn step-by-step limit workflows.">
 
 <title>Limits – edu-math</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../lessons/calculus/derivatives.html" rel="next">
-<link href="../../lessons/trigonometry/sine-cosine.html" rel="prev">
+<link href="../../lessons/calculus/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,6 +113,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -296,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Limits</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Limits</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +501,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +515,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +563,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link active">
@@ -528,6 +622,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +765,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +810,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,10 +924,39 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#concept" id="toc-concept" class="nav-link" data-scroll-target="#concept">Concept</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#vocabulary-and-notation" id="toc-vocabulary-and-notation" class="nav-link" data-scroll-target="#vocabulary-and-notation">Vocabulary and notation</a></li>
+  <li><a href="#limit-problem-solving-roadmap" id="toc-limit-problem-solving-roadmap" class="nav-link" data-scroll-target="#limit-problem-solving-roadmap">Limit problem-solving roadmap</a></li>
+  <li><a href="#direct-substitution" id="toc-direct-substitution" class="nav-link" data-scroll-target="#direct-substitution">Direct substitution</a>
+  <ul class="collapse">
+  <li><a href="#walkthrough-direct-substitution" id="toc-walkthrough-direct-substitution" class="nav-link" data-scroll-target="#walkthrough-direct-substitution">Walkthrough: direct substitution</a></li>
+  <li><a href="#guided-exercise-direct-substitution" id="toc-guided-exercise-direct-substitution" class="nav-link" data-scroll-target="#guided-exercise-direct-substitution">Guided exercise: direct substitution</a></li>
+  </ul></li>
+  <li><a href="#limits-from-tables" id="toc-limits-from-tables" class="nav-link" data-scroll-target="#limits-from-tables">Limits from tables</a></li>
+  <li><a href="#removable-holes-factor-and-cancel" id="toc-removable-holes-factor-and-cancel" class="nav-link" data-scroll-target="#removable-holes-factor-and-cancel">Removable holes: factor and cancel</a>
+  <ul class="collapse">
+  <li><a href="#walkthrough-factor-and-cancel" id="toc-walkthrough-factor-and-cancel" class="nav-link" data-scroll-target="#walkthrough-factor-and-cancel">Walkthrough: factor and cancel</a></li>
+  <li><a href="#guided-exercise-another-factor-and-cancel-limit" id="toc-guided-exercise-another-factor-and-cancel-limit" class="nav-link" data-scroll-target="#guided-exercise-another-factor-and-cancel-limit">Guided exercise: another factor-and-cancel limit</a></li>
+  </ul></li>
+  <li><a href="#radical-limits-rationalize" id="toc-radical-limits-rationalize" class="nav-link" data-scroll-target="#radical-limits-rationalize">Radical limits: rationalize</a>
+  <ul class="collapse">
+  <li><a href="#walkthrough-rationalizing" id="toc-walkthrough-rationalizing" class="nav-link" data-scroll-target="#walkthrough-rationalizing">Walkthrough: rationalizing</a></li>
+  </ul></li>
+  <li><a href="#one-sided-limits" id="toc-one-sided-limits" class="nav-link" data-scroll-target="#one-sided-limits">One-sided limits</a>
+  <ul class="collapse">
+  <li><a href="#walkthrough-compare-sides" id="toc-walkthrough-compare-sides" class="nav-link" data-scroll-target="#walkthrough-compare-sides">Walkthrough: compare sides</a></li>
+  </ul></li>
+  <li><a href="#infinite-limits-and-vertical-asymptotes" id="toc-infinite-limits-and-vertical-asymptotes" class="nav-link" data-scroll-target="#infinite-limits-and-vertical-asymptotes">Infinite limits and vertical asymptotes</a></li>
+  <li><a href="#common-mistakes-and-repairs" id="toc-common-mistakes-and-repairs" class="nav-link" data-scroll-target="#common-mistakes-and-repairs">Common mistakes and repairs</a>
+  <ul class="collapse">
+  <li><a href="#mistake-1-stopping-at-00" id="toc-mistake-1-stopping-at-00" class="nav-link" data-scroll-target="#mistake-1-stopping-at-00">Mistake 1: stopping at <code>0/0</code></a></li>
+  <li><a href="#mistake-2-confusing-fa-with-the-limit" id="toc-mistake-2-confusing-fa-with-the-limit" class="nav-link" data-scroll-target="#mistake-2-confusing-fa-with-the-limit">Mistake 2: confusing <span class="math inline">\(f(a)\)</span> with the limit</a></li>
+  <li><a href="#mistake-3-ignoring-one-sided-behavior" id="toc-mistake-3-ignoring-one-sided-behavior" class="nav-link" data-scroll-target="#mistake-3-ignoring-one-sided-behavior">Mistake 3: ignoring one-sided behavior</a></li>
+  </ul></li>
+  <li><a href="#mixed-practice" id="toc-mixed-practice" class="nav-link" data-scroll-target="#mixed-practice">Mixed practice</a></li>
+  <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/calculus/limits.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -823,14 +964,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Limits</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/limits.html">Limits</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Limits</h1>
 </div>
 
 <div>
   <div class="description">
-    Understand limits as values a function approaches.
+    Understand limits as nearby behavior and learn step-by-step limit workflows.
   </div>
 </div>
 
@@ -847,67 +988,208 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>A <strong>limit</strong> describes what a function’s outputs approach as the input gets close to a target value. Limits are the foundation of derivatives, integrals, and much of calculus because they let us reason about values that are approached, even when a formula is undefined at one point.</p>
+<p>The most important beginner habit is this:</p>
+<blockquote class="blockquote">
+<p>A limit is about <strong>nearby behavior</strong>, not only the value at the target point.</p>
+</blockquote>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Explain a limit as an approached value.</li>
-<li>Distinguish a function value from a limiting value.</li>
-<li>Recognize why limits prepare us for derivatives.</li>
+<li>explain a limit as a value a function approaches;</li>
+<li>estimate limits from tables and graphs;</li>
+<li>distinguish a function value from a limiting value;</li>
+<li>use direct substitution when appropriate;</li>
+<li>evaluate removable-hole limits by factoring and canceling;</li>
+<li>rationalize simple radical limits;</li>
+<li>compare left-hand and right-hand limits;</li>
+<li>identify simple infinite limits and vertical asymptotes;</li>
+<li>check limits with SymPy.</li>
 </ul>
 </section>
-<section id="concept" class="level2">
-<h2 class="anchored" data-anchor-id="concept">Concept</h2>
-<p>A limit asks what value a function approaches as the input gets close to a point.</p>
-<pre class="text"><code>lim f(x) as x -&gt; a</code></pre>
-<p>The function does not need to equal the limiting value at <code>a</code>. Limits describe nearby behavior.</p>
-<div class="key-idea">
-<p>Derivatives and integrals both rely on limits: derivatives shrink a change in input, and integrals shrink rectangle widths.</p>
-</div>
+<section id="vocabulary-and-notation" class="level2">
+<h2 class="anchored" data-anchor-id="vocabulary-and-notation">Vocabulary and notation</h2>
+<p>The notation</p>
+<p><span class="math display">\[
+\lim_{x\to a} f(x)=L
+\]</span></p>
+<p>means: as <span class="math inline">\(x\)</span> gets close to <span class="math inline">\(a\)</span>, the output <span class="math inline">\(f(x)\)</span> gets close to <span class="math inline">\(L\)</span>.</p>
+<p>Important words:</p>
+<ul>
+<li><strong>approaches</strong>: gets close to, not necessarily equals;</li>
+<li><strong>target value</strong>: the input value <span class="math inline">\(a\)</span>;</li>
+<li><strong>limiting value</strong>: the output value <span class="math inline">\(L\)</span>;</li>
+<li><strong>left-hand limit</strong>: approach from values less than <span class="math inline">\(a\)</span>;</li>
+<li><strong>right-hand limit</strong>: approach from values greater than <span class="math inline">\(a\)</span>.</li>
+</ul>
 </section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="practice-box">
+<section id="limit-problem-solving-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="limit-problem-solving-roadmap">Limit problem-solving roadmap</h2>
+<p>Use this order for most beginner limit problems.</p>
 <ol type="1">
-<li>What value does <code>x + 2</code> approach as <code>x -&gt; 3</code>?</li>
-<li>Why can a limit exist even if the function is not defined at that point?</li>
-<li>Explain a limit in one sentence without symbols.</li>
+<li><strong>Try direct substitution.</strong> Put the target value into the expression.</li>
+<li><strong>Interpret the result.</strong>
+<ul>
+<li>A normal number usually gives the limit.</li>
+<li><code>0/0</code> means more work is needed.</li>
+<li>nonzero divided by zero suggests one-sided or infinite behavior.</li>
+</ul></li>
+<li><strong>Choose a repair method.</strong> Factor, cancel, rationalize, or check one-sided behavior.</li>
+<li><strong>Simplify carefully.</strong> Only cancel common factors, not terms.</li>
+<li><strong>Substitute again.</strong> Use the simplified expression when it matches the original nearby.</li>
+<li><strong>State the result in words.</strong> Say what the outputs approach.</li>
 </ol>
-</div>
 </section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<section id="direct-substitution" class="level2">
+<h2 class="anchored" data-anchor-id="direct-substitution">Direct substitution</h2>
+<p>If the function is continuous at the target value, direct substitution works. Polynomials are continuous everywhere, so limits of polynomial expressions can be found by substituting.</p>
+<section id="walkthrough-direct-substitution" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-direct-substitution">Walkthrough: direct substitution</h3>
+<p>Evaluate</p>
+<p><span class="math display">\[
+\lim_{x\to 2}(x^2+3x).
+\]</span></p>
+<ol type="1">
+<li><strong>Read the problem.</strong> We need the output approached as <span class="math inline">\(x\)</span> gets close to 2.</li>
+<li><strong>Classify the function.</strong> This is a polynomial, so direct substitution is allowed.</li>
+<li><strong>Substitute.</strong> <span class="math display">\[
+2^2+3(2)=4+6=10.
+\]</span></li>
+<li><strong>Check.</strong> Values near 2, such as 1.9 and 2.1, produce outputs near 10.</li>
+<li><strong>Interpret.</strong> As <span class="math inline">\(x\)</span> approaches 2, <span class="math inline">\(x^2+3x\)</span> approaches 10.</li>
+</ol>
+<p>So</p>
+<p><span class="math display">\[
+\lim_{x\to 2}(x^2+3x)=10.
+\]</span></p>
+</section>
+<section id="guided-exercise-direct-substitution" class="level3 practice-box">
+<h3 class="anchored" data-anchor-id="guided-exercise-direct-substitution">Guided exercise: direct substitution</h3>
+<p>Evaluate <span class="math inline">\(\lim_{x\to -1}(x^2-4x+1)\)</span>.</p>
+<ol type="1">
+<li>What type of expression is it?</li>
+<li>What value should you substitute?</li>
+<li>Compute the output.</li>
+<li>State the limit in a sentence.</li>
+</ol>
+</section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Guided solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>5</code>.</p>
-<p>As <code>x</code> gets close to <code>3</code>, <code>x + 2</code> gets close to <code>3 + 2 = 5</code>.</p>
+<ol type="1">
+<li>It is a polynomial, so direct substitution works.</li>
+<li>Substitute <span class="math inline">\(x=-1\)</span>.</li>
+<li><span class="math inline">\((-1)^2-4(-1)+1=1+4+1=6\)</span>.</li>
+<li>As <span class="math inline">\(x\)</span> approaches <span class="math inline">\(-1\)</span>, the function approaches 6.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+</section>
+<section id="limits-from-tables" class="level2">
+<h2 class="anchored" data-anchor-id="limits-from-tables">Limits from tables</h2>
+<p>A table helps when a graph or formula is hard to read. Choose input values close to the target from both sides.</p>
+<p>For</p>
+<p><span class="math display">\[
+f(x)=\frac{x^2-1}{x-1},
+\]</span></p>
+<p>direct substitution at <span class="math inline">\(x=1\)</span> gives <span class="math inline">\(0/0\)</span>. But nearby values suggest a limit:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(f(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">1.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">1.99</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1.01</td>
+<td style="text-align: right;">2.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+</tbody>
+</table>
+<p>The outputs approach 2. The table is evidence; algebra explains why.</p>
+</section>
+<section id="removable-holes-factor-and-cancel" class="level2">
+<h2 class="anchored" data-anchor-id="removable-holes-factor-and-cancel">Removable holes: factor and cancel</h2>
+<p>When direct substitution gives <code>0/0</code>, the expression may have a removable hole. That does not mean the limit is zero. It means the original formula needs to be simplified for nearby values.</p>
+<section id="walkthrough-factor-and-cancel" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-factor-and-cancel">Walkthrough: factor and cancel</h3>
+<p>Evaluate</p>
+<p><span class="math display">\[
+\lim_{x\to 3}\frac{x^2-9}{x-3}.
+\]</span></p>
+<ol type="1">
+<li><strong>Try substitution.</strong> <span class="math display">\[
+\frac{3^2-9}{3-3}=\frac{0}{0}.
+\]</span> This is indeterminate, so we do not stop.</li>
+<li><strong>Factor.</strong> <span class="math display">\[
+x^2-9=(x-3)(x+3).
+\]</span></li>
+<li><strong>Rewrite the expression.</strong> <span class="math display">\[
+\frac{x^2-9}{x-3}=\frac{(x-3)(x+3)}{x-3}.
+\]</span></li>
+<li><strong>Cancel the common factor for <span class="math inline">\(x\ne 3\)</span>.</strong> <span class="math display">\[
+\frac{(x-3)(x+3)}{x-3}=x+3.
+\]</span> We are allowed to use this simplified expression for nearby values, even though the original expression is undefined exactly at <span class="math inline">\(x=3\)</span>.</li>
+<li><strong>Substitute again.</strong> <span class="math display">\[
+3+3=6.
+\]</span></li>
+<li><strong>Interpret.</strong> The original function has a hole at <span class="math inline">\(x=3\)</span>, but nearby outputs approach 6.</li>
+</ol>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\lim_{x\to 3}\frac{x^2-9}{x-3}=6.
+\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Warning</span>Common mistake
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: a limit depends on nearby behavior, not necessarily the exact function value at the point.</p>
+<p>Do not cancel terms that are added or subtracted. You may cancel common <strong>factors</strong>. For example, in <span class="math inline">\(\frac{(x-3)(x+3)}{x-3}\)</span>, the factor <span class="math inline">\(x-3\)</span> is common. In <span class="math inline">\(\frac{x^2-9}{x-3}\)</span>, you must factor first.</p>
 </div>
 </div>
+</section>
+<section id="guided-exercise-another-factor-and-cancel-limit" class="level3">
+<h3 class="anchored" data-anchor-id="guided-exercise-another-factor-and-cancel-limit">Guided exercise: another factor-and-cancel limit</h3>
+<div class="practice-box">
+<p>Evaluate</p>
+<p><span class="math display">\[
+\lim_{x\to 2}\frac{x^2-5x+6}{x-2}.
+\]</span></p>
+<ol type="1">
+<li>What happens with direct substitution?</li>
+<li>Factor the numerator.</li>
+<li>Cancel the common factor.</li>
+<li>Substitute into the simplified expression.</li>
+</ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -915,16 +1197,700 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<span class="screen-reader-only">Tip</span>Guided solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: a limit is the value a function approaches as the input gets close to a chosen point.</p>
+<ol type="1">
+<li>Direct substitution gives <span class="math inline">\((4-10+6)/(0)=0/0\)</span>, so more work is needed.</li>
+<li><span class="math inline">\(x^2-5x+6=(x-2)(x-3)\)</span>.</li>
+<li>For <span class="math inline">\(x\ne 2\)</span>, <span class="math display">\[
+\frac{(x-2)(x-3)}{x-2}=x-3.
+\]</span></li>
+<li>Substitute <span class="math inline">\(x=2\)</span>: <span class="math inline">\(2-3=-1\)</span>.</li>
+</ol>
+<p>The limit is <span class="math inline">\(-1\)</span>.</p>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="radical-limits-rationalize" class="level2">
+<h2 class="anchored" data-anchor-id="radical-limits-rationalize">Radical limits: rationalize</h2>
+<p>Some <code>0/0</code> limits contain square roots. Multiplying by the conjugate can reveal a canceling factor.</p>
+<section id="walkthrough-rationalizing" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-rationalizing">Walkthrough: rationalizing</h3>
+<p>Evaluate</p>
+<p><span class="math display">\[
+\lim_{x\to 0}\frac{\sqrt{x+1}-1}{x}.
+\]</span></p>
+<ol type="1">
+<li><strong>Try substitution.</strong> <span class="math display">\[
+\frac{\sqrt{1}-1}{0}=\frac{0}{0}.
+\]</span></li>
+<li><strong>Multiply by the conjugate.</strong> <span class="math display">\[
+\frac{\sqrt{x+1}-1}{x}\cdot
+\frac{\sqrt{x+1}+1}{\sqrt{x+1}+1}.
+\]</span></li>
+<li><strong>Use difference of squares in the numerator.</strong> <span class="math display">\[
+(\sqrt{x+1}-1)(\sqrt{x+1}+1)=(x+1)-1=x.
+\]</span></li>
+<li><strong>Simplify.</strong> <span class="math display">\[
+\frac{x}{x(\sqrt{x+1}+1)}=\frac{1}{\sqrt{x+1}+1}.
+\]</span></li>
+<li><strong>Substitute.</strong> <span class="math display">\[
+\frac{1}{\sqrt{1}+1}=\frac12.
+\]</span></li>
+</ol>
+<p>So the limit is <span class="math inline">\(\frac12\)</span>.</p>
+</section>
+</section>
+<section id="one-sided-limits" class="level2">
+<h2 class="anchored" data-anchor-id="one-sided-limits">One-sided limits</h2>
+<p>A two-sided limit exists only when the left-hand and right-hand limits agree.</p>
+<section id="walkthrough-compare-sides" class="level3">
+<h3 class="anchored" data-anchor-id="walkthrough-compare-sides">Walkthrough: compare sides</h3>
+<p>Suppose a piecewise function has this behavior near <span class="math inline">\(x=1\)</span>:</p>
+<p><span class="math display">\[
+\lim_{x\to 1^-}f(x)=2,
+\qquad
+\lim_{x\to 1^+}f(x)=5.
+\]</span></p>
+<ol type="1">
+<li>The left-hand approach gives 2.</li>
+<li>The right-hand approach gives 5.</li>
+<li>These values do not match.</li>
+<li>Therefore the two-sided limit does not exist.</li>
+</ol>
+<p>If both one-sided limits were 2, then the two-sided limit would be 2.</p>
+</section>
+</section>
+<section id="infinite-limits-and-vertical-asymptotes" class="level2">
+<h2 class="anchored" data-anchor-id="infinite-limits-and-vertical-asymptotes">Infinite limits and vertical asymptotes</h2>
+<p>For <span class="math inline">\(f(x)=1/x\)</span> near <span class="math inline">\(x=0\)</span>:</p>
+<ul>
+<li>as <span class="math inline">\(x\to 0^+\)</span>, outputs grow positive without bound;</li>
+<li>as <span class="math inline">\(x\to 0^-\)</span>, outputs grow negative without bound.</li>
+</ul>
+<p>So the two-sided finite limit does not exist. The graph has a vertical asymptote at <span class="math inline">\(x=0\)</span>.</p>
+<p>For <span class="math inline">\(f(x)=1/x^2\)</span> near <span class="math inline">\(x=0\)</span>, both sides grow positive without bound. We often write</p>
+<p><span class="math display">\[
+\lim_{x\to 0}\frac1{x^2}=\infty,
+\]</span></p>
+<p>but this means the outputs grow without bound, not that infinity is an ordinary number.</p>
+</section>
+<section id="common-mistakes-and-repairs" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-repairs">Common mistakes and repairs</h2>
+<section id="mistake-1-stopping-at-00" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-1-stopping-at-00">Mistake 1: stopping at <code>0/0</code></h3>
+<p>Repair: say “direct substitution is inconclusive” and try factoring, rationalizing, or another method.</p>
+</section>
+<section id="mistake-2-confusing-fa-with-the-limit" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-2-confusing-fa-with-the-limit">Mistake 2: confusing <span class="math inline">\(f(a)\)</span> with the limit</h3>
+<p>Repair: remember that a hole can make <span class="math inline">\(f(a)\)</span> undefined while the limit still exists.</p>
+</section>
+<section id="mistake-3-ignoring-one-sided-behavior" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-3-ignoring-one-sided-behavior">Mistake 3: ignoring one-sided behavior</h3>
+<p>Repair: when a formula changes, a denominator becomes zero, or a graph jumps, check from the left and right separately.</p>
+</section>
+</section>
+<section id="mixed-practice" class="level2">
+<h2 class="anchored" data-anchor-id="mixed-practice">Mixed practice</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Evaluate <span class="math inline">\(\lim_{x\to 4}(x^2-2x)\)</span>.</li>
+<li>Evaluate <span class="math inline">\(\lim_{x\to 4}\frac{x^2-16}{x-4}\)</span>.</li>
+<li>Evaluate <span class="math inline">\(\lim_{x\to 0}\frac{\sqrt{x+9}-3}{x}\)</span>.</li>
+<li>If the left-hand limit is <code>-1</code> and the right-hand limit is <code>-1</code>, what is the two-sided limit?</li>
+<li>If the left-hand limit is <code>-1</code> and the right-hand limit is <code>1</code>, does the two-sided limit exist?</li>
+<li>Explain why <span class="math inline">\(\lim_{x\to 0}1/x\)</span> does not exist as a two-sided finite limit.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Direct substitution gives <span class="math inline">\(16-8=8\)</span>.</li>
+<li>Factor: <span class="math inline">\((x^2-16)/(x-4)=((x-4)(x+4))/(x-4)=x+4\)</span>, so the limit is 8.</li>
+<li>Multiply by the conjugate: <span class="math display">\[
+\frac{\sqrt{x+9}-3}{x}\cdot\frac{\sqrt{x+9}+3}{\sqrt{x+9}+3}
+=\frac{1}{\sqrt{x+9}+3}.
+\]</span> Substitute <span class="math inline">\(x=0\)</span> to get <span class="math inline">\(1/6\)</span>.</li>
+<li>The two-sided limit is <code>-1</code>.</li>
+<li>No.&nbsp;The one-sided limits disagree.</li>
+<li>From the right the outputs go to positive infinity; from the left they go to negative infinity.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="guessing-game-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "limits",
+  "title": "Limits checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-calculus-checkpoint" data-default-total="5">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "limits";
+    const BANKS = {
+      limits: [limitMethodQuestion, factorCancelQuestion, oneSidedQuestion, radicalQuestion, valueVsLimitQuestion],
+      derivatives: [averageRateQuestion, tangentSlopeQuestion, tangentLineStepQuestion, derivativeSignQuestion, differentiabilityQuestion],
+      "derivative-rules": [firstRuleQuestion, powerRuleQuestion, chainFactorQuestion, productRuleQuestion, quotientSignQuestion],
+      optimization: [candidateQuestion, signChartQuestion, endpointQuestion, secondDerivativeQuestion, objectiveQuestion],
+      integrals: [riemannHeightQuestion, antiderivativeQuestion, ftcQuestion, signedAreaQuestion, integralUnitsQuestion],
+      "integration-techniques": [techniqueQuestion, substitutionQuestion, substitutionBackQuestion, partsChoiceQuestion, numericalReasonQuestion],
+      "calculus-applications": [applicationToolQuestion, unitsQuestion, motionQuestion, marginalQuestion, relatedRatesQuestion],
+      "calculus-cumulative-review": [limitMethodQuestion, tangentSlopeQuestion, firstRuleQuestion, candidateQuestion, ftcQuestion, applicationToolQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-calculus-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-calculus-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Calculus checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 5))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 5));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function limitMethodQuestion() {
+      return question({
+        prompt: "What should you try first for this limit?",
+        stimulus: "lim as x→2 of (x²+3x)",
+        answer: "direct substitution",
+        distractors: ["product rule", "integration by parts", "endpoint comparison"],
+        explanation: "Continuous polynomials can be evaluated by substituting the approached value.",
+      });
+    }
+
+    function factorCancelQuestion() {
+      return question({
+        prompt: "After factoring, what is the limit?",
+        stimulus: "lim as x→3 of (x²-9)/(x-3)",
+        answer: "6",
+        distractors: ["0", "3", "does not exist"],
+        explanation: "Factor x²-9=(x-3)(x+3), cancel for x≠3, then substitute 3 into x+3.",
+      });
+    }
+
+    function oneSidedQuestion() {
+      return question({
+        prompt: "Does the two-sided limit exist?",
+        stimulus: "left-hand limit = 2; right-hand limit = 5",
+        answer: "no",
+        distractors: ["yes", "only if f(a)=2", "only if f(a)=5"],
+        explanation: "A two-sided limit exists only when the one-sided limits agree.",
+      });
+    }
+
+    function radicalQuestion() {
+      return question({
+        prompt: "What algebra move helps first?",
+        stimulus: "(sqrt(x+1)-1)/x as x→0",
+        answer: "multiply by the conjugate",
+        distractors: ["take a derivative", "compare endpoints", "use product rule"],
+        explanation: "The conjugate removes the radical difference and reveals a canceling factor.",
+      });
+    }
+
+    function valueVsLimitQuestion() {
+      return question({
+        prompt: "Can a limit exist when f(a) is undefined?",
+        stimulus: "hole in a graph",
+        answer: "yes",
+        distractors: ["no", "only for lines", "only when the answer is 0"],
+        explanation: "Limits depend on nearby behavior, not only the value at the point.",
+      });
+    }
+
+    function averageRateQuestion() {
+      return question({
+        prompt: "Find the average rate of change.",
+        stimulus: "f(x)=x² from x=1 to x=3",
+        answer: "4",
+        distractors: ["2", "6", "8"],
+        explanation: "Compute (f(3)-f(1))/(3-1)=(9-1)/2=4.",
+      });
+    }
+
+    function tangentSlopeQuestion() {
+      return question({
+        prompt: "What is the tangent slope?",
+        stimulus: "f(x)=x², x=3",
+        answer: "6",
+        distractors: ["3", "9", "12"],
+        explanation: "f'(x)=2x, so f'(3)=6.",
+      });
+    }
+
+    function tangentLineStepQuestion() {
+      return question({
+        prompt: "Which information do you need for a tangent line?",
+        stimulus: "point-slope form",
+        answer: "a point and a slope",
+        distractors: ["two endpoints only", "area and width", "upper and lower bounds"],
+        explanation: "Use (a,f(a)) and slope f'(a) in y-f(a)=f'(a)(x-a).",
+      });
+    }
+
+    function derivativeSignQuestion() {
+      return question({
+        prompt: "If f'(a)>0, what is happening locally?",
+        stimulus: "derivative sign",
+        answer: "the function is increasing",
+        distractors: ["the function is decreasing", "area is negative", "the limit fails"],
+        explanation: "A positive derivative means positive tangent slope.",
+      });
+    }
+
+    function differentiabilityQuestion() {
+      return question({
+        prompt: "Which feature can make a derivative fail?",
+        stimulus: "graph of |x| at x=0",
+        answer: "a sharp corner",
+        distractors: ["a horizontal tangent", "a positive slope", "a closed interval"],
+        explanation: "At a corner, left and right slopes do not match.",
+      });
+    }
+
+    function firstRuleQuestion() {
+      return question({
+        prompt: "Which rule comes first?",
+        stimulus: "d/dx [(x²+1)⁵]",
+        answer: "chain rule",
+        distractors: ["product rule", "quotient rule", "constant rule"],
+        explanation: "The outside fifth power is applied to the inside x²+1.",
+      });
+    }
+
+    function powerRuleQuestion() {
+      return question({
+        prompt: "Differentiate using the power rule.",
+        stimulus: "x⁶",
+        answer: "6x⁵",
+        distractors: ["x⁵", "5x⁶", "6x⁶"],
+        explanation: "Bring the exponent down and subtract 1 from the exponent.",
+      });
+    }
+
+    function chainFactorQuestion() {
+      return question({
+        prompt: "What factor is easy to forget?",
+        stimulus: "d/dx sin(x²)",
+        answer: "2x",
+        distractors: ["sin(x)", "x²", "1/2"],
+        explanation: "The chain rule multiplies by the derivative of the inside x².",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "Which structure triggers product rule?",
+        stimulus: "(x²+1)(x-4)",
+        answer: "two changing factors multiplied",
+        distractors: ["one expression divided by another", "a constant only", "a definite integral"],
+        explanation: "Both factors depend on x, so differentiate both using f'g+fg'.",
+      });
+    }
+
+    function quotientSignQuestion() {
+      return question({
+        prompt: "What denominator appears in the quotient rule?",
+        stimulus: "d/dx [f(x)/g(x)]",
+        answer: "g(x)²",
+        distractors: ["f(x)²", "f'(x)g'(x)", "g'(x)²"],
+        explanation: "The denominator is the square of the original denominator.",
+      });
+    }
+
+    function candidateQuestion() {
+      return question({
+        prompt: "Which candidate type must be checked on [a,b]?",
+        stimulus: "absolute max/min on a closed interval",
+        answer: "critical points and endpoints",
+        distractors: ["only critical points", "only endpoints", "only x-intercepts"],
+        explanation: "Absolute extrema can occur inside or at the boundary.",
+      });
+    }
+
+    function signChartQuestion() {
+      return question({
+        prompt: "Classify the critical point.",
+        stimulus: "f' changes from + to -",
+        answer: "local maximum",
+        distractors: ["local minimum", "no extremum", "vertical asymptote"],
+        explanation: "The function increases, then decreases.",
+      });
+    }
+
+    function endpointQuestion() {
+      return question({
+        prompt: "Why check endpoints?",
+        stimulus: "closed interval optimization",
+        answer: "the absolute best value may occur there",
+        distractors: ["derivatives never work", "endpoints are always maxima", "to remove units"],
+        explanation: "The derivative only finds interior candidates.",
+      });
+    }
+
+    function secondDerivativeQuestion() {
+      return question({
+        prompt: "What does f''(c)>0 suggest at a critical point?",
+        stimulus: "second derivative test",
+        answer: "local minimum",
+        distractors: ["local maximum", "no domain", "left-hand limit only"],
+        explanation: "Positive second derivative means concave up.",
+      });
+    }
+
+    function objectiveQuestion() {
+      return question({
+        prompt: "In a word problem, what is the objective?",
+        stimulus: "maximize area with fixed perimeter",
+        answer: "the quantity to maximize or minimize",
+        distractors: ["the derivative only", "the endpoint only", "the unit label only"],
+        explanation: "Optimization begins by naming the target quantity.",
+      });
+    }
+
+    function riemannHeightQuestion() {
+      return question({
+        prompt: "For midpoint rectangles, where is the height measured?",
+        stimulus: "Riemann sum",
+        answer: "at the midpoint of each subinterval",
+        distractors: ["only at the left endpoint", "only at x=0", "at the derivative"],
+        explanation: "Midpoint sums use f(midpoint) as each rectangle height.",
+      });
+    }
+
+    function antiderivativeQuestion() {
+      return question({
+        prompt: "Find an antiderivative.",
+        stimulus: "∫ 4x³ dx",
+        answer: "x⁴ + C",
+        distractors: ["12x²", "4x⁴ + C", "x³ + C"],
+        explanation: "Reverse the power rule: x⁴ differentiates to 4x³.",
+      });
+    }
+
+    function ftcQuestion() {
+      return question({
+        prompt: "Evaluate the definite integral.",
+        stimulus: "∫₀³ 2x dx",
+        answer: "9",
+        distractors: ["3", "6", "18"],
+        explanation: "An antiderivative is x², so compute 3²-0²=9.",
+      });
+    }
+
+    function signedAreaQuestion() {
+      return question({
+        prompt: "Area below the x-axis counts how in a signed integral?",
+        stimulus: "signed area",
+        answer: "negative",
+        distractors: ["positive", "ignored", "always zero"],
+        explanation: "Definite integrals add signed area, not just geometric area.",
+      });
+    }
+
+    function integralUnitsQuestion() {
+      return question({
+        prompt: "What are the units after integrating liters/minute over minutes?",
+        stimulus: "rate accumulation",
+        answer: "liters",
+        distractors: ["liters per minute", "minutes per liter", "liters squared"],
+        explanation: "Rate units times input units give accumulated units.",
+      });
+    }
+
+    function techniqueQuestion() {
+      return question({
+        prompt: "Which technique best fits?",
+        stimulus: "∫ 2x cos(x²) dx",
+        answer: "substitution",
+        distractors: ["integration by parts", "endpoint comparison", "quotient rule"],
+        explanation: "The inside x² has derivative 2x, which is present.",
+      });
+    }
+
+    function substitutionQuestion() {
+      return question({
+        prompt: "Choose u.",
+        stimulus: "∫ 3x² sin(x³) dx",
+        answer: "u = x³",
+        distractors: ["u = sin(x)", "u = 3x", "u = dx"],
+        explanation: "The derivative of x³ is 3x² dx, which appears.",
+      });
+    }
+
+    function substitutionBackQuestion() {
+      return question({
+        prompt: "What must you do after integrating in u for an indefinite integral?",
+        stimulus: "substitution workflow",
+        answer: "substitute back to x and add C",
+        distractors: ["drop the constant", "differentiate the bounds", "compare endpoints only"],
+        explanation: "The final antiderivative should be in the original variable.",
+      });
+    }
+
+    function partsChoiceQuestion() {
+      return question({
+        prompt: "For ∫ x eˣ dx, what is a good u?",
+        stimulus: "integration by parts",
+        answer: "u = x",
+        distractors: ["u = eˣ dx", "u = 0", "u = x eˣ"],
+        explanation: "x becomes simpler when differentiated; eˣ is easy to integrate.",
+      });
+    }
+
+    function numericalReasonQuestion() {
+      return question({
+        prompt: "When is numerical integration reasonable?",
+        stimulus: "data or hard antiderivative",
+        answer: "when an exact formula is hard or unnecessary",
+        distractors: ["only for constants", "never in applications", "only before learning derivatives"],
+        explanation: "Approximation is a useful tool when exact symbolic work is not the goal.",
+      });
+    }
+
+    function applicationToolQuestion() {
+      return question({
+        prompt: "Which tool finds marginal cost?",
+        stimulus: "marginal means local change",
+        answer: "derivative",
+        distractors: ["integral", "Riemann sum", "endpoint only"],
+        explanation: "Marginal quantities are instantaneous rates of change.",
+      });
+    }
+
+    function unitsQuestion() {
+      return question({
+        prompt: "If position is meters and time is seconds, velocity units are...",
+        stimulus: "s'(t)",
+        answer: "meters per second",
+        distractors: ["meters squared", "seconds per meter", "meters"],
+        explanation: "Derivative units are output units divided by input units.",
+      });
+    }
+
+    function motionQuestion() {
+      return question({
+        prompt: "What is ∫ v(t) dt over a time interval?",
+        stimulus: "velocity accumulation",
+        answer: "displacement",
+        distractors: ["acceleration", "instantaneous velocity", "slope of position only"],
+        explanation: "Integrating velocity accumulates signed change in position.",
+      });
+    }
+
+    function marginalQuestion() {
+      return question({
+        prompt: "What does C'(100) approximate?",
+        stimulus: "cost function C(x)",
+        answer: "cost of one more item near 100 items",
+        distractors: ["total cost of 100 items", "average cost exactly", "area under cost"],
+        explanation: "A derivative gives local change per additional item.",
+      });
+    }
+
+    function relatedRatesQuestion() {
+      return question({
+        prompt: "In related rates, when should you substitute numbers?",
+        stimulus: "differentiate an equation involving time",
+        answer: "after differentiating",
+        distractors: ["before differentiating", "never", "only after integrating"],
+        explanation: "Substituting too early can erase variables whose rates are needed.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `calculus-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use SymPy to check a limit after you have chosen a method by hand.</p>
+<div id="72c548df" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sp.limit((x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">9</span>)<span class="op">/</span>(x <span class="op">-</span> <span class="dv">3</span>), x, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
+<p><span class="math inline">\(\displaystyle 6\)</span></p>
+</div>
+</div>
+<div id="e3bbef08" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sp.limit((sp.sqrt(x <span class="op">+</span> <span class="dv">1</span>) <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> x, x, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle \frac{1}{2}\)</span></p>
+</div>
+</div>
+<div id="049b9c2b" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sp.limit(<span class="dv">1</span> <span class="op">/</span> x, x, <span class="dv">0</span>, <span class="bu">dir</span><span class="op">=</span><span class="st">"+"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sp.limit(<span class="dv">1</span> <span class="op">/</span> x, x, <span class="dv">0</span>, <span class="bu">dir</span><span class="op">=</span><span class="st">"-"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle -\infty\)</span></p>
+</div>
+</div>
+<div id="0b26edc4" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.calculus <span class="im">import</span> limit_factor_cancel_steps, validate_limit_answer</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> limit_factor_cancel_steps(<span class="st">"(x**2 - 9)/(x - 3)"</span>, <span class="dv">3</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(solution.answer)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(validate_limit_answer(<span class="dv">6</span>, <span class="st">"(x**2 - 9)/(x - 3)"</span>, <span class="dv">3</span>).message)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+Correct.</code></pre>
+</div>
+</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>Calculus Volume 1</em>, Limits: <a href="https://openstax.org/details/books/calculus-volume-1" class="uri">https://openstax.org/details/books/calculus-volume-1</a></li>
+<li>Paul’s Online Math Notes, Limits: <a href="https://tutorial.math.lamar.edu/Classes/CalcI/LimitsIntro.aspx" class="uri">https://tutorial.math.lamar.edu/Classes/CalcI/LimitsIntro.aspx</a></li>
+</ul>
 
 
 </section>
@@ -1350,8 +2316,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/trigonometry/sine-cosine.html" class="pagination-link" aria-label="Sine and Cosine">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sine and Cosine</span>
+      <a href="../../lessons/calculus/index.html" class="pagination-link" aria-label="Calculus Study Path">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Calculus Study Path</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

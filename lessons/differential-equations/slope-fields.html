@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Visualize differential equations without solving them exactly.">
+<meta name="description" content="Visualize and approximate differential equations without solving them exactly.">
 
 <title>Slope Fields – edu-math</title>
 <style>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/slope-fields.html">Slope Fields</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/index.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/slope-fields.html">Slope Fields</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -472,6 +501,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -480,6 +515,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -510,6 +563,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -563,6 +622,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -700,6 +765,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -739,6 +810,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -847,8 +924,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#what-a-slope-field-shows" id="toc-what-a-slope-field-shows" class="nav-link" data-scroll-target="#what-a-slope-field-shows">What a slope field shows</a></li>
+  <li><a href="#reading-a-slope-field" id="toc-reading-a-slope-field" class="nav-link" data-scroll-target="#reading-a-slope-field">Reading a slope field</a></li>
+  <li><a href="#equilibrium-solutions" id="toc-equilibrium-solutions" class="nav-link" data-scroll-target="#equilibrium-solutions">Equilibrium solutions</a></li>
+  <li><a href="#eulers-method" id="toc-eulers-method" class="nav-link" data-scroll-target="#eulers-method">Euler’s method</a></li>
+  <li><a href="#worked-example-one-euler-step" id="toc-worked-example-one-euler-step" class="nav-link" data-scroll-target="#worked-example-one-euler-step">Worked example: one Euler step</a></li>
+  <li><a href="#worked-example-long-term-behavior" id="toc-worked-example-long-term-behavior" class="nav-link" data-scroll-target="#worked-example-long-term-behavior">Worked example: long-term behavior</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#slope-field-checkpoint" id="toc-slope-field-checkpoint" class="nav-link" data-scroll-target="#slope-field-checkpoint">Slope-field checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/differential-equations/slope-fields.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -856,14 +942,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/slope-fields.html">Slope Fields</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/index.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/slope-fields.html">Slope Fields</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Slope Fields</h1>
 </div>
 
 <div>
   <div class="description">
-    Visualize differential equations without solving them exactly.
+    Visualize and approximate differential equations without solving them exactly.
   </div>
 </div>
 
@@ -880,84 +966,476 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Some differential equations are difficult to solve exactly. A slope field helps you understand the behavior of solutions anyway. It shows the slope predicted by the equation at many points.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Interpret a slope field.</li>
-<li>Use slopes to understand solution behavior.</li>
-<li>Approximate solutions numerically.</li>
+<li>interpret each segment in a slope field;</li>
+<li>sketch an approximate solution through an initial point;</li>
+<li>identify equilibrium solutions in autonomous equations;</li>
+<li>compute basic Euler-method steps;</li>
+<li>explain why smaller step sizes usually improve approximations;</li>
+<li>compare exact and numerical answers.</li>
 </ul>
 </section>
-<div id="3af22d3a" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.differential_equations.solvers <span class="im">import</span> euler_method</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>euler_method(<span class="kw">lambda</span> x, y: y, initial_x<span class="op">=</span><span class="dv">0</span>, initial_y<span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, steps<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>[(0, 1),
- (0.1, 1.1),
- (0.2, 1.2100000000000002),
- (0.30000000000000004, 1.3310000000000002),
- (0.4, 1.4641000000000002),
- (0.5, 1.61051)]</code></pre>
+<section id="what-a-slope-field-shows" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-slope-field-shows">What a slope field shows</h2>
+<p>For an equation</p>
+<pre class="text"><code>dy/dx = f(x,y)</code></pre>
+<p>choose a point <code>(x,y)</code>, compute <code>f(x,y)</code>, and draw a short segment with that slope. Repeat this at many points. The result is a slope field.</p>
+<div class="key-idea">
+<p>A solution curve should follow the local directions in the slope field, like a leaf floating along a stream.</p>
 </div>
+</section>
+<section id="reading-a-slope-field" class="level2">
+<h2 class="anchored" data-anchor-id="reading-a-slope-field">Reading a slope field</h2>
+<ul>
+<li>Horizontal segments mean <code>dy/dx = 0</code>.</li>
+<li>Positive slopes mean the solution is increasing as <code>x</code> increases.</li>
+<li>Negative slopes mean the solution is decreasing.</li>
+<li>Steeper segments mean faster change.</li>
+<li>In many well-behaved first-order ODEs, solution curves do not cross.</li>
+</ul>
+</section>
+<section id="equilibrium-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="equilibrium-solutions">Equilibrium solutions</h2>
+<p>For an autonomous equation</p>
+<pre class="text"><code>dy/dt = f(y)</code></pre>
+<p>an equilibrium occurs where <code>f(y)=0</code>. If a solution starts at that value, its rate of change is zero, so it stays there.</p>
+<p>Example:</p>
+<pre class="text"><code>dy/dt = y(1-y)</code></pre>
+<p>Equilibria occur when</p>
+<pre class="text"><code>y(1-y)=0</code></pre>
+<p>so <code>y=0</code> and <code>y=1</code>.</p>
+</section>
+<section id="eulers-method" class="level2">
+<h2 class="anchored" data-anchor-id="eulers-method">Euler’s method</h2>
+<p>Euler’s method is a simple numerical method. It says: use the current slope for one small step.</p>
+<div class="formula-box">
+<pre class="text"><code>x_{n+1} = x_n + h
+y_{n+1} = y_n + h f(x_n, y_n)</code></pre>
+<p>Here <code>h</code> is the step size.</p>
 </div>
+</section>
+<section id="worked-example-one-euler-step" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-one-euler-step">Worked example: one Euler step</h2>
+<p>Approximate the solution to</p>
+<pre class="text"><code>y' = y,     y(0)=2</code></pre>
+<p>using one step of size <code>h=0.5</code>.</p>
+<p>At the starting point, the slope is</p>
+<pre class="text"><code>f(0,2)=2</code></pre>
+<p>Update <code>x</code>:</p>
+<pre class="text"><code>x_1 = 0 + 0.5 = 0.5</code></pre>
+<p>Update <code>y</code>:</p>
+<pre class="text"><code>y_1 = 2 + 0.5(2) = 3</code></pre>
+<p>So the next Euler point is <code>(0.5, 3)</code>.</p>
+</section>
+<section id="worked-example-long-term-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-long-term-behavior">Worked example: long-term behavior</h2>
+<p>For</p>
+<pre class="text"><code>dy/dt = y(1-y)</code></pre>
+<ul>
+<li>if <code>0 &lt; y &lt; 1</code>, then <code>y(1-y)&gt;0</code>, so <code>y</code> increases;</li>
+<li>if <code>y &gt; 1</code>, then <code>1-y&lt;0</code>, so <code>y</code> decreases;</li>
+<li>if <code>y &lt; 0</code>, then <code>y&lt;0</code> and <code>1-y&gt;0</code>, so <code>y</code> decreases.</li>
+</ul>
+<p>The equilibrium <code>y=1</code> attracts nearby positive solutions. We call it stable. The equilibrium <code>y=0</code> pushes nearby solutions away. We call it unstable.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Thinking each small segment is a whole solution curve.</li>
+<li>Forgetting that Euler’s method updates both <code>x</code> and <code>y</code>.</li>
+<li>Using the new slope too early in basic Euler’s method.</li>
+<li>Believing smaller step size makes the method exact.</li>
+<li>Confusing an equilibrium value with an intercept on a graph.</li>
+</ul>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What does each small segment in a slope field show?</li>
-<li>How does Euler’s method use local slope?</li>
-<li>Why is a smaller step often more accurate?</li>
+<li><p>What does a horizontal segment in a slope field mean?</p></li>
+<li><p>Use one Euler step for <code>y'=2y</code>, <code>y(0)=1</code>, <code>h=0.25</code>.</p></li>
+<li><p>Find the equilibria of <code>dy/dt = y(4-y)</code>.</p></li>
+<li><p>For <code>dy/dt = y(4-y)</code>, is the solution increasing or decreasing when <code>y=5</code>?</p></li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the slope <code>dy/dx</code> predicted by the differential equation at that point.</p>
+<ol type="1">
+<li>The derivative is zero at that point.</li>
+<li>Slope is <code>2</code>; <code>x_1=0.25</code>; <code>y_1=1+0.25(2)=1.5</code>.</li>
+<li><code>y=0</code> and <code>y=4</code>.</li>
+<li>It is decreasing because <code>5(4-5)=-5</code> is negative.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="slope-field-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="slope-field-checkpoint">Slope-field checkpoint</h2>
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "slope-fields",
+  "title": "Slope-field and Euler checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-de-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "first-order-equations";
+    const BANKS = {
+      "first-order-equations": [odeMeaningQuestion, solutionQuestion, initialConditionQuestion],
+      "separable-equations": [separableClassQuestion, separationStepQuestion, constantQuestion],
+      "linear-equations": [linearFormQuestion, integratingFactorQuestion, productDerivativeQuestion],
+      "slope-fields": [slopeSegmentQuestion, eulerStepQuestion, equilibriumStabilityQuestion],
+      systems: [systemEquilibriumQuestion, couplingQuestion, phasePlaneQuestion],
+      "differential-equations-cumulative-review": [
+        odeMeaningQuestion,
+        separableClassQuestion,
+        integratingFactorQuestion,
+        eulerStepQuestion,
+        systemEquilibriumQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-de-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-de-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Differential equations checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function odeMeaningQuestion() {
+      return question({
+        prompt: "What does a first-order ODE usually describe?",
+        stimulus: "dy/dt = f(t, y)",
+        answer: "a rule for the rate of change",
+        distractors: ["only one number", "an area formula", "a matrix inverse"],
+        explanation: "The derivative tells how the unknown function changes.",
+      });
+    }
+
+    function solutionQuestion() {
+      return question({
+        prompt: "Which function solves y' = 2y?",
+        stimulus: "Differentiate each candidate mentally.",
+        answer: "Ce^(2x)",
+        distractors: ["2x + C", "C e^x", "x^2 + C"],
+        explanation: "The derivative of Ce^(2x) is 2Ce^(2x), which equals 2y.",
+      });
+    }
+
+    function initialConditionQuestion() {
+      return question({
+        prompt: "What does y(0)=5 do?",
+        stimulus: "Family: y = C e^x",
+        answer: "selects one solution curve",
+        distractors: ["changes the derivative rule", "removes x from the problem", "proves no solution exists"],
+        explanation: "The initial condition determines the constant C.",
+      });
+    }
+
+    function separableClassQuestion() {
+      return question({
+        prompt: "Is this equation separable?",
+        stimulus: "dy/dx = x y",
+        answer: "yes",
+        distractors: ["no", "only if x=0", "only after differentiating twice"],
+        explanation: "It can be written as (1/y) dy = x dx when y is not zero.",
+      });
+    }
+
+    function separationStepQuestion() {
+      return question({
+        prompt: "What is the separated form of y' = x y²?",
+        stimulus: "Move y terms with dy and x terms with dx.",
+        answer: "y^(-2) dy = x dx",
+        distractors: ["y² dy = x dx", "dy = x y² dx", "x dy = y² dx"],
+        explanation: "Divide both sides by y², then multiply by dx.",
+      });
+    }
+
+    function constantQuestion() {
+      return question({
+        prompt: "Why does +C appear after integrating?",
+        stimulus: "∫ y^(-1) dy = ∫ x dx",
+        answer: "indefinite integrals represent families",
+        distractors: ["C means cancel", "C is always zero", "C is the derivative"],
+        explanation: "One differential equation can have many solution curves.",
+      });
+    }
+
+    function linearFormQuestion() {
+      return question({
+        prompt: "Identify p(x) in y' + 3y = x.",
+        stimulus: "Standard form: y' + p(x)y = q(x)",
+        answer: "3",
+        distractors: ["x", "y", "1/3"],
+        explanation: "p(x) is the coefficient multiplying y in standard form.",
+      });
+    }
+
+    function integratingFactorQuestion() {
+      return question({
+        prompt: "What is the integrating factor for y' + 2y = x?",
+        stimulus: "mu(x) = e^(∫p(x)dx)",
+        answer: "e^(2x)",
+        distractors: ["e^x", "2e^x", "x²/2"],
+        explanation: "Here p(x)=2, so the integral is 2x.",
+      });
+    }
+
+    function productDerivativeQuestion() {
+      return question({
+        prompt: "After multiplying by mu, what should the left side become?",
+        stimulus: "linear ODE workflow",
+        answer: "the derivative of mu(x)y",
+        distractors: ["a second derivative", "zero", "a separated fraction"],
+        explanation: "That product derivative is why the integrating factor helps.",
+      });
+    }
+
+    function slopeSegmentQuestion() {
+      return question({
+        prompt: "What does one short segment in a slope field show?",
+        stimulus: "At a point (x,y)",
+        answer: "the local slope predicted by the ODE",
+        distractors: ["the final answer", "the x-intercept", "the area under a curve"],
+        explanation: "The segment visualizes dy/dx at that point.",
+      });
+    }
+
+    function eulerStepQuestion() {
+      return question({
+        prompt: "Use one Euler step for y'=y, y(0)=2, h=0.5. What is y1?",
+        stimulus: "y1 = y0 + h f(x0,y0)",
+        answer: "3",
+        distractors: ["2.5", "1", "4"],
+        explanation: "The current slope is 2, so y1 = 2 + 0.5·2 = 3.",
+      });
+    }
+
+    function equilibriumStabilityQuestion() {
+      return question({
+        prompt: "Which value is an equilibrium for y'=y(1-y)?",
+        stimulus: "Set the right-hand side equal to zero.",
+        answer: "1",
+        distractors: ["2", "-1", "1/2"],
+        explanation: "Both y=0 and y=1 are equilibria; 1 is one of them.",
+      });
+    }
+
+    function systemEquilibriumQuestion() {
+      return question({
+        prompt: "Find the equilibrium of x'=2-x, y'=3-y.",
+        stimulus: "Set both derivatives to zero.",
+        answer: "(2, 3)",
+        distractors: ["(0, 0)", "(-2, -3)", "(3, 2)"],
+        explanation: "Solving 2-x=0 and 3-y=0 gives (2,3).",
+      });
+    }
+
+    function couplingQuestion() {
+      return question({
+        prompt: "What does coupling mean in a system?",
+        stimulus: "x' may depend on y and y' may depend on x",
+        answer: "variables influence each other's rates",
+        distractors: ["variables are constant", "only one equation is used", "all derivatives are zero"],
+        explanation: "Coupled variables interact through the derivative rules.",
+      });
+    }
+
+    function phasePlaneQuestion() {
+      return question({
+        prompt: "In a phase plane, what does an arrow represent?",
+        stimulus: "State point (x,y)",
+        answer: "the velocity vector (x', y')",
+        distractors: ["only the value of y", "an antiderivative", "a probability"],
+        explanation: "The arrow shows how the state moves from that point.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return {
+        prompt,
+        stimulus,
+        answer,
+        explanation,
+        options: shuffle(unique([answer, ...distractors])).slice(0, 4),
+      };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `de-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> for Euler approximations.</p>
+<div id="69e9a604" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.differential_equations <span class="im">import</span> euler_method</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>euler_method(<span class="kw">lambda</span> x, y: y, initial_x<span class="op">=</span><span class="dv">0</span>, initial_y<span class="op">=</span><span class="dv">2</span>, step<span class="op">=</span><span class="fl">0.5</span>, steps<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>[(0, 2), (0.5, 3.0), (1.0, 4.5), (1.5, 6.75)]</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: it moves a short distance in the direction suggested by the current slope, then repeats from the new point.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: a smaller step updates the slope more frequently, reducing the error from pretending the slope stays constant for too long.</p>
+<p>Use SymPy for an exact comparison when an exact solution exists.</p>
+<div id="c2e170a6" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Function(<span class="st">"y"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>sp.dsolve(sp.Eq(sp.diff(y(x), x), y(x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle y{\left(x \right)} = C_{1} e^{x}\)</span></p>
 </div>
 </div>
-</div>
+<p>The exact solution of <code>y'=y</code> is exponential. Euler’s method approximates that curve with small straight-line steps.</p>
 
 
 </section>

@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,6 +113,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -296,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/logic.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/induction.html">Induction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/index.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/induction.html">Induction</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +501,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +515,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +563,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -528,6 +622,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +765,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +810,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,8 +924,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#domino-intuition" id="toc-domino-intuition" class="nav-link" data-scroll-target="#domino-intuition">Domino intuition</a></li>
+  <li><a href="#base-case" id="toc-base-case" class="nav-link" data-scroll-target="#base-case">Base case</a></li>
+  <li><a href="#induction-hypothesis" id="toc-induction-hypothesis" class="nav-link" data-scroll-target="#induction-hypothesis">Induction hypothesis</a></li>
+  <li><a href="#induction-step" id="toc-induction-step" class="nav-link" data-scroll-target="#induction-step">Induction step</a></li>
+  <li><a href="#worked-example-1-sum-formula" id="toc-worked-example-1-sum-formula" class="nav-link" data-scroll-target="#worked-example-1-sum-formula">Worked example 1: sum formula</a></li>
+  <li><a href="#worked-example-2-divisibility" id="toc-worked-example-2-divisibility" class="nav-link" data-scroll-target="#worked-example-2-divisibility">Worked example 2: divisibility</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#induction-checkpoint" id="toc-induction-checkpoint" class="nav-link" data-scroll-target="#induction-checkpoint">Induction checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/discrete-math/induction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -821,7 +942,7 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/logic.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/induction.html">Induction</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/index.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/induction.html">Induction</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Induction</h1>
 </div>
@@ -845,70 +966,501 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Mathematical induction is a proof technique for statements numbered by integers: <code>P(1)</code>, <code>P(2)</code>, <code>P(3)</code>, and so on. It lets us prove infinitely many statements with a finite argument.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Understand base case and induction step.</li>
-<li>Interpret induction as a chain of implications.</li>
-<li>Recognize proof structure.</li>
+<li>identify the statement <code>P(n)</code>;</li>
+<li>prove a base case;</li>
+<li>state the induction hypothesis;</li>
+<li>prove the induction step;</li>
+<li>explain the domino-chain intuition;</li>
+<li>avoid common proof gaps.</li>
 </ul>
 </section>
-<p>Induction proves infinitely many statements by proving the first one and then proving each statement implies the next.</p>
-<div class="practice-box">
+<section id="domino-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="domino-intuition">Domino intuition</h2>
+<p>Imagine infinitely many dominoes in a line.</p>
 <ol type="1">
-<li>What is a base case?</li>
-<li>What is the induction hypothesis?</li>
-<li>Why does the induction step matter?</li>
+<li>The base case knocks over the first domino.</li>
+<li>The induction step proves that whenever one domino falls, the next one falls.</li>
+</ol>
+<p>Together, these prove that every domino falls.</p>
+<div class="formula-box">
+<p>A basic induction proof has this structure:</p>
+<ol type="1">
+<li>Prove <code>P(1)</code> or another starting case.</li>
+<li>Assume <code>P(k)</code> for an arbitrary integer <code>k</code> in the range.</li>
+<li>Use that assumption to prove <code>P(k+1)</code>.</li>
+<li>Conclude <code>P(n)</code> is true for all integers in the range.</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+</section>
+<section id="base-case" class="level2">
+<h2 class="anchored" data-anchor-id="base-case">Base case</h2>
+<p>The base case proves the first statement directly. If the theorem starts at <code>n=1</code>, prove <code>P(1)</code>. If it starts at <code>n=0</code>, prove <code>P(0)</code>.</p>
+</section>
+<section id="induction-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="induction-hypothesis">Induction hypothesis</h2>
+<p>The induction hypothesis is the temporary assumption that <code>P(k)</code> is true. You do not assume the final result for every <code>n</code>. You assume one arbitrary case so you can prove the next case.</p>
+</section>
+<section id="induction-step" class="level2">
+<h2 class="anchored" data-anchor-id="induction-step">Induction step</h2>
+<p>The induction step proves</p>
+<pre class="text"><code>P(k) -&gt; P(k+1)</code></pre>
+<p>This is the part that makes the chain continue.</p>
+</section>
+<section id="worked-example-1-sum-formula" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-sum-formula">Worked example 1: sum formula</h2>
+<p>Prove</p>
+<pre class="text"><code>1 + 2 + ... + n = n(n+1)/2</code></pre>
+<p>for all positive integers <code>n</code>.</p>
+<p><strong>Base case:</strong> when <code>n=1</code>, the left side is <code>1</code> and the right side is <code>1(2)/2 = 1</code>. The base case is true.</p>
+<p><strong>Induction hypothesis:</strong> assume for some <code>k &gt;= 1</code> that</p>
+<pre class="text"><code>1 + 2 + ... + k = k(k+1)/2</code></pre>
+<p><strong>Induction step:</strong> prove the formula for <code>k+1</code>.</p>
+<pre class="text"><code>1 + 2 + ... + k + (k+1)
+= k(k+1)/2 + (k+1)
+= (k+1)(k/2 + 1)
+= (k+1)(k+2)/2</code></pre>
+<p>That is exactly the formula with <code>n=k+1</code>. Therefore the statement is true for all positive integers.</p>
+</section>
+<section id="worked-example-2-divisibility" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-divisibility">Worked example 2: divisibility</h2>
+<p>Prove that <code>3</code> divides <code>4^n - 1</code> for all <code>n &gt;= 1</code>.</p>
+<p>Base case: when <code>n=1</code>, <code>4^1 - 1 = 3</code>, which is divisible by <code>3</code>.</p>
+<p>Induction hypothesis: assume <code>4^k - 1</code> is divisible by <code>3</code>. That means <code>4^k - 1 = 3m</code> for some integer <code>m</code>.</p>
+<p>Induction step:</p>
+<pre class="text"><code>4^(k+1) - 1 = 4*4^k - 1
+            = 4(4^k - 1) + 3
+            = 4(3m) + 3
+            = 3(4m + 1)</code></pre>
+<p>So <code>4^(k+1)-1</code> is divisible by <code>3</code>.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Checking examples and calling it a proof.</li>
+<li>Forgetting the base case.</li>
+<li>Assuming <code>P(k+1)</code> instead of proving it.</li>
+<li>Not using the induction hypothesis.</li>
+<li>Confusing <code>k</code> and <code>k+1</code>.</li>
+<li>Writing algebra without explaining the proof structure.</li>
+</ul>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<div class="practice-box">
+<ol type="1">
+<li>What is the base case for a theorem beginning “for all <code>n &gt;= 0</code>”?</li>
+<li>In an induction proof, what do you assume temporarily?</li>
+<li>What must the induction step prove?</li>
+<li>For the sum formula above, where was the induction hypothesis used?</li>
+<li>Why are examples alone not enough for a proof about all integers?</li>
+</ol>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the first case proved directly, often <code>n = 1</code> or <code>n = 0</code>.</p>
+<ol type="1">
+<li>Usually <code>n=0</code>.</li>
+<li>Assume <code>P(k)</code> for an arbitrary <code>k</code> in the allowed range.</li>
+<li>It must prove <code>P(k+1)</code> from <code>P(k)</code>.</li>
+<li>In replacing <code>1+2+...+k</code> with <code>k(k+1)/2</code>.</li>
+<li>Examples check only finitely many cases; the theorem claims infinitely many.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="induction-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="induction-checkpoint">Induction checkpoint</h2>
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "induction",
+  "title": "Induction checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-discrete-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "logic";
+    const BANKS = {
+      logic: [implicationFalseQuestion, connectiveQuestion, contrapositiveQuestion],
+      sets: [unionQuestion, intersectionQuestion, subsetQuestion],
+      "functions-relations": [functionQuestion, domainQuestion, relationPropertyQuestion],
+      sequences: [arithmeticQuestion, geometricQuestion, recursiveQuestion],
+      induction: [baseCaseQuestion, hypothesisQuestion, inductionStepQuestion],
+      graphs: [degreeQuestion, pathQuestion, connectedQuestion],
+      "discrete-math-cumulative-review": [
+        implicationFalseQuestion,
+        unionQuestion,
+        functionQuestion,
+        arithmeticQuestion,
+        hypothesisQuestion,
+        degreeQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-discrete-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-discrete-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Discrete mathematics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function implicationFalseQuestion() {
+      return question({
+        prompt: "When is p -> q false?",
+        stimulus: "implication",
+        answer: "p true, q false",
+        distractors: ["p false, q false", "p false, q true", "p true, q true"],
+        explanation: "An implication fails only when the promise starts but the conclusion fails.",
+      });
+    }
+
+    function connectiveQuestion() {
+      return question({
+        prompt: "What is true OR false in inclusive mathematical logic?",
+        stimulus: "p ∨ q",
+        answer: "true",
+        distractors: ["false", "undefined", "not a proposition"],
+        explanation: "Inclusive or is true when at least one part is true.",
+      });
+    }
+
+    function contrapositiveQuestion() {
+      return question({
+        prompt: "Which statement is the contrapositive of p -> q?",
+        stimulus: "p -> q",
+        answer: "not q -> not p",
+        distractors: ["q -> p", "not p -> not q", "p and q"],
+        explanation: "The contrapositive reverses direction and negates both parts.",
+      });
+    }
+
+    function unionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A union B?",
+        stimulus: "A ∪ B",
+        answer: "{1,2,3,4}",
+        distractors: ["{3}", "{1,2}", "{4}"],
+        explanation: "The union contains elements in A, in B, or in both.",
+      });
+    }
+
+    function intersectionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A intersection B?",
+        stimulus: "A ∩ B",
+        answer: "{3}",
+        distractors: ["{1,2,3,4}", "{1,2}", "{}"],
+        explanation: "The intersection contains only elements shared by both sets.",
+      });
+    }
+
+    function subsetQuestion() {
+      return question({
+        prompt: "Is {2,3} a subset of {1,2,3,4}?",
+        stimulus: "subset check",
+        answer: "yes",
+        distractors: ["no", "only if order matches", "only if both sets have same size"],
+        explanation: "Every element of {2,3} appears in the larger set.",
+      });
+    }
+
+    function functionQuestion() {
+      return question({
+        prompt: "Is {(1,2), (1,3), (2,4)} a function?",
+        stimulus: "function test",
+        answer: "no",
+        distractors: ["yes", "only if 2=3", "not enough information"],
+        explanation: "Input 1 has two different outputs.",
+      });
+    }
+
+    function domainQuestion() {
+      return question({
+        prompt: "What is the domain of {(1,a), (2,b), (4,b)}?",
+        stimulus: "first coordinates",
+        answer: "{1,2,4}",
+        distractors: ["{a,b}", "{1,2,4,a,b}", "{b}"],
+        explanation: "The domain is the set of first coordinates.",
+      });
+    }
+
+    function relationPropertyQuestion() {
+      return question({
+        prompt: "What property says that aRa for every a?",
+        stimulus: "relation property",
+        answer: "reflexive",
+        distractors: ["symmetric", "transitive", "antisymmetric"],
+        explanation: "Reflexive means every element relates to itself.",
+      });
+    }
+
+    function arithmeticQuestion() {
+      return question({
+        prompt: "Find the next term: 2, 5, 8, 11, ...",
+        stimulus: "sequence",
+        answer: "14",
+        distractors: ["13", "16", "22"],
+        explanation: "The sequence adds 3 each time.",
+      });
+    }
+
+    function geometricQuestion() {
+      return question({
+        prompt: "Find the next term: 3, 6, 12, 24, ...",
+        stimulus: "sequence",
+        answer: "48",
+        distractors: ["30", "36", "27"],
+        explanation: "The sequence multiplies by 2 each time.",
+      });
+    }
+
+    function recursiveQuestion() {
+      return question({
+        prompt: "If a1=4 and a(n+1)=a(n)+5, what is a2?",
+        stimulus: "recurrence",
+        answer: "9",
+        distractors: ["5", "20", "4"],
+        explanation: "Use the rule once: 4+5=9.",
+      });
+    }
+
+    function baseCaseQuestion() {
+      return question({
+        prompt: "What does the base case prove?",
+        stimulus: "induction",
+        answer: "the first case",
+        distractors: ["the converse", "the graph degree", "all cases by itself"],
+        explanation: "The base case starts the chain of implications.",
+      });
+    }
+
+    function hypothesisQuestion() {
+      return question({
+        prompt: "In the induction step, what do you assume temporarily?",
+        stimulus: "prove P(k+1)",
+        answer: "P(k)",
+        distractors: ["P(k+1)", "P(0) is false", "nothing"],
+        explanation: "The induction hypothesis assumes P(k) so you can prove P(k+1).",
+      });
+    }
+
+    function inductionStepQuestion() {
+      return question({
+        prompt: "What does the induction step prove?",
+        stimulus: "P(k) -> P(k+1)",
+        answer: "truth passes to the next case",
+        distractors: ["only one example", "the statement is false", "the domain is empty"],
+        explanation: "It creates the chain from one integer to the next.",
+      });
+    }
+
+    function degreeQuestion() {
+      return question({
+        prompt: "Edges are AB, AC, BC, CD. What is degree(C)?",
+        stimulus: "graph degree",
+        answer: "3",
+        distractors: ["1", "2", "4"],
+        explanation: "C is incident to AC, BC, and CD.",
+      });
+    }
+
+    function pathQuestion() {
+      return question({
+        prompt: "Can a path repeat a vertex?",
+        stimulus: "path definition",
+        answer: "no",
+        distractors: ["yes", "only in directed graphs", "only if it is isolated"],
+        explanation: "A path has no repeated vertices in the introductory definition.",
+      });
+    }
+
+    function connectedQuestion() {
+      return question({
+        prompt: "What does connected mean for an undirected graph?",
+        stimulus: "connectedness",
+        answer: "every vertex can be reached from every other",
+        distractors: ["every degree is zero", "there are no edges", "all edges point right"],
+        explanation: "Connectedness is about reachability.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, explanation, options: shuffle(unique([answer, ...distractors])).slice(0, 4) };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `discrete-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use SymPy to check algebra in an induction step.</p>
+<div id="9e6907ee" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> sp.Symbol(<span class="st">"k"</span>, positive<span class="op">=</span><span class="va">True</span>, integer<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> k<span class="op">*</span>(k <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> (k <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> (k <span class="op">+</span> <span class="dv">1</span>)<span class="op">*</span>(k <span class="op">+</span> <span class="dv">2</span>)<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sp.simplify(left <span class="op">-</span> right)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
+<p><span class="math inline">\(\displaystyle 0\)</span></p>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: the temporary assumption that the statement is true for some arbitrary case <code>n = k</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: it proves that truth passes from one case to the next, creating the chain that covers all later cases.</p>
-</div>
+<p>A result of <code>0</code> confirms that the algebraic expressions match. It does not replace the proof structure.</p>
+<div id="60677bba" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> induction_step_exercise</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> induction_step_exercise()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>exercise.prompt, exercise.expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>('What is the main structure of the induction step?',
+ 'assume p(k), prove p(k+1)')</code></pre>
 </div>
 </div>
 

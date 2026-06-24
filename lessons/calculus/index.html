@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A guided path through limits, derivatives, integrals, and applications.">
+
+<title>Calculus Study Path – edu-math</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../lessons/calculus/limits.html" rel="next">
+<link href="../../lessons/trigonometry/sine-cosine.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">edu-math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../installation.html"> 
+<span class="menu-text">Install</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../api.html"> 
+<span class="menu-text">API</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lessons/index.html"> 
+<span class="menu-text">Study Path</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/osl-incubator/edu-math"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus Study Path</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">edu-math</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">API reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lessons</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantitative Mathematics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Control Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NumPy and Arrays</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plotting With Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expressions and Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inequalities and Absolute Value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformations, Composition, and Inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear and Quadratic Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponentials and Logarithms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Trigonometry</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Calculus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivatives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivative Rules</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integration Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Applications</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix Operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems and Elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Probability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample Spaces and Events</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/counting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Counting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conditional Probability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expectation and Variance</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptive Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypothesis Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Differential Equations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First-Order Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Separable Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slope Fields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems of Differential Equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Discrete Mathematics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Relations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Induction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Review</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagnostic Quiz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mixed Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mock Test</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Colab</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using edu-math in Google Colab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../changelog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-this-path-prepares-you-to-do" id="toc-what-this-path-prepares-you-to-do" class="nav-link active" data-scroll-target="#what-this-path-prepares-you-to-do">What this path prepares you to do</a></li>
+  <li><a href="#what-calculus-is-really-about" id="toc-what-calculus-is-really-about" class="nav-link" data-scroll-target="#what-calculus-is-really-about">What calculus is really about</a>
+  <ul class="collapse">
+  <li><a href="#big-picture" id="toc-big-picture" class="nav-link" data-scroll-target="#big-picture">Big picture</a></li>
+  </ul></li>
+  <li><a href="#the-core-problem-solving-loop" id="toc-the-core-problem-solving-loop" class="nav-link" data-scroll-target="#the-core-problem-solving-loop">The core problem-solving loop</a></li>
+  <li><a href="#calculus-tool-map" id="toc-calculus-tool-map" class="nav-link" data-scroll-target="#calculus-tool-map">Calculus tool map</a>
+  <ul class="collapse">
+  <li><a href="#guided-exercise-choose-the-tool" id="toc-guided-exercise-choose-the-tool" class="nav-link" data-scroll-target="#guided-exercise-choose-the-tool">Guided exercise: choose the tool</a></li>
+  </ul></li>
+  <li><a href="#readiness-checklist-with-mini-solutions" id="toc-readiness-checklist-with-mini-solutions" class="nav-link" data-scroll-target="#readiness-checklist-with-mini-solutions">Readiness checklist with mini-solutions</a></li>
+  <li><a href="#how-to-study-each-lesson" id="toc-how-to-study-each-lesson" class="nav-link" data-scroll-target="#how-to-study-each-lesson">How to study each lesson</a></li>
+  <li><a href="#how-to-use-sympy-responsibly" id="toc-how-to-use-sympy-responsibly" class="nav-link" data-scroll-target="#how-to-use-sympy-responsibly">How to use SymPy responsibly</a></li>
+  <li><a href="#calculus-diagnostic-checkpoint" id="toc-calculus-diagnostic-checkpoint" class="nav-link" data-scroll-target="#calculus-diagnostic-checkpoint">Calculus diagnostic checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/calculus/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus</a></li><li class="breadcrumb-item"><a href="../../lessons/calculus/index.html">Calculus Study Path</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Calculus Study Path</h1>
+</div>
+
+<div>
+  <div class="description">
+    A guided path through limits, derivatives, integrals, and applications.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Calculus is the mathematics of <strong>change</strong>, <strong>accumulation</strong>, and <strong>approximation</strong>. Algebra helps us describe a quantity with a formula. Calculus asks deeper questions:</p>
+<ul>
+<li>What value is a function approaching nearby?</li>
+<li>How fast is something changing right now?</li>
+<li>Where is a quantity largest or smallest?</li>
+<li>How much total change builds up over an interval?</li>
+</ul>
+<p>This path is written for learners who need a slow, reliable route into calculus. The goal is not to memorize isolated formulas. The goal is to learn a repeatable way to read a problem, choose a tool, solve step by step, check the result, and interpret the answer.</p>
+<section id="what-this-path-prepares-you-to-do" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="what-this-path-prepares-you-to-do">What this path prepares you to do</h3>
+<p>By the end of this path, you should be able to:</p>
+<ul>
+<li>explain limits as nearby behavior;</li>
+<li>interpret derivatives as instantaneous rates of change;</li>
+<li>choose and apply common derivative rules;</li>
+<li>use derivatives to solve optimization problems;</li>
+<li>interpret integrals as accumulated change and signed area;</li>
+<li>choose basic integration techniques;</li>
+<li>decide whether an application needs a derivative, an integral, an optimization workflow, or a limit;</li>
+<li>use <code>edumath</code> and SymPy to check computations responsibly.</li>
+</ul>
+</section>
+<section id="what-calculus-is-really-about" class="level2">
+<h2 class="anchored" data-anchor-id="what-calculus-is-really-about">What calculus is really about</h2>
+<p>Many calculus problems are variations of one idea: <strong>small local information can explain larger behavior</strong>.</p>
+<ul>
+<li>A derivative describes local change at one input.</li>
+<li>An integral adds many small pieces into a total.</li>
+<li>A limit describes what happens as inputs get arbitrarily close to a value.</li>
+<li>Optimization uses derivatives to find where a function changes from increasing to decreasing or decreasing to increasing.</li>
+</ul>
+<section id="big-picture" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="big-picture">Big picture</h3>
+<p>A derivative turns a quantity into its rate of change. An integral turns a rate of change into accumulated change. A limit makes both ideas precise.</p>
+</section>
+</section>
+<section id="the-core-problem-solving-loop" class="level2">
+<h2 class="anchored" data-anchor-id="the-core-problem-solving-loop">The core problem-solving loop</h2>
+<p>Use this loop for almost every calculus problem.</p>
+<ol type="1">
+<li><strong>Read the problem.</strong> What is given? What is being asked? Are there units, bounds, graphs, or constraints?</li>
+<li><strong>Classify the task.</strong> Is this a nearby-value problem, rate problem, best value problem, accumulated-total problem, or reverse-derivative problem?</li>
+<li><strong>Choose a strategy.</strong> Pick a method because of the structure, not because it was the last formula you saw.</li>
+<li><strong>Solve step by step.</strong> Write each algebra and calculus move. Do not jump straight to the answer.</li>
+<li><strong>Check.</strong> Substitute, differentiate, estimate, compare endpoints, inspect units, or verify with SymPy.</li>
+<li><strong>Interpret.</strong> Write a final sentence in the context of the problem.</li>
+</ol>
+</section>
+<section id="calculus-tool-map" class="level2">
+<h2 class="anchored" data-anchor-id="calculus-tool-map">Calculus tool map</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>If the problem asks for…</th>
+<th>Think…</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nearby value or behavior at a hole</td>
+<td>approach</td>
+<td>limit</td>
+</tr>
+<tr class="even">
+<td>instantaneous rate, tangent slope, marginal change</td>
+<td>slope now</td>
+<td>derivative</td>
+</tr>
+<tr class="odd">
+<td>largest, smallest, maximum, minimum, best</td>
+<td>candidates</td>
+<td>optimization</td>
+</tr>
+<tr class="even">
+<td>total change, area, accumulated amount</td>
+<td>adding pieces</td>
+<td>definite integral</td>
+</tr>
+<tr class="odd">
+<td>a function whose derivative is known</td>
+<td>reverse derivative</td>
+<td>antiderivative</td>
+</tr>
+<tr class="even">
+<td>a rate related to another changing rate</td>
+<td>differentiate a relationship</td>
+<td>related rates</td>
+</tr>
+</tbody>
+</table>
+<section id="guided-exercise-choose-the-tool" class="level3">
+<h3 class="anchored" data-anchor-id="guided-exercise-choose-the-tool">Guided exercise: choose the tool</h3>
+<p>Classify each prompt before opening the solution.</p>
+<div class="practice-box">
+<ol type="1">
+<li>Find the value approached by <code>(x^2 - 9)/(x - 3)</code> as <code>x -&gt; 3</code>.</li>
+<li>Find the slope of <code>f(x)=x^2</code> at <code>x=4</code>.</li>
+<li>Find the maximum revenue for <code>R(x)=-x^2+10x</code>.</li>
+<li>Find the displacement from velocity <code>v(t)=3t^2</code> on <code>[0,2]</code>.</li>
+<li>Find a function whose derivative is <code>6x</code>.</li>
+<li>A square’s side length is growing. Find how fast its area changes.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Guided solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Limit.</strong> The phrase “as <code>x -&gt; 3</code>” asks about nearby behavior.</li>
+<li><strong>Derivative.</strong> Slope at one point is instantaneous rate.</li>
+<li><strong>Optimization.</strong> Maximum means best-value workflow.</li>
+<li><strong>Definite integral.</strong> Displacement accumulates velocity over time.</li>
+<li><strong>Antiderivative.</strong> We are reversing differentiation.</li>
+<li><strong>Related rates.</strong> Two quantities change with respect to time and are related by an equation.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="readiness-checklist-with-mini-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="readiness-checklist-with-mini-solutions">Readiness checklist with mini-solutions</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Find the slope between <code>(1,3)</code> and <code>(4,9)</code>.</li>
+<li>Factor <code>x^2 - 5x + 6</code>.</li>
+<li>Explain what <code>f(2)</code> means.</li>
+<li>If a graph rises from left to right, is it increasing or decreasing?</li>
+<li>Find the area of a rectangle with height <code>3</code> and width <code>5</code>.</li>
+<li>Explain the difference between a rate and a total.</li>
+<li>Solve <code>2^x = 10</code> using logarithms.</li>
+<li>If cost is dollars and production is items, what are marginal cost units?</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Mini-solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Slope is <code>(9-3)/(4-1)=6/3=2</code>.</li>
+<li><code>x^2 - 5x + 6 = (x-2)(x-3)</code>.</li>
+<li><code>f(2)</code> is the output of the function when the input is 2.</li>
+<li>Increasing.</li>
+<li>Area is <code>3*5=15</code> square units.</li>
+<li>A rate is change per input unit; a total is accumulated amount.</li>
+<li><code>x = log(10)/log(2)</code>.</li>
+<li>Dollars per item.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-study-each-lesson" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-study-each-lesson">How to study each lesson</h2>
+<p>For every worked example, pause and ask:</p>
+<ul>
+<li>What type of problem is this?</li>
+<li>What feature told me which method to use?</li>
+<li>Which algebra step made the expression easier?</li>
+<li>How could I check this answer without trusting memory?</li>
+<li>What does the final answer mean in words?</li>
+</ul>
+<p>A strong study routine is:</p>
+<ol type="1">
+<li>read the example once for the story;</li>
+<li>copy the solution by hand;</li>
+<li>close the solution and redo it;</li>
+<li>change one number and try a similar problem;</li>
+<li>check with SymPy or <code>edumath</code> only after trying.</li>
+</ol>
+</section>
+<section id="how-to-use-sympy-responsibly" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-sympy-responsibly">How to use SymPy responsibly</h2>
+<p>SymPy is a powerful symbolic mathematics library. It can compute many calculus answers exactly. Use it as a calculator, checker, and exploration tool, not as a replacement for reasoning.</p>
+<p>Good workflow:</p>
+<ol type="1">
+<li>Solve a small problem by hand.</li>
+<li>Use SymPy to compute the answer.</li>
+<li>Compare forms. For example, <code>2*x*(x^2+1)^2</code> and <code>2*x^5+4*x^3+2*x</code> may be equivalent after expansion.</li>
+<li>Write a sentence explaining the result.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common technology mistake
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A correct SymPy output is not yet a complete calculus answer. You still need to state what it means: a slope, a total amount, a maximum value, a probability, or another context-specific quantity.</p>
+</div>
+</div>
+</section>
+<section id="calculus-diagnostic-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="calculus-diagnostic-checkpoint">Calculus diagnostic checkpoint</h2>
+<p>Use this checkpoint to practice tool selection and core ideas before starting or after finishing the path.</p>
+<script type="application/json" class="edu-math-calculus-checkpoint-config">
+{
+  "topic": "calculus-cumulative-review",
+  "title": "Calculus readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+<div class="quiz-shell edu-math-calculus-checkpoint" data-default-total="5">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "limits";
+    const BANKS = {
+      limits: [limitMethodQuestion, factorCancelQuestion, oneSidedQuestion, radicalQuestion, valueVsLimitQuestion],
+      derivatives: [averageRateQuestion, tangentSlopeQuestion, tangentLineStepQuestion, derivativeSignQuestion, differentiabilityQuestion],
+      "derivative-rules": [firstRuleQuestion, powerRuleQuestion, chainFactorQuestion, productRuleQuestion, quotientSignQuestion],
+      optimization: [candidateQuestion, signChartQuestion, endpointQuestion, secondDerivativeQuestion, objectiveQuestion],
+      integrals: [riemannHeightQuestion, antiderivativeQuestion, ftcQuestion, signedAreaQuestion, integralUnitsQuestion],
+      "integration-techniques": [techniqueQuestion, substitutionQuestion, substitutionBackQuestion, partsChoiceQuestion, numericalReasonQuestion],
+      "calculus-applications": [applicationToolQuestion, unitsQuestion, motionQuestion, marginalQuestion, relatedRatesQuestion],
+      "calculus-cumulative-review": [limitMethodQuestion, tangentSlopeQuestion, firstRuleQuestion, candidateQuestion, ftcQuestion, applicationToolQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-calculus-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-calculus-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Calculus checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 5))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 5));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function limitMethodQuestion() {
+      return question({
+        prompt: "What should you try first for this limit?",
+        stimulus: "lim as x→2 of (x²+3x)",
+        answer: "direct substitution",
+        distractors: ["product rule", "integration by parts", "endpoint comparison"],
+        explanation: "Continuous polynomials can be evaluated by substituting the approached value.",
+      });
+    }
+
+    function factorCancelQuestion() {
+      return question({
+        prompt: "After factoring, what is the limit?",
+        stimulus: "lim as x→3 of (x²-9)/(x-3)",
+        answer: "6",
+        distractors: ["0", "3", "does not exist"],
+        explanation: "Factor x²-9=(x-3)(x+3), cancel for x≠3, then substitute 3 into x+3.",
+      });
+    }
+
+    function oneSidedQuestion() {
+      return question({
+        prompt: "Does the two-sided limit exist?",
+        stimulus: "left-hand limit = 2; right-hand limit = 5",
+        answer: "no",
+        distractors: ["yes", "only if f(a)=2", "only if f(a)=5"],
+        explanation: "A two-sided limit exists only when the one-sided limits agree.",
+      });
+    }
+
+    function radicalQuestion() {
+      return question({
+        prompt: "What algebra move helps first?",
+        stimulus: "(sqrt(x+1)-1)/x as x→0",
+        answer: "multiply by the conjugate",
+        distractors: ["take a derivative", "compare endpoints", "use product rule"],
+        explanation: "The conjugate removes the radical difference and reveals a canceling factor.",
+      });
+    }
+
+    function valueVsLimitQuestion() {
+      return question({
+        prompt: "Can a limit exist when f(a) is undefined?",
+        stimulus: "hole in a graph",
+        answer: "yes",
+        distractors: ["no", "only for lines", "only when the answer is 0"],
+        explanation: "Limits depend on nearby behavior, not only the value at the point.",
+      });
+    }
+
+    function averageRateQuestion() {
+      return question({
+        prompt: "Find the average rate of change.",
+        stimulus: "f(x)=x² from x=1 to x=3",
+        answer: "4",
+        distractors: ["2", "6", "8"],
+        explanation: "Compute (f(3)-f(1))/(3-1)=(9-1)/2=4.",
+      });
+    }
+
+    function tangentSlopeQuestion() {
+      return question({
+        prompt: "What is the tangent slope?",
+        stimulus: "f(x)=x², x=3",
+        answer: "6",
+        distractors: ["3", "9", "12"],
+        explanation: "f'(x)=2x, so f'(3)=6.",
+      });
+    }
+
+    function tangentLineStepQuestion() {
+      return question({
+        prompt: "Which information do you need for a tangent line?",
+        stimulus: "point-slope form",
+        answer: "a point and a slope",
+        distractors: ["two endpoints only", "area and width", "upper and lower bounds"],
+        explanation: "Use (a,f(a)) and slope f'(a) in y-f(a)=f'(a)(x-a).",
+      });
+    }
+
+    function derivativeSignQuestion() {
+      return question({
+        prompt: "If f'(a)>0, what is happening locally?",
+        stimulus: "derivative sign",
+        answer: "the function is increasing",
+        distractors: ["the function is decreasing", "area is negative", "the limit fails"],
+        explanation: "A positive derivative means positive tangent slope.",
+      });
+    }
+
+    function differentiabilityQuestion() {
+      return question({
+        prompt: "Which feature can make a derivative fail?",
+        stimulus: "graph of |x| at x=0",
+        answer: "a sharp corner",
+        distractors: ["a horizontal tangent", "a positive slope", "a closed interval"],
+        explanation: "At a corner, left and right slopes do not match.",
+      });
+    }
+
+    function firstRuleQuestion() {
+      return question({
+        prompt: "Which rule comes first?",
+        stimulus: "d/dx [(x²+1)⁵]",
+        answer: "chain rule",
+        distractors: ["product rule", "quotient rule", "constant rule"],
+        explanation: "The outside fifth power is applied to the inside x²+1.",
+      });
+    }
+
+    function powerRuleQuestion() {
+      return question({
+        prompt: "Differentiate using the power rule.",
+        stimulus: "x⁶",
+        answer: "6x⁵",
+        distractors: ["x⁵", "5x⁶", "6x⁶"],
+        explanation: "Bring the exponent down and subtract 1 from the exponent.",
+      });
+    }
+
+    function chainFactorQuestion() {
+      return question({
+        prompt: "What factor is easy to forget?",
+        stimulus: "d/dx sin(x²)",
+        answer: "2x",
+        distractors: ["sin(x)", "x²", "1/2"],
+        explanation: "The chain rule multiplies by the derivative of the inside x².",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "Which structure triggers product rule?",
+        stimulus: "(x²+1)(x-4)",
+        answer: "two changing factors multiplied",
+        distractors: ["one expression divided by another", "a constant only", "a definite integral"],
+        explanation: "Both factors depend on x, so differentiate both using f'g+fg'.",
+      });
+    }
+
+    function quotientSignQuestion() {
+      return question({
+        prompt: "What denominator appears in the quotient rule?",
+        stimulus: "d/dx [f(x)/g(x)]",
+        answer: "g(x)²",
+        distractors: ["f(x)²", "f'(x)g'(x)", "g'(x)²"],
+        explanation: "The denominator is the square of the original denominator.",
+      });
+    }
+
+    function candidateQuestion() {
+      return question({
+        prompt: "Which candidate type must be checked on [a,b]?",
+        stimulus: "absolute max/min on a closed interval",
+        answer: "critical points and endpoints",
+        distractors: ["only critical points", "only endpoints", "only x-intercepts"],
+        explanation: "Absolute extrema can occur inside or at the boundary.",
+      });
+    }
+
+    function signChartQuestion() {
+      return question({
+        prompt: "Classify the critical point.",
+        stimulus: "f' changes from + to -",
+        answer: "local maximum",
+        distractors: ["local minimum", "no extremum", "vertical asymptote"],
+        explanation: "The function increases, then decreases.",
+      });
+    }
+
+    function endpointQuestion() {
+      return question({
+        prompt: "Why check endpoints?",
+        stimulus: "closed interval optimization",
+        answer: "the absolute best value may occur there",
+        distractors: ["derivatives never work", "endpoints are always maxima", "to remove units"],
+        explanation: "The derivative only finds interior candidates.",
+      });
+    }
+
+    function secondDerivativeQuestion() {
+      return question({
+        prompt: "What does f''(c)>0 suggest at a critical point?",
+        stimulus: "second derivative test",
+        answer: "local minimum",
+        distractors: ["local maximum", "no domain", "left-hand limit only"],
+        explanation: "Positive second derivative means concave up.",
+      });
+    }
+
+    function objectiveQuestion() {
+      return question({
+        prompt: "In a word problem, what is the objective?",
+        stimulus: "maximize area with fixed perimeter",
+        answer: "the quantity to maximize or minimize",
+        distractors: ["the derivative only", "the endpoint only", "the unit label only"],
+        explanation: "Optimization begins by naming the target quantity.",
+      });
+    }
+
+    function riemannHeightQuestion() {
+      return question({
+        prompt: "For midpoint rectangles, where is the height measured?",
+        stimulus: "Riemann sum",
+        answer: "at the midpoint of each subinterval",
+        distractors: ["only at the left endpoint", "only at x=0", "at the derivative"],
+        explanation: "Midpoint sums use f(midpoint) as each rectangle height.",
+      });
+    }
+
+    function antiderivativeQuestion() {
+      return question({
+        prompt: "Find an antiderivative.",
+        stimulus: "∫ 4x³ dx",
+        answer: "x⁴ + C",
+        distractors: ["12x²", "4x⁴ + C", "x³ + C"],
+        explanation: "Reverse the power rule: x⁴ differentiates to 4x³.",
+      });
+    }
+
+    function ftcQuestion() {
+      return question({
+        prompt: "Evaluate the definite integral.",
+        stimulus: "∫₀³ 2x dx",
+        answer: "9",
+        distractors: ["3", "6", "18"],
+        explanation: "An antiderivative is x², so compute 3²-0²=9.",
+      });
+    }
+
+    function signedAreaQuestion() {
+      return question({
+        prompt: "Area below the x-axis counts how in a signed integral?",
+        stimulus: "signed area",
+        answer: "negative",
+        distractors: ["positive", "ignored", "always zero"],
+        explanation: "Definite integrals add signed area, not just geometric area.",
+      });
+    }
+
+    function integralUnitsQuestion() {
+      return question({
+        prompt: "What are the units after integrating liters/minute over minutes?",
+        stimulus: "rate accumulation",
+        answer: "liters",
+        distractors: ["liters per minute", "minutes per liter", "liters squared"],
+        explanation: "Rate units times input units give accumulated units.",
+      });
+    }
+
+    function techniqueQuestion() {
+      return question({
+        prompt: "Which technique best fits?",
+        stimulus: "∫ 2x cos(x²) dx",
+        answer: "substitution",
+        distractors: ["integration by parts", "endpoint comparison", "quotient rule"],
+        explanation: "The inside x² has derivative 2x, which is present.",
+      });
+    }
+
+    function substitutionQuestion() {
+      return question({
+        prompt: "Choose u.",
+        stimulus: "∫ 3x² sin(x³) dx",
+        answer: "u = x³",
+        distractors: ["u = sin(x)", "u = 3x", "u = dx"],
+        explanation: "The derivative of x³ is 3x² dx, which appears.",
+      });
+    }
+
+    function substitutionBackQuestion() {
+      return question({
+        prompt: "What must you do after integrating in u for an indefinite integral?",
+        stimulus: "substitution workflow",
+        answer: "substitute back to x and add C",
+        distractors: ["drop the constant", "differentiate the bounds", "compare endpoints only"],
+        explanation: "The final antiderivative should be in the original variable.",
+      });
+    }
+
+    function partsChoiceQuestion() {
+      return question({
+        prompt: "For ∫ x eˣ dx, what is a good u?",
+        stimulus: "integration by parts",
+        answer: "u = x",
+        distractors: ["u = eˣ dx", "u = 0", "u = x eˣ"],
+        explanation: "x becomes simpler when differentiated; eˣ is easy to integrate.",
+      });
+    }
+
+    function numericalReasonQuestion() {
+      return question({
+        prompt: "When is numerical integration reasonable?",
+        stimulus: "data or hard antiderivative",
+        answer: "when an exact formula is hard or unnecessary",
+        distractors: ["only for constants", "never in applications", "only before learning derivatives"],
+        explanation: "Approximation is a useful tool when exact symbolic work is not the goal.",
+      });
+    }
+
+    function applicationToolQuestion() {
+      return question({
+        prompt: "Which tool finds marginal cost?",
+        stimulus: "marginal means local change",
+        answer: "derivative",
+        distractors: ["integral", "Riemann sum", "endpoint only"],
+        explanation: "Marginal quantities are instantaneous rates of change.",
+      });
+    }
+
+    function unitsQuestion() {
+      return question({
+        prompt: "If position is meters and time is seconds, velocity units are...",
+        stimulus: "s'(t)",
+        answer: "meters per second",
+        distractors: ["meters squared", "seconds per meter", "meters"],
+        explanation: "Derivative units are output units divided by input units.",
+      });
+    }
+
+    function motionQuestion() {
+      return question({
+        prompt: "What is ∫ v(t) dt over a time interval?",
+        stimulus: "velocity accumulation",
+        answer: "displacement",
+        distractors: ["acceleration", "instantaneous velocity", "slope of position only"],
+        explanation: "Integrating velocity accumulates signed change in position.",
+      });
+    }
+
+    function marginalQuestion() {
+      return question({
+        prompt: "What does C'(100) approximate?",
+        stimulus: "cost function C(x)",
+        answer: "cost of one more item near 100 items",
+        distractors: ["total cost of 100 items", "average cost exactly", "area under cost"],
+        explanation: "A derivative gives local change per additional item.",
+      });
+    }
+
+    function relatedRatesQuestion() {
+      return question({
+        prompt: "In related rates, when should you substitute numbers?",
+        stimulus: "differentiate an equation involving time",
+        answer: "after differentiating",
+        distractors: ["before differentiating", "never", "only after integrating"],
+        explanation: "Substituting too early can erase variables whose rates are needed.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `calculus-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>The examples below show one derivative, one tangent line, one integral, and one quiz-style question. These commands can run in Python, Jupyter, Colab, or a PyScript/Pyodide page with SymPy installed.</p>
+<div id="599589ac" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.calculus <span class="im">import</span> derivative, tangent_line, definite_integral</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>derivative(<span class="st">"x**2 + 3*x"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
+<p><span class="math inline">\(\displaystyle 2 x + 3\)</span></p>
+</div>
+</div>
+<div id="f96854ee" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tangent_line(<span class="st">"x**2"</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle 4 x - 4\)</span></p>
+</div>
+</div>
+<div id="78d6a6c2" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>definite_integral(<span class="st">"2*x"</span>, <span class="dv">0</span>, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle 9\)</span></p>
+</div>
+</div>
+<div id="52f05fbe" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.calculus <span class="im">import</span> calculus_tool_question</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> calculus_tool_question()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(question.prompt)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(question.check(<span class="st">"integral"</span>).message)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Which tool finds total distance from a velocity function over time?
+Correct.</code></pre>
+</div>
+</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>Calculus Volume 1</em>: <a href="https://openstax.org/details/books/calculus-volume-1" class="uri">https://openstax.org/details/books/calculus-volume-1</a></li>
+<li>Paul’s Online Math Notes, Calculus I: <a href="https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx" class="uri">https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx</a></li>
+<li>MIT OpenCourseWare, Single Variable Calculus: <a href="https://ocw.mit.edu/" class="uri">https://ocw.mit.edu/</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/osl-incubator\.github\.io\/edu-math\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../lessons/trigonometry/sine-cosine.html" class="pagination-link" aria-label="Sine and Cosine">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sine and Cosine</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../lessons/calculus/limits.html" class="pagination-link" aria-label="Limits">
+        <span class="nav-page-text">Limits</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/calculus/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

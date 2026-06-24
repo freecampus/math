@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Addition, scalar multiplication, and matrix-vector products.">
+<meta name="description" content="Addition, scalar multiplication, matrix-vector products, and dimension checks.">
 
 <title>Matrix Operations – edu-math</title>
 <style>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/matrix-operations.html">Matrix Operations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/index.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/matrix-operations.html">Matrix Operations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -472,6 +501,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -480,6 +515,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -510,6 +563,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -563,6 +622,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -700,6 +765,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -739,6 +810,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -847,9 +924,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#what-you-should-be-able-to-do" id="toc-what-you-should-be-able-to-do" class="nav-link active" data-scroll-target="#what-you-should-be-able-to-do">What you should be able to do</a></li>
+  <li><a href="#matrix-addition" id="toc-matrix-addition" class="nav-link" data-scroll-target="#matrix-addition">Matrix addition</a></li>
+  <li><a href="#scalar-multiplication" id="toc-scalar-multiplication" class="nav-link" data-scroll-target="#scalar-multiplication">Scalar multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication" id="toc-matrix-vector-multiplication" class="nav-link" data-scroll-target="#matrix-vector-multiplication">Matrix-vector multiplication</a></li>
+  <li><a href="#column-combination-view" id="toc-column-combination-view" class="nav-link" data-scroll-target="#column-combination-view">Column-combination view</a></li>
+  <li><a href="#matrix-matrix-multiplication" id="toc-matrix-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-matrix-multiplication">Matrix-matrix multiplication</a></li>
+  <li><a href="#worked-example-check-dimensions-first" id="toc-worked-example-check-dimensions-first" class="nav-link" data-scroll-target="#worked-example-check-dimensions-first">Worked example: check dimensions first</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#matrix-operation-guessing-game" id="toc-matrix-operation-guessing-game" class="nav-link" data-scroll-target="#matrix-operation-guessing-game">Matrix-operation guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/linear-algebra/matrix-operations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -857,14 +941,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/matrix-operations.html">Matrix Operations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/index.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/matrix-operations.html">Matrix Operations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Matrix Operations</h1>
 </div>
 
 <div>
   <div class="description">
-    Addition, scalar multiplication, and matrix-vector products.
+    Addition, scalar multiplication, matrix-vector products, and dimension checks.
   </div>
 </div>
 
@@ -881,82 +965,515 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<p>Matrix operations look like ordinary arithmetic, but they have one extra rule: <strong>shape matters first</strong>. Before adding or multiplying, always check the dimensions.</p>
+<section id="what-you-should-be-able-to-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-should-be-able-to-do">What you should be able to do</h2>
+<p>By the end of this lesson, you should be able to:</p>
 <ul>
-<li>Add matrices with matching shapes.</li>
-<li>Multiply a matrix by a scalar.</li>
-<li>Compute matrix-vector products.</li>
+<li>add matrices of the same shape;</li>
+<li>multiply a matrix by a scalar;</li>
+<li>decide whether matrix products are defined;</li>
+<li>compute matrix-vector products by row dot products;</li>
+<li>read a matrix-vector product as a combination of columns;</li>
+<li>verify calculations with edumath, NumPy, and SymPy.</li>
 </ul>
 </section>
-<div id="acd30e36" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.linear_algebra.concepts <span class="im">import</span> matrix_vector_product</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>matrix_vector_product([[<span class="dv">2</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">3</span>]], [<span class="dv">5</span>, <span class="dv">4</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>array([10., 12.])</code></pre>
-</div>
-</div>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="practice-box">
-<ol type="1">
-<li>Multiply <code>[[1, 0], [0, 1]]</code> by <code>[2, 3]</code>.</li>
-<li>Can a 2x3 matrix multiply a length-2 vector?</li>
-<li>What does scalar multiplication do to every matrix entry?</li>
-</ol>
-</div>
+<section id="matrix-addition" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-addition">Matrix addition</h2>
+<p>You can add matrices only when they have the same shape. Add matching entries:</p>
+<p><span class="math display">\[
+\begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}
++
+\begin{bmatrix}5&amp;6\\7&amp;8\end{bmatrix}
+=
+\begin{bmatrix}6&amp;8\\10&amp;12\end{bmatrix}.
+\]</span></p>
+<p>You cannot add a <span class="math inline">\(2\times 2\)</span> matrix to a <span class="math inline">\(2\times 3\)</span> matrix because there are entries with no matching partner.</p>
 </section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<section id="scalar-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-multiplication">Scalar multiplication</h2>
+<p>A scalar multiplies every entry:</p>
+<p><span class="math display">\[
+-2\begin{bmatrix}3&amp;-1\\0&amp;4\end{bmatrix}
+=
+\begin{bmatrix}-6&amp;2\\0&amp;-8\end{bmatrix}.
+\]</span></p>
+<p>This is similar to scalar multiplication for vectors.</p>
+</section>
+<section id="matrix-vector-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication">Matrix-vector multiplication</h2>
+<p>A matrix-vector product <span class="math inline">\(A\mathbf{x}\)</span> is defined when the number of columns in <span class="math inline">\(A\)</span> equals the number of entries in <span class="math inline">\(\mathbf{x}\)</span>.</p>
+<p>If</p>
+<p><span class="math display">\[
+A=\begin{bmatrix}
+2 &amp; 1\\
+0 &amp; 3
+\end{bmatrix}
+\quad \text{and} \quad
+\mathbf{x}=\begin{bmatrix}4\\5\end{bmatrix},
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+A\mathbf{x}
+=
+\begin{bmatrix}
+2\cdot4+1\cdot5\\
+0\cdot4+3\cdot5
+\end{bmatrix}
+=
+\begin{bmatrix}13\\15\end{bmatrix}.
+\]</span></p>
+<p>Each output entry is a row dot product.</p>
+</section>
+<section id="column-combination-view" class="level2">
+<h2 class="anchored" data-anchor-id="column-combination-view">Column-combination view</h2>
+<p>The same product can be read another way:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+2 &amp; 1\\
+0 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}4\\5\end{bmatrix}
+=4\begin{bmatrix}2\\0\end{bmatrix}
++5\begin{bmatrix}1\\3\end{bmatrix}.
+\]</span></p>
+<p>So a matrix-vector product is a <strong>linear combination of the columns</strong> of the matrix. This idea becomes very important when studying systems and transformations.</p>
+</section>
+<section id="matrix-matrix-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-matrix-multiplication">Matrix-matrix multiplication</h2>
+<p>A product <span class="math inline">\(AB\)</span> is defined when the number of columns of <span class="math inline">\(A\)</span> equals the number of rows of <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+(m\times n)(n\times p) = m\times p.
+\]</span></p>
+<p>For example, a <span class="math inline">\(2\times3\)</span> matrix times a <span class="math inline">\(3\times4\)</span> matrix produces a <span class="math inline">\(2\times4\)</span> matrix.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Warning</span>Common pitfall
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>[2, 3]</code>.</p>
-<p>The identity matrix leaves the vector unchanged.</p>
+<p>Matrix multiplication is not entry-by-entry multiplication. It uses rows of the left matrix and columns of the right matrix. Also, <span class="math inline">\(AB\)</span> and <span class="math inline">\(BA\)</span> may be different or one of them may not even be defined.</p>
 </div>
 </div>
-</div>
+</section>
+<section id="worked-example-check-dimensions-first" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-check-dimensions-first">Worked example: check dimensions first</h2>
+<p>Can a <span class="math inline">\(3\times2\)</span> matrix multiply a vector with 2 entries?</p>
+<ol type="1">
+<li>The matrix has 2 columns.</li>
+<li>The vector has 2 entries.</li>
+<li>The inner dimensions match, so the product is defined.</li>
+<li>The result has 3 entries because the matrix has 3 rows.</li>
+</ol>
+<p>Can a <span class="math inline">\(3\times2\)</span> matrix multiply a vector with 3 entries? No.&nbsp;The matrix has 2 columns, but the vector has 3 entries.</p>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
+<ol type="1">
+<li>Add <span class="math inline">\(\begin{bmatrix}1&amp;0\\2&amp;3\end{bmatrix}+\begin{bmatrix}4&amp;5\\6&amp;7\end{bmatrix}\)</span>.</li>
+<li>Compute <span class="math inline">\(3\begin{bmatrix}2&amp;-1\\0&amp;4\end{bmatrix}\)</span>.</li>
+<li>Is <span class="math inline">\((2\times3)(3\times1)\)</span> defined? What is the output shape?</li>
+<li>Compute <span class="math inline">\(\begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}\begin{bmatrix}5\\6\end{bmatrix}\)</span>.</li>
+<li>Is <span class="math inline">\((2\times3)(2\times1)\)</span> defined?</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: no.</p>
-<p>A <code>2 x 3</code> matrix needs a length-<code>3</code> vector on the right.</p>
+<ol type="1">
+<li><span class="math inline">\(\begin{bmatrix}5&amp;5\\8&amp;10\end{bmatrix}\)</span>.</li>
+<li><span class="math inline">\(\begin{bmatrix}6&amp;-3\\0&amp;12\end{bmatrix}\)</span>.</li>
+<li>Yes. The output shape is <span class="math inline">\(2\times1\)</span>, a vector with 2 entries.</li>
+<li><span class="math inline">\(\begin{bmatrix}17\\39\end{bmatrix}\)</span>.</li>
+<li>No.&nbsp;The inner dimensions are 3 and 2, and they do not match.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="matrix-operation-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-operation-guessing-game">Matrix-operation guessing game</h2>
+<p>Use this game to practice dimension checks and matrix-vector products.</p>
+<script type="application/json" class="edu-math-linear-algebra-checkpoint-config">
+{
+  "topic": "matrix-operations",
+  "title": "Matrix operations checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-linear-algebra-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "vectors";
+    const BANKS = {
+      vectors: [normQuestion, dotProductQuestion, perpendicularQuestion],
+      matrices: [shapeQuestion, identityQuestion, entryQuestion],
+      "matrix-operations": [productDefinedQuestion, matrixVectorQuestion, scalarQuestion],
+      "systems-and-elimination": [systemClassQuestion, eliminationMoveQuestion, solutionCheckQuestion],
+      "linear-transformations": [transformationQuestion, basisQuestion, preserveQuestion],
+      "eigenvalues-eigenvectors": [eigenvalueQuestion, eigenvectorQuestion, repeatedQuestion],
+      "linear-algebra-cumulative-review": [normQuestion, shapeQuestion, productDefinedQuestion, systemClassQuestion, transformationQuestion, eigenvalueQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-linear-algebra-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-linear-algebra-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Linear algebra checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function normQuestion() {
+      const pairs = [[3, 4, 5], [5, 12, 13], [6, 8, 10]];
+      const [a, b, n] = choice(pairs);
+      return question({
+        prompt: "Guess the vector length.",
+        stimulus: `v = (${a}, ${b})`,
+        answer: String(n),
+        distractors: [String(a + b), String(Math.abs(a - b)), String(a * b)],
+        explanation: "Use the Pythagorean formula: sqrt(a²+b²).",
+      });
+    }
+
+    function dotProductQuestion() {
+      return question({
+        prompt: "Compute the dot product.",
+        stimulus: "(1, 2) · (3, 4)",
+        answer: "11",
+        distractors: ["10", "14", "24"],
+        explanation: "Multiply matching coordinates and add: 1·3 + 2·4 = 11.",
+      });
+    }
+
+    function perpendicularQuestion() {
+      return question({
+        prompt: "Which dot product shows nonzero vectors are perpendicular?",
+        stimulus: "orthogonality test",
+        answer: "0",
+        distractors: ["1", "-1", "the vector length"],
+        explanation: "A dot product of zero means the vectors meet at a right angle.",
+      });
+    }
+
+    function shapeQuestion() {
+      return question({
+        prompt: "What is the shape of a matrix with 2 rows and 3 columns?",
+        stimulus: "rows by columns",
+        answer: "2 x 3",
+        distractors: ["3 x 2", "5", "6 x 1"],
+        explanation: "Shape is always written rows first, columns second.",
+      });
+    }
+
+    function identityQuestion() {
+      return question({
+        prompt: "What does the identity matrix do to a vector?",
+        stimulus: "I v",
+        answer: "leaves it unchanged",
+        distractors: ["turns it into zero", "doubles it", "swaps coordinates"],
+        explanation: "The identity matrix is the do-nothing matrix for multiplication.",
+      });
+    }
+
+    function entryQuestion() {
+      return question({
+        prompt: "Which entry is in row 2, column 1?",
+        stimulus: "[[4, 5], [7, 8]]",
+        answer: "7",
+        distractors: ["4", "5", "8"],
+        explanation: "Move to the second row, then the first column.",
+      });
+    }
+
+    function productDefinedQuestion() {
+      return question({
+        prompt: "Is this matrix product defined?",
+        stimulus: "(2 x 3)(3 x 4)",
+        answer: "yes",
+        distractors: ["no", "only if square", "only with a vector"],
+        explanation: "The inner dimensions match: 3 and 3.",
+      });
+    }
+
+    function matrixVectorQuestion() {
+      return question({
+        prompt: "Find the first entry of A v.",
+        stimulus: "A=[[2,1],[0,3]], v=(4,5)",
+        answer: "13",
+        distractors: ["8", "15", "17"],
+        explanation: "The first row dot v is 2·4 + 1·5 = 13.",
+      });
+    }
+
+    function scalarQuestion() {
+      return question({
+        prompt: "What is 3 times the matrix entry -2?",
+        stimulus: "scalar multiplication",
+        answer: "-6",
+        distractors: ["6", "-2", "1"],
+        explanation: "Scalar multiplication multiplies every entry by the scalar.",
+      });
+    }
+
+    function systemClassQuestion() {
+      return question({
+        prompt: "Classify the system.",
+        stimulus: "x+y=2 and 2x+2y=4",
+        answer: "infinitely many solutions",
+        distractors: ["one solution", "no solution", "not linear"],
+        explanation: "The second equation is a multiple of the first, so the lines coincide.",
+      });
+    }
+
+    function eliminationMoveQuestion() {
+      return question({
+        prompt: "Which move eliminates x from the second equation?",
+        stimulus: "E1: x+y=5, E2: x-y=1",
+        answer: "E2 - E1",
+        distractors: ["E2 + E1", "2E1", "swap columns"],
+        explanation: "Subtracting gives -2y = -4, with no x term.",
+      });
+    }
+
+    function solutionCheckQuestion() {
+      return question({
+        prompt: "Does (3,2) solve x+y=5 and x-y=1?",
+        stimulus: "substitute both equations",
+        answer: "yes",
+        distractors: ["no", "only the first", "only the second"],
+        explanation: "3+2=5 and 3-2=1.",
+      });
+    }
+
+    function transformationQuestion() {
+      return question({
+        prompt: "What does [[1,0],[0,0]] do?",
+        stimulus: "T(x,y)=(x,0)",
+        answer: "projects onto the x-axis",
+        distractors: ["rotates 90 degrees", "reflects over y-axis", "doubles every vector"],
+        explanation: "It keeps x and replaces y by 0.",
+      });
+    }
+
+    function basisQuestion() {
+      return question({
+        prompt: "Why do basis vectors matter?",
+        stimulus: "2D linear transformations",
+        answer: "their images determine the whole transformation",
+        distractors: ["they are always eigenvectors", "they remove multiplication", "they make all matrices diagonal"],
+        explanation: "Every vector is a combination of basis vectors, and linear maps preserve combinations.",
+      });
+    }
+
+    function preserveQuestion() {
+      return question({
+        prompt: "Which property must a linear transformation preserve?",
+        stimulus: "linearity",
+        answer: "addition and scalar multiplication",
+        distractors: ["distance always", "area always", "all angles"],
+        explanation: "Linear means T(u+v)=T(u)+T(v) and T(cv)=cT(v).",
+      });
+    }
+
+    function eigenvalueQuestion() {
+      return question({
+        prompt: "If A v = 4v, what is the eigenvalue?",
+        stimulus: "v is nonzero",
+        answer: "4",
+        distractors: ["v", "0", "A"],
+        explanation: "The scalar multiplying v is the eigenvalue.",
+      });
+    }
+
+    function eigenvectorQuestion() {
+      return question({
+        prompt: "Is the zero vector an eigenvector?",
+        stimulus: "definition check",
+        answer: "no",
+        distractors: ["yes", "only for diagonal matrices", "only if lambda is 0"],
+        explanation: "Eigenvectors must be nonzero so that they represent a direction.",
+      });
+    }
+
+    function repeatedQuestion() {
+      return question({
+        prompt: "Why are eigenvectors useful for repeated multiplication?",
+        stimulus: "A, A², A³, ...",
+        answer: "they keep the same direction while scaling",
+        distractors: ["they make all entries zero", "they avoid addition", "they always have length 1"],
+        explanation: "Repeated applications multiply an eigenvector by powers of its eigenvalue.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `linear-algebra-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>NumPy is the standard numeric array library in Python. SymPy is better when you want exact symbolic or fractional answers. The edumath helpers keep examples short for lessons.</p>
+<div id="8e2f5a97" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.linear_algebra <span class="im">import</span> can_multiply, matrix_product, matrix_vector_product</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">3</span>]]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(can_multiply((<span class="dv">2</span>, <span class="dv">2</span>), (<span class="dv">2</span>,)))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(matrix_vector_product(A, x))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(matrix_product([[<span class="dv">1</span>, <span class="dv">2</span>]], [[<span class="dv">3</span>], [<span class="dv">4</span>]]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True
+[13. 15.]
+[[11.]]</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: it multiplies every entry by the same scalar.</p>
-</div>
+<div id="169b74ca" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">2</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">3</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Matrix([<span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>A <span class="op">*</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle \left[\begin{matrix}13\\15\end{matrix}\right]\)</span></p>
 </div>
 </div>
 

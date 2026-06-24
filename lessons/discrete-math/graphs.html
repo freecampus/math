@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Vertices, edges, and network structure.">
+<meta name="description" content="Vertices, edges, paths, degrees, and network structure.">
 
 <title>Graphs – edu-math</title>
 <style>
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/logic.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/graphs.html">Graphs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/index.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/graphs.html">Graphs</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +472,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +486,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +534,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -528,6 +593,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +736,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +781,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,8 +895,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#vertices-and-edges" id="toc-vertices-and-edges" class="nav-link" data-scroll-target="#vertices-and-edges">Vertices and edges</a></li>
+  <li><a href="#directed-and-undirected-graphs" id="toc-directed-and-undirected-graphs" class="nav-link" data-scroll-target="#directed-and-undirected-graphs">Directed and undirected graphs</a></li>
+  <li><a href="#degree" id="toc-degree" class="nav-link" data-scroll-target="#degree">Degree</a>
+  <ul class="collapse">
+  <li><a href="#handshake-idea" id="toc-handshake-idea" class="nav-link" data-scroll-target="#handshake-idea">Handshake idea</a></li>
+  </ul></li>
+  <li><a href="#walks-paths-and-cycles" id="toc-walks-paths-and-cycles" class="nav-link" data-scroll-target="#walks-paths-and-cycles">Walks, paths, and cycles</a></li>
+  <li><a href="#connected-graphs" id="toc-connected-graphs" class="nav-link" data-scroll-target="#connected-graphs">Connected graphs</a></li>
+  <li><a href="#representations" id="toc-representations" class="nav-link" data-scroll-target="#representations">Representations</a></li>
+  <li><a href="#worked-example-1-degree-sequence" id="toc-worked-example-1-degree-sequence" class="nav-link" data-scroll-target="#worked-example-1-degree-sequence">Worked example 1: degree sequence</a></li>
+  <li><a href="#worked-example-2-path-or-not" id="toc-worked-example-2-path-or-not" class="nav-link" data-scroll-target="#worked-example-2-path-or-not">Worked example 2: path or not?</a></li>
+  <li><a href="#worked-example-3-real-model" id="toc-worked-example-3-real-model" class="nav-link" data-scroll-target="#worked-example-3-real-model">Worked example 3: real model</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#graphs-checkpoint" id="toc-graphs-checkpoint" class="nav-link" data-scroll-target="#graphs-checkpoint">Graphs checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/discrete-math/graphs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -821,14 +919,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/logic.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/graphs.html">Graphs</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/index.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/graphs.html">Graphs</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Graphs</h1>
 </div>
 
 <div>
   <div class="description">
-    Vertices, edges, and network structure.
+    Vertices, edges, paths, degrees, and network structure.
   </div>
 </div>
 
@@ -845,72 +943,511 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>In discrete mathematics, a graph is not the graph of a function. It is a network made of objects and connections. Graphs model roads, friendships, links, prerequisites, dependencies, and communication networks.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Define vertices and edges.</li>
-<li>Recognize directed and undirected graphs.</li>
-<li>Connect graphs to networks.</li>
+<li>define vertices and edges;</li>
+<li>distinguish directed and undirected graphs;</li>
+<li>compute vertex degrees;</li>
+<li>identify walks, paths, and cycles;</li>
+<li>decide whether a small graph is connected;</li>
+<li>represent a graph with an edge list or adjacency list.</li>
 </ul>
 </section>
-<p>A graph is a collection of vertices connected by edges. Graphs model networks: web pages, roads, dependencies, and relationships.</p>
+<section id="vertices-and-edges" class="level2">
+<h2 class="anchored" data-anchor-id="vertices-and-edges">Vertices and edges</h2>
+<p>A <strong>vertex</strong> is a node or object. An <strong>edge</strong> is a connection between vertices.</p>
+<p>Example edge list:</p>
+<pre class="text"><code>V = {A, B, C, D}
+E = {AB, AC, BC, CD}</code></pre>
+<p>This graph has four vertices and four edges.</p>
+</section>
+<section id="directed-and-undirected-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="directed-and-undirected-graphs">Directed and undirected graphs</h2>
+<p>In an undirected graph, an edge <code>AB</code> connects <code>A</code> and <code>B</code> both ways. In a directed graph, an edge has a direction, such as <code>A -&gt; B</code>.</p>
+<p>Directed graphs model one-way streets, web links, task dependencies, and follower relationships.</p>
+</section>
+<section id="degree" class="level2">
+<h2 class="anchored" data-anchor-id="degree">Degree</h2>
+<p>In an undirected graph, the degree of a vertex is the number of edges incident to it.</p>
+<p>For edges <code>AB, AC, BC, CD</code>:</p>
+<ul>
+<li>degree of <code>A</code> is <code>2</code>;</li>
+<li>degree of <code>B</code> is <code>2</code>;</li>
+<li>degree of <code>C</code> is <code>3</code>;</li>
+<li>degree of <code>D</code> is <code>1</code>.</li>
+</ul>
+<section id="handshake-idea" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="handshake-idea">Handshake idea</h3>
+<p>In an undirected graph, the sum of all degrees equals twice the number of edges, because each edge touches two endpoints.</p>
+</section>
+</section>
+<section id="walks-paths-and-cycles" class="level2">
+<h2 class="anchored" data-anchor-id="walks-paths-and-cycles">Walks, paths, and cycles</h2>
+<p>A <strong>walk</strong> is a sequence of vertices where consecutive vertices are connected. A <strong>path</strong> is a walk with no repeated vertices. A <strong>cycle</strong> starts and ends at the same vertex without repeating other vertices.</p>
+<p>Different textbooks vary slightly in advanced definitions, but these beginner versions are enough for this lesson.</p>
+</section>
+<section id="connected-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="connected-graphs">Connected graphs</h2>
+<p>An undirected graph is <strong>connected</strong> if every vertex can be reached from every other vertex by following edges.</p>
+<p>An isolated vertex with no edges can make a graph disconnected.</p>
+</section>
+<section id="representations" class="level2">
+<h2 class="anchored" data-anchor-id="representations">Representations</h2>
+<p>A graph can be represented by:</p>
+<ul>
+<li>a drawing;</li>
+<li>an edge list;</li>
+<li>an adjacency list;</li>
+<li>an adjacency matrix.</li>
+</ul>
+<p>Adjacency list for edges <code>AB, AC, BC, CD</code>:</p>
+<pre class="text"><code>A: B, C
+B: A, C
+C: A, B, D
+D: C</code></pre>
+</section>
+<section id="worked-example-1-degree-sequence" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-degree-sequence">Worked example 1: degree sequence</h2>
+<p>For edges <code>AB, AC, BC, CD</code>, the degrees are:</p>
+<pre class="text"><code>deg(A)=2
+deg(B)=2
+deg(C)=3
+deg(D)=1</code></pre>
+<p>The degree sequence is usually written from largest to smallest:</p>
+<pre class="text"><code>3, 2, 2, 1</code></pre>
+</section>
+<section id="worked-example-2-path-or-not" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-path-or-not">Worked example 2: path or not?</h2>
+<p>In the same graph, <code>A, B, C, D</code> is a path because each consecutive pair is connected and no vertex repeats.</p>
+<p>The sequence <code>A, B, A, C</code> is a walk, but not a path, because vertex <code>A</code> repeats.</p>
+</section>
+<section id="worked-example-3-real-model" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-real-model">Worked example 3: real model</h2>
+<p>Suppose courses are vertices and an arrow <code>A -&gt; B</code> means course <code>A</code> must be taken before course <code>B</code>. This directed graph helps identify valid course orders and prerequisite chains.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Confusing graph theory networks with function graphs.</li>
+<li>Counting a directed edge as if it automatically goes both ways.</li>
+<li>Double-counting or under-counting degrees.</li>
+<li>Forgetting isolated vertices when checking connectedness.</li>
+<li>Calling any walk a path even when vertices repeat.</li>
+</ul>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What is a vertex?</li>
-<li>What is an edge?</li>
-<li>Give one real-world network modeled by a graph.</li>
+<li>For edges <code>AB, AC, BC, CD</code>, find degree of <code>C</code>.</li>
+<li>Is <code>A, B, C, D</code> a path in that graph?</li>
+<li>Is <code>A, B, A, C</code> a path?</li>
+<li>Give one real-world example of a directed graph.</li>
+<li>What does connected mean?</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: a node or object in a graph.</p>
+<ol type="1">
+<li><code>3</code>.</li>
+<li>Yes.</li>
+<li>No.&nbsp;Vertex <code>A</code> repeats, so it is a walk but not a path.</li>
+<li>Web links, one-way roads, prerequisites, or follower relationships.</li>
+<li>Every vertex can be reached from every other vertex.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="graphs-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="graphs-checkpoint">Graphs checkpoint</h2>
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "graphs",
+  "title": "Graphs checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-discrete-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "logic";
+    const BANKS = {
+      logic: [implicationFalseQuestion, connectiveQuestion, contrapositiveQuestion],
+      sets: [unionQuestion, intersectionQuestion, subsetQuestion],
+      "functions-relations": [functionQuestion, domainQuestion, relationPropertyQuestion],
+      sequences: [arithmeticQuestion, geometricQuestion, recursiveQuestion],
+      induction: [baseCaseQuestion, hypothesisQuestion, inductionStepQuestion],
+      graphs: [degreeQuestion, pathQuestion, connectedQuestion],
+      "discrete-math-cumulative-review": [
+        implicationFalseQuestion,
+        unionQuestion,
+        functionQuestion,
+        arithmeticQuestion,
+        hypothesisQuestion,
+        degreeQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-discrete-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-discrete-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Discrete mathematics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function implicationFalseQuestion() {
+      return question({
+        prompt: "When is p -> q false?",
+        stimulus: "implication",
+        answer: "p true, q false",
+        distractors: ["p false, q false", "p false, q true", "p true, q true"],
+        explanation: "An implication fails only when the promise starts but the conclusion fails.",
+      });
+    }
+
+    function connectiveQuestion() {
+      return question({
+        prompt: "What is true OR false in inclusive mathematical logic?",
+        stimulus: "p ∨ q",
+        answer: "true",
+        distractors: ["false", "undefined", "not a proposition"],
+        explanation: "Inclusive or is true when at least one part is true.",
+      });
+    }
+
+    function contrapositiveQuestion() {
+      return question({
+        prompt: "Which statement is the contrapositive of p -> q?",
+        stimulus: "p -> q",
+        answer: "not q -> not p",
+        distractors: ["q -> p", "not p -> not q", "p and q"],
+        explanation: "The contrapositive reverses direction and negates both parts.",
+      });
+    }
+
+    function unionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A union B?",
+        stimulus: "A ∪ B",
+        answer: "{1,2,3,4}",
+        distractors: ["{3}", "{1,2}", "{4}"],
+        explanation: "The union contains elements in A, in B, or in both.",
+      });
+    }
+
+    function intersectionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A intersection B?",
+        stimulus: "A ∩ B",
+        answer: "{3}",
+        distractors: ["{1,2,3,4}", "{1,2}", "{}"],
+        explanation: "The intersection contains only elements shared by both sets.",
+      });
+    }
+
+    function subsetQuestion() {
+      return question({
+        prompt: "Is {2,3} a subset of {1,2,3,4}?",
+        stimulus: "subset check",
+        answer: "yes",
+        distractors: ["no", "only if order matches", "only if both sets have same size"],
+        explanation: "Every element of {2,3} appears in the larger set.",
+      });
+    }
+
+    function functionQuestion() {
+      return question({
+        prompt: "Is {(1,2), (1,3), (2,4)} a function?",
+        stimulus: "function test",
+        answer: "no",
+        distractors: ["yes", "only if 2=3", "not enough information"],
+        explanation: "Input 1 has two different outputs.",
+      });
+    }
+
+    function domainQuestion() {
+      return question({
+        prompt: "What is the domain of {(1,a), (2,b), (4,b)}?",
+        stimulus: "first coordinates",
+        answer: "{1,2,4}",
+        distractors: ["{a,b}", "{1,2,4,a,b}", "{b}"],
+        explanation: "The domain is the set of first coordinates.",
+      });
+    }
+
+    function relationPropertyQuestion() {
+      return question({
+        prompt: "What property says that aRa for every a?",
+        stimulus: "relation property",
+        answer: "reflexive",
+        distractors: ["symmetric", "transitive", "antisymmetric"],
+        explanation: "Reflexive means every element relates to itself.",
+      });
+    }
+
+    function arithmeticQuestion() {
+      return question({
+        prompt: "Find the next term: 2, 5, 8, 11, ...",
+        stimulus: "sequence",
+        answer: "14",
+        distractors: ["13", "16", "22"],
+        explanation: "The sequence adds 3 each time.",
+      });
+    }
+
+    function geometricQuestion() {
+      return question({
+        prompt: "Find the next term: 3, 6, 12, 24, ...",
+        stimulus: "sequence",
+        answer: "48",
+        distractors: ["30", "36", "27"],
+        explanation: "The sequence multiplies by 2 each time.",
+      });
+    }
+
+    function recursiveQuestion() {
+      return question({
+        prompt: "If a1=4 and a(n+1)=a(n)+5, what is a2?",
+        stimulus: "recurrence",
+        answer: "9",
+        distractors: ["5", "20", "4"],
+        explanation: "Use the rule once: 4+5=9.",
+      });
+    }
+
+    function baseCaseQuestion() {
+      return question({
+        prompt: "What does the base case prove?",
+        stimulus: "induction",
+        answer: "the first case",
+        distractors: ["the converse", "the graph degree", "all cases by itself"],
+        explanation: "The base case starts the chain of implications.",
+      });
+    }
+
+    function hypothesisQuestion() {
+      return question({
+        prompt: "In the induction step, what do you assume temporarily?",
+        stimulus: "prove P(k+1)",
+        answer: "P(k)",
+        distractors: ["P(k+1)", "P(0) is false", "nothing"],
+        explanation: "The induction hypothesis assumes P(k) so you can prove P(k+1).",
+      });
+    }
+
+    function inductionStepQuestion() {
+      return question({
+        prompt: "What does the induction step prove?",
+        stimulus: "P(k) -> P(k+1)",
+        answer: "truth passes to the next case",
+        distractors: ["only one example", "the statement is false", "the domain is empty"],
+        explanation: "It creates the chain from one integer to the next.",
+      });
+    }
+
+    function degreeQuestion() {
+      return question({
+        prompt: "Edges are AB, AC, BC, CD. What is degree(C)?",
+        stimulus: "graph degree",
+        answer: "3",
+        distractors: ["1", "2", "4"],
+        explanation: "C is incident to AC, BC, and CD.",
+      });
+    }
+
+    function pathQuestion() {
+      return question({
+        prompt: "Can a path repeat a vertex?",
+        stimulus: "path definition",
+        answer: "no",
+        distractors: ["yes", "only in directed graphs", "only if it is isolated"],
+        explanation: "A path has no repeated vertices in the introductory definition.",
+      });
+    }
+
+    function connectedQuestion() {
+      return question({
+        prompt: "What does connected mean for an undirected graph?",
+        stimulus: "connectedness",
+        answer: "every vertex can be reached from every other",
+        distractors: ["every degree is zero", "there are no edges", "all edges point right"],
+        explanation: "Connectedness is about reachability.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, explanation, options: shuffle(unique([answer, ...distractors])).slice(0, 4) };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `discrete-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> graph helpers for small finite graphs.</p>
+<div id="df13c747" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> degree, degree_sequence, is_connected, is_path, neighbors</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>vertices <span class="op">=</span> (<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> ((<span class="st">"A"</span>, <span class="st">"B"</span>), (<span class="st">"A"</span>, <span class="st">"C"</span>), (<span class="st">"B"</span>, <span class="st">"C"</span>), (<span class="st">"C"</span>, <span class="st">"D"</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>degree(vertices, edges, <span class="st">"C"</span>), degree_sequence(vertices, edges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(3, (3, 2, 2, 1))</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: a connection between two vertices.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: examples include roads between cities, friendships between people, web links between pages, or dependencies between tasks.</p>
+<div id="2b45ceb4" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>neighbors(vertices, edges, <span class="st">"A"</span>), is_path(vertices, edges, (<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>)), is_connected(vertices, edges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>({'B', 'C'}, True, True)</code></pre>
 </div>
 </div>
-</div>
+<p>SymPy is not the main tool for introductory graph theory. For larger graph projects, a specialized library such as NetworkX is useful, but this lesson uses small built-in helpers to keep the ideas transparent.</p>
 
 
 </section>

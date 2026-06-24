@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Discrete mappings and pair relationships.">
+<meta name="description" content="Ordered pairs, finite relations, functions, and relation properties.">
 
 <title>Functions and Relations – edu-math</title>
 <style>
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/logic.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/functions-relations.html">Functions and Relations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/index.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/functions-relations.html">Functions and Relations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +472,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +486,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +534,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -528,6 +593,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +736,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +781,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,8 +895,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#ordered-pairs" id="toc-ordered-pairs" class="nav-link" data-scroll-target="#ordered-pairs">Ordered pairs</a></li>
+  <li><a href="#relations" id="toc-relations" class="nav-link" data-scroll-target="#relations">Relations</a></li>
+  <li><a href="#domain-codomain-and-range" id="toc-domain-codomain-and-range" class="nav-link" data-scroll-target="#domain-codomain-and-range">Domain, codomain, and range</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#relation-properties" id="toc-relation-properties" class="nav-link" data-scroll-target="#relation-properties">Relation properties</a></li>
+  <li><a href="#worked-example-1-function-or-not" id="toc-worked-example-1-function-or-not" class="nav-link" data-scroll-target="#worked-example-1-function-or-not">Worked example 1: function or not?</a></li>
+  <li><a href="#worked-example-2-relation-properties" id="toc-worked-example-2-relation-properties" class="nav-link" data-scroll-target="#worked-example-2-relation-properties">Worked example 2: relation properties</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#functions-and-relations-checkpoint" id="toc-functions-and-relations-checkpoint" class="nav-link" data-scroll-target="#functions-and-relations-checkpoint">Functions and relations checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/discrete-math/functions-relations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -821,14 +914,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/logic.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/functions-relations.html">Functions and Relations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/index.html">Discrete Mathematics</a></li><li class="breadcrumb-item"><a href="../../lessons/discrete-math/functions-relations.html">Functions and Relations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Functions and Relations</h1>
 </div>
 
 <div>
   <div class="description">
-    Discrete mappings and pair relationships.
+    Ordered pairs, finite relations, functions, and relation properties.
   </div>
 </div>
 
@@ -845,40 +938,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Relations describe connections. A relation might connect students to courses, people to friends, numbers to their squares, or web pages to links. A function is a special relation where each input has exactly one output.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Distinguish relations from functions.</li>
-<li>Interpret ordered pairs.</li>
-<li>Recognize when each input has one output.</li>
+<li>represent relations as sets of ordered pairs;</li>
+<li>find domain and range;</li>
+<li>decide whether a relation is a function;</li>
+<li>distinguish codomain from range;</li>
+<li>classify reflexive, symmetric, antisymmetric, and transitive relations;</li>
+<li>recognize the idea of an equivalence relation.</li>
 </ul>
 </section>
-<p>A relation is a set of ordered pairs. A function is a relation where each input has exactly one output.</p>
-<div class="practice-box">
-<ol type="1">
-<li>Is <code>{(1, 2), (1, 3)}</code> a function?</li>
-<li>Is <code>{(1, 2), (2, 3)}</code> a function?</li>
-<li>Why does the function rule matter?</li>
-</ol>
-</div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<section id="ordered-pairs" class="level2">
+<h2 class="anchored" data-anchor-id="ordered-pairs">Ordered pairs</h2>
+<p>An ordered pair <code>(a,b)</code> has a first coordinate and a second coordinate. In general,</p>
+<pre class="text"><code>(a,b) is not the same as (b,a)</code></pre>
+<p>unless <code>a=b</code>.</p>
+</section>
+<section id="relations" class="level2">
+<h2 class="anchored" data-anchor-id="relations">Relations</h2>
+<p>A relation from a set <code>A</code> to a set <code>B</code> is a subset of <code>A x B</code>. In beginner language, it is a set of ordered pairs.</p>
+<p>Example:</p>
+<pre class="text"><code>R = {(1,a), (2,b), (3,b)}</code></pre>
+<p>The first coordinates are inputs or source elements. The second coordinates are outputs or target elements.</p>
+</section>
+<section id="domain-codomain-and-range" class="level2">
+<h2 class="anchored" data-anchor-id="domain-codomain-and-range">Domain, codomain, and range</h2>
+<ul>
+<li><strong>Domain</strong>: allowed inputs.</li>
+<li><strong>Codomain</strong>: allowed target outputs.</li>
+<li><strong>Range</strong>: outputs actually used by the relation or function.</li>
+</ul>
+<p>For <code>R={(1,a),(2,b),(3,b)}</code>, the domain from the pairs is <code>{1,2,3}</code> and the range is <code>{a,b}</code>.</p>
+</section>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p>A relation is a function when each input has exactly one output.</p>
+<pre class="text"><code>{(1,2), (2,3)} is a function.
+{(1,2), (1,3)} is not a function.</code></pre>
+<p>The second relation fails because input <code>1</code> points to two different outputs.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Shared outputs are allowed
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: no.</p>
-<p>Input <code>1</code> has two different outputs: <code>2</code> and <code>3</code>.</p>
+<p><code>{(1,a), (2,a)}</code> can be a function. Two inputs may share an output. The rule is that one input cannot have two different outputs.</p>
 </div>
 </div>
+</section>
+<section id="relation-properties" class="level2">
+<h2 class="anchored" data-anchor-id="relation-properties">Relation properties</h2>
+<p>For a relation on a set <code>A</code>:</p>
+<ul>
+<li><strong>Reflexive</strong>: every <code>a</code> in <code>A</code> satisfies <code>aRa</code>.</li>
+<li><strong>Symmetric</strong>: if <code>aRb</code>, then <code>bRa</code>.</li>
+<li><strong>Antisymmetric</strong>: if both <code>aRb</code> and <code>bRa</code>, then <code>a=b</code>.</li>
+<li><strong>Transitive</strong>: if <code>aRb</code> and <code>bRc</code>, then <code>aRc</code>.</li>
+</ul>
+<p>A relation that is reflexive, symmetric, and transitive is an <strong>equivalence relation</strong>.</p>
+</section>
+<section id="worked-example-1-function-or-not" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-function-or-not">Worked example 1: function or not?</h2>
+<p>Let</p>
+<pre class="text"><code>R = {(1,2), (2,2), (3,4)}</code></pre>
+<p>This is a function because each input <code>1</code>, <code>2</code>, and <code>3</code> appears with one output. The fact that <code>1</code> and <code>2</code> both output <code>2</code> is allowed.</p>
+<p>Let</p>
+<pre class="text"><code>S = {(1,2), (1,4), (2,5)}</code></pre>
+<p>This is not a function because input <code>1</code> has two outputs.</p>
+</section>
+<section id="worked-example-2-relation-properties" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-relation-properties">Worked example 2: relation properties</h2>
+<p>On the set <code>{1,2}</code>, consider</p>
+<pre class="text"><code>R = {(1,1), (2,2), (1,2), (2,1)}</code></pre>
+<p>This relation is reflexive because <code>(1,1)</code> and <code>(2,2)</code> are present. It is symmetric because <code>(1,2)</code> and <code>(2,1)</code> are both present. It is transitive: every chain of two related steps has the required shortcut pair.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Forgetting that order matters in ordered pairs.</li>
+<li>Thinking a relation fails to be a function because two inputs share an output.</li>
+<li>Confusing codomain and range.</li>
+<li>Checking relation properties using only one pair.</li>
+<li>Thinking symmetric and antisymmetric are exact opposites.</li>
+</ul>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Is <code>{(1,a), (2,a), (3,b)}</code> a function?</li>
+<li>Is <code>{(1,a), (1,b), (2,c)}</code> a function?</li>
+<li>Find the domain and range of <code>{(2,5), (3,5), (4,7)}</code>.</li>
+<li>What property says that <code>aRa</code> for every <code>a</code>?</li>
+<li>What property says that <code>aRb</code> and <code>bRc</code> imply <code>aRc</code>?</li>
+</ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -886,33 +1046,401 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: yes.</p>
-<p>Each input appears with exactly one output.</p>
+<ol type="1">
+<li>Yes. Each input has one output.</li>
+<li>No.&nbsp;Input <code>1</code> has two outputs.</li>
+<li>Domain <code>{2,3,4}</code> and range <code>{5,7}</code>.</li>
+<li>Reflexive.</li>
+<li>Transitive.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="functions-and-relations-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="functions-and-relations-checkpoint">Functions and relations checkpoint</h2>
+<script type="application/json" class="edu-math-discrete-checkpoint-config">
+{
+  "topic": "functions-relations",
+  "title": "Functions and relations checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-discrete-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "logic";
+    const BANKS = {
+      logic: [implicationFalseQuestion, connectiveQuestion, contrapositiveQuestion],
+      sets: [unionQuestion, intersectionQuestion, subsetQuestion],
+      "functions-relations": [functionQuestion, domainQuestion, relationPropertyQuestion],
+      sequences: [arithmeticQuestion, geometricQuestion, recursiveQuestion],
+      induction: [baseCaseQuestion, hypothesisQuestion, inductionStepQuestion],
+      graphs: [degreeQuestion, pathQuestion, connectedQuestion],
+      "discrete-math-cumulative-review": [
+        implicationFalseQuestion,
+        unionQuestion,
+        functionQuestion,
+        arithmeticQuestion,
+        hypothesisQuestion,
+        degreeQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-discrete-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-discrete-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Discrete mathematics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function implicationFalseQuestion() {
+      return question({
+        prompt: "When is p -> q false?",
+        stimulus: "implication",
+        answer: "p true, q false",
+        distractors: ["p false, q false", "p false, q true", "p true, q true"],
+        explanation: "An implication fails only when the promise starts but the conclusion fails.",
+      });
+    }
+
+    function connectiveQuestion() {
+      return question({
+        prompt: "What is true OR false in inclusive mathematical logic?",
+        stimulus: "p ∨ q",
+        answer: "true",
+        distractors: ["false", "undefined", "not a proposition"],
+        explanation: "Inclusive or is true when at least one part is true.",
+      });
+    }
+
+    function contrapositiveQuestion() {
+      return question({
+        prompt: "Which statement is the contrapositive of p -> q?",
+        stimulus: "p -> q",
+        answer: "not q -> not p",
+        distractors: ["q -> p", "not p -> not q", "p and q"],
+        explanation: "The contrapositive reverses direction and negates both parts.",
+      });
+    }
+
+    function unionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A union B?",
+        stimulus: "A ∪ B",
+        answer: "{1,2,3,4}",
+        distractors: ["{3}", "{1,2}", "{4}"],
+        explanation: "The union contains elements in A, in B, or in both.",
+      });
+    }
+
+    function intersectionQuestion() {
+      return question({
+        prompt: "Let A={1,2,3} and B={3,4}. What is A intersection B?",
+        stimulus: "A ∩ B",
+        answer: "{3}",
+        distractors: ["{1,2,3,4}", "{1,2}", "{}"],
+        explanation: "The intersection contains only elements shared by both sets.",
+      });
+    }
+
+    function subsetQuestion() {
+      return question({
+        prompt: "Is {2,3} a subset of {1,2,3,4}?",
+        stimulus: "subset check",
+        answer: "yes",
+        distractors: ["no", "only if order matches", "only if both sets have same size"],
+        explanation: "Every element of {2,3} appears in the larger set.",
+      });
+    }
+
+    function functionQuestion() {
+      return question({
+        prompt: "Is {(1,2), (1,3), (2,4)} a function?",
+        stimulus: "function test",
+        answer: "no",
+        distractors: ["yes", "only if 2=3", "not enough information"],
+        explanation: "Input 1 has two different outputs.",
+      });
+    }
+
+    function domainQuestion() {
+      return question({
+        prompt: "What is the domain of {(1,a), (2,b), (4,b)}?",
+        stimulus: "first coordinates",
+        answer: "{1,2,4}",
+        distractors: ["{a,b}", "{1,2,4,a,b}", "{b}"],
+        explanation: "The domain is the set of first coordinates.",
+      });
+    }
+
+    function relationPropertyQuestion() {
+      return question({
+        prompt: "What property says that aRa for every a?",
+        stimulus: "relation property",
+        answer: "reflexive",
+        distractors: ["symmetric", "transitive", "antisymmetric"],
+        explanation: "Reflexive means every element relates to itself.",
+      });
+    }
+
+    function arithmeticQuestion() {
+      return question({
+        prompt: "Find the next term: 2, 5, 8, 11, ...",
+        stimulus: "sequence",
+        answer: "14",
+        distractors: ["13", "16", "22"],
+        explanation: "The sequence adds 3 each time.",
+      });
+    }
+
+    function geometricQuestion() {
+      return question({
+        prompt: "Find the next term: 3, 6, 12, 24, ...",
+        stimulus: "sequence",
+        answer: "48",
+        distractors: ["30", "36", "27"],
+        explanation: "The sequence multiplies by 2 each time.",
+      });
+    }
+
+    function recursiveQuestion() {
+      return question({
+        prompt: "If a1=4 and a(n+1)=a(n)+5, what is a2?",
+        stimulus: "recurrence",
+        answer: "9",
+        distractors: ["5", "20", "4"],
+        explanation: "Use the rule once: 4+5=9.",
+      });
+    }
+
+    function baseCaseQuestion() {
+      return question({
+        prompt: "What does the base case prove?",
+        stimulus: "induction",
+        answer: "the first case",
+        distractors: ["the converse", "the graph degree", "all cases by itself"],
+        explanation: "The base case starts the chain of implications.",
+      });
+    }
+
+    function hypothesisQuestion() {
+      return question({
+        prompt: "In the induction step, what do you assume temporarily?",
+        stimulus: "prove P(k+1)",
+        answer: "P(k)",
+        distractors: ["P(k+1)", "P(0) is false", "nothing"],
+        explanation: "The induction hypothesis assumes P(k) so you can prove P(k+1).",
+      });
+    }
+
+    function inductionStepQuestion() {
+      return question({
+        prompt: "What does the induction step prove?",
+        stimulus: "P(k) -> P(k+1)",
+        answer: "truth passes to the next case",
+        distractors: ["only one example", "the statement is false", "the domain is empty"],
+        explanation: "It creates the chain from one integer to the next.",
+      });
+    }
+
+    function degreeQuestion() {
+      return question({
+        prompt: "Edges are AB, AC, BC, CD. What is degree(C)?",
+        stimulus: "graph degree",
+        answer: "3",
+        distractors: ["1", "2", "4"],
+        explanation: "C is incident to AC, BC, and CD.",
+      });
+    }
+
+    function pathQuestion() {
+      return question({
+        prompt: "Can a path repeat a vertex?",
+        stimulus: "path definition",
+        answer: "no",
+        distractors: ["yes", "only in directed graphs", "only if it is isolated"],
+        explanation: "A path has no repeated vertices in the introductory definition.",
+      });
+    }
+
+    function connectedQuestion() {
+      return question({
+        prompt: "What does connected mean for an undirected graph?",
+        stimulus: "connectedness",
+        answer: "every vertex can be reached from every other",
+        distractors: ["every degree is zero", "there are no edges", "all edges point right"],
+        explanation: "Connectedness is about reachability.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, explanation, options: shuffle(unique([answer, ...distractors])).slice(0, 4) };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `discrete-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Represent finite relations with Python sets of tuples.</p>
+<div id="2e1bb80f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> domain, is_function, range_</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> {(<span class="dv">1</span>, <span class="st">"a"</span>), (<span class="dv">2</span>, <span class="st">"a"</span>), (<span class="dv">3</span>, <span class="st">"b"</span>)}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>domain(R), range_(R), is_function(R)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>({1, 2, 3}, {'a', 'b'}, True)</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: it guarantees that a given input determines one unambiguous output.</p>
+<p>Check relation properties by exhaustive finite testing.</p>
+<div id="ed623c32" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> is_reflexive, is_symmetric, is_transitive</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> {(<span class="dv">1</span>, <span class="dv">1</span>), (<span class="dv">2</span>, <span class="dv">2</span>), (<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">1</span>)}</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>is_reflexive(S, {<span class="dv">1</span>, <span class="dv">2</span>}), is_symmetric(S), is_transitive(S)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(True, True, True)</code></pre>
 </div>
 </div>
-</div>
+<p>SymPy is less central here than definitions, but Python data structures make small relations easy to test.</p>
 
 
 </section>

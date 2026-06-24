@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Solve systems as shared solutions and line intersections.">
+<meta name="description" content="Solve simultaneous constraints by graphing, substitution, elimination, and checking.">
 
 <title>Systems of Equations – edu-math</title>
 <style>
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/trigonometry/sine-cosine.html" rel="next">
+<link href="../../lessons/algebra/algebraic-modeling.html" rel="next">
 <link href="../../lessons/algebra/exponentials-and-logarithms.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -472,6 +501,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -480,6 +515,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -510,6 +563,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -563,6 +622,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -700,6 +765,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -739,6 +810,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -847,19 +924,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#two-lines-one-shared-point" id="toc-two-lines-one-shared-point" class="nav-link" data-scroll-target="#two-lines-one-shared-point">Two Lines, One Shared Point</a></li>
-  <li><a href="#visual-model" id="toc-visual-model" class="nav-link" data-scroll-target="#visual-model">Visual Model</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#motivation-several-conditions-at-once" id="toc-motivation-several-conditions-at-once" class="nav-link" data-scroll-target="#motivation-several-conditions-at-once">Motivation: several conditions at once</a></li>
+  <li><a href="#what-counts-as-a-solution" id="toc-what-counts-as-a-solution" class="nav-link" data-scroll-target="#what-counts-as-a-solution">What counts as a solution?</a></li>
+  <li><a href="#graphical-interpretation" id="toc-graphical-interpretation" class="nav-link" data-scroll-target="#graphical-interpretation">Graphical interpretation</a></li>
+  <li><a href="#solving-by-substitution" id="toc-solving-by-substitution" class="nav-link" data-scroll-target="#solving-by-substitution">Solving by substitution</a></li>
+  <li><a href="#solving-by-elimination" id="toc-solving-by-elimination" class="nav-link" data-scroll-target="#solving-by-elimination">Solving by elimination</a></li>
+  <li><a href="#classifying-systems" id="toc-classifying-systems" class="nav-link" data-scroll-target="#classifying-systems">Classifying systems</a></li>
+  <li><a href="#word-problems-with-systems" id="toc-word-problems-with-systems" class="nav-link" data-scroll-target="#word-problems-with-systems">Word problems with systems</a></li>
+  <li><a href="#three-variable-and-nonlinear-previews" id="toc-three-variable-and-nonlinear-previews" class="nav-link" data-scroll-target="#three-variable-and-nonlinear-previews">Three-variable and nonlinear previews</a></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common mistakes</a>
   <ul class="collapse">
-  <li><a href="#solving-only-one-equation" id="toc-solving-only-one-equation" class="nav-link" data-scroll-target="#solving-only-one-equation">Solving Only One Equation</a></li>
-  <li><a href="#forgetting-to-find-both-coordinates" id="toc-forgetting-to-find-both-coordinates" class="nav-link" data-scroll-target="#forgetting-to-find-both-coordinates">Forgetting to Find Both Coordinates</a></li>
+  <li><a href="#common-mistakes-1" id="toc-common-mistakes-1" class="nav-link" data-scroll-target="#common-mistakes-1">Common mistakes</a></li>
   </ul></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#browser-symbolic-practice" id="toc-browser-symbolic-practice" class="nav-link" data-scroll-target="#browser-symbolic-practice">Browser symbolic practice</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/systems-of-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -874,7 +956,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Solve systems as shared solutions and line intersections.
+    Solve simultaneous constraints by graphing, substitution, elimination, and checking.
   </div>
 </div>
 
@@ -892,36 +974,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Interpret a system solution as a value satisfying all equations.</li>
-<li>Solve small linear systems by substitution or elimination.</li>
-<li>Understand line intersections as system solutions.</li>
-<li>Connect systems to matrix methods later.</li>
+<li>decide whether an ordered pair solves a system;</li>
+<li>solve two-variable linear systems by graphing, substitution, and elimination;</li>
+<li>classify systems as one solution, no solution, or infinitely many solutions;</li>
+<li>translate simple word problems into systems;</li>
+<li>recognize basic nonlinear systems as graph intersections;</li>
+<li>use SymPy to solve and check systems.</li>
 </ul>
 </section>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Systems of equations appear whenever several constraints must hold at the same time. In applications, one equation might describe a cost condition and another might describe a revenue condition. The solution is where both are true.</p>
+<section id="motivation-several-conditions-at-once" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-several-conditions-at-once">Motivation: several conditions at once</h2>
+<p>A <strong>system of equations</strong> describes several conditions that must all be true at the same time. A solution to a system must satisfy every equation, not just one.</p>
 </section>
-<section id="two-lines-one-shared-point" class="level2">
-<h2 class="anchored" data-anchor-id="two-lines-one-shared-point">Two Lines, One Shared Point</h2>
+<section id="what-counts-as-a-solution" class="level2">
+<h2 class="anchored" data-anchor-id="what-counts-as-a-solution">What counts as a solution?</h2>
 <p>Consider:</p>
-<pre class="text"><code>y = x + 1
-y = -x + 5</code></pre>
-<p>At the intersection, both equations give the same <code>y</code>.</p>
-<p>Set them equal:</p>
-<pre class="text"><code>x + 1 = -x + 5</code></pre>
-<p>Solve:</p>
-<pre class="text"><code>2x = 4
-x = 2</code></pre>
-<p>Then:</p>
-<pre class="text"><code>y = 2 + 1 = 3</code></pre>
-<p>The solution is <code>(2, 3)</code>.</p>
+<pre class="text"><code>x + y = 5
+x - y = 1</code></pre>
+<p><code>(3, 2)</code> works because <code>3 + 2 = 5</code> and <code>3 - 2 = 1</code>. <code>(5, 0)</code> fails because it satisfies the first equation but not the second.</p>
 </section>
-<section id="visual-model" class="level2">
-<h2 class="anchored" data-anchor-id="visual-model">Visual Model</h2>
-<div id="0496cc25" class="cell" data-execution_count="1">
+<section id="graphical-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="graphical-interpretation">Graphical interpretation</h2>
+<p>In two variables, each linear equation is a line. A system asks where the lines share points.</p>
+<ul>
+<li>Intersecting lines: one solution.</li>
+<li>Parallel distinct lines: no solution.</li>
+<li>Same line written two ways: infinitely many solutions.</li>
+</ul>
+<div id="35a1856b" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -938,100 +1021,128 @@ x = 2</code></pre>
 </div>
 </div>
 </section>
+<section id="solving-by-substitution" class="level2">
+<h2 class="anchored" data-anchor-id="solving-by-substitution">Solving by substitution</h2>
+<p>Substitution is useful when one equation is already solved for a variable.</p>
+<p>Solve:</p>
+<pre class="text"><code>y = 2x + 1
+x + y = 10</code></pre>
+<p>Substitute <code>2x + 1</code> for <code>y</code>:</p>
+<pre class="text"><code>x + (2x + 1) = 10
+3x + 1 = 10
+x = 3</code></pre>
+<p>Then <code>y = 2(3) + 1 = 7</code>. Solution: <code>(3, 7)</code>.</p>
+</section>
+<section id="solving-by-elimination" class="level2">
+<h2 class="anchored" data-anchor-id="solving-by-elimination">Solving by elimination</h2>
+<p>Elimination is useful when adding or subtracting equations removes a variable.</p>
+<pre class="text"><code>2x + 3y = 12
+4x - 3y = 6</code></pre>
+<p>Add equations:</p>
+<pre class="text"><code>6x = 18
+x = 3</code></pre>
+<p>Substitute back:</p>
+<pre class="text"><code>2(3) + 3y = 12
+y = 2</code></pre>
+<p>Solution: <code>(3, 2)</code>.</p>
+</section>
+<section id="classifying-systems" class="level2">
+<h2 class="anchored" data-anchor-id="classifying-systems">Classifying systems</h2>
+<p>For:</p>
+<pre class="text"><code>a1*x + b1*y = c1
+a2*x + b2*y = c2</code></pre>
+<p>look at <code>a1*b2 - a2*b1</code>.</p>
+<ul>
+<li>Nonzero: one solution.</li>
+<li>Zero: parallel or identical lines; compare constants.</li>
+</ul>
+<p>Examples:</p>
+<pre class="text"><code>2x + 3y = 12
+4x + 6y = 20</code></pre>
+<p>No solution, because the left side doubled but the constant did not. In contrast,</p>
+<pre class="text"><code>2x + 3y = 12
+4x + 6y = 24</code></pre>
+<p>has infinitely many solutions.</p>
+</section>
+<section id="word-problems-with-systems" class="level2">
+<h2 class="anchored" data-anchor-id="word-problems-with-systems">Word problems with systems</h2>
+<p>Use this routine:</p>
+<ol type="1">
+<li>Define variables with units.</li>
+<li>Translate each condition into an equation.</li>
+<li>Solve.</li>
+<li>Interpret and check.</li>
+</ol>
+<p>A club sold <code>50</code> tickets. Adult tickets cost <code>$10</code>, student tickets cost <code>$6</code>, and total revenue was <code>$380</code>.</p>
+<pre class="text"><code>a + s = 50
+10a + 6s = 380</code></pre>
+<p>From <code>s = 50 - a</code>:</p>
+<pre class="text"><code>10a + 6(50 - a) = 380
+4a = 80
+a = 20
+s = 30</code></pre>
+</section>
+<section id="three-variable-and-nonlinear-previews" class="level2">
+<h2 class="anchored" data-anchor-id="three-variable-and-nonlinear-previews">Three-variable and nonlinear previews</h2>
+<p>Three-variable systems use the same idea: find values satisfying every equation. Later, linear algebra turns these into matrix equations.</p>
+<p>Nonlinear systems are intersections too. For:</p>
+<pre class="text"><code>y = x^2
+y = x + 2</code></pre>
+<p>substitution gives <code>x^2 = x + 2</code>, so <code>x = 2</code> or <code>x = -1</code>. The points are <code>(2, 4)</code> and <code>(-1, 1)</code>.</p>
+</section>
 <section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<section id="solving-only-one-equation" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="solving-only-one-equation">Solving Only One Equation</h3>
-<p>A solution to a system must satisfy every equation in the system, not just one.</p>
-</section>
-<section id="forgetting-to-find-both-coordinates" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="forgetting-to-find-both-coordinates">Forgetting to Find Both Coordinates</h3>
-<p>After solving for <code>x</code>, substitute back into either original equation to find <code>y</code>.</p>
+<h2 class="anchored" data-anchor-id="common-mistakes">Common mistakes</h2>
+<section id="common-mistakes-1" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="common-mistakes-1">Common mistakes</h3>
+<p>Give an ordered pair, not only one coordinate. Check every equation. Be careful with signs during elimination.</p>
 </section>
 </section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<section id="browser-symbolic-practice" class="level2">
+<h2 class="anchored" data-anchor-id="browser-symbolic-practice">Browser symbolic practice</h2>
+<p>Try checking systems with <a href="https://mathjs.org/docs/index.html">math.js</a>, <a href="https://nerdamer.com/documentation.html">Nerdamer</a>, <a href="https://github.com/davidedc/Algebrite">Algebrite</a>, or <a href="https://docs.pyscript.net/latest/">PyScript</a>. Good activities: test candidate points, solve a 2-by-2 system, graph moving lines, or preview matrix solving.</p>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>Solve <code>y = 2x</code> and <code>y = x + 3</code>.</li>
-<li>Solve <code>x + y = 5</code> and <code>x - y = 1</code>.</li>
-<li>What does it mean if two lines are parallel?</li>
-<li>What does it mean if two equations describe the same line?</li>
+<li>Does <code>(2, 3)</code> solve <code>x + y = 5</code> and <code>2x - y = 1</code>?</li>
+<li>Solve by substitution: <code>y = x + 4</code>, <code>2x + y = 10</code>.</li>
+<li>Solve by elimination: <code>x + y = 7</code>, <code>x - y = 1</code>.</li>
+<li>Classify: <code>2x + 3y = 6</code>, <code>4x + 6y = 12</code>.</li>
+<li>Classify: <code>2x + 3y = 6</code>, <code>4x + 6y = 15</code>.</li>
+<li>Set up and solve: <code>30</code> tickets, adult <code>$12</code>, child <code>$7</code>, revenue <code>$310</code>.</li>
+<li>Solve <code>y = x^2</code>, <code>y = 4</code>.</li>
+<li>Explain why parallel distinct lines have no solution.</li>
 </ol>
 </div>
-</section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>(x, y) = (3, 6)</code>.</p>
-<p>Set the right sides equal: <code>2x = x + 3</code>, so <code>x = 3</code>. Then <code>y = 2(3) = 6</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: <code>(x, y) = (3, 2)</code>.</p>
-<p>Add the equations: <code>2x = 6</code>, so <code>x = 3</code>. Then <code>3 + y = 5</code>, so <code>y = 2</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: they do not intersect, so the system has no solution.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 4
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: every point on that line solves both equations, so the system has infinitely many solutions.</p>
+<ol type="1">
+<li>Yes.</li>
+<li><code>(2, 6)</code>.</li>
+<li><code>(4, 3)</code>.</li>
+<li>Infinitely many solutions.</li>
+<li>No solution.</li>
+<li><code>a + c = 30</code>, <code>12a + 7c = 310</code>; solution <code>a = 20</code>, <code>c = 10</code>.</li>
+<li><code>(2, 4)</code> and <code>(-2, 4)</code>.</li>
+<li>They never intersect, so no ordered pair lies on both.</li>
+</ol>
 </div>
 </div>
 </div>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
-<p>Before moving to the Python/SymPy appendix, practice the core moves from this lesson. This short quiz may show an expression, graph, equation, solution set, or description and ask you to choose the matching mathematical object.</p>
 <script type="application/json" class="edu-math-guessing-game-config">
 {
   "topic": "systems-equations",
@@ -1074,13 +1185,45 @@ x = 2</code></pre>
         polynomialEndBehaviorQuestion,
         polynomialMultiplicityQuestion,
       ],
+      "rational-radical-functions": [
+        rationalDomainQuestion,
+        rationalHoleQuestion,
+        radicalDomainQuestion,
+        radicalEquationQuestion,
+      ],
       "exponentials-logarithms": [
         exponentialValueQuestion,
         logarithmValueQuestion,
         exponentialEquationQuestion,
         logarithmRewriteQuestion,
+        growthDecayQuestion,
+        logarithmDomainQuestion,
       ],
       "systems-equations": [systemSolutionQuestion, systemClassificationQuestion],
+      "algebraic-modeling": [
+        modelFamilyQuestion,
+        parameterMeaningQuestion,
+        wordsToEquationQuestion,
+        tableModelQuestion,
+      ],
+      "symbolic-computation-sympy": [
+        sympyCommandQuestion,
+        sympyOutputQuestion,
+        sympySyntaxQuestion,
+        sympyDomainWarningQuestion,
+      ],
+      "algebra-cumulative-review": [
+        expandedFormQuestion,
+        linearInequalityQuestion,
+        functionValueQuestion,
+        transformationDescriptionQuestion,
+        quadraticRootsQuestion,
+        rationalDomainQuestion,
+        exponentialEquationQuestion,
+        systemSolutionQuestion,
+        modelFamilyQuestion,
+        sympyCommandQuestion,
+      ],
     };
 
     document
@@ -1629,6 +1772,70 @@ x = 2</code></pre>
       });
     }
 
+    function rationalDomainQuestion() {
+      const roots = distinctInts(2, -6, 6).sort((a, b) => a - b);
+      const stimulus = mathStimulus(`f(x) = (x + 1)/${roots.map(formatRootFactor).join("")}`);
+      const answer = `x ≠ ${roots[0]} and x ≠ ${roots[1]}`;
+
+      return choiceQuestion({
+        prompt: "Select the domain restriction.",
+        stimulus,
+        answer,
+        distractors: [
+          `x = ${roots[0]} and x = ${roots[1]}`,
+          `x ≠ ${-roots[0]} and x ≠ ${-roots[1]}`,
+          `x > ${roots[0]} and x < ${roots[1]}`,
+          "all real numbers",
+        ],
+        explanation: "A rational function is undefined where its denominator is zero.",
+      });
+    }
+
+    function rationalHoleQuestion() {
+      const root = nonzeroInt(-5, 5);
+      const expressionLabel = `(x² - ${root * root})/${formatRootFactor(root)}`;
+
+      return choiceQuestion({
+        prompt: "What graph feature comes from the canceled factor?",
+        stimulus: mathStimulus(expressionLabel),
+        answer: `hole at x = ${root}`,
+        distractors: [
+          `vertical asymptote at x = ${root}`,
+          `hole at x = ${-root}`,
+          "horizontal asymptote only",
+          "no restriction",
+        ],
+        explanation: "A denominator factor that cancels creates a missing point rather than a vertical asymptote.",
+      });
+    }
+
+    function radicalDomainQuestion() {
+      const h = int(-6, 6);
+      const stimulus = mathStimulus(`g(x) = √(x ${formatSigned(-h)})`);
+
+      return choiceQuestion({
+        prompt: "Select the real-valued domain.",
+        stimulus,
+        answer: `x ≥ ${h}`,
+        distractors: [`x ≤ ${h}`, `x > ${h}`, "all real numbers", `x ≠ ${h}`],
+        explanation: "For a square root, the radicand must be nonnegative.",
+      });
+    }
+
+    function radicalEquationQuestion() {
+      const c = int(1, 8);
+      const value = int(2, 6);
+      const solution = value * value - c;
+
+      return choiceQuestion({
+        prompt: "Solve the radical equation.",
+        stimulus: mathStimulus(`√(x + ${c}) = ${value}`),
+        answer: `x = ${solution}`,
+        distractors: [`x = ${value - c}`, `x = ${value + c}`, `x = ${-solution}`, "no real solution"],
+        explanation: "Square both sides, then check the candidate in the original equation.",
+      });
+    }
+
     function exponentialValueQuestion() {
       const base = choice([2, 3, 4, 5]);
       const exponent = int(2, 5);
@@ -1692,6 +1899,40 @@ x = 2</code></pre>
       });
     }
 
+    function growthDecayQuestion() {
+      const initial = choice([100, 200, 500, 1000]);
+      const rate = choice([3, 5, 8, 12, 20]);
+      const grows = choice([true, false]);
+      const factor = grows ? 1 + rate / 100 : 1 - rate / 100;
+      const label = `${initial}(${formatNumber(factor)})^t`;
+      const answer = grows ? `growth by ${rate}%` : `decay by ${rate}%`;
+
+      return choiceQuestion({
+        prompt: "Interpret the model.",
+        stimulus: mathStimulus(label),
+        answer,
+        distractors: [
+          grows ? `decay by ${rate}%` : `growth by ${rate}%`,
+          `growth by ${formatNumber(factor)}%`,
+          `initial value ${rate}`,
+          "linear change",
+        ],
+        explanation: "Compare the base with 1: above 1 grows; between 0 and 1 decays.",
+      });
+    }
+
+    function logarithmDomainQuestion() {
+      const h = int(-6, 6);
+
+      return choiceQuestion({
+        prompt: "Select the domain restriction.",
+        stimulus: mathStimulus(`log(x ${formatSigned(-h)})`),
+        answer: `x > ${h}`,
+        distractors: [`x ≥ ${h}`, `x < ${h}`, `x ≠ ${h}`, "all real numbers"],
+        explanation: "The input to a real logarithm must be positive.",
+      });
+    }
+
     function systemSolutionQuestion() {
       const x0 = int(-4, 4);
       const y0 = int(-4, 4);
@@ -1743,6 +1984,147 @@ x = 2</code></pre>
         answer,
         distractors: ["one solution", "no solution", "infinitely many solutions", "not enough information"],
         explanation: "Compare slopes and constants: intersecting, parallel, or identical lines give different solution counts.",
+      });
+    }
+
+    function modelFamilyQuestion() {
+      const scenarios = [
+        ["A value increases by 6% each year.", "exponential"],
+        ["A fixed fee plus a charge per mile.", "linear"],
+        ["Area of a square from its side length.", "quadratic"],
+        ["Time equals distance divided by speed.", "rational"],
+        ["Side length of a square from its area.", "radical"],
+      ];
+      const [scenario, answer] = choice(scenarios);
+
+      return choiceQuestion({
+        prompt: "Choose the best model family.",
+        stimulus: mathStimulus(scenario),
+        answer,
+        distractors: ["linear", "quadratic", "rational", "exponential", "radical"].filter((item) => item !== answer),
+        explanation: "Match the model family to the kind of change or operation in the context.",
+      });
+    }
+
+    function parameterMeaningQuestion() {
+      const fixed = choice([20, 35, 50, 100]);
+      const rate = choice([4, 8, 12, 25]);
+
+      return choiceQuestion({
+        prompt: "Interpret the model parameters.",
+        stimulus: mathStimulus(`C(n) = ${fixed} + ${rate}n`),
+        answer: `fixed cost ${fixed}; per-item cost ${rate}`,
+        distractors: [
+          `fixed cost ${rate}; per-item cost ${fixed}`,
+          `growth rate ${rate}%`,
+          `maximum value ${fixed}`,
+          "not enough information",
+        ],
+        explanation: "In a linear cost model, the constant term is the starting cost and the coefficient is the rate.",
+      });
+    }
+
+    function wordsToEquationQuestion() {
+      const x = "x";
+      const scenarios = [
+        [`five more than twice ${x}`, "2x + 5", ["2(x + 5)", "5x + 2", "2x - 5"]],
+        [`three less than ${x}`, "x - 3", ["3 - x", "3x", "x + 3"]],
+        [`${x} decreased by 20%`, "0.8x", ["1.2x", "20x", "x - 0.2"]],
+      ];
+      const [scenario, answer, distractors] = choice(scenarios);
+
+      return choiceQuestion({
+        prompt: "Choose the matching algebraic expression.",
+        stimulus: mathStimulus(scenario),
+        answer,
+        distractors,
+        explanation: "Translate the words in order and keep track of rates and units.",
+      });
+    }
+
+    function tableModelQuestion() {
+      const kind = choice(["linear", "exponential"]);
+      const stimulus =
+        kind === "linear"
+          ? multiLineStimulus(["x: 0, 1, 2, 3", "y: 5, 8, 11, 14"])
+          : multiLineStimulus(["x: 0, 1, 2, 3", "y: 5, 10, 20, 40"]);
+
+      return choiceQuestion({
+        prompt: "Which model family best matches the table?",
+        stimulus,
+        answer: kind,
+        distractors: ["linear", "quadratic", "exponential", "radical"].filter((item) => item !== kind),
+        explanation: "Constant differences suggest linear; constant ratios suggest exponential.",
+      });
+    }
+
+    function sympyCommandQuestion() {
+      const tasks = [
+        ["Factor x² - 5x + 6.", "sp.factor(...)"],
+        ["Expand (x + 2)(x - 3).", "sp.expand(...)"],
+        ["Solve 3x - 7 = 11.", "sp.solve(...)"],
+        ["Combine rational terms.", "sp.together(...)"],
+        ["Check a candidate solution.", "sp.checksol(...)"],
+      ];
+      const [task, answer] = choice(tasks);
+
+      return choiceQuestion({
+        prompt: "Choose the best SymPy command.",
+        stimulus: mathStimulus(task),
+        answer,
+        distractors: ["sp.factor(...)", "sp.expand(...)", "sp.solve(...)", "sp.checksol(...)", "sp.together(...)"].filter((item) => item !== answer),
+        explanation: "Choose the command that matches the algebraic action.",
+      });
+    }
+
+    function sympyOutputQuestion() {
+      const a = int(-5, 5);
+      const b = int(-5, 5);
+      const middle = a + b;
+      const constant = a * b;
+      const expressionLabel = `sp.expand(${formatBinomial(a)}${formatBinomial(b)})`;
+      const answer = formatPolynomial([
+        [1, "x²"],
+        [middle, "x"],
+        [constant, ""],
+      ]);
+
+      return choiceQuestion({
+        prompt: "Predict the SymPy output in ordinary math notation.",
+        stimulus: mathStimulus(expressionLabel),
+        answer,
+        distractors: [
+          formatPolynomial([[1, "x²"], [a - b, "x"], [constant, ""]]),
+          formatPolynomial([[1, "x²"], [middle, "x"], [a + b, ""]]),
+          `${formatBinomial(a)}${formatBinomial(b)}`,
+          "True",
+        ],
+        explanation: "SymPy's expand command multiplies out the factors.",
+      });
+    }
+
+    function sympySyntaxQuestion() {
+      return choiceQuestion({
+        prompt: "Choose valid Python/SymPy syntax for two times x squared.",
+        stimulus: mathStimulus("two times x squared"),
+        answer: "2*x**2",
+        distractors: ["2x^2", "2*x^2", "2x**2", "2(x**2)"],
+        explanation: "Python requires explicit multiplication and uses ** for powers.",
+      });
+    }
+
+    function sympyDomainWarningQuestion() {
+      return choiceQuestion({
+        prompt: "What warning is needed after canceling?",
+        stimulus: mathStimulus("sp.cancel((x² - 1)/(x - 1)) → x + 1"),
+        answer: "original expression excludes x = 1",
+        distractors: [
+          "x + 1 is valid for every original input",
+          "original expression excludes x = -1 only",
+          "there is a vertical asymptote at x = 1",
+          "no warning is needed",
+        ],
+        explanation: "The canceled denominator factor creates a hole in the original expression.",
       });
     }
 
@@ -2150,37 +2532,34 @@ x = 2</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<p>Use SymPy to solve systems symbolically, then use graphing helpers to interpret the solution as an intersection point.</p>
-<div id="fd71d53b" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, <span class="dv">2</span><span class="op">*</span>x), sp.Eq(y, x <span class="op">+</span> <span class="dv">3</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="c298ba70" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, <span class="dv">2</span><span class="op">*</span>x), sp.Eq(y, x <span class="op">+</span> <span class="dv">3</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>{x: 3, y: 6}</code></pre>
 </div>
 </div>
-<div id="1d3d2718" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> compare_functions_scene</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> compare_functions_scene((<span class="st">"2*x"</span>, <span class="st">"x + 3"</span>), labels<span class="op">=</span>(<span class="st">"y = 2x"</span>, <span class="st">"y = x + 3"</span>))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-<figure class="figure">
-<p><img src="systems-of-equations_files/figure-html/cell-4-output-1.png" width="779" height="491" class="figure-img"></p>
-</figure>
+<div id="02a299b2" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sp.linsolve((sp.Matrix([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]]), sp.Matrix([<span class="dv">5</span>, <span class="dv">1</span>])), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle \left\{\left( 3, \  2\right)\right\}\)</span></p>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="systems-of-equations_files/figure-html/cell-4-output-2.png" width="779" height="491" class="figure-img"></p>
-</figure>
+<div id="40ee867a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, x<span class="op">**</span><span class="dv">2</span>), sp.Eq(y, x <span class="op">+</span> <span class="dv">2</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>[(-1, 1), (2, 4)]</code></pre>
 </div>
 </div>
-</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>College Algebra 2e</em>: <a href="https://openstax.org/books/college-algebra-2e/pages/index" class="uri">https://openstax.org/books/college-algebra-2e/pages/index</a></li>
+<li>OpenStax, <em>Precalculus</em>: <a href="https://openstax.org/books/precalculus/pages/index" class="uri">https://openstax.org/books/precalculus/pages/index</a></li>
+</ul>
 
 
 </section>
@@ -2611,8 +2990,8 @@ x = 2</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/trigonometry/sine-cosine.html" class="pagination-link" aria-label="Sine and Cosine">
-        <span class="nav-page-text">Sine and Cosine</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/algebra/algebraic-modeling.html" class="pagination-link" aria-label="Algebraic Modeling">
+        <span class="nav-page-text">Algebraic Modeling</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

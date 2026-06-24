@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Equations involving a function and its first derivative.">
+<meta name="description" content="Interpret equations involving a function and its first derivative.">
 
 <title>First-Order Differential Equations – edu-math</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../lessons/differential-equations/separable-equations.html" rel="next">
-<link href="../../lessons/statistics/regression-basics.html" rel="prev">
+<link href="../../lessons/differential-equations/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,6 +113,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -296,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">First-Order Differential Equations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/index.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">First-Order Differential Equations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +501,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +515,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +563,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -528,6 +622,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +765,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +810,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,8 +924,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#from-equations-to-change-rules" id="toc-from-equations-to-change-rules" class="nav-link" data-scroll-target="#from-equations-to-change-rules">From equations to change rules</a></li>
+  <li><a href="#vocabulary" id="toc-vocabulary" class="nav-link" data-scroll-target="#vocabulary">Vocabulary</a>
+  <ul class="collapse">
+  <li><a href="#solution-test" id="toc-solution-test" class="nav-link" data-scroll-target="#solution-test">Solution test</a></li>
+  </ul></li>
+  <li><a href="#worked-example-1-verify-a-solution" id="toc-worked-example-1-verify-a-solution" class="nav-link" data-scroll-target="#worked-example-1-verify-a-solution">Worked example 1: verify a solution</a></li>
+  <li><a href="#worked-example-2-use-an-initial-condition" id="toc-worked-example-2-use-an-initial-condition" class="nav-link" data-scroll-target="#worked-example-2-use-an-initial-condition">Worked example 2: use an initial condition</a></li>
+  <li><a href="#worked-example-3-interpret-a-model" id="toc-worked-example-3-interpret-a-model" class="nav-link" data-scroll-target="#worked-example-3-interpret-a-model">Worked example 3: interpret a model</a></li>
+  <li><a href="#common-first-order-patterns" id="toc-common-first-order-patterns" class="nav-link" data-scroll-target="#common-first-order-patterns">Common first-order patterns</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#first-order-equation-checkpoint" id="toc-first-order-equation-checkpoint" class="nav-link" data-scroll-target="#first-order-equation-checkpoint">First-order equation checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/differential-equations/first-order-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -821,14 +945,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">First-Order Differential Equations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/index.html">Differential Equations</a></li><li class="breadcrumb-item"><a href="../../lessons/differential-equations/first-order-equations.html">First-Order Differential Equations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">First-Order Differential Equations</h1>
 </div>
 
 <div>
   <div class="description">
-    Equations involving a function and its first derivative.
+    Interpret equations involving a function and its first derivative.
   </div>
 </div>
 
@@ -845,71 +969,510 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>A first-order differential equation describes a function by describing its first derivative. Instead of immediately telling you <code>y</code>, it tells you how <code>y</code> changes.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Recognize first-order differential equations.</li>
-<li>Interpret them as dynamic rules.</li>
-<li>Connect derivative rules to change over time.</li>
+<li>recognize a first-order differential equation;</li>
+<li>identify the independent variable, dependent variable, and derivative;</li>
+<li>explain what a solution function means;</li>
+<li>use an initial condition to choose one solution;</li>
+<li>verify a proposed solution by substitution;</li>
+<li>interpret simple models with units.</li>
 </ul>
 </section>
-<p>A differential equation relates an unknown function to its derivatives.</p>
+<section id="from-equations-to-change-rules" class="level2">
+<h2 class="anchored" data-anchor-id="from-equations-to-change-rules">From equations to change rules</h2>
+<p>Compare these two statements:</p>
+<pre class="text"><code>y = 3x + 2</code></pre>
+<pre class="text"><code>dy/dx = 3</code></pre>
+<p>The first statement gives <code>y</code> directly. The second statement says the rate of change of <code>y</code> with respect to <code>x</code> is always <code>3</code>. Many functions differ by a constant but have derivative <code>3</code>, so the differential equation describes a <strong>family</strong> of functions.</p>
+<div class="formula-box">
+<p>A common first-order form is</p>
 <pre class="text"><code>dy/dx = f(x, y)</code></pre>
+<p>The right-hand side tells you the slope that a solution should have at each point <code>(x,y)</code>.</p>
+</div>
+</section>
+<section id="vocabulary" class="level2">
+<h2 class="anchored" data-anchor-id="vocabulary">Vocabulary</h2>
+<ul>
+<li>The <strong>independent variable</strong> is the input, often <code>x</code> or time <code>t</code>.</li>
+<li>The <strong>dependent variable</strong> is the unknown function, often <code>y(x)</code> or <code>y(t)</code>.</li>
+<li>The <strong>derivative</strong> <code>dy/dx</code> or <code>dy/dt</code> is the rate of change.</li>
+<li>A <strong>solution</strong> is a function whose derivative satisfies the rule.</li>
+<li>An <strong>initial condition</strong> such as <code>y(0)=5</code> gives a starting value.</li>
+</ul>
+<section id="solution-test" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="solution-test">Solution test</h3>
+<p>To check whether a function solves an ODE:</p>
+<ol type="1">
+<li>Differentiate the candidate function.</li>
+<li>Substitute the candidate into the right-hand side.</li>
+<li>See whether the two expressions match.</li>
+</ol>
+</section>
+</section>
+<section id="worked-example-1-verify-a-solution" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-verify-a-solution">Worked example 1: verify a solution</h2>
+<p>Show that <code>y = 2e^{3x}</code> solves <code>dy/dx = 3y</code>.</p>
+<p>Step 1: Differentiate the candidate.</p>
+<pre class="text"><code>y = 2e^{3x}
+y' = 6e^{3x}</code></pre>
+<p>Step 2: Compute the right-hand side <code>3y</code>.</p>
+<pre class="text"><code>3y = 3(2e^{3x}) = 6e^{3x}</code></pre>
+<p>Step 3: Compare.</p>
+<pre class="text"><code>y' = 6e^{3x} and 3y = 6e^{3x}</code></pre>
+<p>They match, so the candidate is a solution.</p>
+</section>
+<section id="worked-example-2-use-an-initial-condition" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-use-an-initial-condition">Worked example 2: use an initial condition</h2>
+<p>Suppose the family of solutions is</p>
+<pre class="text"><code>y = Ce^{-2t}</code></pre>
+<p>and the initial condition is <code>y(0)=7</code>. Substitute <code>t=0</code> and <code>y=7</code>:</p>
+<pre class="text"><code>7 = C e^0
+7 = C</code></pre>
+<p>So the particular solution is</p>
+<pre class="text"><code>y = 7e^{-2t}</code></pre>
+</section>
+<section id="worked-example-3-interpret-a-model" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-interpret-a-model">Worked example 3: interpret a model</h2>
+<p>Newton’s law of cooling is often written as</p>
+<pre class="text"><code>dT/dt = -0.4(T - 20)</code></pre>
+<p>Here <code>T</code> is temperature and <code>t</code> is time. The expression <code>T - 20</code> measures how far the object is from the surrounding temperature <code>20</code>. The negative sign means that if the object is hotter than the room, the temperature decreases. If the object is colder than the room, the temperature increases.</p>
+</section>
+<section id="common-first-order-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="common-first-order-patterns">Common first-order patterns</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th style="text-align: right;">Example</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Constant rate</td>
+<td style="text-align: right;"><code>dy/dt = 4</code></td>
+<td>add the same amount each time unit</td>
+</tr>
+<tr class="even">
+<td>Proportional growth</td>
+<td style="text-align: right;"><code>dy/dt = 0.2y</code></td>
+<td>bigger <code>y</code> grows faster</td>
+</tr>
+<tr class="odd">
+<td>Proportional decay</td>
+<td style="text-align: right;"><code>dy/dt = -0.2y</code></td>
+<td>bigger <code>y</code> decays faster</td>
+</tr>
+<tr class="even">
+<td>Autonomous</td>
+<td style="text-align: right;"><code>dy/dt = y(1-y)</code></td>
+<td>rate depends only on current <code>y</code></td>
+</tr>
+<tr class="odd">
+<td>Forced</td>
+<td style="text-align: right;"><code>dy/dt + 2y = sin(t)</code></td>
+<td>outside input affects the motion</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Confusing the differential equation with its solution.</li>
+<li>Forgetting that a solution is a function, not only one number.</li>
+<li>Ignoring the initial condition.</li>
+<li>Forgetting units: if <code>y</code> is meters and <code>t</code> is seconds, <code>dy/dt</code> is meters per second.</li>
+<li>Substituting into the ODE without differentiating first.</li>
+</ul>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What does <code>dy/dx</code> represent?</li>
-<li>Why do differential equations model dynamic systems?</li>
-<li>Give one real-world quantity that changes over time.</li>
+<li><p>Is <code>dy/dx = x + y</code> first order? Explain.</p></li>
+<li><p>Verify that <code>y = 5e^x</code> solves <code>dy/dx = y</code>.</p></li>
+<li><p>The family <code>y = C e^{4t}</code> satisfies <code>y(0)=3</code>. Find <code>C</code>.</p></li>
+<li><p>Interpret <code>dP/dt = 0.03P</code> if <code>P</code> is population and <code>t</code> is years.</p></li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the rate of change of <code>y</code> with respect to <code>x</code>.</p>
+<ol type="1">
+<li>Yes. It involves the first derivative <code>dy/dx</code> and no higher derivative.</li>
+<li>The derivative of <code>5e^x</code> is <code>5e^x</code>, which equals <code>y</code>.</li>
+<li><code>3 = C e^0</code>, so <code>C=3</code>.</li>
+<li>The population grows at a rate equal to 3% of the current population per year.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="first-order-equation-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-equation-checkpoint">First-order equation checkpoint</h2>
+<script type="application/json" class="edu-math-de-checkpoint-config">
+{
+  "topic": "first-order-equations",
+  "title": "First-order equation checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-de-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "first-order-equations";
+    const BANKS = {
+      "first-order-equations": [odeMeaningQuestion, solutionQuestion, initialConditionQuestion],
+      "separable-equations": [separableClassQuestion, separationStepQuestion, constantQuestion],
+      "linear-equations": [linearFormQuestion, integratingFactorQuestion, productDerivativeQuestion],
+      "slope-fields": [slopeSegmentQuestion, eulerStepQuestion, equilibriumStabilityQuestion],
+      systems: [systemEquilibriumQuestion, couplingQuestion, phasePlaneQuestion],
+      "differential-equations-cumulative-review": [
+        odeMeaningQuestion,
+        separableClassQuestion,
+        integratingFactorQuestion,
+        eulerStepQuestion,
+        systemEquilibriumQuestion,
+      ],
+    };
+
+    document.querySelectorAll(".edu-math-de-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-de-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Differential equations checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function odeMeaningQuestion() {
+      return question({
+        prompt: "What does a first-order ODE usually describe?",
+        stimulus: "dy/dt = f(t, y)",
+        answer: "a rule for the rate of change",
+        distractors: ["only one number", "an area formula", "a matrix inverse"],
+        explanation: "The derivative tells how the unknown function changes.",
+      });
+    }
+
+    function solutionQuestion() {
+      return question({
+        prompt: "Which function solves y' = 2y?",
+        stimulus: "Differentiate each candidate mentally.",
+        answer: "Ce^(2x)",
+        distractors: ["2x + C", "C e^x", "x^2 + C"],
+        explanation: "The derivative of Ce^(2x) is 2Ce^(2x), which equals 2y.",
+      });
+    }
+
+    function initialConditionQuestion() {
+      return question({
+        prompt: "What does y(0)=5 do?",
+        stimulus: "Family: y = C e^x",
+        answer: "selects one solution curve",
+        distractors: ["changes the derivative rule", "removes x from the problem", "proves no solution exists"],
+        explanation: "The initial condition determines the constant C.",
+      });
+    }
+
+    function separableClassQuestion() {
+      return question({
+        prompt: "Is this equation separable?",
+        stimulus: "dy/dx = x y",
+        answer: "yes",
+        distractors: ["no", "only if x=0", "only after differentiating twice"],
+        explanation: "It can be written as (1/y) dy = x dx when y is not zero.",
+      });
+    }
+
+    function separationStepQuestion() {
+      return question({
+        prompt: "What is the separated form of y' = x y²?",
+        stimulus: "Move y terms with dy and x terms with dx.",
+        answer: "y^(-2) dy = x dx",
+        distractors: ["y² dy = x dx", "dy = x y² dx", "x dy = y² dx"],
+        explanation: "Divide both sides by y², then multiply by dx.",
+      });
+    }
+
+    function constantQuestion() {
+      return question({
+        prompt: "Why does +C appear after integrating?",
+        stimulus: "∫ y^(-1) dy = ∫ x dx",
+        answer: "indefinite integrals represent families",
+        distractors: ["C means cancel", "C is always zero", "C is the derivative"],
+        explanation: "One differential equation can have many solution curves.",
+      });
+    }
+
+    function linearFormQuestion() {
+      return question({
+        prompt: "Identify p(x) in y' + 3y = x.",
+        stimulus: "Standard form: y' + p(x)y = q(x)",
+        answer: "3",
+        distractors: ["x", "y", "1/3"],
+        explanation: "p(x) is the coefficient multiplying y in standard form.",
+      });
+    }
+
+    function integratingFactorQuestion() {
+      return question({
+        prompt: "What is the integrating factor for y' + 2y = x?",
+        stimulus: "mu(x) = e^(∫p(x)dx)",
+        answer: "e^(2x)",
+        distractors: ["e^x", "2e^x", "x²/2"],
+        explanation: "Here p(x)=2, so the integral is 2x.",
+      });
+    }
+
+    function productDerivativeQuestion() {
+      return question({
+        prompt: "After multiplying by mu, what should the left side become?",
+        stimulus: "linear ODE workflow",
+        answer: "the derivative of mu(x)y",
+        distractors: ["a second derivative", "zero", "a separated fraction"],
+        explanation: "That product derivative is why the integrating factor helps.",
+      });
+    }
+
+    function slopeSegmentQuestion() {
+      return question({
+        prompt: "What does one short segment in a slope field show?",
+        stimulus: "At a point (x,y)",
+        answer: "the local slope predicted by the ODE",
+        distractors: ["the final answer", "the x-intercept", "the area under a curve"],
+        explanation: "The segment visualizes dy/dx at that point.",
+      });
+    }
+
+    function eulerStepQuestion() {
+      return question({
+        prompt: "Use one Euler step for y'=y, y(0)=2, h=0.5. What is y1?",
+        stimulus: "y1 = y0 + h f(x0,y0)",
+        answer: "3",
+        distractors: ["2.5", "1", "4"],
+        explanation: "The current slope is 2, so y1 = 2 + 0.5·2 = 3.",
+      });
+    }
+
+    function equilibriumStabilityQuestion() {
+      return question({
+        prompt: "Which value is an equilibrium for y'=y(1-y)?",
+        stimulus: "Set the right-hand side equal to zero.",
+        answer: "1",
+        distractors: ["2", "-1", "1/2"],
+        explanation: "Both y=0 and y=1 are equilibria; 1 is one of them.",
+      });
+    }
+
+    function systemEquilibriumQuestion() {
+      return question({
+        prompt: "Find the equilibrium of x'=2-x, y'=3-y.",
+        stimulus: "Set both derivatives to zero.",
+        answer: "(2, 3)",
+        distractors: ["(0, 0)", "(-2, -3)", "(3, 2)"],
+        explanation: "Solving 2-x=0 and 3-y=0 gives (2,3).",
+      });
+    }
+
+    function couplingQuestion() {
+      return question({
+        prompt: "What does coupling mean in a system?",
+        stimulus: "x' may depend on y and y' may depend on x",
+        answer: "variables influence each other's rates",
+        distractors: ["variables are constant", "only one equation is used", "all derivatives are zero"],
+        explanation: "Coupled variables interact through the derivative rules.",
+      });
+    }
+
+    function phasePlaneQuestion() {
+      return question({
+        prompt: "In a phase plane, what does an arrow represent?",
+        stimulus: "State point (x,y)",
+        answer: "the velocity vector (x', y')",
+        distractors: ["only the value of y", "an antiderivative", "a probability"],
+        explanation: "The arrow shows how the state moves from that point.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return {
+        prompt,
+        stimulus,
+        answer,
+        explanation,
+        options: shuffle(unique([answer, ...distractors])).slice(0, 4),
+      };
+    }
+
+    function radioList(options, onSelect) {
+      const form = element("form", { class: "quiz-options", role: "radiogroup" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name: answerName(), value: option });
+        input.addEventListener("change", () => onSelect(option));
+        form.append(element("label", { class: "quiz-option" }, input, element("span", {}, option)));
+      });
+      return form;
+    }
+
+    function stimulus(text) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, text));
+    }
+
+    function choice(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffle(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function unique(items) {
+      return [...new Set(items)];
+    }
+
+    function answerName() {
+      return `de-answer-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        if (key === "class") node.className = value;
+        else node.setAttribute(key, String(value));
+      });
+      children.flat().forEach((child) => node.append(child));
+      return node;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use SymPy to verify that a candidate solution satisfies an ODE.</p>
+<div id="ebdfe0f7" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y_candidate <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> sp.exp(<span class="dv">3</span> <span class="op">*</span> x)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>left_side <span class="op">=</span> sp.diff(y_candidate, x)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>right_side <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> y_candidate</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>sp.simplify(left_side <span class="op">-</span> right_side)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
+<p><span class="math inline">\(\displaystyle 0\)</span></p>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: dynamic systems are defined by how quantities change, and differential equations describe those rates of change directly.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: examples include population size, temperature, position, velocity, account balance, or concentration.</p>
-</div>
+<p>A result of <code>0</code> means the candidate satisfies the differential equation.</p>
+<div id="09519473" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.differential_equations <span class="im">import</span> validate_solution_satisfies_ode</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>validate_solution_satisfies_ode(<span class="st">"2*exp(3*x)"</span>, <span class="st">"3*y"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>'Correct.'</code></pre>
 </div>
 </div>
 
@@ -1337,8 +1900,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/statistics/regression-basics.html" class="pagination-link" aria-label="Regression Basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Regression Basics</span>
+      <a href="../../lessons/differential-equations/index.html" class="pagination-link" aria-label="Differential Equations Study Path">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Differential Equations Study Path</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

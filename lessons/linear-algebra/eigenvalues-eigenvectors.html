@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Directions preserved by matrix transformations.">
+<meta name="description" content="Special directions that are only scaled by a matrix transformation.">
 
 <title>Eigenvalues and Eigenvectors – edu-math</title>
 <style>
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -47,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7a20ddddd3cbbfe429efc5f4f4f92fe7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-2d0ba0525d8e1c92213e3022d4d0771f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,6 +113,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -296,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html">Eigenvalues and Eigenvectors</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/index.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html">Eigenvalues and Eigenvectors</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -437,6 +501,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
@@ -445,6 +515,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -475,6 +563,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
@@ -528,6 +622,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
@@ -665,6 +765,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
@@ -704,6 +810,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
@@ -812,10 +924,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#concept" id="toc-concept" class="nav-link" data-scroll-target="#concept">Concept</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#what-you-should-be-able-to-do" id="toc-what-you-should-be-able-to-do" class="nav-link active" data-scroll-target="#what-you-should-be-able-to-do">What you should be able to do</a></li>
+  <li><a href="#the-basic-definition" id="toc-the-basic-definition" class="nav-link" data-scroll-target="#the-basic-definition">The basic definition</a></li>
+  <li><a href="#how-to-check-a-proposed-eigenvector" id="toc-how-to-check-a-proposed-eigenvector" class="nav-link" data-scroll-target="#how-to-check-a-proposed-eigenvector">How to check a proposed eigenvector</a></li>
+  <li><a href="#worked-example-one-vector-works-one-does-not" id="toc-worked-example-one-vector-works-one-does-not" class="nav-link" data-scroll-target="#worked-example-one-vector-works-one-does-not">Worked example: one vector works, one does not</a></li>
+  <li><a href="#reading-eigenvalues-from-diagonal-matrices" id="toc-reading-eigenvalues-from-diagonal-matrices" class="nav-link" data-scroll-target="#reading-eigenvalues-from-diagonal-matrices">Reading eigenvalues from diagonal matrices</a></li>
+  <li><a href="#what-eigenvalues-mean" id="toc-what-eigenvalues-mean" class="nav-link" data-scroll-target="#what-eigenvalues-mean">What eigenvalues mean</a></li>
+  <li><a href="#why-eigenvectors-matter" id="toc-why-eigenvectors-matter" class="nav-link" data-scroll-target="#why-eigenvectors-matter">Why eigenvectors matter</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#eigenvector-guessing-game" id="toc-eigenvector-guessing-game" class="nav-link" data-scroll-target="#eigenvector-guessing-game">Eigenvector guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/linear-algebra/eigenvalues-eigenvectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -823,14 +941,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/vectors.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html">Eigenvalues and Eigenvectors</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/index.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html">Eigenvalues and Eigenvectors</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Eigenvalues and Eigenvectors</h1>
 </div>
 
 <div>
   <div class="description">
-    Directions preserved by matrix transformations.
+    Special directions that are only scaled by a matrix transformation.
   </div>
 </div>
 
@@ -847,79 +965,535 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<p>An <strong>eigenvector</strong> is a nonzero vector whose direction is preserved by a matrix transformation. The vector may stretch, shrink, or flip, but it stays on the same line through the origin.</p>
+<p>The defining equation is</p>
+<p><span class="math display">\[
+A\mathbf{v}=\lambda \mathbf{v}.
+\]</span></p>
+<p>Here <span class="math inline">\(\mathbf{v}\)</span> is the eigenvector and <span class="math inline">\(\lambda\)</span> is the <strong>eigenvalue</strong>, the scale factor.</p>
+<section id="what-you-should-be-able-to-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-should-be-able-to-do">What you should be able to do</h2>
+<p>By the end of this lesson, you should be able to:</p>
 <ul>
-<li>Define eigenvectors as directions that do not rotate.</li>
-<li>Define eigenvalues as scaling factors.</li>
-<li>Recognize why eigenvalues matter in dynamic systems.</li>
+<li>explain the equation <span class="math inline">\(A\mathbf{v}=\lambda\mathbf{v}\)</span> in words;</li>
+<li>check whether a proposed vector is an eigenvector;</li>
+<li>find eigenvalues of simple diagonal or triangular matrices;</li>
+<li>interpret positive, negative, zero, and large eigenvalues;</li>
+<li>explain why eigenvectors help with repeated transformations;</li>
+<li>use SymPy to compute eigenvalues and eigenvectors exactly.</li>
 </ul>
 </section>
-<section id="concept" class="level2">
-<h2 class="anchored" data-anchor-id="concept">Concept</h2>
-<p>An eigenvector changes only by scaling when multiplied by a matrix.</p>
-<pre class="text"><code>A v = lambda v</code></pre>
-</section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="practice-box">
+<section id="the-basic-definition" class="level2">
+<h2 class="anchored" data-anchor-id="the-basic-definition">The basic definition</h2>
+<p>A vector <span class="math inline">\(\mathbf{v}\)</span> is an eigenvector of <span class="math inline">\(A\)</span> if:</p>
 <ol type="1">
-<li>If <code>A v = 3v</code>, what is the eigenvalue?</li>
-<li>Does an eigenvector keep its direction?</li>
-<li>Why might eigenvalues matter in repeated transformations?</li>
+<li><span class="math inline">\(\mathbf{v}\)</span> is not the zero vector;</li>
+<li>multiplying by <span class="math inline">\(A\)</span> produces a scalar multiple of <span class="math inline">\(\mathbf{v}\)</span>.</li>
 </ol>
+<p>For example, let</p>
+<p><span class="math display">\[
+A=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}
+\quad \text{and} \quad
+\mathbf{v}=\begin{bmatrix}1\\0\end{bmatrix}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+A\mathbf{v}
+=
+\begin{bmatrix}3\\0\end{bmatrix}
+=3\begin{bmatrix}1\\0\end{bmatrix}.
+\]</span></p>
+<p>So <span class="math inline">\(\mathbf{v}\)</span> is an eigenvector and its eigenvalue is <span class="math inline">\(3\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The zero vector is excluded
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The zero vector would satisfy <span class="math inline">\(A\mathbf{0}=\lambda\mathbf{0}\)</span> for every <span class="math inline">\(\lambda\)</span>, which would make the definition meaningless. Eigenvectors must be nonzero because they represent directions.</p>
+</div>
 </div>
 </section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<section id="how-to-check-a-proposed-eigenvector" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-check-a-proposed-eigenvector">How to check a proposed eigenvector</h2>
+<p>To check whether <span class="math inline">\(\mathbf{v}\)</span> is an eigenvector:</p>
+<ol type="1">
+<li>compute <span class="math inline">\(A\mathbf{v}\)</span>;</li>
+<li>ask whether the result is a scalar multiple of <span class="math inline">\(\mathbf{v}\)</span>;</li>
+<li>if yes, the scalar is the eigenvalue.</li>
+</ol>
+</section>
+<section id="worked-example-one-vector-works-one-does-not" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-one-vector-works-one-does-not">Worked example: one vector works, one does not</h2>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{bmatrix}2&amp;0\\0&amp;5\end{bmatrix}.
+\]</span></p>
+<p>Check <span class="math inline">\(\mathbf{v}=\begin{bmatrix}1\\0\end{bmatrix}\)</span>:</p>
+<p><span class="math display">\[
+A\mathbf{v}=\begin{bmatrix}2\\0\end{bmatrix}=2\mathbf{v}.
+\]</span></p>
+<p>So <span class="math inline">\(\mathbf{v}\)</span> is an eigenvector with eigenvalue 2.</p>
+<p>Now check <span class="math inline">\(\mathbf{w}=\begin{bmatrix}1\\1\end{bmatrix}\)</span>:</p>
+<p><span class="math display">\[
+A\mathbf{w}=\begin{bmatrix}2\\5\end{bmatrix}.
+\]</span></p>
+<p>This is not a scalar multiple of <span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span>, because a scalar multiple would have equal coordinates. Therefore <span class="math inline">\(\mathbf{w}\)</span> is not an eigenvector of this matrix.</p>
+</section>
+<section id="reading-eigenvalues-from-diagonal-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="reading-eigenvalues-from-diagonal-matrices">Reading eigenvalues from diagonal matrices</h2>
+<p>For a diagonal matrix</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+a&amp;0\\0&amp;d
+\end{bmatrix},
+\]</span></p>
+<p>the coordinate axes are eigenvector directions. The eigenvalues are <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span>. The first coordinate direction is scaled by <span class="math inline">\(a\)</span> and the second coordinate direction is scaled by <span class="math inline">\(d\)</span>.</p>
+</section>
+<section id="what-eigenvalues-mean" class="level2">
+<h2 class="anchored" data-anchor-id="what-eigenvalues-mean">What eigenvalues mean</h2>
+<ul>
+<li><span class="math inline">\(\lambda=2\)</span>: the eigenvector doubles in length.</li>
+<li><span class="math inline">\(\lambda=\frac12\)</span>: it shrinks by half.</li>
+<li><span class="math inline">\(\lambda=-1\)</span>: it flips direction but keeps the same length.</li>
+<li><span class="math inline">\(\lambda=0\)</span>: the direction collapses to the zero vector.</li>
+<li><span class="math inline">\(|\lambda|&gt;1\)</span>: repeated multiplication grows along that direction.</li>
+<li><span class="math inline">\(|\lambda|&lt;1\)</span>: repeated multiplication shrinks along that direction.</li>
+</ul>
+</section>
+<section id="why-eigenvectors-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-eigenvectors-matter">Why eigenvectors matter</h2>
+<p>If <span class="math inline">\(A\mathbf{v}=\lambda\mathbf{v}\)</span>, then repeated multiplication is easy:</p>
+<p><span class="math display">\[
+A^2\mathbf{v}=\lambda^2\mathbf{v},
+\qquad
+A^3\mathbf{v}=\lambda^3\mathbf{v}.
+\]</span></p>
+<p>This idea helps explain long-term behavior in dynamical systems, differential equations, Markov chains, vibrations, computer graphics, and data analysis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Note</span>Big idea
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>3</code>.</p>
-<p>In <code>A v = lambda v</code>, the scalar multiplying <code>v</code> is the eigenvalue.</p>
+<p>Eigenvectors reveal the directions a transformation treats simply. Even if a matrix mixes most vectors, it may have special directions that only scale.</p>
 </div>
 </div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: yes, up to direction reversal when the eigenvalue is negative.</p>
-<p>An eigenvector is stretched, shrunk, or flipped, but it remains on the same line.</p>
-</div>
-</div>
-</div>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
+<ol type="1">
+<li>If <span class="math inline">\(A\mathbf{v}=7\mathbf{v}\)</span>, what is the eigenvalue?</li>
+<li>Check whether <span class="math inline">\(\begin{bmatrix}1\\0\end{bmatrix}\)</span> is an eigenvector of <span class="math inline">\(\begin{bmatrix}4&amp;0\\0&amp;2\end{bmatrix}\)</span>.</li>
+<li>Check whether <span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span> is an eigenvector of <span class="math inline">\(\begin{bmatrix}4&amp;0\\0&amp;2\end{bmatrix}\)</span>.</li>
+<li>What are the eigenvalues of <span class="math inline">\(\begin{bmatrix}3&amp;0\\0&amp;-2\end{bmatrix}\)</span>?</li>
+<li>If an eigenvalue has absolute value less than 1, what happens under repeated multiplication along that eigenvector direction?</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: eigenvalues describe how repeated multiplication scales important directions, which helps explain long-run behavior.</p>
+<ol type="1">
+<li>The eigenvalue is 7.</li>
+<li>Yes. The product is <span class="math inline">\(\begin{bmatrix}4\\0\end{bmatrix}=4\begin{bmatrix}1\\0\end{bmatrix}\)</span>.</li>
+<li>No.&nbsp;The product is <span class="math inline">\(\begin{bmatrix}4\\2\end{bmatrix}\)</span>, not a scalar multiple of <span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span>.</li>
+<li>The eigenvalues are 3 and -2.</li>
+<li>The vector shrinks toward the zero vector along that direction.</li>
+</ol>
 </div>
+</div>
+</div>
+</section>
+<section id="eigenvector-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="eigenvector-guessing-game">Eigenvector guessing game</h2>
+<p>Use this checkpoint to identify eigenvalues, eigenvectors, and repeated behavior.</p>
+<script type="application/json" class="edu-math-linear-algebra-checkpoint-config">
+{
+  "topic": "eigenvalues-eigenvectors",
+  "title": "Eigenvalues and eigenvectors checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-linear-algebra-checkpoint" data-default-total="4">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "vectors";
+    const BANKS = {
+      vectors: [normQuestion, dotProductQuestion, perpendicularQuestion],
+      matrices: [shapeQuestion, identityQuestion, entryQuestion],
+      "matrix-operations": [productDefinedQuestion, matrixVectorQuestion, scalarQuestion],
+      "systems-and-elimination": [systemClassQuestion, eliminationMoveQuestion, solutionCheckQuestion],
+      "linear-transformations": [transformationQuestion, basisQuestion, preserveQuestion],
+      "eigenvalues-eigenvectors": [eigenvalueQuestion, eigenvectorQuestion, repeatedQuestion],
+      "linear-algebra-cumulative-review": [normQuestion, shapeQuestion, productDefinedQuestion, systemClassQuestion, transformationQuestion, eigenvalueQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-linear-algebra-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-linear-algebra-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Linear algebra checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function normQuestion() {
+      const pairs = [[3, 4, 5], [5, 12, 13], [6, 8, 10]];
+      const [a, b, n] = choice(pairs);
+      return question({
+        prompt: "Guess the vector length.",
+        stimulus: `v = (${a}, ${b})`,
+        answer: String(n),
+        distractors: [String(a + b), String(Math.abs(a - b)), String(a * b)],
+        explanation: "Use the Pythagorean formula: sqrt(a²+b²).",
+      });
+    }
+
+    function dotProductQuestion() {
+      return question({
+        prompt: "Compute the dot product.",
+        stimulus: "(1, 2) · (3, 4)",
+        answer: "11",
+        distractors: ["10", "14", "24"],
+        explanation: "Multiply matching coordinates and add: 1·3 + 2·4 = 11.",
+      });
+    }
+
+    function perpendicularQuestion() {
+      return question({
+        prompt: "Which dot product shows nonzero vectors are perpendicular?",
+        stimulus: "orthogonality test",
+        answer: "0",
+        distractors: ["1", "-1", "the vector length"],
+        explanation: "A dot product of zero means the vectors meet at a right angle.",
+      });
+    }
+
+    function shapeQuestion() {
+      return question({
+        prompt: "What is the shape of a matrix with 2 rows and 3 columns?",
+        stimulus: "rows by columns",
+        answer: "2 x 3",
+        distractors: ["3 x 2", "5", "6 x 1"],
+        explanation: "Shape is always written rows first, columns second.",
+      });
+    }
+
+    function identityQuestion() {
+      return question({
+        prompt: "What does the identity matrix do to a vector?",
+        stimulus: "I v",
+        answer: "leaves it unchanged",
+        distractors: ["turns it into zero", "doubles it", "swaps coordinates"],
+        explanation: "The identity matrix is the do-nothing matrix for multiplication.",
+      });
+    }
+
+    function entryQuestion() {
+      return question({
+        prompt: "Which entry is in row 2, column 1?",
+        stimulus: "[[4, 5], [7, 8]]",
+        answer: "7",
+        distractors: ["4", "5", "8"],
+        explanation: "Move to the second row, then the first column.",
+      });
+    }
+
+    function productDefinedQuestion() {
+      return question({
+        prompt: "Is this matrix product defined?",
+        stimulus: "(2 x 3)(3 x 4)",
+        answer: "yes",
+        distractors: ["no", "only if square", "only with a vector"],
+        explanation: "The inner dimensions match: 3 and 3.",
+      });
+    }
+
+    function matrixVectorQuestion() {
+      return question({
+        prompt: "Find the first entry of A v.",
+        stimulus: "A=[[2,1],[0,3]], v=(4,5)",
+        answer: "13",
+        distractors: ["8", "15", "17"],
+        explanation: "The first row dot v is 2·4 + 1·5 = 13.",
+      });
+    }
+
+    function scalarQuestion() {
+      return question({
+        prompt: "What is 3 times the matrix entry -2?",
+        stimulus: "scalar multiplication",
+        answer: "-6",
+        distractors: ["6", "-2", "1"],
+        explanation: "Scalar multiplication multiplies every entry by the scalar.",
+      });
+    }
+
+    function systemClassQuestion() {
+      return question({
+        prompt: "Classify the system.",
+        stimulus: "x+y=2 and 2x+2y=4",
+        answer: "infinitely many solutions",
+        distractors: ["one solution", "no solution", "not linear"],
+        explanation: "The second equation is a multiple of the first, so the lines coincide.",
+      });
+    }
+
+    function eliminationMoveQuestion() {
+      return question({
+        prompt: "Which move eliminates x from the second equation?",
+        stimulus: "E1: x+y=5, E2: x-y=1",
+        answer: "E2 - E1",
+        distractors: ["E2 + E1", "2E1", "swap columns"],
+        explanation: "Subtracting gives -2y = -4, with no x term.",
+      });
+    }
+
+    function solutionCheckQuestion() {
+      return question({
+        prompt: "Does (3,2) solve x+y=5 and x-y=1?",
+        stimulus: "substitute both equations",
+        answer: "yes",
+        distractors: ["no", "only the first", "only the second"],
+        explanation: "3+2=5 and 3-2=1.",
+      });
+    }
+
+    function transformationQuestion() {
+      return question({
+        prompt: "What does [[1,0],[0,0]] do?",
+        stimulus: "T(x,y)=(x,0)",
+        answer: "projects onto the x-axis",
+        distractors: ["rotates 90 degrees", "reflects over y-axis", "doubles every vector"],
+        explanation: "It keeps x and replaces y by 0.",
+      });
+    }
+
+    function basisQuestion() {
+      return question({
+        prompt: "Why do basis vectors matter?",
+        stimulus: "2D linear transformations",
+        answer: "their images determine the whole transformation",
+        distractors: ["they are always eigenvectors", "they remove multiplication", "they make all matrices diagonal"],
+        explanation: "Every vector is a combination of basis vectors, and linear maps preserve combinations.",
+      });
+    }
+
+    function preserveQuestion() {
+      return question({
+        prompt: "Which property must a linear transformation preserve?",
+        stimulus: "linearity",
+        answer: "addition and scalar multiplication",
+        distractors: ["distance always", "area always", "all angles"],
+        explanation: "Linear means T(u+v)=T(u)+T(v) and T(cv)=cT(v).",
+      });
+    }
+
+    function eigenvalueQuestion() {
+      return question({
+        prompt: "If A v = 4v, what is the eigenvalue?",
+        stimulus: "v is nonzero",
+        answer: "4",
+        distractors: ["v", "0", "A"],
+        explanation: "The scalar multiplying v is the eigenvalue.",
+      });
+    }
+
+    function eigenvectorQuestion() {
+      return question({
+        prompt: "Is the zero vector an eigenvector?",
+        stimulus: "definition check",
+        answer: "no",
+        distractors: ["yes", "only for diagonal matrices", "only if lambda is 0"],
+        explanation: "Eigenvectors must be nonzero so that they represent a direction.",
+      });
+    }
+
+    function repeatedQuestion() {
+      return question({
+        prompt: "Why are eigenvectors useful for repeated multiplication?",
+        stimulus: "A, A², A³, ...",
+        answer: "they keep the same direction while scaling",
+        distractors: ["they make all entries zero", "they avoid addition", "they always have length 1"],
+        explanation: "Repeated applications multiply an eigenvector by powers of its eigenvalue.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `linear-algebra-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>SymPy is very useful for eigenvalue work because it can return exact symbolic answers. In a PyScript/Pyodide page, the same commands can be used after loading SymPy.</p>
+<div id="0681a0c1" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.linear_algebra <span class="im">import</span> eigenvalues_2x2, validate_eigenpair</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">3</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigenvalues_2x2(A))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(validate_eigenpair(A, v, <span class="dv">3</span>).message)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>((3+0j), (1+0j))
+Correct.</code></pre>
+</div>
+</div>
+<div id="d372ceed" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">3</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.eigenvals())</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.eigenvects())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{3: 1, 1: 1}
+[(1, 1, [Matrix([
+[0],
+[1]])]), (3, 1, [Matrix([
+[1],
+[0]])])]</code></pre>
 </div>
 </div>
 

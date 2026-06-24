@@ -1,0 +1,3057 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Use SymPy to check algebra, solve equations, inspect domains, and explore responsibly.">
+
+<title>Symbolic Computation with SymPy – edu-math</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../lessons/algebra/cumulative-review.html" rel="next">
+<link href="../../lessons/algebra/algebraic-modeling.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">edu-math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../installation.html"> 
+<span class="menu-text">Install</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../api.html"> 
+<span class="menu-text">API</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lessons/index.html"> 
+<span class="menu-text">Study Path</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/osl-incubator/edu-math"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/symbolic-computation-with-sympy.html">Symbolic Computation with SymPy</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">edu-math</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">API reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lessons</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantitative Mathematics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Control Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NumPy and Arrays</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/python/plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plotting With Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Algebra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expressions and Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inequalities and Absolute Value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformations, Composition, and Inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear and Quadratic Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponentials and Logarithms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Trigonometry</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivatives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivative Rules</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integration Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/calculus/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Applications</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix Operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems and Elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Probability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample Spaces and Events</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/counting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Counting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conditional Probability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expectation and Variance</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptive Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypothesis Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Differential Equations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First-Order Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Separable Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slope Fields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems of Differential Equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Discrete Mathematics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Relations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Induction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Review</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagnostic Quiz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula Sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mixed Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mock Test</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Colab</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using edu-math in Google Colab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../changelog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#motivation-a-calculator-that-understands-symbols" id="toc-motivation-a-calculator-that-understands-symbols" class="nav-link" data-scroll-target="#motivation-a-calculator-that-understands-symbols">Motivation: a calculator that understands symbols</a></li>
+  <li><a href="#creating-symbols-and-expressions" id="toc-creating-symbols-and-expressions" class="nav-link" data-scroll-target="#creating-symbols-and-expressions">Creating symbols and expressions</a></li>
+  <li><a href="#expressions-versus-equations" id="toc-expressions-versus-equations" class="nav-link" data-scroll-target="#expressions-versus-equations">Expressions versus equations</a></li>
+  <li><a href="#core-commands" id="toc-core-commands" class="nav-link" data-scroll-target="#core-commands">Core commands</a></li>
+  <li><a href="#solving-and-checking" id="toc-solving-and-checking" class="nav-link" data-scroll-target="#solving-and-checking">Solving and checking</a></li>
+  <li><a href="#domains-and-restrictions" id="toc-domains-and-restrictions" class="nav-link" data-scroll-target="#domains-and-restrictions">Domains and restrictions</a></li>
+  <li><a href="#exact-and-approximate-answers" id="toc-exact-and-approximate-answers" class="nav-link" data-scroll-target="#exact-and-approximate-answers">Exact and approximate answers</a></li>
+  <li><a href="#tables-and-plots" id="toc-tables-and-plots" class="nav-link" data-scroll-target="#tables-and-plots">Tables and plots</a></li>
+  <li><a href="#browser-symbolic-tools" id="toc-browser-symbolic-tools" class="nav-link" data-scroll-target="#browser-symbolic-tools">Browser symbolic tools</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/symbolic-computation-with-sympy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/index.html">Algebra</a></li><li class="breadcrumb-item"><a href="../../lessons/algebra/symbolic-computation-with-sympy.html">Symbolic Computation with SymPy</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Symbolic Computation with SymPy</h1>
+</div>
+
+<div>
+  <div class="description">
+    Use SymPy to check algebra, solve equations, inspect domains, and explore responsibly.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-objectives" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to create SymPy symbols, distinguish expressions from equations, use common symbolic commands, solve and check equations, inspect restrictions, make tables and plots, and compare SymPy with browser symbolic tools.</p>
+</section>
+<section id="motivation-a-calculator-that-understands-symbols" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-a-calculator-that-understands-symbols">Motivation: a calculator that understands symbols</h2>
+<p>A numeric calculator gives decimal values. A symbolic system keeps exact expressions and manipulates formulas. SymPy is a Python computer algebra system. It helps you check and explore, but you still decide the domain and meaning.</p>
+</section>
+<section id="creating-symbols-and-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="creating-symbols-and-expressions">Creating symbols and expressions</h2>
+<div id="1b26539c" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>expr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
+<p><span class="math inline">\(\displaystyle \left(x + 1\right)^{2}\)</span></p>
+</div>
+</div>
+<p>Use <code>*</code> for multiplication and <code>**</code> for powers. Write <code>2*x</code>, not <code>2x</code>; write <code>x**2</code>, not <code>x^2</code>.</p>
+</section>
+<section id="expressions-versus-equations" class="level2">
+<h2 class="anchored" data-anchor-id="expressions-versus-equations">Expressions versus equations</h2>
+<div id="0012374b" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(<span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">3</span>, <span class="dv">11</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>expr, equation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(2*x + 3, Eq(2*x + 3, 11))</code></pre>
+</div>
+</div>
+<p>In Python, <code>=</code> assigns a name. A mathematical equation uses <code>sp.Eq(left, right)</code>.</p>
+</section>
+<section id="core-commands" class="level2">
+<h2 class="anchored" data-anchor-id="core-commands">Core commands</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>SymPy command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Expand</td>
+<td><code>sp.expand(expr)</code></td>
+<td>multiply out</td>
+</tr>
+<tr class="even">
+<td>Factor</td>
+<td><code>sp.factor(expr)</code></td>
+<td>write as product</td>
+</tr>
+<tr class="odd">
+<td>Simplify</td>
+<td><code>sp.simplify(expr)</code></td>
+<td>try a simpler equivalent form</td>
+</tr>
+<tr class="even">
+<td>Cancel</td>
+<td><code>sp.cancel(expr)</code></td>
+<td>simplify rational expression</td>
+</tr>
+<tr class="odd">
+<td>Together</td>
+<td><code>sp.together(expr)</code></td>
+<td>combine rational terms</td>
+</tr>
+</tbody>
+</table>
+<div id="2783e2e6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sp.expand(expr), sp.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(x**2 - x - 6, (x - 3)*(x + 2))</code></pre>
+</div>
+</div>
+<div id="9490e693" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rational_expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sp.cancel(rational_expr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<p><span class="math inline">\(\displaystyle x + 1\)</span></p>
+</div>
+</div>
+<p>The result <code>x + 1</code> needs a warning: the original expression excludes <code>x = 1</code>.</p>
+</section>
+<section id="solving-and-checking" class="level2">
+<h2 class="anchored" data-anchor-id="solving-and-checking">Solving and checking</h2>
+<div id="c5c49be9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(<span class="dv">3</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">7</span>, <span class="dv">11</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>[6]</code></pre>
+</div>
+</div>
+<div id="7c68bea8" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sp.solve(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">6</span>, x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>[2, 3]</code></pre>
+</div>
+</div>
+<div id="3c64aae3" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sp.checksol(sp.Eq(<span class="dv">3</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">7</span>, <span class="dv">11</span>), x, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>For radical equations, checking prevents extraneous answers.</p>
+<div id="902ee04b" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>radical_equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(radical_equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> sp.solve(radical_equation, x)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>[(4, True)]</code></pre>
+</div>
+</div>
+</section>
+<section id="domains-and-restrictions" class="level2">
+<h2 class="anchored" data-anchor-id="domains-and-restrictions">Domains and restrictions</h2>
+<p>Use <code>sp.denom</code> to inspect rational restrictions:</p>
+<div id="ed35fb5a" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">9</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">6</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>denominator <span class="op">=</span> sp.denom(expr)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sp.factor(denominator), sp.solve(sp.Eq(denominator, <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>((x - 3)*(x + 2), [-2, 3])</code></pre>
+</div>
+</div>
+<p>For logs, require positive inputs. For even roots, require nonnegative radicands. Assumptions can help, but beginners should first write restrictions in words.</p>
+</section>
+<section id="exact-and-approximate-answers" class="level2">
+<h2 class="anchored" data-anchor-id="exact-and-approximate-answers">Exact and approximate answers</h2>
+<div id="112acb22" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sp.sqrt(<span class="dv">2</span>), sp.Rational(<span class="dv">1</span>, <span class="dv">3</span>), sp.N(sp.sqrt(<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>(sqrt(2), 1/3, 1.41421356237310)</code></pre>
+</div>
+</div>
+<p>Exact values are usually better during algebra. Decimals are useful for final interpretation.</p>
+</section>
+<section id="tables-and-plots" class="level2">
+<h2 class="anchored" data-anchor-id="tables-and-plots">Tables and plots</h2>
+<div id="e94940a5" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, function_scene</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
+</div>
+</div>
+<div id="69d3edaa" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> function_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">2</span>, y_max<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+<figure class="figure">
+<p><img src="symbolic-computation-with-sympy_files/figure-html/cell-13-output-1.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="symbolic-computation-with-sympy_files/figure-html/cell-13-output-2.png" width="779" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="browser-symbolic-tools" class="level2">
+<h2 class="anchored" data-anchor-id="browser-symbolic-tools">Browser symbolic tools</h2>
+<ul>
+<li><a href="https://mathjs.org/docs/index.html">math.js</a>: browser evaluation and symbolic simplification.</li>
+<li><a href="https://nerdamer.com/documentation.html">Nerdamer</a>: browser factoring and solving demos.</li>
+<li><a href="https://github.com/davidedc/Algebrite">Algebrite</a>: JavaScript/TypeScript CAS exploration.</li>
+<li><a href="https://docs.pyscript.net/latest/">PyScript</a>: actual Python/SymPy in the browser, with heavier load time.</li>
+</ul>
+<p>A PyScript sandbox could load SymPy using a package configuration. Verify the exact current PyScript syntax before publishing a live sandbox.</p>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Create a SymPy symbol named <code>t</code>.</li>
+<li>Write the SymPy expression for <code>(x + 3)^2</code>.</li>
+<li>Expand <code>(x + 3)^2</code>.</li>
+<li>Factor <code>x^2 - 7x + 12</code>.</li>
+<li>Solve <code>4x - 9 = 15</code>.</li>
+<li>Check whether <code>x = 4</code> solves <code>x^2 - 7x + 12 = 0</code>.</li>
+<li>Find the denominator of <code>(x + 1)/(x - 5)</code>.</li>
+<li>Explain why canceling <code>(x^2 - 1)/(x - 1)</code> needs a warning.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>t = sp.symbols("t")</code>.</li>
+<li><code>(x + 3)**2</code>.</li>
+<li><code>x**2 + 6*x + 9</code>.</li>
+<li><code>(x - 4)*(x - 3)</code>.</li>
+<li><code>x = 6</code>.</li>
+<li>Yes, substitution gives <code>0</code>.</li>
+<li><code>x - 5</code>.</li>
+<li>The original expression excludes <code>x = 1</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="guessing-game-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
+<script type="application/json" class="edu-math-guessing-game-config">
+{
+  "topic": "symbolic-computation-sympy",
+  "title": "SymPy command checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-guessing-quiz" data-default-total="5">
+
+</div>
+<script>
+  (() => {
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const DEFAULT_TOPIC = "functions-graphs";
+    const QUESTION_BANKS = {
+      "expressions-equations": [
+        expandedFormQuestion,
+        factoredFormQuestion,
+        linearEquationQuestion,
+      ],
+      "inequalities-absolute-value": [
+        linearInequalityQuestion,
+        absoluteValueInequalityQuestion,
+        intervalNotationQuestion,
+      ],
+      "functions-graphs": [graphExpressionQuestion, functionValueQuestion],
+      "transformations-composition-inverses": [
+        transformationDescriptionQuestion,
+        compositionQuestion,
+        inverseQuestion,
+      ],
+      "linear-quadratic": [
+        lineFeatureQuestion,
+        quadraticVertexQuestion,
+        quadraticRootsQuestion,
+        graphExpressionQuestion,
+      ],
+      polynomials: [
+        polynomialRootsQuestion,
+        polynomialEndBehaviorQuestion,
+        polynomialMultiplicityQuestion,
+      ],
+      "rational-radical-functions": [
+        rationalDomainQuestion,
+        rationalHoleQuestion,
+        radicalDomainQuestion,
+        radicalEquationQuestion,
+      ],
+      "exponentials-logarithms": [
+        exponentialValueQuestion,
+        logarithmValueQuestion,
+        exponentialEquationQuestion,
+        logarithmRewriteQuestion,
+        growthDecayQuestion,
+        logarithmDomainQuestion,
+      ],
+      "systems-equations": [systemSolutionQuestion, systemClassificationQuestion],
+      "algebraic-modeling": [
+        modelFamilyQuestion,
+        parameterMeaningQuestion,
+        wordsToEquationQuestion,
+        tableModelQuestion,
+      ],
+      "symbolic-computation-sympy": [
+        sympyCommandQuestion,
+        sympyOutputQuestion,
+        sympySyntaxQuestion,
+        sympyDomainWarningQuestion,
+      ],
+      "algebra-cumulative-review": [
+        expandedFormQuestion,
+        linearInequalityQuestion,
+        functionValueQuestion,
+        transformationDescriptionQuestion,
+        quadraticRootsQuestion,
+        rationalDomainQuestion,
+        exponentialEquationQuestion,
+        systemSolutionQuestion,
+        modelFamilyQuestion,
+        sympyCommandQuestion,
+      ],
+    };
+
+    document
+      .querySelectorAll(".edu-math-guessing-quiz:not([data-ready])")
+      .forEach(initQuiz);
+
+    function initQuiz(root) {
+      const config = findConfig(root);
+      const state = {
+        config,
+        total: config.defaultTotal,
+        index: 0,
+        score: 0,
+        question: null,
+        answered: false,
+      };
+
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function findConfig(root) {
+      const configNode = root.previousElementSibling;
+      let parsed = {};
+
+      if (configNode?.classList?.contains("edu-math-guessing-game-config")) {
+        try {
+          parsed = JSON.parse(configNode.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+
+      const topic = normalizeTopic(parsed.topic || root.dataset.topic || DEFAULT_TOPIC);
+      const defaultTotal = Math.max(
+        1,
+        Math.min(100, Number(parsed.defaultTotal || root.dataset.defaultTotal) || 5),
+      );
+
+      return {
+        topic,
+        defaultTotal,
+        title: parsed.title || "Topic guessing game",
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "100",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start quiz");
+      const label = element(
+        "label",
+        {},
+        element("span", {}, "Number of questions"),
+        input,
+      );
+      const controls = element("div", { class: "quiz-start" }, label, button);
+
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(100, Number(input.value) || 5));
+        state.index = 0;
+        state.score = 0;
+        startQuestion(root, state);
+      });
+
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        controls,
+      );
+    }
+
+    function startQuestion(root, state) {
+      state.question = makeQuestion(state.config);
+      state.answered = false;
+      renderQuestion(root, state);
+    }
+
+    function renderQuestion(root, state) {
+      const question = state.question;
+      root.replaceChildren();
+
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", {
+        class: "quiz-feedback",
+        "aria-live": "polite",
+      });
+      const next = element(
+        "button",
+        { type: "button", disabled: "" },
+        "Next question",
+      );
+      const options = radioList(question.options, (option) => {
+        if (state.answered) return;
+
+        state.answered = true;
+        const correct = option.id === question.answer.id;
+        if (correct) state.score += 1;
+
+        feedback.className = correct
+          ? "quiz-feedback correct"
+          : "quiz-feedback wrong";
+        feedback.replaceChildren();
+        if (correct) {
+          feedback.append("Correct.");
+        } else {
+          feedback.append(
+            "Not quite. The answer is ",
+            element("code", {}, question.answer.label),
+            ".",
+          );
+        }
+        if (question.explanation) {
+          feedback.append(" ", question.explanation);
+        }
+
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        next.disabled = false;
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+      });
+
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index < state.total) {
+          startQuestion(root, state);
+        } else {
+          renderComplete(root, state);
+        }
+      });
+
+      root.append(progress);
+      if (question.stimulus) root.append(question.stimulus);
+      root.append(
+        element("p", { class: "quiz-prompt" }, question.prompt),
+        feedback,
+        options,
+        next,
+      );
+    }
+
+    function renderComplete(root, state) {
+      root.replaceChildren();
+
+      const restart = element("button", { type: "button" }, "Start another quiz");
+      restart.addEventListener("click", () => renderStart(root, state));
+
+      root.append(
+        element(
+          "div",
+          { class: "quiz-complete" },
+          element("h3", {}, "Quiz complete"),
+          element("p", {}, `Final score: ${state.score}/${state.total}`),
+        ),
+        restart,
+      );
+    }
+
+    function makeQuestion(config) {
+      const bank = QUESTION_BANKS[config.topic] || QUESTION_BANKS[DEFAULT_TOPIC];
+      return choice(bank)(config);
+    }
+
+    function graphExpressionQuestion() {
+      const answer = randomGraphExpression();
+      const distractors = [];
+      while (distractors.length < 8) {
+        distractors.push(randomGraphExpression().label);
+      }
+
+      return choiceQuestion({
+        prompt: "Select the expression that matches the graph.",
+        stimulus: graphStimulus(answer.evaluate, `Graph of ${answer.label}`),
+        answer: answer.label,
+        distractors,
+        explanation:
+          "Use shape, intercepts, curvature, and end behavior to eliminate distractors.",
+      });
+    }
+
+    function expandedFormQuestion() {
+      const a = nonzeroInt(-6, 6);
+      const b = nonzeroInt(-6, 6);
+      const expression = `${formatBinomial(a)}${formatBinomial(b)}`;
+      const middle = a + b;
+      const constant = a * b;
+      const answer = formatPolynomial([
+        [1, "x²"],
+        [middle, "x"],
+        [constant, ""],
+      ]);
+
+      return choiceQuestion({
+        prompt: "Select the expanded form.",
+        stimulus: mathStimulus(expression),
+        answer,
+        distractors: [
+          formatPolynomial([
+            [1, "x²"],
+            [a - b, "x"],
+            [constant, ""],
+          ]),
+          formatPolynomial([
+            [1, "x²"],
+            [middle, "x"],
+            [a + b, ""],
+          ]),
+          `${formatBinomial(a + b)}²`,
+          formatPolynomial([
+            [1, "x²"],
+            [-middle, "x"],
+            [constant, ""],
+          ]),
+        ],
+        explanation: "The middle coefficient is the sum of the two constants.",
+      });
+    }
+
+    function factoredFormQuestion() {
+      const r = nonzeroInt(-6, 6);
+      let s = nonzeroInt(-6, 6);
+      while (s === r) s = nonzeroInt(-6, 6);
+      const expression = formatPolynomial([
+        [1, "x²"],
+        [-(r + s), "x"],
+        [r * s, ""],
+      ]);
+      const answer = `${formatRootFactor(r)}${formatRootFactor(s)}`;
+
+      return choiceQuestion({
+        prompt: "Select the factored form.",
+        stimulus: mathStimulus(expression),
+        answer,
+        distractors: [
+          `${formatRootFactor(-r)}${formatRootFactor(s)}`,
+          `${formatRootFactor(r)}${formatRootFactor(-s)}`,
+          `${formatRootFactor(r + s)}${formatRootFactor(r * s)}`,
+          `${formatRootFactor(-r)}${formatRootFactor(-s)}`,
+        ],
+        explanation: "The roots are the values that make each factor equal zero.",
+      });
+    }
+
+    function linearEquationQuestion() {
+      const a = nonzeroInt(-8, 8);
+      const x0 = int(-8, 8);
+      const b = int(-12, 12);
+      const c = a * x0 + b;
+      const equation = `${formatLinearExpression(a, b)} = ${c}`;
+      const answer = `x = ${x0}`;
+
+      return choiceQuestion({
+        prompt: "Solve the equation for x.",
+        stimulus: mathStimulus(equation),
+        answer,
+        distractors: [`x = ${-x0}`, `x = ${x0 + 1}`, `x = ${x0 - 1}`, `x = ${c - b}`],
+        explanation: "Undo addition/subtraction first, then divide by the coefficient of x.",
+      });
+    }
+
+    function linearInequalityQuestion() {
+      const a = nonzeroInt(1, 8);
+      const x0 = int(-7, 7);
+      const b = int(-10, 10);
+      const c = a * x0 + b;
+      const sign = choice(["<", "≤", ">", "≥"]);
+      const equation = `${formatLinearExpression(a, b)} ${sign} ${c}`;
+      const answer = `x ${sign} ${x0}`;
+      const flipped = sign === "<" ? ">" : sign === "≤" ? "≥" : sign === ">" ? "<" : "≤";
+
+      return choiceQuestion({
+        prompt: "Select the solution set.",
+        stimulus: mathStimulus(equation),
+        answer,
+        distractors: [`x ${flipped} ${x0}`, `x ${sign} ${-x0}`, `x ${flipped} ${-x0}`, `x = ${x0}`],
+        explanation: "Because the coefficient of x is positive, the inequality direction stays the same.",
+      });
+    }
+
+    function absoluteValueInequalityQuestion() {
+      const h = int(-5, 5);
+      const radius = int(1, 7);
+      const inclusive = choice([true, false]);
+      const sign = inclusive ? "≤" : "<";
+      const expression = `|x ${formatSigned(-h)}| ${sign} ${radius}`;
+      const left = h - radius;
+      const right = h + radius;
+      const answer = `${left} ${sign} x ${sign} ${right}`;
+
+      return choiceQuestion({
+        prompt: "Select the interval described by this distance statement.",
+        stimulus: mathStimulus(expression),
+        answer,
+        distractors: [
+          `x ${sign} ${left} or x ${sign === "≤" ? "≥" : ">"} ${right}`,
+          `${-right} ${sign} x ${sign} ${-left}`,
+          `${h} ${sign} x ${sign} ${right}`,
+          `x = ${h}`,
+        ],
+        explanation: "Absolute value measures distance from the center, so the solution is between the endpoints.",
+      });
+    }
+
+    function intervalNotationQuestion() {
+      const left = int(-9, 0);
+      const right = int(1, 10);
+      const leftClosed = choice([true, false]);
+      const rightClosed = choice([true, false]);
+      const leftSymbol = leftClosed ? "≤" : "<";
+      const rightSymbol = rightClosed ? "≤" : "<";
+      const statement = `${left} ${leftSymbol} x ${rightSymbol} ${right}`;
+      const answer = `${leftClosed ? "[" : "("}${left}, ${right}${rightClosed ? "]" : ")"}`;
+
+      return choiceQuestion({
+        prompt: "Select the matching interval notation.",
+        stimulus: mathStimulus(statement),
+        answer,
+        distractors: [
+          `${leftClosed ? "(" : "["}${left}, ${right}${rightClosed ? "]" : ")"}`,
+          `${leftClosed ? "[" : "("}${left}, ${right}${rightClosed ? ")" : "]"}`,
+          `${rightClosed ? "[" : "("}${right}, ${left}${leftClosed ? "]" : ")"}`,
+          `(-∞, ${left}) ∪ (${right}, ∞)`,
+        ],
+        explanation: "Square brackets include endpoints; parentheses exclude endpoints.",
+      });
+    }
+
+    function functionValueQuestion() {
+      const a = nonzeroInt(-4, 4);
+      const b = int(-6, 6);
+      const c = int(-5, 5);
+      const x = int(-4, 4);
+      const value = a * x * x + b * x + c;
+      const formula = `f(x) = ${formatPolynomial([
+        [a, "x²"],
+        [b, "x"],
+        [c, ""],
+      ])};  find f(${x})`;
+
+      return choiceQuestion({
+        prompt: "Select the function value.",
+        stimulus: mathStimulus(formula),
+        answer: String(value),
+        distractors: [String(value + a), String(value - b), String(-value), String(value + x)],
+        explanation: "Substitute the input into every occurrence of x before simplifying.",
+      });
+    }
+
+    function transformationDescriptionQuestion() {
+      const h = nonzeroInt(-5, 5);
+      const k = nonzeroInt(-5, 5);
+      const expression = `g(x) = (x ${formatSigned(-h)})² ${formatSigned(k)}`;
+      const horizontal = h > 0 ? `right ${h}` : `left ${Math.abs(h)}`;
+      const vertical = k > 0 ? `up ${k}` : `down ${Math.abs(k)}`;
+      const answer = `shift ${horizontal}, ${vertical}`;
+
+      return choiceQuestion({
+        prompt: "Describe the transformation from f(x) = x² to g(x).",
+        stimulus: mathStimulus(expression),
+        answer,
+        distractors: [
+          `shift ${h > 0 ? `left ${h}` : `right ${Math.abs(h)}`}, ${vertical}`,
+          `shift ${horizontal}, ${k > 0 ? `down ${k}` : `up ${Math.abs(k)}`}`,
+          `stretch vertically by ${Math.abs(h)}`,
+          `reflect across the x-axis and shift ${vertical}`,
+        ],
+        explanation: "Inside the parentheses moves the graph horizontally in the opposite sign direction.",
+      });
+    }
+
+    function compositionQuestion() {
+      const a = nonzeroInt(-4, 4);
+      const b = int(-6, 6);
+      const c = nonzeroInt(-4, 4);
+      const d = int(-6, 6);
+      const composedA = a * c;
+      const composedB = a * d + b;
+      const stimulus = multiLineStimulus([
+        `f(x) = ${formatLinearExpression(a, b)}`,
+        `g(x) = ${formatLinearExpression(c, d)}`,
+        "Find (f ∘ g)(x).",
+      ]);
+      const answer = formatLinearExpression(composedA, composedB);
+
+      return choiceQuestion({
+        prompt: "Select the composition.",
+        stimulus,
+        answer,
+        distractors: [
+          formatLinearExpression(a * c, b + d),
+          formatLinearExpression(a + c, b + d),
+          formatLinearExpression(c * a, c * b + d),
+          formatLinearExpression(a * c, a * b + d),
+        ],
+        explanation: "Composition means substitute the entire formula for g(x) into f.",
+      });
+    }
+
+    function inverseQuestion() {
+      const a = nonzeroInt(-5, 5);
+      const b = int(-8, 8);
+      const stimulus = mathStimulus(`f(x) = ${formatLinearExpression(a, b)}`);
+      const answer = `f⁻¹(x) = ${formatInverseLinear(a, b)}`;
+
+      return choiceQuestion({
+        prompt: "Select the inverse function.",
+        stimulus,
+        answer,
+        distractors: [
+          `f⁻¹(x) = ${formatLinearExpression(a, -b)}`,
+          `f⁻¹(x) = ${formatInverseLinear(a, -b)}`,
+          `f⁻¹(x) = ${formatInverseLinear(-a, b)}`,
+          `f⁻¹(x) = ${formatLinearExpression(1, b)}`,
+        ],
+        explanation: "Swap x and y, then solve the new equation for y.",
+      });
+    }
+
+    function lineFeatureQuestion() {
+      const m = nonzeroInt(-6, 6);
+      const b = int(-8, 8);
+      const stimulus = mathStimulus(`y = ${formatLinearExpression(m, b)}`);
+      const answer = `slope ${m}; y-intercept ${b}`;
+
+      return choiceQuestion({
+        prompt: "Select the slope and y-intercept.",
+        stimulus,
+        answer,
+        distractors: [
+          `slope ${b}; y-intercept ${m}`,
+          `slope ${-m}; y-intercept ${b}`,
+          `slope ${m}; y-intercept ${-b}`,
+          `slope ${m + b}; y-intercept ${b}`,
+        ],
+        explanation: "In slope-intercept form y = mx + b, m is slope and b is the y-intercept.",
+      });
+    }
+
+    function quadraticVertexQuestion() {
+      const a = nonzeroInt(-3, 3);
+      const h = int(-6, 6);
+      const k = int(-6, 6);
+      const stimulus = mathStimulus(
+        `y = ${formatVertexCoefficient(a)}(x ${formatSigned(-h)})² ${formatSigned(k)}`,
+      );
+      const answer = `(${h}, ${k})`;
+
+      return choiceQuestion({
+        prompt: "Select the vertex.",
+        stimulus,
+        answer,
+        distractors: [`(${-h}, ${k})`, `(${h}, ${-k})`, `(${-h}, ${-k})`, `(${k}, ${h})`],
+        explanation: "Vertex form y = a(x − h)² + k has vertex (h, k).",
+      });
+    }
+
+    function quadraticRootsQuestion() {
+      const r = int(-6, 1);
+      const s = int(2, 8);
+      const stimulus = mathStimulus(`y = ${formatRootFactor(r)}${formatRootFactor(s)}`);
+      const answer = `x = ${r} and x = ${s}`;
+
+      return choiceQuestion({
+        prompt: "Select the x-intercepts.",
+        stimulus,
+        answer,
+        distractors: [
+          `x = ${-r} and x = ${-s}`,
+          `x = ${r + s} and x = ${r * s}`,
+          `x = ${r} only`,
+          `x = ${s - r} and x = ${r - s}`,
+        ],
+        explanation: "Each factor equals zero at one x-intercept.",
+      });
+    }
+
+    function polynomialRootsQuestion() {
+      const roots = distinctInts(3, -5, 5).sort((a, b) => a - b);
+      const stimulus = mathStimulus(`p(x) = ${roots.map(formatRootFactor).join("")}`);
+      const answer = `roots: ${roots.join(", ")}`;
+
+      return choiceQuestion({
+        prompt: "Select the roots of the polynomial.",
+        stimulus,
+        answer,
+        distractors: [
+          `roots: ${roots.map((root) => -root).join(", ")}`,
+          `roots: ${roots.slice(0, 2).join(", ")}`,
+          `roots: ${roots.map((root) => root + 1).join(", ")}`,
+          "no real roots",
+        ],
+        explanation: "A product is zero when at least one factor is zero.",
+      });
+    }
+
+    function polynomialEndBehaviorQuestion() {
+      const degree = int(2, 6);
+      const leading = nonzeroInt(-5, 5);
+      const stimulus = mathStimulus(`leading term: ${formatCoefficient(leading, `x${superscript(degree)}`)}`);
+      const answer = endBehaviorLabel(degree, leading);
+
+      return choiceQuestion({
+        prompt: "Select the end behavior.",
+        stimulus,
+        answer,
+        distractors: [
+          endBehaviorLabel(degree, -leading),
+          endBehaviorLabel(degree + 1, leading),
+          "both ends approach 0",
+          "left up, right down",
+        ],
+        explanation: "End behavior is controlled by degree parity and the sign of the leading coefficient.",
+      });
+    }
+
+    function polynomialMultiplicityQuestion() {
+      const root = nonzeroInt(-5, 5);
+      const other = root + choice([-3, -2, 2, 3]);
+      const multiplicity = choice([2, 3]);
+      const stimulus = mathStimulus(`p(x) = ${formatRootFactor(root)}${superscript(multiplicity)}${formatRootFactor(other)}`);
+      const answer = multiplicity % 2 === 0 ? `touches at x = ${root}` : `crosses at x = ${root}`;
+
+      return choiceQuestion({
+        prompt: "What does the graph do at the repeated root?",
+        stimulus,
+        answer,
+        distractors: [
+          multiplicity % 2 === 0 ? `crosses at x = ${root}` : `touches at x = ${root}`,
+          `has no root at x = ${root}`,
+          `has a vertical asymptote at x = ${root}`,
+          `touches at x = ${other}`,
+        ],
+        explanation: "Even multiplicity bounces; odd multiplicity crosses.",
+      });
+    }
+
+    function rationalDomainQuestion() {
+      const roots = distinctInts(2, -6, 6).sort((a, b) => a - b);
+      const stimulus = mathStimulus(`f(x) = (x + 1)/${roots.map(formatRootFactor).join("")}`);
+      const answer = `x ≠ ${roots[0]} and x ≠ ${roots[1]}`;
+
+      return choiceQuestion({
+        prompt: "Select the domain restriction.",
+        stimulus,
+        answer,
+        distractors: [
+          `x = ${roots[0]} and x = ${roots[1]}`,
+          `x ≠ ${-roots[0]} and x ≠ ${-roots[1]}`,
+          `x > ${roots[0]} and x < ${roots[1]}`,
+          "all real numbers",
+        ],
+        explanation: "A rational function is undefined where its denominator is zero.",
+      });
+    }
+
+    function rationalHoleQuestion() {
+      const root = nonzeroInt(-5, 5);
+      const expressionLabel = `(x² - ${root * root})/${formatRootFactor(root)}`;
+
+      return choiceQuestion({
+        prompt: "What graph feature comes from the canceled factor?",
+        stimulus: mathStimulus(expressionLabel),
+        answer: `hole at x = ${root}`,
+        distractors: [
+          `vertical asymptote at x = ${root}`,
+          `hole at x = ${-root}`,
+          "horizontal asymptote only",
+          "no restriction",
+        ],
+        explanation: "A denominator factor that cancels creates a missing point rather than a vertical asymptote.",
+      });
+    }
+
+    function radicalDomainQuestion() {
+      const h = int(-6, 6);
+      const stimulus = mathStimulus(`g(x) = √(x ${formatSigned(-h)})`);
+
+      return choiceQuestion({
+        prompt: "Select the real-valued domain.",
+        stimulus,
+        answer: `x ≥ ${h}`,
+        distractors: [`x ≤ ${h}`, `x > ${h}`, "all real numbers", `x ≠ ${h}`],
+        explanation: "For a square root, the radicand must be nonnegative.",
+      });
+    }
+
+    function radicalEquationQuestion() {
+      const c = int(1, 8);
+      const value = int(2, 6);
+      const solution = value * value - c;
+
+      return choiceQuestion({
+        prompt: "Solve the radical equation.",
+        stimulus: mathStimulus(`√(x + ${c}) = ${value}`),
+        answer: `x = ${solution}`,
+        distractors: [`x = ${value - c}`, `x = ${value + c}`, `x = ${-solution}`, "no real solution"],
+        explanation: "Square both sides, then check the candidate in the original equation.",
+      });
+    }
+
+    function exponentialValueQuestion() {
+      const base = choice([2, 3, 4, 5]);
+      const exponent = int(2, 5);
+      const value = base ** exponent;
+
+      return choiceQuestion({
+        prompt: "Evaluate the exponential expression.",
+        stimulus: mathStimulus(`${base}${superscript(exponent)}`),
+        answer: String(value),
+        distractors: [String(base * exponent), String(base + exponent), String(value / base), String(value + base)],
+        explanation: "An exponent counts repeated multiplication, not ordinary multiplication.",
+      });
+    }
+
+    function logarithmValueQuestion() {
+      const base = choice([2, 3, 4, 5]);
+      const exponent = int(2, 4);
+      const value = base ** exponent;
+
+      return choiceQuestion({
+        prompt: "Evaluate the logarithm.",
+        stimulus: mathStimulus(`log_${base}(${value})`),
+        answer: String(exponent),
+        distractors: [String(base), String(value / base), String(exponent + 1), String(base * exponent)],
+        explanation: "A logarithm asks which exponent produces the given value.",
+      });
+    }
+
+    function exponentialEquationQuestion() {
+      const base = choice([2, 3, 4, 5]);
+      const exponent = int(-2, 4);
+      const value = base ** exponent;
+
+      return choiceQuestion({
+        prompt: "Solve for x.",
+        stimulus: mathStimulus(`${base}^x = ${formatNumber(value)}`),
+        answer: `x = ${exponent}`,
+        distractors: [`x = ${base}`, `x = ${value}`, `x = ${-exponent}`, `x = ${exponent + 1}`],
+        explanation: "Rewrite both sides using the same base, then compare exponents.",
+      });
+    }
+
+    function logarithmRewriteQuestion() {
+      const base = choice([2, 3, 4, 5]);
+      const exponent = int(2, 4);
+      const value = base ** exponent;
+      const statement = `log_${base}(${value}) = ${exponent}`;
+      const answer = `${base}${superscript(exponent)} = ${value}`;
+
+      return choiceQuestion({
+        prompt: "Select the equivalent exponential statement.",
+        stimulus: mathStimulus(statement),
+        answer,
+        distractors: [
+          `${exponent}${superscript(base)} = ${value}`,
+          `${base}${superscript(value)} = ${exponent}`,
+          `${value}${superscript(exponent)} = ${base}`,
+          `${base} × ${exponent} = ${value}`,
+        ],
+        explanation: "The base of the logarithm becomes the base of the exponential form.",
+      });
+    }
+
+    function growthDecayQuestion() {
+      const initial = choice([100, 200, 500, 1000]);
+      const rate = choice([3, 5, 8, 12, 20]);
+      const grows = choice([true, false]);
+      const factor = grows ? 1 + rate / 100 : 1 - rate / 100;
+      const label = `${initial}(${formatNumber(factor)})^t`;
+      const answer = grows ? `growth by ${rate}%` : `decay by ${rate}%`;
+
+      return choiceQuestion({
+        prompt: "Interpret the model.",
+        stimulus: mathStimulus(label),
+        answer,
+        distractors: [
+          grows ? `decay by ${rate}%` : `growth by ${rate}%`,
+          `growth by ${formatNumber(factor)}%`,
+          `initial value ${rate}`,
+          "linear change",
+        ],
+        explanation: "Compare the base with 1: above 1 grows; between 0 and 1 decays.",
+      });
+    }
+
+    function logarithmDomainQuestion() {
+      const h = int(-6, 6);
+
+      return choiceQuestion({
+        prompt: "Select the domain restriction.",
+        stimulus: mathStimulus(`log(x ${formatSigned(-h)})`),
+        answer: `x > ${h}`,
+        distractors: [`x ≥ ${h}`, `x < ${h}`, `x ≠ ${h}`, "all real numbers"],
+        explanation: "The input to a real logarithm must be positive.",
+      });
+    }
+
+    function systemSolutionQuestion() {
+      const x0 = int(-4, 4);
+      const y0 = int(-4, 4);
+      let a = nonzeroInt(-5, 5);
+      let b = nonzeroInt(-5, 5);
+      let c = nonzeroInt(-5, 5);
+      let d = nonzeroInt(-5, 5);
+      while (a * d - b * c === 0) {
+        a = nonzeroInt(-5, 5);
+        b = nonzeroInt(-5, 5);
+        c = nonzeroInt(-5, 5);
+        d = nonzeroInt(-5, 5);
+      }
+      const e = a * x0 + b * y0;
+      const f = c * x0 + d * y0;
+      const stimulus = multiLineStimulus([
+        `${formatSystemSide(a, b)} = ${e}`,
+        `${formatSystemSide(c, d)} = ${f}`,
+      ]);
+      const answer = `(${x0}, ${y0})`;
+
+      return choiceQuestion({
+        prompt: "Select the solution of the system.",
+        stimulus,
+        answer,
+        distractors: [`(${y0}, ${x0})`, `(${-x0}, ${y0})`, `(${x0}, ${-y0})`, `(${x0 + 1}, ${y0 - 1})`],
+        explanation: "The solution is the ordered pair that satisfies both equations.",
+      });
+    }
+
+    function systemClassificationQuestion() {
+      const kind = choice(["one", "none", "infinite"]);
+      let lines;
+      let answer;
+      if (kind === "infinite") {
+        lines = ["2x + 3y = 12", "4x + 6y = 24"];
+        answer = "infinitely many solutions";
+      } else if (kind === "none") {
+        lines = ["2x + 3y = 12", "4x + 6y = 20"];
+        answer = "no solution";
+      } else {
+        lines = ["2x + 3y = 12", "x - y = 1"];
+        answer = "one solution";
+      }
+
+      return choiceQuestion({
+        prompt: "Classify the system.",
+        stimulus: multiLineStimulus(lines),
+        answer,
+        distractors: ["one solution", "no solution", "infinitely many solutions", "not enough information"],
+        explanation: "Compare slopes and constants: intersecting, parallel, or identical lines give different solution counts.",
+      });
+    }
+
+    function modelFamilyQuestion() {
+      const scenarios = [
+        ["A value increases by 6% each year.", "exponential"],
+        ["A fixed fee plus a charge per mile.", "linear"],
+        ["Area of a square from its side length.", "quadratic"],
+        ["Time equals distance divided by speed.", "rational"],
+        ["Side length of a square from its area.", "radical"],
+      ];
+      const [scenario, answer] = choice(scenarios);
+
+      return choiceQuestion({
+        prompt: "Choose the best model family.",
+        stimulus: mathStimulus(scenario),
+        answer,
+        distractors: ["linear", "quadratic", "rational", "exponential", "radical"].filter((item) => item !== answer),
+        explanation: "Match the model family to the kind of change or operation in the context.",
+      });
+    }
+
+    function parameterMeaningQuestion() {
+      const fixed = choice([20, 35, 50, 100]);
+      const rate = choice([4, 8, 12, 25]);
+
+      return choiceQuestion({
+        prompt: "Interpret the model parameters.",
+        stimulus: mathStimulus(`C(n) = ${fixed} + ${rate}n`),
+        answer: `fixed cost ${fixed}; per-item cost ${rate}`,
+        distractors: [
+          `fixed cost ${rate}; per-item cost ${fixed}`,
+          `growth rate ${rate}%`,
+          `maximum value ${fixed}`,
+          "not enough information",
+        ],
+        explanation: "In a linear cost model, the constant term is the starting cost and the coefficient is the rate.",
+      });
+    }
+
+    function wordsToEquationQuestion() {
+      const x = "x";
+      const scenarios = [
+        [`five more than twice ${x}`, "2x + 5", ["2(x + 5)", "5x + 2", "2x - 5"]],
+        [`three less than ${x}`, "x - 3", ["3 - x", "3x", "x + 3"]],
+        [`${x} decreased by 20%`, "0.8x", ["1.2x", "20x", "x - 0.2"]],
+      ];
+      const [scenario, answer, distractors] = choice(scenarios);
+
+      return choiceQuestion({
+        prompt: "Choose the matching algebraic expression.",
+        stimulus: mathStimulus(scenario),
+        answer,
+        distractors,
+        explanation: "Translate the words in order and keep track of rates and units.",
+      });
+    }
+
+    function tableModelQuestion() {
+      const kind = choice(["linear", "exponential"]);
+      const stimulus =
+        kind === "linear"
+          ? multiLineStimulus(["x: 0, 1, 2, 3", "y: 5, 8, 11, 14"])
+          : multiLineStimulus(["x: 0, 1, 2, 3", "y: 5, 10, 20, 40"]);
+
+      return choiceQuestion({
+        prompt: "Which model family best matches the table?",
+        stimulus,
+        answer: kind,
+        distractors: ["linear", "quadratic", "exponential", "radical"].filter((item) => item !== kind),
+        explanation: "Constant differences suggest linear; constant ratios suggest exponential.",
+      });
+    }
+
+    function sympyCommandQuestion() {
+      const tasks = [
+        ["Factor x² - 5x + 6.", "sp.factor(...)"],
+        ["Expand (x + 2)(x - 3).", "sp.expand(...)"],
+        ["Solve 3x - 7 = 11.", "sp.solve(...)"],
+        ["Combine rational terms.", "sp.together(...)"],
+        ["Check a candidate solution.", "sp.checksol(...)"],
+      ];
+      const [task, answer] = choice(tasks);
+
+      return choiceQuestion({
+        prompt: "Choose the best SymPy command.",
+        stimulus: mathStimulus(task),
+        answer,
+        distractors: ["sp.factor(...)", "sp.expand(...)", "sp.solve(...)", "sp.checksol(...)", "sp.together(...)"].filter((item) => item !== answer),
+        explanation: "Choose the command that matches the algebraic action.",
+      });
+    }
+
+    function sympyOutputQuestion() {
+      const a = int(-5, 5);
+      const b = int(-5, 5);
+      const middle = a + b;
+      const constant = a * b;
+      const expressionLabel = `sp.expand(${formatBinomial(a)}${formatBinomial(b)})`;
+      const answer = formatPolynomial([
+        [1, "x²"],
+        [middle, "x"],
+        [constant, ""],
+      ]);
+
+      return choiceQuestion({
+        prompt: "Predict the SymPy output in ordinary math notation.",
+        stimulus: mathStimulus(expressionLabel),
+        answer,
+        distractors: [
+          formatPolynomial([[1, "x²"], [a - b, "x"], [constant, ""]]),
+          formatPolynomial([[1, "x²"], [middle, "x"], [a + b, ""]]),
+          `${formatBinomial(a)}${formatBinomial(b)}`,
+          "True",
+        ],
+        explanation: "SymPy's expand command multiplies out the factors.",
+      });
+    }
+
+    function sympySyntaxQuestion() {
+      return choiceQuestion({
+        prompt: "Choose valid Python/SymPy syntax for two times x squared.",
+        stimulus: mathStimulus("two times x squared"),
+        answer: "2*x**2",
+        distractors: ["2x^2", "2*x^2", "2x**2", "2(x**2)"],
+        explanation: "Python requires explicit multiplication and uses ** for powers.",
+      });
+    }
+
+    function sympyDomainWarningQuestion() {
+      return choiceQuestion({
+        prompt: "What warning is needed after canceling?",
+        stimulus: mathStimulus("sp.cancel((x² - 1)/(x - 1)) → x + 1"),
+        answer: "original expression excludes x = 1",
+        distractors: [
+          "x + 1 is valid for every original input",
+          "original expression excludes x = -1 only",
+          "there is a vertical asymptote at x = 1",
+          "no warning is needed",
+        ],
+        explanation: "The canceled denominator factor creates a hole in the original expression.",
+      });
+    }
+
+    function choiceQuestion({ prompt, stimulus, answer, distractors, explanation }) {
+      const answerOption = option(answer);
+      return {
+        prompt,
+        stimulus,
+        answer: answerOption,
+        options: buildOptions(answerOption, distractors),
+        explanation,
+      };
+    }
+
+    function buildOptions(answer, distractors) {
+      const options = [answer];
+      const seen = new Set([answer.label]);
+      for (const distractor of distractors) {
+        const candidate = option(distractor);
+        if (!seen.has(candidate.label)) {
+          seen.add(candidate.label);
+          options.push(candidate);
+        }
+        if (options.length >= 4) break;
+      }
+
+      for (const fallback of ["not enough information", "no real solution", "all real numbers", "none of these"]) {
+        if (options.length >= 4) break;
+        if (!seen.has(fallback)) options.push(option(fallback));
+      }
+
+      return shuffle(options);
+    }
+
+    function option(label) {
+      return {
+        id: String(label),
+        label: String(label),
+      };
+    }
+
+    function radioList(options, onSelect) {
+      const groupName = uniqueName();
+      const form = element("form", {
+        class: "quiz-options",
+        role: "radiogroup",
+        "aria-label": "Answer options",
+      });
+
+      for (const option of options) {
+        const input = element("input", { type: "radio", name: groupName });
+        const label = element(
+          "label",
+          { class: "quiz-option" },
+          input,
+          element("span", {}, option.label),
+        );
+
+        input.addEventListener("change", () => onSelect(option));
+        form.append(label);
+      }
+
+      return form;
+    }
+
+    function graphStimulus(evaluate, ariaLabel) {
+      return element("div", { class: "quiz-stimulus" }, drawGraph(evaluate, ariaLabel));
+    }
+
+    function mathStimulus(label) {
+      return element("div", { class: "quiz-stimulus" }, element("div", { class: "quiz-math" }, label));
+    }
+
+    function multiLineStimulus(lines) {
+      return element(
+        "div",
+        { class: "quiz-stimulus quiz-system" },
+        ...lines.map((line) => element("div", { class: "quiz-math" }, line)),
+      );
+    }
+
+    function drawGraph(evaluate, ariaLabel) {
+      const width = 720;
+      const height = 360;
+      const margin = { top: 24, right: 24, bottom: 36, left: 46 };
+      const xs = Array.from({ length: 401 }, (_, i) => -10 + (i * 20) / 400);
+      const points = xs
+        .map((x) => ({ x, y: evaluate(x) }))
+        .filter((point) => Number.isFinite(point.y));
+      const yValues = points.map((point) => point.y).sort((a, b) => a - b);
+      const low = Math.min(quantile(yValues, 0.02), -5);
+      const high = Math.max(quantile(yValues, 0.98), 5);
+      const yPadding = Math.max((high - low) * 0.08, 1);
+      const yMin = low - yPadding;
+      const yMax = high + yPadding;
+      const plotWidth = width - margin.left - margin.right;
+      const plotHeight = height - margin.top - margin.bottom;
+      const xScale = (x) => margin.left + ((x + 10) / 20) * plotWidth;
+      const yScale = (y) => margin.top + ((yMax - y) / (yMax - yMin)) * plotHeight;
+      const svg = svgElement("svg", {
+        viewBox: `0 0 ${width} ${height}`,
+        role: "img",
+        "aria-label": ariaLabel,
+        class: "quiz-graph",
+      });
+      const xAxisY = yScale(0);
+      const yAxisX = xScale(0);
+
+      for (const tick of ticks(yMin, yMax, 8)) {
+        const y = yScale(tick);
+        svg.append(
+          svgElement("line", {
+            x1: margin.left,
+            y1: y,
+            x2: width - margin.right,
+            y2: y,
+            class: "quiz-grid-line",
+          }),
+        );
+        svg.append(
+          svgText(margin.left - 8, y + 4, formatTick(tick), {
+            "text-anchor": "end",
+          }),
+        );
+      }
+
+      for (let tick = -10; tick <= 10; tick += 2) {
+        const x = xScale(tick);
+        svg.append(
+          svgElement("line", {
+            x1: x,
+            y1: margin.top,
+            x2: x,
+            y2: height - margin.bottom,
+            class: "quiz-grid-line quiz-grid-line-vertical",
+          }),
+        );
+        svg.append(svgText(x, height - margin.bottom + 20, String(tick)));
+      }
+
+      svg.append(
+        svgElement("line", {
+          x1: margin.left,
+          y1: xAxisY,
+          x2: width - margin.right,
+          y2: xAxisY,
+          class: "quiz-axis",
+        }),
+        svgElement("line", {
+          x1: yAxisX,
+          y1: margin.top,
+          x2: yAxisX,
+          y2: height - margin.bottom,
+          class: "quiz-axis",
+        }),
+        svgElement("polyline", {
+          fill: "none",
+          stroke: "#1a73e8",
+          "stroke-width": "3",
+          points: points.map((point) => `${xScale(point.x)},${yScale(point.y)}`).join(" "),
+        }),
+      );
+
+      return svg;
+    }
+
+    function randomGraphExpression() {
+      const kind = choice(["linear", "quadratic", "cubic", "sine", "cosine"]);
+
+      if (kind === "linear") {
+        const m = nonzeroInt(-4, 4);
+        const b = int(-6, 6);
+        return expression(formatLinearExpression(m, b), (x) => m * x + b);
+      }
+
+      if (kind === "quadratic") {
+        const a = nonzeroInt(-3, 3);
+        const b = int(-5, 5);
+        const c = int(-6, 6);
+        return expression(
+          formatPolynomial([
+            [a, "x²"],
+            [b, "x"],
+            [c, ""],
+          ]),
+          (x) => a * x * x + b * x + c,
+        );
+      }
+
+      if (kind === "cubic") {
+        const a = nonzeroInt(-2, 2);
+        const b = int(-3, 3);
+        const c = int(-4, 4);
+        return expression(
+          formatPolynomial([
+            [a, "x³"],
+            [b, "x"],
+            [c, ""],
+          ]),
+          (x) => a * x * x * x + b * x + c,
+        );
+      }
+
+      if (kind === "sine") {
+        const a = nonzeroInt(-4, 4);
+        const k = nonzeroInt(1, 4);
+        return expression(`${formatVertexCoefficient(a)}sin(${k}x)`, (x) => a * Math.sin(k * x));
+      }
+
+      const a = nonzeroInt(-4, 4);
+      const k = nonzeroInt(1, 4);
+      return expression(`${formatVertexCoefficient(a)}cos(${k}x)`, (x) => a * Math.cos(k * x));
+    }
+
+    function expression(label, evaluate) {
+      return { label, evaluate };
+    }
+
+    function element(tag, attributes = {}, ...children) {
+      const node = document.createElement(tag);
+      setAttributes(node, attributes);
+      node.append(...children.flat());
+      return node;
+    }
+
+    function svgElement(tag, attributes = {}) {
+      const node = document.createElementNS(SVG_NS, tag);
+      setAttributes(node, attributes);
+      return node;
+    }
+
+    function svgText(x, y, text, attributes = {}) {
+      const node = svgElement("text", {
+        x,
+        y,
+        class: "quiz-axis-label",
+        ...attributes,
+      });
+      node.textContent = text;
+      return node;
+    }
+
+    function setAttributes(node, attributes) {
+      for (const [name, value] of Object.entries(attributes)) {
+        if (value === "") {
+          node.setAttribute(name, "");
+        } else if (value !== null && value !== undefined) {
+          node.setAttribute(name, String(value));
+        }
+      }
+    }
+
+    function normalizeTopic(topic) {
+      return String(topic).trim().toLowerCase() || DEFAULT_TOPIC;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function int(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function nonzeroInt(min, max) {
+      let value = 0;
+      while (value === 0) value = int(min, max);
+      return value;
+    }
+
+    function distinctInts(count, min, max) {
+      const values = new Set();
+      while (values.size < count) values.add(int(min, max));
+      return Array.from(values);
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function quantile(sortedValues, p) {
+      const index = Math.min(
+        sortedValues.length - 1,
+        Math.max(0, Math.floor(sortedValues.length * p)),
+      );
+      return sortedValues[index];
+    }
+
+    function ticks(min, max, count) {
+      const step = (max - min) / count;
+      return Array.from({ length: count + 1 }, (_, i) => min + i * step);
+    }
+
+    function formatPolynomial(terms) {
+      const parts = [];
+      for (const [coefficient, variable] of terms) {
+        if (coefficient === 0) continue;
+        const absCoefficient = Math.abs(coefficient);
+        const body = variable
+          ? `${absCoefficient === 1 ? "" : absCoefficient}${variable}`
+          : String(absCoefficient);
+        if (parts.length === 0) {
+          parts.push(coefficient < 0 ? `-${body}` : body);
+        } else {
+          parts.push(coefficient < 0 ? ` - ${body}` : ` + ${body}`);
+        }
+      }
+      return parts.join("") || "0";
+    }
+
+    function formatLinearExpression(a, b) {
+      return formatPolynomial([
+        [a, "x"],
+        [b, ""],
+      ]);
+    }
+
+    function formatSystemSide(a, b) {
+      return formatPolynomial([
+        [a, "x"],
+        [b, "y"],
+      ]);
+    }
+
+    function formatCoefficient(value, variable) {
+      if (value === 1) return variable || "1";
+      if (value === -1) return variable ? `-${variable}` : "-1";
+      return `${value}${variable}`;
+    }
+
+    function formatVertexCoefficient(value) {
+      if (value === 1) return "";
+      if (value === -1) return "-";
+      return String(value);
+    }
+
+    function formatSigned(value) {
+      if (value === 0) return "+ 0";
+      return value > 0 ? `+ ${value}` : `- ${Math.abs(value)}`;
+    }
+
+    function formatBinomial(constant) {
+      return `(x ${formatSigned(constant)})`;
+    }
+
+    function formatRootFactor(root) {
+      if (root === 0) return "x";
+      return `(x ${formatSigned(-root)})`;
+    }
+
+    function formatInverseLinear(a, b) {
+      const inside = b === 0 ? "x" : `x ${formatSigned(-b)}`;
+      if (a === 1) return inside;
+      if (a === -1) return `-(${inside})`;
+      return `(${inside})/${a}`;
+    }
+
+    function endBehaviorLabel(degree, leading) {
+      if (degree % 2 === 0) {
+        return leading > 0 ? "left up, right up" : "left down, right down";
+      }
+      return leading > 0 ? "left down, right up" : "left up, right down";
+    }
+
+    function superscript(value) {
+      const digits = new Map([
+        ["-", "⁻"],
+        ["0", "⁰"],
+        ["1", "¹"],
+        ["2", "²"],
+        ["3", "³"],
+        ["4", "⁴"],
+        ["5", "⁵"],
+        ["6", "⁶"],
+        ["7", "⁷"],
+        ["8", "⁸"],
+        ["9", "⁹"],
+      ]);
+      return String(value)
+        .split("")
+        .map((character) => digits.get(character) || character)
+        .join("");
+    }
+
+    function formatNumber(value) {
+      if (Number.isInteger(value)) return String(value);
+      return value.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
+    }
+
+    function formatTick(value) {
+      if (Math.abs(value) < 0.0001) return "0";
+      return Math.abs(value) >= 10 ? value.toFixed(0) : value.toFixed(1);
+    }
+
+    function uniqueName() {
+      return `quiz-answer-${Math.random().toString(36).slice(2)}`;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<div id="c0ac3d79" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>sp.expand(expr), sp.factor(sp.expand(expr))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>(x**2 - x - 6, (x - 3)*(x + 2))</code></pre>
+</div>
+</div>
+<div id="2ca62882" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>[(4, True)]</code></pre>
+</div>
+</div>
+<div id="69621397" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_question</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> expand_question((x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>question.check(<span class="st">"x**2 + 2*x + 1"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>'Correct.'</code></pre>
+</div>
+</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>SymPy documentation: <a href="https://docs.sympy.org/" class="uri">https://docs.sympy.org/</a></li>
+<li>PyScript documentation: <a href="https://docs.pyscript.net/latest/" class="uri">https://docs.pyscript.net/latest/</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/osl-incubator\.github\.io\/edu-math\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../lessons/algebra/algebraic-modeling.html" class="pagination-link" aria-label="Algebraic Modeling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Algebraic Modeling</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../lessons/algebra/cumulative-review.html" class="pagination-link" aria-label="College Algebra Cumulative Review">
+        <span class="nav-page-text">College Algebra Cumulative Review</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/symbolic-computation-with-sympy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
