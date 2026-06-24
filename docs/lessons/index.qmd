@@ -61,7 +61,7 @@ Limits, derivatives, optimization, integrals, and applications.
 
 Vectors, matrices, linear systems, transformations, and eigenvalues.
 
-[Start Linear Algebra](linear-algebra/vectors.qmd)
+[Start Linear Algebra](linear-algebra/index.qmd)
 :::
 
 ::: {.topic-card}

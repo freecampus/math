@@ -1,58 +1,217 @@
 ---
 title: Matrices
-description: Matrices as structured numeric transformations.
+description: Matrices as rectangular arrays for data, systems, and transformations.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A **matrix** is a rectangular array of numbers. Matrices are everywhere in
+linear algebra because they can store data, organize equations, and describe how
+vectors move.
 
-- Interpret matrices as rectangular arrays.
-- Multiply a matrix by a vector.
-- Recognize matrix shape.
+For example,
+
+$$
+A=\begin{bmatrix}
+2 & -1 & 0\\
+4 & 3 & 5
+\end{bmatrix}
+$$
+
+has 2 rows and 3 columns, so its shape is $2\times 3$.
+
+## What you should be able to do
+
+By the end of this lesson, you should be able to:
+
+- identify rows, columns, entries, and matrix shape;
+- use row-column notation such as $a_{ij}$;
+- recognize zero, identity, diagonal, and coefficient matrices;
+- explain why shape matters before any calculation;
+- represent small systems or data tables as matrices;
+- use edumath and SymPy to inspect matrix structure.
+
+## Rows, columns, and entries
+
+A matrix entry is named by row first, column second. If
+
+$$
+A=\begin{bmatrix}
+4 & 5\\
+7 & 8
+\end{bmatrix},
+$$
+
+then $a_{21}=7$ because row 2, column 1 contains 7.
+
+::: {.callout-note}
+## Notation reminder
+
+The notation $a_{ij}$ means the entry in row $i$ and column $j$. The row index
+comes first. This is like saying "go down to the correct row, then move across
+to the correct column."
 :::
 
-## Concept
+## Shape: rows by columns
 
-Matrices organize numbers in rows and columns. They can represent systems of
-equations, transformations, and data tables.
+The shape of a matrix is always
 
-```{python}
-import numpy as np
+$$
+\text{number of rows} \times \text{number of columns}.
+$$
 
-matrix = np.array([[2, 0], [0, 3]])
-matrix.shape
-```
+A $3\times 2$ matrix has 3 rows and 2 columns:
 
-## Practice
+$$
+\begin{bmatrix}
+1 & 2\\
+3 & 4\\
+5 & 6
+\end{bmatrix}.
+$$
 
-::: {.practice-box}
-1. What is the shape of a 3-row, 2-column matrix?
-2. Why does shape matter for multiplication?
-3. Write the identity matrix in two dimensions.
+Shape is not a small detail. It decides what operations are possible. A matrix
+with 3 columns can multiply a vector with 3 entries, but not a vector with 2
+entries.
+
+## Common special matrices
+
+### Zero matrix
+
+A zero matrix has every entry equal to zero:
+
+$$
+\begin{bmatrix}
+0 & 0\\
+0 & 0
+\end{bmatrix}.
+$$
+
+### Identity matrix
+
+The identity matrix is the matrix version of multiplying by 1:
+
+$$
+I_2=\begin{bmatrix}
+1 & 0\\
+0 & 1
+\end{bmatrix}.
+$$
+
+It leaves vectors unchanged: $I\mathbf{v}=\mathbf{v}$.
+
+### Diagonal matrix
+
+A diagonal matrix has possible nonzero entries only on the main diagonal:
+
+$$
+\begin{bmatrix}
+2 & 0\\
+0 & 5
+\end{bmatrix}.
+$$
+
+This matrix scales the first coordinate by 2 and the second coordinate by 5.
+
+### Coefficient matrix
+
+The system
+
+$$
+\begin{aligned}
+2x-y &= 3,\\
+4x+5y &= 7
+\end{aligned}
+$$
+
+has coefficient matrix
+
+$$
+\begin{bmatrix}
+2 & -1\\
+4 & 5
+\end{bmatrix}.
+$$
+
+The constants on the right side form a separate vector
+$\begin{bmatrix}3\\7\end{bmatrix}$.
+
+## Worked example: read a matrix carefully
+
+Let
+
+$$
+B=\begin{bmatrix}
+1 & -2 & 4\\
+0 & 3 & 5
+\end{bmatrix}.
+$$
+
+1. It has 2 rows and 3 columns, so its shape is $2\times 3$.
+2. The first row is $[1,-2,4]$.
+3. The second column is $\begin{bmatrix}-2\\3\end{bmatrix}$.
+4. The entry $b_{23}$ is 5 because it is in row 2, column 3.
+
+::: {.callout-warning}
+## Common pitfall
+
+Do not reverse the order of shape. A matrix with 2 rows and 3 columns is
+$2\times 3$, not $3\times 2$.
 :::
 
+## Practice exercises
+
+1. What is the shape of
+   $\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}$?
+2. For $A=\begin{bmatrix}9&8&7\\6&5&4\end{bmatrix}$, what is $a_{12}$?
+3. Write the $3\times 3$ identity matrix.
+4. What coefficient matrix belongs to $x+2y=5$ and $3x-y=4$?
+5. Why is the identity matrix useful?
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `3 x 2`.
-
-Matrix shape is written as rows by columns.
+1. $3\times 2$.
+2. $a_{12}=8$.
+3. $\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$.
+4. $\begin{bmatrix}1&2\\3&-1\end{bmatrix}$.
+5. It leaves vectors unchanged and acts like the number 1 for matrix
+   multiplication.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Matrix guessing game
 
-Answer: dimensions must match for products to be defined.
+This checkpoint asks about shapes, entries, and special matrices.
 
-For example, an `m x n` matrix can multiply a length-`n` vector.
-:::
+<script type="application/json" class="edu-math-linear-algebra-checkpoint-config">
+{
+  "topic": "matrices",
+  "title": "Matrices checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/linear-algebra-checkpoint.qmd >}}
 
-Answer: `[[1, 0], [0, 1]]`.
+## Using this lesson with edumath and SymPy
 
-The identity matrix leaves every vector unchanged.
-:::
+Use these examples to inspect matrices with Python. SymPy is especially nice
+when you want exact entries such as fractions.
+
+```{python}
+#| echo: true
+from edumath.linear_algebra import identity_matrix, matrix_shape
+
+A = [[1, -2, 4], [0, 3, 5]]
+print(matrix_shape(A))
+print(identity_matrix(3))
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+B = sp.Matrix([[1, -2, 4], [0, 3, 5]])
+print(B.shape)
+print(B[1, 2])  # Python uses zero-based indexing: row 1 means the second row.
+```

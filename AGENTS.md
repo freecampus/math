@@ -171,3 +171,9 @@ suggest new reusable features, helper functions, visualizations, or utilities
 that could support student learning. Prioritize proposals that are pedagogically
 useful, reusable across lessons, and easy to integrate into the existing
 library.
+
+Ensure the explanations has a walkthrough, step by step, resolution, to help the
+student to understand how to resolve it equations and formula.
+
+Each subtopic inside the lesson can have guided exercices, checkpoint exercices
+and guessing game.

@@ -1,0 +1,140 @@
+---
+title: Linear Algebra Study Path
+description: A guided path through vectors, matrices, systems, transformations, and eigenvectors.
+execute:
+  echo: false
+---
+
+Linear algebra is the study of **many numbers at once**. In earlier algebra you
+usually solve for one unknown, such as $x$. In linear algebra, one object may
+contain several numbers:
+
+- a vector can store a position, a movement, a list of measurements, or several
+  unknowns at the same time;
+- a matrix can store a table of coefficients, a data set, or a rule that moves
+  vectors;
+- a linear system asks for one vector that satisfies several equations at once.
+
+The main idea is not to memorize a long list of formulas. The main idea is to
+learn a new language for organizing information. Once you can read shapes,
+coordinates, rows, columns, and transformations, many advanced topics become
+less mysterious.
+
+## What you should be able to do by the end
+
+After this study path, you should be able to:
+
+- describe vectors as ordered lists, arrows, positions, or data points;
+- compute vector length, dot products, and simple vector combinations;
+- read matrix shape as rows by columns;
+- decide whether matrix products are defined before calculating;
+- solve small systems of linear equations by elimination and by matrix notation;
+- interpret a matrix as a function that transforms vectors;
+- recognize common transformations such as scaling, reflection, projection, and
+  shear;
+- check whether a vector is an eigenvector and identify its eigenvalue;
+- use NumPy, SymPy, and edumath to verify hand work.
+
+## Readiness checklist
+
+You do not need to be an expert before starting. You should be comfortable with:
+
+::: {.callout-note}
+## Helpful prerequisites
+
+- plotting points such as $(3,4)$ on the coordinate plane;
+- solving simple equations such as $2x+1=7$;
+- solving two equations in two unknowns by substitution or elimination;
+- using square roots, especially the distance formula;
+- reading function notation such as $f(x)$;
+- doing arithmetic with negative numbers and fractions;
+- reading a small table of numbers.
+:::
+
+If one of these skills feels weak, continue anyway but slow down when it appears.
+Each lesson includes reminders in context.
+
+## The path through the lessons
+
+1. **Vectors**: learn what a vector is, how to measure its length, and how dot
+   products connect arithmetic to geometry.
+2. **Matrices**: learn rows, columns, entries, shape, and special matrices.
+3. **Matrix Operations**: add matrices, multiply by scalars, multiply matrices
+   by vectors, and check dimensions.
+4. **Systems and Elimination**: turn equations into $A\mathbf{x}=\mathbf{b}$
+   and solve by legal equation-preserving moves.
+5. **Linear Transformations**: read matrices as movement rules for vectors.
+6. **Eigenvalues and Eigenvectors**: find special directions that keep their
+   line under a transformation.
+
+## How to study linear algebra
+
+Linear algebra becomes much easier when you practice in several representations.
+For every important calculation, try to say:
+
+- **Shape**: What are the dimensions of each object?
+- **Algebra**: What formula or row operation am I using?
+- **Geometry**: What would this look like in the plane?
+- **Meaning**: What does each row, column, or coordinate represent?
+- **Check**: Can I substitute the answer back or verify it another way?
+
+A useful study habit is: **draw first, calculate second, verify third**.
+
+## Common beginner mistakes to avoid
+
+::: {.callout-warning}
+## Watch these habits
+
+- Do not multiply matrices until you check the inner dimensions.
+- Do not call every table of numbers a transformation; context matters.
+- Do not treat row operations as random tricks. They are legal moves because
+  they preserve the solution set.
+- Do not use software to skip understanding. Use software to check, explore,
+  and catch arithmetic mistakes.
+:::
+
+## Readiness checkpoint game
+
+Use this quick game to guess which linear-algebra idea is being described.
+Try a few questions now, then repeat after finishing the path.
+
+<script type="application/json" class="edu-math-linear-algebra-checkpoint-config">
+{
+  "topic": "linear-algebra-cumulative-review",
+  "title": "Linear algebra readiness checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/linear-algebra-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+The path uses hand reasoning first. The code below shows how the same ideas can
+be checked computationally. These examples can run in local Python, Jupyter,
+Colab, or a PyScript/Pyodide page that includes NumPy and SymPy.
+
+```{python}
+#| echo: true
+from edumath.linear_algebra import LINEAR_ALGEBRA_PATH
+
+LINEAR_ALGEBRA_PATH.slugs()
+```
+
+```{python}
+#| echo: true
+from edumath.linear_algebra import dot_product, matrix_vector_product, vector_norm
+
+print(vector_norm([3, 4]))
+print(dot_product([1, 2], [3, 4]))
+print(matrix_vector_product([[2, 0], [0, 3]], [5, 4]))
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+A = sp.Matrix([[1, 1], [1, -1]])
+b = sp.Matrix([5, 1])
+A.LUsolve(b)
+```

@@ -1,50 +1,188 @@
 ---
 title: Matrix Operations
-description: Addition, scalar multiplication, and matrix-vector products.
+description: Addition, scalar multiplication, matrix-vector products, and dimension checks.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Matrix operations look like ordinary arithmetic, but they have one extra rule:
+**shape matters first**. Before adding or multiplying, always check the
+dimensions.
 
-- Add matrices with matching shapes.
-- Multiply a matrix by a scalar.
-- Compute matrix-vector products.
+## What you should be able to do
+
+By the end of this lesson, you should be able to:
+
+- add matrices of the same shape;
+- multiply a matrix by a scalar;
+- decide whether matrix products are defined;
+- compute matrix-vector products by row dot products;
+- read a matrix-vector product as a combination of columns;
+- verify calculations with edumath, NumPy, and SymPy.
+
+## Matrix addition
+
+You can add matrices only when they have the same shape. Add matching entries:
+
+$$
+\begin{bmatrix}1&2\\3&4\end{bmatrix}
++
+\begin{bmatrix}5&6\\7&8\end{bmatrix}
+=
+\begin{bmatrix}6&8\\10&12\end{bmatrix}.
+$$
+
+You cannot add a $2\times 2$ matrix to a $2\times 3$ matrix because there are
+entries with no matching partner.
+
+## Scalar multiplication
+
+A scalar multiplies every entry:
+
+$$
+-2\begin{bmatrix}3&-1\\0&4\end{bmatrix}
+=
+\begin{bmatrix}-6&2\\0&-8\end{bmatrix}.
+$$
+
+This is similar to scalar multiplication for vectors.
+
+## Matrix-vector multiplication
+
+A matrix-vector product $A\mathbf{x}$ is defined when the number of columns in
+$A$ equals the number of entries in $\mathbf{x}$.
+
+If
+
+$$
+A=\begin{bmatrix}
+2 & 1\\
+0 & 3
+\end{bmatrix}
+\quad \text{and} \quad
+\mathbf{x}=\begin{bmatrix}4\\5\end{bmatrix},
+$$
+
+then
+
+$$
+A\mathbf{x}
+=
+\begin{bmatrix}
+2\cdot4+1\cdot5\\
+0\cdot4+3\cdot5
+\end{bmatrix}
+=
+\begin{bmatrix}13\\15\end{bmatrix}.
+$$
+
+Each output entry is a row dot product.
+
+## Column-combination view
+
+The same product can be read another way:
+
+$$
+\begin{bmatrix}
+2 & 1\\
+0 & 3
+\end{bmatrix}
+\begin{bmatrix}4\\5\end{bmatrix}
+=4\begin{bmatrix}2\\0\end{bmatrix}
++5\begin{bmatrix}1\\3\end{bmatrix}.
+$$
+
+So a matrix-vector product is a **linear combination of the columns** of the
+matrix. This idea becomes very important when studying systems and
+transformations.
+
+## Matrix-matrix multiplication
+
+A product $AB$ is defined when the number of columns of $A$ equals the number of
+rows of $B$:
+
+$$
+(m\times n)(n\times p) = m\times p.
+$$
+
+For example, a $2\times3$ matrix times a $3\times4$ matrix produces a
+$2\times4$ matrix.
+
+::: {.callout-warning}
+## Common pitfall
+
+Matrix multiplication is not entry-by-entry multiplication. It uses rows of the
+left matrix and columns of the right matrix. Also, $AB$ and $BA$ may be different
+or one of them may not even be defined.
 :::
 
-```{python}
-from edumath.linear_algebra.concepts import matrix_vector_product
+## Worked example: check dimensions first
 
-matrix_vector_product([[2, 0], [0, 3]], [5, 4])
-```
+Can a $3\times2$ matrix multiply a vector with 2 entries?
 
-## Practice
+1. The matrix has 2 columns.
+2. The vector has 2 entries.
+3. The inner dimensions match, so the product is defined.
+4. The result has 3 entries because the matrix has 3 rows.
 
-::: {.practice-box}
-1. Multiply `[[1, 0], [0, 1]]` by `[2, 3]`.
-2. Can a 2x3 matrix multiply a length-2 vector?
-3. What does scalar multiplication do to every matrix entry?
-:::
+Can a $3\times2$ matrix multiply a vector with 3 entries? No. The matrix has 2
+columns, but the vector has 3 entries.
 
+## Practice exercises
+
+1. Add $\begin{bmatrix}1&0\\2&3\end{bmatrix}+\begin{bmatrix}4&5\\6&7\end{bmatrix}$.
+2. Compute $3\begin{bmatrix}2&-1\\0&4\end{bmatrix}$.
+3. Is $(2\times3)(3\times1)$ defined? What is the output shape?
+4. Compute $\begin{bmatrix}1&2\\3&4\end{bmatrix}\begin{bmatrix}5\\6\end{bmatrix}$.
+5. Is $(2\times3)(2\times1)$ defined?
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `[2, 3]`.
-
-The identity matrix leaves the vector unchanged.
+1. $\begin{bmatrix}5&5\\8&10\end{bmatrix}$.
+2. $\begin{bmatrix}6&-3\\0&12\end{bmatrix}$.
+3. Yes. The output shape is $2\times1$, a vector with 2 entries.
+4. $\begin{bmatrix}17\\39\end{bmatrix}$.
+5. No. The inner dimensions are 3 and 2, and they do not match.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Matrix-operation guessing game
 
-Answer: no.
+Use this game to practice dimension checks and matrix-vector products.
 
-A `2 x 3` matrix needs a length-`3` vector on the right.
-:::
+<script type="application/json" class="edu-math-linear-algebra-checkpoint-config">
+{
+  "topic": "matrix-operations",
+  "title": "Matrix operations checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/linear-algebra-checkpoint.qmd >}}
 
-Answer: it multiplies every entry by the same scalar.
-:::
+## Using this lesson with edumath and SymPy
+
+NumPy is the standard numeric array library in Python. SymPy is better when you
+want exact symbolic or fractional answers. The edumath helpers keep examples
+short for lessons.
+
+```{python}
+#| echo: true
+from edumath.linear_algebra import can_multiply, matrix_product, matrix_vector_product
+
+A = [[2, 1], [0, 3]]
+x = [4, 5]
+
+print(can_multiply((2, 2), (2,)))
+print(matrix_vector_product(A, x))
+print(matrix_product([[1, 2]], [[3], [4]]))
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+A = sp.Matrix([[2, 1], [0, 3]])
+x = sp.Matrix([4, 5])
+A * x
+```

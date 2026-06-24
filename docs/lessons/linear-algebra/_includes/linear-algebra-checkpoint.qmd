@@ -1,0 +1,333 @@
+<div class="quiz-shell edu-math-linear-algebra-checkpoint" data-default-total="4"></div>
+
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "vectors";
+    const BANKS = {
+      vectors: [normQuestion, dotProductQuestion, perpendicularQuestion],
+      matrices: [shapeQuestion, identityQuestion, entryQuestion],
+      "matrix-operations": [productDefinedQuestion, matrixVectorQuestion, scalarQuestion],
+      "systems-and-elimination": [systemClassQuestion, eliminationMoveQuestion, solutionCheckQuestion],
+      "linear-transformations": [transformationQuestion, basisQuestion, preserveQuestion],
+      "eigenvalues-eigenvectors": [eigenvalueQuestion, eigenvectorQuestion, repeatedQuestion],
+      "linear-algebra-cumulative-review": [normQuestion, shapeQuestion, productDefinedQuestion, systemClassQuestion, transformationQuestion, eigenvalueQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-linear-algebra-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-linear-algebra-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Linear algebra checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(
+          correct ? "Correct." : `Not quite. The answer is ${question.answer}.`,
+          " ",
+          question.explanation,
+        );
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function normQuestion() {
+      const pairs = [[3, 4, 5], [5, 12, 13], [6, 8, 10]];
+      const [a, b, n] = choice(pairs);
+      return question({
+        prompt: "Guess the vector length.",
+        stimulus: `v = (${a}, ${b})`,
+        answer: String(n),
+        distractors: [String(a + b), String(Math.abs(a - b)), String(a * b)],
+        explanation: "Use the Pythagorean formula: sqrt(a²+b²).",
+      });
+    }
+
+    function dotProductQuestion() {
+      return question({
+        prompt: "Compute the dot product.",
+        stimulus: "(1, 2) · (3, 4)",
+        answer: "11",
+        distractors: ["10", "14", "24"],
+        explanation: "Multiply matching coordinates and add: 1·3 + 2·4 = 11.",
+      });
+    }
+
+    function perpendicularQuestion() {
+      return question({
+        prompt: "Which dot product shows nonzero vectors are perpendicular?",
+        stimulus: "orthogonality test",
+        answer: "0",
+        distractors: ["1", "-1", "the vector length"],
+        explanation: "A dot product of zero means the vectors meet at a right angle.",
+      });
+    }
+
+    function shapeQuestion() {
+      return question({
+        prompt: "What is the shape of a matrix with 2 rows and 3 columns?",
+        stimulus: "rows by columns",
+        answer: "2 x 3",
+        distractors: ["3 x 2", "5", "6 x 1"],
+        explanation: "Shape is always written rows first, columns second.",
+      });
+    }
+
+    function identityQuestion() {
+      return question({
+        prompt: "What does the identity matrix do to a vector?",
+        stimulus: "I v",
+        answer: "leaves it unchanged",
+        distractors: ["turns it into zero", "doubles it", "swaps coordinates"],
+        explanation: "The identity matrix is the do-nothing matrix for multiplication.",
+      });
+    }
+
+    function entryQuestion() {
+      return question({
+        prompt: "Which entry is in row 2, column 1?",
+        stimulus: "[[4, 5], [7, 8]]",
+        answer: "7",
+        distractors: ["4", "5", "8"],
+        explanation: "Move to the second row, then the first column.",
+      });
+    }
+
+    function productDefinedQuestion() {
+      return question({
+        prompt: "Is this matrix product defined?",
+        stimulus: "(2 x 3)(3 x 4)",
+        answer: "yes",
+        distractors: ["no", "only if square", "only with a vector"],
+        explanation: "The inner dimensions match: 3 and 3.",
+      });
+    }
+
+    function matrixVectorQuestion() {
+      return question({
+        prompt: "Find the first entry of A v.",
+        stimulus: "A=[[2,1],[0,3]], v=(4,5)",
+        answer: "13",
+        distractors: ["8", "15", "17"],
+        explanation: "The first row dot v is 2·4 + 1·5 = 13.",
+      });
+    }
+
+    function scalarQuestion() {
+      return question({
+        prompt: "What is 3 times the matrix entry -2?",
+        stimulus: "scalar multiplication",
+        answer: "-6",
+        distractors: ["6", "-2", "1"],
+        explanation: "Scalar multiplication multiplies every entry by the scalar.",
+      });
+    }
+
+    function systemClassQuestion() {
+      return question({
+        prompt: "Classify the system.",
+        stimulus: "x+y=2 and 2x+2y=4",
+        answer: "infinitely many solutions",
+        distractors: ["one solution", "no solution", "not linear"],
+        explanation: "The second equation is a multiple of the first, so the lines coincide.",
+      });
+    }
+
+    function eliminationMoveQuestion() {
+      return question({
+        prompt: "Which move eliminates x from the second equation?",
+        stimulus: "E1: x+y=5, E2: x-y=1",
+        answer: "E2 - E1",
+        distractors: ["E2 + E1", "2E1", "swap columns"],
+        explanation: "Subtracting gives -2y = -4, with no x term.",
+      });
+    }
+
+    function solutionCheckQuestion() {
+      return question({
+        prompt: "Does (3,2) solve x+y=5 and x-y=1?",
+        stimulus: "substitute both equations",
+        answer: "yes",
+        distractors: ["no", "only the first", "only the second"],
+        explanation: "3+2=5 and 3-2=1.",
+      });
+    }
+
+    function transformationQuestion() {
+      return question({
+        prompt: "What does [[1,0],[0,0]] do?",
+        stimulus: "T(x,y)=(x,0)",
+        answer: "projects onto the x-axis",
+        distractors: ["rotates 90 degrees", "reflects over y-axis", "doubles every vector"],
+        explanation: "It keeps x and replaces y by 0.",
+      });
+    }
+
+    function basisQuestion() {
+      return question({
+        prompt: "Why do basis vectors matter?",
+        stimulus: "2D linear transformations",
+        answer: "their images determine the whole transformation",
+        distractors: ["they are always eigenvectors", "they remove multiplication", "they make all matrices diagonal"],
+        explanation: "Every vector is a combination of basis vectors, and linear maps preserve combinations.",
+      });
+    }
+
+    function preserveQuestion() {
+      return question({
+        prompt: "Which property must a linear transformation preserve?",
+        stimulus: "linearity",
+        answer: "addition and scalar multiplication",
+        distractors: ["distance always", "area always", "all angles"],
+        explanation: "Linear means T(u+v)=T(u)+T(v) and T(cv)=cT(v).",
+      });
+    }
+
+    function eigenvalueQuestion() {
+      return question({
+        prompt: "If A v = 4v, what is the eigenvalue?",
+        stimulus: "v is nonzero",
+        answer: "4",
+        distractors: ["v", "0", "A"],
+        explanation: "The scalar multiplying v is the eigenvalue.",
+      });
+    }
+
+    function eigenvectorQuestion() {
+      return question({
+        prompt: "Is the zero vector an eigenvector?",
+        stimulus: "definition check",
+        answer: "no",
+        distractors: ["yes", "only for diagonal matrices", "only if lambda is 0"],
+        explanation: "Eigenvectors must be nonzero so that they represent a direction.",
+      });
+    }
+
+    function repeatedQuestion() {
+      return question({
+        prompt: "Why are eigenvectors useful for repeated multiplication?",
+        stimulus: "A, A², A³, ...",
+        answer: "they keep the same direction while scaling",
+        distractors: ["they make all entries zero", "they avoid addition", "they always have length 1"],
+        explanation: "Repeated applications multiply an eigenvector by powers of its eigenvalue.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `linear-algebra-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>

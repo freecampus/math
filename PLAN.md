@@ -1,94 +1,97 @@
-# PLAN: Discrete Mathematics Lessons
+# PLAN: Linear Algebra Lessons
 
-Target directory: `docs/lessons/discrete-math/`
+Target directory: `docs/lessons/linear-algebra/`
 
-This plan describes how to rebuild the Discrete Mathematics lesson sequence into
-a complete, beginner-friendly preparation module. The current pages are short
-starter lessons. The goal is to write self-contained study material for learners
-who may know algebra and basic programming but are new to proof, logic, sets,
-relations, recurrence, induction, and graphs.
+This plan describes how to turn the Linear Algebra lesson sequence into a
+complete, beginner-friendly preparation module. The current pages are useful
+starters, but they are short. The goal is to write self-contained study material
+for learners who may know algebra and coordinates but are new to vectors,
+matrices, systems, transformations, and eigenvectors.
 
-Discrete mathematics should feel concrete before it feels formal. Each lesson
-should connect symbols to everyday examples, computation, proof habits, and
-small interactive checkpoints.
+Linear algebra should be taught as a language for organizing numbers and
+understanding movement in space. Students should see every idea in multiple
+forms: words, coordinates, geometry, tables, equations, and code.
 
 ## Current lesson files
 
-Current pages in `docs/lessons/discrete-math/`:
+Current pages in `docs/lessons/linear-algebra/`:
 
-1. `logic.qmd`
-2. `sets.qmd`
-3. `functions-relations.qmd`
-4. `sequences.qmd`
-5. `induction.qmd`
-6. `graphs.qmd`
+1. `vectors.qmd`
+2. `matrices.qmd`
+3. `matrix-operations.qmd`
+4. `systems-and-elimination.qmd`
+5. `linear-transformations.qmd`
+6. `eigenvalues-eigenvectors.qmd`
 
 Also present during inspection:
 
-- `logic.quarto_ipynb`
-- `sets.quarto_ipynb`
+- `vectors.quarto_ipynb`
+- `matrices.quarto_ipynb`
+- `matrix-operations.quarto_ipynb`
+- `systems-and-elimination.quarto_ipynb`
 
-These appear to be generated Quarto notebook artifacts rather than the intended
+These appear to be generated Quarto notebook artifacts rather than intended
 source pages. Before implementation, verify whether they are tracked. If they
 are untracked/generated, remove them from the working tree. The lesson source
 should remain `.qmd` files.
 
 Recommended addition:
 
-7. `index.qmd` — Discrete Mathematics study path overview and readiness
-   checklist.
+7. `index.qmd` — Linear Algebra study path overview and readiness checklist.
 
-Update `docs/_quarto.yml` so the Discrete Mathematics sidebar starts with the
-new index page if `index.qmd` is added. Update `docs/lessons/index.qmd` so the
-Discrete Mathematics card links to `discrete-math/index.qmd` instead of the
-first content page.
+Update `docs/_quarto.yml` so the Linear Algebra sidebar starts with the new
+index page if `index.qmd` is added. Update `docs/lessons/index.qmd` so the
+Linear Algebra card links to `linear-algebra/index.qmd` instead of the first
+content page.
 
 ## Overall pedagogical goals
 
-The Discrete Mathematics module should help students move from calculation to
-precise reasoning.
+The Linear Algebra module should help students move from single-number algebra
+to structured reasoning about vectors, matrices, spaces, systems, and
+transformations.
 
 By the end of the path, a student should be able to say:
 
-> Discrete mathematics studies objects that are separate or countable: truth
-> values, sets, relations, sequences, proofs, and networks. I can use precise
-> definitions, examples, counterexamples, and simple algorithms to reason about
-> finite and countable structures.
+> Linear algebra studies vectors and the transformations that move them. A
+> vector stores several numbers at once, a matrix describes a rule for combining
+> or transforming vectors, and systems of linear equations ask which vectors
+> satisfy several conditions at the same time.
 
 Students should repeatedly practice these habits:
 
-- State exactly what the objects are.
-- Check definitions before guessing.
-- Use examples to understand a pattern.
-- Use counterexamples to disprove false claims.
-- Translate between words, symbols, tables, diagrams, and code.
-- Explain why an answer is true, not only what the answer is.
-- Distinguish a statement, its converse, its inverse, and its contrapositive.
-- Check whether a rule is a function, a relation, an equivalence relation, or a
-  graph property.
+- Track dimensions and shapes before calculating.
+- Interpret vectors geometrically and numerically.
+- Read matrix-vector products as combinations of columns.
+- Connect systems of equations to intersections and matrix notation.
+- Explain what a transformation does to basis vectors.
+- Use row operations as legal equation-preserving moves.
+- Check whether an answer makes sense from units, shape, and geometry.
+- Use NumPy and SymPy to compute and verify, not to skip understanding.
 
 ## Prerequisites to reinforce throughout
 
 The lessons should review prerequisite ideas in context instead of assuming
 students remember everything perfectly:
 
-- basic algebraic notation;
+- coordinate plane and ordered pairs;
+- basic algebraic equations;
+- systems of two equations;
+- graphing lines;
+- arithmetic with negatives and fractions;
+- square roots and distance formula;
 - function notation;
-- ordered pairs;
-- simple equations and inequalities;
-- exponents and sums;
-- reading tables;
-- basic Python lists, sets, dictionaries, loops, and conditionals;
-- careful English reading;
-- basic proof vocabulary such as assume, therefore, and contradiction.
+- basic Python lists and arrays;
+- interpreting tables of numbers;
+- simple trigonometry for optional rotations.
 
 Whenever a prerequisite appears, include a short reminder box. For example, in
-induction, remind students that `k+1` means "the next integer after `k`," not a
-separate unrelated variable.
+vectors, remind students that the distance formula is a form of the Pythagorean
+theorem. In systems, remind students that replacing one equation by a sum of two
+equations can preserve the solution set.
 
 ## Global lesson standards
 
-Each Discrete Mathematics lesson should follow the repository lesson standards.
+Each Linear Algebra lesson should follow the repository lesson standards.
 
 Use this structure for every `.qmd` page:
 
@@ -113,7 +116,9 @@ Use this structure for every `.qmd` page:
    Using this lesson with edumath and SymPy
    ```
 
-   Use visible code blocks with `#| echo: true` in this final section.
+   Use visible code blocks with `#| echo: true` in this final section. NumPy may
+   also appear in this section because it is central to linear algebra
+   computation, but keep the section title consistent with the project standard.
 
 Do not call these pages notebooks in navigation or lesson prose unless a page is
 specifically about notebook usage.
@@ -123,62 +128,62 @@ specifically about notebook usage.
 In the main lesson body:
 
 - hide helper code with `execute: echo: false`;
-- show tables, diagrams, truth tables, set calculations, graphs, and
-  conclusions;
+- show vectors, matrices, plots, tables, row-reduction steps, and conclusions;
 - avoid raw setup code unless the code itself is the teaching target.
 
 In the final `Using this lesson with edumath and SymPy` appendix:
 
 - show visible Python examples with `#| echo: true`;
-- use `edumath.discrete_math` helpers when available;
-- use SymPy for logic simplification, set notation, summations, recurrence
-  checking, and symbolic verification when appropriate;
-- use Python standard-library examples when they are clearer than SymPy.
-
-SymPy is useful for symbolic logic, sets, summations, and recurrence checking,
-but it is not a replacement for learning definitions and proof structure.
+- use `edumath.linear_algebra` helpers when available;
+- use NumPy for numeric arrays and matrix products;
+- use SymPy for exact arithmetic, row reduction, determinants, eigenvalues, and
+  symbolic verification;
+- explain how to interpret the computational output.
 
 ## Shared interaction plan
 
 Create a reusable static checkpoint include:
 
 ```text
-docs/lessons/discrete-math/_includes/discrete-math-checkpoint.qmd
+docs/lessons/linear-algebra/_includes/linear-algebra-checkpoint.qmd
 ```
 
 The include should use browser-native JavaScript, similar to the Algebra,
-Calculus, and Differential Equations checkpoint patterns, so published HTML
-remains interactive without a live Python kernel.
+Calculus, Differential Equations, and Discrete Mathematics checkpoint patterns,
+so published HTML remains interactive without a live Python kernel.
 
 Potential topic keys:
 
-- `logic`
-- `sets`
-- `functions-relations`
-- `sequences`
-- `induction`
-- `graphs`
-- `discrete-math-cumulative-review`
+- `vectors`
+- `matrices`
+- `matrix-operations`
+- `systems-and-elimination`
+- `linear-transformations`
+- `eigenvalues-eigenvectors`
+- `linear-algebra-cumulative-review`
 
 The include should support flexible question types:
 
 - multiple choice;
-- true/false;
-- match a definition to an example;
-- choose a counterexample;
-- guess the next sequence term;
-- classify a relation property;
-- identify a graph property;
-- choose the correct induction step;
-- evaluate a small truth table row.
+- numeric answer;
+- vector or matrix entry selection;
+- shape/dimension checks;
+- guess a dot product;
+- guess a matrix-vector product;
+- classify a system as one solution, no solution, or infinitely many;
+- identify a transformation from a matrix;
+- identify whether a vector is an eigenvector.
 
 Use one JSON configuration block per lesson, for example:
 
 ```html
-<script type="application/json" class="edu-math-discrete-checkpoint-config">
+<script
+  type="application/json"
+  class="edu-math-linear-algebra-checkpoint-config"
+>
   {
-    "topic": "logic",
-    "title": "Logic checkpoint",
+    "topic": "vectors",
+    "title": "Vectors checkpoint",
     "defaultTotal": 4
   }
 </script>
@@ -187,66 +192,91 @@ Use one JSON configuration block per lesson, for example:
 Then include the shared fragment:
 
 ```qmd
-{{< include _includes/discrete-math-checkpoint.qmd >}}
+{{< include _includes/linear-algebra-checkpoint.qmd >}}
 ```
 
 ### Checkpoint game principles
 
 Each guessing game should teach the lesson topic, not merely decorate the page.
-Good discrete-math guessing games include:
+Good linear-algebra guessing games include:
 
-- guess the truth value of a compound proposition;
-- choose the row that makes an implication false;
-- guess a set union, intersection, complement, or difference;
-- classify a relation as reflexive, symmetric, transitive, function, or not;
-- guess the next term or closed form of a sequence;
-- choose the missing line in an induction proof;
-- classify a graph by degree, path, cycle, connectedness, or directedness;
-- choose a counterexample to a false statement.
+- guess the vector norm;
+- guess whether two vectors are perpendicular;
+- guess matrix shape;
+- guess whether a product is defined;
+- guess a matrix-vector product entry;
+- guess the row operation needed next;
+- guess whether a system is inconsistent, dependent, or independent;
+- guess the geometric action of a 2-by-2 matrix;
+- guess whether a vector is an eigenvector of a matrix;
+- guess the eigenvalue from `A v = lambda v`.
 
-Feedback should be explanatory and friendly. It should say why the answer is
-correct or why a common wrong answer is tempting.
+Feedback should be explanatory and supportive. For example, after a wrong shape
+answer, explain exactly which inner dimensions must match.
 
 ## Online computation options
 
-The main computational appendix should use Python and SymPy where helpful.
-Discrete mathematics also benefits from lightweight browser-side tools.
+The main computational appendix should use `edumath`, NumPy, and SymPy. Linear
+algebra also benefits from browser-side visual tools.
 
 Potential online libraries and tools:
 
-- **PyScript/Pyodide + SymPy**: lets students run Python and SymPy in the
-  browser. Good for truth tables, sets, summations, recurrence checks, and graph
-  algorithms on small examples.
-- **Math.js**: useful for evaluating numeric expressions, simple Boolean
-  expressions, and sequence rules in browser activities.
-- **Nerdamer**: useful for symbolic algebra and recurrence/summation checking in
-  simple browser exercises.
-- **Algebrite**: useful for lightweight symbolic manipulation.
-- **Cytoscape.js**: useful for future interactive graph visualizations.
-- **D3.js**: useful for custom set diagrams, graph diagrams, and interactive
-  finite structures.
+- **PyScript/Pyodide + SymPy**: lets students run exact matrix calculations, row
+  reduction, determinants, and eigenvalues in the browser.
+- **NumPy in Pyodide**: useful for numeric vectors, matrix products, and quick
+  experimentation.
+- **Math.js**: useful for lightweight browser matrix arithmetic and numeric
+  exercises.
+- **D3.js or SVG-only JavaScript**: useful for future interactive vector and
+  transformation visualizations.
+- **Plotly.js**: useful for interactive 2D or 3D vector plots if the project
+  later chooses richer visuals.
 
 Do not add heavy JavaScript dependencies automatically. Prefer static
-browser-native JavaScript for checkpoints. Propose PyScript or graph libraries
-only for optional future enhancements.
+browser-native JavaScript for checkpoints. Propose PyScript or visualization
+libraries only for optional future enhancements.
 
 ## Proposed `edumath` package support
 
-The current package contains `src/edumath/discrete_math/`, but most modules are
-empty except `logic.py`, which includes `truth_table` and `implies`. Add small,
-reusable helpers only when they directly improve pedagogy.
+The current package contains `src/edumath/linear_algebra/`. At inspection time,
+most modules were empty except `concepts.py`, which includes numeric helpers:
 
-### `src/edumath/discrete_math/concepts.py`
+- `dot_product`
+- `vector_norm`
+- `matrix_vector_product`
+- `solve_linear_system`
+
+These helpers are useful and should remain available for compatibility. However,
+lesson work may benefit from adding concept metadata, validators, exercises,
+quizzes, and plotting helpers.
+
+### Organization note
+
+Because `concepts.py` currently contains computational helpers, implementation
+has two reasonable options:
+
+1. Keep the existing helper functions in `concepts.py` and add concept metadata
+   there as well.
+2. Move computational helpers to a new `operations.py` module and re-export them
+   from `concepts.py` and `__init__.py` for backward compatibility.
+
+Prefer the smallest safe change. Do not break existing imports such as:
+
+```python
+from edumath.linear_algebra.concepts import matrix_vector_product
+```
+
+### `src/edumath/linear_algebra/concepts.py`
 
 Add concept metadata similar to other branches:
 
-- `LOGIC`
-- `SETS`
-- `FUNCTIONS_RELATIONS`
-- `SEQUENCES`
-- `INDUCTION`
-- `GRAPHS`
-- `DISCRETE_MATH_PATH`
+- `VECTORS`
+- `MATRICES`
+- `MATRIX_OPERATIONS`
+- `SYSTEMS_AND_ELIMINATION`
+- `LINEAR_TRANSFORMATIONS`
+- `EIGENVALUES_EIGENVECTORS`
+- `LINEAR_ALGEBRA_PATH`
 
 Each concept should include:
 
@@ -255,132 +285,99 @@ Each concept should include:
 - short description;
 - prerequisites;
 - measurable learning goals;
-- common mistakes or tags.
+- tags or common mistakes.
 
 Expected path order:
 
 ```text
-logic -> sets -> functions-relations -> sequences -> induction -> graphs
+vectors -> matrices -> matrix-operations -> systems-and-elimination -> linear-transformations -> eigenvalues-eigenvectors
 ```
 
-### `src/edumath/discrete_math/logic.py`
+### `src/edumath/linear_algebra/operations.py` or additions to `concepts.py`
 
-Keep existing helpers and consider adding:
+Consider adding small, well-tested helpers:
 
-- `not_`, `and_`, `or_`, `xor`, `iff`;
-- `contrapositive_truth_table()` or a generic expression truth-table helper;
-- `truth_table_rows(variables, expression)` for simple expression strings;
-- `is_tautology(rows)`;
-- `is_contradiction(rows)`;
-- `is_equivalent(function_a, function_b, variables)`.
+- `vector_add(left, right)`;
+- `scalar_multiply(scalar, vector_or_matrix)`;
+- `matrix_shape(matrix)`;
+- `can_multiply(left_shape, right_shape)`;
+- `matrix_product(left, right)`;
+- `identity_matrix(size)`;
+- `determinant_2x2(matrix)`;
+- `inverse_2x2(matrix)`;
+- `row_echelon_steps(matrix, values=None)` for pedagogical row-reduction steps,
+  only if the API can remain simple;
+- `eigenvalues_2x2(matrix)` for small exact/numeric examples.
 
-Keep names clear and avoid overriding Python keywords directly. For example, use
-`and_` instead of `and`.
+Avoid creating a full replacement for NumPy or SymPy. The `edumath` layer should
+make examples easier to teach.
 
-### `src/edumath/discrete_math/sets.py` or `exercises.py`
-
-There is no `sets.py` currently. Consider either adding a small `sets.py` module
-or keeping set helpers in `exercises.py` and `validators.py`.
-
-Potential helpers:
-
-- `set_operation_table(a, b)` returning union, intersection, difference, and
-  symmetric difference;
-- `venn_region_counts(a, b, universe=None)`;
-- `power_set(iterable)` for small sets;
-- `cartesian_product(a, b)`;
-- `is_subset_answer(received, expected)` validator.
-
-### `src/edumath/discrete_math/exercises.py`
+### `src/edumath/linear_algebra/exercises.py`
 
 Add deterministic exercise builders:
 
-- `truth_table_exercise(seed=...)`;
-- `set_operation_exercise(seed=...)`;
-- `relation_classification_exercise(seed=...)`;
-- `sequence_next_term_exercise(seed=...)`;
-- `induction_step_exercise(seed=...)`;
-- `graph_degree_exercise(seed=...)`.
+- `vector_norm_exercise(seed=...)`;
+- `dot_product_exercise(seed=...)`;
+- `matrix_shape_exercise(seed=...)`;
+- `matrix_vector_product_exercise(seed=...)`;
+- `linear_system_exercise(seed=...)`;
+- `transformation_classification_exercise(seed=...)`;
+- `eigenvector_check_exercise(seed=...)`.
 
 Each exercise should include prompt, expected answer, hints, explanation, tags,
 and validators where useful.
 
-### `src/edumath/discrete_math/validators.py`
+### `src/edumath/linear_algebra/validators.py`
 
 Add small checkers:
 
-- `validate_truth_value(received, expected)`;
-- `validate_set_answer(received, expected)`;
-- `validate_ordered_pairs(received, expected)`;
-- `validate_sequence_terms(received, expected, tolerance=...)`;
-- `validate_relation_properties(received, expected)`;
-- `validate_graph_degree_sequence(received, expected)`.
+- `validate_vector_answer(received, expected, tolerance=...)`;
+- `validate_matrix_answer(received, expected, tolerance=...)`;
+- `validate_scalar_answer(received, expected, tolerance=...)`;
+- `validate_solution_vector(received, matrix, values, tolerance=...)`;
+- `validate_eigenpair(matrix, vector, eigenvalue, tolerance=...)`;
+- `validate_shape_answer(received, expected)`.
 
-Validators should accept natural student formats when practical, such as Python
-sets, lists, tuples, and simple comma-separated strings.
+Validators should accept common student formats when practical, such as Python
+lists, tuples, NumPy arrays, and comma-separated strings.
 
-### `src/edumath/discrete_math/plots.py`
+### `src/edumath/linear_algebra/plots.py`
 
-Add lightweight plotting or scene helpers:
+Add lightweight plotting-scene helpers using existing core plot primitives:
 
-- `venn_two_set_scene(a, b, universe=None)` or a simple data structure for Venn
-  diagrams;
-- `relation_arrow_scene(domain, codomain, pairs)`;
-- `sequence_points_scene(terms)`;
-- `finite_graph_scene(vertices, edges, directed=False)`.
+- `vector_scene(vectors, labels=None)`;
+- `vector_addition_scene(left, right)`;
+- `matrix_transformation_scene(matrix, vectors=None)`;
+- `basis_transformation_scene(matrix)`;
+- `system_lines_scene(matrix, values)` for 2-by-2 systems;
+- `eigenvector_scene(matrix, vector)`.
 
-Prefer small reusable scene data and Matplotlib drawings. Do not add NetworkX as
-a dependency unless a clear need is established. If NetworkX-like functionality
-is useful, implement tiny finite-graph helpers for lesson examples first.
+For 2D lessons, scenes should make geometry visible. Keep them Matplotlib-based
+and testable. Do not add a heavy plotting dependency.
 
-### `src/edumath/discrete_math/quizzes.py`
+### `src/edumath/linear_algebra/quizzes.py`
 
 Add quiz-question builders:
 
-- truth table row question;
-- implication false-case question;
-- set operation question;
-- relation/function classification question;
-- sequence pattern question;
-- induction proof structure question;
-- graph degree/path question;
-- cumulative discrete-math diagnostic quiz.
-
-### Optional `src/edumath/discrete_math/relations.py`
-
-If relation logic becomes substantial, add a dedicated module with:
-
-- `is_function(pairs)`;
-- `domain(pairs)`;
-- `range_(pairs)`;
-- `is_reflexive(pairs, universe)`;
-- `is_symmetric(pairs)`;
-- `is_transitive(pairs)`;
-- `compose_relations(r, s)`.
-
-### Optional `src/edumath/discrete_math/graphs.py`
-
-If graph helpers become substantial, add a dedicated module with:
-
-- `degree(vertices, edges, vertex)`;
-- `degree_sequence(vertices, edges)`;
-- `neighbors(vertices, edges, vertex)`;
-- `is_path(vertices, edges, walk)`;
-- `is_connected(vertices, edges)` for tiny undirected graphs;
-- `has_cycle(vertices, edges)` for tiny examples.
-
-Keep APIs intentionally small and testable.
+- vector norm question;
+- dot product/perpendicular question;
+- matrix shape question;
+- product-defined question;
+- matrix-vector product question;
+- system classification question;
+- transformation action question;
+- eigenvalue/eigenvector question;
+- cumulative linear algebra diagnostic quiz.
 
 ### Tests
 
-Add `tests/test_discrete_math_helpers.py` covering:
+Add `tests/test_linear_algebra_helpers.py` covering:
 
-- existing and new logic helpers;
+- existing helper behavior;
+- any new operations;
 - deterministic exercise generation;
 - validators accepting correct and rejecting incorrect answers;
 - concept path slugs;
-- relation classification helpers if added;
-- graph degree/path helpers if added;
 - plotting scene render or scene-data shape;
 - quiz builder structure.
 
@@ -391,25 +388,26 @@ Run the full test suite if any shared helpers are changed.
 ### Phase 1 — Planning and structure
 
 1. Replace `PLAN.md` with this plan.
-2. Inspect all current discrete-math pages and source helpers.
+2. Inspect all current linear-algebra pages and source helpers.
 3. Decide whether to add `index.qmd` immediately.
 4. Remove generated `.quarto_ipynb*` artifacts if they are untracked.
 5. Create the shared checkpoint include.
 6. Add sidebar entry for the new index page if created.
-7. Update the Discrete Mathematics card in `docs/lessons/index.qmd`.
+7. Update the Linear Algebra card in `docs/lessons/index.qmd`.
 
 ### Phase 2 — Source helper additions
 
 1. Implement only `edumath` helpers needed by the lesson content.
-2. Export the small public API from `src/edumath/discrete_math/__init__.py`.
-3. Add tests before relying on helpers in docs.
-4. Run:
+2. Export the small public API from `src/edumath/linear_algebra/__init__.py`.
+3. Preserve existing imports from `src/edumath/linear_algebra/concepts.py`.
+4. Add tests before relying on helpers in docs.
+5. Run:
 
    ```bash
-   poetry run pytest tests/test_discrete_math_helpers.py
+   poetry run pytest tests/test_linear_algebra_helpers.py
    ```
 
-5. Run broader tests if helpers touch shared modules:
+6. Run broader tests if helpers touch shared modules:
 
    ```bash
    poetry run pytest
@@ -420,15 +418,15 @@ Run the full test suite if any shared helpers are changed.
 Write the lessons in this order:
 
 1. `index.qmd`
-2. `logic.qmd`
-3. `sets.qmd`
-4. `functions-relations.qmd`
-5. `sequences.qmd`
-6. `induction.qmd`
-7. `graphs.qmd`
+2. `vectors.qmd`
+3. `matrices.qmd`
+4. `matrix-operations.qmd`
+5. `systems-and-elimination.qmd`
+6. `linear-transformations.qmd`
+7. `eigenvalues-eigenvectors.qmd`
 
-This order builds from truth values, to collections, to mappings, to ordered
-patterns, to proof, to network structures.
+This order builds from vector objects, to matrix objects, to operations, to
+systems, to transformations, to special directions.
 
 ### Phase 4 — Validation
 
@@ -453,16 +451,17 @@ especially `docs/.quarto/quarto-session-temp*`, `.quarto-tmp/`, and unwanted
 
 ### Purpose
 
-Create a friendly overview page that explains what discrete mathematics is, why
-it matters, and how the lesson sequence fits together.
+Create a friendly overview page that explains what linear algebra is, why it
+matters, and how the lesson sequence fits together.
 
 ### Front matter
 
 ```yaml
 ---
-title: Discrete Mathematics Study Path
+title: Linear Algebra Study Path
 description:
-  A guided path through logic, sets, relations, sequences, proofs, and graphs.
+  A guided path through vectors, matrices, systems, transformations, and
+  eigenvectors.
 execute:
   echo: false
 ---
@@ -472,648 +471,602 @@ execute:
 
 1. **Opening intuition**
 
-   - Continuous math studies smooth change.
-   - Discrete math studies separate objects: truth values, elements, pairs,
-     integers, steps, and nodes.
-   - It supports computer science, algorithms, data structures, databases,
-     proofs, networks, and probability.
+   - Algebra often studies one number at a time.
+   - Linear algebra studies lists of numbers and rules that transform them.
+   - Vectors can represent positions, directions, data points, or unknowns.
+   - Matrices can represent systems, transformations, or organized data.
 
-2. **What makes discrete math different**
+2. **Why linear algebra matters**
 
-   - Definitions matter more than long formulas.
-   - Counterexamples are powerful.
-   - Many questions are yes/no or classification questions.
-   - Proof and algorithmic thinking appear often.
+   - solving systems of equations;
+   - computer graphics;
+   - data science and machine learning;
+   - optimization;
+   - networks;
+   - differential equations;
+   - quantum mechanics and engineering models.
 
 3. **Prerequisite checklist**
 
+   - coordinate plane;
+   - systems of equations;
    - basic algebra;
-   - functions;
-   - tables;
-   - simple Python;
-   - careful reading;
-   - willingness to explain reasoning.
+   - square roots and distance;
+   - function notation;
+   - Python lists or arrays.
 
 4. **The study path**
 
-   - logic: truth and implication;
-   - sets: membership and operations;
-   - functions and relations: pairs and structure;
-   - sequences: ordered patterns and recursion;
-   - induction: proof over infinitely many integers;
-   - graphs: vertices, edges, paths, and networks.
+   - vectors: multi-number objects;
+   - matrices: rectangular arrays;
+   - operations: addition, products, shape checks;
+   - systems: solving `A x = b`;
+   - transformations: matrices as functions;
+   - eigenvalues/eigenvectors: directions preserved by transformations.
 
 5. **How to study**
 
-   - write definitions in your own words;
-   - make tiny examples;
-   - search for counterexamples;
-   - draw diagrams;
-   - check with code;
-   - explain why, not only what.
+   - draw small 2D examples;
+   - track shape before multiplying;
+   - say what each row or column means;
+   - compute by hand first;
+   - verify with NumPy or SymPy;
+   - interpret results geometrically.
 
 6. **Readiness checkpoint game**
 
-   - topic key `discrete-math-cumulative-review`;
-   - ask students to classify prompts as logic, set, relation, sequence,
-     induction, or graph ideas.
+   - topic key `linear-algebra-cumulative-review`;
+   - ask students to classify prompts as vector, matrix, system, transformation,
+     or eigenvector ideas.
 
 7. **Using this lesson with edumath and SymPy**
-   - show `truth_table` and `implies`;
-   - show Python set operations;
-   - show SymPy logic simplification or symbolic summation;
-   - explain that code checks examples but does not replace proof.
+   - show `dot_product`, `vector_norm`, `matrix_vector_product`;
+   - show NumPy arrays;
+   - show SymPy Matrix exact arithmetic;
+   - explain numeric versus exact computation.
 
 ### Practice ideas
 
-- Identify which discrete-math topic best fits a scenario.
-- Decide whether a statement is true, false, or not precise enough.
-- Give a tiny example of a set, relation, sequence, and graph.
+- Identify whether each object is a scalar, vector, matrix, or system.
+- Match a real-world scenario to a linear-algebra object.
+- Explain why matrix shape matters before multiplying.
 
-## Lesson plan: `logic.qmd`
+## Lesson plan: `vectors.qmd`
 
 ### Purpose
 
-Teach propositions, truth values, logical connectives, implication, equivalence,
-and truth tables as foundations for proof and programming.
+Teach vectors as ordered lists of numbers with both geometric and data
+interpretations. Build comfort with addition, scalar multiplication, norms, dot
+products, and perpendicularity.
 
 ### Main learning objectives
 
 Students should be able to:
 
-- identify propositions;
-- use `not`, `and`, `or`, implication, and biconditional;
-- build and read truth tables;
-- identify when `p -> q` is false;
-- distinguish converse and contrapositive;
-- recognize tautologies and contradictions;
-- connect logic to if-statements and proof structure.
+- interpret vectors as arrows, positions, displacements, or data rows;
+- add and subtract vectors component by component;
+- multiply a vector by a scalar;
+- compute vector norm in 2D and 3D;
+- compute dot products;
+- interpret dot products geometrically;
+- recognize perpendicular vectors from dot product zero.
 
 ### Content outline
 
-1. **Motivation: precision in statements**
+1. **Motivation: one object, many numbers**
 
-   - A proposition is a statement that is true or false.
-   - Questions, commands, and vague sentences are not propositions.
+   - A vector stores multiple related numbers.
+   - Examples: movement, velocity, color, data record, unknown variables.
 
-2. **Truth values**
+2. **Coordinate and arrow interpretations**
 
-   - Define true and false.
-   - Use examples from math and everyday language.
+   - `[3,4]` as a point;
+   - `[3,4]` as an arrow from origin;
+   - `[3,4]` as a displacement.
 
-3. **Connectives**
+3. **Vector addition**
 
-   - `not p`;
-   - `p and q`;
-   - `p or q` inclusive meaning;
-   - `p -> q` implication;
-   - `p <-> q` if and only if.
+   - Component-wise rule.
+   - Geometric tip-to-tail interpretation.
 
-4. **Implication carefully**
+4. **Scalar multiplication**
 
-   - `p -> q` is false only when `p` is true and `q` is false.
-   - Explain why this feels strange at first.
-   - Connect to promises: if the condition happens, the result must happen.
+   - Stretch, shrink, reverse.
+   - Negative scalars flip direction.
 
-5. **Truth tables**
+5. **Norm/length**
 
-   - Show how to list all combinations.
-   - Work through `p -> q`.
-   - Work through `(p -> q) <-> (~q -> ~p)` to show contrapositive equivalence.
+   - `||v|| = sqrt(v_1^2 + ... + v_n^2)`.
+   - Connect to distance formula.
 
-6. **Converse, inverse, contrapositive**
+6. **Dot product**
 
-   - Statement: `p -> q`.
-   - Converse: `q -> p`.
-   - Inverse: `~p -> ~q`.
-   - Contrapositive: `~q -> ~p`.
-
-7. **Tautology and contradiction**
-
-   - Tautology always true.
-   - Contradiction always false.
-
-8. **Worked examples**
-
-   - Build a truth table for `p and not q`.
-   - Decide whether a conditional and its converse are equivalent.
-   - Translate a programming `if` statement into implication language.
-
-9. **Practice exercises**
-
-   - Identify propositions.
-   - Complete truth table rows.
-   - Find when an implication is false.
-   - Write converse and contrapositive.
-
-10. **Guessing game**
-
-    - Topic key: `logic`.
-    - Game: "Truth value challenge." Given truth values for `p` and `q`, guess
-      the truth value of a compound statement.
-
-11. **Using this lesson with edumath and SymPy**
-    - Show `truth_table(("p", "q"), implies)`.
-    - Show SymPy Boolean expressions with `Implies`, `Equivalent`, `And`, `Or`,
-      `Not`.
-    - Show how to check a tautology.
-
-### Common pitfalls to address
-
-- Treating `or` as exclusive when math usually uses inclusive `or`.
-- Thinking an implication is false whenever the conclusion is false.
-- Confusing converse with contrapositive.
-- Forgetting to include all truth-value combinations in a truth table.
-- Calling vague sentences propositions.
-
-## Lesson plan: `sets.qmd`
-
-### Purpose
-
-Teach sets as collections of distinct objects, including membership, subsets,
-common operations, complements, Cartesian products, and Venn-diagram reasoning.
-
-### Main learning objectives
-
-Students should be able to:
-
-- define membership and non-membership;
-- distinguish an element from a subset;
-- compute union, intersection, difference, complement, and symmetric difference;
-- determine whether one set is a subset of another;
-- list a small power set;
-- compute a Cartesian product;
-- connect sets to probability events and database filters.
-
-### Content outline
-
-1. **Motivation: collections without duplicates**
-
-   - A set is a collection where order and repetition do not matter.
-   - `{1,2,3}` is the same set as `{3,2,1}`.
-
-2. **Membership and notation**
-
-   - `x in A`;
-   - `x notin A`;
-   - roster notation;
-   - set-builder notation in beginner-friendly form.
-
-3. **Subsets**
-
-   - `A subset B` means every element of `A` is in `B`.
-   - Distinguish `2 in A` from `{2} subset A`.
-
-4. **Operations**
-
-   - union;
-   - intersection;
-   - difference;
-   - complement relative to a universe;
-   - symmetric difference.
-
-5. **Power sets**
-
-   - A power set is the set of all subsets.
-   - For a set with `n` elements, the power set has `2^n` subsets.
-
-6. **Cartesian products**
-
-   - Ordered pairs from two sets.
-   - `A x B` differs from `B x A`.
-
-7. **Venn diagram intuition**
-
-   - Use regions: only A, only B, both, neither.
-
-8. **Worked examples**
-
-   - Compute operations for `A={1,2,3}` and `B={3,4}`.
-   - List the power set of `{a,b}`.
-   - Compute `{1,2} x {x,y}`.
-
-9. **Practice exercises**
-
-   - Determine membership/subset truth values.
-   - Compute set operations.
-   - Draw or describe Venn regions.
-   - Count power-set elements.
-
-10. **Guessing game**
-
-    - Topic key: `sets`.
-    - Game: "Set operation guesser." Given two small sets, guess union,
-      intersection, difference, or Cartesian product.
-
-11. **Using this lesson with edumath and SymPy**
-    - Show Python set operators: `|`, `&`, `-`, `^`.
-    - Show SymPy `FiniteSet` operations.
-    - Show optional `edumath` set helpers if implemented.
-
-### Common pitfalls to address
-
-- Confusing element and subset notation.
-- Forgetting that sets ignore repeated elements.
-- Thinking `A-B` equals `B-A`.
-- Forgetting the universe when computing complements.
-- Confusing Cartesian product ordered pairs with ordinary multiplication.
-
-## Lesson plan: `functions-relations.qmd`
-
-### Purpose
-
-Teach relations as sets of ordered pairs and functions as special relations.
-Introduce domain, codomain, range, inverse relations, composition, and relation
-properties.
-
-### Main learning objectives
-
-Students should be able to:
-
-- define a relation as a set of ordered pairs;
-- identify domain, codomain, and range;
-- decide whether a relation is a function;
-- explain why each input can have only one output in a function;
-- classify simple relations as reflexive, symmetric, antisymmetric, or
-  transitive;
-- recognize equivalence relation basics;
-- compose small relations or functions.
-
-### Content outline
-
-1. **Motivation: structured pairs**
-
-   - Relations describe connections: person-to-course, number-to-square,
-     city-to-road, input-to-output.
-
-2. **Ordered pairs**
-
-   - `(a,b)` is not the same as `(b,a)` unless `a=b`.
-   - The first coordinate often represents input.
-
-3. **Relations**
-
-   - A relation from `A` to `B` is a subset of `A x B`.
-   - Examples with small finite sets.
-
-4. **Functions**
-
-   - A function assigns each input exactly one output.
-   - A relation can fail by missing an input or giving an input two outputs,
-     depending on the stated domain.
-
-5. **Domain, codomain, range**
-
-   - Domain: allowed inputs.
-   - Codomain: allowed target outputs.
-   - Range/image: outputs actually used.
-
-6. **Relation properties**
-
-   - Reflexive: every element relates to itself.
-   - Symmetric: if `aRb`, then `bRa`.
-   - Antisymmetric: if both directions happen, then the elements are equal.
-   - Transitive: if `aRb` and `bRc`, then `aRc`.
-
-7. **Equivalence relations**
-
-   - Reflexive + symmetric + transitive.
-   - Example: same remainder modulo `n`.
-
-8. **Worked examples**
-
-   - Decide whether `{(1,2),(1,3)}` is a function.
-   - Find domain and range of a finite relation.
-   - Classify equality or divisibility on a small set.
-
-9. **Practice exercises**
-
-   - Function or not?
-   - Domain/range identification.
-   - Relation property classification.
-   - Give a counterexample for transitivity.
-
-10. **Guessing game**
-
-    - Topic key: `functions-relations`.
-    - Game: "Function or relation?" Given pairs, guess whether it is a function
-      and explain which input causes trouble if not.
-
-11. **Using this lesson with edumath and SymPy**
-    - Use Python tuples and sets to represent relations.
-    - Use `edumath` relation helpers if implemented.
-    - Use SymPy or Python to test small relation properties by exhaustive
-      checking.
-
-### Common pitfalls to address
-
-- Forgetting ordered pairs have order.
-- Saying a relation is not a function because two inputs share an output.
-- Confusing codomain and range.
-- Checking relation properties on only one example pair.
-- Assuming symmetric and antisymmetric are opposites; they are not.
-
-## Lesson plan: `sequences.qmd`
-
-### Purpose
-
-Teach sequences as ordered lists generated by explicit or recursive rules.
-Connect arithmetic and geometric sequences to functions on integers, summations,
-recurrence, and algorithmic thinking.
-
-### Main learning objectives
-
-Students should be able to:
-
-- define a sequence as a function from integers to values;
-- compute terms from explicit formulas;
-- compute terms from recursive definitions;
-- recognize arithmetic and geometric sequences;
-- write simple closed forms;
-- compute finite sums;
-- connect recurrence to loops and repeated processes.
-
-### Content outline
-
-1. **Motivation: patterns with positions**
-
-   - A sequence is not just a set because order matters.
-   - `2, 4, 8` differs from `8, 4, 2`.
-
-2. **Notation**
-
-   - `a_n` means the term at position `n`.
-   - Clarify whether indexing starts at `0` or `1`.
-
-3. **Explicit rules**
-
-   - Formula directly gives `a_n`.
-   - Example: `a_n = 3n + 2`.
-
-4. **Recursive rules**
-
-   - Rule gives next term from previous term(s).
-   - Example: `a_1=2`, `a_{n+1}=a_n+3`.
-
-5. **Arithmetic sequences**
-
-   - Add a common difference.
-   - Closed form `a_n = a_1 + (n-1)d`.
-
-6. **Geometric sequences**
-
-   - Multiply by a common ratio.
-   - Closed form `a_n = a_1 r^{n-1}`.
-
-7. **Finite sums**
-
-   - Sigma notation.
-   - Arithmetic and geometric sum intuition.
-
-8. **Worked examples**
-
-   - Find next terms.
-   - Convert a recursive arithmetic rule to closed form.
-   - Compute a small finite sum.
-   - Interpret repeated percentage growth as geometric.
-
-9. **Practice exercises**
-
-   - Identify arithmetic, geometric, or neither.
-   - Compute terms from explicit and recursive rules.
-   - Write a recurrence for a word problem.
-   - Evaluate a finite sum.
-
-10. **Guessing game**
-
-    - Topic key: `sequences`.
-    - Game: "Next term or rule?" Given a sequence, guess the next term and
-      classify the pattern.
-
-11. **Using this lesson with edumath and SymPy**
-    - Use Python list comprehensions for terms.
-    - Use SymPy `summation` for finite sums.
-    - Use `edumath` sequence exercise helpers if implemented.
-
-### Common pitfalls to address
-
-- Confusing term value with term number.
-- Assuming every sequence starts at `n=1`.
-- Treating an unordered set as a sequence.
-- Using an arithmetic formula for a geometric sequence.
-- Forgetting the initial condition in a recurrence.
-
-## Lesson plan: `induction.qmd`
-
-### Purpose
-
-Teach mathematical induction as a proof technique for statements indexed by
-integers. Emphasize the structure and meaning of the proof before algebraic
-complexity.
-
-### Main learning objectives
-
-Students should be able to:
-
-- identify statements suitable for induction;
-- write a base case;
-- state an induction hypothesis;
-- prove an induction step;
-- explain the chain-of-dominoes intuition;
-- use induction for sums, divisibility, and inequalities;
-- recognize common proof gaps.
-
-### Content outline
-
-1. **Motivation: infinitely many checks**
-
-   - You cannot verify every positive integer one at a time.
-   - Induction proves the first case and the rule that truth passes forward.
-
-2. **Domino intuition**
-
-   - Base case knocks over the first domino.
-   - Induction step proves each domino knocks over the next.
-
-3. **Proof structure**
-
-   - State the proposition `P(n)`.
-   - Base case.
-   - Induction hypothesis: assume `P(k)`.
-   - Induction step: prove `P(k+1)`.
-   - Conclusion.
-
-4. **Worked example 1: sum formula**
-
-   - Prove `1+2+...+n = n(n+1)/2`.
-   - Show exactly where the induction hypothesis is used.
-
-5. **Worked example 2: divisibility**
-
-   - Prove a simple statement such as `3` divides `4^n-1` for `n>=1`.
-
-6. **Worked example 3: inequality or sequence**
-
-   - Keep algebra gentle.
-   - Focus on proof logic.
-
-7. **Common proof templates**
-
-   - Sum statements.
-   - Divisibility statements.
-   - Recursive sequence statements.
-
-8. **Practice exercises**
-
-   - Identify `P(n)`.
-   - Fill a missing base case.
-   - Identify the induction hypothesis.
-   - Complete a small induction step.
-   - Find the flaw in a bad induction proof.
-
-9. **Guessing game**
-
-   - Topic key: `induction`.
-   - Game: "Missing proof step." Students choose the correct induction
-     hypothesis or the next algebraic line.
-
-10. **Using this lesson with edumath and SymPy**
-    - Use SymPy to verify the first several cases of a formula.
-    - Use SymPy simplification to check algebra in the induction step.
-    - Explain that checking examples is not a proof, but it builds confidence.
-
-### Common pitfalls to address
-
-- Proving only examples and calling it induction.
-- Forgetting the base case.
-- Assuming what must be proved for `k+1`.
-- Not using the induction hypothesis.
-- Confusing `k` and `k+1`.
-- Writing algebra without explaining the logical structure.
-
-## Lesson plan: `graphs.qmd`
-
-### Purpose
-
-Introduce graph theory as the study of vertices and edges. Teach terminology,
-small graph properties, paths, cycles, degrees, connectedness, directed graphs,
-and real network models.
-
-### Main learning objectives
-
-Students should be able to:
-
-- define vertices and edges;
-- distinguish directed and undirected graphs;
-- compute vertex degrees;
-- identify paths, walks, trails, and cycles at an introductory level;
-- determine whether a small graph is connected;
-- represent a graph with an edge list or adjacency list;
-- connect graph models to real-world networks.
-
-### Content outline
-
-1. **Motivation: networks everywhere**
-
-   - roads between cities;
-   - friendships;
-   - web links;
-   - prerequisites;
-   - computer networks;
-   - dependency graphs.
-
-2. **Definitions**
-
-   - Vertex/node.
-   - Edge/link.
-   - Directed vs undirected.
-   - Simple graph vs graph with loops or repeated edges.
-
-3. **Representations**
-
-   - Drawing.
-   - Edge list.
-   - Adjacency list.
-   - Adjacency matrix, optional and gentle.
-
-4. **Degree**
-
-   - Number of incident edges in an undirected graph.
-   - In-degree and out-degree for directed graphs.
-
-5. **Walks, paths, trails, cycles**
-
-   - Keep definitions beginner-friendly.
-   - Emphasize repeated vertices/edges differences.
-
-6. **Connectedness**
-
-   - A graph is connected if every vertex can be reached from every other
-     vertex.
+   - Formula `u dot v = sum u_i v_i`.
+   - Perpendicularity when dot product is zero.
+   - Optional projection intuition.
 
 7. **Worked examples**
 
-   - Compute degrees from an edge list.
-   - Decide whether a graph is connected.
-   - Identify a path and a cycle.
-   - Translate a small real scenario into a graph.
+   - Add `[2, -1] + [3, 4]`.
+   - Compute `||[6,8]||`.
+   - Compute `[1,2] dot [3,4]`.
+   - Check whether `[1,0]` and `[0,1]` are perpendicular.
 
 8. **Practice exercises**
 
-   - Count vertices and edges.
-   - Compute degrees.
-   - Find neighbors.
-   - Decide whether a proposed walk is a path.
-   - Determine connectedness.
+   - Addition and scalar multiplication.
+   - Norms.
+   - Dot products.
+   - Geometric interpretation.
 
 9. **Guessing game**
 
-   - Topic key: `graphs`.
-   - Game: "Graph property challenge." Given a tiny edge list, guess degree,
-     connectedness, whether a sequence is a path, or whether a cycle exists.
+   - Topic key: `vectors`.
+   - Game: "Vector quick check." Guess norm, dot product, or perpendicularity.
 
 10. **Using this lesson with edumath and SymPy**
-    - Use Python dictionaries or sets for adjacency lists.
-    - Use `edumath` graph helpers if implemented.
-    - Mention that NetworkX is a powerful external graph library, but avoid
-      adding it as a dependency unless the project chooses to support advanced
-      graph work.
+    - Show `dot_product`, `vector_norm`.
+    - Show NumPy arrays.
+    - Show SymPy Matrix dot products and exact square roots.
 
 ### Common pitfalls to address
 
-- Confusing a graph of a function with a graph theory network.
-- Counting directed edges as if they were undirected.
-- Double-counting edges when computing degree.
-- Thinking a path can repeat vertices.
-- Forgetting isolated vertices when checking connectedness.
+- Treating a vector like a single number.
+- Adding vectors with different dimensions.
+- Forgetting square roots in norms.
+- Thinking dot product produces another vector.
+- Forgetting that dot product zero means perpendicular only for nonzero vectors.
 
-## Optional future lesson: `counting-and-combinatorics.qmd`
+## Lesson plan: `matrices.qmd`
 
-The current site has probability lessons that include counting. If the Discrete
-Mathematics module later needs a dedicated counting lesson, add it after sets or
-sequences.
+### Purpose
+
+Teach matrices as rectangular arrays with shape, entries, rows, columns, and
+multiple meanings: data tables, coefficient arrays, and transformation rules.
+
+### Main learning objectives
+
+Students should be able to:
+
+- identify rows, columns, entries, and shape;
+- write matrix entries using row-column notation;
+- recognize row vectors and column vectors;
+- identify zero and identity matrices;
+- explain why shape matters;
+- connect matrices to data, systems, and transformations.
+
+### Content outline
+
+1. **Motivation: organized numbers**
+
+   - Matrices organize many related numbers.
+   - Examples: data table, image pixels, system coefficients, transformations.
+
+2. **Rows and columns**
+
+   - Shape is rows by columns.
+   - Entry notation `a_ij` means row `i`, column `j`.
+
+3. **Matrix equality**
+
+   - Same shape and same corresponding entries.
+
+4. **Special matrices**
+
+   - Zero matrix.
+   - Identity matrix.
+   - Diagonal matrix.
+   - Square matrix.
+   - Column vectors as `n x 1` matrices.
+
+5. **Shape as a safety check**
+
+   - Students should say shape before performing operations.
+
+6. **Worked examples**
+
+   - Find the shape of a matrix.
+   - Identify a specific entry.
+   - Write a 2-by-2 identity matrix.
+   - Interpret a matrix as a data table.
+
+7. **Practice exercises**
+
+   - Shape checks.
+   - Entry identification.
+   - Special matrix recognition.
+   - Data interpretation.
+
+8. **Guessing game**
+
+   - Topic key: `matrices`.
+   - Game: "Shape detective." Guess shape, entry, or special matrix type.
+
+9. **Using this lesson with edumath and SymPy**
+   - Show `matrix_shape` if implemented.
+   - Show NumPy `.shape`.
+   - Show SymPy `Matrix` and indexing.
+
+### Common pitfalls to address
+
+- Reversing rows and columns.
+- Thinking all matrices must be square.
+- Confusing entry `a_ij` with `a_ji`.
+- Treating row vectors and column vectors as interchangeable.
+- Forgetting identity matrix size.
+
+## Lesson plan: `matrix-operations.qmd`
+
+### Purpose
+
+Teach matrix addition, scalar multiplication, matrix-vector products, matrix
+products, identity matrices, and dimension compatibility.
+
+### Main learning objectives
+
+Students should be able to:
+
+- add matrices with the same shape;
+- multiply matrices by scalars;
+- decide whether products are defined;
+- compute matrix-vector products;
+- interpret matrix-vector products as combinations of columns;
+- multiply small matrices;
+- use identity matrices correctly.
+
+### Content outline
+
+1. **Motivation: operations with shape rules**
+
+   - Matrix operations are not arbitrary; dimensions control what is legal.
+
+2. **Addition and subtraction**
+
+   - Same shape required.
+   - Component-wise calculation.
+
+3. **Scalar multiplication**
+
+   - Multiply every entry.
+
+4. **Matrix-vector products**
+
+   - Row-dot-vector calculation.
+   - Column-combination interpretation.
+
+5. **Matrix-matrix products**
+
+   - Inner dimensions must match.
+   - Product shape: `(m x n)(n x p) = m x p`.
+
+6. **Identity matrix**
+
+   - Leaves compatible vectors or matrices unchanged.
+
+7. **Worked examples**
+
+   - Add two 2-by-2 matrices.
+   - Compute scalar multiple.
+   - Compute `[[2,0],[0,3]] [5,4]`.
+   - Decide whether a 2-by-3 matrix can multiply a length-2 vector.
+   - Compute a small 2-by-2 matrix product.
+
+8. **Practice exercises**
+
+   - Shape compatibility.
+   - Matrix addition.
+   - Matrix-vector products.
+   - Matrix products.
+
+9. **Guessing game**
+
+   - Topic key: `matrix-operations`.
+   - Game: "Product defined?" or "Guess the missing entry."
+
+10. **Using this lesson with edumath and SymPy**
+    - Show `matrix_vector_product`.
+    - Show NumPy `@` operator.
+    - Show SymPy exact matrix products.
+
+### Common pitfalls to address
+
+- Adding matrices with different shapes.
+- Multiplying entry-by-entry when a matrix product is requested.
+- Forgetting that matrix multiplication is usually not commutative.
+- Reversing product shape.
+- Forgetting to check inner dimensions.
+
+## Lesson plan: `systems-and-elimination.qmd`
+
+### Purpose
+
+Teach linear systems through equations, augmented matrices, row operations,
+elimination, matrix notation `A x = b`, and solution classification.
+
+### Main learning objectives
+
+Students should be able to:
+
+- write a system as `A x = b`;
+- build an augmented matrix;
+- use row operations to simplify a system;
+- solve small systems by elimination;
+- identify one solution, no solution, or infinitely many solutions;
+- interpret systems geometrically in two variables;
+- verify a solution by substitution.
+
+### Content outline
+
+1. **Motivation: many conditions at once**
+
+   - A system asks for values satisfying every equation simultaneously.
+
+2. **Matrix form**
+
+   - Coefficient matrix `A`;
+   - unknown vector `x`;
+   - right-hand side vector `b`.
+
+3. **Augmented matrices**
+
+   - Store coefficients and constants compactly.
+
+4. **Legal row operations**
+
+   - Swap rows.
+   - Multiply a row by a nonzero constant.
+   - Add a multiple of one row to another row.
+
+5. **Elimination**
+
+   - Use row operations to create zeros.
+   - Back-substitute.
+
+6. **Solution types**
+
+   - One solution: independent equations.
+   - No solution: contradiction such as `0 = 5`.
+   - Infinitely many solutions: free variable or repeated condition.
+
+7. **Geometry**
+
+   - In two variables: lines intersect, parallel lines, same line.
+   - In three variables: planes.
+
+8. **Worked examples**
+
+   - Solve `x+y=5`, `x-y=1`.
+   - Show an inconsistent system.
+   - Show a dependent system.
+   - Verify a solution vector.
+
+9. **Practice exercises**
+
+   - Convert to matrix form.
+   - Perform one row operation.
+   - Solve 2-by-2 systems.
+   - Classify solution type.
+
+10. **Guessing game**
+
+    - Topic key: `systems-and-elimination`.
+    - Game: "System classifier." Guess one solution, no solution, or infinitely
+      many from equations or reduced rows.
+
+11. **Using this lesson with edumath and SymPy**
+    - Show `solve_linear_system` for numeric systems.
+    - Show SymPy `Matrix.rref()` for exact row reduction.
+    - Show substitution verification.
+
+### Common pitfalls to address
+
+- Changing one equation without applying a legal row operation.
+- Losing a sign during elimination.
+- Confusing no solution with infinitely many solutions.
+- Forgetting to check the solution in original equations.
+- Treating row operations as changing the solution set instead of preserving it.
+
+## Lesson plan: `linear-transformations.qmd`
+
+### Purpose
+
+Teach matrices as functions that transform vectors. Emphasize basis vectors,
+geometry, linearity, and common transformations such as scaling, reflection,
+projection, shear, and rotation.
+
+### Main learning objectives
+
+Students should be able to:
+
+- interpret a matrix as a transformation;
+- explain what linearity means;
+- compute images of vectors under a matrix;
+- predict transformations from columns of a matrix;
+- identify scaling, reflection, projection, shear, and rotation matrices;
+- understand why basis vectors determine a linear transformation.
+
+### Content outline
+
+1. **Motivation: matrices move vectors**
+
+   - A 2-by-2 matrix takes 2D vectors to 2D vectors.
+   - This is the foundation of graphics, rotations, projections, and coordinate
+     changes.
+
+2. **Function viewpoint**
+
+   - `T(v)=A v`.
+   - Input vector, output vector.
+
+3. **Linearity**
+
+   - `T(u+v)=T(u)+T(v)`.
+   - `T(cu)=cT(u)`.
+   - Linear transformations preserve the origin.
+
+4. **Basis vector interpretation**
+
+   - Columns of `A` show where standard basis vectors go.
+   - Every vector is a combination of basis vectors.
+
+5. **Common transformations**
+
+   - Scaling.
+   - Reflection.
+   - Projection.
+   - Shear.
+   - Rotation, optional with simple angles.
+
+6. **Worked examples**
+
+   - Interpret `[[2,0],[0,2]]`.
+   - Interpret `[[1,0],[0,0]]`.
+   - Compute image of `[3,4]` under a matrix.
+   - Use columns to describe transformation geometry.
+
+7. **Practice exercises**
+
+   - Matrix-vector images.
+   - Identify transformations.
+   - Check linearity from a rule.
+   - Predict basis-vector images.
+
+8. **Guessing game**
+
+   - Topic key: `linear-transformations`.
+   - Game: "What does this matrix do?" Guess scaling, projection, reflection,
+     shear, or rotation.
+
+9. **Using this lesson with edumath and SymPy**
+   - Show `matrix_vector_product`.
+   - Show transformation plotting helper if implemented.
+   - Show SymPy exact matrix actions.
+
+### Common pitfalls to address
+
+- Confusing matrix entries with output coordinates directly.
+- Forgetting that columns are images of basis vectors.
+- Thinking every function is linear.
+- Calling a translation linear even though it moves the origin.
+- Mixing up projection and reflection.
+
+## Lesson plan: `eigenvalues-eigenvectors.qmd`
+
+### Purpose
+
+Introduce eigenvalues and eigenvectors as special directions preserved by a
+matrix transformation. Keep the lesson conceptual and computationally gentle.
+
+### Main learning objectives
+
+Students should be able to:
+
+- explain eigenvectors as nonzero vectors whose direction is preserved;
+- explain eigenvalues as scale factors;
+- check whether a proposed vector is an eigenvector;
+- find simple eigenpairs by inspection for diagonal or triangular matrices;
+- compute characteristic polynomial for a 2-by-2 matrix at an introductory
+  level;
+- connect eigenvalues to repeated transformations and dynamic systems.
+
+### Content outline
+
+1. **Motivation: special directions**
+
+   - Most vectors rotate or change direction under a matrix.
+   - Eigenvectors stay on their own line.
+
+2. **Definition**
+
+   - `A v = lambda v`.
+   - `v` must be nonzero.
+   - `lambda` is a scalar.
+
+3. **Geometric meaning**
+
+   - Positive eigenvalue: stretch/shrink same direction.
+   - Negative eigenvalue: flip direction.
+   - Zero eigenvalue: collapse to zero vector.
+
+4. **Checking an eigenpair**
+
+   - Multiply `A v`.
+   - Compare to `lambda v`.
+
+5. **Diagonal matrices**
+
+   - Eigenvalues appear on the diagonal.
+   - Standard basis vectors are eigenvectors.
+
+6. **Characteristic equation**
+
+   - For small 2-by-2 matrices, eigenvalues solve `det(A - lambda I)=0`.
+   - Keep algebra gentle.
+
+7. **Repeated transformations**
+
+   - If `A v = lambda v`, then `A^2 v = lambda^2 v`.
+   - This explains long-run behavior.
+
+8. **Worked examples**
+
+   - Check `A v = 3v`.
+   - Find eigenpairs for a diagonal matrix.
+   - Compute eigenvalues of a simple 2-by-2 matrix.
+   - Interpret a negative eigenvalue.
+
+9. **Practice exercises**
+
+   - Identify eigenvalue from `A v = lambda v`.
+   - Check a proposed eigenvector.
+   - Find eigenvalues of a diagonal matrix.
+   - Explain why the zero vector is not called an eigenvector.
+
+10. **Guessing game**
+
+    - Topic key: `eigenvalues-eigenvectors`.
+    - Game: "Eigenpair check." Given `A`, `v`, and candidates for `lambda`,
+      guess whether the vector is an eigenvector and identify the eigenvalue.
+
+11. **Using this lesson with edumath and SymPy**
+    - Show `validate_eigenpair` if implemented.
+    - Show NumPy `np.linalg.eig` for numeric eigenvalues.
+    - Show SymPy `Matrix.eigenvals()` and `Matrix.eigenvects()` for exact
+      examples.
+
+### Common pitfalls to address
+
+- Forgetting the eigenvector must be nonzero.
+- Thinking every vector is an eigenvector.
+- Confusing eigenvalue with determinant.
+- Forgetting that negative eigenvalues reverse direction.
+- Treating approximate numeric eigenvectors as exact without checking.
+
+## Optional future lesson: `orthogonality-and-projections.qmd`
+
+If the module needs additional depth later, add an orthogonality/projections
+lesson after matrix operations or after transformations.
 
 Possible topics:
 
-- product rule;
-- sum rule;
-- permutations;
-- combinations;
-- binomial coefficients;
-- pigeonhole principle;
-- inclusion-exclusion.
+- unit vectors;
+- orthogonal and orthonormal vectors;
+- projections;
+- least squares intuition;
+- Gram-Schmidt overview.
 
-This would support probability, algorithms, and graph counting.
+This would support statistics, optimization, and machine learning preparation.
 
 ## Suggested references for lesson authors
 
 Use these as conceptual references while writing. Avoid copying text.
 
-- Oscar Levin, _Discrete Mathematics: An Open Introduction_.
-- Kenneth Rosen, _Discrete Mathematics and Its Applications_.
-- Susanna Epp, _Discrete Mathematics with Applications_.
-- MIT OpenCourseWare discrete mathematics materials.
-- OpenStax or other open resources for logic, sets, and proof foundations.
+- Gilbert Strang, _Introduction to Linear Algebra_.
+- David C. Lay, _Linear Algebra and Its Applications_.
+- Jim Hefferon, _Linear Algebra_ (open text).
+- 3Blue1Brown, _Essence of Linear Algebra_.
+- MIT OpenCourseWare linear algebra materials.
+- Khan Academy linear algebra refreshers for beginner explanations.
 
 ## Acceptance checklist
 
@@ -1122,7 +1075,7 @@ Before considering the plan implemented, verify the following.
 ### Content completeness
 
 - [ ] `index.qmd` exists and is linked in `docs/_quarto.yml`.
-- [ ] `docs/lessons/index.qmd` points to `discrete-math/index.qmd`.
+- [ ] `docs/lessons/index.qmd` points to `linear-algebra/index.qmd`.
 - [ ] Generated `.quarto_ipynb*` artifacts are removed or ignored.
 - [ ] Every lesson has YAML front matter with title, description, and execution
       settings.
@@ -1139,9 +1092,9 @@ Before considering the plan implemented, verify the following.
 
 - [ ] Lessons are written for students with low confidence and limited prior
       exposure.
-- [ ] Definitions are explained with examples and nonexamples.
-- [ ] Proof-related lessons explain logic before algebra.
-- [ ] Counterexamples are used to disprove false claims.
+- [ ] Dimension and shape checks are explained before operations.
+- [ ] Geometry and computation are connected throughout.
+- [ ] Examples include both numeric calculation and interpretation.
 - [ ] Common mistakes are explicitly named.
 - [ ] Guessing games provide explanatory feedback.
 
@@ -1149,9 +1102,10 @@ Before considering the plan implemented, verify the following.
 
 - [ ] Any new `edumath` helper has tests.
 - [ ] Public API additions are exported intentionally.
+- [ ] Existing public imports from `edumath.linear_algebra.concepts` remain
+      compatible.
 - [ ] Helpers are reusable across lessons.
-- [ ] Heavy dependencies such as NetworkX or D3 are not added without a clear
-      project decision.
+- [ ] Heavy dependencies are not added without a clear project decision.
 
 ### Validation
 

@@ -1,56 +1,219 @@
 ---
 title: Vectors
-description: Vectors as quantities with magnitude and direction.
+description: Vectors as quantities with magnitude, direction, and coordinates.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A **vector** is an ordered list of numbers. In two dimensions, the vector
+$\langle 3,4\rangle$ can mean "move 3 units right and 4 units up." The same
+vector can also represent a point, a velocity, a force, a row of data, or a pair
+of unknowns. Linear algebra starts with vectors because they let us talk about
+many related numbers as one object.
 
-- Interpret vectors as ordered lists of numbers.
-- Compute dot products and norms.
-- Connect vector length to distance.
+## What you should be able to do
+
+By the end of this lesson, you should be able to:
+
+- read vectors as coordinate lists and as arrows in the plane;
+- add vectors and multiply vectors by scalars;
+- compute vector length using the distance formula;
+- compute a dot product;
+- explain why a zero dot product means perpendicular vectors;
+- verify vector calculations with edumath, NumPy, and SymPy.
+
+## Coordinates, arrows, and movement
+
+A vector in two dimensions is often written
+
+$$
+\mathbf{v}=\begin{bmatrix}a\\b\end{bmatrix}
+\quad \text{or} \quad
+\langle a,b\rangle.
+$$
+
+The first coordinate tells horizontal movement. The second coordinate tells
+vertical movement. The vector $\langle 3,4\rangle$ can be drawn as an arrow from
+$(0,0)$ to $(3,4)$.
+
+::: {.callout-note}
+## Coordinate reminder
+
+The ordered pair $(3,4)$ names a point. The vector $\langle 3,4\rangle$ names a
+movement or displacement. They are drawn in similar places, but the vector idea
+emphasizes direction and length.
 :::
 
-## Concept
+## Vector addition
 
-A vector stores multiple related numbers. In two dimensions, `[3, 4]` can
-represent a movement 3 units right and 4 units up.
+To add vectors, add matching coordinates:
 
-```{python}
-from edumath.linear_algebra.concepts import dot_product, vector_norm
+$$
+\begin{bmatrix}a\\b\end{bmatrix}
++
+\begin{bmatrix}c\\d\end{bmatrix}
+=
+\begin{bmatrix}a+c\\b+d\end{bmatrix}.
+$$
 
-dot_product([1, 2], [3, 4]), vector_norm([3, 4])
-```
+Geometrically, vector addition means doing one movement and then the other.
+For example,
 
-## Practice
+$$
+\begin{bmatrix}3\\1\end{bmatrix}
++
+\begin{bmatrix}-2\\4\end{bmatrix}
+=
+\begin{bmatrix}1\\5\end{bmatrix}.
+$$
 
-::: {.practice-box}
-1. Compute the norm of `[6, 8]`.
-2. Compute `[1, 0] dot [0, 1]`.
-3. What does a dot product of zero suggest geometrically?
+You moved 3 right and 1 up, then 2 left and 4 up. The total movement is 1 right
+and 5 up.
+
+## Scalar multiplication
+
+A **scalar** is a single number. Scalar multiplication stretches, shrinks, or
+flips a vector:
+
+$$
+3\begin{bmatrix}2\\-1\end{bmatrix}
+=
+\begin{bmatrix}6\\-3\end{bmatrix}.
+$$
+
+If the scalar is negative, the vector reverses direction. If the scalar is
+between 0 and 1, the vector gets shorter.
+
+## Length of a vector
+
+The length of a vector is also called its **norm** or **magnitude**. In two
+dimensions,
+
+$$
+\lVert \mathbf{v} \rVert
+= \sqrt{a^2+b^2}
+\quad \text{for} \quad
+\mathbf{v}=\langle a,b\rangle.
+$$
+
+This is the Pythagorean theorem. The vector $\langle 3,4\rangle$ makes a right
+triangle with legs 3 and 4, so its length is
+
+$$
+\sqrt{3^2+4^2}=\sqrt{9+16}=\sqrt{25}=5.
+$$
+
+## Dot products
+
+The **dot product** combines two vectors and returns one number:
+
+$$
+\langle a,b\rangle \cdot \langle c,d\rangle = ac+bd.
+$$
+
+Example:
+
+$$
+\langle 1,2\rangle \cdot \langle 3,4\rangle
+= 1\cdot 3 + 2\cdot 4
+= 11.
+$$
+
+The dot product is not just arithmetic. It measures how much two vectors point
+in the same direction.
+
+- A positive dot product means the vectors point generally the same way.
+- A negative dot product means they point generally opposite ways.
+- A zero dot product, for nonzero vectors, means they are perpendicular.
+
+::: {.callout-warning}
+## Common pitfall
+
+A dot product produces a **scalar**, not a vector. Do not write
+$\langle 1,2\rangle \cdot \langle 3,4\rangle = \langle 3,8\rangle$. Multiplying
+matching coordinates is only the first step; you must add the products.
 :::
 
+## Worked example: compare two vectors
+
+Let $\mathbf{u}=\langle 2,1\rangle$ and $\mathbf{v}=\langle -1,2\rangle$.
+
+1. Add them:
+   $$
+   \mathbf{u}+\mathbf{v}=\langle 2+(-1),1+2\rangle=\langle 1,3\rangle.
+   $$
+2. Find the length of $\mathbf{u}$:
+   $$
+   \lVert \mathbf{u}\rVert=\sqrt{2^2+1^2}=\sqrt{5}.
+   $$
+3. Compute the dot product:
+   $$
+   \mathbf{u}\cdot\mathbf{v}=2(-1)+1(2)=0.
+   $$
+4. Interpret: because the dot product is zero and neither vector is the zero
+   vector, the vectors are perpendicular.
+
+## Practice exercises
+
+Try these before opening the solutions.
+
+1. Compute $\lVert \langle 6,8\rangle \rVert$.
+2. Compute $\langle 1,0\rangle \cdot \langle 0,1\rangle$.
+3. Add $\langle -2,5\rangle + \langle 4,-1\rangle$.
+4. Multiply $-2\langle 3,-4\rangle$.
+5. Are $\langle 3,1\rangle$ and $\langle -1,3\rangle$ perpendicular?
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
-
-Answer: `10`.
-
-Use the distance formula: `sqrt(6^2 + 8^2) = sqrt(36 + 64) = sqrt(100) = 10`.
+1. $\sqrt{6^2+8^2}=\sqrt{100}=10$.
+2. $1\cdot 0+0\cdot 1=0$.
+3. $\langle 2,4\rangle$.
+4. $\langle -6,8\rangle$.
+5. Yes. The dot product is $3(-1)+1(3)=0$.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 2
+## Vector guessing game
 
-Answer: `0`.
+Guess lengths, dot products, and perpendicular relationships. If you miss a
+question, read the feedback and connect it to the formula.
 
-Compute `1*0 + 0*1 = 0`.
-:::
+<script type="application/json" class="edu-math-linear-algebra-checkpoint-config">
+{
+  "topic": "vectors",
+  "title": "Vectors checkpoint",
+  "defaultTotal": 4
+}
+</script>
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+{{< include _includes/linear-algebra-checkpoint.qmd >}}
 
-Answer: the vectors are perpendicular, assuming neither vector is the zero
-vector.
-:::
+## Using this lesson with edumath and SymPy
+
+Use the visible code below to reproduce the main computations. In a browser,
+these examples can also be adapted for PyScript/Pyodide because they use normal
+Python packages.
+
+```{python}
+#| echo: true
+from edumath.linear_algebra import dot_product, vector_add, vector_norm
+
+u = [2, 1]
+v = [-1, 2]
+
+print(vector_add(u, v))
+print(vector_norm(u))
+print(dot_product(u, v))
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+u = sp.Matrix([2, 1])
+v = sp.Matrix([-1, 2])
+
+print(u + v)
+print(sp.sqrt(u.dot(u)))
+print(u.dot(v))
+```

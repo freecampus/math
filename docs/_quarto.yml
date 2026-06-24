@@ -72,6 +72,7 @@ website:
               - lessons/calculus/applications.qmd
           - section: Linear Algebra
             contents:
+              - lessons/linear-algebra/index.qmd
               - lessons/linear-algebra/vectors.qmd
               - lessons/linear-algebra/matrices.qmd
               - lessons/linear-algebra/matrix-operations.qmd
