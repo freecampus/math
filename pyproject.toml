@@ -1,6 +1,6 @@
 [project]
 name = "osl-edu-math"
-version = "0.4.0"  # semantic-release
+version = "0.4.1"  # semantic-release
 description = "Python tools for math education workflows."
 readme = "README.md"
 requires-python = ">=3.10,<4"

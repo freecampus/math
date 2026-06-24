@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.4.1](https://github.com/osl-incubator/edu-math/compare/0.4.0...0.4.1) (2026-06-24)
+
+
+### Bug Fixes
+
+* update algebra lesson ([86d7ecc](https://github.com/osl-incubator/edu-math/commit/86d7ecc93fa54d4fb98cee8705797fd690fe7af3))
+
 # [0.4.0](https://github.com/osl-incubator/edu-math/compare/0.3.0...0.4.0) (2026-06-24)
 
 

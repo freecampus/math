@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use edu-math in your work, please cite this software."
 type: software
 title: "edu-math"
-version: "0.4.0" # semantic-release
+version: "0.4.1" # semantic-release
 authors:
   - name: "Open Science Labs Incubator"
 abstract: "Python tools for math education workflows."
