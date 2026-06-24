@@ -935,6 +935,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-expression-equation-or-identity" id="toc-lab-1-expression-equation-or-identity" class="nav-link" data-scroll-target="#lab-1-expression-equation-or-identity">Lab 1: expression, equation, or identity?</a></li>
+  <li><a href="#lab-2-substitute-carefully" id="toc-lab-2-substitute-carefully" class="nav-link" data-scroll-target="#lab-2-substitute-carefully">Lab 2: substitute carefully</a></li>
+  <li><a href="#lab-3-build-equivalent-forms" id="toc-lab-3-build-equivalent-forms" class="nav-link" data-scroll-target="#lab-3-build-equivalent-forms">Lab 3: build equivalent forms</a></li>
+  <li><a href="#lab-4-solve-and-check-a-linear-equation" id="toc-lab-4-solve-and-check-a-linear-equation" class="nav-link" data-scroll-target="#lab-4-solve-and-check-a-linear-equation">Lab 4: solve and check a linear equation</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1035,7 +1042,7 @@ sqrt(x - 1)</code></pre>
 <p>Compute powers before multiplication:</p>
 <pre class="text"><code>2(16) - 12 + 1 = 32 - 12 + 1 = 21</code></pre>
 <p>Use a table when you want to see many inputs at once.</p>
-<div id="b3e55ab5" class="cell" data-execution_count="1">
+<div id="382bc3aa" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>((-2.0, 15.0),
  (-1.0, 6.0),
@@ -1055,7 +1062,7 @@ sqrt(x - 1)</code></pre>
 <p>and</p>
 <pre class="text"><code>x^2 + 2x + 1</code></pre>
 <p>are equivalent. One form is factored around a repeated linear factor; the other form is expanded.</p>
-<div id="6dd533bc" class="cell" data-execution_count="2">
+<div id="381802c3" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -1098,7 +1105,7 @@ sqrt(x - 1)</code></pre>
 <section id="simplifying" class="level3">
 <h3 class="anchored" data-anchor-id="simplifying">Simplifying</h3>
 <p>Simplifying means rewriting an expression in a cleaner equivalent form. It does not always mean "shorter"; it means "more useful for the task."</p>
-<div id="f992d154" class="cell" data-execution_count="3">
+<div id="7f7259d0" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(x**2 + x - 6, (x - 2)*(x + 3))</code></pre>
 </div>
@@ -1170,7 +1177,7 @@ sqrt(x - 1)</code></pre>
 <section id="sympy-as-a-verification-tool" class="level2">
 <h2 class="anchored" data-anchor-id="sympy-as-a-verification-tool">SymPy as a verification tool</h2>
 <p>The package’s quiz helpers can generate questions where the expected answer is derived from the expression.</p>
-<div id="7a7af920" class="cell" data-execution_count="4">
+<div id="b86919d4" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>('Correct.', 'Correct.')</code></pre>
 </div>
@@ -1465,6 +1472,69 @@ sqrt(x - 1)</code></pre>
 <li><strong>Statistics:</strong> parameters are estimated by solving or optimizing algebraic expressions.</li>
 <li><strong>Optimization:</strong> constraints are equations and inequalities that define the feasible set.</li>
 </ul>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Use these mini-labs after the main explanations. Each lab asks you to <strong>guess first</strong>, then follow the steps, then try a checkpoint without looking back.</p>
+<section id="lab-1-expression-equation-or-identity" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-expression-equation-or-identity">Lab 1: expression, equation, or identity?</h3>
+<p><strong>Guess first.</strong> Decide whether each object is an expression, an equation, or an identity.</p>
+<pre class="text"><code>A. 3x - 7
+B. 3x - 7 = 11
+C. 2(x + 1) = 2x + 2</code></pre>
+<p><strong>Guided exercise.</strong></p>
+<ol type="1">
+<li>Look for an equals sign. No equals sign means expression, so A is an expression.</li>
+<li>If there is an equals sign, ask whether it is true for all allowed values or only some values.</li>
+<li>B is an equation because it is true only for <code>x = 6</code>.</li>
+<li>C is an identity because expanding the left side gives <code>2x + 2</code>, so both sides match for every <code>x</code>.</li>
+</ol>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Classify each: <code>5 - y</code>, <code>y^2 = 9</code>, <code>(x - 4)^2 = x^2 - 8x + 16</code>. Then write one sentence explaining how you decided.</p>
+</div>
+</section>
+<section id="lab-2-substitute-carefully" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-substitute-carefully">Lab 2: substitute carefully</h3>
+<p><strong>Guess first.</strong> For <code>E = 2a^2 - 3b</code>, estimate whether the value is positive or negative when <code>a = -2</code> and <code>b = 5</code>.</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>E = 2a^2 - 3b
+  = 2(-2)^2 - 3(5)
+  = 2(4) - 15
+  = 8 - 15
+  = -7</code></pre>
+<p>Notice that <code>(-2)^2 = 4</code>. Parentheses protect the negative sign.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Evaluate <code>4p - 2q^2</code> when <code>p = -3</code> and <code>q = -2</code>. Show the substitution line before simplifying.</p>
+</div>
+</section>
+<section id="lab-3-build-equivalent-forms" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-build-equivalent-forms">Lab 3: build equivalent forms</h3>
+<p><strong>Guess first.</strong> Is <code>(x + 5)(x - 2)</code> equivalent to <code>x^2 + 3x - 10</code>, <code>x^2 - 3x - 10</code>, or <code>x^2 + 7x - 10</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>(x + 5)(x - 2)
+= x(x - 2) + 5(x - 2)
+= x^2 - 2x + 5x - 10
+= x^2 + 3x - 10</code></pre>
+<p>Every equivalent form tells a different story: expanded form shows coefficients, while factored form shows roots.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Expand <code>(2x - 1)(x + 4)</code>. Then factor your result back to check.</p>
+</div>
+</section>
+<section id="lab-4-solve-and-check-a-linear-equation" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-solve-and-check-a-linear-equation">Lab 4: solve and check a linear equation</h3>
+<p><strong>Guess first.</strong> In <code>4(x - 2) + 3 = 19</code>, should <code>x</code> be smaller than 5, equal to 5, or larger than 5?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>4(x - 2) + 3 = 19
+4x - 8 + 3 = 19        expand
+4x - 5 = 19            combine like terms
+4x = 24                add 5 to both sides
+x = 6                  divide by 4</code></pre>
+<p>Check in the original equation:</p>
+<pre class="text"><code>4(6 - 2) + 3 = 16 + 3 = 19</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>3(2x + 1) - 5 = 16</code>. Show each balanced operation and check the answer in the original equation.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2858,24 +2928,59 @@ sqrt(x - 1)</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use the parser/solver workflow when a text equation should become a SymPy equation first and a step-by-step <code>edumath</code> solution second.</p>
+<div id="42e4689d" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>step_solution <span class="op">=</span> solve_equation_steps(parse_equation(<span class="st">"4(x - 2) + 3 = 19"</span>))</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(step_solution.render_text())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Answer: x = 6
+
+Method: linear equation
+
+Steps:
+
+1. Original equation:
+Eq(4*(x - 1*2) + 3, 19)
+
+2. Expand both sides:
+Eq(4*x - 5, 19)
+
+3. Move everything to one side:
+Eq(4*x - 24, 0)
+This writes the equation in the form ax + b = 0.
+
+4. Move the constant term:
+Eq(4*x, 24)
+
+5. Divide by the coefficient of the variable:
+Eq(x, 6)
+
+Check:
+
+x = 6: valid</code></pre>
+</div>
+</div>
 <p>Use SymPy to check symbolic transformations and use <code>edumath</code> quiz helpers to turn those transformations into auto-checkable practice.</p>
-<div id="10de7180" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_question, factor_question</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>expanded <span class="op">=</span> sp.expand((x <span class="op">+</span> <span class="dv">3</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">2</span>))</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>factored <span class="op">=</span> sp.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">6</span>)</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>expanded, factored</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="600d8e29" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_question, factor_question</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>expanded <span class="op">=</span> sp.expand((x <span class="op">+</span> <span class="dv">3</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">2</span>))</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>factored <span class="op">=</span> sp.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x <span class="op">-</span> <span class="dv">6</span>)</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>expanded, factored</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>(x**2 + x - 6, (x - 2)*(x + 3))</code></pre>
 </div>
 </div>
-<div id="e5d03ad2" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> expand_question((x <span class="op">+</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>question.check(<span class="st">"x**2 + 2*x + 1"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="5a579b83" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> expand_question((x <span class="op">+</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>question.check(<span class="st">"x**2 + 2*x + 1"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>'Correct.'</code></pre>
 </div>
 </div>

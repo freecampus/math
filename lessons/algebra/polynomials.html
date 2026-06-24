@@ -948,6 +948,13 @@ window.Quarto = {
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-vocabulary-from-a-polynomial" id="toc-lab-1-vocabulary-from-a-polynomial" class="nav-link" data-scroll-target="#lab-1-vocabulary-from-a-polynomial">Lab 1: vocabulary from a polynomial</a></li>
+  <li><a href="#lab-2-roots-from-factored-form" id="toc-lab-2-roots-from-factored-form" class="nav-link" data-scroll-target="#lab-2-roots-from-factored-form">Lab 2: roots from factored form</a></li>
+  <li><a href="#lab-3-build-from-roots" id="toc-lab-3-build-from-roots" class="nav-link" data-scroll-target="#lab-3-build-from-roots">Lab 3: build from roots</a></li>
+  <li><a href="#lab-4-factor-theorem-thinking" id="toc-lab-4-factor-theorem-thinking" class="nav-link" data-scroll-target="#lab-4-factor-theorem-thinking">Lab 4: Factor Theorem thinking</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1019,7 +1026,7 @@ window.Quarto = {
 <p>Example:</p>
 <pre class="text"><code>2x^4 - 3x^2 + 7x - 5</code></pre>
 <p>has degree <code>4</code>, leading coefficient <code>2</code>, and constant term <code>-5</code>.</p>
-<div id="bf70370d" class="cell" data-execution_count="1">
+<div id="8119e314" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>(4, 2)</code></pre>
 </div>
@@ -1036,7 +1043,7 @@ window.Quarto = {
 <p>Expanded:</p>
 <pre class="text"><code>(x - 2)(x + 3) = x^2 + x - 6</code></pre>
 <p>The factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.</p>
-<div id="a4099234" class="cell" data-execution_count="2">
+<div id="e8af9e7c" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -1057,7 +1064,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="building-polynomials-from-roots">Building polynomials from roots</h2>
 <p>If the roots are <code>-1</code>, <code>2</code>, and <code>4</code>, then one polynomial with those roots is:</p>
 <pre class="text"><code>(x + 1)(x - 2)(x - 4)</code></pre>
-<div id="150e49ab" class="cell" data-execution_count="3">
+<div id="32de2a38" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle x^{3} - 5 x^{2} + 2 x + 8\)</span></p>
 </div>
@@ -1070,7 +1077,7 @@ window.Quarto = {
 <p>Example:</p>
 <pre class="text"><code>p(x) = (x - 2)^2(x + 1)</code></pre>
 <p>Root <code>2</code> has multiplicity <code>2</code>. Root <code>-1</code> has multiplicity <code>1</code>.</p>
-<div id="f7f22ffe" class="cell" data-execution_count="4">
+<div id="0643c216" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>((-1, 1), (2, 2))</code></pre>
 </div>
@@ -1080,7 +1087,7 @@ window.Quarto = {
 <li>odd multiplicity: the graph usually crosses the x-axis;</li>
 <li>even multiplicity: the graph touches/bounces off the x-axis.</li>
 </ul>
-<div id="d78b53d9" class="cell" data-execution_count="5">
+<div id="eb75e279" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
@@ -1140,7 +1147,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="da260044" class="cell" data-execution_count="6">
+<div id="6056f748" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <figure class="figure">
@@ -1407,6 +1414,57 @@ window.Quarto = {
 <li><strong>Statistics:</strong> polynomial regression models curved relationships.</li>
 <li><strong>Numerical methods:</strong> interpolation and root-finding often begin with polynomial approximations.</li>
 </ul>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Polynomial questions usually ask for structure: degree, leading behavior, roots, multiplicity, or factors. Guess the structure before expanding.</p>
+<section id="lab-1-vocabulary-from-a-polynomial" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-vocabulary-from-a-polynomial">Lab 1: vocabulary from a polynomial</h3>
+<p><strong>Guess first.</strong> For <code>p(x) = -2x^4 + 3x^2 - 7</code>, what controls the end behavior?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The leading term is <code>-2x^4</code>. Therefore:</p>
+<pre class="text"><code>degree = 4
+leading coefficient = -2
+even degree + negative leading coefficient -&gt; both ends go down</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> For <code>q(x) = 5x^3 - x^2 + 9</code>, identify the degree, leading coefficient, constant term, and end behavior.</p>
+</div>
+</section>
+<section id="lab-2-roots-from-factored-form" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-roots-from-factored-form">Lab 2: roots from factored form</h3>
+<p><strong>Guess first.</strong> How many roots can you read from <code>p(x) = (x - 4)(x + 2)^2</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>x - 4 = 0      -&gt; x = 4
+x + 2 = 0      -&gt; x = -2</code></pre>
+<p>The root <code>-2</code> has multiplicity <code>2</code>, so the graph touches and turns there. The root <code>4</code> has multiplicity <code>1</code>, so the graph crosses there.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> List the roots and multiplicities of <code>r(x) = (x + 5)^3(x - 1)^2</code>.</p>
+</div>
+</section>
+<section id="lab-3-build-from-roots" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-build-from-roots">Lab 3: build from roots</h3>
+<p><strong>Guess first.</strong> A polynomial with roots <code>-3</code>, <code>2</code>, and <code>2</code> should contain which factors?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>root -3 -&gt; factor x + 3
+root 2  -&gt; factor x - 2
+root 2 again -&gt; another factor x - 2
+p(x) = (x + 3)(x - 2)^2</code></pre>
+<p>You can leave the answer factored when roots are the important feature.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Build a least-degree polynomial with roots <code>0</code>, <code>4</code>, and <code>-1</code>, where <code>4</code> has multiplicity <code>2</code>.</p>
+</div>
+</section>
+<section id="lab-4-factor-theorem-thinking" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-factor-theorem-thinking">Lab 4: Factor Theorem thinking</h3>
+<p><strong>Guess first.</strong> If <code>p(3) = 0</code>, what factor must divide <code>p(x)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The Factor Theorem says:</p>
+<pre class="text"><code>p(c) = 0  means  (x - c) is a factor</code></pre>
+<p>So if <code>p(3) = 0</code>, then <code>(x - 3)</code> is a factor. If <code>p(-5) = 0</code>, then <code>(x + 5)</code> is a factor.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If <code>p(2) = 0</code> and <code>p(-1) = 0</code>, name two factors of <code>p(x)</code>. Then write a possible degree-2 polynomial with those roots.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2801,19 +2859,19 @@ window.Quarto = {
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>polynomial_summary</code> when you want a compact symbolic report, and use <code>polynomial_root_scene</code> when you want to connect roots to the graph.</p>
-<div id="10f0e655" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_root_scene, polynomial_summary</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"(x - 2)**2*(x + 1)"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>summary.degree, summary.leading_coefficient, summary.root_multiplicities</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5795fef3" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> polynomial_root_scene, polynomial_summary</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"(x - 2)**2*(x + 1)"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>summary.degree, summary.leading_coefficient, summary.root_multiplicities</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>(3, 1, ((-1, 1), (2, 2)))</code></pre>
 </div>
 </div>
-<div id="6c3144ac" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)**2*(x + 1)"</span>, x_min<span class="op">=-</span><span class="dv">4</span>, x_max<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="3c57add3" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)**2*(x + 1)"</span>, x_min<span class="op">=-</span><span class="dv">4</span>, x_max<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <figure class="figure">

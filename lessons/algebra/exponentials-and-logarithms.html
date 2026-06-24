@@ -917,6 +917,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
   <li><a href="#browser-symbolic-practice" id="toc-browser-symbolic-practice" class="nav-link" data-scroll-target="#browser-symbolic-practice">Browser symbolic practice</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-exponent-rules-with-meaning" id="toc-lab-1-exponent-rules-with-meaning" class="nav-link" data-scroll-target="#lab-1-exponent-rules-with-meaning">Lab 1: exponent rules with meaning</a></li>
+  <li><a href="#lab-2-growth-and-decay" id="toc-lab-2-growth-and-decay" class="nav-link" data-scroll-target="#lab-2-growth-and-decay">Lab 2: growth and decay</a></li>
+  <li><a href="#lab-3-logarithms-as-inverse-questions" id="toc-lab-3-logarithms-as-inverse-questions" class="nav-link" data-scroll-target="#lab-3-logarithms-as-inverse-questions">Lab 3: logarithms as inverse questions</a></li>
+  <li><a href="#lab-4-solve-exponential-and-logarithmic-equations" id="toc-lab-4-solve-exponential-and-logarithmic-equations" class="nav-link" data-scroll-target="#lab-4-solve-exponential-and-logarithmic-equations">Lab 4: solve exponential and logarithmic equations</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1020,7 +1027,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>0 &lt; b &lt; 1</code> gives decay.</li>
 </ul>
 <p>Example: <code>P(t) = 200(1.04)^t</code> starts at <code>200</code> and grows by <code>4%</code> per time step. Example: <code>A(t) = 80(0.75)^t</code> keeps <code>75%</code> and loses <code>25%</code> per time step.</p>
-<div id="7b01cb92" class="cell" data-execution_count="1">
+<div id="be73d9d0" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -1179,6 +1186,61 @@ x^2 - 3x - 10 = 0
 </div>
 </div>
 </div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Exponentials build repeated multiplication. Logarithms answer exponent questions. Guess which inverse operation you need before solving.</p>
+<section id="lab-1-exponent-rules-with-meaning" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-exponent-rules-with-meaning">Lab 1: exponent rules with meaning</h3>
+<p><strong>Guess first.</strong> Is <code>a^3 * a^4</code> closer to <code>a^7</code> or <code>a^12</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>a^3 * a^4 = (a*a*a)(a*a*a*a) = a^7</code></pre>
+<p>Add exponents only when the bases match and you are multiplying powers.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Simplify <code>x^5/x^2</code> and <code>(2x^3)^2</code>. State which rule you used.</p>
+</div>
+</section>
+<section id="lab-2-growth-and-decay" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-growth-and-decay">Lab 2: growth and decay</h3>
+<p><strong>Guess first.</strong> In <code>P(t) = 500(1.08)^t</code>, is the quantity growing or decaying?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The base is <code>1.08</code>, which is larger than <code>1</code>, so the model grows by <code>8%</code> each time period. At <code>t = 3</code>:</p>
+<pre class="text"><code>P(3) = 500(1.08)^3
+     = 629.856</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Interpret <code>A(t) = 1200(0.85)^t</code>. Is it growth or decay? What is the percent change each time period?</p>
+</div>
+</section>
+<section id="lab-3-logarithms-as-inverse-questions" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-logarithms-as-inverse-questions">Lab 3: logarithms as inverse questions</h3>
+<p><strong>Guess first.</strong> What power of <code>2</code> gives <code>32</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>log_2(32) = ?
+2^? = 32
+2^5 = 32
+log_2(32) = 5</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Rewrite <code>log_3(81) = 4</code> in exponential form. Then evaluate <code>log_5(1/25)</code>.</p>
+</div>
+</section>
+<section id="lab-4-solve-exponential-and-logarithmic-equations" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-solve-exponential-and-logarithmic-equations">Lab 4: solve exponential and logarithmic equations</h3>
+<p><strong>Guess first.</strong> To solve <code>3^(x - 1) = 27</code>, should you use common bases or logs?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>3^(x - 1) = 27
+3^(x - 1) = 3^3
+x - 1 = 3
+x = 4</code></pre>
+<p>For a logarithmic equation, rewrite in exponential form:</p>
+<pre class="text"><code>log_2(x + 6) = 5
+x + 6 = 2^5
+x + 6 = 32
+x = 26</code></pre>
+<p>Check the log domain: <code>x + 6 &gt; 0</code>, and <code>26</code> works.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>5^(2x) = 125</code> and <code>log_3(x - 1) = 2</code>. Include a domain check for the logarithmic equation.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2571,34 +2633,60 @@ x^2 - 3x - 10 = 0
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<div id="b67e91ac" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(<span class="dv">3</span><span class="op">**</span>x, <span class="dv">20</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<p>Use parsed equations with the solver for exact symbolic answers, then interpret them using exponent and logarithm rules.</p>
+<div id="7609b348" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>exponential_solution <span class="op">=</span> solve_equation_steps(parse_equation(<span class="st">"3^(x - 1) = 27"</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(exponential_solution.render_text())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Answer: x = 4
+
+Method: SymPy solveset
+
+Steps:
+
+1. Original equation:
+Eq(3**(x - 1*1), 27)
+
+2. Solve symbolically:
+x ∈ {4}
+SymPy found the solution set directly.
+
+Check:
+
+x = 4: valid</code></pre>
+</div>
+</div>
+<div id="b48aa385" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(<span class="dv">3</span><span class="op">**</span>x, <span class="dv">20</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>[log(20)/log(3)]</code></pre>
 </div>
 </div>
-<div id="324c8fcf" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(sp.log(x, <span class="dv">10</span>), <span class="dv">3</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="562b4bcb" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(sp.log(x, <span class="dv">10</span>), <span class="dv">3</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[1000]</code></pre>
 </div>
 </div>
-<div id="b4d3fada" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(sp.log(x) <span class="op">+</span> sp.log(x <span class="op">-</span> <span class="dv">3</span>), sp.log(<span class="dv">10</span>))</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="b93eab20" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(sp.log(x) <span class="op">+</span> sp.log(x <span class="op">-</span> <span class="dv">3</span>), sp.log(<span class="dv">10</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>[(5, True)]</code></pre>
 </div>
 </div>
-<div id="474e39cb" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">"t"</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> sp.solve(sp.Eq(<span class="dv">100</span> <span class="op">*</span> <span class="fl">1.05</span><span class="op">**</span>t, <span class="dv">150</span>), t)[<span class="dv">0</span>]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(solution)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="ac4667df" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">"t"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> sp.solve(sp.Eq(<span class="dv">100</span> <span class="op">*</span> <span class="fl">1.05</span><span class="op">**</span>t, <span class="dv">150</span>), t)[<span class="dv">0</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(solution)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>8.310386222520568</code></pre>
 </div>
 </div>

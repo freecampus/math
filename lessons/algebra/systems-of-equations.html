@@ -939,6 +939,13 @@ window.Quarto = {
   </ul></li>
   <li><a href="#browser-symbolic-practice" id="toc-browser-symbolic-practice" class="nav-link" data-scroll-target="#browser-symbolic-practice">Browser symbolic practice</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-test-an-ordered-pair" id="toc-lab-1-test-an-ordered-pair" class="nav-link" data-scroll-target="#lab-1-test-an-ordered-pair">Lab 1: test an ordered pair</a></li>
+  <li><a href="#lab-2-substitution" id="toc-lab-2-substitution" class="nav-link" data-scroll-target="#lab-2-substitution">Lab 2: substitution</a></li>
+  <li><a href="#lab-3-elimination" id="toc-lab-3-elimination" class="nav-link" data-scroll-target="#lab-3-elimination">Lab 3: elimination</a></li>
+  <li><a href="#lab-4-classify-the-system" id="toc-lab-4-classify-the-system" class="nav-link" data-scroll-target="#lab-4-classify-the-system">Lab 4: classify the system</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1004,7 +1011,7 @@ x - y = 1</code></pre>
 <li>Parallel distinct lines: no solution.</li>
 <li>Same line written two ways: infinitely many solutions.</li>
 </ul>
-<div id="35a1856b" class="cell" data-execution_count="1">
+<div id="96f06049" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -1140,6 +1147,65 @@ y = x + 2</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>A system solution must satisfy every equation at the same time. Guess the graph picture before choosing a method.</p>
+<section id="lab-1-test-an-ordered-pair" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-test-an-ordered-pair">Lab 1: test an ordered pair</h3>
+<p><strong>Guess first.</strong> Does <code>(2, 3)</code> look likely to solve <code>x + y = 5</code> and <code>2x - y = 1</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>x + y = 5       -&gt; 2 + 3 = 5       true
+2x - y = 1      -&gt; 2(2) - 3 = 1    true</code></pre>
+<p>Because both equations are true, <code>(2, 3)</code> is a solution.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Test whether <code>(4, -1)</code> solves <code>x + y = 3</code> and <code>x - 2y = 6</code>.</p>
+</div>
+</section>
+<section id="lab-2-substitution" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-substitution">Lab 2: substitution</h3>
+<p><strong>Guess first.</strong> In <code>y = x + 4</code> and <code>2x + y = 10</code>, which expression should you substitute?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>y = x + 4
+2x + y = 10
+2x + (x + 4) = 10       substitute x + 4 for y
+3x + 4 = 10
+3x = 6
+x = 2
+y = 2 + 4 = 6</code></pre>
+<p>Solution: <code>(2, 6)</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>y = 3x - 1</code> and <code>x + y = 11</code> by substitution.</p>
+</div>
+</section>
+<section id="lab-3-elimination" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-elimination">Lab 3: elimination</h3>
+<p><strong>Guess first.</strong> In <code>3x + 2y = 16</code> and <code>x - 2y = 4</code>, what happens if you add the equations?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code> 3x + 2y = 16
++x - 2y = 4
+-------------
+ 4x      = 20
+ x = 5</code></pre>
+<p>Substitute back:</p>
+<pre class="text"><code>5 - 2y = 4
+-2y = -1
+y = 1/2</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>2x + y = 11</code> and <code>3x - y = 9</code> by elimination.</p>
+</div>
+</section>
+<section id="lab-4-classify-the-system" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-classify-the-system">Lab 4: classify the system</h3>
+<p><strong>Guess first.</strong> Do the equations <code>2x + 4y = 8</code> and <code>x + 2y = 4</code> represent parallel lines or the same line?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Multiplying the second equation by <code>2</code> gives the first equation exactly:</p>
+<pre class="text"><code>2(x + 2y = 4) -&gt; 2x + 4y = 8</code></pre>
+<p>So the system has infinitely many solutions.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Classify <code>2x + 4y = 8</code> and <code>x + 2y = 5</code>. Explain using the idea of multiples.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2532,23 +2598,23 @@ y = x + 2</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<div id="c298ba70" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, <span class="dv">2</span><span class="op">*</span>x), sp.Eq(y, x <span class="op">+</span> <span class="dv">3</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="15964dd8" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, <span class="dv">2</span><span class="op">*</span>x), sp.Eq(y, x <span class="op">+</span> <span class="dv">3</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>{x: 3, y: 6}</code></pre>
 </div>
 </div>
-<div id="02a299b2" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sp.linsolve((sp.Matrix([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]]), sp.Matrix([<span class="dv">5</span>, <span class="dv">1</span>])), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="a388edc9" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sp.linsolve((sp.Matrix([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]]), sp.Matrix([<span class="dv">5</span>, <span class="dv">1</span>])), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle \left\{\left( 3, \  2\right)\right\}\)</span></p>
 </div>
 </div>
-<div id="40ee867a" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, x<span class="op">**</span><span class="dv">2</span>), sp.Eq(y, x <span class="op">+</span> <span class="dv">2</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="c8ca4b6f" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, x<span class="op">**</span><span class="dv">2</span>), sp.Eq(y, x <span class="op">+</span> <span class="dv">2</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[(-1, 1), (2, 4)]</code></pre>
 </div>

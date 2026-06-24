@@ -935,6 +935,13 @@ window.Quarto = {
   <li><a href="#tables-and-plots" id="toc-tables-and-plots" class="nav-link" data-scroll-target="#tables-and-plots">Tables and plots</a></li>
   <li><a href="#browser-symbolic-tools" id="toc-browser-symbolic-tools" class="nav-link" data-scroll-target="#browser-symbolic-tools">Browser symbolic tools</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-create-symbols-and-parse-expressions" id="toc-lab-1-create-symbols-and-parse-expressions" class="nav-link" data-scroll-target="#lab-1-create-symbols-and-parse-expressions">Lab 1: create symbols and parse expressions</a></li>
+  <li><a href="#lab-2-expressions-versus-equations" id="toc-lab-2-expressions-versus-equations" class="nav-link" data-scroll-target="#lab-2-expressions-versus-equations">Lab 2: expressions versus equations</a></li>
+  <li><a href="#lab-3-solve-and-check" id="toc-lab-3-solve-and-check" class="nav-link" data-scroll-target="#lab-3-solve-and-check">Lab 3: solve and check</a></li>
+  <li><a href="#lab-4-exact-versus-approximate-output" id="toc-lab-4-exact-versus-approximate-output" class="nav-link" data-scroll-target="#lab-4-exact-versus-approximate-output">Lab 4: exact versus approximate output</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -979,7 +986,7 @@ window.Quarto = {
 </section>
 <section id="creating-symbols-and-expressions" class="level2">
 <h2 class="anchored" data-anchor-id="creating-symbols-and-expressions">Creating symbols and expressions</h2>
-<div id="1b26539c" class="cell" data-execution_count="1">
+<div id="81deb441" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
@@ -993,7 +1000,7 @@ window.Quarto = {
 </section>
 <section id="expressions-versus-equations" class="level2">
 <h2 class="anchored" data-anchor-id="expressions-versus-equations">Expressions versus equations</h2>
-<div id="0012374b" class="cell" data-execution_count="2">
+<div id="eb0de457" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">3</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(<span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">3</span>, <span class="dv">11</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>expr, equation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1041,14 +1048,14 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="2783e2e6" class="cell" data-execution_count="3">
+<div id="e02866c8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sp.expand(expr), sp.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(x**2 - x - 6, (x - 3)*(x + 2))</code></pre>
 </div>
 </div>
-<div id="9490e693" class="cell" data-execution_count="4">
+<div id="2f42b1f1" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rational_expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sp.cancel(rational_expr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
@@ -1059,26 +1066,26 @@ window.Quarto = {
 </section>
 <section id="solving-and-checking" class="level2">
 <h2 class="anchored" data-anchor-id="solving-and-checking">Solving and checking</h2>
-<div id="c5c49be9" class="cell" data-execution_count="5">
+<div id="cce7ece0" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(<span class="dv">3</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">7</span>, <span class="dv">11</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>[6]</code></pre>
 </div>
 </div>
-<div id="7c68bea8" class="cell" data-execution_count="6">
+<div id="b50be219" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sp.solve(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">6</span>, x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[2, 3]</code></pre>
 </div>
 </div>
-<div id="3c64aae3" class="cell" data-execution_count="7">
+<div id="1be32a3d" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sp.checksol(sp.Eq(<span class="dv">3</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">7</span>, <span class="dv">11</span>), x, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>For radical equations, checking prevents extraneous answers.</p>
-<div id="902ee04b" class="cell" data-execution_count="8">
+<div id="1c61477b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>radical_equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(radical_equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> sp.solve(radical_equation, x)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -1089,7 +1096,7 @@ window.Quarto = {
 <section id="domains-and-restrictions" class="level2">
 <h2 class="anchored" data-anchor-id="domains-and-restrictions">Domains and restrictions</h2>
 <p>Use <code>sp.denom</code> to inspect rational restrictions:</p>
-<div id="ed35fb5a" class="cell" data-execution_count="9">
+<div id="2dfe0ca4" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">9</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">6</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>denominator <span class="op">=</span> sp.denom(expr)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sp.factor(denominator), sp.solve(sp.Eq(denominator, <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1101,7 +1108,7 @@ window.Quarto = {
 </section>
 <section id="exact-and-approximate-answers" class="level2">
 <h2 class="anchored" data-anchor-id="exact-and-approximate-answers">Exact and approximate answers</h2>
-<div id="112acb22" class="cell" data-execution_count="10">
+<div id="2769af74" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sp.sqrt(<span class="dv">2</span>), sp.Rational(<span class="dv">1</span>, <span class="dv">3</span>), sp.N(sp.sqrt(<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>(sqrt(2), 1/3, 1.41421356237310)</code></pre>
@@ -1111,7 +1118,7 @@ window.Quarto = {
 </section>
 <section id="tables-and-plots" class="level2">
 <h2 class="anchored" data-anchor-id="tables-and-plots">Tables and plots</h2>
-<div id="e94940a5" class="cell" data-execution_count="11">
+<div id="1f1507dc" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, function_scene</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1119,7 +1126,7 @@ window.Quarto = {
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="69d3edaa" class="cell" data-execution_count="12">
+<div id="44cbd796" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> function_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">2</span>, y_max<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1188,6 +1195,53 @@ window.Quarto = {
 </div>
 </div>
 </div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Symbolic computation is powerful when you know what question you are asking. Guess the command, run it, and then interpret the result mathematically.</p>
+<section id="lab-1-create-symbols-and-parse-expressions" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-create-symbols-and-parse-expressions">Lab 1: create symbols and parse expressions</h3>
+<p><strong>Guess first.</strong> Should <code>x</code> be typed as a Python string or a SymPy symbol before building <code>x^2 + 1</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The expression is symbolic, so SymPy can expand, factor, differentiate later, and substitute exact values.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Create symbols <code>a</code> and <code>b</code>, then build the expression <code>(a + b)^2</code>. Which SymPy command expands it?</p>
+</div>
+</section>
+<section id="lab-2-expressions-versus-equations" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-expressions-versus-equations">Lab 2: expressions versus equations</h3>
+<p><strong>Guess first.</strong> Is <code>x**2 - 4</code> an equation by itself?</p>
+<p><strong>Guided exercise.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">4</span>          <span class="co"># expression</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>Eq(expr, <span class="dv">0</span>)              <span class="co"># equation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>An expression can be simplified or factored. An equation can be solved.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Write a SymPy equation for <code>3x + 2 = 11</code>. Then solve it.</p>
+</div>
+</section>
+<section id="lab-3-solve-and-check" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-solve-and-check">Lab 3: solve and check</h3>
+<p><strong>Guess first.</strong> Why should you check a symbolic answer after solving?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>solve gives candidates
+checksol tests candidates in the original equation</code></pre>
+<p>This matters especially for rational and radical equations, where restrictions or squaring can create invalid candidates.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>sqrt(x + 5) = x - 1</code> with SymPy, then check each solution in the original equation.</p>
+</div>
+</section>
+<section id="lab-4-exact-versus-approximate-output" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-exact-versus-approximate-output">Lab 4: exact versus approximate output</h3>
+<p><strong>Guess first.</strong> Which is more informative: <code>sqrt(2)</code> or <code>1.41421356</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Exact forms preserve structure. Decimal approximations help with measurement and graphing. Use exact answers while solving, then approximate when interpreting.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute an exact value for <code>log(5)</code> and then a decimal approximation. State when each form is useful.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2580,30 +2634,63 @@ window.Quarto = {
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<div id="c0ac3d79" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>sp.expand(expr), sp.factor(sp.expand(expr))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<p>The solver layer expects SymPy objects. If a student starts with typed text, parse it first, then solve the parsed equation.</p>
+<div id="89a13920" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>parsed <span class="op">=</span> parse_equation(<span class="st">"3x + 2 = 11"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> solve_equation_steps(parsed)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(solution.render_text())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Answer: x = 3
+
+Method: linear equation
+
+Steps:
+
+1. Original equation:
+Eq(3*x + 2, 11)
+
+2. Move everything to one side:
+Eq(3*x - 9, 0)
+This writes the equation in the form ax + b = 0.
+
+3. Move the constant term:
+Eq(3*x, 9)
+
+4. Divide by the coefficient of the variable:
+Eq(x, 3)
+
+Check:
+
+x = 3: valid</code></pre>
+</div>
+</div>
+<div id="1c05e141" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>sp.expand(expr), sp.factor(sp.expand(expr))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>(x**2 - x - 6, (x - 3)*(x + 2))</code></pre>
 </div>
 </div>
-<div id="2ca62882" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="4bcecde8" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>[(4, True)]</code></pre>
 </div>
 </div>
-<div id="69621397" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_question</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> expand_question((x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>question.check(<span class="st">"x**2 + 2*x + 1"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="0d388124" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expand_question</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> expand_question((x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>question.check(<span class="st">"x**2 + 2*x + 1"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>'Correct.'</code></pre>
 </div>
 </div>

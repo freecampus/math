@@ -924,6 +924,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#solving-radical-equations" id="toc-solving-radical-equations" class="nav-link" data-scroll-target="#solving-radical-equations">Solving radical equations</a></li>
   <li><a href="#browser-symbolic-practice" id="toc-browser-symbolic-practice" class="nav-link" data-scroll-target="#browser-symbolic-practice">Browser symbolic practice</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-find-restrictions-first" id="toc-lab-1-find-restrictions-first" class="nav-link" data-scroll-target="#lab-1-find-restrictions-first">Lab 1: find restrictions first</a></li>
+  <li><a href="#lab-2-simplify-and-keep-the-hole" id="toc-lab-2-simplify-and-keep-the-hole" class="nav-link" data-scroll-target="#lab-2-simplify-and-keep-the-hole">Lab 2: simplify and keep the hole</a></li>
+  <li><a href="#lab-3-solve-a-rational-equation" id="toc-lab-3-solve-a-rational-equation" class="nav-link" data-scroll-target="#lab-3-solve-a-rational-equation">Lab 3: solve a rational equation</a></li>
+  <li><a href="#lab-4-solve-a-radical-equation" id="toc-lab-4-solve-a-radical-equation" class="nav-link" data-scroll-target="#lab-4-solve-a-radical-equation">Lab 4: solve a radical equation</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1097,9 +1104,9 @@ x(x - 3) = 0</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="5bb99849" class="cell" data-execution_count="1">
+<div id="4f9d856a" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stderr">
-<pre><code>&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in power
+<pre><code>&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in reciprocal
   return (x - 2)**(-1.0)</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -1217,6 +1224,65 @@ x + 5 = x^2 - 2x + 1
 </div>
 </div>
 </div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Rational and radical problems are solved safely only when restrictions stay visible. Guess the restrictions before simplifying or solving.</p>
+<section id="lab-1-find-restrictions-first" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-find-restrictions-first">Lab 1: find restrictions first</h3>
+<p><strong>Guess first.</strong> What value is forbidden in <code>(x + 5)/(x - 4)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Set the denominator equal to zero:</p>
+<pre class="text"><code>x - 4 = 0
+x = 4</code></pre>
+<p>So the domain is all real numbers except <code>4</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Find the forbidden values for <code>(x^2 + 1)/(x^2 - 9)</code>.</p>
+</div>
+</section>
+<section id="lab-2-simplify-and-keep-the-hole" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-simplify-and-keep-the-hole">Lab 2: simplify and keep the hole</h3>
+<p><strong>Guess first.</strong> In <code>(x^2 - 1)/(x - 1)</code>, does canceling remove every memory of <code>x = 1</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>(x^2 - 1)/(x - 1)
+= ((x - 1)(x + 1))/(x - 1)
+= x + 1, but x != 1</code></pre>
+<p>The visible graph follows the line <code>y = x + 1</code>, but the original function has a hole at <code>x = 1</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Simplify <code>(x^2 - 4)/(x + 2)</code> and state the excluded value.</p>
+</div>
+</section>
+<section id="lab-3-solve-a-rational-equation" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-solve-a-rational-equation">Lab 3: solve a rational equation</h3>
+<p><strong>Guess first.</strong> For <code>1/(x - 2) = 3</code>, should the solution be greater than <code>2</code> or less than <code>2</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>1/(x - 2) = 3
+x != 2                         restriction
+1 = 3(x - 2)                   multiply by x - 2
+1 = 3x - 6
+7 = 3x
+x = 7/3</code></pre>
+<p>Check: <code>7/3</code> is not forbidden, and <code>1/(7/3 - 2) = 1/(1/3) = 3</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>2/(x + 1) = 5</code>. State the restriction and check the candidate.</p>
+</div>
+</section>
+<section id="lab-4-solve-a-radical-equation" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-solve-a-radical-equation">Lab 4: solve a radical equation</h3>
+<p><strong>Guess first.</strong> For <code>sqrt(x + 5) = x - 1</code>, must <code>x - 1</code> be nonnegative?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>sqrt(x + 5) = x - 1
+x - 1 &gt;= 0, so x &gt;= 1        because square roots are nonnegative
+x + 5 = (x - 1)^2            square both sides
+x + 5 = x^2 - 2x + 1
+0 = x^2 - 3x - 4
+0 = (x - 4)(x + 1)
+x = 4 or x = -1</code></pre>
+<p>Only <code>x = 4</code> satisfies the restriction and the original equation.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Solve <code>sqrt(x + 1) = x - 1</code>. Check every candidate in the original radical equation.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2610,37 +2676,63 @@ x + 5 = x^2 - 2x + 1
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use the parser/solver workflow to check candidate solutions. For rational and radical equations, still inspect restrictions and original-equation checks.</p>
+<div id="983a2b8e" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>rational_solution <span class="op">=</span> solve_equation_steps(parse_equation(<span class="st">"1/(x - 2) = 3"</span>))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rational_solution.render_text())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Answer: x = 7/3
+
+Method: SymPy solveset
+
+Steps:
+
+1. Original equation:
+Eq(1/(x - 1*2), 3)
+
+2. Solve symbolically:
+x ∈ {7/3}
+SymPy found the solution set directly.
+
+Check:
+
+x = 7/3: valid</code></pre>
+</div>
+</div>
 <p>Use SymPy to check algebraic forms, while you remain responsible for restrictions.</p>
-<div id="d0139866" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">9</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">6</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>sp.factor(expr), sp.cancel(expr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="3662cb31" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">9</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">6</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>sp.factor(expr), sp.cancel(expr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>((x + 3)/(x + 2), (x + 3)/(x + 2))</code></pre>
 </div>
 </div>
-<div id="ad7c9b66" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>denominator <span class="op">=</span> sp.denom(expr)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sp.factor(denominator), sp.solve(sp.Eq(denominator, <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="65d0f75a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>denominator <span class="op">=</span> sp.denom(expr)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sp.factor(denominator), sp.solve(sp.Eq(denominator, <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>((x - 3)*(x + 2), [-2, 3])</code></pre>
 </div>
 </div>
-<div id="a9778c45" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(<span class="dv">1</span><span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> <span class="dv">2</span><span class="op">/</span>(x <span class="op">+</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="f4fd123b" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(<span class="dv">1</span><span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> <span class="dv">2</span><span class="op">/</span>(x <span class="op">+</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>[(0, True), (3, True)]</code></pre>
 </div>
 </div>
-<div id="06b06213" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>radical_equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(radical_equation, x)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(radical_equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="49acd121" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>radical_equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(radical_equation, x)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(radical_equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[(4, True)]</code></pre>
 </div>
 </div>

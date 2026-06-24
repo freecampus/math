@@ -900,8 +900,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#diagnostic-checklist" id="toc-diagnostic-checklist" class="nav-link" data-scroll-target="#diagnostic-checklist">Diagnostic checklist</a></li>
   <li><a href="#a-small-auto-checkable-diagnostic" id="toc-a-small-auto-checkable-diagnostic" class="nav-link" data-scroll-target="#a-small-auto-checkable-diagnostic">A small auto-checkable diagnostic</a></li>
   <li><a href="#formula-table-graph-one-idea-in-three-forms" id="toc-formula-table-graph-one-idea-in-three-forms" class="nav-link" data-scroll-target="#formula-table-graph-one-idea-in-three-forms">Formula, table, graph: one idea in three forms</a></li>
+  <li><a href="#how-the-upgraded-lessons-are-organized" id="toc-how-the-upgraded-lessons-are-organized" class="nav-link" data-scroll-target="#how-the-upgraded-lessons-are-organized">How the upgraded lessons are organized</a></li>
   <li><a href="#how-to-study-these-lessons" id="toc-how-to-study-these-lessons" class="nav-link" data-scroll-target="#how-to-study-these-lessons">How to study these lessons</a></li>
-  <li><a href="#using-this-path-with-edumath-and-sympy" id="toc-using-this-path-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-path-with-edumath-and-sympy">Using this path with edumath and SymPy</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/algebra/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -1013,7 +1014,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-small-auto-checkable-diagnostic" class="level2">
 <h2 class="anchored" data-anchor-id="a-small-auto-checkable-diagnostic">A small auto-checkable diagnostic</h2>
 <p>The package’s quiz model can use SymPy to derive answers. That means many questions do not need a manually typed expected value; the expected answer can come from a resolver such as <code>expand</code>, <code>factor</code>, or <code>solve</code>.</p>
-<div id="b3ad0524" class="cell" data-execution_count="1">
+<div id="733f382e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>'Correct.'</code></pre>
 </div>
@@ -1022,12 +1023,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="formula-table-graph-one-idea-in-three-forms" class="level2">
 <h2 class="anchored" data-anchor-id="formula-table-graph-one-idea-in-three-forms">Formula, table, graph: one idea in three forms</h2>
 <p>Algebra becomes powerful when you can translate among representations. The same function can be studied as a formula, a table, and a graph.</p>
-<div id="1aafbb9a" class="cell" data-execution_count="2">
+<div id="5d2eeab4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="09a4b611" class="cell" data-execution_count="3">
+<div id="1e85d273" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -1044,6 +1045,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="how-the-upgraded-lessons-are-organized" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-upgraded-lessons-are-organized">How the upgraded lessons are organized</h2>
+<p>Each Algebra lesson now includes a guided practice layer in addition to the main examples:</p>
+<ul>
+<li><strong>guess first</strong> prompts that train estimation and method selection;</li>
+<li><strong>guided exercises</strong> that show one small algebraic move at a time;</li>
+<li><strong>checkpoint exercises</strong> that ask you to repeat the same reasoning without the solution immediately visible;</li>
+<li>a topic-specific browser guessing game near the end of the lesson;</li>
+<li>a final <code>edumath</code> and SymPy appendix for checking work computationally.</li>
+</ul>
+<p>When a problem involves solving, copy the step format by hand: write the original problem, change one thing per line, name the operation, and check the result in the original problem.</p>
+</section>
 <section id="how-to-study-these-lessons" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-study-these-lessons">How to study these lessons</h2>
 <p>For each lesson:</p>
@@ -1056,10 +1069,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Write a short explanation of the idea in your own words.</li>
 </ol>
 </section>
-<section id="using-this-path-with-edumath-and-sympy" class="level2">
-<h2 class="anchored" data-anchor-id="using-this-path-with-edumath-and-sympy">Using this path with edumath and SymPy</h2>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>The lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.</p>
-<div id="78662657" class="cell" data-execution_count="4">
+<div id="46a16a69" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, input_output_scene</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1067,7 +1080,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="5ff02808" class="cell" data-execution_count="5">
+<div id="c32a7c1f" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> input_output_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_value<span class="op">=</span><span class="dv">4</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

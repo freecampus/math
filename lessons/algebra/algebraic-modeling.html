@@ -942,6 +942,13 @@ window.Quarto = {
   <li><a href="#model-checking" id="toc-model-checking" class="nav-link" data-scroll-target="#model-checking">Model checking</a></li>
   <li><a href="#browser-symbolic-practice" id="toc-browser-symbolic-practice" class="nav-link" data-scroll-target="#browser-symbolic-practice">Browser symbolic practice</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-define-variables-and-units" id="toc-lab-1-define-variables-and-units" class="nav-link" data-scroll-target="#lab-1-define-variables-and-units">Lab 1: define variables and units</a></li>
+  <li><a href="#lab-2-translate-words-into-equations" id="toc-lab-2-translate-words-into-equations" class="nav-link" data-scroll-target="#lab-2-translate-words-into-equations">Lab 2: translate words into equations</a></li>
+  <li><a href="#lab-3-linear-model-from-two-data-points" id="toc-lab-3-linear-model-from-two-data-points" class="nav-link" data-scroll-target="#lab-3-linear-model-from-two-data-points">Lab 3: linear model from two data points</a></li>
+  <li><a href="#lab-4-check-a-model-result" id="toc-lab-4-check-a-model-result" class="nav-link" data-scroll-target="#lab-4-check-a-model-result">Lab 4: check a model result</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1054,7 +1061,7 @@ window.Quarto = {
 <p>A plant is <code>10 cm</code> tall on day <code>0</code> and <code>22 cm</code> tall on day <code>6</code>:</p>
 <pre class="text"><code>slope = (22 - 10)/(6 - 0) = 2 cm/day
 H(t) = 10 + 2t</code></pre>
-<div id="66229ab4" class="cell" data-execution_count="1">
+<div id="2837c31c" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
 <p><span class="math inline">\(\displaystyle 2 x + 10\)</span></p>
 </div>
@@ -1135,6 +1142,66 @@ s = 30</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Modeling is not just solving. It is choosing variables, translating conditions, solving, and checking whether the result makes sense in context.</p>
+<section id="lab-1-define-variables-and-units" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-define-variables-and-units">Lab 1: define variables and units</h3>
+<p><strong>Guess first.</strong> If a problem asks for time and distance, why is it dangerous to write equations before defining variables?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Suppose a taxi charges <code>$4</code> plus <code>$2.50</code> per mile. Define:</p>
+<pre class="text"><code>m = number of miles
+C = total cost in dollars</code></pre>
+<p>Then the model is:</p>
+<pre class="text"><code>C = 4 + 2.50m</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> A gym charges a <code>$25</code> sign-up fee plus <code>$18</code> per month. Define variables with units and write a cost model.</p>
+</div>
+</section>
+<section id="lab-2-translate-words-into-equations" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-translate-words-into-equations">Lab 2: translate words into equations</h3>
+<p><strong>Guess first.</strong> In “five more than twice a number is seventeen,” which part is the variable expression?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>number -&gt; n
+twice a number -&gt; 2n
+five more than twice a number -&gt; 2n + 5
+is seventeen -&gt; = 17</code></pre>
+<p>So:</p>
+<pre class="text"><code>2n + 5 = 17
+2n = 12
+n = 6</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Translate and solve: “Three less than four times a number is twenty-one.”</p>
+</div>
+</section>
+<section id="lab-3-linear-model-from-two-data-points" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-linear-model-from-two-data-points">Lab 3: linear model from two data points</h3>
+<p><strong>Guess first.</strong> If data points are <code>(2, 11)</code> and <code>(6, 23)</code>, is the rate of change positive or negative?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>m = (23 - 11)/(6 - 2) = 12/4 = 3
+y - 11 = 3(x - 2)
+y = 3x + 5</code></pre>
+<p>The model predicts an output of <code>5</code> when <code>x = 0</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Build a linear model through <code>(1, 9)</code> and <code>(5, 21)</code>. Interpret the slope.</p>
+</div>
+</section>
+<section id="lab-4-check-a-model-result" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-check-a-model-result">Lab 4: check a model result</h3>
+<p><strong>Guess first.</strong> If a ticket problem gives <code>a = -3</code> adult tickets, should you accept the algebraic answer?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>A model answer must satisfy three tests:</p>
+<ol type="1">
+<li>It satisfies the equation or system.</li>
+<li>It has the right units.</li>
+<li>It makes sense in the context.</li>
+</ol>
+<p>Negative ticket counts, negative lengths, and fractional people usually mean the model or interpretation needs review.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> A calculation gives <code>2.4</code> buses for a field trip. What final answer should the planner use, and why?</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2527,28 +2594,60 @@ s = 30</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<div id="784d7ba0" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> sp.symbols(<span class="st">"m b"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(m<span class="op">*</span><span class="dv">2</span> <span class="op">+</span> b, <span class="dv">7</span>), sp.Eq(m<span class="op">*</span><span class="dv">5</span> <span class="op">+</span> b, <span class="dv">16</span>)), (m, b))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<p>Use parsed equations to check the algebra after you have defined variables and units. The computer can solve, but you must decide whether the model makes sense.</p>
+<div id="faf6fb7b" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>model_solution <span class="op">=</span> solve_equation_steps(parse_equation(<span class="st">"2*n + 5 = 17"</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_solution.render_text())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Answer: n = 6
+
+Method: linear equation
+
+Steps:
+
+1. Original equation:
+Eq(2*n + 5, 17)
+
+2. Move everything to one side:
+Eq(2*n - 12, 0)
+This writes the equation in the form ax + b = 0.
+
+3. Move the constant term:
+Eq(2*n, 12)
+
+4. Divide by the coefficient of the variable:
+Eq(n, 6)
+
+Check:
+
+n = 6: valid</code></pre>
+</div>
+</div>
+<div id="efd440a0" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> sp.symbols(<span class="st">"m b"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(m<span class="op">*</span><span class="dv">2</span> <span class="op">+</span> b, <span class="dv">7</span>), sp.Eq(m<span class="op">*</span><span class="dv">5</span> <span class="op">+</span> b, <span class="dv">16</span>)), (m, b))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>{b: 1, m: 3}</code></pre>
 </div>
 </div>
-<div id="463efd11" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a, x <span class="op">=</span> sp.symbols(<span class="st">"a x"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> a<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(model.subs(x, <span class="dv">5</span>), <span class="dv">2</span>), a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="78ab1c00" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a, x <span class="op">=</span> sp.symbols(<span class="st">"a x"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> a<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(model.subs(x, <span class="dv">5</span>), <span class="dv">2</span>), a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[-2]</code></pre>
 </div>
 </div>
-<div id="f2b1c309" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"35 + 8*x"</span>, inputs<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="eb0193ed" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"35 + 8*x"</span>, inputs<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>((0.0, 35.0), (1.0, 43.0), (2.0, 51.0), (3.0, 59.0), (4.0, 67.0))</code></pre>
 </div>
 </div>

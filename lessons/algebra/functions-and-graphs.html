@@ -924,6 +924,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   <li><a href="#why-this-matters-later" id="toc-why-this-matters-later" class="nav-link" data-scroll-target="#why-this-matters-later">Why this matters later</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-decide-whether-a-relation-is-a-function" id="toc-lab-1-decide-whether-a-relation-is-a-function" class="nav-link" data-scroll-target="#lab-1-decide-whether-a-relation-is-a-function">Lab 1: decide whether a relation is a function</a></li>
+  <li><a href="#lab-2-evaluate-a-function-from-a-formula" id="toc-lab-2-evaluate-a-function-from-a-formula" class="nav-link" data-scroll-target="#lab-2-evaluate-a-function-from-a-formula">Lab 2: evaluate a function from a formula</a></li>
+  <li><a href="#lab-3-find-domain-restrictions-from-a-formula" id="toc-lab-3-find-domain-restrictions-from-a-formula" class="nav-link" data-scroll-target="#lab-3-find-domain-restrictions-from-a-formula">Lab 3: find domain restrictions from a formula</a></li>
+  <li><a href="#lab-4-average-rate-of-change" id="toc-lab-4-average-rate-of-change" class="nav-link" data-scroll-target="#lab-4-average-rate-of-change">Lab 4: average rate of change</a></li>
+  </ul></li>
   <li><a href="#guessing-game-checkpoint" id="toc-guessing-game-checkpoint" class="nav-link" data-scroll-target="#guessing-game-checkpoint">Guessing game checkpoint</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -1015,7 +1022,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="formula-to-table" class="level2">
 <h2 class="anchored" data-anchor-id="formula-to-table">Formula to table</h2>
 <p>A table makes individual input-output pairs explicit.</p>
-<div id="7cde5a0c" class="cell" data-execution_count="1">
+<div id="cb87d982" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
@@ -1027,7 +1034,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The graph of a function is the set of points:</p>
 <pre class="text"><code>(x, f(x))</code></pre>
 <p>The package includes reusable plotting helpers for this input-output view.</p>
-<div id="2bb6bbc4" class="cell" data-execution_count="2">
+<div id="05befb1a" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -1071,7 +1078,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="comparing-function-families" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-function-families">Comparing function families</h2>
 <p>Different formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.</p>
-<div id="67680599" class="cell" data-execution_count="3">
+<div id="7f45cd1d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -1353,6 +1360,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Statistics:</strong> regression models are functions with fitted parameters.</li>
 <li><strong>Optimization:</strong> objective functions are maximized or minimized over a domain.</li>
 </ul>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Functions connect formulas, tables, graphs, and verbal descriptions. In each lab, make a prediction before calculating.</p>
+<section id="lab-1-decide-whether-a-relation-is-a-function" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-decide-whether-a-relation-is-a-function">Lab 1: decide whether a relation is a function</h3>
+<p><strong>Guess first.</strong> Can one input have two outputs and still be a function?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>A relation is a function when each input has exactly one output. The set <code>{(1, 4), (2, 5), (1, 6)}</code> is not a function because input <code>1</code> points to both <code>4</code> and <code>6</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Decide whether <code>{(-1, 3), (0, 3), (2, 7), (3, 7)}</code> is a function. Explain your reason using the words input and output.</p>
+</div>
+</section>
+<section id="lab-2-evaluate-a-function-from-a-formula" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-evaluate-a-function-from-a-formula">Lab 2: evaluate a function from a formula</h3>
+<p><strong>Guess first.</strong> For <code>f(x) = x^2 - 3x + 2</code>, do you expect <code>f(4)</code> to be positive, negative, or zero?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>f(x) = x^2 - 3x + 2
+f(4) = 4^2 - 3(4) + 2
+     = 16 - 12 + 2
+     = 6</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> For <code>g(t) = 2t^2 + t - 1</code>, compute <code>g(-2)</code> and <code>g(0)</code>. Show the substitution step.</p>
+</div>
+</section>
+<section id="lab-3-find-domain-restrictions-from-a-formula" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-find-domain-restrictions-from-a-formula">Lab 3: find domain restrictions from a formula</h3>
+<p><strong>Guess first.</strong> Which inputs are forbidden in <code>h(x) = sqrt(x - 1)/(x + 3)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<ol type="1">
+<li>The square root requires <code>x - 1 &gt;= 0</code>, so <code>x &gt;= 1</code>.</li>
+<li>The denominator requires <code>x + 3 != 0</code>, so <code>x != -3</code>.</li>
+<li>Since <code>x &gt;= 1</code> already excludes <code>-3</code>, the domain is <code>[1, infinity)</code>.</li>
+</ol>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Find the domain of <code>p(x) = sqrt(5 - x)/(x - 2)</code>. State both the root condition and the denominator condition before combining them.</p>
+</div>
+</section>
+<section id="lab-4-average-rate-of-change" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-average-rate-of-change">Lab 4: average rate of change</h3>
+<p><strong>Guess first.</strong> If a graph rises from <code>y = 2</code> to <code>y = 10</code> while <code>x</code> moves from <code>1</code> to <code>5</code>, is the average rate positive or negative?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>average rate = change in output / change in input
+             = (10 - 2)/(5 - 1)
+             = 8/4
+             = 2</code></pre>
+<p>For a formula, compute the two output values first, then use the same fraction.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> For <code>f(x) = x^2</code>, find the average rate of change from <code>x = 1</code> to <code>x = 4</code>. Interpret the answer in one sentence.</p>
+</div>
+</section>
 </section>
 <section id="guessing-game-checkpoint" class="level2">
 <h2 class="anchored" data-anchor-id="guessing-game-checkpoint">Guessing game checkpoint</h2>
@@ -2747,18 +2805,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> to move from formula to table to graph. This is useful when you want to test how a formula behaves before doing more formal analysis.</p>
-<div id="61f7910c" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, input_output_scene</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f8c152a2" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, input_output_scene</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="03817a46" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> input_output_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_value<span class="op">=</span><span class="dv">4</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5300be74" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> input_output_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_value<span class="op">=</span><span class="dv">4</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">

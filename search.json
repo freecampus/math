@@ -677,6 +677,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/inequalities-and-absolute-value.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/inequalities-and-absolute-value.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Inequalities and Absolute Value",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nInequality work is about preserving the direction of comparison. Guess first, solve carefully, then test a value from your answer set.\n\nLab 1: interval notation and endpoints\nGuess first. Does [-2, 5) include -2? Does it include 5?\nGuided exercise.\n\nA square bracket means the endpoint is included.\nA parenthesis means the endpoint is not included.\nTherefore [-2, 5) includes -2, all numbers between -2 and 5, but not 5.\n\n\nCheckpoint. Write x &gt; -3 and x &lt;= 4 in interval notation. Then draw the number-line endpoint types in your notes.\n\n\n\nLab 2: solve a linear inequality\nGuess first. For -2x + 5 &lt; 13, will the final inequality point left or right?\nGuided exercise.\n-2x + 5 &lt; 13\n-2x &lt; 8                subtract 5\nx &gt; -4                 divide by -2 and reverse the inequality\nTest x = 0, which is greater than -4:\n-2(0) + 5 &lt; 13\n5 &lt; 13                 true\n\nCheckpoint. Solve 7 - 3x &gt;= 16. Explain exactly when and why the sign changes direction.\n\n\n\nLab 3: solve a compound inequality\nGuess first. Does -1 &lt;= 2x + 3 &lt; 9 produce one interval or two separate intervals?\nGuided exercise.\n-1 &lt;= 2x + 3 &lt; 9\n-4 &lt;= 2x &lt; 6           subtract 3 from all three parts\n-2 &lt;= x &lt; 3            divide all three parts by 2\nThe answer is one connected interval: [-2, 3).\n\nCheckpoint. Solve 4 &lt; 3x - 2 &lt;= 13 and write the answer in interval notation.\n\n\n\nLab 4: absolute value as distance\nGuess first. If |x - 4| = 6, should there be one solution or two?\nGuided exercise.\n|x - 4| = 6 means “the distance from x to 4 is 6.”\nx - 4 = 6      or      x - 4 = -6\nx = 10                 x = -2\nFor inequalities, translate distance language:\n|x - 4| &lt; 6  means  -6 &lt; x - 4 &lt; 6\n\nCheckpoint. Solve |2x + 1| &lt;= 7. Then test one number inside the interval and one number outside it.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Inequalities and Absolute Value"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/inequalities-and-absolute-value.html#guessing-game-checkpoint",
     "href": "lessons/algebra/inequalities-and-absolute-value.html#guessing-game-checkpoint",
     "title": "Inequalities and Absolute Value",
@@ -872,6 +885,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/algebraic-modeling.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/algebraic-modeling.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Algebraic Modeling",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nModeling is not just solving. It is choosing variables, translating conditions, solving, and checking whether the result makes sense in context.\n\nLab 1: define variables and units\nGuess first. If a problem asks for time and distance, why is it dangerous to write equations before defining variables?\nGuided exercise.\nSuppose a taxi charges $4 plus $2.50 per mile. Define:\nm = number of miles\nC = total cost in dollars\nThen the model is:\nC = 4 + 2.50m\n\nCheckpoint. A gym charges a $25 sign-up fee plus $18 per month. Define variables with units and write a cost model.\n\n\n\nLab 2: translate words into equations\nGuess first. In “five more than twice a number is seventeen,” which part is the variable expression?\nGuided exercise.\nnumber -&gt; n\ntwice a number -&gt; 2n\nfive more than twice a number -&gt; 2n + 5\nis seventeen -&gt; = 17\nSo:\n2n + 5 = 17\n2n = 12\nn = 6\n\nCheckpoint. Translate and solve: “Three less than four times a number is twenty-one.”\n\n\n\nLab 3: linear model from two data points\nGuess first. If data points are (2, 11) and (6, 23), is the rate of change positive or negative?\nGuided exercise.\nm = (23 - 11)/(6 - 2) = 12/4 = 3\ny - 11 = 3(x - 2)\ny = 3x + 5\nThe model predicts an output of 5 when x = 0.\n\nCheckpoint. Build a linear model through (1, 9) and (5, 21). Interpret the slope.\n\n\n\nLab 4: check a model result\nGuess first. If a ticket problem gives a = -3 adult tickets, should you accept the algebraic answer?\nGuided exercise.\nA model answer must satisfy three tests:\n\nIt satisfies the equation or system.\nIt has the right units.\nIt makes sense in the context.\n\nNegative ticket counts, negative lengths, and fractional people usually mean the model or interpretation needs review.\n\nCheckpoint. A calculation gives 2.4 buses for a field trip. What final answer should the planner use, and why?",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebraic Modeling"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/algebraic-modeling.html#guessing-game-checkpoint",
     "href": "lessons/algebra/algebraic-modeling.html#guessing-game-checkpoint",
     "title": "Algebraic Modeling",
@@ -889,7 +915,7 @@
     "href": "lessons/algebra/algebraic-modeling.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Algebraic Modeling",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\n\nimport sympy as sp\n\nm, b = sp.symbols(\"m b\")\nsp.solve((sp.Eq(m*2 + b, 7), sp.Eq(m*5 + b, 16)), (m, b))\n\n{b: 1, m: 3}\n\n\n\na, x = sp.symbols(\"a x\")\nmodel = a*(x - 3)**2 + 10\nsp.solve(sp.Eq(model.subs(x, 5), 2), a)\n\n[-2]\n\n\n\nfrom edumath.algebra import expression_table\n\nexpression_table(\"35 + 8*x\", inputs=(0, 1, 2, 3, 4))\n\n((0.0, 35.0), (1.0, 43.0), (2.0, 51.0), (3.0, 59.0), (4.0, 67.0))",
+    "text": "Using this lesson with edumath and SymPy\nUse parsed equations to check the algebra after you have defined variables and units. The computer can solve, but you must decide whether the model makes sense.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nmodel_solution = solve_equation_steps(parse_equation(\"2*n + 5 = 17\"))\nprint(model_solution.render_text())\n\nAnswer: n = 6\n\nMethod: linear equation\n\nSteps:\n\n1. Original equation:\nEq(2*n + 5, 17)\n\n2. Move everything to one side:\nEq(2*n - 12, 0)\nThis writes the equation in the form ax + b = 0.\n\n3. Move the constant term:\nEq(2*n, 12)\n\n4. Divide by the coefficient of the variable:\nEq(n, 6)\n\nCheck:\n\nn = 6: valid\n\n\n\nimport sympy as sp\n\nm, b = sp.symbols(\"m b\")\nsp.solve((sp.Eq(m*2 + b, 7), sp.Eq(m*5 + b, 16)), (m, b))\n\n{b: 1, m: 3}\n\n\n\na, x = sp.symbols(\"a x\")\nmodel = a*(x - 3)**2 + 10\nsp.solve(sp.Eq(model.subs(x, 5), 2), a)\n\n[-2]\n\n\n\nfrom edumath.algebra import expression_table\n\nexpression_table(\"35 + 8*x\", inputs=(0, 1, 2, 3, 4))\n\n((0.0, 35.0), (1.0, 43.0), (2.0, 51.0), (3.0, 59.0), (4.0, 67.0))",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1075,6 +1101,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/cumulative-review.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/cumulative-review.html#subtopic-guided-practice-and-checkpoints",
+    "title": "College Algebra Cumulative Review",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nMixed review is about choosing a method before calculating. Use these labs to practice recognizing problem types.\n\nLab 1: choose the method\nGuess first. Which method fits each problem: factor, isolate, graph, substitute, or use logarithms?\nA. 3x - 5 = 16\nB. x^2 - 9x + 20 = 0\nC. 2^x = 13\nD. y = x + 1 and y = -x + 5\nGuided exercise.\nA isolate the variable\nB factor the quadratic\nC use logarithms or numerical solving\nD substitute or graph the two lines\n\nCheckpoint. For each problem in your current homework, write the method name before the first algebraic step.\n\n\n\nLab 2: execute step by step\nGuess first. In a mixed problem set, why is skipping steps risky?\nGuided exercise. Solve 2(x + 4) - 3 = 13.\n2(x + 4) - 3 = 13\n2x + 8 - 3 = 13\n2x + 5 = 13\n2x = 8\nx = 4\nEvery line changes one thing, so errors are easier to find.\n\nCheckpoint. Solve 5 - 3(2x - 1) = 20, writing one operation per line.\n\n\n\nLab 3: check and repair\nGuess first. If your answer does not check, should you erase everything or search for the first wrong line?\nGuided exercise.\nUse this repair routine:\n\nSubstitute the answer into the original problem.\nIf it fails, compare each line with the previous line.\nLook first for sign errors, distribution errors, and illegal cancellation.\nCorrect the earliest wrong line, then continue.\n\n\nCheckpoint. Create a deliberate sign error while solving a linear equation. Then use the repair routine to find and fix it.\n\n\n\nLab 4: explain the answer\nGuess first. What is missing from an answer that says only x = 3?\nGuided exercise.\nA complete answer often includes:\nsolution value or set\nrestriction check\nmeaning in context\nunits, if the problem has units\n\nCheckpoint. Write a complete final sentence for a ticket-sales problem where a = 20 adult tickets and s = 30 student tickets.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "College Algebra Cumulative Review"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/cumulative-review.html#guessing-game-checkpoint",
     "href": "lessons/algebra/cumulative-review.html#guessing-game-checkpoint",
     "title": "College Algebra Cumulative Review",
@@ -1092,7 +1131,7 @@
     "href": "lessons/algebra/cumulative-review.html#using-this-lesson-with-edumath-and-sympy",
     "title": "College Algebra Cumulative Review",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\n\nimport sympy as sp\n\nx, y = sp.symbols(\"x y\")\nchecks = {\n    \"factor\": sp.factor(x**2 - 5*x + 6),\n    \"solve quadratic\": sp.solve(sp.Eq(x**2 - 5*x + 6, 0), x),\n    \"solve system\": sp.solve((sp.Eq(x + y, 5), sp.Eq(x - y, 1)), (x, y)),\n}\nchecks\n\n{'factor': (x - 3)*(x - 2),\n 'solve quadratic': [2, 3],\n 'solve system': {x: 3, y: 2}}\n\n\n\nexpr = (x**2 - 1)/(x - 1)\nsp.cancel(expr), sp.solve(sp.Eq(sp.denom(expr), 0), x)\n\n(x + 1, [1])\n\n\n\nfrom edumath.algebra import expand_question, factor_question\n\nquestions = [expand_question((x + 2)*(x - 3)), factor_question(x**2 - 5*x + 6)]\n[question.prompt for question in questions]\n\n['Expand `(x - 3)*(x + 2)`.', 'Factor `x**2 - 5*x + 6`.']",
+    "text": "Using this lesson with edumath and SymPy\nUse edumath’s parser and solver as a checking partner after you have selected a method and tried the problem by hand.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nreview_solution = solve_equation_steps(parse_equation(\"2(x + 4) - 3 = 13\"))\nprint(review_solution.render_text())\n\nAnswer: x = 4\n\nMethod: linear equation\n\nSteps:\n\n1. Original equation:\nEq(2*(x + 4) - 1*3, 13)\n\n2. Expand both sides:\nEq(2*x + 5, 13)\n\n3. Move everything to one side:\nEq(2*x - 8, 0)\nThis writes the equation in the form ax + b = 0.\n\n4. Move the constant term:\nEq(2*x, 8)\n\n5. Divide by the coefficient of the variable:\nEq(x, 4)\n\nCheck:\n\nx = 4: valid\n\n\n\nimport sympy as sp\n\nx, y = sp.symbols(\"x y\")\nchecks = {\n    \"factor\": sp.factor(x**2 - 5*x + 6),\n    \"solve quadratic\": sp.solve(sp.Eq(x**2 - 5*x + 6, 0), x),\n    \"solve system\": sp.solve((sp.Eq(x + y, 5), sp.Eq(x - y, 1)), (x, y)),\n}\nchecks\n\n{'factor': (x - 3)*(x - 2),\n 'solve quadratic': [2, 3],\n 'solve system': {x: 3, y: 2}}\n\n\n\nexpr = (x**2 - 1)/(x - 1)\nsp.cancel(expr), sp.solve(sp.Eq(sp.denom(expr), 0), x)\n\n(x + 1, [1])\n\n\n\nfrom edumath.algebra import expand_question, factor_question\n\nquestions = [expand_question((x + 2)*(x - 3)), factor_question(x**2 - 5*x + 6)]\n[question.prompt for question in questions]\n\n['Expand `(x - 3)*(x + 2)`.', 'Factor `x**2 - 5*x + 6`.']",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1262,6 +1301,19 @@
     "title": "Systems of Equations",
     "section": "Practice exercises",
     "text": "Practice exercises\n\n\nDoes (2, 3) solve x + y = 5 and 2x - y = 1?\nSolve by substitution: y = x + 4, 2x + y = 10.\nSolve by elimination: x + y = 7, x - y = 1.\nClassify: 2x + 3y = 6, 4x + 6y = 12.\nClassify: 2x + 3y = 6, 4x + 6y = 15.\nSet up and solve: 30 tickets, adult $12, child $7, revenue $310.\nSolve y = x^2, y = 4.\nExplain why parallel distinct lines have no solution.\n\n\n\n\n\n\n\n\nTipSolutions\n\n\n\n\n\n\nYes.\n(2, 6).\n(4, 3).\nInfinitely many solutions.\nNo solution.\na + c = 30, 12a + 7c = 310; solution a = 20, c = 10.\n(2, 4) and (-2, 4).\nThey never intersect, so no ordered pair lies on both.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Systems of Equations"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/systems-of-equations.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/systems-of-equations.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Systems of Equations",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nA system solution must satisfy every equation at the same time. Guess the graph picture before choosing a method.\n\nLab 1: test an ordered pair\nGuess first. Does (2, 3) look likely to solve x + y = 5 and 2x - y = 1?\nGuided exercise.\nx + y = 5       -&gt; 2 + 3 = 5       true\n2x - y = 1      -&gt; 2(2) - 3 = 1    true\nBecause both equations are true, (2, 3) is a solution.\n\nCheckpoint. Test whether (4, -1) solves x + y = 3 and x - 2y = 6.\n\n\n\nLab 2: substitution\nGuess first. In y = x + 4 and 2x + y = 10, which expression should you substitute?\nGuided exercise.\ny = x + 4\n2x + y = 10\n2x + (x + 4) = 10       substitute x + 4 for y\n3x + 4 = 10\n3x = 6\nx = 2\ny = 2 + 4 = 6\nSolution: (2, 6).\n\nCheckpoint. Solve y = 3x - 1 and x + y = 11 by substitution.\n\n\n\nLab 3: elimination\nGuess first. In 3x + 2y = 16 and x - 2y = 4, what happens if you add the equations?\nGuided exercise.\n 3x + 2y = 16\n+x - 2y = 4\n-------------\n 4x      = 20\n x = 5\nSubstitute back:\n5 - 2y = 4\n-2y = -1\ny = 1/2\n\nCheckpoint. Solve 2x + y = 11 and 3x - y = 9 by elimination.\n\n\n\nLab 4: classify the system\nGuess first. Do the equations 2x + 4y = 8 and x + 2y = 4 represent parallel lines or the same line?\nGuided exercise.\nMultiplying the second equation by 2 gives the first equation exactly:\n2(x + 2y = 4) -&gt; 2x + 4y = 8\nSo the system has infinitely many solutions.\n\nCheckpoint. Classify 2x + 4y = 8 and x + 2y = 5. Explain using the idea of multiples.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1504,6 +1556,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/linear-and-quadratic-functions.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/linear-and-quadratic-functions.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Linear and Quadratic Functions",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nLinear functions tell constant-rate stories. Quadratic functions tell turning point stories. Use each form for the feature it reveals.\n\nLab 1: slope and intercept\nGuess first. For y = -3x + 8, does the line rise or fall from left to right?\nGuided exercise.\nThe slope is -3, so each time x increases by 1, y decreases by 3. The y-intercept is 8, so the graph crosses the y-axis at (0, 8).\n\nCheckpoint. For y = (1/2)x - 4, identify the slope, y-intercept, and two points on the line.\n\n\n\nLab 2: build a line from two points\nGuess first. Through (1, 5) and (4, 11), is the slope positive, negative, or zero?\nGuided exercise.\nm = (11 - 5)/(4 - 1) = 6/3 = 2\ny - 5 = 2(x - 1)             point-slope form\ny - 5 = 2x - 2\ny = 2x + 3                   slope-intercept form\n\nCheckpoint. Find the equation of the line through (-2, 1) and (2, 9). Check that both points satisfy your equation.\n\n\n\nLab 3: solve a quadratic by factoring\nGuess first. For x^2 - 7x + 12 = 0, which pair of numbers multiplies to 12 and adds to -7?\nGuided exercise.\nx^2 - 7x + 12 = 0\n(x - 3)(x - 4) = 0       factor\nx - 3 = 0 or x - 4 = 0   zero-product property\nx = 3 or x = 4\n\nCheckpoint. Solve x^2 - 9x + 20 = 0 by factoring. Then check both roots in the original equation.\n\n\n\nLab 4: vertex form and the discriminant\nGuess first. Does y = 2(x + 1)^2 - 8 open up or down? Where is its vertex?\nGuided exercise.\nIn y = a(x - h)^2 + k, the vertex is (h, k). Here a = 2, h = -1, and k = -8, so the vertex is (-1, -8) and the parabola opens up.\nFor standard form ax^2 + bx + c, the discriminant b^2 - 4ac predicts real roots:\npositive: two real roots\nzero: one repeated real root\nnegative: no real roots\n\nCheckpoint. For y = x^2 + 6x + 10, compute the discriminant and explain how many real x-intercepts the graph has.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Linear and Quadratic Functions"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/linear-and-quadratic-functions.html#guessing-game-checkpoint",
     "href": "lessons/algebra/linear-and-quadratic-functions.html#guessing-game-checkpoint",
     "title": "Linear and Quadratic Functions",
@@ -1521,7 +1586,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Linear and Quadratic Functions",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse the package helpers to compute line and quadratic facts exactly, then compare those facts with the graph you sketch by hand.\n\nfrom edumath.algebra import QuadraticModel, line_from_points\n\nline = line_from_points((0, 1), (2, 5))\nline.expression\n\n\\(\\displaystyle 2 x + 1\\)\n\n\n\nmodel = QuadraticModel(1, -4, 3)\nmodel.expression, model.discriminant, model.vertex, model.roots\n\n(x**2 - 4*x + 3, 4, (2, -1), (1, 3))",
+    "text": "Using this lesson with edumath and SymPy\nUse edumath’s parser and solver to check equation-solving steps, then connect the answer back to the graph.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nquadratic_solution = solve_equation_steps(parse_equation(\"x^2 - 7x + 12 = 0\"))\nprint(quadratic_solution.render_text())\n\nAnswer: x ∈ {3, 4}\n\nMethod: quadratic equation\n\nSteps:\n\n1. Original equation:\nEq(x**2 - 7*x + 12, 0)\n\n2. Write in standard form:\nEq(x**2 - 7*x + 12, 0)\nA quadratic equation is easiest to solve from ax^2 + bx + c = 0.\n\n3. Factor:\nEq((x - 4)*(x - 3), 0)\n\n4. Use the zero-product property:\nx = 3, x = 4\nIf a product is zero, at least one factor must be zero.\n\nCheck:\n\nx = 3: valid\n\nx = 4: valid\n\n\nUse the package helpers to compute line and quadratic facts exactly, then compare those facts with the graph you sketch by hand.\n\nfrom edumath.algebra import QuadraticModel, line_from_points\n\nline = line_from_points((0, 1), (2, 5))\nline.expression\n\n\\(\\displaystyle 2 x + 1\\)\n\n\n\nmodel = QuadraticModel(1, -4, 3)\nmodel.expression, model.discriminant, model.vertex, model.roots\n\n(x**2 - 4*x + 3, 4, (2, -1), (1, 3))",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1717,6 +1782,19 @@
     "title": "Transformations, Composition, and Inverses",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: the chain rule is about composition.\nProbability/statistics: transformations of variables change distributions.\nOptimization: parameters shift and stretch objective functions.\nLinear algebra: inverse functions generalize to inverse transformations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Transformations, Composition, and Inverses"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/transformations-composition-inverses.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/transformations-composition-inverses.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Transformations, Composition, and Inverses",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nTransformations and composition are easier when you track the order of actions. Always guess the effect before doing algebra.\n\nLab 1: read a transformed function\nGuess first. Compared with f(x) = x^2, does g(x) = 3(x - 2)^2 - 5 move left or right?\nGuided exercise.\nUse the template a f(x - h) + k.\na = 3        vertical stretch by 3\nh = 2        shift right 2\nk = -5       shift down 5\nThe vertex moves from (0, 0) to (2, -5).\n\nCheckpoint. Describe the transformation from f(x) = |x| to g(x) = -2|x + 4| + 1.\n\n\n\nLab 2: function arithmetic\nGuess first. If f(x) = x + 1 and g(x) = x^2, is (f + g)(2) equal to f(g(2))?\nGuided exercise.\n(f + g)(2) = f(2) + g(2) = 3 + 4 = 7\nf(g(2)) = f(4) = 5\nFunction addition and composition are different operations.\n\nCheckpoint. For f(x) = 2x - 1 and g(x) = x + 5, compute (f - g)(3) and f(g(3)).\n\n\n\nLab 3: composition step by step\nGuess first. For f(x) = x^2 + 1 and g(x) = 3x, will f(g(x)) equal g(f(x))?\nGuided exercise.\nf(g(x)) = f(3x) = (3x)^2 + 1 = 9x^2 + 1\ng(f(x)) = g(x^2 + 1) = 3(x^2 + 1) = 3x^2 + 3\nThey are not equal, so composition usually does not commute.\n\nCheckpoint. Let f(x) = x - 4 and g(x) = x^2. Find f(g(x)) and g(f(x)).\n\n\n\nLab 4: find an inverse\nGuess first. If f(x) = 2x - 7, should the inverse undo subtracting 7 before or after undoing multiplying by 2?\nGuided exercise.\ny = 2x - 7\nx = 2y - 7              swap x and y\nx + 7 = 2y              add 7\ny = (x + 7)/2           divide by 2\nSo f^{-1}(x) = (x + 7)/2.\n\nCheckpoint. Find the inverse of f(x) = 5x + 3. Then check by computing f(f^{-1}(x)).",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6297,6 +6375,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/symbolic-computation-with-sympy.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/symbolic-computation-with-sympy.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Symbolic Computation with SymPy",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nSymbolic computation is powerful when you know what question you are asking. Guess the command, run it, and then interpret the result mathematically.\n\nLab 1: create symbols and parse expressions\nGuess first. Should x be typed as a Python string or a SymPy symbol before building x^2 + 1?\nGuided exercise.\nimport sympy as sp\nx = sp.Symbol(\"x\")\nexpr = x**2 + 1\nThe expression is symbolic, so SymPy can expand, factor, differentiate later, and substitute exact values.\n\nCheckpoint. Create symbols a and b, then build the expression (a + b)^2. Which SymPy command expands it?\n\n\n\nLab 2: expressions versus equations\nGuess first. Is x**2 - 4 an equation by itself?\nGuided exercise.\nexpr = x**2 - 4          # expression\nEq(expr, 0)              # equation\nAn expression can be simplified or factored. An equation can be solved.\n\nCheckpoint. Write a SymPy equation for 3x + 2 = 11. Then solve it.\n\n\n\nLab 3: solve and check\nGuess first. Why should you check a symbolic answer after solving?\nGuided exercise.\nsolve gives candidates\nchecksol tests candidates in the original equation\nThis matters especially for rational and radical equations, where restrictions or squaring can create invalid candidates.\n\nCheckpoint. Solve sqrt(x + 5) = x - 1 with SymPy, then check each solution in the original equation.\n\n\n\nLab 4: exact versus approximate output\nGuess first. Which is more informative: sqrt(2) or 1.41421356?\nGuided exercise.\nExact forms preserve structure. Decimal approximations help with measurement and graphing. Use exact answers while solving, then approximate when interpreting.\n\nCheckpoint. Compute an exact value for log(5) and then a decimal approximation. State when each form is useful.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Symbolic Computation with SymPy"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/symbolic-computation-with-sympy.html#guessing-game-checkpoint",
     "href": "lessons/algebra/symbolic-computation-with-sympy.html#guessing-game-checkpoint",
     "title": "Symbolic Computation with SymPy",
@@ -6314,7 +6405,7 @@
     "href": "lessons/algebra/symbolic-computation-with-sympy.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Symbolic Computation with SymPy",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\n\nimport sympy as sp\n\nx = sp.symbols(\"x\")\nexpr = (x + 2)*(x - 3)\nsp.expand(expr), sp.factor(sp.expand(expr))\n\n(x**2 - x - 6, (x - 3)*(x + 2))\n\n\n\nequation = sp.Eq(sp.sqrt(x + 5), x - 1)\ncandidates = sp.solve(equation, x)\n[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]\n\n[(4, True)]\n\n\n\nfrom edumath.algebra import expand_question\n\nquestion = expand_question((x + 1)**2)\nquestion.check(\"x**2 + 2*x + 1\").message\n\n'Correct.'",
+    "text": "Using this lesson with edumath and SymPy\nThe solver layer expects SymPy objects. If a student starts with typed text, parse it first, then solve the parsed equation.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nparsed = parse_equation(\"3x + 2 = 11\")\nsolution = solve_equation_steps(parsed)\nprint(solution.render_text())\n\nAnswer: x = 3\n\nMethod: linear equation\n\nSteps:\n\n1. Original equation:\nEq(3*x + 2, 11)\n\n2. Move everything to one side:\nEq(3*x - 9, 0)\nThis writes the equation in the form ax + b = 0.\n\n3. Move the constant term:\nEq(3*x, 9)\n\n4. Divide by the coefficient of the variable:\nEq(x, 3)\n\nCheck:\n\nx = 3: valid\n\n\n\nimport sympy as sp\n\nx = sp.symbols(\"x\")\nexpr = (x + 2)*(x - 3)\nsp.expand(expr), sp.factor(sp.expand(expr))\n\n(x**2 - x - 6, (x - 3)*(x + 2))\n\n\n\nequation = sp.Eq(sp.sqrt(x + 5), x - 1)\ncandidates = sp.solve(equation, x)\n[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]\n\n[(4, True)]\n\n\n\nfrom edumath.algebra import expand_question\n\nquestion = expand_question((x + 1)**2)\nquestion.check(\"x**2 + 2*x + 1\").message\n\n'Correct.'",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6497,6 +6588,19 @@
     "title": "Polynomials",
     "section": "Why this matters later",
     "text": "Why this matters later\n\nCalculus: polynomials are easy to differentiate and integrate and are used in Taylor approximations.\nLinear algebra: eigenvalues are roots of characteristic polynomials.\nStatistics: polynomial regression models curved relationships.\nNumerical methods: interpolation and root-finding often begin with polynomial approximations.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Polynomials"
+    ]
+  },
+  {
+    "objectID": "lessons/algebra/polynomials.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/polynomials.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Polynomials",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nPolynomial questions usually ask for structure: degree, leading behavior, roots, multiplicity, or factors. Guess the structure before expanding.\n\nLab 1: vocabulary from a polynomial\nGuess first. For p(x) = -2x^4 + 3x^2 - 7, what controls the end behavior?\nGuided exercise.\nThe leading term is -2x^4. Therefore:\ndegree = 4\nleading coefficient = -2\neven degree + negative leading coefficient -&gt; both ends go down\n\nCheckpoint. For q(x) = 5x^3 - x^2 + 9, identify the degree, leading coefficient, constant term, and end behavior.\n\n\n\nLab 2: roots from factored form\nGuess first. How many roots can you read from p(x) = (x - 4)(x + 2)^2?\nGuided exercise.\nx - 4 = 0      -&gt; x = 4\nx + 2 = 0      -&gt; x = -2\nThe root -2 has multiplicity 2, so the graph touches and turns there. The root 4 has multiplicity 1, so the graph crosses there.\n\nCheckpoint. List the roots and multiplicities of r(x) = (x + 5)^3(x - 1)^2.\n\n\n\nLab 3: build from roots\nGuess first. A polynomial with roots -3, 2, and 2 should contain which factors?\nGuided exercise.\nroot -3 -&gt; factor x + 3\nroot 2  -&gt; factor x - 2\nroot 2 again -&gt; another factor x - 2\np(x) = (x + 3)(x - 2)^2\nYou can leave the answer factored when roots are the important feature.\n\nCheckpoint. Build a least-degree polynomial with roots 0, 4, and -1, where 4 has multiplicity 2.\n\n\n\nLab 4: Factor Theorem thinking\nGuess first. If p(3) = 0, what factor must divide p(x)?\nGuided exercise.\nThe Factor Theorem says:\np(c) = 0  means  (x - c) is a factor\nSo if p(3) = 0, then (x - 3) is a factor. If p(-5) = 0, then (x + 5) is a factor.\n\nCheckpoint. If p(2) = 0 and p(-1) = 0, name two factors of p(x). Then write a possible degree-2 polynomial with those roots.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6752,6 +6856,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/expressions-and-equations.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/expressions-and-equations.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Expressions and Equations",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nUse these mini-labs after the main explanations. Each lab asks you to guess first, then follow the steps, then try a checkpoint without looking back.\n\nLab 1: expression, equation, or identity?\nGuess first. Decide whether each object is an expression, an equation, or an identity.\nA. 3x - 7\nB. 3x - 7 = 11\nC. 2(x + 1) = 2x + 2\nGuided exercise.\n\nLook for an equals sign. No equals sign means expression, so A is an expression.\nIf there is an equals sign, ask whether it is true for all allowed values or only some values.\nB is an equation because it is true only for x = 6.\nC is an identity because expanding the left side gives 2x + 2, so both sides match for every x.\n\n\nCheckpoint. Classify each: 5 - y, y^2 = 9, (x - 4)^2 = x^2 - 8x + 16. Then write one sentence explaining how you decided.\n\n\n\nLab 2: substitute carefully\nGuess first. For E = 2a^2 - 3b, estimate whether the value is positive or negative when a = -2 and b = 5.\nGuided exercise.\nE = 2a^2 - 3b\n  = 2(-2)^2 - 3(5)\n  = 2(4) - 15\n  = 8 - 15\n  = -7\nNotice that (-2)^2 = 4. Parentheses protect the negative sign.\n\nCheckpoint. Evaluate 4p - 2q^2 when p = -3 and q = -2. Show the substitution line before simplifying.\n\n\n\nLab 3: build equivalent forms\nGuess first. Is (x + 5)(x - 2) equivalent to x^2 + 3x - 10, x^2 - 3x - 10, or x^2 + 7x - 10?\nGuided exercise.\n(x + 5)(x - 2)\n= x(x - 2) + 5(x - 2)\n= x^2 - 2x + 5x - 10\n= x^2 + 3x - 10\nEvery equivalent form tells a different story: expanded form shows coefficients, while factored form shows roots.\n\nCheckpoint. Expand (2x - 1)(x + 4). Then factor your result back to check.\n\n\n\nLab 4: solve and check a linear equation\nGuess first. In 4(x - 2) + 3 = 19, should x be smaller than 5, equal to 5, or larger than 5?\nGuided exercise.\n4(x - 2) + 3 = 19\n4x - 8 + 3 = 19        expand\n4x - 5 = 19            combine like terms\n4x = 24                add 5 to both sides\nx = 6                  divide by 4\nCheck in the original equation:\n4(6 - 2) + 3 = 16 + 3 = 19\n\nCheckpoint. Solve 3(2x + 1) - 5 = 16. Show each balanced operation and check the answer in the original equation.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Expressions and Equations"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/expressions-and-equations.html#guessing-game-checkpoint",
     "href": "lessons/algebra/expressions-and-equations.html#guessing-game-checkpoint",
     "title": "Expressions and Equations",
@@ -6769,7 +6886,7 @@
     "href": "lessons/algebra/expressions-and-equations.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Expressions and Equations",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse SymPy to check symbolic transformations and use edumath quiz helpers to turn those transformations into auto-checkable practice.\n\nimport sympy as sp\n\nfrom edumath.algebra import expand_question, factor_question\n\nx = sp.Symbol(\"x\")\nexpanded = sp.expand((x + 3) * (x - 2))\nfactored = sp.factor(x**2 + x - 6)\nexpanded, factored\n\n(x**2 + x - 6, (x - 2)*(x + 3))\n\n\n\nquestion = expand_question((x + 1) ** 2)\nquestion.check(\"x**2 + 2*x + 1\").message\n\n'Correct.'",
+    "text": "Using this lesson with edumath and SymPy\nUse the parser/solver workflow when a text equation should become a SymPy equation first and a step-by-step edumath solution second.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nstep_solution = solve_equation_steps(parse_equation(\"4(x - 2) + 3 = 19\"))\nprint(step_solution.render_text())\n\nAnswer: x = 6\n\nMethod: linear equation\n\nSteps:\n\n1. Original equation:\nEq(4*(x - 1*2) + 3, 19)\n\n2. Expand both sides:\nEq(4*x - 5, 19)\n\n3. Move everything to one side:\nEq(4*x - 24, 0)\nThis writes the equation in the form ax + b = 0.\n\n4. Move the constant term:\nEq(4*x, 24)\n\n5. Divide by the coefficient of the variable:\nEq(x, 6)\n\nCheck:\n\nx = 6: valid\n\n\nUse SymPy to check symbolic transformations and use edumath quiz helpers to turn those transformations into auto-checkable practice.\n\nimport sympy as sp\n\nfrom edumath.algebra import expand_question, factor_question\n\nx = sp.Symbol(\"x\")\nexpanded = sp.expand((x + 3) * (x - 2))\nfactored = sp.factor(x**2 + x - 6)\nexpanded, factored\n\n(x**2 + x - 6, (x - 2)*(x + 3))\n\n\n\nquestion = expand_question((x + 1) ** 2)\nquestion.check(\"x**2 + 2*x + 1\").message\n\n'Correct.'",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6960,6 +7077,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/exponentials-and-logarithms.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/exponentials-and-logarithms.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Exponentials and Logarithms",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nExponentials build repeated multiplication. Logarithms answer exponent questions. Guess which inverse operation you need before solving.\n\nLab 1: exponent rules with meaning\nGuess first. Is a^3 * a^4 closer to a^7 or a^12?\nGuided exercise.\na^3 * a^4 = (a*a*a)(a*a*a*a) = a^7\nAdd exponents only when the bases match and you are multiplying powers.\n\nCheckpoint. Simplify x^5/x^2 and (2x^3)^2. State which rule you used.\n\n\n\nLab 2: growth and decay\nGuess first. In P(t) = 500(1.08)^t, is the quantity growing or decaying?\nGuided exercise.\nThe base is 1.08, which is larger than 1, so the model grows by 8% each time period. At t = 3:\nP(3) = 500(1.08)^3\n     = 629.856\n\nCheckpoint. Interpret A(t) = 1200(0.85)^t. Is it growth or decay? What is the percent change each time period?\n\n\n\nLab 3: logarithms as inverse questions\nGuess first. What power of 2 gives 32?\nGuided exercise.\nlog_2(32) = ?\n2^? = 32\n2^5 = 32\nlog_2(32) = 5\n\nCheckpoint. Rewrite log_3(81) = 4 in exponential form. Then evaluate log_5(1/25).\n\n\n\nLab 4: solve exponential and logarithmic equations\nGuess first. To solve 3^(x - 1) = 27, should you use common bases or logs?\nGuided exercise.\n3^(x - 1) = 27\n3^(x - 1) = 3^3\nx - 1 = 3\nx = 4\nFor a logarithmic equation, rewrite in exponential form:\nlog_2(x + 6) = 5\nx + 6 = 2^5\nx + 6 = 32\nx = 26\nCheck the log domain: x + 6 &gt; 0, and 26 works.\n\nCheckpoint. Solve 5^(2x) = 125 and log_3(x - 1) = 2. Include a domain check for the logarithmic equation.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Exponentials and Logarithms"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/exponentials-and-logarithms.html#guessing-game-checkpoint",
     "href": "lessons/algebra/exponentials-and-logarithms.html#guessing-game-checkpoint",
     "title": "Exponentials and Logarithms",
@@ -6977,7 +7107,7 @@
     "href": "lessons/algebra/exponentials-and-logarithms.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Exponentials and Logarithms",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\n\nimport sympy as sp\n\nx = sp.Symbol(\"x\", positive=True)\nsp.solve(sp.Eq(3**x, 20), x)\n\n[log(20)/log(3)]\n\n\n\nsp.solve(sp.Eq(sp.log(x, 10), 3), x)\n\n[1000]\n\n\n\nequation = sp.Eq(sp.log(x) + sp.log(x - 3), sp.log(10))\ncandidates = sp.solve(equation, x)\n[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]\n\n[(5, True)]\n\n\n\nt = sp.symbols(\"t\")\nsolution = sp.solve(sp.Eq(100 * 1.05**t, 150), t)[0]\nfloat(solution)\n\n8.310386222520568",
+    "text": "Using this lesson with edumath and SymPy\nUse parsed equations with the solver for exact symbolic answers, then interpret them using exponent and logarithm rules.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nexponential_solution = solve_equation_steps(parse_equation(\"3^(x - 1) = 27\"))\nprint(exponential_solution.render_text())\n\nAnswer: x = 4\n\nMethod: SymPy solveset\n\nSteps:\n\n1. Original equation:\nEq(3**(x - 1*1), 27)\n\n2. Solve symbolically:\nx ∈ {4}\nSymPy found the solution set directly.\n\nCheck:\n\nx = 4: valid\n\n\n\nimport sympy as sp\n\nx = sp.Symbol(\"x\", positive=True)\nsp.solve(sp.Eq(3**x, 20), x)\n\n[log(20)/log(3)]\n\n\n\nsp.solve(sp.Eq(sp.log(x, 10), 3), x)\n\n[1000]\n\n\n\nequation = sp.Eq(sp.log(x) + sp.log(x - 3), sp.log(10))\ncandidates = sp.solve(equation, x)\n[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]\n\n[(5, True)]\n\n\n\nt = sp.symbols(\"t\")\nsolution = sp.solve(sp.Eq(100 * 1.05**t, 150), t)[0]\nfloat(solution)\n\n8.310386222520568",
     "crumbs": [
       "Home",
       "Lessons",
@@ -7194,6 +7324,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/functions-and-graphs.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/functions-and-graphs.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Functions and Graphs",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nFunctions connect formulas, tables, graphs, and verbal descriptions. In each lab, make a prediction before calculating.\n\nLab 1: decide whether a relation is a function\nGuess first. Can one input have two outputs and still be a function?\nGuided exercise.\nA relation is a function when each input has exactly one output. The set {(1, 4), (2, 5), (1, 6)} is not a function because input 1 points to both 4 and 6.\n\nCheckpoint. Decide whether {(-1, 3), (0, 3), (2, 7), (3, 7)} is a function. Explain your reason using the words input and output.\n\n\n\nLab 2: evaluate a function from a formula\nGuess first. For f(x) = x^2 - 3x + 2, do you expect f(4) to be positive, negative, or zero?\nGuided exercise.\nf(x) = x^2 - 3x + 2\nf(4) = 4^2 - 3(4) + 2\n     = 16 - 12 + 2\n     = 6\n\nCheckpoint. For g(t) = 2t^2 + t - 1, compute g(-2) and g(0). Show the substitution step.\n\n\n\nLab 3: find domain restrictions from a formula\nGuess first. Which inputs are forbidden in h(x) = sqrt(x - 1)/(x + 3)?\nGuided exercise.\n\nThe square root requires x - 1 &gt;= 0, so x &gt;= 1.\nThe denominator requires x + 3 != 0, so x != -3.\nSince x &gt;= 1 already excludes -3, the domain is [1, infinity).\n\n\nCheckpoint. Find the domain of p(x) = sqrt(5 - x)/(x - 2). State both the root condition and the denominator condition before combining them.\n\n\n\nLab 4: average rate of change\nGuess first. If a graph rises from y = 2 to y = 10 while x moves from 1 to 5, is the average rate positive or negative?\nGuided exercise.\naverage rate = change in output / change in input\n             = (10 - 2)/(5 - 1)\n             = 8/4\n             = 2\nFor a formula, compute the two output values first, then use the same fraction.\n\nCheckpoint. For f(x) = x^2, find the average rate of change from x = 1 to x = 4. Interpret the answer in one sentence.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Functions and Graphs"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/functions-and-graphs.html#guessing-game-checkpoint",
     "href": "lessons/algebra/functions-and-graphs.html#guessing-game-checkpoint",
     "title": "Functions and Graphs",
@@ -7311,6 +7454,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/index.html#how-the-upgraded-lessons-are-organized",
+    "href": "lessons/algebra/index.html#how-the-upgraded-lessons-are-organized",
+    "title": "Algebra Study Path",
+    "section": "How the upgraded lessons are organized",
+    "text": "How the upgraded lessons are organized\nEach Algebra lesson now includes a guided practice layer in addition to the main examples:\n\nguess first prompts that train estimation and method selection;\nguided exercises that show one small algebraic move at a time;\ncheckpoint exercises that ask you to repeat the same reasoning without the solution immediately visible;\na topic-specific browser guessing game near the end of the lesson;\na final edumath and SymPy appendix for checking work computationally.\n\nWhen a problem involves solving, copy the step format by hand: write the original problem, change one thing per line, name the operation, and check the result in the original problem.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Algebra Study Path"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/index.html#how-to-study-these-lessons",
     "href": "lessons/algebra/index.html#how-to-study-these-lessons",
     "title": "Algebra Study Path",
@@ -7324,11 +7480,11 @@
     ]
   },
   {
-    "objectID": "lessons/algebra/index.html#using-this-path-with-edumath-and-sympy",
-    "href": "lessons/algebra/index.html#using-this-path-with-edumath-and-sympy",
+    "objectID": "lessons/algebra/index.html#using-this-lesson-with-edumath-and-sympy",
+    "href": "lessons/algebra/index.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Algebra Study Path",
-    "section": "Using this path with edumath and SymPy",
-    "text": "Using this path with edumath and SymPy\nThe lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()\nfig",
+    "section": "Using this lesson with edumath and SymPy",
+    "text": "Using this lesson with edumath and SymPy\nThe lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()\nfig",
     "crumbs": [
       "Home",
       "Lessons",
@@ -7432,7 +7588,7 @@
     "href": "lessons/algebra/rational-and-radical-functions.html#graph-features-of-rational-functions",
     "title": "Rational and Radical Functions",
     "section": "Graph features of rational functions",
-    "text": "Graph features of rational functions\n\nA vertical asymptote usually comes from a denominator factor that does not cancel.\nA hole comes from a denominator factor that cancels.\nAn x-intercept comes from a remaining numerator zero.\nA horizontal asymptote describes long-run behavior.\n\nFor horizontal asymptotes, compare degrees:\n\n\n\nDegrees\nHorizontal behavior\n\n\n\n\nnumerator degree smaller\ny = 0\n\n\nequal degrees\nratio of leading coefficients\n\n\nnumerator degree larger by one\nslant asymptote preview\n\n\n\n\n\n&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in power\n  return (x - 2)**(-1.0)",
+    "text": "Graph features of rational functions\n\nA vertical asymptote usually comes from a denominator factor that does not cancel.\nA hole comes from a denominator factor that cancels.\nAn x-intercept comes from a remaining numerator zero.\nA horizontal asymptote describes long-run behavior.\n\nFor horizontal asymptotes, compare degrees:\n\n\n\nDegrees\nHorizontal behavior\n\n\n\n\nnumerator degree smaller\ny = 0\n\n\nequal degrees\nratio of leading coefficients\n\n\nnumerator degree larger by one\nslant asymptote preview\n\n\n\n\n\n&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in reciprocal\n  return (x - 2)**(-1.0)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -7493,6 +7649,19 @@
     ]
   },
   {
+    "objectID": "lessons/algebra/rational-and-radical-functions.html#subtopic-guided-practice-and-checkpoints",
+    "href": "lessons/algebra/rational-and-radical-functions.html#subtopic-guided-practice-and-checkpoints",
+    "title": "Rational and Radical Functions",
+    "section": "Subtopic guided practice and checkpoints",
+    "text": "Subtopic guided practice and checkpoints\nRational and radical problems are solved safely only when restrictions stay visible. Guess the restrictions before simplifying or solving.\n\nLab 1: find restrictions first\nGuess first. What value is forbidden in (x + 5)/(x - 4)?\nGuided exercise.\nSet the denominator equal to zero:\nx - 4 = 0\nx = 4\nSo the domain is all real numbers except 4.\n\nCheckpoint. Find the forbidden values for (x^2 + 1)/(x^2 - 9).\n\n\n\nLab 2: simplify and keep the hole\nGuess first. In (x^2 - 1)/(x - 1), does canceling remove every memory of x = 1?\nGuided exercise.\n(x^2 - 1)/(x - 1)\n= ((x - 1)(x + 1))/(x - 1)\n= x + 1, but x != 1\nThe visible graph follows the line y = x + 1, but the original function has a hole at x = 1.\n\nCheckpoint. Simplify (x^2 - 4)/(x + 2) and state the excluded value.\n\n\n\nLab 3: solve a rational equation\nGuess first. For 1/(x - 2) = 3, should the solution be greater than 2 or less than 2?\nGuided exercise.\n1/(x - 2) = 3\nx != 2                         restriction\n1 = 3(x - 2)                   multiply by x - 2\n1 = 3x - 6\n7 = 3x\nx = 7/3\nCheck: 7/3 is not forbidden, and 1/(7/3 - 2) = 1/(1/3) = 3.\n\nCheckpoint. Solve 2/(x + 1) = 5. State the restriction and check the candidate.\n\n\n\nLab 4: solve a radical equation\nGuess first. For sqrt(x + 5) = x - 1, must x - 1 be nonnegative?\nGuided exercise.\nsqrt(x + 5) = x - 1\nx - 1 &gt;= 0, so x &gt;= 1        because square roots are nonnegative\nx + 5 = (x - 1)^2            square both sides\nx + 5 = x^2 - 2x + 1\n0 = x^2 - 3x - 4\n0 = (x - 4)(x + 1)\nx = 4 or x = -1\nOnly x = 4 satisfies the restriction and the original equation.\n\nCheckpoint. Solve sqrt(x + 1) = x - 1. Check every candidate in the original radical equation.",
+    "crumbs": [
+      "Home",
+      "Lessons",
+      "Algebra",
+      "Rational and Radical Functions"
+    ]
+  },
+  {
     "objectID": "lessons/algebra/rational-and-radical-functions.html#guessing-game-checkpoint",
     "href": "lessons/algebra/rational-and-radical-functions.html#guessing-game-checkpoint",
     "title": "Rational and Radical Functions",
@@ -7510,7 +7679,7 @@
     "href": "lessons/algebra/rational-and-radical-functions.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Rational and Radical Functions",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse SymPy to check algebraic forms, while you remain responsible for restrictions.\n\nimport sympy as sp\n\nx = sp.symbols(\"x\")\nexpr = (x**2 - 9)/(x**2 - x - 6)\nsp.factor(expr), sp.cancel(expr)\n\n((x + 3)/(x + 2), (x + 3)/(x + 2))\n\n\n\ndenominator = sp.denom(expr)\nsp.factor(denominator), sp.solve(sp.Eq(denominator, 0), x)\n\n((x - 3)*(x + 2), [-2, 3])\n\n\n\nequation = sp.Eq(1/(x - 1) + 2/(x + 1), 1)\ncandidates = sp.solve(equation, x)\n[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]\n\n[(0, True), (3, True)]\n\n\n\nradical_equation = sp.Eq(sp.sqrt(x + 5), x - 1)\ncandidates = sp.solve(radical_equation, x)\n[(candidate, sp.checksol(radical_equation, x, candidate)) for candidate in candidates]\n\n[(4, True)]",
+    "text": "Using this lesson with edumath and SymPy\nUse the parser/solver workflow to check candidate solutions. For rational and radical equations, still inspect restrictions and original-equation checks.\n\nfrom edumath.core import parse_equation\nfrom edumath.solvers import solve_equation_steps\n\nrational_solution = solve_equation_steps(parse_equation(\"1/(x - 2) = 3\"))\nprint(rational_solution.render_text())\n\nAnswer: x = 7/3\n\nMethod: SymPy solveset\n\nSteps:\n\n1. Original equation:\nEq(1/(x - 1*2), 3)\n\n2. Solve symbolically:\nx ∈ {7/3}\nSymPy found the solution set directly.\n\nCheck:\n\nx = 7/3: valid\n\n\nUse SymPy to check algebraic forms, while you remain responsible for restrictions.\n\nimport sympy as sp\n\nx = sp.symbols(\"x\")\nexpr = (x**2 - 9)/(x**2 - x - 6)\nsp.factor(expr), sp.cancel(expr)\n\n((x + 3)/(x + 2), (x + 3)/(x + 2))\n\n\n\ndenominator = sp.denom(expr)\nsp.factor(denominator), sp.solve(sp.Eq(denominator, 0), x)\n\n((x - 3)*(x + 2), [-2, 3])\n\n\n\nequation = sp.Eq(1/(x - 1) + 2/(x + 1), 1)\ncandidates = sp.solve(equation, x)\n[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]\n\n[(0, True), (3, True)]\n\n\n\nradical_equation = sp.Eq(sp.sqrt(x + 5), x - 1)\ncandidates = sp.solve(radical_equation, x)\n[(candidate, sp.checksol(radical_equation, x, candidate)) for candidate in candidates]\n\n[(4, True)]",
     "crumbs": [
       "Home",
       "Lessons",
