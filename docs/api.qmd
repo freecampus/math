@@ -16,15 +16,18 @@ student-facing apps.
 
 ### Equation solving
 
-Use `solve_equation_steps()` to solve a single-variable equation and return a
-structured `EquationSolution`. The answer and transformations are computed with
-SymPy/edumath; no network access or API key is required.
+Use `solve_equation_steps()` to solve a single-variable SymPy equation and
+return a structured `EquationSolution`. The answer and transformations are
+computed with SymPy/edumath; no network access or API key is required. If the
+starting point is user text, parse it first with `edumath.core.parse_equation()`.
 
 ```{python}
 #| echo: true
+from edumath.core import parse_equation
 from edumath.solvers import solve_equation_steps
 
-solution = solve_equation_steps("2(x - 3) + 4 = 10")
+equation = parse_equation("2(x - 3) + 4 = 10")
+solution = solve_equation_steps(equation)
 solution.answer
 ```
 
@@ -35,24 +38,39 @@ The same object can be rendered as text or Markdown for lessons:
 print(solution.render_text())
 ```
 
+### Parsing user text
+
+String parsing lives outside the solver layer. Use `parse_expression()` for
+expressions and `parse_equation()` for equations. The parser supports classroom
+input such as implicit multiplication (`2x`) and caret powers (`x^2`).
+
+```{python}
+#| echo: true
+from edumath.core import parse_equation, parse_expression
+
+parse_expression("2x^2 + 3x")
+parse_equation("2y + 3 = 7")
+```
+
 ### Optional AI explanations
 
-If an OpenAI API key is provided, `solve_equation_steps()` can add an optional
-tutor explanation after the symbolic solution has already been computed and
-checked. Without a key, the function simply returns the solved result with no AI
-explanation.
+If an OpenAI API key is configured, `solve_equation_steps()` can add an
+optional tutor explanation after the symbolic solution has already been computed
+and checked. Without a configured key, the function simply returns the solved
+result with no AI explanation.
 
 ```python
+from edumath.core import parse_equation
+from edumath.settings import configure
 from edumath.solvers import solve_equation_steps
 
-solution = solve_equation_steps(
-    "2(x - 3) + 4 = 10",
-    api_key="YOUR_OPENAI_API_KEY",
-)
+configure(openai_api_key="YOUR_OPENAI_API_KEY")
+equation = parse_equation("2(x - 3) + 4 = 10")
+solution = solve_equation_steps(equation, explain=True)
 print(solution.explanation)
 ```
 
-The OpenAI model can be changed with the `model=` argument, and tests or
+The OpenAI model can be changed with `configure(openai_model=...)`, and tests or
 applications can provide a custom `explanation_client=` that follows the
 `EquationExplanationClient` protocol.
 

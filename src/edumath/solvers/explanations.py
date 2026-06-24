@@ -8,10 +8,11 @@ import urllib.request
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Protocol
 
+from edumath.settings import DEFAULT_OPENAI_MODEL, get_settings
+
 if TYPE_CHECKING:
     from edumath.solvers.models import EquationSolution
 
-DEFAULT_OPENAI_MODEL = "gpt-5.4-mini"
 DEFAULT_OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 
 
@@ -30,8 +31,8 @@ class OpenAIEquationExplanationClient:
     client only turns the already-computed steps into student-friendly prose.
     """
 
-    api_key: str
-    model: str = DEFAULT_OPENAI_MODEL
+    api_key: str | None = None
+    model: str | None = None
     endpoint: str = DEFAULT_OPENAI_RESPONSES_URL
     timeout: float = 30.0
     max_output_tokens: int = 600
@@ -39,12 +40,15 @@ class OpenAIEquationExplanationClient:
     def explain_equation_solution(self, solution: EquationSolution) -> str:
         """Ask OpenAI for a concise explanation of a solved equation."""
 
-        if not self.api_key.strip():
-            msg = "api_key must not be empty"
+        settings = get_settings()
+        api_key = self.api_key if self.api_key is not None else settings.openai_api_key
+        if api_key is None or not api_key.strip():
+            msg = "openai_api_key must be configured before requesting explanations"
             raise ValueError(msg)
+        model = self.model if self.model is not None else settings.openai_model
 
         payload = {
-            "model": self.model,
+            "model": model,
             "instructions": _instruction_text(),
             "input": _equation_solution_prompt(solution),
             "max_output_tokens": self.max_output_tokens,
@@ -53,7 +57,7 @@ class OpenAIEquationExplanationClient:
             self.endpoint,
             data=json.dumps(payload).encode("utf-8"),
             headers={
-                "Authorization": f"Bearer {self.api_key}",
+                "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
             },
             method="POST",

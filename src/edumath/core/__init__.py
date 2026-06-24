@@ -16,6 +16,8 @@ from edumath.core.exercises import (
 from edumath.core.expressions import (
     MathExpression,
     expression_equivalent,
+    infer_variable,
+    parse_equation,
     parse_expression,
 )
 from edumath.core.lessons import LearningObjective, Lesson, LessonSection, StudyPath
@@ -88,6 +90,8 @@ __all__ = [
     "check_expression_answer",
     "check_numeric_answer",
     "expression_equivalent",
+    "infer_variable",
+    "parse_equation",
     "parse_expression",
     "render_exercise_markdown",
     "render_practice_set",
