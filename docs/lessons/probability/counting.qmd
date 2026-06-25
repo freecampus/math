@@ -1,49 +1,354 @@
 ---
 title: Counting
-description: Factorials and combinations.
+description: Product rules, factorials, permutations, and combinations for probability.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Many probability questions are counting questions in disguise. If all outcomes
+are equally likely, then
 
-- Compute factorials.
-- Compute combinations.
-- Use counting before probability.
-:::
-
-```{python}
-from edumath.probability.distributions import combinations, factorial
-
-factorial(5), combinations(5, 2)
+```text
+probability = favorable outcomes / total outcomes
 ```
 
-::: {.practice-box}
-1. Compute `4!`.
-2. Compute `C(6, 2)`.
-3. Why does order matter in permutations but not combinations?
+So before computing a probability, we often need to count how many outcomes are
+possible and how many satisfy the event.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- use the sum rule and product rule;
+- compute factorials;
+- decide whether order matters;
+- distinguish permutations from combinations;
+- distinguish with replacement from without replacement;
+- use counting to compute simple probabilities.
 :::
 
+## Why counting matters in probability
+
+Suppose a class has 10 students and 3 students will be chosen for a committee.
+If every committee is equally likely, a probability about the committee requires
+knowing how many committees are possible. Listing all committees by hand would be
+slow, so we use counting principles.
+
+## The product rule
+
+Use the **product rule** when a process has stages and each choice is combined
+with each later choice.
+
+If there are 3 shirt choices and 2 pants choices, then there are
+
+```text
+3 * 2 = 6
+```
+
+outfits.
+
+::: {.key-idea}
+### Product rule question
+
+Ask: “Do I choose one thing from group A and one thing from group B?” If yes,
+multiply.
+:::
+
+## The sum rule
+
+Use the **sum rule** when choices are separate alternatives that cannot happen at
+the same time.
+
+If a snack is either one of 4 fruits or one of 3 crackers, then there are
+
+```text
+4 + 3 = 7
+```
+
+snack choices.
+
+## Factorials
+
+A factorial counts arrangements of all items in a list:
+
+```text
+n! = n * (n-1) * (n-2) * ... * 2 * 1
+```
+
+For example:
+
+```text
+4! = 4 * 3 * 2 * 1 = 24
+```
+
+There are 24 ways to arrange 4 different books on a shelf.
+
+## Permutations: order matters
+
+A **permutation** counts ordered selections. If you choose 2 winners from 5
+people for first place and second place, order matters. Alice then Bob is
+different from Bob then Alice.
+
+The formula is
+
+```text
+P(n,k) = n! / (n-k)!
+```
+
+For 2 ordered winners from 5 people:
+
+```text
+P(5,2) = 5 * 4 = 20
+```
+
+## Combinations: order does not matter
+
+A **combination** counts unordered selections. If you choose 2 people from 5 for
+a committee, Alice-Bob is the same committee as Bob-Alice.
+
+The formula is
+
+```text
+C(n,k) = n! / (k!(n-k)!)
+```
+
+For 2 people from 5:
+
+```text
+C(5,2) = (5 * 4) / (2 * 1) = 10
+```
+
+## With replacement versus without replacement
+
+**With replacement** means the same item can be chosen again. Example: rolling a
+die three times.
+
+**Without replacement** means once an item is chosen, it is removed. Example:
+dealing cards from a deck.
+
+This difference changes the count. With replacement, options may stay constant.
+Without replacement, the number of options usually decreases.
+
+## Worked example 1: product rule
+
+A password has 2 letters followed by 1 digit. Suppose letters can repeat and the
+digit can be 0 through 9. How many passwords are possible?
+
+1. First letter: 26 choices.
+2. Second letter: 26 choices.
+3. Digit: 10 choices.
+4. Multiply:
+
+```text
+26 * 26 * 10 = 6760
+```
+
+## Worked example 2: combination probability
+
+A group has 6 students. A 2-person committee is chosen at random. What is the
+probability that students Ana and Ben are both chosen?
+
+1. Count all possible committees:
+
+   ```text
+   C(6,2) = 15
+   ```
+
+2. Count favorable committees. There is only one committee containing exactly
+   Ana and Ben together:
+
+   ```text
+   {Ana, Ben}
+   ```
+
+3. Compute probability:
+
+   ```text
+   1 / 15
+   ```
+
+## Common pitfalls
+
+- Adding when you should multiply.
+- Multiplying when choices are alternatives.
+- Using permutations when order does not matter.
+- Using combinations when order matters.
+- Forgetting that “without replacement” changes later choices.
+- Dividing by the wrong total count.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Compute `5!`.
+2. A menu has 4 mains and 3 drinks. How many main-drink meals are possible?
+3. Compute `P(6,2)`.
+4. Compute `C(6,2)`.
+5. Are PIN codes permutations or combinations? Explain.
+:::
+
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. `5! = 120`.
+2. `4 * 3 = 12`.
+3. `P(6,2) = 6 * 5 = 30`.
+4. `C(6,2) = (6 * 5)/(2 * 1) = 15`.
+5. PIN codes are ordered, so they use permutation/product-rule thinking. `1234`
+   and `4321` are different PINs.
+:::
 
-Answer: `24`.
+## Subtopic guided practice and checkpoints
 
-`4! = 4 * 3 * 2 * 1 = 24`.
+Counting becomes easier when you first decide what kind of counting problem you
+have.
+
+### Lab 1: choose between sum rule and product rule
+
+**Guess first.** If you choose one shirt and one pair of pants, should you add
+or multiply?
+
+**Guided exercise.**
+
+You choose one item from each category. If there are 5 shirts and 4 pants, then
+
+```text
+5 * 4 = 20
+```
+
+outfits are possible.
+
+::: {.practice-box}
+**Checkpoint.** A lunch is one sandwich and one drink. There are 3 sandwiches
+and 5 drinks. How many lunches are possible?
+:::
+
+### Lab 2: expand factorials step by step
+
+**Guess first.** Is `6!` equal to `6 * 5!`?
+
+**Guided exercise.**
+
+```text
+6! = 6 * 5 * 4 * 3 * 2 * 1
+   = 720
+```
+
+Also:
+
+```text
+6! = 6 * 5!
+```
+
+This shortcut helps simplify formulas.
+
+::: {.practice-box}
+**Checkpoint.** Compute `3!` and `6!/4!`.
+:::
+
+### Lab 3: decide whether order matters
+
+**Guess first.** Does a gold-silver-bronze race result care about order?
+
+**Guided exercise.**
+
+Yes. If Ana wins gold and Ben wins silver, that is different from Ben winning
+gold and Ana winning silver. Ordered awards use permutations.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether each situation uses permutations or combinations:
+choosing a 3-person committee; arranging 3 books; choosing first and second
+place.
+:::
+
+### Lab 4: compute a combination
+
+**Guess first.** Should `C(7,2)` be smaller than `P(7,2)`?
+
+**Guided exercise.**
+
+```text
+C(7,2) = 7! / (2!5!)
+       = (7 * 6) / (2 * 1)
+       = 21
+```
+
+It is smaller than `P(7,2)=42` because combinations ignore order.
+
+::: {.practice-box}
+**Checkpoint.** Compute `C(8,3)`.
+:::
+
+### Lab 5: convert counting into probability
+
+**Guess first.** If there are 10 equally likely outcomes and 4 favorable
+outcomes, what is the probability?
+
+**Guided exercise.**
+
+```text
+P(event) = favorable / total = 4 / 10 = 2 / 5
+```
+
+Counting is not the final step; it gives the numerator and denominator.
+
+::: {.practice-box}
+**Checkpoint.** From 5 students, 2 are chosen for a committee. What is the
+probability that a particular pair is chosen?
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: `15`.
-
-`C(6, 2) = 6! / (2! 4!) = (6 * 5) / (2 * 1) = 15`.
+1. `3 * 5 = 15` lunches.
+2. `3! = 6`. Also `6!/4! = 6 * 5 = 30`.
+3. Committee: combinations. Arranging books: permutations. First and second
+   place: permutations.
+4. `C(8,3) = (8 * 7 * 6)/(3 * 2 * 1) = 56`.
+5. There are `C(5,2)=10` committees and one particular pair, so the probability
+   is `1/10`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Counting guessing game
 
-Answer: permutations count arrangements, so `AB` and `BA` are different.
-Combinations count selections, so `AB` and `BA` are the same selection.
-:::
+Use this checkpoint to decide which counting idea applies.
+
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "counting",
+  "title": "Counting checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` counting helpers.
+
+```{python}
+#| echo: true
+from edumath.probability import combinations, factorial, permutations
+
+factorial(5), permutations(6, 2), combinations(6, 2)
+```
+
+Python's standard library has similar tools.
+
+```{python}
+#| echo: true
+import math
+
+math.factorial(5), math.perm(6, 2), math.comb(6, 2)
+```
+
+Use SymPy to keep formulas symbolic.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+n, k = sp.symbols("n k", integer=True, nonnegative=True)
+sp.binomial(8, 3)
+```

@@ -179,6 +179,135 @@ $2\times 3$, not $3\times 2$.
    multiplication.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Matrix questions are usually reading questions before they are calculation
+questions. First find the shape, then locate rows, columns, and entries.
+
+### Lab 1: find shape before anything else
+
+**Guess first.** Is a matrix with 4 rows and 2 columns a $4\times2$ matrix or a
+$2\times4$ matrix?
+
+**Guided exercise.**
+
+For
+
+$$
+A=\begin{bmatrix}
+1&0&3\\
+-2&5&4
+\end{bmatrix},
+$$
+
+count rows first and columns second:
+
+1. There are 2 horizontal rows.
+2. There are 3 vertical columns.
+3. The shape is $2\times3$.
+
+::: {.practice-box}
+**Checkpoint.** Find the shape of
+$\begin{bmatrix}1&2\\3&4\\5&6\\7&8\end{bmatrix}$.
+:::
+
+### Lab 2: locate entries with row first, column second
+
+**Guess first.** In $a_{23}$, do you look at row 2 or column 2 first?
+
+**Guided exercise.**
+
+Let
+
+$$
+B=\begin{bmatrix}
+9&8&7\\
+6&5&4
+\end{bmatrix}.
+$$
+
+To find $b_{23}$:
+
+1. Go to row 2: $[6,5,4]$.
+2. Move to column 3 in that row.
+3. The entry is $4$.
+
+::: {.practice-box}
+**Checkpoint.** For the same matrix $B$, find $b_{11}$, $b_{12}$, and $b_{21}$.
+:::
+
+### Lab 3: recognize special matrices by their action
+
+**Guess first.** Which matrix should leave every vector unchanged: zero,
+identity, or diagonal?
+
+**Guided exercise.**
+
+The identity matrix
+
+$$
+I_2=\begin{bmatrix}1&0\\0&1\end{bmatrix}
+$$
+
+leaves vectors unchanged:
+
+$$
+I_2\begin{bmatrix}a\\b\end{bmatrix}=\begin{bmatrix}a\\b\end{bmatrix}.
+$$
+
+A zero matrix sends every vector to the zero vector. A diagonal matrix scales
+coordinates separately.
+
+::: {.practice-box}
+**Checkpoint.** Describe what
+$\begin{bmatrix}4&0\\0&-1\end{bmatrix}$ does to
+$\begin{bmatrix}x\\y\end{bmatrix}$.
+:::
+
+### Lab 4: build a coefficient matrix from equations
+
+**Guess first.** Where does the constant term go when you build a coefficient
+matrix?
+
+**Guided exercise.**
+
+For
+
+$$
+\begin{aligned}
+3x-2y&=7,\\
+-x+5y&=4,
+\end{aligned}
+$$
+
+the coefficients form
+
+$$
+A=\begin{bmatrix}3&-2\\-1&5\end{bmatrix},
+\qquad
+\mathbf{b}=\begin{bmatrix}7\\4\end{bmatrix}.
+$$
+
+The constants are not part of the coefficient matrix. They belong in the
+right-hand-side vector.
+
+::: {.practice-box}
+**Checkpoint.** Write the coefficient matrix and right-hand-side vector for
+$2x+3y=10$ and $4x-y=-1$.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. The shape is $4\times2$.
+2. $b_{11}=9$, $b_{12}=8$, and $b_{21}=6$.
+3. $\begin{bmatrix}4&0\\0&-1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=
+   \begin{bmatrix}4x\\-y\end{bmatrix}$, so it stretches the horizontal
+   coordinate by 4 and flips the vertical coordinate.
+4. $A=\begin{bmatrix}2&3\\4&-1\end{bmatrix}$ and
+   $\mathbf{b}=\begin{bmatrix}10\\-1\end{bmatrix}$.
+:::
+
 ## Matrix guessing game
 
 This checkpoint asks about shapes, entries, and special matrices.

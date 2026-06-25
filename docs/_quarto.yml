@@ -81,6 +81,7 @@ website:
               - lessons/linear-algebra/eigenvalues-eigenvectors.qmd
           - section: Probability
             contents:
+              - lessons/probability/index.qmd
               - lessons/probability/sample-spaces-events.qmd
               - lessons/probability/counting.qmd
               - lessons/probability/conditional-probability.qmd

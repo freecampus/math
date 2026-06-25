@@ -156,6 +156,186 @@ of solutions.
 5. Yes. $2(1)+2=4$ and $1-2=-1$.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Solving a linear system means keeping the solution set unchanged while making
+the equations easier to read.
+
+### Lab 1: translate equations into $A\mathbf{x}=\mathbf{b}$
+
+**Guess first.** In $A\mathbf{x}=\mathbf{b}$, where do the unknowns go?
+
+**Guided exercise.**
+
+For
+
+$$
+\begin{aligned}
+2x+y&=8,\\
+-x+3y&=7,
+\end{aligned}
+$$
+
+write
+
+$$
+A=\begin{bmatrix}2&1\\-1&3\end{bmatrix},
+\qquad
+\mathbf{x}=\begin{bmatrix}x\\y\end{bmatrix},
+\qquad
+\mathbf{b}=\begin{bmatrix}8\\7\end{bmatrix}.
+$$
+
+The unknowns are collected in the vector $\mathbf{x}$. The coefficients belong
+in $A$, and the constants belong in $\mathbf{b}$.
+
+::: {.practice-box}
+**Checkpoint.** Write $3x-2y=1$ and $5x+y=9$ as $A\mathbf{x}=\mathbf{b}$.
+:::
+
+### Lab 2: eliminate one variable step by step
+
+**Guess first.** For $x+y=6$ and $x-y=2$, should adding the equations eliminate
+$x$ or $y$?
+
+**Guided exercise.**
+
+Solve
+
+$$
+\begin{aligned}
+x+y&=6,\\
+x-y&=2.
+\end{aligned}
+$$
+
+Add the equations:
+
+$$
+(x+y)+(x-y)=6+2.
+$$
+
+The $y$ terms cancel, so
+
+$$
+2x=8 \quad \Rightarrow \quad x=4.
+$$
+
+Substitute into the first equation:
+
+$$
+4+y=6 \quad \Rightarrow \quad y=2.
+$$
+
+The solution is $(4,2)$.
+
+::: {.practice-box}
+**Checkpoint.** Solve $x+y=9$ and $x-y=3$ using the same add-the-equations
+strategy.
+:::
+
+### Lab 3: check a solution by substitution
+
+**Guess first.** If a point satisfies only one equation in a two-equation system,
+is it a solution of the system?
+
+**Guided exercise.**
+
+Check whether $(2,3)$ solves
+
+$$
+\begin{aligned}
+x+y&=5,\\
+2x-y&=1.
+\end{aligned}
+$$
+
+Substitute into both equations:
+
+$$
+2+3=5 \quad \text{true},
+$$
+
+and
+
+$$
+2(2)-3=1 \quad \text{true}.
+$$
+
+Both equations are true, so $(2,3)$ is a solution.
+
+::: {.practice-box}
+**Checkpoint.** Check whether $(1,4)$ solves $x+y=5$ and $2x-y=1$.
+:::
+
+### Lab 4: classify the outcome after elimination
+
+**Guess first.** What does $0=7$ mean in a system-solving problem?
+
+**Guided exercise.**
+
+Consider
+
+$$
+\begin{aligned}
+x+y&=3,\\
+2x+2y&=10.
+\end{aligned}
+$$
+
+Twice the first equation gives $2x+2y=6$, but the second equation says
+$2x+2y=10$. These cannot both be true. Elimination would produce an impossible
+statement such as $0=4$, so the system has no solution.
+
+::: {.practice-box}
+**Checkpoint.** Classify $x+y=4$ and $2x+2y=8$. Explain why the answer is not
+“one solution.”
+:::
+
+### Lab 5: describe infinitely many solutions carefully
+
+**Guess first.** If two equations describe the same line, does every point in
+the plane solve the system?
+
+**Guided exercise.**
+
+For
+
+$$
+x+y=4,
+\qquad
+2x+2y=8,
+$$
+
+the second equation is twice the first. The system has infinitely many
+solutions, but only on the line $x+y=4$. One way to describe them is
+
+$$
+(x,y)=(t,4-t)
+$$
+
+for any real number $t$.
+
+::: {.practice-box}
+**Checkpoint.** Describe the solutions of $x-y=1$ and $2x-2y=2$ using a
+parameter.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. $A=\begin{bmatrix}3&-2\\5&1\end{bmatrix}$,
+   $\mathbf{x}=\begin{bmatrix}x\\y\end{bmatrix}$, and
+   $\mathbf{b}=\begin{bmatrix}1\\9\end{bmatrix}$.
+2. Adding gives $2x=12$, so $x=6$. Then $6+y=9$, so $y=3$.
+3. $(1,4)$ satisfies $x+y=5$, but $2(1)-4=-2$, not $1$, so it is not a
+   solution.
+4. The equations describe the same line, so there are infinitely many solutions,
+   not one solution.
+5. Let $y=t$. Then $x=t+1$, so the solutions are $(t+1,t)$ for any real number
+   $t$.
+:::
+
 ## Systems guessing game
 
 Use this checkpoint to practice classification, substitution, and elimination

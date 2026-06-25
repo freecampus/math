@@ -1,0 +1,175 @@
+---
+title: Probability Study Path
+description: A guided path through sample spaces, counting, conditional probability, random variables, distributions, expectation, and variance.
+execute:
+  echo: false
+---
+
+Probability is the mathematics of uncertainty. It helps us reason about events
+that may or may not happen: a coin lands heads, a message is spam, a patient has
+a condition, a machine part fails, or a random sample gives a surprising result.
+The goal is not to guess blindly. The goal is to name what can happen, count it
+carefully, and update probabilities when new information appears.
+
+Probability is also the foundation of statistics, simulation, machine learning,
+risk analysis, quality control, and many scientific models.
+
+::: {.learning-objectives}
+### What you should be able to do by the end
+
+After this study path, you should be able to:
+
+- list outcomes in a sample space;
+- describe events as subsets of outcomes;
+- compute simple probabilities by counting;
+- decide when to use factorials, permutations, and combinations;
+- compute conditional probabilities and recognize independence;
+- define random variables and read probability tables;
+- match common distributions to real situations;
+- compute expected value, variance, and standard deviation;
+- check hand calculations with `edumath`, Python, and SymPy.
+:::
+
+## What makes probability different?
+
+Algebra often asks, “What value makes this equation true?” Probability asks,
+“What outcomes are possible, and how much weight should each outcome receive?”
+A good probability solution usually has three parts:
+
+1. **Model**: name the experiment and sample space.
+2. **Count or measure**: identify favorable outcomes or probabilities.
+3. **Interpret**: explain what the number means in context.
+
+::: {.key-idea}
+### Probability is not just formulas
+
+The same formula can be wrong if the sample space is wrong. Before calculating,
+ask: *What are the outcomes? Are they equally likely? What information is already
+known?*
+:::
+
+## Prerequisite checklist
+
+You do not need advanced mathematics before starting. It helps to be comfortable
+with:
+
+::: {.practice-box}
+1. Fractions such as `1/2`, `3/4`, and `5/6`.
+2. Percentages and decimals.
+3. Basic set language: subset, union, intersection, complement.
+4. Simple algebraic substitution.
+5. Tables of counts.
+6. Multiplication and division with small integers.
+:::
+
+If one skill feels weak, continue anyway and slow down when it appears. The
+lessons review the needed notation in context.
+
+## The path through the lessons
+
+1. **Sample Spaces and Events**: name outcomes, events, complements, unions,
+   intersections, and simple probabilities.
+2. **Counting**: use product rules, factorials, permutations, and combinations
+   before computing probabilities.
+3. **Conditional Probability**: update probabilities after new information,
+   test independence, and use Bayes' rule.
+4. **Random Variables**: turn outcomes into numbers and read probability mass
+   functions.
+5. **Common Distributions**: recognize Bernoulli, binomial, uniform, and normal
+   patterns.
+6. **Expectation and Variance**: summarize a distribution by long-run center and
+   spread.
+
+## How to solve probability problems
+
+Use this checklist whenever a problem feels unclear:
+
+1. **Name the experiment.** What random process is happening?
+2. **List or describe the sample space.** What outcomes are possible?
+3. **Identify the event.** Which outcomes count as success for this question?
+4. **Check equal likelihood.** Can you count outcomes directly, or do they have
+   different weights?
+5. **Choose the tool.** Counting, conditional probability, a distribution, or
+   expected value?
+6. **Compute slowly.** Keep fractions exact when possible.
+7. **Interpret the answer.** A probability must be between 0 and 1.
+
+## Common beginner mistakes to avoid
+
+::: {.callout-warning}
+### Watch these habits
+
+- Do not start with a formula before defining the sample space.
+- Do not assume outcomes are equally likely unless the problem says so or the
+  model justifies it.
+- Do not confuse `P(A | B)` with `P(B | A)`.
+- Do not use combinations when order matters.
+- Do not treat expected value as a guaranteed outcome.
+- Do not ignore units and context when interpreting variance or risk.
+:::
+
+## How the upgraded lessons are organized
+
+Each probability lesson includes:
+
+- a short explanation of why the topic matters;
+- definitions and formulas in beginner language;
+- step-by-step worked examples;
+- “Guess first” prompts that build intuition before calculation;
+- guided exercises and checkpoints;
+- collapsed answers so you can try before looking;
+- a browser-native guessing game;
+- a final `edumath` and SymPy appendix with visible code.
+
+## Readiness checkpoint game
+
+Use this quick game to test the core vocabulary before and after the module.
+
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "probability-cumulative-review",
+  "title": "Probability readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to inspect the lesson path.
+
+```{python}
+#| echo: true
+from edumath.probability import PROBABILITY_PATH
+
+PROBABILITY_PATH.slugs()
+```
+
+Use Python sets for finite probability models.
+
+```{python}
+#| echo: true
+from edumath.probability import probability
+
+sample_space = {1, 2, 3, 4, 5, 6}
+even = {2, 4, 6}
+probability(even, sample_space)
+```
+
+Use SymPy for exact fraction arithmetic.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.Rational(2, 6).simplify()
+```
+
+## Further reading
+
+- OpenStax, *Introductory Statistics*, probability chapters:
+  <https://openstax.org/details/books/introductory-statistics>
+- Harvard Stat 110 probability materials by Blitzstein:
+  <https://projects.iq.harvard.edu/stat110>
+- MIT OpenCourseWare probability and statistics materials: <https://ocw.mit.edu/>

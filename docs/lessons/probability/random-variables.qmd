@@ -1,53 +1,368 @@
 ---
 title: Random Variables
-description: Numeric outcomes of random experiments.
+description: Numeric outcomes of random experiments, probability tables, PMFs, and expected value.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A random experiment can have outcomes like heads, tails, red card, blue card, or
+rain tomorrow. A **random variable** turns those outcomes into numbers. This is
+powerful because once outcomes are numbers, we can compute averages, spreads,
+probability tables, and distributions.
 
-- Define a random variable.
-- Distinguish discrete and continuous variables.
-- Interpret expected value.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- define a random variable;
+- distinguish outcomes, events, and random variables;
+- classify random variables as discrete or continuous;
+- read and validate a probability mass function;
+- compute expected value from a small probability table;
+- use Python, `edumath`, and SymPy to check probability tables.
 :::
 
-A random variable assigns a number to each outcome of a random experiment.
+## From outcomes to numbers
 
-```{python}
-from edumath.probability.distributions import expected_value
+A **random variable** is a rule that assigns a number to each outcome of a random
+experiment.
 
-expected_value([0, 1], [0.4, 0.6])
+Example: flip one coin. The sample space is
+
+```text
+S = {H, T}
 ```
 
-## Practice
+Define a random variable `X` by:
+
+```text
+X(H) = 1
+X(T) = 0
+```
+
+Now `X` is the number of heads in one flip.
+
+::: {.callout-note}
+### Random variable naming
+
+Random variables are often named with capital letters such as `X`, `Y`, or `T`.
+A particular value is often written with a lowercase letter, such as `X = x`.
+:::
+
+## Outcome, event, and random variable
+
+These three ideas are related but different:
+
+| Idea | Meaning | Example |
+|---|---|---|
+| Outcome | one result of the experiment | `HT` from two coin flips |
+| Event | a set of outcomes | “exactly one head” = `{HT, TH}` |
+| Random variable | number assigned to outcomes | `X = number of heads` |
+
+If `X` counts heads in two flips, then:
+
+```text
+X(HH) = 2
+X(HT) = 1
+X(TH) = 1
+X(TT) = 0
+```
+
+## Discrete random variables
+
+A **discrete** random variable has possible values that can be listed, such as:
+
+- number of heads in 3 flips;
+- result of a die roll;
+- number of emails received in an hour;
+- payout from a simple game.
+
+Discrete random variables are often described with a table.
+
+## Continuous random variables
+
+A **continuous** random variable can take values along an interval, such as:
+
+- waiting time;
+- height;
+- temperature;
+- measurement error.
+
+For continuous variables, the probability of one exact value is usually `0`.
+We ask for probabilities over intervals, such as “between 2 and 3 minutes.”
+
+## Probability mass functions
+
+A **probability mass function**, or PMF, gives probabilities for a discrete
+random variable.
+
+Example:
+
+| `x` | 0 | 1 |
+|---|---:|---:|
+| `P(X=x)` | 0.4 | 0.6 |
+
+This table is valid because:
+
+1. all probabilities are nonnegative;
+2. the probabilities add to 1.
+
+## Cumulative distribution functions
+
+The **cumulative distribution function**, or CDF, gives `P(X <= x)`. It adds all
+probabilities up to a value.
+
+For the PMF above:
+
+```text
+P(X <= 0) = 0.4
+P(X <= 1) = 1.0
+```
+
+CDFs are useful because many probability questions ask for “at most” or “no more
+than” a value.
+
+## Expected value preview
+
+Expected value is the long-run average of a random variable:
+
+```text
+E[X] = sum of value * probability
+```
+
+For the table above:
+
+```text
+E[X] = 0(0.4) + 1(0.6) = 0.6
+```
+
+## Worked example 1: coin payout
+
+A game pays `$3` for heads and `$0` for tails. The coin has probability `0.5` of
+heads and `0.5` of tails. Let `X` be the payout.
+
+| outcome | H | T |
+|---|---:|---:|
+| `X` | 3 | 0 |
+| probability | 0.5 | 0.5 |
+
+The expected payout is
+
+```text
+E[X] = 3(0.5) + 0(0.5) = 1.5
+```
+
+This does not mean one play pays `$1.50`. It means the long-run average payout
+is `$1.50` per play.
+
+## Worked example 2: validate a PMF
+
+A proposed PMF is:
+
+| `x` | 0 | 1 | 2 |
+|---|---:|---:|---:|
+| `P(X=x)` | 0.2 | 0.5 | 0.4 |
+
+Check it:
+
+```text
+0.2 + 0.5 + 0.4 = 1.1
+```
+
+The probabilities add to more than 1, so this is not a valid PMF.
+
+## Common pitfalls
+
+- Confusing a random variable with the probability itself.
+- Forgetting that random variables produce numbers.
+- Thinking every random variable is discrete.
+- Accepting a PMF without checking that probabilities sum to 1.
+- Treating expected value as a guaranteed single outcome.
+
+## Practice exercises
 
 ::: {.practice-box}
-1. Is a coin-flip payout discrete or continuous?
-2. What does expected value represent?
-3. Can expected value be a value that never occurs exactly?
+1. Let `X` be the number of heads in two coin flips. What is `X(HT)`?
+2. Is waiting time discrete or continuous?
+3. Is `{0: 0.2, 1: 0.8}` a valid PMF?
+4. Is `{0: 0.2, 1: 0.9}` a valid PMF?
+5. Compute the expected value for values `0, 10` with probabilities `0.7, 0.3`.
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. `X(HT)=1` because there is one head.
+2. Continuous.
+3. Yes. Probabilities are nonnegative and add to 1.
+4. No. The probabilities add to 1.1.
+5. `0(0.7)+10(0.3)=3`.
+:::
 
-Answer: discrete.
+## Subtopic guided practice and checkpoints
 
-A coin-flip payout has a finite list of possible values.
+Random variables become easier when you say the rule out loud: “This outcome
+gets this number.”
+
+### Lab 1: turn outcomes into numbers
+
+**Guess first.** In two coin flips, what number should `HH` get if `X` counts
+heads?
+
+**Guided exercise.**
+
+Count heads in each outcome:
+
+```text
+HH -> 2
+HT -> 1
+TH -> 1
+TT -> 0
+```
+
+The random variable is not the coin flip itself. It is the number assigned to
+the result.
+
+::: {.practice-box}
+**Checkpoint.** Let `Y` be the number of tails in two coin flips. Find `Y(HH)`,
+`Y(HT)`, and `Y(TT)`.
+:::
+
+### Lab 2: classify discrete versus continuous
+
+**Guess first.** Is “number of calls in one hour” discrete or continuous?
+
+**Guided exercise.**
+
+A count is discrete because possible values are separate numbers:
+
+```text
+0, 1, 2, 3, ...
+```
+
+A measurement like time or length is usually continuous.
+
+::: {.practice-box}
+**Checkpoint.** Classify each as discrete or continuous: shoe size, exact height,
+number of defective parts, time until a bus arrives.
+:::
+
+### Lab 3: validate a PMF
+
+**Guess first.** Can probabilities in a PMF add to less than 1?
+
+**Guided exercise.**
+
+For a valid PMF, probabilities must cover all possible values and add to 1. For
+
+```text
+P(X=0)=0.25, P(X=1)=0.25, P(X=2)=0.50
+```
+
+the total is
+
+```text
+0.25 + 0.25 + 0.50 = 1
+```
+
+so the PMF is valid.
+
+::: {.practice-box}
+**Checkpoint.** Check whether `P(X=0)=0.1`, `P(X=1)=0.2`, `P(X=2)=0.6` is a
+valid PMF.
+:::
+
+### Lab 4: read a PMF table
+
+**Guess first.** If the table says `P(X=2)=0.30`, does that mean `X` always
+equals 2?
+
+**Guided exercise.**
+
+A probability of `0.30` means value 2 occurs in about 30% of many repetitions,
+not always.
+
+::: {.practice-box}
+**Checkpoint.** If `P(X=0)=0.2`, `P(X=1)=0.5`, and `P(X=2)=0.3`, what is
+`P(X >= 1)`?
+:::
+
+### Lab 5: compute expected value one row at a time
+
+**Guess first.** Which is bigger: the value with highest probability or the
+expected value?
+
+**Guided exercise.**
+
+For values `0, 5, 10` with probabilities `0.2, 0.5, 0.3`:
+
+```text
+E[X] = 0(0.2) + 5(0.5) + 10(0.3)
+     = 0 + 2.5 + 3
+     = 5.5
+```
+
+Expected value is a weighted average, not necessarily the most likely value.
+
+::: {.practice-box}
+**Checkpoint.** Compute expected value for values `1, 2, 3` with probabilities
+`0.2, 0.5, 0.3`.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: the long-run average value across many repetitions.
+1. `Y(HH)=0`, `Y(HT)=1`, and `Y(TT)=2`.
+2. Shoe size is often treated as discrete; exact height is continuous; number of
+   defective parts is discrete; bus waiting time is continuous.
+3. Not valid. The probabilities add to `0.9`, not `1`.
+4. `P(X >= 1)=P(X=1)+P(X=2)=0.5+0.3=0.8`.
+5. `1(0.2)+2(0.5)+3(0.3)=0.2+1.0+0.9=2.1`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Random-variable guessing game
 
-Answer: yes.
+Use this checkpoint to practice classifying random variables and checking PMFs.
 
-The expected value can be an average that is not itself a possible outcome, such
-as `3.5` for a fair die.
-:::
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "random-variables",
+  "title": "Random variables checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to compute expected value.
+
+```{python}
+#| echo: true
+from edumath.probability import expected_value, validate_pmf
+
+values = [0, 1]
+probabilities = [0.4, 0.6]
+expected_value(values, probabilities), validate_pmf(values, probabilities).message
+```
+
+Use Python to build a PMF table.
+
+```{python}
+#| echo: true
+pmf = {0: 0.4, 1: 0.6}
+sum(pmf.values())
+```
+
+Use SymPy for exact weighted averages.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+values = [0, 1, 2]
+probabilities = [sp.Rational(1, 4), sp.Rational(1, 4), sp.Rational(1, 2)]
+sum(value * probability for value, probability in zip(values, probabilities))
+```

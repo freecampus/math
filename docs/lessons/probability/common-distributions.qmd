@@ -1,53 +1,342 @@
 ---
 title: Common Distributions
-description: Bernoulli, binomial, uniform, and normal distributions.
+description: Bernoulli, binomial, uniform, normal, and other probability patterns.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+A **distribution** describes how probability is spread across possible values of
+a random variable. Some patterns appear so often that they have names. Learning
+these names helps you recognize the right model before doing calculations.
 
-- Recognize common probability distributions.
-- Compute binomial probabilities.
-- Match distributions to situations.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- explain what a probability distribution is;
+- recognize Bernoulli, binomial, uniform, and normal distributions;
+- connect distribution parameters to real stories;
+- compute simple binomial probabilities;
+- choose a reasonable distribution for a described situation;
+- use `edumath`, Python, and SymPy to evaluate distribution formulas.
 :::
 
-```{python}
-from edumath.probability.distributions import binomial_pmf
+## What is a distribution?
 
-binomial_pmf(trials=10, successes=3, probability=0.5)
+A probability distribution tells us which values a random variable can take and
+how likely those values are.
+
+For a discrete random variable, this may be a table:
+
+| `x` | 0 | 1 |
+|---|---:|---:|
+| `P(X=x)` | 0.3 | 0.7 |
+
+For a continuous random variable, a distribution is usually described by a curve
+or density. Areas under the curve represent probabilities.
+
+## Bernoulli distribution
+
+A **Bernoulli** random variable models one trial with two outcomes:
+
+```text
+1 = success
+0 = failure
 ```
 
-## Practice
+If success has probability `p`, then:
+
+```text
+P(X=1) = p
+P(X=0) = 1-p
+```
+
+Examples:
+
+- one coin flip coded as heads = 1;
+- one product is defective or not;
+- one email is spam or not.
+
+## Binomial distribution
+
+A **binomial** random variable counts the number of successes in a fixed number
+of independent Bernoulli trials.
+
+A binomial model needs:
+
+1. fixed number of trials `n`;
+2. each trial has success/failure;
+3. the success probability `p` is the same each time;
+4. trials are independent;
+5. the random variable counts successes.
+
+The probability of exactly `k` successes is:
+
+::: {.formula-box}
+```text
+P(X=k) = C(n,k) p^k (1-p)^(n-k)
+```
+:::
+
+## Uniform distributions
+
+A **uniform** distribution gives equal probability to all allowed outcomes.
+
+A fair die is discrete uniform:
+
+```text
+P(1)=P(2)=...=P(6)=1/6
+```
+
+A continuous uniform distribution on an interval, such as from 0 to 1, spreads
+probability evenly across the whole interval.
+
+## Normal distribution
+
+A **normal** distribution is the bell-shaped distribution often used for
+measurement errors, natural variation, and averages of many small independent
+effects.
+
+It is described by:
+
+- a mean, which controls the center;
+- a standard deviation, which controls the spread.
+
+::: {.callout-warning}
+### Normal does not mean automatic
+
+Not every bell-looking data set is exactly normal, and not every measurement
+should be modeled as normal. Always connect the distribution to the story and
+check assumptions when possible.
+:::
+
+## Optional: geometric and Poisson patterns
+
+Two other common patterns are useful to recognize:
+
+- **Geometric**: number of trials until the first success.
+- **Poisson**: number of events in a fixed time or region when events occur at a
+  roughly constant rate.
+
+This lesson focuses on Bernoulli, binomial, uniform, and normal, but you will
+meet geometric and Poisson distributions in many statistics courses.
+
+## How to choose a distribution
+
+Ask these questions:
+
+1. Is there one success/failure trial? Use Bernoulli.
+2. Are there fixed independent success/failure trials and are you counting
+   successes? Use binomial.
+3. Are all values equally likely? Use uniform.
+4. Is the variable continuous and clustered symmetrically around a mean? A normal
+   model may be reasonable.
+5. Are you counting events over time or space? Consider Poisson.
+
+## Worked example 1: Bernoulli
+
+A machine part either passes inspection or fails inspection. Let `X=1` if it
+passes and `X=0` if it fails. If the pass probability is `0.92`, then:
+
+```text
+P(X=1) = 0.92
+P(X=0) = 0.08
+```
+
+This is Bernoulli because there is one yes/no trial.
+
+## Worked example 2: binomial probability
+
+A quiz has 5 multiple-choice questions. Suppose a student guesses randomly and
+has probability `0.25` of answering each question correctly. What is the
+probability of exactly 2 correct answers?
+
+1. There are fixed trials: `n=5`.
+2. Success means correct answer.
+3. Success probability is `p=0.25`.
+4. We want `k=2` successes.
+5. Use the binomial formula:
+
+```text
+P(X=2) = C(5,2)(0.25)^2(0.75)^3
+       = 10(0.0625)(0.421875)
+       = 0.263671875
+```
+
+## Worked example 3: scenario matching
+
+Choose a distribution for each story:
+
+1. One email is spam or not spam: Bernoulli.
+2. Number of heads in 20 fair coin flips: binomial.
+3. Result of a fair die: discrete uniform.
+4. Small measurement error from a calibrated instrument: normal may be
+   reasonable.
+
+## Common pitfalls
+
+- Calling every two-outcome situation binomial; one trial is Bernoulli.
+- Using binomial when the success probability changes across trials.
+- Using binomial when trials are not independent.
+- Forgetting that uniform means equal probabilities.
+- Assuming normal distributions for counts or strongly skewed data.
+
+## Practice exercises
 
 ::: {.practice-box}
 1. Which distribution models one yes/no trial?
-2. Which distribution models the number of successes in fixed trials?
-3. Which distribution is often used for measurement noise?
+2. Which distribution models the number of successes in fixed independent trials?
+3. Which distribution models a fair die roll?
+4. Which distribution is often used for bell-shaped measurement noise?
+5. Compute `P(X=3)` for `X ~ Binomial(n=4, p=0.5)`.
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. Bernoulli.
+2. Binomial.
+3. Discrete uniform.
+4. Normal.
+5. `C(4,3)(0.5)^3(0.5)^1 = 4/16 = 1/4`.
+:::
 
-Answer: Bernoulli distribution.
+## Subtopic guided practice and checkpoints
 
-It models a single trial with two outcomes, often coded as `0` and `1`.
+Distribution problems become easier when you match the story before touching a
+formula.
+
+### Lab 1: identify Bernoulli versus binomial
+
+**Guess first.** Is “one coin flip” Bernoulli or binomial?
+
+**Guided exercise.**
+
+One coin flip has one success/failure trial, so it is Bernoulli. Ten coin flips
+and the number of heads would be binomial.
+
+::: {.practice-box}
+**Checkpoint.** Classify each as Bernoulli or binomial: one free throw made or
+missed; number of made free throws in 8 attempts.
+:::
+
+### Lab 2: compute a binomial PMF step by step
+
+**Guess first.** In `C(n,k)p^k(1-p)^(n-k)`, does `k` count successes or failures?
+
+**Guided exercise.**
+
+For `n=3`, `k=2`, and `p=0.5`:
+
+```text
+P(X=2) = C(3,2)(0.5)^2(0.5)^1
+       = 3(0.25)(0.5)
+       = 0.375
+```
+
+::: {.practice-box}
+**Checkpoint.** Compute `P(X=1)` for `X ~ Binomial(n=3, p=0.25)`.
+:::
+
+### Lab 3: identify a uniform situation
+
+**Guess first.** Is a loaded die uniform?
+
+**Guided exercise.**
+
+A fair die is uniform because each face has probability `1/6`. A loaded die is
+not uniform because some faces have different probabilities.
+
+::: {.practice-box}
+**Checkpoint.** Give one example of a discrete uniform random variable and one
+example that is not uniform.
+:::
+
+### Lab 4: interpret normal center and spread
+
+**Guess first.** If two normal distributions have the same mean but one has a
+larger standard deviation, which is more spread out?
+
+**Guided exercise.**
+
+The standard deviation controls spread. A larger standard deviation means values
+are more spread out from the mean.
+
+::: {.practice-box}
+**Checkpoint.** What does the mean control in a normal distribution? What does
+the standard deviation control?
+:::
+
+### Lab 5: choose a distribution from a story
+
+**Guess first.** Which distribution fits “number of defective items in a sample
+of 20 independent items”?
+
+**Guided exercise.**
+
+This counts successes in a fixed number of independent yes/no trials. If the
+defect probability is the same for each item, a binomial distribution is
+reasonable.
+
+::: {.practice-box}
+**Checkpoint.** Choose a distribution: waiting time until a bus arrives;
+whether one message is spam; result of a fair spinner with 5 equal sections.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: binomial distribution.
-
-It counts successes across a fixed number of independent Bernoulli trials.
+1. One free throw made or missed: Bernoulli. Number made in 8 attempts:
+   binomial.
+2. `C(3,1)(0.25)^1(0.75)^2 = 3(0.25)(0.5625) = 0.421875`.
+3. Uniform example: fair die. Not uniform: weighted die or weather tomorrow.
+4. The mean controls center. The standard deviation controls spread.
+5. Waiting time: often continuous, sometimes modeled with an exponential-like
+   distribution. One spam decision: Bernoulli. Fair spinner with 5 equal
+   sections: discrete uniform.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Distribution guessing game
 
-Answer: normal distribution.
+Use this checkpoint to match stories with common distributions.
 
-Many measurement errors are modeled as approximately normal because small
-independent sources of variation accumulate.
-:::
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "common-distributions",
+  "title": "Common distributions checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` for Bernoulli and binomial calculations.
+
+```{python}
+#| echo: true
+from edumath.probability import bernoulli_pmf, binomial_mean, binomial_pmf, binomial_variance
+
+bernoulli_pmf(1, 0.7), binomial_pmf(trials=5, successes=2, probability=0.25)
+```
+
+Compute binomial mean and variance.
+
+```{python}
+#| echo: true
+binomial_mean(10, 0.4), binomial_variance(10, 0.4)
+```
+
+Use SymPy for exact binomial expressions.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+n = 5
+k = 2
+p = sp.Rational(1, 4)
+sp.binomial(n, k) * p**k * (1 - p) ** (n - k)
+```

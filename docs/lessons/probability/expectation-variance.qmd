@@ -1,48 +1,360 @@
 ---
 title: Expectation and Variance
-description: Center and spread of random variables.
+description: Long-run center, spread, standard deviation, and risk for random variables.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Probability distributions can be large, but two summaries are especially useful:
+**expected value** and **variance**. Expected value describes the long-run center.
+Variance describes spread around that center. Together, they help compare games,
+risks, measurements, and uncertain decisions.
 
-- Interpret expectation as long-run average.
-- Interpret variance as spread.
-- Connect probability to statistics.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- compute expected value as a weighted average;
+- explain why expected value may not be an actual outcome;
+- compute variance and standard deviation from a small table;
+- compare distributions with the same mean but different spread;
+- use linearity of expectation in simple examples;
+- check calculations with `edumath`, Python, and SymPy.
 :::
 
-Expectation tells us the average value over many repetitions. Variance tells us
-how much values tend to vary around that average.
+## Expected value as a weighted average
+
+For a discrete random variable, expected value is:
+
+::: {.formula-box}
+```text
+E[X] = sum of value * probability
+```
+:::
+
+If `X` takes values 0 and 10 with probabilities 0.7 and 0.3, then
+
+```text
+E[X] = 0(0.7) + 10(0.3) = 3
+```
+
+This means that over many repetitions, the average value approaches 3.
+
+## Expected value is not always a possible outcome
+
+A fair die has values `1,2,3,4,5,6`, each with probability `1/6`.
+
+```text
+E[X] = (1+2+3+4+5+6)/6 = 21/6 = 3.5
+```
+
+But a die can never roll 3.5. Expected value is a long-run average, not a
+promise about one trial.
+
+## Variance and standard deviation
+
+Variance measures how far values tend to be from the mean. For a discrete random
+variable:
+
+::: {.formula-box}
+```text
+Var(X) = sum of probability * (value - mean)^2
+```
+:::
+
+Standard deviation is the square root of variance:
+
+```text
+SD(X) = sqrt(Var(X))
+```
+
+Variance uses squared distances, so it is sensitive to values far from the mean.
+
+## Step-by-step variance table
+
+Suppose `X` is 0 with probability 0.5 and 2 with probability 0.5.
+
+First compute the mean:
+
+```text
+E[X] = 0(0.5) + 2(0.5) = 1
+```
+
+Now build a table:
+
+| value | probability | value - mean | squared distance | weighted squared distance |
+|---:|---:|---:|---:|---:|
+| 0 | 0.5 | -1 | 1 | 0.5 |
+| 2 | 0.5 | 1 | 1 | 0.5 |
+
+Add the last column:
+
+```text
+Var(X) = 0.5 + 0.5 = 1
+SD(X) = sqrt(1) = 1
+```
+
+## Linearity of expectation
+
+Expected value has a very useful property:
+
+```text
+E[X + Y] = E[X] + E[Y]
+```
+
+This is true even when `X` and `Y` are not independent. For example, if one fair
+die has expected value 3.5, then two fair dice have total expected value:
+
+```text
+3.5 + 3.5 = 7
+```
+
+## Risk interpretation
+
+Two games can have the same expected value but different risk.
+
+- Game A pays `$5` every time.
+- Game B pays `$0` half the time and `$10` half the time.
+
+Both have expected value `$5`, but Game B has more spread. Variance helps
+describe that uncertainty.
+
+## Worked example 1: fair game
+
+A game costs `$2`. It pays `$5` with probability `0.4` and `$0` with probability
+`0.6`. Is the game favorable in expected value?
+
+Expected payout:
+
+```text
+5(0.4) + 0(0.6) = 2
+```
+
+Expected net gain:
+
+```text
+expected payout - cost = 2 - 2 = 0
+```
+
+The game is fair in expected value. It is not guaranteed to break even on one
+play.
+
+## Worked example 2: compare spread
+
+Distribution A:
+
+```text
+X = 4 with probability 1
+```
+
+Distribution B:
+
+```text
+Y = 0 with probability 1/2
+Y = 8 with probability 1/2
+```
+
+Both have expected value 4. But `X` never varies, while `Y` jumps between 0 and
+8. So `Y` has larger variance and more risk.
+
+## Common pitfalls
+
+- Forgetting to multiply each value by its probability.
+- Treating expected value as a guaranteed outcome.
+- Computing variance before computing the mean.
+- Forgetting to square deviations in variance.
+- Comparing risk using only the mean.
+
+## Practice exercises
 
 ::: {.practice-box}
-1. What does high variance suggest?
-2. Why is expected value not always a guaranteed outcome?
-3. How does variance relate to risk?
+1. Compute the expected value of values `0, 10` with probabilities `0.7, 0.3`.
+2. What is the expected value of a fair die?
+3. Why can expected value be impossible as a single outcome?
+4. Compute the variance for values `0, 2` with probabilities `0.5, 0.5`.
+5. Which is riskier: a guaranteed `$5` or `$0/$10` with equal probabilities?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. `0(0.7)+10(0.3)=3`.
+2. `3.5`.
+3. It is a long-run weighted average, not necessarily a value the random
+   variable can take.
+4. The mean is 1. Variance is `0.5(0-1)^2 + 0.5(2-1)^2 = 1`.
+5. The `$0/$10` game is riskier because it has more spread.
+:::
 
-Answer: values are spread far from the mean.
+## Subtopic guided practice and checkpoints
 
-High variance means outcomes can differ substantially from the long-run
-average.
+Expectation and variance calculations are safest when you use a table and fill
+one column at a time.
+
+### Lab 1: compute expected value row by row
+
+**Guess first.** Which contributes more to expected value: a large value with
+small probability or a smaller value with large probability?
+
+**Guided exercise.**
+
+For values `1, 4, 10` with probabilities `0.2, 0.5, 0.3`:
+
+```text
+E[X] = 1(0.2) + 4(0.5) + 10(0.3)
+     = 0.2 + 2.0 + 3.0
+     = 5.2
+```
+
+Each row contributes `value * probability`.
+
+::: {.practice-box}
+**Checkpoint.** Compute expected value for values `-2, 4` with probabilities
+`0.25, 0.75`.
+:::
+
+### Lab 2: interpret an impossible expected value
+
+**Guess first.** If the expected number of heads in one fair coin flip is 0.5,
+can one flip produce 0.5 heads?
+
+**Guided exercise.**
+
+One flip produces either 0 heads or 1 head. The expected value is
+
+```text
+0(0.5) + 1(0.5) = 0.5
+```
+
+This is a long-run average over many flips.
+
+::: {.practice-box}
+**Checkpoint.** Explain why the expected value `3.5` for a fair die is useful
+even though no die face is 3.5.
+:::
+
+### Lab 3: compute variance with deviations
+
+**Guess first.** Why do we subtract the mean before squaring?
+
+**Guided exercise.**
+
+For values `0, 4` with probabilities `0.5, 0.5`, the mean is 2. Deviations are:
+
+```text
+0 - 2 = -2
+4 - 2 = 2
+```
+
+Square and weight:
+
+```text
+Var(X) = 0.5(-2)^2 + 0.5(2)^2
+       = 2 + 2
+       = 4
+```
+
+::: {.practice-box}
+**Checkpoint.** Compute the variance for values `1, 3` with probabilities
+`0.5, 0.5`.
+:::
+
+### Lab 4: compare risk
+
+**Guess first.** Which has more variance: always getting 5, or getting 0 or 10
+with equal probability?
+
+**Guided exercise.**
+
+Always getting 5 has no spread, so variance is 0. Getting 0 or 10 has the same
+mean but values far from the mean, so it has positive variance.
+
+::: {.practice-box}
+**Checkpoint.** Two investments both have expected return 6%. One always returns
+6%; the other returns -4% or 16% with equal probability. Which has larger
+variance?
+:::
+
+### Lab 5: use linearity of expectation
+
+**Guess first.** If one fair die has expected value 3.5, do three fair dice have
+expected total 10.5?
+
+**Guided exercise.**
+
+By linearity of expectation:
+
+```text
+E[die1 + die2 + die3] = 3.5 + 3.5 + 3.5 = 10.5
+```
+
+You do not need to list all 216 outcomes.
+
+::: {.practice-box}
+**Checkpoint.** If one raffle ticket has expected value `$1.20`, what is the
+expected value of 5 identical tickets?
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: expected value is a weighted average over many repetitions.
-
-For example, a fair die has expected value `3.5`, but no single roll can equal
-`3.5`.
+1. `(-2)(0.25)+4(0.75)=-0.5+3=2.5`.
+2. It predicts the long-run average over many rolls and helps compare games or
+   repeated experiments.
+3. The mean is 2. Variance is `0.5(1-2)^2 + 0.5(3-2)^2 = 1`.
+4. The second investment has larger variance.
+5. `5 * 1.20 = $6.00`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Expectation and variance guessing game
 
-Answer: larger variance usually means more uncertainty in outcomes, which is
-one common way to quantify risk.
-:::
+Use this checkpoint to practice center, spread, and fair-game reasoning.
+
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "expectation-variance",
+  "title": "Expectation and variance checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to compute expected value and variance.
+
+```{python}
+#| echo: true
+from edumath.probability import expected_value, standard_deviation, variance
+
+values = [0, 2]
+probabilities = [0.5, 0.5]
+expected_value(values, probabilities), variance(values, probabilities), standard_deviation(values, probabilities)
+```
+
+Compare two games.
+
+```{python}
+#| echo: true
+safe_values = [5]
+safe_probabilities = [1]
+risky_values = [0, 10]
+risky_probabilities = [0.5, 0.5]
+
+variance(safe_values, safe_probabilities), variance(risky_values, risky_probabilities)
+```
+
+Use SymPy for exact variance arithmetic.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+values = [0, 4]
+probabilities = [sp.Rational(1, 2), sp.Rational(1, 2)]
+mean = sum(value * probability for value, probability in zip(values, probabilities))
+var = sum(probability * (value - mean) ** 2 for value, probability in zip(values, probabilities))
+mean, var
+```

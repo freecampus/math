@@ -1,47 +1,384 @@
 ---
 title: Sample Spaces and Events
-description: Probability starts with possible outcomes.
+description: Probability starts by naming possible outcomes and the events made from them.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Probability begins before any formula. First we must name what can happen. A
+coin can land heads or tails. A die can show one of six faces. A selected student
+may be in one group or another. These possible results form the **sample space**.
+Questions such as “rolling an even number” or “getting heads” are **events**:
+subsets of that sample space.
 
-- Define sample space.
-- Define event.
-- Compute simple probabilities.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- define random experiment, outcome, sample space, and event;
+- write events as subsets of a sample space;
+- compute simple probabilities by counting favorable outcomes;
+- use complements, unions, and intersections of events;
+- recognize when outcomes are not equally likely;
+- check finite event calculations with Python, `edumath`, and SymPy.
 :::
 
-The sample space is the set of all possible outcomes. An event is a subset of
-that space.
+## Random experiments, outcomes, and sample spaces
+
+A **random experiment** is a process whose result is uncertain before it happens.
+An **outcome** is one possible result. The **sample space**, often written `S`,
+is the set of all possible outcomes.
+
+For one coin flip:
+
+```text
+S = {H, T}
+```
+
+For one fair die roll:
+
+```text
+S = {1, 2, 3, 4, 5, 6}
+```
+
+The sample space must match the question. If the experiment is “flip two coins,”
+then `{H, T}` is too small. A better sample space is:
+
+```text
+S = {HH, HT, TH, TT}
+```
+
+## Events as subsets
+
+An **event** is a set of outcomes inside the sample space. For a die roll,
+
+```text
+S = {1, 2, 3, 4, 5, 6}
+```
+
+The event “roll an even number” is
+
+```text
+E = {2, 4, 6}
+```
+
+The event “roll greater than 4” is
+
+```text
+G = {5, 6}
+```
+
+An event can have one outcome, many outcomes, all outcomes, or no outcomes.
+
+## Equally likely outcomes
+
+When all outcomes in `S` are equally likely, probability is counting:
+
+::: {.formula-box}
+```text
+P(event) = number of favorable outcomes / number of total outcomes
+```
+:::
+
+For a fair die, the probability of rolling an even number is
+
+```text
+P(E) = 3 / 6 = 1 / 2
+```
+
+because `E = {2,4,6}` has 3 favorable outcomes out of 6 total outcomes.
+
+::: {.callout-warning}
+### Equal likelihood matters
+
+Counting outcomes works only when the outcomes are equally likely. If a coin is
+weighted, `{H, T}` is still the sample space, but heads and tails may not each
+have probability `1/2`.
+:::
+
+## Complements, unions, and intersections
+
+Events use the same language as sets.
+
+- The **complement** of `A` means “not A.”
+- The **union** `A or B` means outcomes in `A`, in `B`, or in both.
+- The **intersection** `A and B` means outcomes in both `A` and `B`.
+
+For a fair die:
+
+```text
+E = {2, 4, 6}      even
+G = {5, 6}         greater than 4
+```
+
+Then:
+
+```text
+not E      = {1, 3, 5}
+E or G     = {2, 4, 5, 6}
+E and G    = {6}
+```
+
+## Probability rules you should know early
+
+For any event `A`:
+
+```text
+0 <= P(A) <= 1
+P(S) = 1
+P(not A) = 1 - P(A)
+```
+
+If `A` and `B` cannot happen at the same time, then
+
+```text
+P(A or B) = P(A) + P(B)
+```
+
+If they can overlap, subtract the overlap once:
+
+```text
+P(A or B) = P(A) + P(B) - P(A and B)
+```
+
+## Worked example 1: one die roll
+
+Roll a fair die. Find the probability of rolling an even number or a number
+greater than 4.
+
+1. List the sample space:
+
+   ```text
+   S = {1, 2, 3, 4, 5, 6}
+   ```
+
+2. Name the events:
+
+   ```text
+   E = {2, 4, 6}
+   G = {5, 6}
+   ```
+
+3. Combine using “or”:
+
+   ```text
+   E or G = {2, 4, 5, 6}
+   ```
+
+4. Count favorable outcomes:
+
+   ```text
+   P(E or G) = 4/6 = 2/3
+   ```
+
+## Worked example 2: complement strategy
+
+Suppose you flip three fair coins. What is the probability of getting at least
+one head?
+
+Direct counting is possible, but the complement is easier.
+
+1. “At least one head” means one, two, or three heads.
+2. The complement is “no heads,” which is only `TTT`.
+3. There are `2^3 = 8` equally likely outcomes.
+4. So
+
+   ```text
+   P(no heads) = 1/8
+   P(at least one head) = 1 - 1/8 = 7/8
+   ```
+
+## Common pitfalls
+
+- Forgetting to define the sample space.
+- Treating outcomes as equally likely when they are not.
+- Confusing one outcome, such as `6`, with an event, such as `{6}`.
+- Counting an overlap twice when using “or.”
+- Forgetting that complements depend on the sample space.
+
+## Practice exercises
 
 ::: {.practice-box}
-1. What is the sample space for one coin flip?
-2. What event means "getting heads"?
-3. What is the probability of rolling a 6 on a fair die?
+1. What is the sample space for one fair coin flip?
+2. For a fair die, write the event “roll an odd number.”
+3. For a fair die, compute `P(roll at least 5)`.
+4. For a fair die, compute `P(not even)`.
+5. For two fair coins, list the sample space and the event “exactly one head.”
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. `{H, T}`.
+2. `{1, 3, 5}`.
+3. `{5, 6}` has 2 outcomes out of 6, so the probability is `2/6 = 1/3`.
+4. Not even means `{1, 3, 5}`, so the probability is `3/6 = 1/2`.
+5. `S = {HH, HT, TH, TT}`. Exactly one head is `{HT, TH}`.
+:::
 
-Answer: `{H, T}`.
+## Subtopic guided practice and checkpoints
 
-The two possible outcomes are heads and tails.
+Probability problems are easiest when you translate words into sets before doing
+arithmetic.
+
+### Lab 1: list the sample space
+
+**Guess first.** If you flip two coins, are there 2 outcomes or 4 outcomes?
+
+**Guided exercise.**
+
+Write every ordered result:
+
+```text
+HH, HT, TH, TT
+```
+
+There are 4 outcomes because the first flip and second flip are separate parts
+of the experiment.
+
+::: {.practice-box}
+**Checkpoint.** List the sample space for tossing one coin and rolling one die.
+How many outcomes are there?
+:::
+
+### Lab 2: turn words into event subsets
+
+**Guess first.** For a die roll, is “less than 3” the event `{1,2}` or `{3,4,5,6}`?
+
+**Guided exercise.**
+
+Start with `S = {1,2,3,4,5,6}`. The words “less than 3” select outcomes 1 and 2:
+
+```text
+A = {1, 2}
+```
+
+::: {.practice-box}
+**Checkpoint.** For a die roll, write the event “odd and greater than 2.”
+:::
+
+### Lab 3: compute probability by counting
+
+**Guess first.** If an event has 3 favorable outcomes out of 8 equally likely
+outcomes, is the probability `3/8` or `8/3`?
+
+**Guided exercise.**
+
+Probability is favorable divided by total:
+
+```text
+P(event) = 3 / 8
+```
+
+The denominator is the size of the sample space.
+
+::: {.practice-box}
+**Checkpoint.** A bag contains 4 red, 3 blue, and 3 green marbles. If one marble
+is chosen at random, what is `P(blue)`?
+:::
+
+### Lab 4: use complements
+
+**Guess first.** Is “not rolling a 6” easier to count than “rolling 1, 2, 3, 4,
+or 5”?
+
+**Guided exercise.**
+
+For a fair die:
+
+```text
+P(6) = 1/6
+P(not 6) = 1 - 1/6 = 5/6
+```
+
+The complement can save time when the event has many pieces.
+
+::: {.practice-box}
+**Checkpoint.** In three coin flips, use a complement to find the probability
+of getting at least one tail.
+:::
+
+### Lab 5: check equal likelihood
+
+**Guess first.** In a weighted coin, are `{H}` and `{T}` automatically equally
+likely?
+
+**Guided exercise.**
+
+The sample space is still `{H,T}`, but the probabilities might be different,
+such as:
+
+```text
+P(H) = 0.7
+P(T) = 0.3
+```
+
+Counting outcomes alone would incorrectly give `1/2` for each.
+
+::: {.practice-box}
+**Checkpoint.** Give one example of a sample space where outcomes might not be
+equally likely.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: `{H}`.
-
-The event is the subset of the sample space where heads occurs.
+1. `{H1,H2,H3,H4,H5,H6,T1,T2,T3,T4,T5,T6}`; there are 12 outcomes.
+2. Odd and greater than 2 is `{3,5}`.
+3. There are 10 marbles total and 3 blue marbles, so `P(blue)=3/10`.
+4. The complement of at least one tail is no tails, or `HHH`. Probability is
+   `1 - 1/8 = 7/8`.
+5. Examples include weighted coins, biased dice, weather outcomes, and survey
+   responses.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Sample-space guessing game
 
-Answer: `1/6`.
+Use this checkpoint to practice outcomes, events, complements, and simple
+probabilities.
 
-A fair die has six equally likely outcomes, and only one of them is `6`.
-:::
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "sample-spaces-events",
+  "title": "Sample spaces and events checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use Python sets to model finite sample spaces.
+
+```{python}
+#| echo: true
+sample_space = {1, 2, 3, 4, 5, 6}
+even = {2, 4, 6}
+greater_than_four = {5, 6}
+
+not_even = sample_space - even
+even_or_greater_than_four = even | greater_than_four
+even_and_greater_than_four = even & greater_than_four
+
+not_even, even_or_greater_than_four, even_and_greater_than_four
+```
+
+Use `edumath` to compute probabilities from finite equally likely outcomes.
+
+```{python}
+#| echo: true
+from edumath.probability import complement, probability
+
+probability(even, sample_space), complement(even, sample_space)
+```
+
+Use SymPy for exact fraction arithmetic.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.Rational(len(even | greater_than_four), len(sample_space))
+```

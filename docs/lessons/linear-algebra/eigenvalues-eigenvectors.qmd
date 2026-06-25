@@ -162,6 +162,158 @@ matrix mixes most vectors, it may have special directions that only scale.
 5. The vector shrinks toward the zero vector along that direction.
 :::
 
+## Subtopic guided practice and checkpoints
+
+Eigenvalue problems ask one central question: does the matrix keep this vector
+on the same line through the origin?
+
+### Lab 1: check whether a vector is an eigenvector
+
+**Guess first.** If $A\mathbf{v}=\begin{bmatrix}6\\0\end{bmatrix}$ and
+$\mathbf{v}=\begin{bmatrix}3\\0\end{bmatrix}$, is $\mathbf{v}$ an eigenvector?
+
+**Guided exercise.**
+
+Let
+
+$$
+A=\begin{bmatrix}2&0\\0&5\end{bmatrix},
+\qquad
+\mathbf{v}=\begin{bmatrix}3\\0\end{bmatrix}.
+$$
+
+Compute
+
+$$
+A\mathbf{v}=\begin{bmatrix}6\\0\end{bmatrix}.
+$$
+
+Now compare this with $\mathbf{v}$:
+
+$$
+\begin{bmatrix}6\\0\end{bmatrix}=2\begin{bmatrix}3\\0\end{bmatrix}.
+$$
+
+So $\mathbf{v}$ is an eigenvector and the eigenvalue is $2$.
+
+::: {.practice-box}
+**Checkpoint.** Check whether
+$\begin{bmatrix}0\\4\end{bmatrix}$ is an eigenvector of
+$\begin{bmatrix}2&0\\0&5\end{bmatrix}$. If yes, find the eigenvalue.
+:::
+
+### Lab 2: notice when a vector is not on the same line
+
+**Guess first.** Is $\begin{bmatrix}2\\5\end{bmatrix}$ a scalar multiple of
+$\begin{bmatrix}1\\1\end{bmatrix}$?
+
+**Guided exercise.**
+
+A scalar multiple of $\begin{bmatrix}1\\1\end{bmatrix}$ must have equal
+coordinates:
+
+$$
+c\begin{bmatrix}1\\1\end{bmatrix}=\begin{bmatrix}c\\c\end{bmatrix}.
+$$
+
+Since $\begin{bmatrix}2\\5\end{bmatrix}$ has unequal coordinates, it is not a
+scalar multiple. Therefore if $A\begin{bmatrix}1\\1\end{bmatrix}=
+\begin{bmatrix}2\\5\end{bmatrix}$, then $\begin{bmatrix}1\\1\end{bmatrix}$ is
+not an eigenvector of $A$.
+
+::: {.practice-box}
+**Checkpoint.** Is $\begin{bmatrix}-6\\3\end{bmatrix}$ a scalar multiple of
+$\begin{bmatrix}-2\\1\end{bmatrix}$? If yes, what is the scalar?
+:::
+
+### Lab 3: read eigenvalues from diagonal matrices
+
+**Guess first.** What are the eigenvalues of
+$\begin{bmatrix}-3&0\\0&4\end{bmatrix}$?
+
+**Guided exercise.**
+
+A diagonal matrix scales coordinate directions separately:
+
+$$
+\begin{bmatrix}-3&0\\0&4\end{bmatrix}
+\begin{bmatrix}1\\0\end{bmatrix}
+=
+\begin{bmatrix}-3\\0\end{bmatrix}
+=-3\begin{bmatrix}1\\0\end{bmatrix},
+$$
+
+and
+
+$$
+\begin{bmatrix}-3&0\\0&4\end{bmatrix}
+\begin{bmatrix}0\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\4\end{bmatrix}
+=4\begin{bmatrix}0\\1\end{bmatrix}.
+$$
+
+So the eigenvalues are $-3$ and $4$.
+
+::: {.practice-box}
+**Checkpoint.** Find the eigenvalues and coordinate-axis eigenvectors of
+$\begin{bmatrix}7&0\\0&\frac12\end{bmatrix}$.
+:::
+
+### Lab 4: interpret the sign and size of an eigenvalue
+
+**Guess first.** If $\lambda=-2$, does the vector shrink, grow, flip, or both
+grow and flip?
+
+**Guided exercise.**
+
+If $A\mathbf{v}=-2\mathbf{v}$, then applying $A$ makes the vector twice as long
+and points it in the opposite direction. The negative sign flips direction. The
+absolute value $2$ tells the stretch factor.
+
+::: {.practice-box}
+**Checkpoint.** Describe what happens along an eigenvector when $\lambda=0.25$,
+$\lambda=-1$, and $\lambda=3$.
+:::
+
+### Lab 5: use eigenvalues for repeated multiplication
+
+**Guess first.** If $A\mathbf{v}=3\mathbf{v}$, what is $A^4\mathbf{v}$?
+
+**Guided exercise.**
+
+Each application of $A$ multiplies the vector by $3$:
+
+$$
+A\mathbf{v}=3\mathbf{v},
+\quad
+A^2\mathbf{v}=3^2\mathbf{v},
+\quad
+A^3\mathbf{v}=3^3\mathbf{v},
+\quad
+A^4\mathbf{v}=3^4\mathbf{v}=81\mathbf{v}.
+$$
+
+This is why eigenvectors are useful for understanding long-term behavior.
+
+::: {.practice-box}
+**Checkpoint.** If $A\mathbf{v}=\frac12\mathbf{v}$, what is $A^5\mathbf{v}$?
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. $\begin{bmatrix}0\\4\end{bmatrix}$ is an eigenvector because the product is
+   $\begin{bmatrix}0\\20\end{bmatrix}=5\begin{bmatrix}0\\4\end{bmatrix}$. The
+   eigenvalue is $5$.
+2. Yes. $\begin{bmatrix}-6\\3\end{bmatrix}=3\begin{bmatrix}-2\\1\end{bmatrix}$.
+3. The eigenvalues are $7$ with eigenvector $\begin{bmatrix}1\\0\end{bmatrix}$
+   and $\frac12$ with eigenvector $\begin{bmatrix}0\\1\end{bmatrix}$.
+4. $0.25$ shrinks toward zero without flipping. $-1$ flips direction and keeps
+   the same length. $3$ grows by a factor of 3 without flipping.
+5. $A^5\mathbf{v}=(\frac12)^5\mathbf{v}=\frac{1}{32}\mathbf{v}$.
+:::
+
 ## Eigenvector guessing game
 
 Use this checkpoint to identify eigenvalues, eigenvectors, and repeated behavior.

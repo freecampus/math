@@ -1,47 +1,351 @@
 ---
 title: Conditional Probability
-description: Probability after new information.
+description: Probability after new information, independence, multiplication rules, and Bayes' rule.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Conditional probability answers questions like “What is the probability of `A`
+if we already know `B` happened?” This is the mathematics of updating. A weather
+forecast changes after seeing clouds, a medical risk changes after a test
+result, and a card probability changes after you learn the suit.
 
-- Interpret conditional probability.
-- Recognize independence.
-- Use Bayes' rule conceptually.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- interpret `P(A | B)` in words;
+- compute conditional probability from counts, sets, and two-way tables;
+- distinguish `P(A | B)` from `P(B | A)`;
+- recognize independence;
+- use the multiplication rule;
+- use Bayes' rule in beginner-friendly examples.
 :::
+
+## Conditional probability as a smaller universe
+
+The notation `P(A | B)` means:
+
+```text
+probability of A given that B has happened
+```
+
+The event after the vertical bar is the information we already know. It
+restricts the sample space to `B`.
+
+For a fair die, suppose we know the roll is greater than 3. The possible outcomes
+are no longer `{1,2,3,4,5,6}`. They are only:
+
+```text
+{4, 5, 6}
+```
+
+If `A` is “roll even,” then inside this smaller universe the favorable outcomes
+are `{4,6}`. So
+
+```text
+P(even | greater than 3) = 2/3
+```
+
+## The formula `P(A | B)`
+
+When `P(B) > 0`,
 
 ::: {.formula-box}
-`P(A | B) = P(A and B) / P(B)`
+```text
+P(A | B) = P(A and B) / P(B)
+```
 :::
 
-## Practice
+This formula says: among the cases where `B` happened, what fraction also have
+`A`?
+
+## Two-way tables
+
+Two-way tables are useful because they organize counts. Suppose 100 students are
+classified by whether they studied and whether they passed.
+
+| | Passed | Did not pass | Total |
+|---|---:|---:|---:|
+| Studied | 54 | 6 | 60 |
+| Did not study | 20 | 20 | 40 |
+| Total | 74 | 26 | 100 |
+
+To find `P(passed | studied)`, restrict to the studied row:
+
+```text
+P(passed | studied) = 54 / 60 = 0.9
+```
+
+To find `P(studied | passed)`, restrict to the passed column:
+
+```text
+P(studied | passed) = 54 / 74
+```
+
+These are different questions.
+
+## Independence
+
+Events `A` and `B` are **independent** if knowing `B` happened does not change
+the probability of `A`:
+
+```text
+P(A | B) = P(A)
+```
+
+Equivalently:
+
+```text
+P(A and B) = P(A)P(B)
+```
+
+Independence is not the same as “cannot happen together.” If two events cannot
+happen together, then knowing one happened usually changes the probability of
+the other to zero.
+
+## Multiplication rule
+
+The conditional formula can be rearranged:
+
+```text
+P(A and B) = P(A | B)P(B)
+```
+
+Also:
+
+```text
+P(A and B) = P(B | A)P(A)
+```
+
+This is useful for multi-stage probability problems.
+
+## Bayes' rule
+
+Bayes' rule reverses conditional probability:
+
+::: {.formula-box}
+```text
+P(A | B) = P(B | A)P(A) / P(B)
+```
+:::
+
+A beginner-friendly way to use Bayes' rule is with natural frequencies. Imagine
+1000 people:
+
+- 10 have a condition;
+- the test catches 9 of those 10;
+- 990 do not have the condition;
+- 99 of those 990 falsely test positive.
+
+Then 108 people test positive total, and 9 of those actually have the condition:
+
+```text
+P(condition | positive) = 9 / 108 = 1 / 12
+```
+
+## Worked example 1: cards
+
+A standard deck has 52 cards. Suppose a card is known to be a face card: jack,
+queen, or king. What is the probability that it is a king?
+
+1. Restrict to the condition. There are 12 face cards.
+2. Count the favorable outcomes inside that condition. There are 4 kings.
+3. Compute:
+
+```text
+P(king | face card) = 4/12 = 1/3
+```
+
+## Worked example 2: independence check
+
+Suppose `P(A)=0.4`, `P(B)=0.5`, and `P(A and B)=0.2`. Are `A` and `B`
+independent?
+
+Check the product:
+
+```text
+P(A)P(B) = 0.4 * 0.5 = 0.2
+```
+
+This matches `P(A and B)`, so the events are independent.
+
+## Common pitfalls
+
+- Confusing `P(A | B)` with `P(B | A)`.
+- Forgetting that the condition changes the denominator.
+- Calling events independent because they feel unrelated, without checking.
+- Thinking mutually exclusive events are independent.
+- Ignoring base rates in Bayes' rule problems.
+
+## Practice exercises
 
 ::: {.practice-box}
 1. What does `P(A | B)` mean in words?
-2. If events are independent, how does `P(A | B)` relate to `P(A)`?
-3. Why is conditional probability important for inference?
+2. A fair die is known to be odd. What is `P(roll 5 | odd)`?
+3. In the student table above, compute `P(studied | passed)`.
+4. If `P(A)=0.3`, `P(B)=0.2`, and `P(A and B)=0.06`, are the events independent?
+5. Why can `P(test positive | disease)` be very different from
+   `P(disease | test positive)`?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. The probability that `A` happens given that `B` has happened.
+2. The odd outcomes are `{1,3,5}`. Only one is 5, so the probability is `1/3`.
+3. `54/74`.
+4. Yes, because `0.3 * 0.2 = 0.06`.
+5. They condition on different groups. One starts among people with the disease;
+   the other starts among people who tested positive.
+:::
 
-Answer: the probability of event `A` given that event `B` has occurred.
+## Subtopic guided practice and checkpoints
+
+The most important habit is to identify the condition first. The condition tells
+you the denominator.
+
+### Lab 1: identify the condition
+
+**Guess first.** In `P(A | B)`, which event becomes the smaller universe?
+
+**Guided exercise.**
+
+The event after the bar, `B`, is the condition. If the problem says “given that
+B occurred,” you count only outcomes in `B`.
+
+::: {.practice-box}
+**Checkpoint.** In `P(rain | cloudy)`, which event is the condition? What does
+the probability mean in words?
+:::
+
+### Lab 2: compute from a small set
+
+**Guess first.** If the condition has 4 outcomes and 3 also satisfy `A`, what is
+`P(A | condition)`?
+
+**Guided exercise.**
+
+For a die, let `A = even = {2,4,6}` and `B = at least 4 = {4,5,6}`. Inside `B`,
+the outcomes that are also in `A` are `{4,6}`.
+
+```text
+P(A | B) = 2/3
+```
+
+::: {.practice-box}
+**Checkpoint.** For a die, compute `P(greater than 2 | even)`.
+:::
+
+### Lab 3: use a two-way table
+
+**Guess first.** To find `P(passed | studied)`, do you divide by the studied
+total or the passed total?
+
+**Guided exercise.**
+
+The condition is “studied,” so use the studied total as the denominator:
+
+```text
+P(passed | studied) = 54 / 60
+```
+
+::: {.practice-box}
+**Checkpoint.** Using the table above, compute `P(did not study | did not pass)`.
+:::
+
+### Lab 4: test independence
+
+**Guess first.** If `P(A | B)` is different from `P(A)`, are the events independent?
+
+**Guided exercise.**
+
+If `P(A)=0.5` but `P(A | B)=0.8`, knowing `B` changes the probability of `A`.
+Therefore the events are not independent.
+
+::: {.practice-box}
+**Checkpoint.** If `P(A)=0.2`, `P(B)=0.5`, and `P(A and B)=0.1`, are `A` and
+`B` independent?
+:::
+
+### Lab 5: Bayes with natural frequencies
+
+**Guess first.** If a test has false positives, does every positive result mean
+the condition is likely?
+
+**Guided exercise.**
+
+Use counts. If 100 people test positive and 20 of those truly have the
+condition, then
+
+```text
+P(condition | positive) = 20/100 = 0.2
+```
+
+The denominator is all positive tests, not all people with the condition.
+
+::: {.practice-box}
+**Checkpoint.** In 500 people, 25 have a condition. A test catches 20 of them
+and falsely flags 45 people without the condition. What is
+`P(condition | positive)`?
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: `P(A | B) = P(A)`.
-
-Independence means knowing `B` happened does not change the probability of `A`.
+1. The condition is cloudy. It means the probability of rain among situations
+   where it is cloudy.
+2. Even outcomes are `{2,4,6}`. Greater than 2 inside that set is `{4,6}`, so
+   the probability is `2/3`.
+3. Among the 26 students who did not pass, 20 did not study, so the probability
+   is `20/26 = 10/13`.
+4. Yes. `P(A)P(B)=0.2*0.5=0.1`, matching `P(A and B)`.
+5. There are `20+45=65` positive tests. The probability is `20/65 = 4/13`.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Conditional probability guessing game
 
-Answer: inference updates beliefs when new information is observed, and
-conditional probability is the language for that update.
-:::
+Use this checkpoint to practice conditions, independence, and Bayes direction.
+
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "conditional-probability",
+  "title": "Conditional probability checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/probability-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` for finite conditional probabilities.
+
+```{python}
+#| echo: true
+from edumath.probability import conditional_probability, is_independent
+
+sample_space = {1, 2, 3, 4, 5, 6}
+even = {2, 4, 6}
+at_least_four = {4, 5, 6}
+conditional_probability(even, at_least_four, sample_space)
+```
+
+Check independence using the product rule.
+
+```{python}
+#| echo: true
+is_independent(prob_a=0.4, prob_b=0.5, prob_a_and_b=0.2)
+```
+
+Use SymPy for exact Bayes-rule arithmetic.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+true_positives = sp.Integer(20)
+false_positives = sp.Integer(45)
+true_positives / (true_positives + false_positives)
+```

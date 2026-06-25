@@ -93,6 +93,25 @@ A useful study habit is: **draw first, calculate second, verify third**.
   and catch arithmetic mistakes.
 :::
 
+## How the upgraded lessons are organized
+
+Each lesson in this path is designed for a student who may be meeting linear
+algebra for the first time. The pages intentionally repeat the most important
+habits:
+
+- **guess first** before calculating, so you build geometric intuition;
+- **name the object**: vector, matrix, system, transformation, or eigenpair;
+- **check the shape** before adding or multiplying anything;
+- **work one coordinate, row, or column at a time** instead of trying to do the
+  whole problem mentally;
+- **verify the result** by substitution, dimension checks, or a small software
+  check;
+- **use the checkpoint games** to practice fast recognition after the guided
+  examples.
+
+If you feel lost, pause and ask three questions: What are the inputs? What rule
+is being applied? What should the output look like?
+
 ## Readiness checkpoint game
 
 Use this quick game to guess which linear-algebra idea is being described.
