@@ -1,6 +1,17 @@
 # Release Notes
 ---
 
+## [0.4.2](https://github.com/osl-incubator/edu-math/compare/0.4.1...0.4.2) (2026-06-25)
+
+
+### Bug Fixes
+
+* fix differential equations lessons ([e7b4066](https://github.com/osl-incubator/edu-math/commit/e7b40667718b0e6a8c35726ae344c8121ecc5c4b))
+* Fix discrete math ([974fd14](https://github.com/osl-incubator/edu-math/commit/974fd14cccfdebac2762bb1efd31b4e28ca899bc))
+* Improve probability lesson ([00f147a](https://github.com/osl-incubator/edu-math/commit/00f147ad15c246532c678d0ecb443007d93c243e))
+* improve statistics lessons ([df54879](https://github.com/osl-incubator/edu-math/commit/df548795032d6b42d7970bc9fa46a75ca72e7600))
+* remove unnecessary lessons ([8fcc432](https://github.com/osl-incubator/edu-math/commit/8fcc4326bde03765448d525897d350c4869384c0))
+
 ## [0.4.1](https://github.com/osl-incubator/edu-math/compare/0.4.0...0.4.1) (2026-06-24)
 
 
