@@ -11,7 +11,7 @@ Python code, visual intuition, and short checks for understanding.
 ### How to Use These Lessons
 
 - Read each lesson in order the first time.
-- Run the Python examples in a local notebook or Google Colab when possible.
+- Run the Python examples in a local Python environment when possible.
 - Use the interactive browser widgets when studying from the rendered site.
 - Attempt the practice questions before reading the explanation.
 - Return to earlier algebra and Python topics whenever later lessons feel
@@ -90,13 +90,6 @@ Logic, sets, relations, sequences, induction, and graph basics.
 [Start Discrete Mathematics](discrete-math/index.qmd)
 :::
 
-::: {.topic-card}
-### Review and Colab
-
-Mixed practice, formula sheets, mock tests, and Colab setup.
-
-[Open Review](review/diagnostic-quiz.qmd)
-:::
 :::
 
 ## Learning Pattern
@@ -110,4 +103,4 @@ Most lessons follow this sequence:
 5. **Worked example**: step-by-step solution.
 6. **Common mistakes**: errors to avoid.
 7. **Practice**: short exercises or quizzes.
-8. **Python connection**: reusable code for local Python and Colab.
+8. **Python connection**: reusable code for Python environments.

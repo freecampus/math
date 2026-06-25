@@ -125,15 +125,6 @@ website:
               - lessons/discrete-math/sequences.qmd
               - lessons/discrete-math/induction.qmd
               - lessons/discrete-math/graphs.qmd
-          - section: Review
-            contents:
-              - lessons/review/diagnostic-quiz.qmd
-              - lessons/review/formula-sheet.qmd
-              - lessons/review/mixed-practice.qmd
-              - lessons/review/mock-test.qmd
-          - section: Colab
-            contents:
-              - lessons/colab/usage.qmd
       - changelog.qmd
 
 format:
