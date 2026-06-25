@@ -1,0 +1,272 @@
+---
+title: Chi-Square Tests
+description: Categorical data, observed and expected counts, goodness-of-fit, and independence tests.
+execute:
+  echo: false
+---
+
+Chi-square tests are used with categorical count data. They compare what we
+observed with what a null model says we should expect.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- organize categorical data as counts;
+- distinguish goodness-of-fit tests from tests of independence;
+- compute expected counts in simple settings;
+- compute a chi-square contribution `(observed - expected)^2 / expected`;
+- interpret large chi-square statistics as evidence against the null model;
+- recognize assumptions and limitations of chi-square methods.
+:::
+
+## Categorical counts
+
+Chi-square methods use counts, not raw measurements. Examples:
+
+- number of voters in each party category;
+- number of products classified as pass/fail by factory;
+- number of people in combinations of smoking status and disease status.
+
+Percentages are useful for interpretation, but the test is based on counts.
+
+## Observed and expected counts
+
+- **Observed counts** are the counts actually collected.
+- **Expected counts** are the counts predicted by the null hypothesis.
+
+The chi-square statistic adds a standardized discrepancy for each category:
+
+::: {.formula-box}
+```text
+chi-square = sum((observed - expected)^2 / expected)
+```
+:::
+
+Large discrepancies create larger chi-square statistics.
+
+## Goodness-of-fit test
+
+A goodness-of-fit test uses one categorical variable. It asks whether the
+distribution of counts matches a claimed distribution.
+
+Example: Are colors of candies produced in the claimed proportions?
+
+## Test of independence
+
+A chi-square test of independence uses two categorical variables in a two-way
+table. It asks whether the variables are associated.
+
+Example: Is smoking status associated with disease status?
+
+## Expected counts in a two-way table
+
+For a test of independence:
+
+```text
+expected count = (row total * column total) / grand total
+```
+
+This formula represents what we would expect if the row and column variables were
+independent.
+
+## Worked example 1: goodness-of-fit
+
+A fair die should have equal counts for six faces. It is rolled `60` times, so
+the expected count for each face is:
+
+```text
+60 / 6 = 10
+```
+
+Suppose face `1` appears `16` times. Its chi-square contribution is:
+
+```text
+(16 - 10)^2 / 10 = 36/10 = 3.6
+```
+
+You would compute this contribution for each face and add them.
+
+## Worked example 2: expected count in a two-way table
+
+A table has row total `40`, column total `30`, and grand total `100`. Find the
+expected count for that cell under independence.
+
+**Step 1: Write the formula.**
+
+```text
+expected = row total * column total / grand total
+```
+
+**Step 2: Substitute.**
+
+```text
+expected = 40 * 30 / 100 = 12
+```
+
+**Interpretation:** If the variables are independent, we would expect about `12`
+observations in that cell.
+
+## Worked example 3: interpret association carefully
+
+A chi-square test finds a small p-value for association between exercise category
+and stress category.
+
+**What can we say?**
+
+The variables are statistically associated in the data.
+
+**What can we not automatically say?**
+
+We cannot automatically say exercise causes lower stress. The data may be
+observational, and variables such as health, work schedule, or income may
+confound the relationship.
+
+## Assumptions and cautions
+
+Chi-square tests generally require:
+
+- count data in categories;
+- independent observations;
+- expected counts not too small for the approximation being used;
+- a sampling or study design appropriate for the conclusion.
+
+## Common pitfalls
+
+- Using percentages instead of counts in the test statistic.
+- Applying chi-square tests to quantitative measurements without categorizing.
+- Ignoring small expected counts.
+- Treating association as causation.
+- Forgetting that a significant test does not say which categories are most
+  responsible without further investigation.
+
+## Practice exercises
+
+::: {.practice-box}
+1. A test comparing candy colors to claimed proportions is goodness-of-fit or
+   independence?
+2. A test studying gender category and voting category in a two-way table is
+   goodness-of-fit or independence?
+3. Compute expected count for row total `50`, column total `20`, grand total
+   `200`.
+4. Compute the chi-square contribution for observed `14` and expected `10`.
+5. Why is a small p-value in a chi-square test of independence not automatically
+   proof of causation?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Goodness-of-fit.
+2. Test of independence.
+3. `50*20/200=5`.
+4. `(14-10)^2/10 = 16/10 = 1.6`.
+5. The study may be observational and confounding variables may explain the
+   association.
+:::
+
+## Subtopic guided practice and checkpoints
+
+### Lab 1: choose the chi-square test
+
+**Guess first.** One categorical variable or two?
+
+**Guided exercise.**
+
+One categorical variable usually suggests goodness-of-fit. Two categorical
+variables in a table usually suggest independence or association.
+
+::: {.practice-box}
+**Checkpoint.** Favorite color in one sample versus claimed distribution: which
+test type?
+:::
+
+### Lab 2: compute expected counts
+
+**Guess first.** If row total and column total are large, should the expected
+count also tend to be larger?
+
+**Guided exercise.**
+
+Yes. The formula multiplies row total and column total, then divides by the grand
+total.
+
+::: {.practice-box}
+**Checkpoint.** Compute expected count for row total `30`, column total `50`,
+grand total `150`.
+:::
+
+### Lab 3: compute a contribution
+
+**Guess first.** If observed equals expected, what is the contribution?
+
+**Guided exercise.**
+
+```text
+(observed - expected)^2 / expected = 0^2 / expected = 0
+```
+
+::: {.practice-box}
+**Checkpoint.** Compute contribution for observed `8`, expected `5`.
+:::
+
+### Lab 4: interpret the result
+
+**Guess first.** Does a large chi-square statistic mean observed counts are close
+to expected counts?
+
+**Guided exercise.**
+
+No. Large chi-square statistics come from large discrepancies between observed
+and expected counts.
+
+::: {.practice-box}
+**Checkpoint.** What does a small p-value suggest in a chi-square test?
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. Goodness-of-fit.
+2. `30*50/150=10`.
+3. `(8-5)^2/5 = 9/5 = 1.8`.
+4. Evidence against the null model: claimed distribution for goodness-of-fit or
+   independence for a two-way table.
+:::
+
+## Chi-square guessing game
+
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "chi-square-tests",
+  "title": "Chi-square tests checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Compute expected counts with Python.
+
+```{python}
+#| echo: true
+row_total = 40
+column_total = 30
+grand_total = 100
+expected = row_total * column_total / grand_total
+expected
+```
+
+Use SymPy to represent the chi-square contribution formula.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+observed, expected = sp.symbols("observed expected", positive=True)
+contribution = (observed - expected) ** 2 / expected
+sp.expand(contribution)
+```

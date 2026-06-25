@@ -1,49 +1,305 @@
 ---
 title: Regression Basics
-description: Model relationships between variables.
+description: Scatterplots, correlation, least-squares lines, residuals, prediction, and causation cautions.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Regression models relationships between variables. In simple linear regression,
+we use one quantitative explanatory variable `x` to predict one quantitative
+response variable `y`.
 
-- Interpret slope and intercept in simple linear regression.
-- Recognize residuals.
-- Avoid causal overclaims.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- read scatterplots for direction, form, strength, and outliers;
+- interpret correlation;
+- interpret slope and intercept in a simple linear regression line;
+- compute and interpret residuals;
+- use a regression line for prediction;
+- explain why association alone does not prove causation.
 :::
 
-Regression models a relationship between an explanatory variable and a response
-variable.
+## Scatterplots first
+
+Before fitting a line, look at the data. A scatterplot can show:
+
+- **direction**: positive, negative, or no clear association;
+- **form**: linear or curved;
+- **strength**: tight or scattered pattern;
+- **outliers**: unusual points;
+- **clusters**: groups that may need separate attention.
+
+A line is appropriate only when the relationship is roughly linear.
+
+## Correlation
+
+Pearson correlation `r` measures the strength and direction of a linear
+relationship.
+
+Properties:
+
+- `r` is between `-1` and `1`;
+- positive `r` means y tends to increase as x increases;
+- negative `r` means y tends to decrease as x increases;
+- `r` near `0` means little linear association;
+- correlation is unitless;
+- correlation is sensitive to outliers.
+
+## Regression line
+
+A simple linear regression line has the form:
 
 ::: {.formula-box}
-Simple linear regression has the form `y = beta_0 + beta_1 x + error`.
+```text
+predicted y = intercept + slope * x
+```
 :::
+
+The **slope** is the predicted change in `y` for a one-unit increase in `x`.
+The **intercept** is the predicted `y` value when `x=0`, if that value is
+meaningful in context.
+
+## Residuals
+
+A residual is the prediction error for one point:
+
+```text
+residual = observed y - predicted y
+```
+
+Positive residual: observed value is above the line. Negative residual: observed
+value is below the line.
+
+Residual plots help check whether a linear model is appropriate. A curved pattern
+in residuals suggests the line is missing structure.
+
+## Prediction and extrapolation
+
+Interpolation means predicting within the range of observed `x` values.
+Extrapolation means predicting outside that range. Extrapolation can be risky
+because the relationship may not continue.
+
+## Causation caution
+
+Regression describes association. It does not automatically prove that changing
+`x` causes a change in `y`. Causal conclusions require careful design, such as
+random assignment or strong observational methods.
+
+## Worked example 1: interpret a slope
+
+A regression line predicts exam score from study hours:
+
+```text
+predicted score = 62 + 4.5 * hours
+```
+
+**Question:** Interpret the slope.
+
+**Answer:** For each additional hour studied, the model predicts an average
+increase of `4.5` exam points.
+
+This is a prediction statement. It does not automatically prove that forcing one
+more hour of study causes exactly `4.5` more points for every student.
+
+## Worked example 2: make a prediction
+
+Use the same line:
+
+```text
+predicted score = 62 + 4.5 * hours
+```
+
+Predict score for `6` hours.
+
+**Step 1: Substitute.**
+
+```text
+predicted score = 62 + 4.5(6)
+```
+
+**Step 2: Compute.**
+
+```text
+62 + 27 = 89
+```
+
+The predicted score is `89`.
+
+## Worked example 3: compute a residual
+
+A student studied `6` hours and scored `84`. The model predicted `89`.
+
+```text
+residual = observed - predicted = 84 - 89 = -5
+```
+
+The residual is `-5`, meaning the student scored `5` points below the model's
+prediction.
+
+## Worked example 4: fit a perfect line
+
+Data:
+
+```text
+x: 1, 2, 3
+y: 3, 5, 7
+```
+
+Each time `x` increases by `1`, `y` increases by `2`, so slope is `2`.
+Using point `(1,3)`:
+
+```text
+3 = intercept + 2(1)
+intercept = 1
+```
+
+The line is:
+
+```text
+predicted y = 1 + 2x
+```
+
+For `x=4`, predicted `y=9`.
+
+## Common pitfalls
+
+- Interpreting the intercept outside a meaningful range.
+- Using correlation for a curved relationship.
+- Ignoring outliers that strongly affect the line.
+- Treating a high correlation as proof of causation.
+- Extrapolating far beyond observed data.
+- Forgetting that residuals are observed minus predicted.
+
+## Practice exercises
 
 ::: {.practice-box}
-1. What does the slope represent?
-2. What is a residual?
-3. Why does regression alone not prove causation?
+1. Interpret the slope in `predicted y = 10 + 3x`.
+2. Predict `y` when `x=5` for `predicted y = 10 + 3x`.
+3. If observed `y=22` and predicted `y=25`, find the residual.
+4. What does correlation near `-1` mean?
+5. Why is extrapolation risky?
+6. Why does regression alone not prove causation?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. For each one-unit increase in `x`, predicted `y` increases by `3` units.
+2. `10 + 3(5) = 25`.
+3. `22 - 25 = -3`.
+4. A strong negative linear association.
+5. The relationship may change outside the observed range.
+6. Confounding, selection effects, or reverse causation may explain the
+   association.
+:::
 
-Answer: the expected change in the response for a one-unit increase in the
-explanatory variable, according to the fitted model.
+## Subtopic guided practice and checkpoints
+
+### Lab 1: interpret direction
+
+**Guess first.** If taller plants tend to have larger leaves, is the association
+positive or negative?
+
+**Guided exercise.**
+
+As height increases, leaf size tends to increase, so the association is positive.
+
+::: {.practice-box}
+**Checkpoint.** If price increases and demand decreases, what is the direction?
+:::
+
+### Lab 2: use the line
+
+**Guess first.** In `y = 5 + 2x`, what is the predicted change in `y` when `x`
+increases by `1`?
+
+**Guided exercise.**
+
+The slope is `2`, so predicted `y` increases by `2`.
+
+::: {.practice-box}
+**Checkpoint.** Predict `y` for `x=4` in `y=5+2x`.
+:::
+
+### Lab 3: residual sign
+
+**Guess first.** If a point is above the regression line, is the residual
+positive or negative?
+
+**Guided exercise.**
+
+Above the line means observed `y` is greater than predicted `y`, so the residual
+is positive.
+
+::: {.practice-box}
+**Checkpoint.** If observed is `12` and predicted is `15`, find the residual.
+:::
+
+### Lab 4: causation language
+
+**Guess first.** Can an observational regression prove causation by itself?
+
+**Guided exercise.**
+
+No. It can show association, but causal claims require design and reasoning about
+confounders.
+
+::: {.practice-box}
+**Checkpoint.** Name one reason association may not be causation.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: observed value minus predicted value.
-
-Residuals measure model error for individual data points.
+1. Negative.
+2. `5+2(4)=13`.
+3. `12-15=-3`.
+4. Confounding, reverse causation, selection effects, or coincidence.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Regression guessing game
 
-Answer: association can be caused by confounding, selection effects, or other
-variables not included in the model.
-:::
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "regression-basics",
+  "title": "Regression basics checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to fit a simple regression line and compute residuals.
+
+```{python}
+#| echo: true
+from edumath.statistics import predict, residuals, simple_linear_regression
+
+line = simple_linear_regression([1, 2, 3], [3, 5, 7])
+line
+```
+
+```{python}
+#| echo: true
+predict(line, 4)
+```
+
+```{python}
+#| echo: true
+residuals(line, [1, 2, 3], [3, 5, 7])
+```
+
+Use SymPy to solve for an intercept from one point and a known slope.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+b = sp.symbols("b")
+sp.solve(sp.Eq(3, b + 2 * 1), b)
+```

@@ -97,11 +97,17 @@ website:
               - lessons/probability/expectation-variance.qmd
           - section: Statistics
             contents:
+              - lessons/statistics/index.qmd
               - lessons/statistics/descriptive-statistics.qmd
               - lessons/statistics/sampling.qmd
+              - lessons/statistics/probability-for-statistics.qmd
+              - lessons/statistics/sampling-distributions.qmd
               - lessons/statistics/estimation.qmd
               - lessons/statistics/hypothesis-tests.qmd
+              - lessons/statistics/comparing-groups.qmd
+              - lessons/statistics/chi-square-tests.qmd
               - lessons/statistics/regression-basics.qmd
+              - lessons/statistics/statistics-cumulative-review.qmd
           - section: Differential Equations
             contents:
               - lessons/differential-equations/index.qmd

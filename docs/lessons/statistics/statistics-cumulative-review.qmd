@@ -1,0 +1,279 @@
+---
+title: Statistics Cumulative Review
+description: A mixed review for choosing statistical tools and explaining conclusions carefully.
+execute:
+  echo: false
+---
+
+This review connects the statistics workflow. The goal is not only to calculate;
+it is to choose an appropriate method, check conditions, and communicate a
+careful conclusion.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this review you should be able to:
+
+- choose among descriptive statistics, confidence intervals, hypothesis tests,
+  group comparisons, chi-square tests, and regression;
+- explain why study design affects conclusions;
+- connect standard error to confidence intervals and tests;
+- interpret p-values and confidence intervals accurately;
+- avoid common overclaims about causation and certainty.
+:::
+
+## The statistical workflow
+
+Use this checklist for most problems:
+
+1. **Question.** What is being asked?
+2. **Data.** Who or what was measured? How were data collected?
+3. **Variables.** Are variables quantitative or categorical?
+4. **Summary.** What do plots and descriptive statistics show?
+5. **Method.** Which inferential tool matches the question and data type?
+6. **Conditions.** Are sampling, independence, and model assumptions reasonable?
+7. **Computation.** Calculate the estimate, standard error, interval, test, or
+   model.
+8. **Conclusion.** Answer in context, including uncertainty and limitations.
+
+## Method selection guide
+
+| Data/question | Useful tool |
+|---|---|
+| one quantitative variable, describe shape | histogram, boxplot, mean/median, SD/IQR |
+| one categorical variable, estimate proportion | one-proportion confidence interval |
+| one mean, estimate population mean | one-mean confidence interval |
+| one mean or proportion, test claim | one-sample hypothesis test |
+| two independent means or proportions | compare groups with difference estimate |
+| before/after on same individuals | paired differences |
+| one categorical distribution vs claim | chi-square goodness-of-fit |
+| two categorical variables | chi-square test of independence |
+| two quantitative variables | scatterplot, correlation, regression |
+
+## Worked example 1: survey estimate
+
+A random sample of `400` adults finds `220` support a policy.
+
+**Step 1: Identify data type.**
+
+Support is categorical yes/no.
+
+**Step 2: Identify goal.**
+
+Estimate a population proportion.
+
+**Step 3: Compute point estimate.**
+
+```text
+p-hat = 220/400 = 0.55
+```
+
+**Step 4: Choose method.**
+
+Use a confidence interval for one proportion.
+
+**Step 5: Interpret.**
+
+The sample suggests support near `55%`, with uncertainty from random sampling.
+
+## Worked example 2: test or interval?
+
+A researcher asks whether a machine's mean fill weight is different from `500 g`.
+
+**Step 1: Notice the wording.**
+
+"Different from `500 g`" is a claim-testing question.
+
+**Step 2: Write hypotheses.**
+
+```text
+H0: mu = 500
+Ha: mu != 500
+```
+
+**Step 3: Use a hypothesis test.**
+
+A confidence interval could also be informative, but the wording asks for a test
+of a baseline value.
+
+## Worked example 3: categorical association
+
+A dataset counts people by exercise category and stress category.
+
+**Step 1: Identify variables.**
+
+Both variables are categorical.
+
+**Step 2: Choose method.**
+
+Use a chi-square test of independence.
+
+**Step 3: Interpret carefully.**
+
+A significant association does not automatically prove exercise causes stress
+changes, especially if the study is observational.
+
+## Worked example 4: quantitative relationship
+
+A dataset contains house size and selling price.
+
+**Step 1: Identify variables.**
+
+Both are quantitative.
+
+**Step 2: Start with a scatterplot.**
+
+Look for linear form, outliers, and clusters.
+
+**Step 3: Choose method.**
+
+If roughly linear, use regression to predict price from size.
+
+**Step 4: Caution.**
+
+Avoid extrapolating to house sizes far outside the dataset.
+
+## Common final-exam pitfalls
+
+- Choosing a method before identifying variable types.
+- Ignoring whether samples are paired or independent.
+- Using a hypothesis test when the question asks for estimation.
+- Saying "accept the null" instead of "fail to reject the null."
+- Claiming causation from observational data.
+- Reporting a number without context, units, or uncertainty.
+- Trusting a formula after biased sampling.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Which tool summarizes one quantitative variable before inference?
+2. Which tool estimates a population mean with uncertainty?
+3. Which tool tests association between two categorical variables?
+4. Which tool predicts a quantitative response from a quantitative explanatory
+   variable?
+5. A study measures the same patients before and after treatment. Are samples
+   paired or independent?
+6. A small p-value proves the alternative is true. True or false?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Descriptive statistics and plots.
+2. Confidence interval for a mean.
+3. Chi-square test of independence.
+4. Regression.
+5. Paired.
+6. False. A small p-value is evidence against the null under assumptions; it is
+   not proof.
+:::
+
+## Guided mixed-review checkpoints
+
+### Checkpoint 1: identify variable types
+
+**Guess first.** Age is quantitative or categorical?
+
+**Guided answer.** Age is quantitative when measured numerically. Age group, such
+as `18-24`, is categorical.
+
+::: {.practice-box}
+Classify: favorite color, blood pressure, pass/fail result.
+:::
+
+### Checkpoint 2: choose a method
+
+**Guess first.** A two-way table of major and graduation status needs regression
+or chi-square?
+
+**Guided answer.** Both variables are categorical, so use a chi-square test of
+independence.
+
+::: {.practice-box}
+Choose a method: height and weight for the same people.
+:::
+
+### Checkpoint 3: explain uncertainty
+
+**Guess first.** What connects standard error to both confidence intervals and
+hypothesis tests?
+
+**Guided answer.** Standard error measures how much an estimate varies across
+samples. Intervals use it to form a margin of error; tests use it to standardize
+distance from the null value.
+
+::: {.practice-box}
+Why does increasing sample size usually narrow a confidence interval?
+:::
+
+### Checkpoint 4: write a conclusion
+
+**Guess first.** Should a conclusion mention the context?
+
+**Guided answer.** Yes. A statistical conclusion should answer the original
+question using the problem's units and population, with uncertainty and
+limitations.
+
+::: {.practice-box}
+Rewrite carefully: "The p-value is small, so the treatment definitely works."
+:::
+
+::: {.callout-tip collapse="true"}
+### Mixed-review answers
+
+1. Favorite color: categorical; blood pressure: quantitative; pass/fail:
+   categorical.
+2. Regression or correlation, after a scatterplot, because both variables are
+   quantitative.
+3. Larger sample size reduces standard error, which reduces margin of error.
+4. Better: "The small p-value provides evidence against the null hypothesis and
+   suggests the treatment may have an effect, assuming the study design and model
+   conditions are appropriate."
+:::
+
+## Cumulative statistics guessing game
+
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "statistics-cumulative-review",
+  "title": "Statistics cumulative review checkpoint",
+  "defaultTotal": 8
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` helpers to connect the workflow.
+
+```{python}
+#| echo: true
+from edumath.statistics import (
+    confidence_interval_proportion,
+    describe,
+    one_sample_z_test,
+)
+
+describe([12, 15, 17, 20, 21])
+```
+
+```{python}
+#| echo: true
+confidence_interval_proportion(220, 400)
+```
+
+```{python}
+#| echo: true
+one_sample_z_test(105, 100, 2.5, alternative="greater")
+```
+
+Use SymPy to show the shared structure behind intervals and tests.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+estimate, null, se, z = sp.symbols("estimate null se z")
+sp.solve(sp.Eq(z, (estimate - null) / se), null)
+```

@@ -1,0 +1,169 @@
+---
+title: Statistics Study Path
+description: A guided path through data summaries, sampling, inference, group comparisons, categorical data, and regression.
+execute:
+  echo: false
+---
+
+Statistics is the discipline of learning from data while staying honest about
+uncertainty. A statistical argument usually moves through this workflow:
+
+```text
+question -> data collection -> data summary -> model -> inference -> interpretation
+```
+
+This study path is written for learners who need careful explanations, worked
+examples, guided practice, and repeated reminders about common mistakes.
+
+::: {.learning-objectives}
+### Learning objectives
+
+Across this statistics path you should be able to:
+
+- summarize data with center, spread, plots, and outlier checks;
+- judge whether data collection supports the conclusion being made;
+- use probability ideas to reason about random samples;
+- explain sampling distributions, standard error, and the central limit theorem;
+- build and interpret confidence intervals;
+- carry out and interpret introductory hypothesis tests;
+- compare groups with attention to design and practical significance;
+- analyze categorical counts with chi-square reasoning;
+- fit and interpret simple regression models;
+- communicate conclusions in context without overclaiming.
+:::
+
+## The lessons in order
+
+1. **Descriptive statistics**: learn what the data look like.
+2. **Sampling and study design**: decide whether the data can answer the
+   question.
+3. **Probability for statistics**: describe randomness with rules and models.
+4. **Sampling distributions**: understand how statistics vary across samples.
+5. **Estimation**: estimate unknown population values with uncertainty.
+6. **Hypothesis tests**: measure evidence against a baseline claim.
+7. **Comparing groups**: study differences between two populations or treatments.
+8. **Chi-square tests**: analyze categorical counts and association.
+9. **Regression basics**: model relationships between quantitative variables.
+10. **Cumulative review**: choose tools and interpret results.
+
+## Big ideas to keep connected
+
+### Data are not automatically trustworthy
+
+A large dataset can still be misleading if it was collected badly. Always ask:
+
+- Who or what is the population?
+- How was the sample chosen?
+- What was measured?
+- Could wording, nonresponse, confounding, or missing data distort the result?
+
+### Variation is normal
+
+Two random samples from the same population usually give different means,
+proportions, and regression slopes. Statistics does not remove variation; it
+models it.
+
+### Inference is about methods, not magic certainty
+
+A confidence interval is not a guarantee. A small p-value is not proof. A strong
+correlation is not automatically causation. The goal is careful reasoning under
+uncertainty.
+
+## A decision guide
+
+Use this quick guide when you are not sure which tool belongs to a problem.
+
+| If the question asks... | Start with... |
+|---|---|
+| What does this dataset look like? | descriptive statistics and plots |
+| Is the sample trustworthy? | sampling and study design |
+| How much should an estimate vary? | standard error and sampling distributions |
+| What values are plausible for a parameter? | confidence interval |
+| Is this result surprising under a baseline claim? | hypothesis test |
+| Are two groups different? | comparing groups |
+| Are categorical variables associated? | chi-square test of independence |
+| How does one quantitative variable predict another? | regression |
+
+## Worked example: choosing the statistical tool
+
+A survey asks `500` randomly selected voters whether they support a policy. The
+sample proportion is `0.58`. The researcher wants to estimate the population
+proportion of all voters who support the policy.
+
+**Step 1: Identify the variable.**
+
+The response is yes/no, so the statistic is a sample proportion.
+
+**Step 2: Identify the goal.**
+
+The researcher wants to estimate a population proportion, not test a specific
+claim yet.
+
+**Step 3: Choose the method.**
+
+Use a confidence interval for one proportion.
+
+**Step 4: Communicate carefully.**
+
+A good conclusion says something like: "The data suggest support is near 58%,
+with uncertainty due to sampling." It should not say: "Exactly 58% of all voters
+support the policy."
+
+## Practice exercises
+
+::: {.practice-box}
+1. A teacher computes the mean and median exam score. Which statistics topic is
+   this?
+2. A researcher worries that only people with strong opinions answered a survey.
+   Which topic is this?
+3. A scientist wants to know whether a sample mean is unusually high under a
+   baseline claim. Which topic is this?
+4. A data analyst models house price using house size. Which topic is this?
+5. A public-health report studies whether disease status is associated with
+   smoking status in a two-way table. Which topic is this?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Descriptive statistics.
+2. Sampling and study design; specifically nonresponse bias.
+3. Hypothesis testing.
+4. Regression.
+5. Chi-square test of independence for categorical variables.
+:::
+
+## Statistics readiness guessing game
+
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "statistics-cumulative-review",
+  "title": "Statistics readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to inspect the statistics study path.
+
+```{python}
+#| echo: true
+from edumath.statistics import STATISTICS_PATH
+
+STATISTICS_PATH.slugs()
+```
+
+SymPy is useful for algebraic rearrangements inside statistical formulas.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+se, z, estimate = sp.symbols("se z estimate", positive=True)
+lower = estimate - z * se
+upper = estimate + z * se
+sp.simplify((upper - lower) / 2)
+```

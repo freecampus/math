@@ -1,0 +1,297 @@
+---
+title: Comparing Groups
+description: Compare two means or proportions with attention to pairing, independence, uncertainty, and practical significance.
+execute:
+  echo: false
+---
+
+Many statistical questions compare groups: treatment versus control, before
+versus after, city A versus city B, or two manufacturing processes. The key is to
+compare the groups in a way that respects the study design.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- identify the response variable and grouping variable;
+- distinguish paired samples from independent samples;
+- compute and interpret a difference in means or proportions;
+- explain standard error for a difference;
+- separate statistical significance from practical importance;
+- avoid causal overclaims when the data are observational.
+:::
+
+## What is being compared?
+
+A group comparison usually has:
+
+- a **response variable**: the outcome being measured;
+- a **grouping variable**: the group label or treatment condition.
+
+Examples:
+
+| Question | Response | Groups |
+|---|---|---|
+| Do two study methods lead to different exam scores? | exam score | method A, method B |
+| Did blood pressure change after treatment? | blood pressure | before, after |
+| Are support rates different in two cities? | yes/no support | city 1, city 2 |
+
+## Paired versus independent samples
+
+### Paired samples
+
+Samples are paired when observations are naturally linked.
+
+Examples:
+
+- before and after measurements on the same person;
+- twins matched by family;
+- two measurements from the same machine part.
+
+For paired data, analyze the **within-pair differences**.
+
+### Independent samples
+
+Samples are independent when observations in one group are not matched to
+specific observations in the other group.
+
+Examples:
+
+- a random sample of students from School A and a separate random sample from
+  School B;
+- treatment and control groups with different individuals.
+
+## Differences as estimates
+
+When comparing two means, the estimate is often:
+
+```text
+sample mean 1 - sample mean 2
+```
+
+When comparing two proportions, the estimate is:
+
+```text
+sample proportion 1 - sample proportion 2
+```
+
+The sign matters. A positive difference means group 1 is larger using that order.
+
+## Standard error for differences
+
+For independent means, a common standard error form is:
+
+```text
+SE difference = sqrt(s1^2/n1 + s2^2/n2)
+```
+
+The idea is that uncertainty from both groups contributes to the uncertainty of
+the difference.
+
+## Practical significance
+
+A difference can be statistically significant but practically small. Always ask:
+
+- How large is the difference in real units?
+- Is the difference meaningful for decisions?
+- Are there costs, risks, or side effects?
+- Was the study designed to support causal conclusions?
+
+## Worked example 1: independent means
+
+Group A has mean `82`, standard deviation `10`, and sample size `25`. Group B
+has mean `76`, standard deviation `12`, and sample size `36`.
+
+**Step 1: Compute the difference.**
+
+```text
+difference = 82 - 76 = 6
+```
+
+Group A's mean is `6` points higher.
+
+**Step 2: Compute standard error.**
+
+```text
+SE = sqrt(10^2/25 + 12^2/36)
+SE = sqrt(100/25 + 144/36)
+SE = sqrt(4 + 4)
+SE = sqrt(8), about 2.83
+```
+
+**Step 3: Interpret.**
+
+The observed difference is about `6/2.83 = 2.12` standard errors from zero. That
+may be evidence of a real difference, but a full test also requires conditions
+and a p-value or interval.
+
+## Worked example 2: paired data
+
+Five students take a pre-test and post-test. Their improvements are:
+
+```text
+3, 5, -1, 4, 2
+```
+
+**Step 1: Analyze differences, not two unrelated groups.**
+
+The data are paired because each student has both measurements.
+
+**Step 2: Compute the mean improvement.**
+
+```text
+mean improvement = (3 + 5 - 1 + 4 + 2) / 5 = 13/5 = 2.6
+```
+
+**Interpretation:** The average improvement in this sample is `2.6` points.
+
+## Worked example 3: comparing proportions
+
+In City A, `120` of `200` sampled residents support a policy. In City B, `90` of
+`180` sampled residents support it.
+
+**Step 1: Compute sample proportions.**
+
+```text
+p-hat A = 120/200 = 0.60
+p-hat B = 90/180 = 0.50
+```
+
+**Step 2: Compute the difference.**
+
+```text
+0.60 - 0.50 = 0.10
+```
+
+**Interpretation:** City A's sample support is `10` percentage points higher.
+That difference is an estimate; uncertainty must be considered before making a
+strong conclusion.
+
+## Common pitfalls
+
+- Treating paired data as independent and losing the matched information.
+- Ignoring the sign and order of a difference.
+- Claiming causation from an observational group comparison.
+- Reporting only a p-value without effect size.
+- Forgetting that uncertainty comes from both groups.
+- Comparing groups with very different sampling methods.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Before-and-after weights on the same people are paired or independent?
+2. Two separate random samples from two cities are paired or independent?
+3. If group A mean is `30` and group B mean is `24`, compute `A - B`.
+4. If a treatment lowers symptoms by `0.1` points with p-value `0.001`, what
+   question should you ask about practical importance?
+5. Why should observational group comparisons be interpreted cautiously?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Paired.
+2. Independent.
+3. `30 - 24 = 6`.
+4. Ask whether `0.1` points is large enough to matter in the real context.
+5. Confounding variables may explain the observed difference.
+:::
+
+## Subtopic guided practice and checkpoints
+
+### Lab 1: identify pairing
+
+**Guess first.** A person rates pain before and after taking a medicine. Paired
+or independent?
+
+**Guided exercise.**
+
+Paired, because the two measurements belong to the same person.
+
+::: {.practice-box}
+**Checkpoint.** Two different classrooms use two different textbooks. Paired or
+independent?
+:::
+
+### Lab 2: compute a difference
+
+**Guess first.** If order is treatment minus control, what does a positive value
+mean?
+
+**Guided exercise.**
+
+A positive value means the treatment group has a larger average or proportion
+than the control group.
+
+::: {.practice-box}
+**Checkpoint.** Compute treatment minus control for means `15` and `18`.
+:::
+
+### Lab 3: compare proportions
+
+**Guess first.** Is a difference of `0.07` equal to `7` percentage points?
+
+**Guided exercise.**
+
+Yes. Proportions are decimals; multiply by `100` to express percentage points.
+
+::: {.practice-box}
+**Checkpoint.** Convert a difference of `0.125` to percentage points.
+:::
+
+### Lab 4: assess conclusion strength
+
+**Guess first.** What two ideas should accompany a group difference?
+
+**Guided exercise.**
+
+Use uncertainty and practical context. Ask whether the difference is statistically
+clear and whether it matters.
+
+::: {.practice-box}
+**Checkpoint.** Name one design feature that strengthens causal claims.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. Independent, unless students are specifically matched.
+2. `15 - 18 = -3`; treatment is lower by `3` units.
+3. `12.5` percentage points.
+4. Random assignment.
+:::
+
+## Comparing groups guessing game
+
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "comparing-groups",
+  "title": "Comparing groups checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to compute a standard error for a difference of independent means.
+
+```{python}
+#| echo: true
+from edumath.statistics import difference_standard_error
+
+difference_standard_error(10, 25, 12, 36)
+```
+
+Use SymPy to simplify the same calculation symbolically.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+s1, s2, n1, n2 = sp.symbols("s1 s2 n1 n2", positive=True)
+se_difference = sp.sqrt(s1**2 / n1 + s2**2 / n2)
+se_difference
+```

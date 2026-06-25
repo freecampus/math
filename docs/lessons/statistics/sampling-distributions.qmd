@@ -1,0 +1,265 @@
+---
+title: Sampling Distributions
+description: Sample-to-sample variation, standard error, and the central limit theorem.
+execute:
+  echo: false
+---
+
+A statistic changes from sample to sample. If you repeatedly take random samples
+of the same size and compute the same statistic each time, the pattern of those
+statistics is a **sampling distribution**.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- explain what a sampling distribution is;
+- distinguish standard deviation from standard error;
+- compute standard error for a sample mean when a standard deviation is known or
+  estimated;
+- describe how sample size affects standard error;
+- state the central limit theorem in practical language;
+- use sampling distributions to prepare for estimation and testing.
+:::
+
+## Statistic versus sampling distribution
+
+A **statistic** is one number from one sample, such as a sample mean.
+
+A **sampling distribution** is the distribution of that statistic across many
+possible random samples of the same size.
+
+Think of it this way:
+
+```text
+raw data vary within one sample
+statistics vary across repeated samples
+```
+
+## Standard error
+
+The **standard error** is the standard deviation of a statistic's sampling
+distribution. For a sample mean, a common formula is:
+
+::: {.formula-box}
+```text
+standard error of sample mean = standard deviation / sqrt(n)
+```
+:::
+
+If the population standard deviation is unknown, we often use the sample standard
+deviation as an estimate.
+
+## Effect of sample size
+
+Because `sqrt(n)` is in the denominator, larger samples usually have smaller
+standard error.
+
+If the standard deviation is `12`:
+
+```text
+n = 36 -> SE = 12 / sqrt(36) = 2
+n = 144 -> SE = 12 / sqrt(144) = 1
+```
+
+Quadrupling the sample size cuts the standard error in half.
+
+## Central limit theorem
+
+The central limit theorem says that, under common conditions, the sampling
+distribution of the sample mean becomes approximately normal as sample size grows,
+even when the original population is not normal.
+
+Practical meaning:
+
+- individual values may be skewed;
+- sample means are often less variable and more normal-shaped;
+- this supports normal-based confidence intervals and tests for means.
+
+The theorem is powerful, but not a license to ignore bad data collection,
+extreme dependence, or very small samples from highly skewed populations.
+
+## Worked example 1: compute standard error
+
+A population has standard deviation `sigma = 15`. A random sample has size
+`n = 25`. Find the standard error of the sample mean.
+
+**Step 1: Write the formula.**
+
+```text
+SE = sigma / sqrt(n)
+```
+
+**Step 2: Substitute.**
+
+```text
+SE = 15 / sqrt(25)
+```
+
+**Step 3: Simplify.**
+
+```text
+SE = 15 / 5 = 3
+```
+
+**Interpretation:** Sample means from samples of size `25` typically vary about
+`3` units from the population mean.
+
+## Worked example 2: compare two sample sizes
+
+A sample standard deviation is about `20`.
+
+- For `n=25`, `SE = 20/sqrt(25)=4`.
+- For `n=100`, `SE = 20/sqrt(100)=2`.
+
+The larger sample gives a more stable sample mean. It does not guarantee no
+error, but it reduces typical sampling error.
+
+## Worked example 3: decide whether normal approximation is reasonable
+
+A sample mean is based on `n=80` independent observations from a right-skewed
+population without extreme outliers.
+
+**Reasoning:**
+
+- The sample size is fairly large.
+- The central limit theorem suggests sample means may be approximately normal.
+- If the data are independent and the population is not extremely heavy-tailed,
+  a normal approximation may be reasonable.
+
+A careful conclusion says "approximately normal," not "perfectly normal."
+
+## Common pitfalls
+
+- Calling standard error the spread of raw data. It is the spread of a statistic.
+- Thinking a larger sample removes bias. It mainly reduces variability.
+- Using the central limit theorem for non-random or strongly dependent data
+  without caution.
+- Forgetting that standard error decreases with `sqrt(n)`, not with `n` itself.
+- Confusing standard deviation `s` with standard error `s/sqrt(n)`.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Define a sampling distribution in your own words.
+2. Compute standard error when `s=10` and `n=25`.
+3. Compute standard error when `s=10` and `n=100`.
+4. If sample size increases, what usually happens to standard error?
+5. What does the central limit theorem say about sample means?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. It is the distribution of a statistic over many repeated random samples of
+   the same size.
+2. `SE=10/sqrt(25)=2`.
+3. `SE=10/sqrt(100)=1`.
+4. It decreases, assuming the spread of individual values is similar.
+5. Under conditions, sample means become approximately normally distributed as
+   sample size grows.
+:::
+
+## Subtopic guided practice and checkpoints
+
+### Lab 1: identify the changing object
+
+**Guess first.** In a sampling distribution of means, what changes from one
+repeat to another?
+
+**Guided exercise.**
+
+The sample changes, so the sample mean changes. The population parameter stays
+fixed.
+
+::: {.practice-box}
+**Checkpoint.** In a sampling distribution of proportions, what statistic is
+recomputed each time?
+:::
+
+### Lab 2: compute standard error
+
+**Guess first.** If `s=18` and `n=9`, is the standard error `2`, `6`, or `162`?
+
+**Guided exercise.**
+
+```text
+SE = 18/sqrt(9) = 18/3 = 6
+```
+
+::: {.practice-box}
+**Checkpoint.** Compute `SE` for `s=24`, `n=36`.
+:::
+
+### Lab 3: sample size effect
+
+**Guess first.** To cut standard error in half, do you double or quadruple sample
+size?
+
+**Guided exercise.**
+
+Because `SE = s/sqrt(n)`, you must quadruple sample size to double `sqrt(n)` and
+cut standard error in half.
+
+::: {.practice-box}
+**Checkpoint.** If `n` changes from `50` to `200`, what happens to standard
+error, approximately?
+:::
+
+### Lab 4: CLT interpretation
+
+**Guess first.** Does the central limit theorem say raw data are always normal?
+
+**Guided exercise.**
+
+No. It describes the sampling distribution of sample means, not necessarily the
+raw data distribution.
+
+::: {.practice-box}
+**Checkpoint.** What must still be considered before using CLT-based methods?
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. The sample proportion.
+2. `SE=24/sqrt(36)=4`.
+3. It is cut in half because `200` is four times `50`.
+4. Randomness/independence, sample size, skewness, outliers, and data quality.
+:::
+
+## Sampling distributions guessing game
+
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "sampling-distributions",
+  "title": "Sampling distributions checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Compute standard error with `edumath`.
+
+```{python}
+#| echo: true
+from edumath.statistics import standard_error
+
+standard_error(15, 25)
+```
+
+Use SymPy to see why quadrupling sample size halves standard error.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+s, n = sp.symbols("s n", positive=True)
+old_se = s / sp.sqrt(n)
+new_se = s / sp.sqrt(4 * n)
+sp.simplify(new_se / old_se)
+```

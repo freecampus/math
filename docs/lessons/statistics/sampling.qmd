@@ -1,44 +1,305 @@
 ---
-title: Sampling
-description: Samples, populations, and variability.
+title: Sampling and Study Design
+description: Populations, samples, bias, random sampling, experiments, observational studies, and confounding.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Statistics begins before formulas. If the data are collected poorly, even a
+correct calculation can lead to a wrong conclusion. Sampling and study design ask
+whether the data can answer the question.
 
-- Distinguish sample and population.
-- Explain sampling variability.
-- Recognize bias.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- distinguish population, sample, parameter, and statistic;
+- identify common sources of bias;
+- explain why random sampling matters;
+- distinguish observational studies from experiments;
+- recognize confounding and the limits of causal claims;
+- design a simple sampling plan for a real question.
 :::
 
-A sample is a subset of a population. Good samples help us learn about the
-population without measuring everyone.
+## Population, sample, parameter, statistic
+
+A **population** is the full group or process we want to learn about. A
+**sample** is the subset actually observed.
+
+A **parameter** is a number describing the population. A **statistic** is a
+number computed from a sample.
+
+| Word | Meaning | Example |
+|---|---|---|
+| population | full target group | all registered voters in a city |
+| sample | observed subset | 600 selected voters |
+| parameter | unknown population value | true support proportion |
+| statistic | sample value | sample support proportion |
+
+## Bias versus variability
+
+Two things can make sample results differ from the truth:
+
+- **Sampling variability**: random samples naturally differ from each other.
+- **Bias**: the method systematically pushes results in a wrong direction.
+
+Large samples reduce variability, but they do not automatically remove bias.
+
+## Common sources of bias
+
+### Selection bias
+
+Selection bias occurs when the method for choosing the sample misses important
+parts of the population.
+
+Example: estimating average commute time by surveying only people at a downtown
+train station.
+
+### Nonresponse bias
+
+Nonresponse bias occurs when selected individuals do not respond and responders
+differ from nonresponders.
+
+Example: a long optional survey receives answers mostly from people with strong
+opinions.
+
+### Response bias
+
+Response bias occurs when wording, social pressure, or measurement method changes
+answers.
+
+Example: asking, "Do you support this obviously beneficial program?"
+
+### Undercoverage
+
+Undercoverage occurs when some groups are not included in the sampling frame.
+
+Example: an online-only survey excludes people without reliable internet access.
+
+## Random sampling
+
+Random sampling means the selection uses chance. A simple random sample gives
+every group of the chosen size the same chance of selection.
+
+Random sampling helps because it reduces systematic selection patterns and lets
+us use probability to describe sampling variability.
+
+Random does not mean perfect. A random sample can still be unlucky, but the
+chance process makes uncertainty measurable.
+
+## Observational studies and experiments
+
+An **observational study** records data without assigning treatments. It can show
+association, but causal claims are difficult because other variables may explain
+the association.
+
+An **experiment** assigns treatments. Random assignment helps balance other
+variables across groups, making causal conclusions more credible.
+
+Important distinction:
+
+```text
+random sampling helps generalize to a population
+random assignment helps support cause-and-effect claims
+```
+
+## Confounding
+
+A confounder is a variable related to both the explanatory variable and the
+response variable.
+
+Example: An observational study finds that people who buy expensive running shoes
+run faster. Fitness level could be a confounder: fitter runners may buy better
+shoes and also run faster.
+
+## Worked example 1: identify population and sample
+
+A researcher wants to estimate the average sleep time of all students at a large
+college. She surveys `80` students in one morning chemistry class.
+
+**Step 1: Identify the population.**
+
+The population is all students at the college.
+
+**Step 2: Identify the sample.**
+
+The sample is the `80` students in that chemistry class who were surveyed.
+
+**Step 3: Ask whether the sample is representative.**
+
+Probably not. Students in one morning class may differ from the full student
+population. This is selection bias or undercoverage.
+
+## Worked example 2: bias does not disappear with size
+
+A website poll receives `50,000` responses about a political issue.
+
+**Question:** Is the huge sample size enough to trust the result?
+
+**Reasoning:**
+
+- The sample is voluntary.
+- People with strong opinions are more likely to respond.
+- Visitors to the website may not represent the target population.
+
+**Conclusion:** The large sample size reduces random variability among website
+responders, but it does not fix voluntary response bias.
+
+## Worked example 3: experiment or observational study?
+
+Researchers compare recovery times between patients who chose physical therapy
+and patients who chose rest.
+
+**Step 1: Were treatments assigned?**
+
+No. Patients chose their own approach.
+
+**Step 2: Classify the study.**
+
+This is observational.
+
+**Step 3: Identify a possible confounder.**
+
+Injury severity may affect both treatment choice and recovery time.
+
+**Conclusion:** The study can show an association but does not by itself prove
+that physical therapy caused the difference.
+
+## Common pitfalls
+
+- Thinking a large sample always removes bias.
+- Confusing random sampling with random assignment.
+- Generalizing beyond the population represented by the sample.
+- Treating correlation from an observational study as causation.
+- Ignoring nonresponse.
+- Failing to define the population before collecting data.
+
+## Practice exercises
 
 ::: {.practice-box}
-1. What is a population?
-2. What is sampling bias?
-3. Why do random samples help?
+1. Define population and sample for a survey of `200` households used to study
+   all households in a city.
+2. A teacher asks only students in the front row about homework time. Name a
+   likely bias.
+3. A randomized experiment assigns patients to treatment or placebo. What does
+   random assignment help with?
+4. A random sample of city residents is used to estimate city support for a
+   policy. What does random sampling help with?
+5. A study finds coffee drinkers sleep less. Name a possible confounder.
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. Population: all households in the city. Sample: the `200` surveyed households.
+2. Selection bias; front-row students may not represent the class.
+3. Random assignment helps support cause-and-effect conclusions by balancing
+   confounders across groups.
+4. Random sampling helps generalize to the city population and quantify sampling
+   variability.
+5. Possible confounders include work schedule, stress, age, or health status.
+:::
 
-Answer: the full group or process we want to learn about.
+## Subtopic guided practice and checkpoints
+
+### Lab 1: classify the target
+
+**Guess first.** Is "all students at a school" a sample or population?
+
+**Guided exercise.**
+
+If the research question is about the whole school, then all students at the
+school are the population. A sample would be the students actually measured.
+
+::: {.practice-box}
+**Checkpoint.** In a poll of `1,000` adults used to learn about all adults in a
+country, what is the sample?
+:::
+
+### Lab 2: spot bias
+
+**Guess first.** What bias appears when only people with internet access can
+answer?
+
+**Guided exercise.**
+
+This is undercoverage because people without internet access are left out of the
+sampling frame.
+
+::: {.practice-box}
+**Checkpoint.** What bias appears when selected people refuse to answer?
+:::
+
+### Lab 3: separate randomness roles
+
+**Guess first.** Which supports causal claims: random sampling or random
+assignment?
+
+**Guided exercise.**
+
+Random assignment supports causal claims. Random sampling supports generalizing
+from the sample to the population.
+
+::: {.practice-box}
+**Checkpoint.** Which one helps estimate a population percentage?
+:::
+
+### Lab 4: identify confounding
+
+**Guess first.** If students who study more get higher grades, could motivation
+be a confounder?
+
+**Guided exercise.**
+
+Yes. Motivation may affect both study time and grades.
+
+::: {.practice-box}
+**Checkpoint.** In an association between exercise and lower stress, name one
+possible confounder.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: a systematic way the sample differs from the population.
-
-Bias can make estimates wrong even when the sample is large.
+1. The `1,000` adults who were polled.
+2. Nonresponse bias.
+3. Random sampling.
+4. Possible answers include sleep, income, health, job type, or available free
+   time.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Sampling guessing game
 
-Answer: random sampling reduces systematic selection patterns and supports
-probability-based uncertainty estimates.
-:::
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "sampling",
+  "title": "Sampling and study design checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` exercise builders to practice identifying sampling issues.
+
+```{python}
+#| echo: true
+from edumath.statistics import sampling_bias_exercise
+
+exercise = sampling_bias_exercise(seed=2)
+exercise.prompt, exercise.expected
+```
+
+SymPy can help rearrange formulas, but study-design reasoning is mostly
+conceptual.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+bias, estimate, truth = sp.symbols("bias estimate truth")
+sp.solve(sp.Eq(bias, estimate - truth), estimate)
+```

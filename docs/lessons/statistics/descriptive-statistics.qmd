@@ -1,49 +1,367 @@
 ---
 title: Descriptive Statistics
-description: Summarize data with center and spread.
+description: Summarize data with center, spread, shape, outliers, and plots.
+execute:
+  echo: false
 ---
 
-::: {.learning-objectives}
-### Learning Objectives
+Descriptive statistics help you understand a dataset before making conclusions.
+They answer questions such as: Where is the center? How spread out are the
+values? Is the distribution symmetric or skewed? Are there unusual values?
 
-- Compute mean, median, variance, and standard deviation.
-- Interpret center and spread.
-- Use descriptive summaries carefully.
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- compute and interpret mean, median, mode, range, variance, and standard
+  deviation;
+- compute and interpret quartiles and interquartile range;
+- identify possible outliers using the `1.5 * IQR` rule;
+- describe distribution shape: symmetric, skewed, unimodal, bimodal, clustered;
+- choose summaries that match the data shape;
+- use `edumath`, Python, and SymPy to verify descriptive calculations.
 :::
 
-```{python}
-from edumath.statistics.concepts import describe
+## Data first: what is a variable?
 
-describe([1, 2, 3, 4, 10])
+A **variable** is a characteristic that can vary from individual to individual.
+Examples include height, exam score, commute time, favorite color, or whether a
+machine part passed inspection.
+
+Variables can be:
+
+- **quantitative**: numerical measurements or counts;
+- **categorical**: labels or groups.
+
+This lesson focuses mostly on quantitative variables.
+
+## Measures of center
+
+A measure of center gives one number that represents a typical value.
+
+### Mean
+
+The **mean** is the arithmetic average:
+
+::: {.formula-box}
+```text
+mean = sum of values / number of values
+```
+:::
+
+The mean is useful when the data are roughly symmetric and do not have extreme
+outliers. It is sensitive to very large or very small values.
+
+### Median
+
+The **median** is the middle value after sorting the data. If there are two
+middle values, average them.
+
+The median is more resistant to outliers than the mean.
+
+### Mode
+
+The **mode** is the most common value or category. A dataset may have one mode,
+several modes, or no repeated values.
+
+## Measures of spread
+
+Spread describes how much the data vary.
+
+### Range
+
+```text
+range = maximum - minimum
 ```
 
+Range is easy to compute but depends only on two values.
+
+### Variance and standard deviation
+
+Variance averages squared deviations from the mean. Standard deviation is the
+square root of variance, so it is measured in the original units.
+
+For a sample:
+
+```text
+sample variance = sum((value - mean)^2) / (n - 1)
+sample standard deviation = sqrt(sample variance)
+```
+
+The `n - 1` denominator is used because a sample is estimating a population
+spread.
+
+### Quartiles and IQR
+
+Quartiles split sorted data into four parts:
+
+- `Q1`: about 25% of data are at or below this value;
+- `median`: about 50% are at or below;
+- `Q3`: about 75% are at or below.
+
+The interquartile range is:
+
+```text
+IQR = Q3 - Q1
+```
+
+IQR describes the spread of the middle half of the data.
+
+## Outliers and shape
+
+A common rule flags possible outliers below or above these fences:
+
+```text
+lower fence = Q1 - 1.5 * IQR
+upper fence = Q3 + 1.5 * IQR
+```
+
+Outliers are not automatically mistakes. They are values that deserve attention.
+They may represent errors, rare events, or important discoveries.
+
+Shape words:
+
+- **symmetric**: left and right sides look similar;
+- **right-skewed**: long tail to the right;
+- **left-skewed**: long tail to the left;
+- **unimodal**: one main peak;
+- **bimodal**: two main peaks.
+
+## Worked example 1: mean and median
+
+Data:
+
+```text
+2, 3, 4, 5, 100
+```
+
+**Step 1: Compute the mean.**
+
+```text
+mean = (2 + 3 + 4 + 5 + 100) / 5
+mean = 114 / 5
+mean = 22.8
+```
+
+**Step 2: Compute the median.**
+
+The values are already sorted. The middle value is `4`.
+
+**Step 3: Interpret.**
+
+The mean `22.8` is much larger than most values because `100` is an outlier. The
+median `4` better represents a typical value in this small dataset.
+
+## Worked example 2: sample standard deviation
+
+Data:
+
+```text
+4, 6, 8
+```
+
+**Step 1: Find the mean.**
+
+```text
+mean = (4 + 6 + 8) / 3 = 6
+```
+
+**Step 2: Find deviations from the mean.**
+
+```text
+4 - 6 = -2
+6 - 6 = 0
+8 - 6 = 2
+```
+
+**Step 3: Square the deviations.**
+
+```text
+(-2)^2 = 4
+0^2 = 0
+2^2 = 4
+```
+
+**Step 4: Average with `n - 1` for sample variance.**
+
+```text
+sample variance = (4 + 0 + 4) / (3 - 1) = 8 / 2 = 4
+```
+
+**Step 5: Take the square root.**
+
+```text
+sample standard deviation = sqrt(4) = 2
+```
+
+## Worked example 3: choose the summary
+
+A neighborhood income dataset is right-skewed because a few households have very
+large incomes.
+
+**Question:** Should you report mean, median, or both?
+
+**Reasoning:**
+
+- The mean will be pulled upward by very high incomes.
+- The median tells where the middle household is.
+- Reporting both is often best because the gap between mean and median signals
+  skew.
+
+A careful sentence:
+
+```text
+The median income describes the typical household better than the mean because
+income is right-skewed, but the mean helps reveal the influence of high incomes.
+```
+
+## Common pitfalls
+
+- Computing the mean before checking for outliers.
+- Saying standard deviation is "the average distance" without noting the
+  squared-deviation calculation.
+- Treating every outlier as an error.
+- Using mean and standard deviation for highly skewed data without also showing
+  median and IQR.
+- Describing categorical variables with means when percentages or counts are
+  better.
+
+## Practice exercises
+
 ::: {.practice-box}
-1. Which is more sensitive to outliers: mean or median?
-2. What does standard deviation measure?
-3. Why should summaries be paired with plots?
+1. Find the mean of `1, 2, 3, 4, 10`.
+2. Find the median of `1, 2, 3, 4, 10`.
+3. Which is more sensitive to outliers: mean or median?
+4. What does standard deviation measure in context?
+5. For `Q1=10` and `Q3=18`, find the IQR and upper outlier fence.
+6. A dataset has a long right tail. Which is larger most often: mean or median?
 :::
 
+::: {.callout-tip collapse="true"}
 ## Solutions
 
-::: {.callout-tip collapse="true"}
-## Solution 1
+1. Mean: `(1+2+3+4+10)/5 = 20/5 = 4`.
+2. Median: `3`.
+3. The mean is more sensitive because it uses the exact size of every value.
+4. Standard deviation measures typical spread around the mean, in original units.
+5. `IQR=18-10=8`; upper fence `=18+1.5(8)=30`.
+6. In a right-skewed distribution, the mean is usually larger than the median.
+:::
 
-Answer: mean.
+## Subtopic guided practice and checkpoints
 
-The mean uses every value directly, so an extreme value can pull it strongly.
+### Lab 1: compute center
+
+**Guess first.** For `3, 3, 4, 10`, will the mean be larger or smaller than the
+median?
+
+**Guided exercise.**
+
+```text
+mean = (3+3+4+10)/4 = 5
+median = (3+4)/2 = 3.5
+```
+
+The mean is larger because `10` pulls it upward.
+
+::: {.practice-box}
+**Checkpoint.** Find the mean and median of `5, 5, 6, 20`.
+:::
+
+### Lab 2: interpret spread
+
+**Guess first.** If two classes have the same mean but one has a larger standard
+deviation, what differs?
+
+**Guided exercise.**
+
+The class with larger standard deviation has scores more spread out around the
+mean.
+
+::: {.practice-box}
+**Checkpoint.** Which dataset has more spread: `9,10,11` or `1,10,19`?
+:::
+
+### Lab 3: detect possible outliers
+
+**Guess first.** If `Q1=4` and `Q3=8`, is `20` a possible outlier?
+
+**Guided exercise.**
+
+```text
+IQR = 8 - 4 = 4
+upper fence = 8 + 1.5(4) = 14
+```
+
+Since `20 > 14`, it is a possible outlier.
+
+::: {.practice-box}
+**Checkpoint.** If `Q1=12` and `Q3=20`, find the lower fence.
+:::
+
+### Lab 4: connect summaries to plots
+
+**Guess first.** Why should summaries be paired with plots?
+
+**Guided exercise.**
+
+Two datasets can share the same mean and standard deviation but have different
+shapes, clusters, or outliers. A histogram or boxplot reveals structure that a
+few numbers can hide.
+
+::: {.practice-box}
+**Checkpoint.** Name one feature a plot can reveal that the mean cannot.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Solution 2
+### Lab checkpoint answers
 
-Answer: typical spread around the mean.
-
-A larger standard deviation means values tend to be farther from the mean.
+1. Mean `=9`; median `=5.5`.
+2. `1,10,19` has more spread.
+3. Lower fence `=12 - 1.5(8) = 0`.
+4. Possible answers: skew, clusters, gaps, outliers, multiple peaks.
 :::
 
-::: {.callout-tip collapse="true"}
-## Solution 3
+## Descriptive statistics guessing game
 
-Answer: plots reveal shape, clusters, skew, and outliers that a few summary
-numbers can hide.
-:::
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "descriptive-statistics",
+  "title": "Descriptive statistics checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/statistics-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to compute descriptive summaries.
+
+```{python}
+#| echo: true
+from edumath.statistics import describe, five_number_summary, outlier_fences
+
+values = [2, 3, 4, 5, 100]
+describe(values)
+```
+
+```{python}
+#| echo: true
+five_number_summary(values)
+```
+
+```{python}
+#| echo: true
+outlier_fences(values)
+```
+
+Use SymPy to show the algebra of a mean calculation.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.simplify((2 + 3 + 4 + 5 + 100) / 5)
+```
