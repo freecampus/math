@@ -26,7 +26,6 @@ from edumath.python_fundamentals import plot_values
 
 balances = [100, 105, 111, 118, 126]
 fig, ax = plot_values(balances, title="Account balance")
-fig
 ```
 
 ## Scatter Plots
@@ -44,7 +43,6 @@ fig, ax = scatter_values(
     expected_return,
     title="Risk and expected return",
 )
-fig
 ```
 
 ## Reading a Plot
@@ -91,7 +89,6 @@ Answer:
 from edumath.python_fundamentals import plot_values
 
 fig, ax = plot_values([1, 4, 9, 16], title="Square numbers")
-fig
 ```
 :::
 
@@ -105,7 +102,6 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 ax.scatter([1, 2, 3], [3, 2, 5])
-fig
 ```
 :::
 

@@ -206,7 +206,6 @@ scene = compare_functions_scene(
     title="Rational function comparison",
 )
 fig, ax = scene.render()
-fig
 ```
 
 ## Radical expressions and functions

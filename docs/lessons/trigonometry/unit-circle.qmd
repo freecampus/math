@@ -256,7 +256,6 @@ Use the plotting helper for a unit-circle picture.
 from edumath.trigonometry import plot_unit_circle
 
 fig, ax = plot_unit_circle(150)
-fig
 ```
 
 Use SymPy for exact values.

@@ -152,7 +152,6 @@ scene = compare_functions_scene(
     title="Equivalent expressions have the same graph",
 )
 fig, ax = scene.render()
-fig
 ```
 
 The graph is the same because the two formulas define the same function. The

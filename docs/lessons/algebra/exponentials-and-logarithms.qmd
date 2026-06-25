@@ -73,7 +73,6 @@ scene = compare_functions_scene(
     title="Exponential growth, decay, and polynomial comparison",
 )
 fig, ax = scene.render()
-fig
 ```
 
 ## Percent growth and decay

@@ -82,7 +82,6 @@ scene = transformation_scene(
     y_max=20,
 )
 fig, ax = scene.render()
-fig
 ```
 
 The base vertex `(0, 0)` becomes `(3, 1)`, and the graph becomes narrower
@@ -536,7 +535,6 @@ transformed_expression("x**2", vertical_scale=2, horizontal_shift=3, vertical_sh
 #| echo: true
 scene = transformation_scene("x**2", vertical_scale=2, horizontal_shift=3, vertical_shift=1)
 fig, ax = scene.render()
-fig
 ```
 
 ## Further reading
