@@ -1,0 +1,266 @@
+---
+title: Radians and Degrees
+description: Angle measure, full turns, coterminal angles, and reference angles.
+execute:
+  echo: false
+---
+
+Angles measure rotation. The two most common units are **degrees** and
+**radians**. Degrees are familiar from geometry: a full turn is `360 degrees`.
+Radians are the natural angle unit for advanced mathematics: a full turn is
+`2pi radians`.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- explain degrees and radians as two angle units;
+- convert degrees to radians and radians to degrees;
+- find coterminal angles;
+- find reference angles;
+- avoid mixing degree-mode and radian-mode calculations;
+- check conversions with `edumath` and SymPy.
+:::
+
+## Degrees
+
+A full turn is divided into `360` degrees.
+
+```text
+full turn = 360 degrees
+half turn = 180 degrees
+quarter turn = 90 degrees
+```
+
+Degrees are useful for drawing and interpreting everyday angles.
+
+## Radians
+
+Radians measure angle by comparing arc length to radius:
+
+```text
+radian measure = arc length / radius
+```
+
+On a unit circle, the radius is 1, so the radian measure equals the arc length.
+A full circle has circumference `2pi`, so:
+
+```text
+360 degrees = 2pi radians
+180 degrees = pi radians
+90 degrees = pi/2 radians
+```
+
+## Conversion formulas
+
+::: {.formula-box}
+```text
+degrees to radians: multiply by pi/180
+radians to degrees: multiply by 180/pi
+```
+:::
+
+Example:
+
+```text
+60 degrees = 60 * pi/180 = pi/3 radians
+```
+
+## Coterminal angles
+
+Coterminal angles land in the same direction because they differ by full turns.
+
+```text
+30 degrees, 390 degrees, and -330 degrees
+```
+
+are coterminal because they differ by multiples of `360 degrees`.
+
+## Reference angles
+
+A **reference angle** is the acute angle between the terminal side and the
+x-axis. It helps you use special-angle values in any quadrant.
+
+Examples:
+
+```text
+150 degrees has reference angle 30 degrees
+225 degrees has reference angle 45 degrees
+300 degrees has reference angle 60 degrees
+```
+
+## Worked example 1: convert degrees to radians
+
+Convert `135 degrees` to radians.
+
+```text
+135 degrees * pi/180 = 135pi/180 = 3pi/4
+```
+
+So `135 degrees = 3pi/4 radians`.
+
+## Worked example 2: coterminal angle
+
+Find a coterminal angle between `0` and `360` degrees for `-75 degrees`.
+
+Add `360`:
+
+```text
+-75 + 360 = 285
+```
+
+So `285 degrees` is coterminal with `-75 degrees`.
+
+## Worked example 3: reference angle
+
+Find the reference angle for `210 degrees`.
+
+1. `210 degrees` is in Quadrant III.
+2. In Quadrant III, subtract `180 degrees`.
+3. `210 - 180 = 30`.
+
+The reference angle is `30 degrees`.
+
+## Common pitfalls
+
+- Forgetting that `pi radians` is `180 degrees`, not `360 degrees`.
+- Using degree values in a calculator set to radian mode.
+- Thinking coterminal angles are different directions.
+- Forgetting to reduce negative angles by adding full turns.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Convert `90 degrees` to radians.
+2. Convert `pi/6 radians` to degrees.
+3. Find a coterminal angle in `[0,360)` for `-45 degrees`.
+4. Find the reference angle for `240 degrees`.
+5. Which is larger: `pi/2 radians` or `60 degrees`?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `90*pi/180 = pi/2`.
+2. `(pi/6)*(180/pi)=30 degrees`.
+3. `-45+360=315 degrees`.
+4. `240-180=60 degrees`.
+5. `pi/2 radians = 90 degrees`, so it is larger than `60 degrees`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+Angle problems are safest when you identify the unit before doing arithmetic.
+
+### Lab 1: convert degrees to radians
+
+**Guess first.** Should `30 degrees` be smaller or larger than `pi radians`?
+
+**Guided exercise.**
+
+```text
+30 degrees * pi/180 = pi/6 radians
+```
+
+Since `pi radians` is a half turn, `pi/6` is much smaller.
+
+::: {.practice-box}
+**Checkpoint.** Convert `120 degrees` to radians.
+:::
+
+### Lab 2: convert radians to degrees
+
+**Guess first.** Is `3pi/2` radians more than one full turn?
+
+**Guided exercise.**
+
+```text
+(3pi/2) * 180/pi = 270 degrees
+```
+
+A full turn is `360 degrees`, so `270 degrees` is three quarters of a turn.
+
+::: {.practice-box}
+**Checkpoint.** Convert `5pi/6` radians to degrees.
+:::
+
+### Lab 3: find coterminal angles
+
+**Guess first.** What full turn can you add to a negative angle?
+
+**Guided exercise.**
+
+For `-120 degrees`:
+
+```text
+-120 + 360 = 240 degrees
+```
+
+Both angles point in the same direction.
+
+::: {.practice-box}
+**Checkpoint.** Find a coterminal angle in `[0,360)` for `765 degrees`.
+:::
+
+### Lab 4: find reference angles
+
+**Guess first.** Is the reference angle always positive and acute?
+
+**Guided exercise.**
+
+For `330 degrees`, the terminal side is in Quadrant IV. The angle to the
+positive x-axis is:
+
+```text
+360 - 330 = 30 degrees
+```
+
+::: {.practice-box}
+**Checkpoint.** Find the reference angle for `135 degrees`.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. `120*pi/180 = 2pi/3`.
+2. `(5pi/6)*(180/pi)=150 degrees`.
+3. `765-720=45 degrees`.
+4. `180-135=45 degrees`.
+:::
+
+## Angle-measure guessing game
+
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "radians-and-degrees",
+  "title": "Radians and degrees checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/trigonometry-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+```{python}
+#| echo: true
+from edumath.trigonometry import (
+    coterminal_angle,
+    degrees_to_radians,
+    radians_to_degrees,
+    reference_angle_degrees,
+)
+
+print(degrees_to_radians(60))
+print(radians_to_degrees(3.141592653589793 / 2))
+print(coterminal_angle(-75))
+print(reference_angle_degrees(210))
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.simplify(135 * sp.pi / 180), sp.simplify((5 * sp.pi / 6) * 180 / sp.pi)
+```

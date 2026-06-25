@@ -1,0 +1,269 @@
+---
+title: The Unit Circle
+description: Sine, cosine, tangent, quadrants, signs, and reference angles on the unit circle.
+execute:
+  echo: false
+---
+
+The unit circle is a circle of radius `1` centered at the origin. It turns
+trigonometry into coordinate geometry. When an angle starts on the positive
+x-axis and rotates around the circle, the point where it lands has coordinates:
+
+```text
+(cos(theta), sin(theta))
+```
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- read cosine as the horizontal coordinate;
+- read sine as the vertical coordinate;
+- find tangent as `sin(theta)/cos(theta)`;
+- use quadrants to determine signs;
+- use reference angles to find related trig values;
+- use a unit-circle plot to check values.
+:::
+
+## Coordinates on the circle
+
+For any angle `theta`, the unit-circle point is:
+
+```text
+x = cos(theta)
+y = sin(theta)
+```
+
+Because the radius is 1, every point satisfies:
+
+```text
+x^2 + y^2 = 1
+```
+
+Replacing `x` with cosine and `y` with sine gives the identity:
+
+```text
+cos^2(theta) + sin^2(theta) = 1
+```
+
+## Axis angles
+
+Some angles land exactly on an axis.
+
+| angle | point | cosine | sine |
+|---:|---:|---:|---:|
+| `0 degrees` | `(1,0)` | `1` | `0` |
+| `90 degrees` | `(0,1)` | `0` | `1` |
+| `180 degrees` | `(-1,0)` | `-1` | `0` |
+| `270 degrees` | `(0,-1)` | `0` | `-1` |
+| `360 degrees` | `(1,0)` | `1` | `0` |
+
+## Quadrants and signs
+
+The quadrant tells the signs of sine and cosine.
+
+| Quadrant | x-coordinate | y-coordinate | cosine | sine | tangent |
+|---|---:|---:|---:|---:|---:|
+| I | positive | positive | + | + | + |
+| II | negative | positive | - | + | - |
+| III | negative | negative | - | - | + |
+| IV | positive | negative | + | - | - |
+
+A useful memory phrase is **All Students Take Calculus**:
+
+- Quadrant I: all positive;
+- Quadrant II: sine positive;
+- Quadrant III: tangent positive;
+- Quadrant IV: cosine positive.
+
+## Special angles
+
+The most common reference angles are `30`, `45`, and `60` degrees.
+
+| angle | sine | cosine | tangent |
+|---:|---:|---:|---:|
+| `30°` | `1/2` | `sqrt(3)/2` | `sqrt(3)/3` |
+| `45°` | `sqrt(2)/2` | `sqrt(2)/2` | `1` |
+| `60°` | `sqrt(3)/2` | `1/2` | `sqrt(3)` |
+
+Use the reference angle for size and the quadrant for sign.
+
+## Tangent on the unit circle
+
+Tangent is the ratio:
+
+```text
+tan(theta) = sin(theta) / cos(theta)
+```
+
+Tangent is undefined when `cos(theta)=0`, because division by zero is not
+allowed. That happens at `90 degrees` and `270 degrees`.
+
+## Worked example 1: locate an angle
+
+Find the signs of sine, cosine, and tangent at `150 degrees`.
+
+1. `150 degrees` is in Quadrant II.
+2. In Quadrant II, x is negative and y is positive.
+3. Therefore cosine is negative and sine is positive.
+4. Tangent is sine divided by cosine, so tangent is negative.
+
+## Worked example 2: exact value
+
+Find `sin(150 degrees)`.
+
+1. The reference angle is `180 - 150 = 30 degrees`.
+2. `sin(30 degrees)=1/2`.
+3. `150 degrees` is in Quadrant II, where sine is positive.
+4. So `sin(150 degrees)=1/2`.
+
+## Common pitfalls
+
+- Swapping sine and cosine coordinates.
+- Forgetting signs in quadrants II, III, and IV.
+- Saying tangent is defined when cosine is zero.
+- Memorizing values without understanding reference angles.
+- Forgetting coterminal angles such as `390 degrees` and `30 degrees`.
+
+## Practice exercises
+
+::: {.practice-box}
+1. What is the unit-circle point at `90 degrees`?
+2. In Quadrant III, what are the signs of sine and cosine?
+3. Find the reference angle for `300 degrees`.
+4. Find `cos(120 degrees)`.
+5. Where is tangent undefined in `[0,360)`?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `(0,1)`.
+2. Both sine and cosine are negative.
+3. `360-300=60 degrees`.
+4. Reference angle `60`; Quadrant II cosine is negative, so `cos(120)=-1/2`.
+5. `90 degrees` and `270 degrees`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+Use this order: locate the angle, find the reference angle, choose signs, then
+use the special-angle value.
+
+### Lab 1: read coordinates
+
+**Guess first.** At `0 degrees`, is the point on the right or top of the circle?
+
+**Guided exercise.**
+
+At `0 degrees`, the radius points right to `(1,0)`. Therefore:
+
+```text
+cos(0)=1
+sin(0)=0
+```
+
+::: {.practice-box}
+**Checkpoint.** Find `sin(270 degrees)` and `cos(270 degrees)`.
+:::
+
+### Lab 2: use signs from quadrants
+
+**Guess first.** At `225 degrees`, should sine be positive or negative?
+
+**Guided exercise.**
+
+`225 degrees` is in Quadrant III. In Quadrant III, y is negative, so sine is
+negative. x is also negative, so cosine is negative.
+
+::: {.practice-box}
+**Checkpoint.** Give the signs of sine, cosine, and tangent at `315 degrees`.
+:::
+
+### Lab 3: use reference angles
+
+**Guess first.** Does `210 degrees` have the same reference angle as `30 degrees`?
+
+**Guided exercise.**
+
+`210 degrees` is in Quadrant III. Its reference angle is:
+
+```text
+210 - 180 = 30 degrees
+```
+
+So the size of sine and cosine matches `30 degrees`, but the signs are Quadrant
+III signs.
+
+::: {.practice-box}
+**Checkpoint.** Find `sin(210 degrees)`.
+:::
+
+### Lab 4: tangent as a ratio
+
+**Guess first.** If sine and cosine have opposite signs, what sign does tangent
+have?
+
+**Guided exercise.**
+
+Tangent is sine divided by cosine. A positive divided by a negative is negative,
+and a negative divided by a positive is negative.
+
+::: {.practice-box}
+**Checkpoint.** Find `tan(225 degrees)`.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. `sin(270)=-1` and `cos(270)=0`.
+2. At `315 degrees`, sine is negative, cosine is positive, and tangent is
+   negative.
+3. `sin(210)=-1/2`.
+4. Reference angle `45`, Quadrant III tangent is positive, so `tan(225)=1`.
+:::
+
+## Unit-circle guessing game
+
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "unit-circle",
+  "title": "Unit circle checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/trigonometry-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to find quadrants, signs, and special-angle values.
+
+```{python}
+#| echo: true
+from edumath.trigonometry import quadrant, special_angle_values, trig_signs
+
+print(quadrant(210))
+print(trig_signs(210))
+print(special_angle_values(30))
+```
+
+Use the plotting helper for a unit-circle picture.
+
+```{python}
+#| echo: true
+from edumath.trigonometry import plot_unit_circle
+
+fig, ax = plot_unit_circle(150)
+fig
+```
+
+Use SymPy for exact values.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.sin(5 * sp.pi / 6), sp.cos(5 * sp.pi / 6), sp.tan(5 * sp.pi / 4)
+```

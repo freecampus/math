@@ -1,0 +1,278 @@
+---
+title: Trigonometric Identities
+description: Pythagorean, quotient, reciprocal, and algebraic trig identities.
+execute:
+  echo: false
+---
+
+A trigonometric identity is an equation that is true for every angle where both
+sides are defined. Identities let us rewrite expressions, simplify formulas, and
+prepare for calculus. They are not just things to memorize; they come from the
+unit circle and from definitions.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- use the Pythagorean identity;
+- rewrite tangent as sine over cosine;
+- use reciprocal identities;
+- verify simple identities step by step;
+- avoid illegal algebra such as dividing by zero;
+- use SymPy to check identity transformations.
+:::
+
+## What is an identity?
+
+An equation such as
+
+```text
+sin^2(x) + cos^2(x) = 1
+```
+
+is an identity because it is true for all angles `x`. An equation such as
+`sin(x)=1/2` is not an identity; it is true only for certain angles.
+
+## Pythagorean identity
+
+On the unit circle, the point is `(cos(x), sin(x))`. Since the radius is 1:
+
+```text
+cos^2(x) + sin^2(x) = 1
+```
+
+Usually this is written:
+
+::: {.formula-box}
+```text
+sin^2(x) + cos^2(x) = 1
+```
+:::
+
+Rearranged forms are also useful:
+
+```text
+sin^2(x) = 1 - cos^2(x)
+cos^2(x) = 1 - sin^2(x)
+```
+
+## Quotient identity
+
+Tangent is sine divided by cosine:
+
+```text
+tan(x) = sin(x) / cos(x)
+```
+
+This is defined only when `cos(x) != 0`.
+
+## Reciprocal identities
+
+The reciprocal trig functions are:
+
+```text
+csc(x) = 1 / sin(x)
+sec(x) = 1 / cos(x)
+cot(x) = 1 / tan(x) = cos(x) / sin(x)
+```
+
+They are undefined when their denominators are zero.
+
+## Verifying identities
+
+To verify an identity, transform one side until it matches the other side. A
+safe strategy is:
+
+1. Start with the more complicated side.
+2. Rewrite everything using sine and cosine.
+3. Use `sin^2(x)+cos^2(x)=1` when possible.
+4. Do ordinary algebra carefully.
+
+## Worked example 1: simplify
+
+Simplify:
+
+```text
+1 - sin^2(x)
+```
+
+Using the Pythagorean identity:
+
+```text
+sin^2(x) + cos^2(x) = 1
+```
+
+Subtract `sin^2(x)` from both sides:
+
+```text
+cos^2(x) = 1 - sin^2(x)
+```
+
+So:
+
+```text
+1 - sin^2(x) = cos^2(x)
+```
+
+## Worked example 2: verify an identity
+
+Verify:
+
+```text
+tan(x)cos(x) = sin(x)
+```
+
+Start with the left side:
+
+```text
+tan(x)cos(x)
+= (sin(x)/cos(x))cos(x)
+= sin(x)
+```
+
+This matches the right side, for angles where `cos(x) != 0`.
+
+## Common pitfalls
+
+- Treating an identity like an equation with only a few solutions.
+- Dividing by `sin(x)` or `cos(x)` without considering when it is zero.
+- Changing both sides in unrelated ways.
+- Forgetting squared notation: `sin^2(x)` means `(sin(x))^2`.
+- Trying to prove an identity by checking only one angle.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Complete: `sin^2(x)+cos^2(x)=?`
+2. Rewrite `tan(x)` using sine and cosine.
+3. Rewrite `sec(x)` using cosine.
+4. Simplify `1 - cos^2(x)`.
+5. Verify `cot(x)sin(x)=cos(x)`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `1`.
+2. `sin(x)/cos(x)`.
+3. `1/cos(x)`.
+4. `sin^2(x)`.
+5. `cot(x)sin(x) = (cos(x)/sin(x))sin(x)=cos(x)` where `sin(x) != 0`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+Identity work is algebra with trig building blocks. Rewrite first; simplify
+second.
+
+### Lab 1: recognize an identity
+
+**Guess first.** Is `sin(x)=0` an identity?
+
+**Guided exercise.**
+
+No. It is true at some angles, such as `0` and `pi`, but not all angles.
+`sin^2(x)+cos^2(x)=1` is true for all angles.
+
+::: {.practice-box}
+**Checkpoint.** Is `tan(x)=sin(x)/cos(x)` an identity? State any restriction.
+:::
+
+### Lab 2: use the Pythagorean identity
+
+**Guess first.** What can replace `1 - sin^2(x)`?
+
+**Guided exercise.**
+
+From `sin^2(x)+cos^2(x)=1`:
+
+```text
+1 - sin^2(x) = cos^2(x)
+```
+
+::: {.practice-box}
+**Checkpoint.** Replace `1 - cos^2(x)` with a simpler expression.
+:::
+
+### Lab 3: rewrite with sine and cosine
+
+**Guess first.** Why is rewriting tangent often helpful?
+
+**Guided exercise.**
+
+Rewrite:
+
+```text
+tan(x)/sec(x)
+= (sin(x)/cos(x)) / (1/cos(x))
+= sin(x)
+```
+
+::: {.practice-box}
+**Checkpoint.** Rewrite `sec(x)cos(x)` and simplify.
+:::
+
+### Lab 4: verify safely
+
+**Guess first.** Should you start with the simpler side or the more complicated
+side?
+
+**Guided exercise.**
+
+Start with the more complicated side. To verify `sec(x)-cos(x)=sin(x)tan(x)`,
+start left:
+
+```text
+sec(x)-cos(x)
+= 1/cos(x) - cos(x)
+= (1 - cos^2(x))/cos(x)
+= sin^2(x)/cos(x)
+= sin(x)tan(x)
+```
+
+::: {.practice-box}
+**Checkpoint.** Verify `sin(x)cot(x)=cos(x)`.
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. Yes, `tan(x)=sin(x)/cos(x)` where `cos(x) != 0`.
+2. `sin^2(x)`.
+3. `sec(x)cos(x)=(1/cos(x))cos(x)=1`, where `cos(x) != 0`.
+4. `sin(x)cot(x)=sin(x)(cos(x)/sin(x))=cos(x)`, where `sin(x) != 0`.
+:::
+
+## Identity guessing game
+
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "identities",
+  "title": "Trigonometric identities checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include _includes/trigonometry-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use SymPy to simplify and verify identities.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+sp.simplify(1 - sp.sin(x) ** 2)
+```
+
+Check whether two sides simplify to zero.
+
+```{python}
+#| echo: true
+left = sp.tan(x) * sp.cos(x)
+right = sp.sin(x)
+sp.simplify(left - right)
+```

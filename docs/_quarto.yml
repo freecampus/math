@@ -59,7 +59,14 @@ website:
               - lessons/algebra/cumulative-review.qmd
           - section: Trigonometry
             contents:
+              - lessons/trigonometry/index.qmd
+              - lessons/trigonometry/radians-and-degrees.qmd
+              - lessons/trigonometry/unit-circle.qmd
               - lessons/trigonometry/sine-cosine.qmd
+              - lessons/trigonometry/trig-functions-and-graphs.qmd
+              - lessons/trigonometry/identities.qmd
+              - lessons/trigonometry/trig-equations.qmd
+              - lessons/trigonometry/applications.qmd
           - section: Calculus
             contents:
               - lessons/calculus/index.qmd

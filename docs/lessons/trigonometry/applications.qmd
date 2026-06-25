@@ -1,0 +1,397 @@
+---
+title: Applications of Trigonometry
+description: Use trigonometry for right triangles, height and distance problems, components, and periodic models.
+execute:
+  echo: false
+---
+
+Trigonometry is useful because it turns angle information into measurements.
+When a problem has a right triangle, a direction, a rotating object, a wave, or a
+repeating pattern, trig gives a language for connecting the pieces.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- choose sine, cosine, or tangent from a right-triangle diagram;
+- solve height and distance problems using angles of elevation or depression;
+- split a vector into horizontal and vertical components;
+- identify amplitude, period, midline, and shift in a sinusoidal model;
+- check whether a numerical answer is reasonable;
+- use Python and SymPy to compute or verify application results.
+:::
+
+## The modeling routine
+
+A trigonometry application is not just a calculation. It is a translation from
+words to a diagram and then from a diagram to an equation.
+
+1. **Draw or imagine the right triangle or cycle.** Mark known lengths and
+   angles.
+2. **Choose the unknown.** Name the height, distance, component, or time value
+   you want.
+3. **Select a trig relationship.** Use SOH-CAH-TOA for right triangles or a
+   sinusoidal model for periodic behavior.
+4. **Solve the equation.** Use algebra and a calculator or exact values.
+5. **Check units and size.** A tree height should be positive; a component
+   should not be longer than the vector; a period should match the context.
+
+## Right-triangle ratios
+
+For an acute angle in a right triangle:
+
+::: {.formula-box}
+```text
+sin(angle) = opposite / hypotenuse
+cos(angle) = adjacent / hypotenuse
+tan(angle) = opposite / adjacent
+```
+:::
+
+A memory phrase is SOH-CAH-TOA.
+
+The most important decision is not the formula itself; it is correctly labeling
+which side is opposite and which side is adjacent relative to the chosen angle.
+
+## Angles of elevation and depression
+
+An **angle of elevation** is measured upward from a horizontal line. An **angle
+of depression** is measured downward from a horizontal line. In many textbook
+problems, the horizontal distance is adjacent to the angle and the vertical
+height is opposite the angle.
+
+That means tangent often appears:
+
+```text
+tan(angle) = height / horizontal distance
+height = horizontal distance * tan(angle)
+```
+
+## Components and navigation
+
+If a quantity of length `r` points at an angle `theta` from the positive
+horizontal direction, its components are:
+
+```text
+horizontal component = r cos(theta)
+vertical component   = r sin(theta)
+```
+
+This is the same unit-circle idea scaled by `r`.
+
+## Periodic models
+
+Sine and cosine model smooth repeating behavior, such as tides, daylight,
+temperature cycles, circular motion, and alternating current. A common model is:
+
+```text
+y = A sin(B(t - C)) + D
+```
+
+where:
+
+| Symbol | Meaning |
+|---|---|
+| `|A|` | amplitude, or distance from midline to maximum |
+| `2pi / |B|` | period, or time for one full cycle |
+| `D` | midline, or average value |
+| `C` | horizontal shift |
+
+## Worked example 1: height from angle of elevation
+
+A student stands `40 meters` from a building. The angle of elevation to the top
+is `35 degrees`. Estimate the building height, ignoring the student's eye
+height.
+
+**Step 1: Draw the triangle.**
+
+The horizontal distance is adjacent to the angle. The building height is
+opposite the angle.
+
+**Step 2: Choose a ratio.**
+
+Tangent uses opposite and adjacent:
+
+```text
+tan(35 degrees) = height / 40
+```
+
+**Step 3: Solve.**
+
+```text
+height = 40 tan(35 degrees)
+height is about 28.0 meters
+```
+
+**Step 4: Check reasonableness.**
+
+Since `35 degrees` is less than `45 degrees`, the height should be less than the
+horizontal distance `40 meters`. The estimate `28.0 meters` is reasonable.
+
+## Worked example 2: split a force into components
+
+A `50 newton` force is applied at `30 degrees` above the horizontal. Find the
+horizontal and vertical components.
+
+**Step 1: Use the component formulas.**
+
+```text
+horizontal = 50 cos(30 degrees)
+vertical = 50 sin(30 degrees)
+```
+
+**Step 2: Use exact values.**
+
+```text
+cos(30 degrees) = sqrt(3)/2
+sin(30 degrees) = 1/2
+```
+
+So:
+
+```text
+horizontal = 25sqrt(3) newtons, about 43.3 newtons
+vertical = 25 newtons
+```
+
+**Step 3: Check.**
+
+Each component should be less than the original `50 newtons`, and the horizontal
+component should be larger because the angle is closer to horizontal than
+vertical.
+
+## Worked example 3: build a sinusoidal model
+
+A small tide varies between `2 meters` and `8 meters`. The time from one high
+tide to the next is `12 hours`. Suppose high tide occurs at `t=0`.
+
+**Step 1: Find the midline.**
+
+```text
+midline = (maximum + minimum) / 2 = (8 + 2) / 2 = 5
+```
+
+**Step 2: Find the amplitude.**
+
+```text
+amplitude = (maximum - minimum) / 2 = (8 - 2) / 2 = 3
+```
+
+**Step 3: Find `B` from the period.**
+
+```text
+period = 2pi / |B| = 12
+B = 2pi/12 = pi/6
+```
+
+**Step 4: Choose cosine because the model starts at a maximum.**
+
+```text
+height = 3cos((pi/6)t) + 5
+```
+
+Check: at `t=0`, `cos(0)=1`, so the height is `8 meters`, which matches high
+tide.
+
+## Common pitfalls
+
+- Labeling opposite and adjacent from the wrong angle.
+- Using degrees in a calculator or program that expects radians.
+- Forgetting to add eye height, sensor height, or starting height when the
+  context includes it.
+- Reporting a component larger than the original vector.
+- Using a sine model when a cosine model would be simpler for a maximum or
+  minimum starting point.
+- Forgetting units.
+
+## Practice exercises
+
+::: {.practice-box}
+1. A ladder is `10 feet` long and makes a `70 degree` angle with the ground. How
+   high up the wall does it reach?
+2. A ramp rises `2 meters` over a horizontal distance of `12 meters`. What is
+   the angle of elevation?
+3. Find the components of a `20 newton` force at `60 degrees` above the
+   horizontal.
+4. A Ferris wheel car is modeled by `h(t)=15cos((pi/20)t)+18`. What are the
+   amplitude, midline, and period?
+5. A ship travels `100 km` at `40 degrees` north of east. Estimate the east and
+   north components.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Height is opposite the `70 degree` angle and the ladder is the hypotenuse:
+   `height=10sin(70 degrees)`, about `9.4 feet`.
+2. `tan(theta)=2/12=1/6`, so `theta=arctan(1/6)`, about `9.5 degrees`.
+3. Horizontal component: `20cos(60 degrees)=10 newtons`; vertical component:
+   `20sin(60 degrees)=10sqrt(3)`, about `17.3 newtons`.
+4. Amplitude is `15`, midline is `h=18`, and period is `2pi/(pi/20)=40` time
+   units.
+5. East component: `100cos(40 degrees)`, about `76.6 km`; north component:
+   `100sin(40 degrees)`, about `64.3 km`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+### Lab 1: choose the right ratio
+
+**Guess first.** If you know adjacent distance and want opposite height, which
+ratio should you use?
+
+**Guided exercise.**
+
+Use tangent because:
+
+```text
+tan(angle) = opposite / adjacent
+```
+
+::: {.practice-box}
+**Checkpoint.** If you know hypotenuse and want adjacent, which ratio should you
+use?
+:::
+
+### Lab 2: solve a height problem
+
+**Guess first.** A pole casts a horizontal distance of `15 m` from an angle of
+elevation of `30 degrees`. Is the height greater or less than `15 m`?
+
+**Guided exercise.**
+
+Because `30 degrees` is less than `45 degrees`, the height should be less than
+`15 m`. Compute:
+
+```text
+height = 15tan(30 degrees) = 15/sqrt(3), about 8.7 m
+```
+
+::: {.practice-box}
+**Checkpoint.** Estimate the height for horizontal distance `20 m` and angle
+`45 degrees`.
+:::
+
+### Lab 3: compute components
+
+**Guess first.** For a vector at `0 degrees`, should the vertical component be
+positive, negative, or zero?
+
+**Guided exercise.**
+
+At `0 degrees`, the vector points horizontally, so:
+
+```text
+vertical = r sin(0 degrees) = 0
+horizontal = r cos(0 degrees) = r
+```
+
+::: {.practice-box}
+**Checkpoint.** For a `12` unit vector at `90 degrees`, what are the horizontal
+and vertical components?
+:::
+
+### Lab 4: identify sinusoid parameters
+
+**Guess first.** In `y=4sin(2t)+7`, what is the midline?
+
+**Guided exercise.**
+
+The `+7` shifts the graph up, so the midline is:
+
+```text
+y = 7
+```
+
+The amplitude is `4`, and the period is:
+
+```text
+2pi / 2 = pi
+```
+
+::: {.practice-box}
+**Checkpoint.** For `y=6cos((pi/3)t)-2`, identify amplitude, midline, and
+period.
+:::
+
+### Lab 5: check units and reasonableness
+
+**Guess first.** If a `30 m` rope is used as a hypotenuse, can the vertical
+height be `35 m`?
+
+**Guided exercise.**
+
+No. In a right triangle, the hypotenuse is the longest side. A height of `35 m`
+would be impossible if the rope is only `30 m`.
+
+::: {.practice-box}
+**Checkpoint.** If a `50 N` force has components `60 N` and `20 N`, what warning
+sign do you notice?
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. Cosine, because `cos(angle)=adjacent/hypotenuse`.
+2. `height=20tan(45 degrees)=20 m`.
+3. Horizontal component `0`; vertical component `12`.
+4. Amplitude `6`, midline `y=-2`, period `2pi/(pi/3)=6`.
+5. A component cannot be larger than the original vector, so the answer should
+   be rechecked.
+:::
+
+## Applications guessing game
+
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "applications",
+  "title": "Trigonometry applications checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/trigonometry-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Python is useful for numerical estimates, exact symbolic forms, and checking
+units in repeated calculations.
+
+```{python}
+#| echo: true
+import math
+
+height = 40 * math.tan(math.radians(35))
+round(height, 1)
+```
+
+Use exact SymPy values when the angle is special.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+horizontal = 50 * sp.cos(sp.pi / 6)
+vertical = 50 * sp.sin(sp.pi / 6)
+sp.simplify(horizontal), sp.simplify(vertical)
+```
+
+Use `edumath` helpers to keep degree-based computations explicit.
+
+```{python}
+#| echo: true
+from edumath.trigonometry import sine_cosine_tangent
+
+sine, cosine, tangent = sine_cosine_tangent(35)
+round(tangent, 4)
+```
+
+A sinusoidal model can also be evaluated directly.
+
+```{python}
+#| echo: true
+t = sp.symbols("t")
+tide = 3 * sp.cos((sp.pi / 6) * t) + 5
+sp.simplify(tide.subs(t, 6))
+```

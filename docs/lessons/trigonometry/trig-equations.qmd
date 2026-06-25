@@ -1,0 +1,437 @@
+---
+title: Trigonometric Equations
+description: Solve sine, cosine, and tangent equations with the unit circle and periodicity.
+execute:
+  echo: false
+---
+
+A trigonometric equation asks for angle values that make a trig statement true.
+Unlike many algebra equations, trig equations often have repeating answers. If
+one angle works, every coterminal angle may also work.
+
+The main idea is simple:
+
+::: {.formula-box}
+```text
+algebra first, unit circle second, periodicity third
+```
+:::
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- solve basic equations such as `sin(theta)=1/2`, `cos(theta)=0`, and
+  `tan(theta)=1`;
+- find all solutions in a requested interval;
+- write infinite solution families using periods;
+- isolate a trig function before using the unit circle;
+- check candidate solutions and reject extraneous ones;
+- use SymPy as a verification tool while still reasoning from the unit circle.
+:::
+
+## Why trig equations have many answers
+
+On the unit circle, each angle gives a point `(cos(theta), sin(theta))`. Since a
+full turn brings you back to the same point, trig values repeat.
+
+For example:
+
+```text
+sin(30 degrees) = 1/2
+sin(150 degrees) = 1/2
+sin(390 degrees) = 1/2
+```
+
+The angles `30 degrees` and `390 degrees` are coterminal, and `150 degrees` has
+the same reference angle but is in a different quadrant.
+
+## The solving routine
+
+Use this routine whenever you see a trig equation.
+
+1. **Read the interval.** Are answers requested in degrees, radians, or all real
+   angles?
+2. **Isolate one trig expression.** For example, change `2cos(theta)-1=0` into
+   `cos(theta)=1/2`.
+3. **Find the reference angle.** Use special angles or inverse trig.
+4. **Choose quadrants using the sign.** Positive sine means Quadrants I or II;
+   negative cosine means Quadrants II or III; positive tangent means Quadrants I
+   or III.
+5. **List answers in the interval.** Do not stop after the first angle.
+6. **For all real solutions, add the period.** Sine and cosine repeat every
+   `360 degrees` or `2pi`; tangent repeats every `180 degrees` or `pi`.
+7. **Check.** Substitute each answer mentally, symbolically, or numerically.
+
+## Basic unit-circle equations
+
+Some equations can be read directly from the unit circle.
+
+```text
+sin(theta) = 0      -> theta is on the x-axis
+cos(theta) = 0      -> theta is on the y-axis
+tan(theta) = 0      -> sine is 0 and cosine is not 0
+```
+
+In `[0,360)`:
+
+```text
+sin(theta)=0  -> 0, 180 degrees
+cos(theta)=0  -> 90, 270 degrees
+tan(theta)=0  -> 0, 180 degrees
+```
+
+## Reference angles and quadrants
+
+If the equation uses a special value, first find the reference angle.
+
+```text
+sin(theta)=1/2      -> reference angle 30 degrees
+cos(theta)=sqrt(2)/2 -> reference angle 45 degrees
+tan(theta)=sqrt(3) -> reference angle 60 degrees
+```
+
+Then use signs.
+
+| Equation | Positive or negative? | Quadrants |
+|---|---:|---|
+| `sin(theta)=positive` | positive | I, II |
+| `sin(theta)=negative` | negative | III, IV |
+| `cos(theta)=positive` | positive | I, IV |
+| `cos(theta)=negative` | negative | II, III |
+| `tan(theta)=positive` | positive | I, III |
+| `tan(theta)=negative` | negative | II, IV |
+
+## Worked example 1: solve a sine equation in degrees
+
+Solve in `[0,360)`:
+
+```text
+sin(theta)=1/2
+```
+
+**Step 1: Identify the reference angle.**
+
+```text
+sin(30 degrees)=1/2
+```
+
+So the reference angle is `30 degrees`.
+
+**Step 2: Decide the quadrants.**
+
+Sine is positive because the right side is positive. Sine is positive in
+Quadrants I and II.
+
+**Step 3: Build the angles.**
+
+```text
+Quadrant I angle:  30 degrees
+Quadrant II angle: 180 - 30 = 150 degrees
+```
+
+**Answer:**
+
+```text
+theta = 30 degrees or 150 degrees
+```
+
+**Check.** Both angles have y-coordinate `1/2` on the unit circle.
+
+## Worked example 2: isolate before solving
+
+Solve in `[0,2pi)`:
+
+```text
+2cos(theta) - 1 = 0
+```
+
+**Step 1: Isolate cosine.**
+
+```text
+2cos(theta) - 1 = 0
+2cos(theta) = 1
+cos(theta) = 1/2
+```
+
+**Step 2: Find the reference angle.**
+
+```text
+cos(pi/3)=1/2
+```
+
+The reference angle is `pi/3`.
+
+**Step 3: Choose quadrants.**
+
+Cosine is positive in Quadrants I and IV.
+
+**Step 4: List answers in `[0,2pi)`.**
+
+```text
+Quadrant I:  pi/3
+Quadrant IV: 2pi - pi/3 = 5pi/3
+```
+
+**Answer:**
+
+```text
+theta = pi/3 or 5pi/3
+```
+
+## Worked example 3: write all real solutions
+
+Solve for all real `theta`:
+
+```text
+tan(theta)=1
+```
+
+**Step 1: Find one angle.**
+
+```text
+tan(45 degrees)=1
+```
+
+In radians, that is `pi/4`.
+
+**Step 2: Use tangent's period.**
+
+Tangent repeats every `pi`, not every `2pi`.
+
+**Answer:**
+
+```text
+theta = pi/4 + k*pi, where k is any integer
+```
+
+This compact formula includes `pi/4`, `5pi/4`, `-3pi/4`, and infinitely many
+more.
+
+## Worked example 4: factor first
+
+Solve in `[0,360)`:
+
+```text
+2sin^2(theta) - sin(theta) = 0
+```
+
+**Step 1: Factor.**
+
+```text
+2sin^2(theta) - sin(theta)
+= sin(theta)(2sin(theta)-1)
+```
+
+So:
+
+```text
+sin(theta)(2sin(theta)-1)=0
+```
+
+**Step 2: Use the zero product property.**
+
+```text
+sin(theta)=0
+```
+
+or
+
+```text
+2sin(theta)-1=0
+sin(theta)=1/2
+```
+
+**Step 3: Solve each equation.**
+
+For `sin(theta)=0` in `[0,360)`:
+
+```text
+theta = 0, 180 degrees
+```
+
+For `sin(theta)=1/2` in `[0,360)`:
+
+```text
+theta = 30, 150 degrees
+```
+
+**Answer:**
+
+```text
+theta = 0, 30, 150, 180 degrees
+```
+
+## Common pitfalls
+
+- Forgetting to isolate the trig function before reading the unit circle.
+- Giving only the reference angle and missing the second quadrant solution.
+- Using sine/cosine period `2pi` for tangent; tangent's period is `pi`.
+- Mixing degrees and radians in the same answer.
+- Dividing by a trig expression that could be zero and losing solutions.
+- Including `360 degrees` in `[0,360)`; the square bracket/parenthesis means
+  `0` is included but `360` is not.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Solve in `[0,360)`: `cos(theta)=1/2`.
+2. Solve in `[0,360)`: `sin(theta)=-1/2`.
+3. Solve in `[0,2pi)`: `tan(theta)=0`.
+4. Solve for all real `x`: `sin(x)=0`.
+5. Solve in `[0,360)`: `2cos(theta)+1=0`.
+6. Solve in `[0,360)`: `sin(theta)(sin(theta)-1)=0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `cos(theta)=1/2` has reference angle `60 degrees`; cosine is positive in
+   Quadrants I and IV, so `theta=60, 300 degrees`.
+2. `sin(theta)=-1/2` has reference angle `30 degrees`; sine is negative in
+   Quadrants III and IV, so `theta=210, 330 degrees`.
+3. Tangent is zero where sine is zero and cosine is not zero: `x=0, pi`.
+4. `x=k*pi`, where `k` is any integer.
+5. `2cos(theta)+1=0` gives `cos(theta)=-1/2`; reference angle `60 degrees`,
+   Quadrants II and III, so `theta=120, 240 degrees`.
+6. `sin(theta)=0` or `sin(theta)=1`, so `theta=0, 180, 90 degrees`. In increasing
+   order: `0, 90, 180 degrees`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+These small labs separate the skills that are usually mixed together in a full
+problem.
+
+### Lab 1: isolate first
+
+**Guess first.** What is the first algebra move in `3sin(theta)+2=5`?
+
+**Guided exercise.**
+
+Subtract `2`, then divide by `3`:
+
+```text
+3sin(theta)+2=5
+3sin(theta)=3
+sin(theta)=1
+```
+
+Now the unit circle can be used.
+
+::: {.practice-box}
+**Checkpoint.** Isolate the trig function in `4cos(theta)-2=0`.
+:::
+
+### Lab 2: find the reference angle
+
+**Guess first.** If `sin(theta)=sqrt(2)/2`, what special angle should you think
+of?
+
+**Guided exercise.**
+
+The value `sqrt(2)/2` belongs to `45 degrees` or `pi/4`.
+
+::: {.practice-box}
+**Checkpoint.** What is the reference angle for `cos(theta)=sqrt(3)/2`?
+:::
+
+### Lab 3: choose all quadrants
+
+**Guess first.** If cosine is negative, which quadrants are possible?
+
+**Guided exercise.**
+
+Cosine is the x-coordinate. It is negative on the left side of the unit circle,
+so Quadrants II and III are possible.
+
+::: {.practice-box}
+**Checkpoint.** If tangent is negative, which quadrants are possible?
+:::
+
+### Lab 4: write a periodic family
+
+**Guess first.** Does `cos(x)=1` repeat every `pi` or `2pi`?
+
+**Guided exercise.**
+
+Cosine repeats every `2pi`, so all solutions are:
+
+```text
+x = 2k*pi, where k is any integer
+```
+
+::: {.practice-box}
+**Checkpoint.** Write all real solutions of `tan(x)=0`.
+:::
+
+### Lab 5: check the interval
+
+**Guess first.** Should `360 degrees` be included in `[0,360)`?
+
+**Guided exercise.**
+
+No. The notation `[0,360)` means include `0` and exclude `360`. This avoids
+counting the same direction twice.
+
+::: {.practice-box}
+**Checkpoint.** In `[0,2pi)`, should `2pi` be listed?
+:::
+
+::: {.callout-tip collapse="true"}
+### Lab checkpoint answers
+
+1. `cos(theta)=1/2`.
+2. `30 degrees` or `pi/6`.
+3. Quadrants II and IV.
+4. `x=k*pi`, where `k` is any integer.
+5. No, `2pi` is excluded from `[0,2pi)`.
+:::
+
+## Trig equation guessing game
+
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "trig-equations",
+  "title": "Trigonometric equations checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include _includes/trigonometry-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` for angle facts and SymPy for algebraic verification. SymPy can
+solve many equations, but interval reasoning is still easier when you understand
+the unit circle.
+
+```{python}
+#| echo: true
+from edumath.trigonometry import reference_angle_degrees, trig_signs
+
+reference_angle_degrees(150)
+```
+
+```{python}
+#| echo: true
+trig_signs(150)
+```
+
+Use SymPy to solve or verify exact equations.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+theta = sp.symbols("theta")
+sp.solve(sp.Eq(2 * sp.cos(theta) - 1, 0), theta)
+```
+
+For all real solutions, SymPy's `solveset` gives a set description.
+
+```{python}
+#| echo: true
+sp.solveset(sp.Eq(sp.sin(theta), sp.Rational(1, 2)), theta, domain=sp.S.Reals)
+```

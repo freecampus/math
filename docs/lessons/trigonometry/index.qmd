@@ -1,0 +1,135 @@
+---
+title: Trigonometry Study Path
+description: A guided path through angle measure, the unit circle, trig functions, identities, equations, and applications.
+execute:
+  echo: false
+---
+
+Trigonometry connects angles, circles, triangles, waves, and repeating motion. It
+is used in calculus, physics, engineering, computer graphics, navigation,
+signal processing, and data modeling. The main goal is not to memorize a giant
+chart. The goal is to understand how angle information turns into coordinates,
+ratios, graphs, and equations.
+
+::: {.learning-objectives}
+### What you should be able to do by the end
+
+After this study path, you should be able to:
+
+- convert between degrees and radians;
+- find coterminal and reference angles;
+- read sine and cosine from the unit circle;
+- use right-triangle sine, cosine, and tangent ratios;
+- sketch and interpret basic trigonometric graphs;
+- use core identities such as `sin^2(x)+cos^2(x)=1`;
+- solve basic trigonometric equations;
+- model heights, distances, and periodic behavior;
+- verify computations with `edumath`, Python, and SymPy.
+:::
+
+## What makes trigonometry different?
+
+Trigonometry has several connected meanings for the same symbols:
+
+- on the **unit circle**, sine and cosine are coordinates;
+- in **right triangles**, sine, cosine, and tangent are side ratios;
+- as **functions**, sine and cosine are repeating waves;
+- in **applications**, trig functions connect angles to measurements.
+
+When a problem feels confusing, ask which meaning is being used.
+
+## Prerequisite checklist
+
+::: {.practice-box}
+1. Can you plot points such as `(1,0)` and `(0,1)`?
+2. Can you use the Pythagorean theorem?
+3. Can you simplify fractions involving `pi`?
+4. Can you solve simple equations like `2x=1`?
+5. Can you read a graph's intercepts and maximum/minimum values?
+:::
+
+You can start even if these skills are imperfect. The lessons review each idea
+when it appears.
+
+## The path through the lessons
+
+1. **Radians and Degrees**: learn angle measurement and coterminal angles.
+2. **The Unit Circle**: read sine, cosine, tangent, signs, and reference angles.
+3. **Sine and Cosine**: connect unit-circle coordinates to triangle ratios.
+4. **Trigonometric Functions and Graphs**: understand amplitude, period,
+   midline, and phase shift.
+5. **Trigonometric Identities**: rewrite expressions using always-true formulas.
+6. **Trigonometric Equations**: solve equations using the unit circle and
+   periodicity.
+7. **Applications of Trigonometry**: solve height, distance, and repeating-motion
+   problems.
+
+## How to study trigonometry
+
+Use this routine:
+
+1. Draw or imagine the angle.
+2. Decide whether the problem is in degrees or radians.
+3. Locate the quadrant and reference angle.
+4. Decide the sign before computing the exact value.
+5. Use a triangle, unit circle, graph, or identity as appropriate.
+6. Check whether the final answer should repeat periodically.
+
+::: {.callout-warning}
+### Common beginner mistakes
+
+- Mixing degrees and radians in one calculation.
+- Forgetting that sine is the vertical coordinate and cosine is horizontal.
+- Losing a second solution to a trig equation.
+- Treating identities as equations to solve for one angle.
+- Using a calculator value without checking quadrant signs.
+:::
+
+## Readiness checkpoint game
+
+Use this quick game before and after the module.
+
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "trigonometry-cumulative-review",
+  "title": "Trigonometry readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+
+{{< include _includes/trigonometry-checkpoint.qmd >}}
+
+## Using this lesson with edumath and SymPy
+
+Use `edumath` to inspect the trigonometry path.
+
+```{python}
+#| echo: true
+from edumath.trigonometry import TRIGONOMETRY_PATH
+
+TRIGONOMETRY_PATH.slugs()
+```
+
+Use `edumath` for basic angle helpers.
+
+```{python}
+#| echo: true
+from edumath.trigonometry import coterminal_angle, reference_angle_degrees
+
+coterminal_angle(-30), reference_angle_degrees(225)
+```
+
+Use SymPy for exact trigonometric values.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+sp.sin(sp.pi / 6), sp.cos(sp.pi / 3)
+```
+
+## Further reading
+
+- OpenStax, *Precalculus*, trigonometry chapters: <https://openstax.org/details/books/precalculus-2e>
+- Khan Academy trigonometry materials: <https://www.khanacademy.org/math/trigonometry>
+- Paul Dawkins, Paul's Online Notes, trig review: <https://tutorial.math.lamar.edu/Extras/AlgebraTrigReview/TrigIntro.aspx>
