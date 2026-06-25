@@ -1582,7 +1582,7 @@ a_4 = 2a_3 = 24</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Generate terms with Python.</p>
-<div id="5d3fdbb8" class="cell" data-execution_count="1">
+<div id="b8f8c2b5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> [<span class="dv">3</span><span class="op">*</span>n <span class="op">+</span> <span class="dv">2</span> <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>terms</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -1590,7 +1590,7 @@ a_4 = 2a_3 = 24</code></pre>
 </div>
 </div>
 <p>Use <code>edumath</code> to create practice.</p>
-<div id="9a534830" class="cell" data-execution_count="2">
+<div id="40c852ad" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> sequence_next_term_exercise</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> sequence_next_term_exercise(seed<span class="op">=</span><span class="dv">4</span>)</span>
@@ -1600,7 +1600,7 @@ a_4 = 2a_3 = 24</code></pre>
 </div>
 </div>
 <p>Use SymPy for finite sums.</p>
-<div id="1980a6e2" class="cell" data-execution_count="3">
+<div id="e4ca1f76" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> sp.Symbol(<span class="st">"i"</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>

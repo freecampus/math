@@ -1448,7 +1448,7 @@ window.Quarto = {
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>The path uses hand reasoning first. The code below shows how the same ideas can be checked computationally. These examples can run in local Python, Jupyter, Colab, or a PyScript/Pyodide page that includes NumPy and SymPy.</p>
-<div id="dbb863d0" class="cell" data-execution_count="1">
+<div id="656e9f07" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.linear_algebra <span class="im">import</span> LINEAR_ALGEBRA_PATH</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>LINEAR_ALGEBRA_PATH.slugs()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1461,7 +1461,7 @@ window.Quarto = {
  'eigenvalues-eigenvectors']</code></pre>
 </div>
 </div>
-<div id="9bb15820" class="cell" data-execution_count="2">
+<div id="213198a3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.linear_algebra <span class="im">import</span> dot_product, matrix_vector_product, vector_norm</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vector_norm([<span class="dv">3</span>, <span class="dv">4</span>]))</span>
@@ -1473,7 +1473,7 @@ window.Quarto = {
 [10. 12.]</code></pre>
 </div>
 </div>
-<div id="27f68ed7" class="cell" data-execution_count="3">
+<div id="58277bb8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]])</span>

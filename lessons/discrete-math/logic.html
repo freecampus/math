@@ -1626,7 +1626,7 @@ Contrapositive: not q -&gt; not p</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<div id="b7ff25e6" class="cell" data-execution_count="1">
+<div id="713d4248" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> implies, is_tautology, truth_table_rows</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>truth_table_rows((<span class="st">"p"</span>, <span class="st">"q"</span>), <span class="st">"Implies(p, q)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1637,14 +1637,14 @@ Contrapositive: not q -&gt; not p</code></pre>
  {'p': True, 'q': True, 'result': True}]</code></pre>
 </div>
 </div>
-<div id="546f5599" class="cell" data-execution_count="2">
+<div id="52b29172" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>is_tautology(truth_table_rows((<span class="st">"p"</span>,), <span class="st">"p | ~p"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>SymPy can also manipulate Boolean expressions directly.</p>
-<div id="f168c54a" class="cell" data-execution_count="3">
+<div id="66071955" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>p, q <span class="op">=</span> sp.symbols(<span class="st">"p q"</span>)</span>

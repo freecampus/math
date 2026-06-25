@@ -1093,7 +1093,7 @@ window.Quarto = {
 <p>A plant is <code>10 cm</code> tall on day <code>0</code> and <code>22 cm</code> tall on day <code>6</code>:</p>
 <pre class="text"><code>slope = (22 - 10)/(6 - 0) = 2 cm/day
 H(t) = 10 + 2t</code></pre>
-<div id="f94c7e2e" class="cell" data-execution_count="1">
+<div id="88b38ba9" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
 <p><span class="math inline">\(\displaystyle 2 x + 10\)</span></p>
 </div>
@@ -2627,7 +2627,7 @@ y = 3x + 5</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use parsed equations to check the algebra after you have defined variables and units. The computer can solve, but you must decide whether the model makes sense.</p>
-<div id="b2cb08b0" class="cell" data-execution_count="2">
+<div id="625b2ef4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2658,7 +2658,7 @@ Check:
 n = 6: valid</code></pre>
 </div>
 </div>
-<div id="bcd74aae" class="cell" data-execution_count="3">
+<div id="1d2f924c" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> sp.symbols(<span class="st">"m b"</span>)</span>
@@ -2667,7 +2667,7 @@ n = 6: valid</code></pre>
 <pre><code>{b: 1, m: 3}</code></pre>
 </div>
 </div>
-<div id="3b654588" class="cell" data-execution_count="4">
+<div id="e3303392" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a, x <span class="op">=</span> sp.symbols(<span class="st">"a x"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> a<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(model.subs(x, <span class="dv">5</span>), <span class="dv">2</span>), a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2675,7 +2675,7 @@ n = 6: valid</code></pre>
 <pre><code>[-2]</code></pre>
 </div>
 </div>
-<div id="e4788ea4" class="cell" data-execution_count="5">
+<div id="eb667c19" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"35 + 8*x"</span>, inputs<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

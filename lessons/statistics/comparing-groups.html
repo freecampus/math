@@ -1518,7 +1518,7 @@ p-hat B = 90/180 = 0.50</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> to compute a standard error for a difference of independent means.</p>
-<div id="96446d99" class="cell" data-execution_count="1">
+<div id="2c60b7b1" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> difference_standard_error</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>difference_standard_error(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">36</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1527,7 +1527,7 @@ p-hat B = 90/180 = 0.50</code></pre>
 </div>
 </div>
 <p>Use SymPy to simplify the same calculation symbolically.</p>
-<div id="cfcf9ffb" class="cell" data-execution_count="2">
+<div id="2a73adcb" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>s1, s2, n1, n2 <span class="op">=</span> sp.symbols(<span class="st">"s1 s2 n1 n2"</span>, positive<span class="op">=</span><span class="va">True</span>)</span>

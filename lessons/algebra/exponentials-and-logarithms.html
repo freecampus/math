@@ -1059,7 +1059,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>0 &lt; b &lt; 1</code> gives decay.</li>
 </ul>
 <p>Example: <code>P(t) = 200(1.04)^t</code> starts at <code>200</code> and grows by <code>4%</code> per time step. Example: <code>A(t) = 80(0.75)^t</code> keeps <code>75%</code> and loses <code>25%</code> per time step.</p>
-<div id="0ed101fe" class="cell" data-execution_count="1">
+<div id="992cdd9e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -2666,7 +2666,7 @@ x = 26</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use parsed equations with the solver for exact symbolic answers, then interpret them using exponent and logarithm rules.</p>
-<div id="40c14981" class="cell" data-execution_count="2">
+<div id="06285d16" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2691,7 +2691,7 @@ Check:
 x = 4: valid</code></pre>
 </div>
 </div>
-<div id="549544e2" class="cell" data-execution_count="3">
+<div id="a1ec7016" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -2700,13 +2700,13 @@ x = 4: valid</code></pre>
 <pre><code>[log(20)/log(3)]</code></pre>
 </div>
 </div>
-<div id="93d64aca" class="cell" data-execution_count="4">
+<div id="05bb2f0a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(sp.log(x, <span class="dv">10</span>), <span class="dv">3</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[1000]</code></pre>
 </div>
 </div>
-<div id="8b41bf63" class="cell" data-execution_count="5">
+<div id="c1064b10" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(sp.log(x) <span class="op">+</span> sp.log(x <span class="op">-</span> <span class="dv">3</span>), sp.log(<span class="dv">10</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2714,7 +2714,7 @@ x = 4: valid</code></pre>
 <pre><code>[(5, True)]</code></pre>
 </div>
 </div>
-<div id="fd871ab3" class="cell" data-execution_count="6">
+<div id="952c251e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">"t"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> sp.solve(sp.Eq(<span class="dv">100</span> <span class="op">*</span> <span class="fl">1.05</span><span class="op">**</span>t, <span class="dv">150</span>), t)[<span class="dv">0</span>]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(solution)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

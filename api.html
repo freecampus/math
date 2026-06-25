@@ -1002,7 +1002,7 @@ window.Quarto = {
 <section id="equation-solving" class="level3">
 <h3 class="anchored" data-anchor-id="equation-solving">Equation solving</h3>
 <p>Use <code>solve_equation_steps()</code> to solve a single-variable SymPy equation and return a structured <code>EquationSolution</code>. The answer and transformations are computed with SymPy/edumath; no network access or API key is required. If the starting point is user text, parse it first with <code>edumath.core.parse_equation()</code>.</p>
-<div id="9f45cdb0" class="cell" data-execution_count="1">
+<div id="3e5c4b33" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1014,7 +1014,7 @@ window.Quarto = {
 </div>
 </div>
 <p>The same object can be rendered as text or Markdown for lessons:</p>
-<div id="6e8a08d3" class="cell" data-execution_count="2">
+<div id="d4549986" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(solution.render_text())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Answer: x = 6
@@ -1048,7 +1048,7 @@ x = 6: valid</code></pre>
 <section id="parsing-user-text" class="level3">
 <h3 class="anchored" data-anchor-id="parsing-user-text">Parsing user text</h3>
 <p>String parsing lives outside the solver layer. Use <code>parse_expression()</code> for expressions and <code>parse_equation()</code> for equations. The parser supports classroom input such as implicit multiplication (<code>2x</code>) and caret powers (<code>x^2</code>).</p>
-<div id="b683099b" class="cell" data-execution_count="3">
+<div id="c00c397f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation, parse_expression</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>parse_expression(<span class="st">"2x^2 + 3x"</span>)</span>

@@ -1533,7 +1533,7 @@ sin(theta)=1</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> for angle facts and SymPy for algebraic verification. SymPy can solve many equations, but interval reasoning is still easier when you understand the unit circle.</p>
-<div id="8989f49f" class="cell" data-execution_count="1">
+<div id="7ee61f0b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> reference_angle_degrees, trig_signs</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>reference_angle_degrees(<span class="dv">150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1541,14 +1541,14 @@ sin(theta)=1</code></pre>
 <pre><code>30</code></pre>
 </div>
 </div>
-<div id="c7278e0b" class="cell" data-execution_count="2">
+<div id="64b5494d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>trig_signs(<span class="dv">150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>{'sine': '+', 'cosine': '-', 'tangent': '-'}</code></pre>
 </div>
 </div>
 <p>Use SymPy to solve or verify exact equations.</p>
-<div id="0b85d821" class="cell" data-execution_count="3">
+<div id="bf7d3418" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> sp.symbols(<span class="st">"theta"</span>)</span>
@@ -1558,7 +1558,7 @@ sin(theta)=1</code></pre>
 </div>
 </div>
 <p>For all real solutions, SymPy’s <code>solveset</code> gives a set description.</p>
-<div id="258a81f5" class="cell" data-execution_count="4">
+<div id="38a3b2d1" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sp.solveset(sp.Eq(sp.sin(theta), sp.Rational(<span class="dv">1</span>, <span class="dv">2</span>)), theta, domain<span class="op">=</span>sp.S.Reals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math inline">\(\displaystyle \left\{2 n \pi + \frac{\pi}{6}\; \middle|\; n \in \mathbb{Z}\right\} \cup \left\{2 n \pi + \frac{5 \pi}{6}\; \middle|\; n \in \mathbb{Z}\right\}\)</span></p>

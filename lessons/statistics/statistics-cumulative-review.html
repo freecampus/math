@@ -1474,7 +1474,7 @@ Ha: mu != 500</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> helpers to connect the workflow.</p>
-<div id="a256f25e" class="cell" data-execution_count="1">
+<div id="ff6ee195" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> (</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    confidence_interval_proportion,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    describe,</span>
@@ -1486,20 +1486,20 @@ Ha: mu != 500</code></pre>
 <pre><code>DescriptiveStats(mean=17.0, median=17.0, variance=13.5, standard_deviation=3.6742346141747673, minimum=12.0, maximum=21.0)</code></pre>
 </div>
 </div>
-<div id="828b60ec" class="cell" data-execution_count="2">
+<div id="ea80226e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>confidence_interval_proportion(<span class="dv">220</span>, <span class="dv">400</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>ConfidenceInterval(estimate=0.55, lower=0.5012465114550304, upper=0.5987534885449697, margin_of_error=0.048753488544969664, confidence_level=0.95)</code></pre>
 </div>
 </div>
-<div id="a58f0ded" class="cell" data-execution_count="3">
+<div id="fe6d67bb" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>one_sample_z_test(<span class="dv">105</span>, <span class="dv">100</span>, <span class="fl">2.5</span>, alternative<span class="op">=</span><span class="st">"greater"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>HypothesisTestResult(statistic=2.0, p_value=0.02275013194817921, alternative='greater')</code></pre>
 </div>
 </div>
 <p>Use SymPy to show the shared structure behind intervals and tests.</p>
-<div id="34cb6644" class="cell" data-execution_count="4">
+<div id="39eee22d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>estimate, null, se, z <span class="op">=</span> sp.symbols(<span class="st">"estimate null se z"</span>)</span>

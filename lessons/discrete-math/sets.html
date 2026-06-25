@@ -1606,7 +1606,7 @@ B - A            = {4, 5}</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Python has built-in set operators.</p>
-<div id="0d8dd0cd" class="cell" data-execution_count="1">
+<div id="02267b4d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>}</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">|</span> B, A <span class="op">&amp;</span> B, A <span class="op">-</span> B, A <span class="op">^</span> B</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1615,7 +1615,7 @@ B - A            = {4, 5}</code></pre>
 </div>
 </div>
 <p>Use <code>edumath</code> for a named table of operations.</p>
-<div id="fe077424" class="cell" data-execution_count="2">
+<div id="7e558187" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.discrete_math <span class="im">import</span> cartesian_product, power_set, set_operation_table</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>set_operation_table(A, B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1627,15 +1627,15 @@ B - A            = {4, 5}</code></pre>
  'symmetric_difference': {1, 2, 4}}</code></pre>
 </div>
 </div>
-<div id="28c9be3c" class="cell" data-execution_count="3">
+<div id="245a3bfa" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>power_set({<span class="st">"a"</span>, <span class="st">"b"</span>}), cartesian_product({<span class="dv">1</span>, <span class="dv">2</span>}, {<span class="st">"x"</span>, <span class="st">"y"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>((frozenset(), frozenset({'b'}), frozenset({'a'}), frozenset({'a', 'b'})),
+<pre><code>((frozenset(), frozenset({'a'}), frozenset({'b'}), frozenset({'a', 'b'})),
  ((1, 'y'), (1, 'x'), (2, 'y'), (2, 'x')))</code></pre>
 </div>
 </div>
 <p>SymPy also has finite-set objects.</p>
-<div id="c87cd6a2" class="cell" data-execution_count="4">
+<div id="73b80082" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sp.FiniteSet(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>).union(sp.FiniteSet(<span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

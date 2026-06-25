@@ -1508,7 +1508,7 @@ y1 = 1 + 0.2(1) = 1.2</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> for Euler approximations.</p>
-<div id="a11c5d48" class="cell" data-execution_count="1">
+<div id="a2cbb89b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.differential_equations <span class="im">import</span> euler_method</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>euler_method(<span class="kw">lambda</span> x, y: y, initial_x<span class="op">=</span><span class="dv">0</span>, initial_y<span class="op">=</span><span class="dv">2</span>, step<span class="op">=</span><span class="fl">0.5</span>, steps<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1517,7 +1517,7 @@ y1 = 1 + 0.2(1) = 1.2</code></pre>
 </div>
 </div>
 <p>Use SymPy for an exact comparison when an exact solution exists.</p>
-<div id="cb0902f7" class="cell" data-execution_count="2">
+<div id="ed44d321" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>

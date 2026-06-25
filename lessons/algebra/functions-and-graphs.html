@@ -1054,7 +1054,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="formula-to-table" class="level2">
 <h2 class="anchored" data-anchor-id="formula-to-table">Formula to table</h2>
 <p>A table makes individual input-output pairs explicit.</p>
-<div id="71c6cfde" class="cell" data-execution_count="1">
+<div id="626c7226" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
@@ -1066,7 +1066,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The graph of a function is the set of points:</p>
 <pre class="text"><code>(x, f(x))</code></pre>
 <p>The package includes reusable plotting helpers for this input-output view.</p>
-<div id="2fbd3012" class="cell" data-execution_count="2">
+<div id="7538e345" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -1110,7 +1110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="comparing-function-families" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-function-families">Comparing function families</h2>
 <p>Different formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.</p>
-<div id="882da1ae" class="cell" data-execution_count="3">
+<div id="10e0726a" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -2837,7 +2837,7 @@ f(4) = 4^2 - 3(4) + 2
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> to move from formula to table to graph. This is useful when you want to test how a formula behaves before doing more formal analysis.</p>
-<div id="865e3119" class="cell" data-execution_count="4">
+<div id="8fb2a30d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, input_output_scene</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2845,7 +2845,7 @@ f(4) = 4^2 - 3(4) + 2
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="30dc330e" class="cell" data-execution_count="5">
+<div id="bb0eb34f" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> input_output_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_value<span class="op">=</span><span class="dv">4</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

@@ -1528,7 +1528,7 @@ upper fence = 8 + 1.5(4) = 14</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> to compute descriptive summaries.</p>
-<div id="5f01a89f" class="cell" data-execution_count="1">
+<div id="5019b8d3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> describe, five_number_summary, outlier_fences</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">100</span>]</span>
@@ -1537,20 +1537,20 @@ upper fence = 8 + 1.5(4) = 14</code></pre>
 <pre><code>DescriptiveStats(mean=22.8, median=4.0, variance=1863.7, standard_deviation=43.17059184213253, minimum=2.0, maximum=100.0)</code></pre>
 </div>
 </div>
-<div id="99493e0f" class="cell" data-execution_count="2">
+<div id="e95fcd35" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>five_number_summary(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>FiveNumberSummary(minimum=2.0, q1=3.0, median=4.0, q3=5.0, maximum=100.0)</code></pre>
 </div>
 </div>
-<div id="abd7dcee" class="cell" data-execution_count="3">
+<div id="7704b995" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>outlier_fences(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>OutlierFences(lower=0.0, upper=8.0, outliers=(100.0,))</code></pre>
 </div>
 </div>
 <p>Use SymPy to show the algebra of a mean calculation.</p>
-<div id="48d1b8fc" class="cell" data-execution_count="4">
+<div id="6c9cbe8f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sp.simplify((<span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">100</span>) <span class="op">/</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

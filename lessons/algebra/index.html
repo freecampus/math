@@ -1046,7 +1046,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-small-auto-checkable-diagnostic" class="level2">
 <h2 class="anchored" data-anchor-id="a-small-auto-checkable-diagnostic">A small auto-checkable diagnostic</h2>
 <p>The package’s quiz model can use SymPy to derive answers. That means many questions do not need a manually typed expected value; the expected answer can come from a resolver such as <code>expand</code>, <code>factor</code>, or <code>solve</code>.</p>
-<div id="80613b63" class="cell" data-execution_count="1">
+<div id="41c7cba3" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>'Correct.'</code></pre>
 </div>
@@ -1055,12 +1055,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="formula-table-graph-one-idea-in-three-forms" class="level2">
 <h2 class="anchored" data-anchor-id="formula-table-graph-one-idea-in-three-forms">Formula, table, graph: one idea in three forms</h2>
 <p>Algebra becomes powerful when you can translate among representations. The same function can be studied as a formula, a table, and a graph.</p>
-<div id="56b24c42" class="cell" data-execution_count="2">
+<div id="eec85692" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="97c89444" class="cell" data-execution_count="3">
+<div id="ca48a342" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -1104,7 +1104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>The lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.</p>
-<div id="f0d240b2" class="cell" data-execution_count="4">
+<div id="6f6e695c" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> expression_table, input_output_scene</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"x**2 - 3*x + 2"</span>, inputs<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1112,7 +1112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))</code></pre>
 </div>
 </div>
-<div id="84ad7e2d" class="cell" data-execution_count="5">
+<div id="53aec55f" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> input_output_scene(<span class="st">"x**2 - 3*x + 2"</span>, x_value<span class="op">=</span><span class="dv">4</span>, x_min<span class="op">=-</span><span class="dv">2</span>, x_max<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

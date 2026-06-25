@@ -1429,7 +1429,7 @@ cot(x) = 1 / tan(x) = cos(x) / sin(x)</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use SymPy to simplify and verify identities.</p>
-<div id="b882ba5f" class="cell" data-execution_count="1">
+<div id="502426e9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
@@ -1439,7 +1439,7 @@ cot(x) = 1 / tan(x) = cos(x) / sin(x)</code></pre>
 </div>
 </div>
 <p>Check whether two sides simplify to zero.</p>
-<div id="ff00937c" class="cell" data-execution_count="2">
+<div id="41da6294" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> sp.tan(x) <span class="op">*</span> sp.cos(x)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> sp.sin(x)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sp.simplify(left <span class="op">-</span> right)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

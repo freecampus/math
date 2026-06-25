@@ -7627,7 +7627,7 @@
     "href": "lessons/discrete-math/sets.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Sets",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nPython has built-in set operators.\n\nA = {1, 2, 3}\nB = {3, 4}\nA | B, A & B, A - B, A ^ B\n\n({1, 2, 3, 4}, {3}, {1, 2}, {1, 2, 4})\n\n\nUse edumath for a named table of operations.\n\nfrom edumath.discrete_math import cartesian_product, power_set, set_operation_table\n\nset_operation_table(A, B)\n\n{'union': {1, 2, 3, 4},\n 'intersection': {3},\n 'a_minus_b': {1, 2},\n 'b_minus_a': {4},\n 'symmetric_difference': {1, 2, 4}}\n\n\n\npower_set({\"a\", \"b\"}), cartesian_product({1, 2}, {\"x\", \"y\"})\n\n((frozenset(), frozenset({'b'}), frozenset({'a'}), frozenset({'a', 'b'})),\n ((1, 'y'), (1, 'x'), (2, 'y'), (2, 'x')))\n\n\nSymPy also has finite-set objects.\n\nimport sympy as sp\n\nsp.FiniteSet(1, 2, 3).union(sp.FiniteSet(3, 4))\n\n\\(\\displaystyle \\left\\{1, 2, 3, 4\\right\\}\\)",
+    "text": "Using this lesson with edumath and SymPy\nPython has built-in set operators.\n\nA = {1, 2, 3}\nB = {3, 4}\nA | B, A & B, A - B, A ^ B\n\n({1, 2, 3, 4}, {3}, {1, 2}, {1, 2, 4})\n\n\nUse edumath for a named table of operations.\n\nfrom edumath.discrete_math import cartesian_product, power_set, set_operation_table\n\nset_operation_table(A, B)\n\n{'union': {1, 2, 3, 4},\n 'intersection': {3},\n 'a_minus_b': {1, 2},\n 'b_minus_a': {4},\n 'symmetric_difference': {1, 2, 4}}\n\n\n\npower_set({\"a\", \"b\"}), cartesian_product({1, 2}, {\"x\", \"y\"})\n\n((frozenset(), frozenset({'a'}), frozenset({'b'}), frozenset({'a', 'b'})),\n ((1, 'y'), (1, 'x'), (2, 'y'), (2, 'x')))\n\n\nSymPy also has finite-set objects.\n\nimport sympy as sp\n\nsp.FiniteSet(1, 2, 3).union(sp.FiniteSet(3, 4))\n\n\\(\\displaystyle \\left\\{1, 2, 3, 4\\right\\}\\)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -11657,7 +11657,7 @@
     "href": "lessons/algebra/rational-and-radical-functions.html#graph-features-of-rational-functions",
     "title": "Rational and Radical Functions",
     "section": "Graph features of rational functions",
-    "text": "Graph features of rational functions\n\nA vertical asymptote usually comes from a denominator factor that does not cancel.\nA hole comes from a denominator factor that cancels.\nAn x-intercept comes from a remaining numerator zero.\nA horizontal asymptote describes long-run behavior.\n\nFor horizontal asymptotes, compare degrees:\n\n\n\nDegrees\nHorizontal behavior\n\n\n\n\nnumerator degree smaller\ny = 0\n\n\nequal degrees\nratio of leading coefficients\n\n\nnumerator degree larger by one\nslant asymptote preview\n\n\n\n\n\n&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in reciprocal\n  return (x - 2)**(-1.0)",
+    "text": "Graph features of rational functions\n\nA vertical asymptote usually comes from a denominator factor that does not cancel.\nA hole comes from a denominator factor that cancels.\nAn x-intercept comes from a remaining numerator zero.\nA horizontal asymptote describes long-run behavior.\n\nFor horizontal asymptotes, compare degrees:\n\n\n\nDegrees\nHorizontal behavior\n\n\n\n\nnumerator degree smaller\ny = 0\n\n\nequal degrees\nratio of leading coefficients\n\n\nnumerator degree larger by one\nslant asymptote preview\n\n\n\n\n\n&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in power\n  return (x - 2)**(-1.0)",
     "crumbs": [
       "Home",
       "Lessons",

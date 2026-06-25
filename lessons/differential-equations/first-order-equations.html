@@ -1546,7 +1546,7 @@ y' = -8e^(-2x)                 differentiate
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use SymPy to verify that a candidate solution satisfies an ODE.</p>
-<div id="649ed7c3" class="cell" data-execution_count="1">
+<div id="d9e91b6e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
@@ -1559,7 +1559,7 @@ y' = -8e^(-2x)                 differentiate
 </div>
 </div>
 <p>A result of <code>0</code> means the candidate satisfies the differential equation.</p>
-<div id="10a95dd1" class="cell" data-execution_count="2">
+<div id="3bb7c101" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.differential_equations <span class="im">import</span> validate_solution_satisfies_ode</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>validate_solution_satisfies_ode(<span class="st">"2*exp(3*x)"</span>, <span class="st">"3*y"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
