@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.4.3](https://github.com/freecampus/math/compare/0.4.2...0.4.3) (2026-06-25)
+
+
+### Bug Fixes
+
+* Update content ([#1](https://github.com/freecampus/math/issues/1)) ([4432ab2](https://github.com/freecampus/math/commit/4432ab2c889a40f6a950f80f87e03d970b4404a5))
+
 ## [0.4.2](https://github.com/osl-incubator/edu-math/compare/0.4.1...0.4.2) (2026-06-25)
 
 
