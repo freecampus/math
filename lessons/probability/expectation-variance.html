@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Center and spread of random variables.">
+<meta name="description" content="Long-run center, spread, standard deviation, and risk for random variables.">
 
 <title>Expectation and Variance – edu-math</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/statistics/descriptive-statistics.html" rel="next">
+<link href="../../lessons/statistics/index.html" rel="next">
 <link href="../../lessons/probability/common-distributions.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/expectation-variance.html">Expectation and Variance</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/expectation-variance.html">Expectation and Variance</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -484,8 +519,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -613,6 +690,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -660,6 +743,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -667,7 +756,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -684,8 +785,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -790,58 +909,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -860,8 +927,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#expected-value-as-a-weighted-average" id="toc-expected-value-as-a-weighted-average" class="nav-link" data-scroll-target="#expected-value-as-a-weighted-average">Expected value as a weighted average</a></li>
+  <li><a href="#expected-value-is-not-always-a-possible-outcome" id="toc-expected-value-is-not-always-a-possible-outcome" class="nav-link" data-scroll-target="#expected-value-is-not-always-a-possible-outcome">Expected value is not always a possible outcome</a></li>
+  <li><a href="#variance-and-standard-deviation" id="toc-variance-and-standard-deviation" class="nav-link" data-scroll-target="#variance-and-standard-deviation">Variance and standard deviation</a></li>
+  <li><a href="#step-by-step-variance-table" id="toc-step-by-step-variance-table" class="nav-link" data-scroll-target="#step-by-step-variance-table">Step-by-step variance table</a></li>
+  <li><a href="#linearity-of-expectation" id="toc-linearity-of-expectation" class="nav-link" data-scroll-target="#linearity-of-expectation">Linearity of expectation</a></li>
+  <li><a href="#risk-interpretation" id="toc-risk-interpretation" class="nav-link" data-scroll-target="#risk-interpretation">Risk interpretation</a></li>
+  <li><a href="#worked-example-1-fair-game" id="toc-worked-example-1-fair-game" class="nav-link" data-scroll-target="#worked-example-1-fair-game">Worked example 1: fair game</a></li>
+  <li><a href="#worked-example-2-compare-spread" id="toc-worked-example-2-compare-spread" class="nav-link" data-scroll-target="#worked-example-2-compare-spread">Worked example 2: compare spread</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-compute-expected-value-row-by-row" id="toc-lab-1-compute-expected-value-row-by-row" class="nav-link" data-scroll-target="#lab-1-compute-expected-value-row-by-row">Lab 1: compute expected value row by row</a></li>
+  <li><a href="#lab-2-interpret-an-impossible-expected-value" id="toc-lab-2-interpret-an-impossible-expected-value" class="nav-link" data-scroll-target="#lab-2-interpret-an-impossible-expected-value">Lab 2: interpret an impossible expected value</a></li>
+  <li><a href="#lab-3-compute-variance-with-deviations" id="toc-lab-3-compute-variance-with-deviations" class="nav-link" data-scroll-target="#lab-3-compute-variance-with-deviations">Lab 3: compute variance with deviations</a></li>
+  <li><a href="#lab-4-compare-risk" id="toc-lab-4-compare-risk" class="nav-link" data-scroll-target="#lab-4-compare-risk">Lab 4: compare risk</a></li>
+  <li><a href="#lab-5-use-linearity-of-expectation" id="toc-lab-5-use-linearity-of-expectation" class="nav-link" data-scroll-target="#lab-5-use-linearity-of-expectation">Lab 5: use linearity of expectation</a></li>
+  </ul></li>
+  <li><a href="#expectation-and-variance-guessing-game" id="toc-expectation-and-variance-guessing-game" class="nav-link" data-scroll-target="#expectation-and-variance-guessing-game">Expectation and variance guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/expectation-variance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -869,14 +955,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/expectation-variance.html">Expectation and Variance</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/expectation-variance.html">Expectation and Variance</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Expectation and Variance</h1>
 </div>
 
 <div>
   <div class="description">
-    Center and spread of random variables.
+    Long-run center, spread, standard deviation, and risk for random variables.
   </div>
 </div>
 
@@ -893,40 +979,227 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Probability distributions can be large, but two summaries are especially useful: <strong>expected value</strong> and <strong>variance</strong>. Expected value describes the long-run center. Variance describes spread around that center. Together, they help compare games, risks, measurements, and uncertain decisions.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Interpret expectation as long-run average.</li>
-<li>Interpret variance as spread.</li>
-<li>Connect probability to statistics.</li>
+<li>compute expected value as a weighted average;</li>
+<li>explain why expected value may not be an actual outcome;</li>
+<li>compute variance and standard deviation from a small table;</li>
+<li>compare distributions with the same mean but different spread;</li>
+<li>use linearity of expectation in simple examples;</li>
+<li>check calculations with <code>edumath</code>, Python, and SymPy.</li>
 </ul>
 </section>
-<p>Expectation tells us the average value over many repetitions. Variance tells us how much values tend to vary around that average.</p>
+<section id="expected-value-as-a-weighted-average" class="level2">
+<h2 class="anchored" data-anchor-id="expected-value-as-a-weighted-average">Expected value as a weighted average</h2>
+<p>For a discrete random variable, expected value is:</p>
+<div class="formula-box">
+<pre class="text"><code>E[X] = sum of value * probability</code></pre>
+</div>
+<p>If <code>X</code> takes values 0 and 10 with probabilities 0.7 and 0.3, then</p>
+<pre class="text"><code>E[X] = 0(0.7) + 10(0.3) = 3</code></pre>
+<p>This means that over many repetitions, the average value approaches 3.</p>
+</section>
+<section id="expected-value-is-not-always-a-possible-outcome" class="level2">
+<h2 class="anchored" data-anchor-id="expected-value-is-not-always-a-possible-outcome">Expected value is not always a possible outcome</h2>
+<p>A fair die has values <code>1,2,3,4,5,6</code>, each with probability <code>1/6</code>.</p>
+<pre class="text"><code>E[X] = (1+2+3+4+5+6)/6 = 21/6 = 3.5</code></pre>
+<p>But a die can never roll 3.5. Expected value is a long-run average, not a promise about one trial.</p>
+</section>
+<section id="variance-and-standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h2>
+<p>Variance measures how far values tend to be from the mean. For a discrete random variable:</p>
+<div class="formula-box">
+<pre class="text"><code>Var(X) = sum of probability * (value - mean)^2</code></pre>
+</div>
+<p>Standard deviation is the square root of variance:</p>
+<pre class="text"><code>SD(X) = sqrt(Var(X))</code></pre>
+<p>Variance uses squared distances, so it is sensitive to values far from the mean.</p>
+</section>
+<section id="step-by-step-variance-table" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step-variance-table">Step-by-step variance table</h2>
+<p>Suppose <code>X</code> is 0 with probability 0.5 and 2 with probability 0.5.</p>
+<p>First compute the mean:</p>
+<pre class="text"><code>E[X] = 0(0.5) + 2(0.5) = 1</code></pre>
+<p>Now build a table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">value</th>
+<th style="text-align: right;">probability</th>
+<th style="text-align: right;">value - mean</th>
+<th style="text-align: right;">squared distance</th>
+<th style="text-align: right;">weighted squared distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+</tbody>
+</table>
+<p>Add the last column:</p>
+<pre class="text"><code>Var(X) = 0.5 + 0.5 = 1
+SD(X) = sqrt(1) = 1</code></pre>
+</section>
+<section id="linearity-of-expectation" class="level2">
+<h2 class="anchored" data-anchor-id="linearity-of-expectation">Linearity of expectation</h2>
+<p>Expected value has a very useful property:</p>
+<pre class="text"><code>E[X + Y] = E[X] + E[Y]</code></pre>
+<p>This is true even when <code>X</code> and <code>Y</code> are not independent. For example, if one fair die has expected value 3.5, then two fair dice have total expected value:</p>
+<pre class="text"><code>3.5 + 3.5 = 7</code></pre>
+</section>
+<section id="risk-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="risk-interpretation">Risk interpretation</h2>
+<p>Two games can have the same expected value but different risk.</p>
+<ul>
+<li>Game A pays <code>$5</code> every time.</li>
+<li>Game B pays <code>$0</code> half the time and <code>$10</code> half the time.</li>
+</ul>
+<p>Both have expected value <code>$5</code>, but Game B has more spread. Variance helps describe that uncertainty.</p>
+</section>
+<section id="worked-example-1-fair-game" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-fair-game">Worked example 1: fair game</h2>
+<p>A game costs <code>$2</code>. It pays <code>$5</code> with probability <code>0.4</code> and <code>$0</code> with probability <code>0.6</code>. Is the game favorable in expected value?</p>
+<p>Expected payout:</p>
+<pre class="text"><code>5(0.4) + 0(0.6) = 2</code></pre>
+<p>Expected net gain:</p>
+<pre class="text"><code>expected payout - cost = 2 - 2 = 0</code></pre>
+<p>The game is fair in expected value. It is not guaranteed to break even on one play.</p>
+</section>
+<section id="worked-example-2-compare-spread" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-compare-spread">Worked example 2: compare spread</h2>
+<p>Distribution A:</p>
+<pre class="text"><code>X = 4 with probability 1</code></pre>
+<p>Distribution B:</p>
+<pre class="text"><code>Y = 0 with probability 1/2
+Y = 8 with probability 1/2</code></pre>
+<p>Both have expected value 4. But <code>X</code> never varies, while <code>Y</code> jumps between 0 and 8. So <code>Y</code> has larger variance and more risk.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Forgetting to multiply each value by its probability.</li>
+<li>Treating expected value as a guaranteed outcome.</li>
+<li>Computing variance before computing the mean.</li>
+<li>Forgetting to square deviations in variance.</li>
+<li>Comparing risk using only the mean.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What does high variance suggest?</li>
-<li>Why is expected value not always a guaranteed outcome?</li>
-<li>How does variance relate to risk?</li>
+<li>Compute the expected value of values <code>0, 10</code> with probabilities <code>0.7, 0.3</code>.</li>
+<li>What is the expected value of a fair die?</li>
+<li>Why can expected value be impossible as a single outcome?</li>
+<li>Compute the variance for values <code>0, 2</code> with probabilities <code>0.5, 0.5</code>.</li>
+<li>Which is riskier: a guaranteed <code>$5</code> or <code>$0/$10</code> with equal probabilities?</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: values are spread far from the mean.</p>
-<p>High variance means outcomes can differ substantially from the long-run average.</p>
+<ol type="1">
+<li><code>0(0.7)+10(0.3)=3</code>.</li>
+<li><code>3.5</code>.</li>
+<li>It is a long-run weighted average, not necessarily a value the random variable can take.</li>
+<li>The mean is 1. Variance is <code>0.5(0-1)^2 + 0.5(2-1)^2 = 1</code>.</li>
+<li>The <code>$0/$10</code> game is riskier because it has more spread.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Expectation and variance calculations are safest when you use a table and fill one column at a time.</p>
+<section id="lab-1-compute-expected-value-row-by-row" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-compute-expected-value-row-by-row">Lab 1: compute expected value row by row</h3>
+<p><strong>Guess first.</strong> Which contributes more to expected value: a large value with small probability or a smaller value with large probability?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>For values <code>1, 4, 10</code> with probabilities <code>0.2, 0.5, 0.3</code>:</p>
+<pre class="text"><code>E[X] = 1(0.2) + 4(0.5) + 10(0.3)
+     = 0.2 + 2.0 + 3.0
+     = 5.2</code></pre>
+<p>Each row contributes <code>value * probability</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute expected value for values <code>-2, 4</code> with probabilities <code>0.25, 0.75</code>.</p>
+</div>
+</section>
+<section id="lab-2-interpret-an-impossible-expected-value" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-interpret-an-impossible-expected-value">Lab 2: interpret an impossible expected value</h3>
+<p><strong>Guess first.</strong> If the expected number of heads in one fair coin flip is 0.5, can one flip produce 0.5 heads?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>One flip produces either 0 heads or 1 head. The expected value is</p>
+<pre class="text"><code>0(0.5) + 1(0.5) = 0.5</code></pre>
+<p>This is a long-run average over many flips.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Explain why the expected value <code>3.5</code> for a fair die is useful even though no die face is 3.5.</p>
+</div>
+</section>
+<section id="lab-3-compute-variance-with-deviations" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-compute-variance-with-deviations">Lab 3: compute variance with deviations</h3>
+<p><strong>Guess first.</strong> Why do we subtract the mean before squaring?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>For values <code>0, 4</code> with probabilities <code>0.5, 0.5</code>, the mean is 2. Deviations are:</p>
+<pre class="text"><code>0 - 2 = -2
+4 - 2 = 2</code></pre>
+<p>Square and weight:</p>
+<pre class="text"><code>Var(X) = 0.5(-2)^2 + 0.5(2)^2
+       = 2 + 2
+       = 4</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute the variance for values <code>1, 3</code> with probabilities <code>0.5, 0.5</code>.</p>
+</div>
+</section>
+<section id="lab-4-compare-risk" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-compare-risk">Lab 4: compare risk</h3>
+<p><strong>Guess first.</strong> Which has more variance: always getting 5, or getting 0 or 10 with equal probability?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Always getting 5 has no spread, so variance is 0. Getting 0 or 10 has the same mean but values far from the mean, so it has positive variance.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Two investments both have expected return 6%. One always returns 6%; the other returns -4% or 16% with equal probability. Which has larger variance?</p>
+</div>
+</section>
+<section id="lab-5-use-linearity-of-expectation" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-use-linearity-of-expectation">Lab 5: use linearity of expectation</h3>
+<p><strong>Guess first.</strong> If one fair die has expected value 3.5, do three fair dice have expected total 10.5?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>By linearity of expectation:</p>
+<pre class="text"><code>E[die1 + die2 + die3] = 3.5 + 3.5 + 3.5 = 10.5</code></pre>
+<p>You do not need to list all 216 outcomes.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If one raffle ticket has expected value <code>$1.20</code>, what is the expected value of 5 identical tickets?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -934,31 +1207,459 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: expected value is a weighted average over many repetitions.</p>
-<p>For example, a fair die has expected value <code>3.5</code>, but no single roll can equal <code>3.5</code>.</p>
+<ol type="1">
+<li><code>(-2)(0.25)+4(0.75)=-0.5+3=2.5</code>.</li>
+<li>It predicts the long-run average over many rolls and helps compare games or repeated experiments.</li>
+<li>The mean is 2. Variance is <code>0.5(1-2)^2 + 0.5(3-2)^2 = 1</code>.</li>
+<li>The second investment has larger variance.</li>
+<li><code>5 * 1.20 = $6.00</code>.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="expectation-and-variance-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-and-variance-guessing-game">Expectation and variance guessing game</h2>
+<p>Use this checkpoint to practice center, spread, and fair-game reasoning.</p>
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "expectation-variance",
+  "title": "Expectation and variance checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-probability-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "sample-spaces-events";
+    const BANKS = {
+      "sample-spaces-events": [sampleSpaceQuestion, eventQuestion, complementQuestion, simpleProbabilityQuestion],
+      counting: [factorialQuestion, productRuleQuestion, permutationCombinationQuestion, combinationQuestion],
+      "conditional-probability": [conditionalMeaningQuestion, conditionalCountQuestion, independenceQuestion, bayesDirectionQuestion],
+      "random-variables": [randomVariableQuestion, discreteContinuousQuestion, pmfValidityQuestion, expectedValueQuestion],
+      "common-distributions": [bernoulliQuestion, binomialQuestion, uniformQuestion, normalQuestion],
+      "expectation-variance": [weightedAverageQuestion, possibleOutcomeQuestion, varianceQuestion, fairGameQuestion],
+      "probability-cumulative-review": [sampleSpaceQuestion, permutationCombinationQuestion, conditionalMeaningQuestion, pmfValidityQuestion, binomialQuestion, varianceQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-probability-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-probability-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Probability checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function sampleSpaceQuestion() {
+      return question({
+        prompt: "What is the sample space for one coin flip?",
+        stimulus: "one fair coin",
+        answer: "{H, T}",
+        distractors: ["{H}", "{T}", "{1, 2, 3, 4, 5, 6}"],
+        explanation: "The sample space lists all possible outcomes: heads and tails.",
+      });
+    }
+
+    function eventQuestion() {
+      return question({
+        prompt: "For a fair die, which event represents rolling an even number?",
+        stimulus: "S = {1,2,3,4,5,6}",
+        answer: "{2, 4, 6}",
+        distractors: ["{1, 3, 5}", "{6}", "{2, 3, 5}"],
+        explanation: "An event is a subset of outcomes that satisfy the condition.",
+      });
+    }
+
+    function complementQuestion() {
+      return question({
+        prompt: "What is the complement of rolling even on a fair die?",
+        stimulus: "Even = {2,4,6}",
+        answer: "{1, 3, 5}",
+        distractors: ["{2, 4, 6}", "{1, 2, 3}", "empty set"],
+        explanation: "The complement contains outcomes in the sample space that are not in the event.",
+      });
+    }
+
+    function simpleProbabilityQuestion() {
+      return question({
+        prompt: "What is P(rolling greater than 4) on a fair die?",
+        stimulus: "favorable outcomes: {5,6}",
+        answer: "2/6 = 1/3",
+        distractors: ["1/6", "4/6", "1/2"],
+        explanation: "There are 2 favorable outcomes out of 6 equally likely outcomes.",
+      });
+    }
+
+    function factorialQuestion() {
+      return question({
+        prompt: "Compute 4!.",
+        stimulus: "factorial",
+        answer: "24",
+        distractors: ["8", "16", "4"],
+        explanation: "4! = 4·3·2·1 = 24.",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "A meal has 3 mains and 2 drinks. How many meal choices?",
+        stimulus: "choose one main and one drink",
+        answer: "6",
+        distractors: ["5", "3", "2"],
+        explanation: "Use the product rule: 3·2 = 6.",
+      });
+    }
+
+    function permutationCombinationQuestion() {
+      return question({
+        prompt: "Which method fits choosing 3 students from 10 when order does not matter?",
+        stimulus: "committee selection",
+        answer: "combination",
+        distractors: ["permutation", "factorial only", "conditional probability"],
+        explanation: "Combinations count selections when order does not matter.",
+      });
+    }
+
+    function combinationQuestion() {
+      return question({
+        prompt: "Compute C(5,2).",
+        stimulus: "choose 2 from 5",
+        answer: "10",
+        distractors: ["20", "5", "25"],
+        explanation: "C(5,2)=5·4/(2·1)=10.",
+      });
+    }
+
+    function conditionalMeaningQuestion() {
+      return question({
+        prompt: "What does P(A | B) mean?",
+        stimulus: "conditional notation",
+        answer: "probability of A given B happened",
+        distractors: ["probability of B given A happened", "A and B are impossible", "A or B"],
+        explanation: "The condition after the vertical bar is the information already known.",
+      });
+    }
+
+    function conditionalCountQuestion() {
+      return question({
+        prompt: "A fair die is known to be greater than 3. What is P(even | greater than 3)?",
+        stimulus: "restricted outcomes: {4,5,6}",
+        answer: "2/3",
+        distractors: ["1/2", "1/3", "3/6"],
+        explanation: "Inside {4,5,6}, the even outcomes are {4,6}.",
+      });
+    }
+
+    function independenceQuestion() {
+      return question({
+        prompt: "If A and B are independent, what is P(A | B)?",
+        stimulus: "B gives no information about A",
+        answer: "P(A)",
+        distractors: ["P(B)", "P(A and B)", "0"],
+        explanation: "Independence means knowing B does not change the probability of A.",
+      });
+    }
+
+    function bayesDirectionQuestion() {
+      return question({
+        prompt: "Which probability reverses the condition in P(test positive | disease)?",
+        stimulus: "Bayes direction",
+        answer: "P(disease | test positive)",
+        distractors: ["P(disease and test positive)", "P(test positive)", "P(not disease)"],
+        explanation: "Bayes' rule helps reverse conditional probabilities.",
+      });
+    }
+
+    function randomVariableQuestion() {
+      return question({
+        prompt: "What does a random variable assign to outcomes?",
+        stimulus: "random variable",
+        answer: "numbers",
+        distractors: ["only words", "only probabilities", "only graphs"],
+        explanation: "A random variable is a numeric rule on outcomes.",
+      });
+    }
+
+    function discreteContinuousQuestion() {
+      return question({
+        prompt: "Which is continuous?",
+        stimulus: "types of random variables",
+        answer: "waiting time",
+        distractors: ["number of heads in 3 flips", "die roll", "number of emails"],
+        explanation: "Waiting time can vary over an interval, not just a list of separate values.",
+      });
+    }
+
+    function pmfValidityQuestion() {
+      return question({
+        prompt: "Is {0:0.3, 1:0.7} a valid PMF?",
+        stimulus: "probabilities sum to 1",
+        answer: "yes",
+        distractors: ["no, sums to 0.7", "no, probabilities must be equal", "no, values must start at 1"],
+        explanation: "The probabilities are nonnegative and 0.3+0.7=1.",
+      });
+    }
+
+    function expectedValueQuestion() {
+      return question({
+        prompt: "Find E[X] when X is 0 with probability 0.4 and 1 with probability 0.6.",
+        stimulus: "weighted average",
+        answer: "0.6",
+        distractors: ["0.4", "1", "0.5"],
+        explanation: "E[X]=0·0.4+1·0.6=0.6.",
+      });
+    }
+
+    function bernoulliQuestion() {
+      return question({
+        prompt: "Which distribution models one yes/no trial?",
+        stimulus: "success or failure once",
+        answer: "Bernoulli",
+        distractors: ["Binomial", "Normal", "Uniform"],
+        explanation: "A Bernoulli distribution has one trial with two outcomes.",
+      });
+    }
+
+    function binomialQuestion() {
+      return question({
+        prompt: "Which distribution counts successes in fixed independent trials?",
+        stimulus: "n trials, same p",
+        answer: "Binomial",
+        distractors: ["Bernoulli", "Normal", "Continuous uniform"],
+        explanation: "The binomial distribution counts successes across repeated Bernoulli trials.",
+      });
+    }
+
+    function uniformQuestion() {
+      return question({
+        prompt: "A fair die is an example of which discrete pattern?",
+        stimulus: "all six faces equally likely",
+        answer: "uniform",
+        distractors: ["normal", "binomial", "geometric"],
+        explanation: "Uniform means all listed outcomes have the same probability.",
+      });
+    }
+
+    function normalQuestion() {
+      return question({
+        prompt: "Which distribution is often used for bell-shaped measurement noise?",
+        stimulus: "centered around a mean",
+        answer: "Normal",
+        distractors: ["Bernoulli", "Uniform", "Permutation"],
+        explanation: "The normal distribution is a common model for many measurement errors.",
+      });
+    }
+
+    function weightedAverageQuestion() {
+      return question({
+        prompt: "Compute the expected value of 0 with probability 0.5 and 10 with probability 0.5.",
+        stimulus: "weighted average",
+        answer: "5",
+        distractors: ["10", "0", "0.5"],
+        explanation: "E[X]=0·0.5+10·0.5=5.",
+      });
+    }
+
+    function possibleOutcomeQuestion() {
+      return question({
+        prompt: "Can an expected value be impossible as a single outcome?",
+        stimulus: "fair die mean is 3.5",
+        answer: "yes",
+        distractors: ["no", "only for coins", "only if variance is 0"],
+        explanation: "Expected value is a long-run average, not necessarily an actual outcome.",
+      });
+    }
+
+    function varianceQuestion() {
+      return question({
+        prompt: "What does larger variance usually mean?",
+        stimulus: "spread around the mean",
+        answer: "outcomes are more spread out",
+        distractors: ["mean is always larger", "probabilities do not sum to 1", "outcomes are impossible"],
+        explanation: "Variance measures average squared distance from the mean.",
+      });
+    }
+
+    function fairGameQuestion() {
+      return question({
+        prompt: "A game costs $5 and has expected payout $5. What is its expected net gain?",
+        stimulus: "net gain = payout - cost",
+        answer: "$0",
+        distractors: ["$5", "-$5", "$10"],
+        explanation: "Expected net gain is expected payout minus cost: 5-5=0.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `probability-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to compute expected value and variance.</p>
+<div id="ef3590e5" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> expected_value, standard_deviation, variance</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">2</span>]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>probabilities <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">0.5</span>]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>expected_value(values, probabilities), variance(values, probabilities), standard_deviation(values, probabilities)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(1.0, 1.0, 1.0)</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: larger variance usually means more uncertainty in outcomes, which is one common way to quantify risk.</p>
+<p>Compare two games.</p>
+<div id="78d12f0e" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>safe_values <span class="op">=</span> [<span class="dv">5</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>safe_probabilities <span class="op">=</span> [<span class="dv">1</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>risky_values <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>risky_probabilities <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">0.5</span>]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>variance(safe_values, safe_probabilities), variance(risky_values, risky_probabilities)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(0.0, 25.0)</code></pre>
 </div>
+</div>
+<p>Use SymPy for exact variance arithmetic.</p>
+<div id="9edf4291" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">4</span>]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>probabilities <span class="op">=</span> [sp.Rational(<span class="dv">1</span>, <span class="dv">2</span>), sp.Rational(<span class="dv">1</span>, <span class="dv">2</span>)]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> <span class="bu">sum</span>(value <span class="op">*</span> probability <span class="cf">for</span> value, probability <span class="kw">in</span> <span class="bu">zip</span>(values, probabilities))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> <span class="bu">sum</span>(probability <span class="op">*</span> (value <span class="op">-</span> mean) <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> value, probability <span class="kw">in</span> <span class="bu">zip</span>(values, probabilities))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>mean, var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(2, 4)</code></pre>
 </div>
 </div>
 
@@ -1391,8 +2092,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/descriptive-statistics.html" class="pagination-link" aria-label="Descriptive Statistics">
-        <span class="nav-page-text">Descriptive Statistics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/index.html" class="pagination-link" aria-label="Statistics Study Path">
+        <span class="nav-page-text">Statistics Study Path</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

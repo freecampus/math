@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Point estimates, confidence intervals, margin of error, and uncertainty.">
+<meta name="description" content="Compare two means or proportions with attention to pairing, independence, uncertainty, and practical significance.">
 
-<title>Estimation – edu-math</title>
+<title>Comparing Groups – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/statistics/hypothesis-tests.html" rel="next">
-<link href="../../lessons/statistics/sampling-distributions.html" rel="prev">
+<link href="../../lessons/statistics/chi-square-tests.html" rel="next">
+<link href="../../lessons/statistics/hypothesis-tests.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -360,7 +360,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/estimation.html">Estimation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/comparing-groups.html">Comparing Groups</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -802,7 +802,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
@@ -814,7 +814,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comparing Groups</span></a>
   </div>
 </li>
@@ -957,39 +957,44 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#parameters-and-estimates" id="toc-parameters-and-estimates" class="nav-link" data-scroll-target="#parameters-and-estimates">Parameters and estimates</a></li>
-  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a></li>
-  <li><a href="#interpreting-confidence-level" id="toc-interpreting-confidence-level" class="nav-link" data-scroll-target="#interpreting-confidence-level">Interpreting confidence level</a></li>
-  <li><a href="#what-changes-interval-width" id="toc-what-changes-interval-width" class="nav-link" data-scroll-target="#what-changes-interval-width">What changes interval width?</a></li>
-  <li><a href="#worked-example-1-confidence-interval-for-a-mean" id="toc-worked-example-1-confidence-interval-for-a-mean" class="nav-link" data-scroll-target="#worked-example-1-confidence-interval-for-a-mean">Worked example 1: confidence interval for a mean</a></li>
-  <li><a href="#worked-example-2-confidence-interval-for-a-proportion" id="toc-worked-example-2-confidence-interval-for-a-proportion" class="nav-link" data-scroll-target="#worked-example-2-confidence-interval-for-a-proportion">Worked example 2: confidence interval for a proportion</a></li>
-  <li><a href="#worked-example-3-explain-a-wider-interval" id="toc-worked-example-3-explain-a-wider-interval" class="nav-link" data-scroll-target="#worked-example-3-explain-a-wider-interval">Worked example 3: explain a wider interval</a></li>
+  <li><a href="#what-is-being-compared" id="toc-what-is-being-compared" class="nav-link" data-scroll-target="#what-is-being-compared">What is being compared?</a></li>
+  <li><a href="#paired-versus-independent-samples" id="toc-paired-versus-independent-samples" class="nav-link" data-scroll-target="#paired-versus-independent-samples">Paired versus independent samples</a>
+  <ul class="collapse">
+  <li><a href="#paired-samples" id="toc-paired-samples" class="nav-link" data-scroll-target="#paired-samples">Paired samples</a></li>
+  <li><a href="#independent-samples" id="toc-independent-samples" class="nav-link" data-scroll-target="#independent-samples">Independent samples</a></li>
+  </ul></li>
+  <li><a href="#differences-as-estimates" id="toc-differences-as-estimates" class="nav-link" data-scroll-target="#differences-as-estimates">Differences as estimates</a></li>
+  <li><a href="#standard-error-for-differences" id="toc-standard-error-for-differences" class="nav-link" data-scroll-target="#standard-error-for-differences">Standard error for differences</a></li>
+  <li><a href="#practical-significance" id="toc-practical-significance" class="nav-link" data-scroll-target="#practical-significance">Practical significance</a></li>
+  <li><a href="#worked-example-1-independent-means" id="toc-worked-example-1-independent-means" class="nav-link" data-scroll-target="#worked-example-1-independent-means">Worked example 1: independent means</a></li>
+  <li><a href="#worked-example-2-paired-data" id="toc-worked-example-2-paired-data" class="nav-link" data-scroll-target="#worked-example-2-paired-data">Worked example 2: paired data</a></li>
+  <li><a href="#worked-example-3-comparing-proportions" id="toc-worked-example-3-comparing-proportions" class="nav-link" data-scroll-target="#worked-example-3-comparing-proportions">Worked example 3: comparing proportions</a></li>
   <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
   <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
   <ul class="collapse">
-  <li><a href="#lab-1-estimate-versus-parameter" id="toc-lab-1-estimate-versus-parameter" class="nav-link" data-scroll-target="#lab-1-estimate-versus-parameter">Lab 1: estimate versus parameter</a></li>
-  <li><a href="#lab-2-build-margin-of-error" id="toc-lab-2-build-margin-of-error" class="nav-link" data-scroll-target="#lab-2-build-margin-of-error">Lab 2: build margin of error</a></li>
-  <li><a href="#lab-3-interval-interpretation" id="toc-lab-3-interval-interpretation" class="nav-link" data-scroll-target="#lab-3-interval-interpretation">Lab 3: interval interpretation</a></li>
-  <li><a href="#lab-4-width-decisions" id="toc-lab-4-width-decisions" class="nav-link" data-scroll-target="#lab-4-width-decisions">Lab 4: width decisions</a></li>
+  <li><a href="#lab-1-identify-pairing" id="toc-lab-1-identify-pairing" class="nav-link" data-scroll-target="#lab-1-identify-pairing">Lab 1: identify pairing</a></li>
+  <li><a href="#lab-2-compute-a-difference" id="toc-lab-2-compute-a-difference" class="nav-link" data-scroll-target="#lab-2-compute-a-difference">Lab 2: compute a difference</a></li>
+  <li><a href="#lab-3-compare-proportions" id="toc-lab-3-compare-proportions" class="nav-link" data-scroll-target="#lab-3-compare-proportions">Lab 3: compare proportions</a></li>
+  <li><a href="#lab-4-assess-conclusion-strength" id="toc-lab-4-assess-conclusion-strength" class="nav-link" data-scroll-target="#lab-4-assess-conclusion-strength">Lab 4: assess conclusion strength</a></li>
   </ul></li>
-  <li><a href="#estimation-guessing-game" id="toc-estimation-guessing-game" class="nav-link" data-scroll-target="#estimation-guessing-game">Estimation guessing game</a></li>
+  <li><a href="#comparing-groups-guessing-game" id="toc-comparing-groups-guessing-game" class="nav-link" data-scroll-target="#comparing-groups-guessing-game">Comparing groups guessing game</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/comparing-groups.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/estimation.html">Estimation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/comparing-groups.html">Comparing Groups</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Estimation</h1>
+<h1 class="title">Comparing Groups</h1>
 </div>
 
 <div>
   <div class="description">
-    Point estimates, confidence intervals, margin of error, and uncertainty.
+    Compare two means or proportions with attention to pairing, independence, uncertainty, and practical significance.
   </div>
 </div>
 
@@ -1006,111 +1011,160 @@ window.Quarto = {
 </header>
 
 
-<p>Estimation uses sample data to approximate an unknown population quantity. A good estimate should include uncertainty, because a different random sample would usually give a different result.</p>
+<p>Many statistical questions compare groups: treatment versus control, before versus after, city A versus city B, or two manufacturing processes. The key is to compare the groups in a way that respects the study design.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
 <p>After this lesson you should be able to:</p>
 <ul>
-<li>distinguish point estimates from interval estimates;</li>
-<li>compute a margin of error from a critical value and standard error;</li>
-<li>build introductory confidence intervals for means and proportions;</li>
-<li>interpret confidence level correctly;</li>
-<li>explain how sample size, spread, and confidence level affect interval width;</li>
-<li>use <code>edumath</code> to verify confidence interval calculations.</li>
+<li>identify the response variable and grouping variable;</li>
+<li>distinguish paired samples from independent samples;</li>
+<li>compute and interpret a difference in means or proportions;</li>
+<li>explain standard error for a difference;</li>
+<li>separate statistical significance from practical importance;</li>
+<li>avoid causal overclaims when the data are observational.</li>
 </ul>
 </section>
-<section id="parameters-and-estimates" class="level2">
-<h2 class="anchored" data-anchor-id="parameters-and-estimates">Parameters and estimates</h2>
-<p>A <strong>parameter</strong> is an unknown number about a population, such as a true mean <code>mu</code> or true proportion <code>p</code>.</p>
-<p>A <strong>point estimate</strong> is one sample-based guess, such as sample mean <code>x-bar</code> or sample proportion <code>p-hat</code>.</p>
-<p>A point estimate is useful but incomplete because it does not show uncertainty.</p>
-</section>
-<section id="confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h2>
-<p>A confidence interval has the form:</p>
-<div class="formula-box">
-<pre class="text"><code>estimate ± margin of error</code></pre>
-</div>
-<p>For many introductory normal-approximation settings:</p>
-<pre class="text"><code>margin of error = critical value * standard error</code></pre>
-<p>A <code>95%</code> normal critical value is approximately <code>1.96</code>.</p>
-</section>
-<section id="interpreting-confidence-level" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-confidence-level">Interpreting confidence level</h2>
-<p>A <code>95%</code> confidence level means that if we repeatedly used the same method on many random samples, about <code>95%</code> of the intervals would contain the true parameter.</p>
-<p>It does <strong>not</strong> mean there is a <code>95%</code> probability that one already-computed interval contains the fixed parameter. In introductory courses we often use informal language, but the more precise idea is long-run performance of the method.</p>
-</section>
-<section id="what-changes-interval-width" class="level2">
-<h2 class="anchored" data-anchor-id="what-changes-interval-width">What changes interval width?</h2>
-<p>Intervals become wider when:</p>
+<section id="what-is-being-compared" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-being-compared">What is being compared?</h2>
+<p>A group comparison usually has:</p>
 <ul>
-<li>confidence level increases;</li>
-<li>data are more variable;</li>
-<li>sample size is smaller.</li>
+<li>a <strong>response variable</strong>: the outcome being measured;</li>
+<li>a <strong>grouping variable</strong>: the group label or treatment condition.</li>
 </ul>
-<p>Intervals become narrower when:</p>
+<p>Examples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Response</th>
+<th>Groups</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Do two study methods lead to different exam scores?</td>
+<td>exam score</td>
+<td>method A, method B</td>
+</tr>
+<tr class="even">
+<td>Did blood pressure change after treatment?</td>
+<td>blood pressure</td>
+<td>before, after</td>
+</tr>
+<tr class="odd">
+<td>Are support rates different in two cities?</td>
+<td>yes/no support</td>
+<td>city 1, city 2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="paired-versus-independent-samples" class="level2">
+<h2 class="anchored" data-anchor-id="paired-versus-independent-samples">Paired versus independent samples</h2>
+<section id="paired-samples" class="level3">
+<h3 class="anchored" data-anchor-id="paired-samples">Paired samples</h3>
+<p>Samples are paired when observations are naturally linked.</p>
+<p>Examples:</p>
 <ul>
-<li>confidence level decreases;</li>
-<li>data are less variable;</li>
-<li>sample size increases.</li>
+<li>before and after measurements on the same person;</li>
+<li>twins matched by family;</li>
+<li>two measurements from the same machine part.</li>
+</ul>
+<p>For paired data, analyze the <strong>within-pair differences</strong>.</p>
+</section>
+<section id="independent-samples" class="level3">
+<h3 class="anchored" data-anchor-id="independent-samples">Independent samples</h3>
+<p>Samples are independent when observations in one group are not matched to specific observations in the other group.</p>
+<p>Examples:</p>
+<ul>
+<li>a random sample of students from School A and a separate random sample from School B;</li>
+<li>treatment and control groups with different individuals.</li>
 </ul>
 </section>
-<section id="worked-example-1-confidence-interval-for-a-mean" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-1-confidence-interval-for-a-mean">Worked example 1: confidence interval for a mean</h2>
-<p>A sample of <code>36</code> observations has mean <code>50</code> and standard deviation <code>12</code>. Use an approximate <code>95%</code> interval for the population mean.</p>
-<p><strong>Step 1: Compute standard error.</strong></p>
-<pre class="text"><code>SE = s / sqrt(n) = 12 / sqrt(36) = 12 / 6 = 2</code></pre>
-<p><strong>Step 2: Compute margin of error.</strong></p>
-<pre class="text"><code>ME = 1.96 * 2 = 3.92</code></pre>
-<p><strong>Step 3: Build the interval.</strong></p>
-<pre class="text"><code>50 ± 3.92 = (46.08, 53.92)</code></pre>
-<p><strong>Step 4: Interpret.</strong></p>
-<p>We are <code>95%</code> confident, using this method, that the population mean is between about <code>46.08</code> and <code>53.92</code>, assuming the sampling conditions are appropriate.</p>
 </section>
-<section id="worked-example-2-confidence-interval-for-a-proportion" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-2-confidence-interval-for-a-proportion">Worked example 2: confidence interval for a proportion</h2>
-<p>In a sample of <code>100</code> people, <code>60</code> say yes. Estimate the population yes proportion with a <code>95%</code> confidence interval.</p>
-<p><strong>Step 1: Find the sample proportion.</strong></p>
-<pre class="text"><code>p-hat = 60 / 100 = 0.60</code></pre>
-<p><strong>Step 2: Find standard error.</strong></p>
-<pre class="text"><code>SE = sqrt(p-hat(1-p-hat)/n)
-SE = sqrt(0.60 * 0.40 / 100)
-SE = sqrt(0.0024)
-SE is about 0.049</code></pre>
-<p><strong>Step 3: Find margin of error.</strong></p>
-<pre class="text"><code>ME = 1.96 * 0.049, about 0.096</code></pre>
-<p><strong>Step 4: Build the interval.</strong></p>
-<pre class="text"><code>0.60 ± 0.096 = (0.504, 0.696)</code></pre>
-<p><strong>Interpretation:</strong> The data are consistent with a population yes proportion from about <code>50.4%</code> to <code>69.6%</code>, under the usual conditions.</p>
+<section id="differences-as-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="differences-as-estimates">Differences as estimates</h2>
+<p>When comparing two means, the estimate is often:</p>
+<pre class="text"><code>sample mean 1 - sample mean 2</code></pre>
+<p>When comparing two proportions, the estimate is:</p>
+<pre class="text"><code>sample proportion 1 - sample proportion 2</code></pre>
+<p>The sign matters. A positive difference means group 1 is larger using that order.</p>
 </section>
-<section id="worked-example-3-explain-a-wider-interval" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-3-explain-a-wider-interval">Worked example 3: explain a wider interval</h2>
-<p>Two studies estimate the same mean with the same standard deviation. Study A has <code>n=25</code>; Study B has <code>n=100</code>.</p>
-<p><strong>Question:</strong> Which interval is wider?</p>
-<p><strong>Reasoning:</strong></p>
-<pre class="text"><code>SE_A = s / sqrt(25) = s/5
-SE_B = s / sqrt(100) = s/10</code></pre>
-<p>Study A has larger standard error, so its interval is wider.</p>
+<section id="standard-error-for-differences" class="level2">
+<h2 class="anchored" data-anchor-id="standard-error-for-differences">Standard error for differences</h2>
+<p>For independent means, a common standard error form is:</p>
+<pre class="text"><code>SE difference = sqrt(s1^2/n1 + s2^2/n2)</code></pre>
+<p>The idea is that uncertainty from both groups contributes to the uncertainty of the difference.</p>
+</section>
+<section id="practical-significance" class="level2">
+<h2 class="anchored" data-anchor-id="practical-significance">Practical significance</h2>
+<p>A difference can be statistically significant but practically small. Always ask:</p>
+<ul>
+<li>How large is the difference in real units?</li>
+<li>Is the difference meaningful for decisions?</li>
+<li>Are there costs, risks, or side effects?</li>
+<li>Was the study designed to support causal conclusions?</li>
+</ul>
+</section>
+<section id="worked-example-1-independent-means" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-independent-means">Worked example 1: independent means</h2>
+<p>Group A has mean <code>82</code>, standard deviation <code>10</code>, and sample size <code>25</code>. Group B has mean <code>76</code>, standard deviation <code>12</code>, and sample size <code>36</code>.</p>
+<p><strong>Step 1: Compute the difference.</strong></p>
+<pre class="text"><code>difference = 82 - 76 = 6</code></pre>
+<p>Group A’s mean is <code>6</code> points higher.</p>
+<p><strong>Step 2: Compute standard error.</strong></p>
+<pre class="text"><code>SE = sqrt(10^2/25 + 12^2/36)
+SE = sqrt(100/25 + 144/36)
+SE = sqrt(4 + 4)
+SE = sqrt(8), about 2.83</code></pre>
+<p><strong>Step 3: Interpret.</strong></p>
+<p>The observed difference is about <code>6/2.83 = 2.12</code> standard errors from zero. That may be evidence of a real difference, but a full test also requires conditions and a p-value or interval.</p>
+</section>
+<section id="worked-example-2-paired-data" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-paired-data">Worked example 2: paired data</h2>
+<p>Five students take a pre-test and post-test. Their improvements are:</p>
+<pre class="text"><code>3, 5, -1, 4, 2</code></pre>
+<p><strong>Step 1: Analyze differences, not two unrelated groups.</strong></p>
+<p>The data are paired because each student has both measurements.</p>
+<p><strong>Step 2: Compute the mean improvement.</strong></p>
+<pre class="text"><code>mean improvement = (3 + 5 - 1 + 4 + 2) / 5 = 13/5 = 2.6</code></pre>
+<p><strong>Interpretation:</strong> The average improvement in this sample is <code>2.6</code> points.</p>
+</section>
+<section id="worked-example-3-comparing-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-comparing-proportions">Worked example 3: comparing proportions</h2>
+<p>In City A, <code>120</code> of <code>200</code> sampled residents support a policy. In City B, <code>90</code> of <code>180</code> sampled residents support it.</p>
+<p><strong>Step 1: Compute sample proportions.</strong></p>
+<pre class="text"><code>p-hat A = 120/200 = 0.60
+p-hat B = 90/180 = 0.50</code></pre>
+<p><strong>Step 2: Compute the difference.</strong></p>
+<pre class="text"><code>0.60 - 0.50 = 0.10</code></pre>
+<p><strong>Interpretation:</strong> City A’s sample support is <code>10</code> percentage points higher. That difference is an estimate; uncertainty must be considered before making a strong conclusion.</p>
 </section>
 <section id="common-pitfalls" class="level2">
 <h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
 <ul>
-<li>Saying “there is a 95% probability the parameter is in this interval” without understanding the frequentist meaning.</li>
-<li>Forgetting that a confidence interval depends on sampling conditions.</li>
-<li>Reporting an interval without context or units.</li>
-<li>Thinking a narrow interval is good if the sampling method was biased.</li>
-<li>Confusing confidence level with the sample proportion.</li>
+<li>Treating paired data as independent and losing the matched information.</li>
+<li>Ignoring the sign and order of a difference.</li>
+<li>Claiming causation from an observational group comparison.</li>
+<li>Reporting only a p-value without effect size.</li>
+<li>Forgetting that uncertainty comes from both groups.</li>
+<li>Comparing groups with very different sampling methods.</li>
 </ul>
 </section>
 <section id="practice-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What is a point estimate?</li>
-<li>A mean is <code>80</code>, standard error is <code>4</code>, and critical value is <code>1.96</code>. Find the <code>95%</code> interval.</li>
-<li>If confidence level increases from <code>90%</code> to <code>99%</code>, does the interval usually get wider or narrower?</li>
-<li>If sample size increases, what usually happens to margin of error?</li>
-<li>Interpret the interval <code>(12.4, 18.8)</code> for a population mean measured in hours.</li>
+<li>Before-and-after weights on the same people are paired or independent?</li>
+<li>Two separate random samples from two cities are paired or independent?</li>
+<li>If group A mean is <code>30</code> and group B mean is <code>24</code>, compute <code>A - B</code>.</li>
+<li>If a treatment lowers symptoms by <code>0.1</code> points with p-value <code>0.001</code>, what question should you ask about practical importance?</li>
+<li>Why should observational group comparisons be interpreted cautiously?</li>
 </ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1126,11 +1180,11 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>A single-number estimate of a population parameter, such as a sample mean.</li>
-<li>Margin of error <code>=1.96(4)=7.84</code>; interval <code>(72.16, 87.84)</code>.</li>
-<li>Wider, because higher confidence requires a larger critical value.</li>
-<li>It usually decreases because standard error decreases.</li>
-<li>A careful interpretation: using the method and assumptions, we are confident that the population mean is between <code>12.4</code> and <code>18.8</code> hours.</li>
+<li>Paired.</li>
+<li>Independent.</li>
+<li><code>30 - 24 = 6</code>.</li>
+<li>Ask whether <code>0.1</code> points is large enough to matter in the real context.</li>
+<li>Confounding variables may explain the observed difference.</li>
 </ol>
 </div>
 </div>
@@ -1138,40 +1192,40 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 </section>
 <section id="subtopic-guided-practice-and-checkpoints" class="level2">
 <h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
-<section id="lab-1-estimate-versus-parameter" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-estimate-versus-parameter">Lab 1: estimate versus parameter</h3>
-<p><strong>Guess first.</strong> Is <code>p-hat=0.42</code> a parameter or statistic?</p>
+<section id="lab-1-identify-pairing" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-identify-pairing">Lab 1: identify pairing</h3>
+<p><strong>Guess first.</strong> A person rates pain before and after taking a medicine. Paired or independent?</p>
 <p><strong>Guided exercise.</strong></p>
-<p><code>p-hat</code> is computed from a sample, so it is a statistic and a point estimate of population proportion <code>p</code>.</p>
+<p>Paired, because the two measurements belong to the same person.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> Is population mean <code>mu</code> a parameter or statistic?</p>
+<p><strong>Checkpoint.</strong> Two different classrooms use two different textbooks. Paired or independent?</p>
 </div>
 </section>
-<section id="lab-2-build-margin-of-error" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-build-margin-of-error">Lab 2: build margin of error</h3>
-<p><strong>Guess first.</strong> If standard error doubles, what happens to margin of error?</p>
+<section id="lab-2-compute-a-difference" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-compute-a-difference">Lab 2: compute a difference</h3>
+<p><strong>Guess first.</strong> If order is treatment minus control, what does a positive value mean?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>Since <code>ME = critical value * SE</code>, doubling <code>SE</code> doubles the margin of error.</p>
+<p>A positive value means the treatment group has a larger average or proportion than the control group.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> Find margin of error when critical value is <code>2</code> and <code>SE=3</code>.</p>
+<p><strong>Checkpoint.</strong> Compute treatment minus control for means <code>15</code> and <code>18</code>.</p>
 </div>
 </section>
-<section id="lab-3-interval-interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-interval-interpretation">Lab 3: interval interpretation</h3>
-<p><strong>Guess first.</strong> Does a confidence interval prove the parameter is inside?</p>
+<section id="lab-3-compare-proportions" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-compare-proportions">Lab 3: compare proportions</h3>
+<p><strong>Guess first.</strong> Is a difference of <code>0.07</code> equal to <code>7</code> percentage points?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>No.&nbsp;It gives a plausible range using a method with known long-run performance. The interval can miss the true parameter.</p>
+<p>Yes. Proportions are decimals; multiply by <code>100</code> to express percentage points.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> What does <code>95%</code> confidence describe: the single interval or the long-run method?</p>
+<p><strong>Checkpoint.</strong> Convert a difference of <code>0.125</code> to percentage points.</p>
 </div>
 </section>
-<section id="lab-4-width-decisions" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-width-decisions">Lab 4: width decisions</h3>
-<p><strong>Guess first.</strong> Which is wider: a <code>90%</code> interval or a <code>99%</code> interval from the same data?</p>
+<section id="lab-4-assess-conclusion-strength" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-assess-conclusion-strength">Lab 4: assess conclusion strength</h3>
+<p><strong>Guess first.</strong> What two ideas should accompany a group difference?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>The <code>99%</code> interval is wider because it requires more confidence.</p>
+<p>Use uncertainty and practical context. Ask whether the difference is statistically clear and whether it matters.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> What happens to interval width if data are more variable?</p>
+<p><strong>Checkpoint.</strong> Name one design feature that strengthens causal claims.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -1186,22 +1240,22 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Parameter.</li>
-<li><code>ME=6</code>.</li>
-<li>The long-run method.</li>
-<li>It gets wider, all else equal.</li>
+<li>Independent, unless students are specifically matched.</li>
+<li><code>15 - 18 = -3</code>; treatment is lower by <code>3</code> units.</li>
+<li><code>12.5</code> percentage points.</li>
+<li>Random assignment.</li>
 </ol>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="estimation-guessing-game" class="level2">
-<h2 class="anchored" data-anchor-id="estimation-guessing-game">Estimation guessing game</h2>
+<section id="comparing-groups-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-groups-guessing-game">Comparing groups guessing game</h2>
 <script type="application/json" class="edu-math-statistics-checkpoint-config">
 {
-  "topic": "estimation",
-  "title": "Estimation checkpoint",
+  "topic": "comparing-groups",
+  "title": "Comparing groups checkpoint",
   "defaultTotal": 5
 }
 </script>
@@ -1463,31 +1517,24 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<p>Use <code>edumath</code> to compute confidence intervals.</p>
-<div id="5bd51833" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> confidence_interval_mean, confidence_interval_proportion</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>confidence_interval_mean([<span class="dv">48</span>, <span class="dv">52</span>, <span class="dv">51</span>, <span class="dv">49</span>, <span class="dv">50</span>], confidence_level<span class="op">=</span><span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>edumath</code> to compute a standard error for a difference of independent means.</p>
+<div id="96446d99" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> difference_standard_error</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>difference_standard_error(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">36</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>ConfidenceInterval(estimate=50.0, lower=48.614096175650324, upper=51.385903824349676, margin_of_error=1.3859038243496775, confidence_level=0.95)</code></pre>
+<pre><code>2.8284271247461903</code></pre>
 </div>
 </div>
-<div id="4cb92e9d" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>confidence_interval_proportion(<span class="dv">60</span>, <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>ConfidenceInterval(estimate=0.6, lower=0.5039817664728938, upper=0.6960182335271061, margin_of_error=0.09601823352710616, confidence_level=0.95)</code></pre>
-</div>
-</div>
-<p>Use SymPy to rearrange the interval formula.</p>
-<div id="22eba0cc" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>estimate, critical, se <span class="op">=</span> sp.symbols(<span class="st">"estimate critical se"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>lower <span class="op">=</span> estimate <span class="op">-</span> critical <span class="op">*</span> se</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>upper <span class="op">=</span> estimate <span class="op">+</span> critical <span class="op">*</span> se</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>sp.simplify(upper <span class="op">-</span> lower)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
-<p><span class="math inline">\(\displaystyle 2 \mathcal{criti} se\)</span></p>
+<p>Use SymPy to simplify the same calculation symbolically.</p>
+<div id="cfcf9ffb" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>s1, s2, n1, n2 <span class="op">=</span> sp.symbols(<span class="st">"s1 s2 n1 n2"</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>se_difference <span class="op">=</span> sp.sqrt(s1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1 <span class="op">+</span> s2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n2)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>se_difference</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle \sqrt{\frac{s_{2}^{2}}{n_{2}} + \frac{s_{1}^{2}}{n_{1}}}\)</span></p>
 </div>
 </div>
 
@@ -1915,13 +1962,13 @@ SE_B = s / sqrt(100) = s/10</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/statistics/sampling-distributions.html" class="pagination-link" aria-label="Sampling Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sampling Distributions</span>
+      <a href="../../lessons/statistics/hypothesis-tests.html" class="pagination-link" aria-label="Hypothesis Tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hypothesis Tests</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/hypothesis-tests.html" class="pagination-link" aria-label="Hypothesis Tests">
-        <span class="nav-page-text">Hypothesis Tests</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/chi-square-tests.html" class="pagination-link" aria-label="Chi-Square Tests">
+        <span class="nav-page-text">Chi-Square Tests</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1930,4 +1977,4 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/comparing-groups.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Python tools for math education workflows.">
+<meta name="description" content="A guided path through angle measure, the unit circle, trig functions, identities, equations, and applications.">
 
-<title>edu-math</title>
+<title>Trigonometry Study Path – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,31 +24,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./installation.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../lessons/trigonometry/radians-and-degrees.html" rel="next">
+<link href="../../lessons/algebra/cumulative-review.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -250,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">edu-math</span>
     </a>
   </div>
@@ -261,19 +297,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./installation.html"> 
+    <a class="nav-link" href="../../installation.html"> 
 <span class="menu-text">Install</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./api.html"> 
+    <a class="nav-link" href="../../api.html"> 
 <span class="menu-text">API</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./lessons/index.html"> 
+    <a class="nav-link" href="../../lessons/index.html"> 
 <span class="menu-text">Study Path</span></a>
   </li>  
 </ul>
@@ -295,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">edu-math</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry Study Path</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -317,19 +353,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">edu-math</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./api.html" class="sidebar-item-text sidebar-link">
+  <a href="../../api.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API reference</span></a>
   </div>
 </li>
@@ -344,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quantitative Mathematics Study Path</span></a>
   </div>
 </li>
@@ -359,25 +395,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Control Flow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NumPy and Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting With Python</span></a>
   </div>
 </li>
@@ -394,79 +430,79 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebra Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inequalities and Absolute Value</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transformations, Composition, and Inverses</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear and Quadratic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Polynomials</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rational and Radical Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Symbolic Computation with SymPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
@@ -474,58 +510,58 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Trigonometry</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Trigonometry Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Radians and Degrees</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Unit Circle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Identities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
@@ -542,49 +578,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivatives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivative Rules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/integrals.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/integrals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integration Techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Applications</span></a>
   </div>
 </li>
@@ -601,43 +637,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Algebra Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems and Elimination</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Transformations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
   </div>
 </li>
@@ -654,43 +690,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/counting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/counting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Counting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conditional Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Random Variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Common Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expectation and Variance</span></a>
   </div>
 </li>
@@ -707,67 +743,67 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling and Study Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability for Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Groups</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chi-Square Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
@@ -784,37 +820,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Equations Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Separable Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slope Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Differential Equations</span></a>
   </div>
 </li>
@@ -831,43 +867,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Discrete Mathematics Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Relations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sequences</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Induction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Graphs</span></a>
   </div>
 </li>
@@ -877,7 +913,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./changelog.html" class="sidebar-item-text sidebar-link">
+  <a href="../../changelog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changelog</span></a>
   </div>
 </li>
@@ -891,22 +927,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#development-status" id="toc-development-status" class="nav-link active" data-scroll-target="#development-status">Development status</a></li>
+  <li><a href="#what-you-should-be-able-to-do-by-the-end" id="toc-what-you-should-be-able-to-do-by-the-end" class="nav-link active" data-scroll-target="#what-you-should-be-able-to-do-by-the-end">What you should be able to do by the end</a></li>
+  <li><a href="#what-makes-trigonometry-different" id="toc-what-makes-trigonometry-different" class="nav-link" data-scroll-target="#what-makes-trigonometry-different">What makes trigonometry different?</a></li>
+  <li><a href="#prerequisite-checklist" id="toc-prerequisite-checklist" class="nav-link" data-scroll-target="#prerequisite-checklist">Prerequisite checklist</a></li>
+  <li><a href="#the-path-through-the-lessons" id="toc-the-path-through-the-lessons" class="nav-link" data-scroll-target="#the-path-through-the-lessons">The path through the lessons</a></li>
+  <li><a href="#how-to-study-trigonometry" id="toc-how-to-study-trigonometry" class="nav-link" data-scroll-target="#how-to-study-trigonometry">How to study trigonometry</a></li>
+  <li><a href="#readiness-checkpoint-game" id="toc-readiness-checkpoint-game" class="nav-link" data-scroll-target="#readiness-checkpoint-game">Readiness checkpoint game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry Study Path</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">edu-math</h1>
+<h1 class="title">Trigonometry Study Path</h1>
 </div>
 
 <div>
   <div class="description">
-    Python tools for math education workflows.
+    A guided path through angle measure, the unit circle, trig functions, identities, equations, and applications.
   </div>
 </div>
 
@@ -923,11 +966,363 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><code>edu-math</code> is a Python package for math education workflows.</p>
-<p>The package is currently at its initial infrastructure stage. The project includes source packaging, tests, linting, documentation, release automation, and CI scaffolding.</p>
-<section id="development-status" class="level2">
-<h2 class="anchored" data-anchor-id="development-status">Development status</h2>
-<p>The public API is intentionally small while the package design is established. See <a href="./api.html">API reference</a> for the current exported interface.</p>
+<p>Trigonometry connects angles, circles, triangles, waves, and repeating motion. It is used in calculus, physics, engineering, computer graphics, navigation, signal processing, and data modeling. The main goal is not to memorize a giant chart. The goal is to understand how angle information turns into coordinates, ratios, graphs, and equations.</p>
+<section id="what-you-should-be-able-to-do-by-the-end" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="what-you-should-be-able-to-do-by-the-end">What you should be able to do by the end</h3>
+<p>After this study path, you should be able to:</p>
+<ul>
+<li>convert between degrees and radians;</li>
+<li>find coterminal and reference angles;</li>
+<li>read sine and cosine from the unit circle;</li>
+<li>use right-triangle sine, cosine, and tangent ratios;</li>
+<li>sketch and interpret basic trigonometric graphs;</li>
+<li>use core identities such as <code>sin^2(x)+cos^2(x)=1</code>;</li>
+<li>solve basic trigonometric equations;</li>
+<li>model heights, distances, and periodic behavior;</li>
+<li>verify computations with <code>edumath</code>, Python, and SymPy.</li>
+</ul>
+</section>
+<section id="what-makes-trigonometry-different" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-trigonometry-different">What makes trigonometry different?</h2>
+<p>Trigonometry has several connected meanings for the same symbols:</p>
+<ul>
+<li>on the <strong>unit circle</strong>, sine and cosine are coordinates;</li>
+<li>in <strong>right triangles</strong>, sine, cosine, and tangent are side ratios;</li>
+<li>as <strong>functions</strong>, sine and cosine are repeating waves;</li>
+<li>in <strong>applications</strong>, trig functions connect angles to measurements.</li>
+</ul>
+<p>When a problem feels confusing, ask which meaning is being used.</p>
+</section>
+<section id="prerequisite-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisite-checklist">Prerequisite checklist</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Can you plot points such as <code>(1,0)</code> and <code>(0,1)</code>?</li>
+<li>Can you use the Pythagorean theorem?</li>
+<li>Can you simplify fractions involving <code>pi</code>?</li>
+<li>Can you solve simple equations like <code>2x=1</code>?</li>
+<li>Can you read a graph’s intercepts and maximum/minimum values?</li>
+</ol>
+</div>
+<p>You can start even if these skills are imperfect. The lessons review each idea when it appears.</p>
+</section>
+<section id="the-path-through-the-lessons" class="level2">
+<h2 class="anchored" data-anchor-id="the-path-through-the-lessons">The path through the lessons</h2>
+<ol type="1">
+<li><strong>Radians and Degrees</strong>: learn angle measurement and coterminal angles.</li>
+<li><strong>The Unit Circle</strong>: read sine, cosine, tangent, signs, and reference angles.</li>
+<li><strong>Sine and Cosine</strong>: connect unit-circle coordinates to triangle ratios.</li>
+<li><strong>Trigonometric Functions and Graphs</strong>: understand amplitude, period, midline, and phase shift.</li>
+<li><strong>Trigonometric Identities</strong>: rewrite expressions using always-true formulas.</li>
+<li><strong>Trigonometric Equations</strong>: solve equations using the unit circle and periodicity.</li>
+<li><strong>Applications of Trigonometry</strong>: solve height, distance, and repeating-motion problems.</li>
+</ol>
+</section>
+<section id="how-to-study-trigonometry" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-study-trigonometry">How to study trigonometry</h2>
+<p>Use this routine:</p>
+<ol type="1">
+<li>Draw or imagine the angle.</li>
+<li>Decide whether the problem is in degrees or radians.</li>
+<li>Locate the quadrant and reference angle.</li>
+<li>Decide the sign before computing the exact value.</li>
+<li>Use a triangle, unit circle, graph, or identity as appropriate.</li>
+<li>Check whether the final answer should repeat periodically.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common beginner mistakes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Mixing degrees and radians in one calculation.</li>
+<li>Forgetting that sine is the vertical coordinate and cosine is horizontal.</li>
+<li>Losing a second solution to a trig equation.</li>
+<li>Treating identities as equations to solve for one angle.</li>
+<li>Using a calculator value without checking quadrant signs.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="readiness-checkpoint-game" class="level2">
+<h2 class="anchored" data-anchor-id="readiness-checkpoint-game">Readiness checkpoint game</h2>
+<p>Use this quick game before and after the module.</p>
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "trigonometry-cumulative-review",
+  "title": "Trigonometry readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+<div class="quiz-shell edu-math-trigonometry-checkpoint" data-default-total="4">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "unit-circle";
+    const BANKS = {
+      "radians-and-degrees": [degreesRadiansQuestion, coterminalQuestion, referenceAngleQuestion, quadrantQuestion],
+      "unit-circle": [coordinateQuestion, signsQuestion, specialAngleQuestion, tangentQuestion],
+      "sine-cosine": [sineCoordinateQuestion, cosineCoordinateQuestion, rightTriangleQuestion, signQuestion],
+      "trig-functions-and-graphs": [amplitudeQuestion, periodQuestion, midlineQuestion, phaseQuestion],
+      identities: [pythagoreanIdentityQuestion, tangentIdentityQuestion, reciprocalQuestion, verifyIdentityQuestion],
+      "trig-equations": [basicSineEquationQuestion, basicCosineEquationQuestion, periodicQuestion, intervalQuestion],
+      applications: [rightTriangleQuestion, elevationQuestion, sinusoidQuestion, bearingQuestion],
+      "trigonometry-cumulative-review": [degreesRadiansQuestion, coordinateQuestion, specialAngleQuestion, amplitudeQuestion, pythagoreanIdentityQuestion, basicSineEquationQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-trigonometry-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-trigonometry-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Trigonometry checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", { class: "quiz-count", type: "number", min: "1", max: "20", value: String(state.total) });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function degreesRadiansQuestion() {
+      return question({ prompt: "Convert 180 degrees to radians.", stimulus: "half turn", answer: "pi", distractors: ["2pi", "pi/2", "180pi"], explanation: "A full turn is 2pi radians, so a half turn is pi radians." });
+    }
+    function coterminalQuestion() {
+      return question({ prompt: "Which angle is coterminal with -30 degrees in [0,360)?", stimulus: "add 360 degrees", answer: "330 degrees", distractors: ["30 degrees", "300 degrees", "-390 degrees"], explanation: "-30 + 360 = 330." });
+    }
+    function referenceAngleQuestion() {
+      return question({ prompt: "What is the reference angle for 150 degrees?", stimulus: "Quadrant II", answer: "30 degrees", distractors: ["60 degrees", "150 degrees", "210 degrees"], explanation: "In Quadrant II, reference angle is 180 - theta." });
+    }
+    function quadrantQuestion() {
+      return question({ prompt: "Which quadrant contains 240 degrees?", stimulus: "between 180 and 270", answer: "III", distractors: ["I", "II", "IV"], explanation: "Angles between 180 and 270 degrees are in Quadrant III." });
+    }
+    function coordinateQuestion() {
+      return question({ prompt: "On the unit circle, which coordinate is sine?", stimulus: "point = (cos theta, sin theta)", answer: "vertical coordinate", distractors: ["horizontal coordinate", "radius length", "angle measure"], explanation: "Sine is the y-coordinate." });
+    }
+    function signsQuestion() {
+      return question({ prompt: "In Quadrant II, what are the signs of sine and cosine?", stimulus: "x negative, y positive", answer: "sine positive, cosine negative", distractors: ["both positive", "both negative", "sine negative, cosine positive"], explanation: "Sine is y, cosine is x." });
+    }
+    function specialAngleQuestion() {
+      return question({ prompt: "What is sin(30 degrees)?", stimulus: "special angle", answer: "1/2", distractors: ["sqrt(3)/2", "sqrt(2)/2", "1"], explanation: "The 30-60-90 triangle gives sin(30)=1/2." });
+    }
+    function tangentQuestion() {
+      return question({ prompt: "What is tan(theta) in terms of sine and cosine?", stimulus: "tangent ratio", answer: "sin(theta)/cos(theta)", distractors: ["cos(theta)/sin(theta)", "1/sin(theta)", "sin(theta)+cos(theta)"], explanation: "Tangent is sine divided by cosine when cosine is not zero." });
+    }
+    function sineCoordinateQuestion() {
+      return question({ prompt: "At 90 degrees, what is sine?", stimulus: "unit-circle point (0,1)", answer: "1", distractors: ["0", "-1", "undefined"], explanation: "The y-coordinate at 90 degrees is 1." });
+    }
+    function cosineCoordinateQuestion() {
+      return question({ prompt: "At 180 degrees, what is cosine?", stimulus: "unit-circle point (-1,0)", answer: "-1", distractors: ["1", "0", "undefined"], explanation: "The x-coordinate at 180 degrees is -1." });
+    }
+    function rightTriangleQuestion() {
+      return question({ prompt: "In a right triangle, sine equals which ratio?", stimulus: "SOH-CAH-TOA", answer: "opposite / hypotenuse", distractors: ["adjacent / hypotenuse", "opposite / adjacent", "hypotenuse / opposite"], explanation: "SOH means sine = opposite over hypotenuse." });
+    }
+    function signQuestion() {
+      return question({ prompt: "At 300 degrees, is sine positive or negative?", stimulus: "Quadrant IV", answer: "negative", distractors: ["positive", "zero", "undefined"], explanation: "Quadrant IV has negative y-values, so sine is negative." });
+    }
+    function amplitudeQuestion() {
+      return question({ prompt: "What is the amplitude of y = 3 sin(x)?", stimulus: "vertical stretch", answer: "3", distractors: ["1", "2pi", "pi"], explanation: "Amplitude is the absolute value of the coefficient in front of sine or cosine." });
+    }
+    function periodQuestion() {
+      return question({ prompt: "What is the period of sin(x)?", stimulus: "basic sine wave", answer: "2pi", distractors: ["pi", "1", "4pi"], explanation: "Basic sine repeats every 2pi radians." });
+    }
+    function midlineQuestion() {
+      return question({ prompt: "What is the midline of y = sin(x) + 4?", stimulus: "vertical shift", answer: "y = 4", distractors: ["y = 1", "y = -4", "x = 4"], explanation: "The +4 shifts the center line to y=4." });
+    }
+    function phaseQuestion() {
+      return question({ prompt: "In y = sin(x - pi/2), which way is the graph shifted?", stimulus: "inside subtraction", answer: "right", distractors: ["left", "up", "down"], explanation: "Subtracting inside shifts the graph right." });
+    }
+    function pythagoreanIdentityQuestion() {
+      return question({ prompt: "Complete the identity: sin^2(x) + cos^2(x) = ?", stimulus: "Pythagorean identity", answer: "1", distractors: ["0", "tan(x)", "2"], explanation: "The unit-circle point has distance 1 from the origin." });
+    }
+    function tangentIdentityQuestion() {
+      return question({ prompt: "Which identity rewrites tan(x)?", stimulus: "quotient identity", answer: "sin(x)/cos(x)", distractors: ["cos(x)/sin(x)", "1/cos(x)", "1/sin(x)"], explanation: "tan(x)=sin(x)/cos(x)." });
+    }
+    function reciprocalQuestion() {
+      return question({ prompt: "Which reciprocal identity is correct?", stimulus: "secant", answer: "sec(x)=1/cos(x)", distractors: ["sec(x)=1/sin(x)", "sec(x)=sin(x)/cos(x)", "sec(x)=cos(x)"], explanation: "Secant is reciprocal cosine." });
+    }
+    function verifyIdentityQuestion() {
+      return question({ prompt: "What is the safest first move when proving a trig identity?", stimulus: "identity strategy", answer: "rewrite one side using known identities", distractors: ["divide by zero", "change both sides randomly", "plug in one angle only"], explanation: "Use known identities and algebra to transform one side into the other." });
+    }
+    function basicSineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=0.", stimulus: "x-axis intersections", answer: "0 and 180 degrees", distractors: ["90 and 270 degrees", "30 and 150 degrees", "45 and 225 degrees"], explanation: "Sine is y-coordinate, which is 0 on the x-axis." });
+    }
+    function basicCosineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve cos(theta)=0.", stimulus: "y-axis intersections", answer: "90 and 270 degrees", distractors: ["0 and 180 degrees", "30 and 330 degrees", "45 and 315 degrees"], explanation: "Cosine is x-coordinate, which is 0 on the y-axis." });
+    }
+    function periodicQuestion() {
+      return question({ prompt: "Why can sin(theta)=1/2 have infinitely many solutions?", stimulus: "periodicity", answer: "sine repeats every full turn", distractors: ["sine is linear", "angles stop at 360", "cosine is undefined"], explanation: "Adding 360 degrees or 2pi radians gives coterminal solutions." });
+    }
+    function intervalQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=1.", stimulus: "top of unit circle", answer: "90 degrees", distractors: ["0 degrees", "180 degrees", "270 degrees"], explanation: "The top of the unit circle is (0,1)." });
+    }
+    function elevationQuestion() {
+      return question({ prompt: "For angle of elevation, opposite side usually represents what?", stimulus: "right-triangle model", answer: "height", distractors: ["horizontal distance", "hypotenuse always", "angle measure"], explanation: "Height is vertical, opposite the ground angle." });
+    }
+    function sinusoidQuestion() {
+      return question({ prompt: "Which trig function type models repeating seasonal behavior?", stimulus: "periodic data", answer: "sinusoidal", distractors: ["linear", "quadratic", "constant only"], explanation: "Sine and cosine model smooth repeating cycles." });
+    }
+    function bearingQuestion() {
+      return question({ prompt: "A vector with components (3,4) has length?", stimulus: "right triangle", answer: "5", distractors: ["7", "1", "12"], explanation: "Use the Pythagorean theorem: sqrt(3^2+4^2)=5." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `trigonometry-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to inspect the trigonometry path.</p>
+<div id="600b606f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> TRIGONOMETRY_PATH</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>TRIGONOMETRY_PATH.slugs()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>['radians-and-degrees',
+ 'unit-circle',
+ 'sine-cosine',
+ 'trig-functions-and-graphs',
+ 'identities',
+ 'trig-equations',
+ 'applications']</code></pre>
+</div>
+</div>
+<p>Use <code>edumath</code> for basic angle helpers.</p>
+<div id="17c2b63d" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> coterminal_angle, reference_angle_degrees</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>coterminal_angle(<span class="op">-</span><span class="dv">30</span>), reference_angle_degrees(<span class="dv">225</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(330, 45)</code></pre>
+</div>
+</div>
+<p>Use SymPy for exact trigonometric values.</p>
+<div id="85656e74" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sp.sin(sp.pi <span class="op">/</span> <span class="dv">6</span>), sp.cos(sp.pi <span class="op">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(1/2, 1/2)</code></pre>
+</div>
+</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>Precalculus</em>, trigonometry chapters: <a href="https://openstax.org/details/books/precalculus-2e" class="uri">https://openstax.org/details/books/precalculus-2e</a></li>
+<li>Khan Academy trigonometry materials: <a href="https://www.khanacademy.org/math/trigonometry" class="uri">https://www.khanacademy.org/math/trigonometry</a></li>
+<li>Paul Dawkins, Paul’s Online Notes, trig review: <a href="https://tutorial.math.lamar.edu/Extras/AlgebraTrigReview/TrigIntro.aspx" class="uri">https://tutorial.math.lamar.edu/Extras/AlgebraTrigReview/TrigIntro.aspx</a></li>
+</ul>
 
 
 </section>
@@ -1353,10 +1748,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../lessons/algebra/cumulative-review.html" class="pagination-link" aria-label="College Algebra Cumulative Review">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">College Algebra Cumulative Review</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./installation.html" class="pagination-link" aria-label="Installation">
-        <span class="nav-page-text">Installation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/trigonometry/radians-and-degrees.html" class="pagination-link" aria-label="Radians and Degrees">
+        <span class="nav-page-text">Radians and Degrees</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1365,4 +1763,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Point estimates, confidence intervals, margin of error, and uncertainty.">
+<meta name="description" content="Solve sine, cosine, and tangent equations with the unit circle and periodicity.">
 
-<title>Estimation – edu-math</title>
+<title>Trigonometric Equations – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/statistics/hypothesis-tests.html" rel="next">
-<link href="../../lessons/statistics/sampling-distributions.html" rel="prev">
+<link href="../../lessons/trigonometry/applications.html" rel="next">
+<link href="../../lessons/trigonometry/identities.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -360,7 +360,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/estimation.html">Estimation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/trig-equations.html">Trigonometric Equations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -539,13 +539,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Trigonometry</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
@@ -584,7 +584,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Trigonometric Equations</span></a>
   </div>
 </li>
@@ -763,13 +763,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
  <span class="menu-text">Statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
@@ -802,7 +802,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
@@ -957,39 +957,41 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#parameters-and-estimates" id="toc-parameters-and-estimates" class="nav-link" data-scroll-target="#parameters-and-estimates">Parameters and estimates</a></li>
-  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a></li>
-  <li><a href="#interpreting-confidence-level" id="toc-interpreting-confidence-level" class="nav-link" data-scroll-target="#interpreting-confidence-level">Interpreting confidence level</a></li>
-  <li><a href="#what-changes-interval-width" id="toc-what-changes-interval-width" class="nav-link" data-scroll-target="#what-changes-interval-width">What changes interval width?</a></li>
-  <li><a href="#worked-example-1-confidence-interval-for-a-mean" id="toc-worked-example-1-confidence-interval-for-a-mean" class="nav-link" data-scroll-target="#worked-example-1-confidence-interval-for-a-mean">Worked example 1: confidence interval for a mean</a></li>
-  <li><a href="#worked-example-2-confidence-interval-for-a-proportion" id="toc-worked-example-2-confidence-interval-for-a-proportion" class="nav-link" data-scroll-target="#worked-example-2-confidence-interval-for-a-proportion">Worked example 2: confidence interval for a proportion</a></li>
-  <li><a href="#worked-example-3-explain-a-wider-interval" id="toc-worked-example-3-explain-a-wider-interval" class="nav-link" data-scroll-target="#worked-example-3-explain-a-wider-interval">Worked example 3: explain a wider interval</a></li>
+  <li><a href="#why-trig-equations-have-many-answers" id="toc-why-trig-equations-have-many-answers" class="nav-link" data-scroll-target="#why-trig-equations-have-many-answers">Why trig equations have many answers</a></li>
+  <li><a href="#the-solving-routine" id="toc-the-solving-routine" class="nav-link" data-scroll-target="#the-solving-routine">The solving routine</a></li>
+  <li><a href="#basic-unit-circle-equations" id="toc-basic-unit-circle-equations" class="nav-link" data-scroll-target="#basic-unit-circle-equations">Basic unit-circle equations</a></li>
+  <li><a href="#reference-angles-and-quadrants" id="toc-reference-angles-and-quadrants" class="nav-link" data-scroll-target="#reference-angles-and-quadrants">Reference angles and quadrants</a></li>
+  <li><a href="#worked-example-1-solve-a-sine-equation-in-degrees" id="toc-worked-example-1-solve-a-sine-equation-in-degrees" class="nav-link" data-scroll-target="#worked-example-1-solve-a-sine-equation-in-degrees">Worked example 1: solve a sine equation in degrees</a></li>
+  <li><a href="#worked-example-2-isolate-before-solving" id="toc-worked-example-2-isolate-before-solving" class="nav-link" data-scroll-target="#worked-example-2-isolate-before-solving">Worked example 2: isolate before solving</a></li>
+  <li><a href="#worked-example-3-write-all-real-solutions" id="toc-worked-example-3-write-all-real-solutions" class="nav-link" data-scroll-target="#worked-example-3-write-all-real-solutions">Worked example 3: write all real solutions</a></li>
+  <li><a href="#worked-example-4-factor-first" id="toc-worked-example-4-factor-first" class="nav-link" data-scroll-target="#worked-example-4-factor-first">Worked example 4: factor first</a></li>
   <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
   <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
   <ul class="collapse">
-  <li><a href="#lab-1-estimate-versus-parameter" id="toc-lab-1-estimate-versus-parameter" class="nav-link" data-scroll-target="#lab-1-estimate-versus-parameter">Lab 1: estimate versus parameter</a></li>
-  <li><a href="#lab-2-build-margin-of-error" id="toc-lab-2-build-margin-of-error" class="nav-link" data-scroll-target="#lab-2-build-margin-of-error">Lab 2: build margin of error</a></li>
-  <li><a href="#lab-3-interval-interpretation" id="toc-lab-3-interval-interpretation" class="nav-link" data-scroll-target="#lab-3-interval-interpretation">Lab 3: interval interpretation</a></li>
-  <li><a href="#lab-4-width-decisions" id="toc-lab-4-width-decisions" class="nav-link" data-scroll-target="#lab-4-width-decisions">Lab 4: width decisions</a></li>
+  <li><a href="#lab-1-isolate-first" id="toc-lab-1-isolate-first" class="nav-link" data-scroll-target="#lab-1-isolate-first">Lab 1: isolate first</a></li>
+  <li><a href="#lab-2-find-the-reference-angle" id="toc-lab-2-find-the-reference-angle" class="nav-link" data-scroll-target="#lab-2-find-the-reference-angle">Lab 2: find the reference angle</a></li>
+  <li><a href="#lab-3-choose-all-quadrants" id="toc-lab-3-choose-all-quadrants" class="nav-link" data-scroll-target="#lab-3-choose-all-quadrants">Lab 3: choose all quadrants</a></li>
+  <li><a href="#lab-4-write-a-periodic-family" id="toc-lab-4-write-a-periodic-family" class="nav-link" data-scroll-target="#lab-4-write-a-periodic-family">Lab 4: write a periodic family</a></li>
+  <li><a href="#lab-5-check-the-interval" id="toc-lab-5-check-the-interval" class="nav-link" data-scroll-target="#lab-5-check-the-interval">Lab 5: check the interval</a></li>
   </ul></li>
-  <li><a href="#estimation-guessing-game" id="toc-estimation-guessing-game" class="nav-link" data-scroll-target="#estimation-guessing-game">Estimation guessing game</a></li>
+  <li><a href="#trig-equation-guessing-game" id="toc-trig-equation-guessing-game" class="nav-link" data-scroll-target="#trig-equation-guessing-game">Trig equation guessing game</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/trig-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/estimation.html">Estimation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/trig-equations.html">Trigonometric Equations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Estimation</h1>
+<h1 class="title">Trigonometric Equations</h1>
 </div>
 
 <div>
   <div class="description">
-    Point estimates, confidence intervals, margin of error, and uncertainty.
+    Solve sine, cosine, and tangent equations with the unit circle and periodicity.
   </div>
 </div>
 
@@ -1006,111 +1008,196 @@ window.Quarto = {
 </header>
 
 
-<p>Estimation uses sample data to approximate an unknown population quantity. A good estimate should include uncertainty, because a different random sample would usually give a different result.</p>
+<p>A trigonometric equation asks for angle values that make a trig statement true. Unlike many algebra equations, trig equations often have repeating answers. If one angle works, every coterminal angle may also work.</p>
+<p>The main idea is simple:</p>
+<div class="formula-box">
+<pre class="text"><code>algebra first, unit circle second, periodicity third</code></pre>
+</div>
 <section id="learning-objectives" class="level3 learning-objectives">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
 <p>After this lesson you should be able to:</p>
 <ul>
-<li>distinguish point estimates from interval estimates;</li>
-<li>compute a margin of error from a critical value and standard error;</li>
-<li>build introductory confidence intervals for means and proportions;</li>
-<li>interpret confidence level correctly;</li>
-<li>explain how sample size, spread, and confidence level affect interval width;</li>
-<li>use <code>edumath</code> to verify confidence interval calculations.</li>
+<li>solve basic equations such as <code>sin(theta)=1/2</code>, <code>cos(theta)=0</code>, and <code>tan(theta)=1</code>;</li>
+<li>find all solutions in a requested interval;</li>
+<li>write infinite solution families using periods;</li>
+<li>isolate a trig function before using the unit circle;</li>
+<li>check candidate solutions and reject extraneous ones;</li>
+<li>use SymPy as a verification tool while still reasoning from the unit circle.</li>
 </ul>
 </section>
-<section id="parameters-and-estimates" class="level2">
-<h2 class="anchored" data-anchor-id="parameters-and-estimates">Parameters and estimates</h2>
-<p>A <strong>parameter</strong> is an unknown number about a population, such as a true mean <code>mu</code> or true proportion <code>p</code>.</p>
-<p>A <strong>point estimate</strong> is one sample-based guess, such as sample mean <code>x-bar</code> or sample proportion <code>p-hat</code>.</p>
-<p>A point estimate is useful but incomplete because it does not show uncertainty.</p>
+<section id="why-trig-equations-have-many-answers" class="level2">
+<h2 class="anchored" data-anchor-id="why-trig-equations-have-many-answers">Why trig equations have many answers</h2>
+<p>On the unit circle, each angle gives a point <code>(cos(theta), sin(theta))</code>. Since a full turn brings you back to the same point, trig values repeat.</p>
+<p>For example:</p>
+<pre class="text"><code>sin(30 degrees) = 1/2
+sin(150 degrees) = 1/2
+sin(390 degrees) = 1/2</code></pre>
+<p>The angles <code>30 degrees</code> and <code>390 degrees</code> are coterminal, and <code>150 degrees</code> has the same reference angle but is in a different quadrant.</p>
 </section>
-<section id="confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h2>
-<p>A confidence interval has the form:</p>
-<div class="formula-box">
-<pre class="text"><code>estimate ± margin of error</code></pre>
-</div>
-<p>For many introductory normal-approximation settings:</p>
-<pre class="text"><code>margin of error = critical value * standard error</code></pre>
-<p>A <code>95%</code> normal critical value is approximately <code>1.96</code>.</p>
+<section id="the-solving-routine" class="level2">
+<h2 class="anchored" data-anchor-id="the-solving-routine">The solving routine</h2>
+<p>Use this routine whenever you see a trig equation.</p>
+<ol type="1">
+<li><strong>Read the interval.</strong> Are answers requested in degrees, radians, or all real angles?</li>
+<li><strong>Isolate one trig expression.</strong> For example, change <code>2cos(theta)-1=0</code> into <code>cos(theta)=1/2</code>.</li>
+<li><strong>Find the reference angle.</strong> Use special angles or inverse trig.</li>
+<li><strong>Choose quadrants using the sign.</strong> Positive sine means Quadrants I or II; negative cosine means Quadrants II or III; positive tangent means Quadrants I or III.</li>
+<li><strong>List answers in the interval.</strong> Do not stop after the first angle.</li>
+<li><strong>For all real solutions, add the period.</strong> Sine and cosine repeat every <code>360 degrees</code> or <code>2pi</code>; tangent repeats every <code>180 degrees</code> or <code>pi</code>.</li>
+<li><strong>Check.</strong> Substitute each answer mentally, symbolically, or numerically.</li>
+</ol>
 </section>
-<section id="interpreting-confidence-level" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-confidence-level">Interpreting confidence level</h2>
-<p>A <code>95%</code> confidence level means that if we repeatedly used the same method on many random samples, about <code>95%</code> of the intervals would contain the true parameter.</p>
-<p>It does <strong>not</strong> mean there is a <code>95%</code> probability that one already-computed interval contains the fixed parameter. In introductory courses we often use informal language, but the more precise idea is long-run performance of the method.</p>
+<section id="basic-unit-circle-equations" class="level2">
+<h2 class="anchored" data-anchor-id="basic-unit-circle-equations">Basic unit-circle equations</h2>
+<p>Some equations can be read directly from the unit circle.</p>
+<pre class="text"><code>sin(theta) = 0      -&gt; theta is on the x-axis
+cos(theta) = 0      -&gt; theta is on the y-axis
+tan(theta) = 0      -&gt; sine is 0 and cosine is not 0</code></pre>
+<p>In <code>[0,360)</code>:</p>
+<pre class="text"><code>sin(theta)=0  -&gt; 0, 180 degrees
+cos(theta)=0  -&gt; 90, 270 degrees
+tan(theta)=0  -&gt; 0, 180 degrees</code></pre>
 </section>
-<section id="what-changes-interval-width" class="level2">
-<h2 class="anchored" data-anchor-id="what-changes-interval-width">What changes interval width?</h2>
-<p>Intervals become wider when:</p>
-<ul>
-<li>confidence level increases;</li>
-<li>data are more variable;</li>
-<li>sample size is smaller.</li>
-</ul>
-<p>Intervals become narrower when:</p>
-<ul>
-<li>confidence level decreases;</li>
-<li>data are less variable;</li>
-<li>sample size increases.</li>
-</ul>
+<section id="reference-angles-and-quadrants" class="level2">
+<h2 class="anchored" data-anchor-id="reference-angles-and-quadrants">Reference angles and quadrants</h2>
+<p>If the equation uses a special value, first find the reference angle.</p>
+<pre class="text"><code>sin(theta)=1/2      -&gt; reference angle 30 degrees
+cos(theta)=sqrt(2)/2 -&gt; reference angle 45 degrees
+tan(theta)=sqrt(3) -&gt; reference angle 60 degrees</code></pre>
+<p>Then use signs.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Equation</th>
+<th style="text-align: right;">Positive or negative?</th>
+<th>Quadrants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sin(theta)=positive</code></td>
+<td style="text-align: right;">positive</td>
+<td>I, II</td>
+</tr>
+<tr class="even">
+<td><code>sin(theta)=negative</code></td>
+<td style="text-align: right;">negative</td>
+<td>III, IV</td>
+</tr>
+<tr class="odd">
+<td><code>cos(theta)=positive</code></td>
+<td style="text-align: right;">positive</td>
+<td>I, IV</td>
+</tr>
+<tr class="even">
+<td><code>cos(theta)=negative</code></td>
+<td style="text-align: right;">negative</td>
+<td>II, III</td>
+</tr>
+<tr class="odd">
+<td><code>tan(theta)=positive</code></td>
+<td style="text-align: right;">positive</td>
+<td>I, III</td>
+</tr>
+<tr class="even">
+<td><code>tan(theta)=negative</code></td>
+<td style="text-align: right;">negative</td>
+<td>II, IV</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="worked-example-1-confidence-interval-for-a-mean" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-1-confidence-interval-for-a-mean">Worked example 1: confidence interval for a mean</h2>
-<p>A sample of <code>36</code> observations has mean <code>50</code> and standard deviation <code>12</code>. Use an approximate <code>95%</code> interval for the population mean.</p>
-<p><strong>Step 1: Compute standard error.</strong></p>
-<pre class="text"><code>SE = s / sqrt(n) = 12 / sqrt(36) = 12 / 6 = 2</code></pre>
-<p><strong>Step 2: Compute margin of error.</strong></p>
-<pre class="text"><code>ME = 1.96 * 2 = 3.92</code></pre>
-<p><strong>Step 3: Build the interval.</strong></p>
-<pre class="text"><code>50 ± 3.92 = (46.08, 53.92)</code></pre>
-<p><strong>Step 4: Interpret.</strong></p>
-<p>We are <code>95%</code> confident, using this method, that the population mean is between about <code>46.08</code> and <code>53.92</code>, assuming the sampling conditions are appropriate.</p>
+<section id="worked-example-1-solve-a-sine-equation-in-degrees" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-solve-a-sine-equation-in-degrees">Worked example 1: solve a sine equation in degrees</h2>
+<p>Solve in <code>[0,360)</code>:</p>
+<pre class="text"><code>sin(theta)=1/2</code></pre>
+<p><strong>Step 1: Identify the reference angle.</strong></p>
+<pre class="text"><code>sin(30 degrees)=1/2</code></pre>
+<p>So the reference angle is <code>30 degrees</code>.</p>
+<p><strong>Step 2: Decide the quadrants.</strong></p>
+<p>Sine is positive because the right side is positive. Sine is positive in Quadrants I and II.</p>
+<p><strong>Step 3: Build the angles.</strong></p>
+<pre class="text"><code>Quadrant I angle:  30 degrees
+Quadrant II angle: 180 - 30 = 150 degrees</code></pre>
+<p><strong>Answer:</strong></p>
+<pre class="text"><code>theta = 30 degrees or 150 degrees</code></pre>
+<p><strong>Check.</strong> Both angles have y-coordinate <code>1/2</code> on the unit circle.</p>
 </section>
-<section id="worked-example-2-confidence-interval-for-a-proportion" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-2-confidence-interval-for-a-proportion">Worked example 2: confidence interval for a proportion</h2>
-<p>In a sample of <code>100</code> people, <code>60</code> say yes. Estimate the population yes proportion with a <code>95%</code> confidence interval.</p>
-<p><strong>Step 1: Find the sample proportion.</strong></p>
-<pre class="text"><code>p-hat = 60 / 100 = 0.60</code></pre>
-<p><strong>Step 2: Find standard error.</strong></p>
-<pre class="text"><code>SE = sqrt(p-hat(1-p-hat)/n)
-SE = sqrt(0.60 * 0.40 / 100)
-SE = sqrt(0.0024)
-SE is about 0.049</code></pre>
-<p><strong>Step 3: Find margin of error.</strong></p>
-<pre class="text"><code>ME = 1.96 * 0.049, about 0.096</code></pre>
-<p><strong>Step 4: Build the interval.</strong></p>
-<pre class="text"><code>0.60 ± 0.096 = (0.504, 0.696)</code></pre>
-<p><strong>Interpretation:</strong> The data are consistent with a population yes proportion from about <code>50.4%</code> to <code>69.6%</code>, under the usual conditions.</p>
+<section id="worked-example-2-isolate-before-solving" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-isolate-before-solving">Worked example 2: isolate before solving</h2>
+<p>Solve in <code>[0,2pi)</code>:</p>
+<pre class="text"><code>2cos(theta) - 1 = 0</code></pre>
+<p><strong>Step 1: Isolate cosine.</strong></p>
+<pre class="text"><code>2cos(theta) - 1 = 0
+2cos(theta) = 1
+cos(theta) = 1/2</code></pre>
+<p><strong>Step 2: Find the reference angle.</strong></p>
+<pre class="text"><code>cos(pi/3)=1/2</code></pre>
+<p>The reference angle is <code>pi/3</code>.</p>
+<p><strong>Step 3: Choose quadrants.</strong></p>
+<p>Cosine is positive in Quadrants I and IV.</p>
+<p><strong>Step 4: List answers in <code>[0,2pi)</code>.</strong></p>
+<pre class="text"><code>Quadrant I:  pi/3
+Quadrant IV: 2pi - pi/3 = 5pi/3</code></pre>
+<p><strong>Answer:</strong></p>
+<pre class="text"><code>theta = pi/3 or 5pi/3</code></pre>
 </section>
-<section id="worked-example-3-explain-a-wider-interval" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-3-explain-a-wider-interval">Worked example 3: explain a wider interval</h2>
-<p>Two studies estimate the same mean with the same standard deviation. Study A has <code>n=25</code>; Study B has <code>n=100</code>.</p>
-<p><strong>Question:</strong> Which interval is wider?</p>
-<p><strong>Reasoning:</strong></p>
-<pre class="text"><code>SE_A = s / sqrt(25) = s/5
-SE_B = s / sqrt(100) = s/10</code></pre>
-<p>Study A has larger standard error, so its interval is wider.</p>
+<section id="worked-example-3-write-all-real-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-write-all-real-solutions">Worked example 3: write all real solutions</h2>
+<p>Solve for all real <code>theta</code>:</p>
+<pre class="text"><code>tan(theta)=1</code></pre>
+<p><strong>Step 1: Find one angle.</strong></p>
+<pre class="text"><code>tan(45 degrees)=1</code></pre>
+<p>In radians, that is <code>pi/4</code>.</p>
+<p><strong>Step 2: Use tangent’s period.</strong></p>
+<p>Tangent repeats every <code>pi</code>, not every <code>2pi</code>.</p>
+<p><strong>Answer:</strong></p>
+<pre class="text"><code>theta = pi/4 + k*pi, where k is any integer</code></pre>
+<p>This compact formula includes <code>pi/4</code>, <code>5pi/4</code>, <code>-3pi/4</code>, and infinitely many more.</p>
+</section>
+<section id="worked-example-4-factor-first" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-4-factor-first">Worked example 4: factor first</h2>
+<p>Solve in <code>[0,360)</code>:</p>
+<pre class="text"><code>2sin^2(theta) - sin(theta) = 0</code></pre>
+<p><strong>Step 1: Factor.</strong></p>
+<pre class="text"><code>2sin^2(theta) - sin(theta)
+= sin(theta)(2sin(theta)-1)</code></pre>
+<p>So:</p>
+<pre class="text"><code>sin(theta)(2sin(theta)-1)=0</code></pre>
+<p><strong>Step 2: Use the zero product property.</strong></p>
+<pre class="text"><code>sin(theta)=0</code></pre>
+<p>or</p>
+<pre class="text"><code>2sin(theta)-1=0
+sin(theta)=1/2</code></pre>
+<p><strong>Step 3: Solve each equation.</strong></p>
+<p>For <code>sin(theta)=0</code> in <code>[0,360)</code>:</p>
+<pre class="text"><code>theta = 0, 180 degrees</code></pre>
+<p>For <code>sin(theta)=1/2</code> in <code>[0,360)</code>:</p>
+<pre class="text"><code>theta = 30, 150 degrees</code></pre>
+<p><strong>Answer:</strong></p>
+<pre class="text"><code>theta = 0, 30, 150, 180 degrees</code></pre>
 </section>
 <section id="common-pitfalls" class="level2">
 <h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
 <ul>
-<li>Saying “there is a 95% probability the parameter is in this interval” without understanding the frequentist meaning.</li>
-<li>Forgetting that a confidence interval depends on sampling conditions.</li>
-<li>Reporting an interval without context or units.</li>
-<li>Thinking a narrow interval is good if the sampling method was biased.</li>
-<li>Confusing confidence level with the sample proportion.</li>
+<li>Forgetting to isolate the trig function before reading the unit circle.</li>
+<li>Giving only the reference angle and missing the second quadrant solution.</li>
+<li>Using sine/cosine period <code>2pi</code> for tangent; tangent’s period is <code>pi</code>.</li>
+<li>Mixing degrees and radians in the same answer.</li>
+<li>Dividing by a trig expression that could be zero and losing solutions.</li>
+<li>Including <code>360 degrees</code> in <code>[0,360)</code>; the square bracket/parenthesis means <code>0</code> is included but <code>360</code> is not.</li>
 </ul>
 </section>
 <section id="practice-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What is a point estimate?</li>
-<li>A mean is <code>80</code>, standard error is <code>4</code>, and critical value is <code>1.96</code>. Find the <code>95%</code> interval.</li>
-<li>If confidence level increases from <code>90%</code> to <code>99%</code>, does the interval usually get wider or narrower?</li>
-<li>If sample size increases, what usually happens to margin of error?</li>
-<li>Interpret the interval <code>(12.4, 18.8)</code> for a population mean measured in hours.</li>
+<li>Solve in <code>[0,360)</code>: <code>cos(theta)=1/2</code>.</li>
+<li>Solve in <code>[0,360)</code>: <code>sin(theta)=-1/2</code>.</li>
+<li>Solve in <code>[0,2pi)</code>: <code>tan(theta)=0</code>.</li>
+<li>Solve for all real <code>x</code>: <code>sin(x)=0</code>.</li>
+<li>Solve in <code>[0,360)</code>: <code>2cos(theta)+1=0</code>.</li>
+<li>Solve in <code>[0,360)</code>: <code>sin(theta)(sin(theta)-1)=0</code>.</li>
 </ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1126,11 +1213,12 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>A single-number estimate of a population parameter, such as a sample mean.</li>
-<li>Margin of error <code>=1.96(4)=7.84</code>; interval <code>(72.16, 87.84)</code>.</li>
-<li>Wider, because higher confidence requires a larger critical value.</li>
-<li>It usually decreases because standard error decreases.</li>
-<li>A careful interpretation: using the method and assumptions, we are confident that the population mean is between <code>12.4</code> and <code>18.8</code> hours.</li>
+<li><code>cos(theta)=1/2</code> has reference angle <code>60 degrees</code>; cosine is positive in Quadrants I and IV, so <code>theta=60, 300 degrees</code>.</li>
+<li><code>sin(theta)=-1/2</code> has reference angle <code>30 degrees</code>; sine is negative in Quadrants III and IV, so <code>theta=210, 330 degrees</code>.</li>
+<li>Tangent is zero where sine is zero and cosine is not zero: <code>x=0, pi</code>.</li>
+<li><code>x=k*pi</code>, where <code>k</code> is any integer.</li>
+<li><code>2cos(theta)+1=0</code> gives <code>cos(theta)=-1/2</code>; reference angle <code>60 degrees</code>, Quadrants II and III, so <code>theta=120, 240 degrees</code>.</li>
+<li><code>sin(theta)=0</code> or <code>sin(theta)=1</code>, so <code>theta=0, 180, 90 degrees</code>. In increasing order: <code>0, 90, 180 degrees</code>.</li>
 </ol>
 </div>
 </div>
@@ -1138,40 +1226,55 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 </section>
 <section id="subtopic-guided-practice-and-checkpoints" class="level2">
 <h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
-<section id="lab-1-estimate-versus-parameter" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-estimate-versus-parameter">Lab 1: estimate versus parameter</h3>
-<p><strong>Guess first.</strong> Is <code>p-hat=0.42</code> a parameter or statistic?</p>
+<p>These small labs separate the skills that are usually mixed together in a full problem.</p>
+<section id="lab-1-isolate-first" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-isolate-first">Lab 1: isolate first</h3>
+<p><strong>Guess first.</strong> What is the first algebra move in <code>3sin(theta)+2=5</code>?</p>
 <p><strong>Guided exercise.</strong></p>
-<p><code>p-hat</code> is computed from a sample, so it is a statistic and a point estimate of population proportion <code>p</code>.</p>
+<p>Subtract <code>2</code>, then divide by <code>3</code>:</p>
+<pre class="text"><code>3sin(theta)+2=5
+3sin(theta)=3
+sin(theta)=1</code></pre>
+<p>Now the unit circle can be used.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> Is population mean <code>mu</code> a parameter or statistic?</p>
+<p><strong>Checkpoint.</strong> Isolate the trig function in <code>4cos(theta)-2=0</code>.</p>
 </div>
 </section>
-<section id="lab-2-build-margin-of-error" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-build-margin-of-error">Lab 2: build margin of error</h3>
-<p><strong>Guess first.</strong> If standard error doubles, what happens to margin of error?</p>
+<section id="lab-2-find-the-reference-angle" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-find-the-reference-angle">Lab 2: find the reference angle</h3>
+<p><strong>Guess first.</strong> If <code>sin(theta)=sqrt(2)/2</code>, what special angle should you think of?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>Since <code>ME = critical value * SE</code>, doubling <code>SE</code> doubles the margin of error.</p>
+<p>The value <code>sqrt(2)/2</code> belongs to <code>45 degrees</code> or <code>pi/4</code>.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> Find margin of error when critical value is <code>2</code> and <code>SE=3</code>.</p>
+<p><strong>Checkpoint.</strong> What is the reference angle for <code>cos(theta)=sqrt(3)/2</code>?</p>
 </div>
 </section>
-<section id="lab-3-interval-interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-interval-interpretation">Lab 3: interval interpretation</h3>
-<p><strong>Guess first.</strong> Does a confidence interval prove the parameter is inside?</p>
+<section id="lab-3-choose-all-quadrants" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-choose-all-quadrants">Lab 3: choose all quadrants</h3>
+<p><strong>Guess first.</strong> If cosine is negative, which quadrants are possible?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>No.&nbsp;It gives a plausible range using a method with known long-run performance. The interval can miss the true parameter.</p>
+<p>Cosine is the x-coordinate. It is negative on the left side of the unit circle, so Quadrants II and III are possible.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> What does <code>95%</code> confidence describe: the single interval or the long-run method?</p>
+<p><strong>Checkpoint.</strong> If tangent is negative, which quadrants are possible?</p>
 </div>
 </section>
-<section id="lab-4-width-decisions" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-width-decisions">Lab 4: width decisions</h3>
-<p><strong>Guess first.</strong> Which is wider: a <code>90%</code> interval or a <code>99%</code> interval from the same data?</p>
+<section id="lab-4-write-a-periodic-family" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-write-a-periodic-family">Lab 4: write a periodic family</h3>
+<p><strong>Guess first.</strong> Does <code>cos(x)=1</code> repeat every <code>pi</code> or <code>2pi</code>?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>The <code>99%</code> interval is wider because it requires more confidence.</p>
+<p>Cosine repeats every <code>2pi</code>, so all solutions are:</p>
+<pre class="text"><code>x = 2k*pi, where k is any integer</code></pre>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> What happens to interval width if data are more variable?</p>
+<p><strong>Checkpoint.</strong> Write all real solutions of <code>tan(x)=0</code>.</p>
+</div>
+</section>
+<section id="lab-5-check-the-interval" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-check-the-interval">Lab 5: check the interval</h3>
+<p><strong>Guess first.</strong> Should <code>360 degrees</code> be included in <code>[0,360)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>No.&nbsp;The notation <code>[0,360)</code> means include <code>0</code> and exclude <code>360</code>. This avoids counting the same direction twice.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> In <code>[0,2pi)</code>, should <code>2pi</code> be listed?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -1186,45 +1289,44 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Parameter.</li>
-<li><code>ME=6</code>.</li>
-<li>The long-run method.</li>
-<li>It gets wider, all else equal.</li>
+<li><code>cos(theta)=1/2</code>.</li>
+<li><code>30 degrees</code> or <code>pi/6</code>.</li>
+<li>Quadrants II and IV.</li>
+<li><code>x=k*pi</code>, where <code>k</code> is any integer.</li>
+<li>No, <code>2pi</code> is excluded from <code>[0,2pi)</code>.</li>
 </ol>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="estimation-guessing-game" class="level2">
-<h2 class="anchored" data-anchor-id="estimation-guessing-game">Estimation guessing game</h2>
-<script type="application/json" class="edu-math-statistics-checkpoint-config">
+<section id="trig-equation-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="trig-equation-guessing-game">Trig equation guessing game</h2>
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
 {
-  "topic": "estimation",
-  "title": "Estimation checkpoint",
+  "topic": "trig-equations",
+  "title": "Trigonometric equations checkpoint",
   "defaultTotal": 5
 }
 </script>
-<div class="quiz-shell edu-math-statistics-checkpoint" data-default-total="4">
+<div class="quiz-shell edu-math-trigonometry-checkpoint" data-default-total="4">
 
 </div>
 <script>
   (() => {
-    const DEFAULT_TOPIC = "descriptive-statistics";
+    const DEFAULT_TOPIC = "unit-circle";
     const BANKS = {
-      "descriptive-statistics": [meanQuestion, medianQuestion, iqrQuestion, outlierQuestion],
-      sampling: [populationQuestion, biasQuestion, randomSampleQuestion, confoundingQuestion],
-      "probability-for-statistics": [expectedValueQuestion, varianceQuestion, normalModelQuestion, binomialQuestion],
-      "sampling-distributions": [standardErrorQuestion, cltQuestion, samplingDistributionQuestion, sampleSizeQuestion],
-      estimation: [pointEstimateQuestion, confidenceIntervalQuestion, marginQuestion, confidenceMeaningQuestion],
-      "hypothesis-tests": [nullQuestion, pValueQuestion, alphaQuestion, typeErrorQuestion],
-      "comparing-groups": [pairedQuestion, independentQuestion, differenceQuestion, effectSizeQuestion],
-      "chi-square-tests": [observedExpectedQuestion, goodnessFitQuestion, independenceQuestion, chiSquareCautionQuestion],
-      "regression-basics": [slopeQuestion, residualQuestion, correlationQuestion, causationQuestion],
-      "statistics-cumulative-review": [meanQuestion, biasQuestion, standardErrorQuestion, confidenceIntervalQuestion, pValueQuestion, slopeQuestion],
+      "radians-and-degrees": [degreesRadiansQuestion, coterminalQuestion, referenceAngleQuestion, quadrantQuestion],
+      "unit-circle": [coordinateQuestion, signsQuestion, specialAngleQuestion, tangentQuestion],
+      "sine-cosine": [sineCoordinateQuestion, cosineCoordinateQuestion, rightTriangleQuestion, signQuestion],
+      "trig-functions-and-graphs": [amplitudeQuestion, periodQuestion, midlineQuestion, phaseQuestion],
+      identities: [pythagoreanIdentityQuestion, tangentIdentityQuestion, reciprocalQuestion, verifyIdentityQuestion],
+      "trig-equations": [basicSineEquationQuestion, basicCosineEquationQuestion, periodicQuestion, intervalQuestion],
+      applications: [rightTriangleQuestion, elevationQuestion, sinusoidQuestion, bearingQuestion],
+      "trigonometry-cumulative-review": [degreesRadiansQuestion, coordinateQuestion, specialAngleQuestion, amplitudeQuestion, pythagoreanIdentityQuestion, basicSineEquationQuestion],
     };
 
-    document.querySelectorAll(".edu-math-statistics-checkpoint:not([data-ready])").forEach(init);
+    document.querySelectorAll(".edu-math-trigonometry-checkpoint:not([data-ready])").forEach(init);
 
     function init(root) {
       const config = readConfig(root);
@@ -1236,7 +1338,7 @@ SE_B = s / sqrt(100) = s/10</code></pre>
     function readConfig(root) {
       const node = root.previousElementSibling;
       let parsed = {};
-      if (node?.classList?.contains("edu-math-statistics-checkpoint-config")) {
+      if (node?.classList?.contains("edu-math-trigonometry-checkpoint-config")) {
         try {
           parsed = JSON.parse(node.textContent || "{}");
         } catch {
@@ -1245,20 +1347,14 @@ SE_B = s / sqrt(100) = s/10</code></pre>
       }
       return {
         topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
-        title: parsed.title || "Statistics checkpoint",
+        title: parsed.title || "Trigonometry checkpoint",
         defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
       };
     }
 
     function renderStart(root, state) {
       root.replaceChildren();
-      const input = element("input", {
-        class: "quiz-count",
-        type: "number",
-        min: "1",
-        max: "20",
-        value: String(state.total),
-      });
+      const input = element("input", { class: "quiz-count", type: "number", min: "1", max: "20", value: String(state.total) });
       const button = element("button", { type: "button" }, "Start checkpoint");
       button.addEventListener("click", () => {
         state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
@@ -1316,120 +1412,93 @@ SE_B = s / sqrt(100) = s/10</code></pre>
       return choice(bank)();
     }
 
-    function meanQuestion() {
-      return question({ prompt: "What is the mean of 2, 4, and 6?", stimulus: "add then divide by 3", answer: "4", distractors: ["3", "6", "12"], explanation: "(2+4+6)/3 = 4." });
+    function degreesRadiansQuestion() {
+      return question({ prompt: "Convert 180 degrees to radians.", stimulus: "half turn", answer: "pi", distractors: ["2pi", "pi/2", "180pi"], explanation: "A full turn is 2pi radians, so a half turn is pi radians." });
     }
-    function medianQuestion() {
-      return question({ prompt: "Which summary is most resistant to one very large outlier?", stimulus: "center with outliers", answer: "median", distractors: ["mean", "range", "maximum"], explanation: "The median depends on order position, not the exact size of the extreme value." });
+    function coterminalQuestion() {
+      return question({ prompt: "Which angle is coterminal with -30 degrees in [0,360)?", stimulus: "add 360 degrees", answer: "330 degrees", distractors: ["30 degrees", "300 degrees", "-390 degrees"], explanation: "-30 + 360 = 330." });
     }
-    function iqrQuestion() {
-      return question({ prompt: "What does the IQR measure?", stimulus: "Q3 - Q1", answer: "spread of the middle half", distractors: ["average value", "sample size", "largest value only"], explanation: "IQR is the distance from the first quartile to the third quartile." });
+    function referenceAngleQuestion() {
+      return question({ prompt: "What is the reference angle for 150 degrees?", stimulus: "Quadrant II", answer: "30 degrees", distractors: ["60 degrees", "150 degrees", "210 degrees"], explanation: "In Quadrant II, reference angle is 180 - theta." });
     }
-    function outlierQuestion() {
-      return question({ prompt: "A value far above the rest usually affects which summary most?", stimulus: "outlier", answer: "mean", distractors: ["median", "Q1", "sample size"], explanation: "The mean uses the exact size of every value." });
+    function quadrantQuestion() {
+      return question({ prompt: "Which quadrant contains 240 degrees?", stimulus: "between 180 and 270", answer: "III", distractors: ["I", "II", "IV"], explanation: "Angles between 180 and 270 degrees are in Quadrant III." });
     }
-    function populationQuestion() {
-      return question({ prompt: "The full group we want to learn about is the...", stimulus: "study target", answer: "population", distractors: ["sample", "statistic", "response"], explanation: "A sample is selected from the population." });
+    function coordinateQuestion() {
+      return question({ prompt: "On the unit circle, which coordinate is sine?", stimulus: "point = (cos theta, sin theta)", answer: "vertical coordinate", distractors: ["horizontal coordinate", "radius length", "angle measure"], explanation: "Sine is the y-coordinate." });
     }
-    function biasQuestion() {
-      return question({ prompt: "Surveying only gym visitors about exercise is mainly what problem?", stimulus: "who was selected", answer: "selection bias", distractors: ["random sampling", "larger sample size", "low variance"], explanation: "The selected group systematically differs from the target population." });
+    function signsQuestion() {
+      return question({ prompt: "In Quadrant II, what are the signs of sine and cosine?", stimulus: "x negative, y positive", answer: "sine positive, cosine negative", distractors: ["both positive", "both negative", "sine negative, cosine positive"], explanation: "Sine is y, cosine is x." });
     }
-    function randomSampleQuestion() {
-      return question({ prompt: "Why do random samples help?", stimulus: "chance selection", answer: "they reduce systematic selection patterns", distractors: ["they remove all uncertainty", "they prove causation", "they make every answer true"], explanation: "Random selection supports probability-based uncertainty estimates." });
+    function specialAngleQuestion() {
+      return question({ prompt: "What is sin(30 degrees)?", stimulus: "special angle", answer: "1/2", distractors: ["sqrt(3)/2", "sqrt(2)/2", "1"], explanation: "The 30-60-90 triangle gives sin(30)=1/2." });
     }
-    function confoundingQuestion() {
-      return question({ prompt: "A hidden variable related to both treatment and outcome is called a...", stimulus: "causal caution", answer: "confounder", distractors: ["median", "residual", "margin of error"], explanation: "Confounding can create misleading associations." });
+    function tangentQuestion() {
+      return question({ prompt: "What is tan(theta) in terms of sine and cosine?", stimulus: "tangent ratio", answer: "sin(theta)/cos(theta)", distractors: ["cos(theta)/sin(theta)", "1/sin(theta)", "sin(theta)+cos(theta)"], explanation: "Tangent is sine divided by cosine when cosine is not zero." });
     }
-    function expectedValueQuestion() {
-      return question({ prompt: "Expected value is best described as a...", stimulus: "weighted average", answer: "long-run average", distractors: ["guaranteed outcome", "sample maximum", "p-value"], explanation: "Expected value averages outcomes using probabilities as weights." });
+    function sineCoordinateQuestion() {
+      return question({ prompt: "At 90 degrees, what is sine?", stimulus: "unit-circle point (0,1)", answer: "1", distractors: ["0", "-1", "undefined"], explanation: "The y-coordinate at 90 degrees is 1." });
     }
-    function varianceQuestion() {
-      return question({ prompt: "Variance measures typical squared distance from the...", stimulus: "spread", answer: "mean", distractors: ["maximum", "sample size", "p-value"], explanation: "Variance averages squared deviations from the mean." });
+    function cosineCoordinateQuestion() {
+      return question({ prompt: "At 180 degrees, what is cosine?", stimulus: "unit-circle point (-1,0)", answer: "-1", distractors: ["1", "0", "undefined"], explanation: "The x-coordinate at 180 degrees is -1." });
     }
-    function normalModelQuestion() {
-      return question({ prompt: "The normal distribution is shaped like a...", stimulus: "symmetric model", answer: "bell", distractors: ["line", "triangle", "two-way table"], explanation: "Normal models are symmetric and bell-shaped." });
+    function rightTriangleQuestion() {
+      return question({ prompt: "In a right triangle, sine equals which ratio?", stimulus: "SOH-CAH-TOA", answer: "opposite / hypotenuse", distractors: ["adjacent / hypotenuse", "opposite / adjacent", "hypotenuse / opposite"], explanation: "SOH means sine = opposite over hypotenuse." });
     }
-    function binomialQuestion() {
-      return question({ prompt: "A binomial count records the number of...", stimulus: "fixed independent trials", answer: "successes", distractors: ["outliers", "residuals", "quartiles"], explanation: "Binomial variables count successes in a fixed number of independent trials." });
+    function signQuestion() {
+      return question({ prompt: "At 300 degrees, is sine positive or negative?", stimulus: "Quadrant IV", answer: "negative", distractors: ["positive", "zero", "undefined"], explanation: "Quadrant IV has negative y-values, so sine is negative." });
     }
-    function standardErrorQuestion() {
-      return question({ prompt: "Standard error describes variation of a...", stimulus: "sample-to-sample", answer: "statistic", distractors: ["single raw value", "population label", "survey question wording"], explanation: "It is the standard deviation of a statistic's sampling distribution." });
+    function amplitudeQuestion() {
+      return question({ prompt: "What is the amplitude of y = 3 sin(x)?", stimulus: "vertical stretch", answer: "3", distractors: ["1", "2pi", "pi"], explanation: "Amplitude is the absolute value of the coefficient in front of sine or cosine." });
     }
-    function cltQuestion() {
-      return question({ prompt: "The central limit theorem says sample means often become approximately...", stimulus: "large n", answer: "normal", distractors: ["categorical", "impossible", "biased"], explanation: "With conditions, the distribution of sample means is approximately normal." });
+    function periodQuestion() {
+      return question({ prompt: "What is the period of sin(x)?", stimulus: "basic sine wave", answer: "2pi", distractors: ["pi", "1", "4pi"], explanation: "Basic sine repeats every 2pi radians." });
     }
-    function samplingDistributionQuestion() {
-      return question({ prompt: "A sampling distribution is the distribution of...", stimulus: "repeat sampling", answer: "a statistic", distractors: ["one questionnaire", "a population name", "a graph title"], explanation: "Imagine calculating the statistic for many random samples." });
+    function midlineQuestion() {
+      return question({ prompt: "What is the midline of y = sin(x) + 4?", stimulus: "vertical shift", answer: "y = 4", distractors: ["y = 1", "y = -4", "x = 4"], explanation: "The +4 shifts the center line to y=4." });
     }
-    function sampleSizeQuestion() {
-      return question({ prompt: "If sample size increases, standard error usually...", stimulus: "SE = s/sqrt(n)", answer: "decreases", distractors: ["increases", "stays forced at 1", "becomes a p-value"], explanation: "The square root of n is in the denominator." });
+    function phaseQuestion() {
+      return question({ prompt: "In y = sin(x - pi/2), which way is the graph shifted?", stimulus: "inside subtraction", answer: "right", distractors: ["left", "up", "down"], explanation: "Subtracting inside shifts the graph right." });
     }
-    function pointEstimateQuestion() {
-      return question({ prompt: "A single-number estimate is a...", stimulus: "one value", answer: "point estimate", distractors: ["confidence level", "null hypothesis", "residual"], explanation: "A sample mean or sample proportion can be a point estimate." });
+    function pythagoreanIdentityQuestion() {
+      return question({ prompt: "Complete the identity: sin^2(x) + cos^2(x) = ?", stimulus: "Pythagorean identity", answer: "1", distractors: ["0", "tan(x)", "2"], explanation: "The unit-circle point has distance 1 from the origin." });
     }
-    function confidenceIntervalQuestion() {
-      return question({ prompt: "A confidence interval is estimate plus/minus...", stimulus: "uncertainty", answer: "margin of error", distractors: ["sample maximum", "correlation", "confounder"], explanation: "The margin of error measures how far the interval extends from the estimate." });
+    function tangentIdentityQuestion() {
+      return question({ prompt: "Which identity rewrites tan(x)?", stimulus: "quotient identity", answer: "sin(x)/cos(x)", distractors: ["cos(x)/sin(x)", "1/cos(x)", "1/sin(x)"], explanation: "tan(x)=sin(x)/cos(x)." });
     }
-    function marginQuestion() {
-      return question({ prompt: "For a 95% normal interval, the multiplier is about...", stimulus: "critical value", answer: "1.96", distractors: ["0.05", "10", "100"], explanation: "A two-sided 95% normal interval uses z* approximately 1.96." });
+    function reciprocalQuestion() {
+      return question({ prompt: "Which reciprocal identity is correct?", stimulus: "secant", answer: "sec(x)=1/cos(x)", distractors: ["sec(x)=1/sin(x)", "sec(x)=sin(x)/cos(x)", "sec(x)=cos(x)"], explanation: "Secant is reciprocal cosine." });
     }
-    function confidenceMeaningQuestion() {
-      return question({ prompt: "95% confidence describes the long-run success rate of the...", stimulus: "repeated samples", answer: "method", distractors: ["single fixed interval", "null being true", "largest observation"], explanation: "The confidence level belongs to the procedure over repeated samples." });
+    function verifyIdentityQuestion() {
+      return question({ prompt: "What is the safest first move when proving a trig identity?", stimulus: "identity strategy", answer: "rewrite one side using known identities", distractors: ["divide by zero", "change both sides randomly", "plug in one angle only"], explanation: "Use known identities and algebra to transform one side into the other." });
     }
-    function nullQuestion() {
-      return question({ prompt: "The baseline claim in a test is the...", stimulus: "H0", answer: "null hypothesis", distractors: ["sample statistic", "residual", "histogram"], explanation: "The null often represents no change, no effect, or an existing claim." });
+    function basicSineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=0.", stimulus: "x-axis intersections", answer: "0 and 180 degrees", distractors: ["90 and 270 degrees", "30 and 150 degrees", "45 and 225 degrees"], explanation: "Sine is y-coordinate, which is 0 on the x-axis." });
     }
-    function pValueQuestion() {
-      return question({ prompt: "A p-value is computed assuming which hypothesis is true?", stimulus: "test logic", answer: "null hypothesis", distractors: ["alternative hypothesis", "largest value", "regression line"], explanation: "It measures how surprising the data are under the null model." });
+    function basicCosineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve cos(theta)=0.", stimulus: "y-axis intersections", answer: "90 and 270 degrees", distractors: ["0 and 180 degrees", "30 and 330 degrees", "45 and 315 degrees"], explanation: "Cosine is x-coordinate, which is 0 on the y-axis." });
     }
-    function alphaQuestion() {
-      return question({ prompt: "If p-value <= alpha, the usual decision is to...", stimulus: "decision rule", answer: "reject the null", distractors: ["prove the null", "ignore the data", "increase sample bias"], explanation: "The result is statistically significant at that alpha level." });
+    function periodicQuestion() {
+      return question({ prompt: "Why can sin(theta)=1/2 have infinitely many solutions?", stimulus: "periodicity", answer: "sine repeats every full turn", distractors: ["sine is linear", "angles stop at 360", "cosine is undefined"], explanation: "Adding 360 degrees or 2pi radians gives coterminal solutions." });
     }
-    function typeErrorQuestion() {
-      return question({ prompt: "Rejecting a true null hypothesis is a Type...", stimulus: "false positive", answer: "I error", distractors: ["II error", "residual", "quartile"], explanation: "Type I error is a false positive decision." });
+    function intervalQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=1.", stimulus: "top of unit circle", answer: "90 degrees", distractors: ["0 degrees", "180 degrees", "270 degrees"], explanation: "The top of the unit circle is (0,1)." });
     }
-    function pairedQuestion() {
-      return question({ prompt: "Before-and-after measurements on the same people are...", stimulus: "same units twice", answer: "paired", distractors: ["independent", "categorical only", "a histogram"], explanation: "Pairing means observations are naturally linked." });
+    function elevationQuestion() {
+      return question({ prompt: "For angle of elevation, opposite side usually represents what?", stimulus: "right-triangle model", answer: "height", distractors: ["horizontal distance", "hypotenuse always", "angle measure"], explanation: "Height is vertical, opposite the ground angle." });
     }
-    function independentQuestion() {
-      return question({ prompt: "Two separate randomly selected groups are usually treated as...", stimulus: "different units", answer: "independent samples", distractors: ["paired samples", "one residual", "one population parameter"], explanation: "No observation in one group is matched to a specific observation in the other." });
+    function sinusoidQuestion() {
+      return question({ prompt: "Which trig function type models repeating seasonal behavior?", stimulus: "periodic data", answer: "sinusoidal", distractors: ["linear", "quadratic", "constant only"], explanation: "Sine and cosine model smooth repeating cycles." });
     }
-    function differenceQuestion() {
-      return question({ prompt: "When comparing two means, the estimate is often...", stimulus: "group A minus group B", answer: "a difference", distractors: ["a maximum", "a p-value only", "a sample label"], explanation: "The difference in sample means estimates the difference in population means." });
-    }
-    function effectSizeQuestion() {
-      return question({ prompt: "Practical importance is mostly about the...", stimulus: "real-world size", answer: "effect size", distractors: ["file name", "random seed", "graph color"], explanation: "A tiny effect can be statistically significant but not practically important." });
-    }
-    function observedExpectedQuestion() {
-      return question({ prompt: "Chi-square statistics compare observed counts to...", stimulus: "null model", answer: "expected counts", distractors: ["sample means", "residual plots", "confidence levels"], explanation: "Expected counts are what the null model predicts for each category." });
-    }
-    function goodnessFitQuestion() {
-      return question({ prompt: "A goodness-of-fit test uses how many categorical variables?", stimulus: "one-way table", answer: "one", distractors: ["two", "three slopes", "no counts"], explanation: "It compares one categorical distribution to a claimed distribution." });
-    }
-    function independenceQuestion() {
-      return question({ prompt: "A chi-square test of independence uses a...", stimulus: "two categorical variables", answer: "two-way table", distractors: ["scatterplot only", "sample mean", "slope formula"], explanation: "Rows and columns represent the two categorical variables." });
-    }
-    function chiSquareCautionQuestion() {
-      return question({ prompt: "Chi-square methods are based on...", stimulus: "categorical data", answer: "counts", distractors: ["raw angles", "regression slopes only", "derivatives"], explanation: "The data should be frequency counts in categories." });
-    }
-    function slopeQuestion() {
-      return question({ prompt: "In regression, slope is the predicted change in y for...", stimulus: "one-unit change", answer: "one more unit of x", distractors: ["one more residual", "the median only", "a smaller p-value"], explanation: "Slope connects changes in the explanatory variable to predicted changes in the response." });
-    }
-    function residualQuestion() {
-      return question({ prompt: "A residual is observed y minus...", stimulus: "prediction error", answer: "predicted y", distractors: ["mean x", "sample size", "confidence level"], explanation: "Residuals show prediction errors for individual points." });
-    }
-    function correlationQuestion() {
-      return question({ prompt: "Correlation is always between...", stimulus: "r", answer: "-1 and 1", distractors: ["0 and 100", "1 and infinity", "only positive values"], explanation: "Pearson correlation ranges from -1 to 1." });
-    }
-    function causationQuestion() {
-      return question({ prompt: "A strong regression association alone proves causation?", stimulus: "causal caution", answer: "no", distractors: ["yes", "always", "only if slope is positive"], explanation: "Confounding and study design matter for causal claims." });
+    function bearingQuestion() {
+      return question({ prompt: "A vector with components (3,4) has length?", stimulus: "right triangle", answer: "5", distractors: ["7", "1", "12"], explanation: "Use the Pythagorean theorem: sqrt(3^2+4^2)=5." });
     }
 
     function question({ prompt, stimulus, answer, distractors, explanation }) {
       return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
     }
     function radioList(options, onSelect) {
-      const name = `statistics-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const name = `trigonometry-checkpoint-${Math.random().toString(36).slice(2)}`;
       const container = element("div", { class: "quiz-options" });
       options.forEach((option) => {
         const input = element("input", { type: "radio", name, value: option });
@@ -1463,31 +1532,36 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<p>Use <code>edumath</code> to compute confidence intervals.</p>
-<div id="5bd51833" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> confidence_interval_mean, confidence_interval_proportion</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>confidence_interval_mean([<span class="dv">48</span>, <span class="dv">52</span>, <span class="dv">51</span>, <span class="dv">49</span>, <span class="dv">50</span>], confidence_level<span class="op">=</span><span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>edumath</code> for angle facts and SymPy for algebraic verification. SymPy can solve many equations, but interval reasoning is still easier when you understand the unit circle.</p>
+<div id="8989f49f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> reference_angle_degrees, trig_signs</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>reference_angle_degrees(<span class="dv">150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>ConfidenceInterval(estimate=50.0, lower=48.614096175650324, upper=51.385903824349676, margin_of_error=1.3859038243496775, confidence_level=0.95)</code></pre>
+<pre><code>30</code></pre>
 </div>
 </div>
-<div id="4cb92e9d" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>confidence_interval_proportion(<span class="dv">60</span>, <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="c7278e0b" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>trig_signs(<span class="dv">150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>ConfidenceInterval(estimate=0.6, lower=0.5039817664728938, upper=0.6960182335271061, margin_of_error=0.09601823352710616, confidence_level=0.95)</code></pre>
+<pre><code>{'sine': '+', 'cosine': '-', 'tangent': '-'}</code></pre>
 </div>
 </div>
-<p>Use SymPy to rearrange the interval formula.</p>
-<div id="22eba0cc" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>estimate, critical, se <span class="op">=</span> sp.symbols(<span class="st">"estimate critical se"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>lower <span class="op">=</span> estimate <span class="op">-</span> critical <span class="op">*</span> se</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>upper <span class="op">=</span> estimate <span class="op">+</span> critical <span class="op">*</span> se</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>sp.simplify(upper <span class="op">-</span> lower)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
-<p><span class="math inline">\(\displaystyle 2 \mathcal{criti} se\)</span></p>
+<p>Use SymPy to solve or verify exact equations.</p>
+<div id="0b85d821" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> sp.symbols(<span class="st">"theta"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(<span class="dv">2</span> <span class="op">*</span> sp.cos(theta) <span class="op">-</span> <span class="dv">1</span>, <span class="dv">0</span>), theta)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>[pi/3, 5*pi/3]</code></pre>
+</div>
+</div>
+<p>For all real solutions, SymPy’s <code>solveset</code> gives a set description.</p>
+<div id="258a81f5" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sp.solveset(sp.Eq(sp.sin(theta), sp.Rational(<span class="dv">1</span>, <span class="dv">2</span>)), theta, domain<span class="op">=</span>sp.S.Reals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<p><span class="math inline">\(\displaystyle \left\{2 n \pi + \frac{\pi}{6}\; \middle|\; n \in \mathbb{Z}\right\} \cup \left\{2 n \pi + \frac{5 \pi}{6}\; \middle|\; n \in \mathbb{Z}\right\}\)</span></p>
 </div>
 </div>
 
@@ -1915,13 +1989,13 @@ SE_B = s / sqrt(100) = s/10</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/statistics/sampling-distributions.html" class="pagination-link" aria-label="Sampling Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sampling Distributions</span>
+      <a href="../../lessons/trigonometry/identities.html" class="pagination-link" aria-label="Trigonometric Identities">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Trigonometric Identities</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/hypothesis-tests.html" class="pagination-link" aria-label="Hypothesis Tests">
-        <span class="nav-page-text">Hypothesis Tests</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/trigonometry/applications.html" class="pagination-link" aria-label="Applications of Trigonometry">
+        <span class="nav-page-text">Applications of Trigonometry</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1930,4 +2004,4 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/trig-equations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

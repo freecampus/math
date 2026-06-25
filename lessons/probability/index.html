@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Python tools for math education workflows.">
+<meta name="description" content="A guided path through sample spaces, counting, conditional probability, random variables, distributions, expectation, and variance.">
 
-<title>edu-math</title>
+<title>Probability Study Path – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,31 +24,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./installation.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../lessons/probability/sample-spaces-events.html" rel="next">
+<link href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ee7b65498bff2eccbb08c28882d09a9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-87de364a6f675ea9796d7ba8bb621b99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,8 +113,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -250,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">edu-math</span>
     </a>
   </div>
@@ -261,19 +326,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./installation.html"> 
+    <a class="nav-link" href="../../installation.html"> 
 <span class="menu-text">Install</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./api.html"> 
+    <a class="nav-link" href="../../api.html"> 
 <span class="menu-text">API</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./lessons/index.html"> 
+    <a class="nav-link" href="../../lessons/index.html"> 
 <span class="menu-text">Study Path</span></a>
   </li>  
 </ul>
@@ -295,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">edu-math</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability Study Path</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -317,19 +382,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">edu-math</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./api.html" class="sidebar-item-text sidebar-link">
+  <a href="../../api.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API reference</span></a>
   </div>
 </li>
@@ -344,7 +409,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quantitative Mathematics Study Path</span></a>
   </div>
 </li>
@@ -359,25 +424,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Control Flow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NumPy and Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/python/plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/python/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting With Python</span></a>
   </div>
 </li>
@@ -394,79 +459,79 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebra Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inequalities and Absolute Value</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transformations, Composition, and Inverses</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear and Quadratic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Polynomials</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rational and Radical Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Symbolic Computation with SymPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
@@ -483,49 +548,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometry Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Radians and Degrees</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Unit Circle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Identities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
@@ -542,49 +607,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/limits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/derivatives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivatives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/derivative-rules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivative Rules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/integrals.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/integrals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/integration-techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integration Techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/calculus/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/calculus/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Applications</span></a>
   </div>
 </li>
@@ -601,43 +666,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Algebra Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/matrix-operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems and Elimination</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/linear-transformations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Transformations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
   </div>
 </li>
@@ -645,52 +710,52 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text">Probability</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Probability Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/counting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/counting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Counting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/conditional-probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conditional Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Random Variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/common-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Common Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/probability/expectation-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expectation and Variance</span></a>
   </div>
 </li>
@@ -707,67 +772,67 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling and Study Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability for Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Groups</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chi-Square Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
@@ -784,37 +849,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Equations Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Separable Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slope Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/differential-equations/systems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Differential Equations</span></a>
   </div>
 </li>
@@ -831,43 +896,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Discrete Mathematics Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/functions-relations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Relations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sequences</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/induction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Induction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lessons/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/discrete-math/graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Graphs</span></a>
   </div>
 </li>
@@ -877,7 +942,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./changelog.html" class="sidebar-item-text sidebar-link">
+  <a href="../../changelog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changelog</span></a>
   </div>
 </li>
@@ -891,22 +956,34 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#development-status" id="toc-development-status" class="nav-link active" data-scroll-target="#development-status">Development status</a></li>
+  <li><a href="#what-you-should-be-able-to-do-by-the-end" id="toc-what-you-should-be-able-to-do-by-the-end" class="nav-link active" data-scroll-target="#what-you-should-be-able-to-do-by-the-end">What you should be able to do by the end</a></li>
+  <li><a href="#what-makes-probability-different" id="toc-what-makes-probability-different" class="nav-link" data-scroll-target="#what-makes-probability-different">What makes probability different?</a>
+  <ul class="collapse">
+  <li><a href="#probability-is-not-just-formulas" id="toc-probability-is-not-just-formulas" class="nav-link" data-scroll-target="#probability-is-not-just-formulas">Probability is not just formulas</a></li>
+  </ul></li>
+  <li><a href="#prerequisite-checklist" id="toc-prerequisite-checklist" class="nav-link" data-scroll-target="#prerequisite-checklist">Prerequisite checklist</a></li>
+  <li><a href="#the-path-through-the-lessons" id="toc-the-path-through-the-lessons" class="nav-link" data-scroll-target="#the-path-through-the-lessons">The path through the lessons</a></li>
+  <li><a href="#how-to-solve-probability-problems" id="toc-how-to-solve-probability-problems" class="nav-link" data-scroll-target="#how-to-solve-probability-problems">How to solve probability problems</a></li>
+  <li><a href="#common-beginner-mistakes-to-avoid" id="toc-common-beginner-mistakes-to-avoid" class="nav-link" data-scroll-target="#common-beginner-mistakes-to-avoid">Common beginner mistakes to avoid</a></li>
+  <li><a href="#how-the-upgraded-lessons-are-organized" id="toc-how-the-upgraded-lessons-are-organized" class="nav-link" data-scroll-target="#how-the-upgraded-lessons-are-organized">How the upgraded lessons are organized</a></li>
+  <li><a href="#readiness-checkpoint-game" id="toc-readiness-checkpoint-game" class="nav-link" data-scroll-target="#readiness-checkpoint-game">Readiness checkpoint game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability Study Path</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">edu-math</h1>
+<h1 class="title">Probability Study Path</h1>
 </div>
 
 <div>
   <div class="description">
-    Python tools for math education workflows.
+    A guided path through sample spaces, counting, conditional probability, random variables, distributions, expectation, and variance.
   </div>
 </div>
 
@@ -923,11 +1000,555 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><code>edu-math</code> is a Python package for math education workflows.</p>
-<p>The package is currently at its initial infrastructure stage. The project includes source packaging, tests, linting, documentation, release automation, and CI scaffolding.</p>
-<section id="development-status" class="level2">
-<h2 class="anchored" data-anchor-id="development-status">Development status</h2>
-<p>The public API is intentionally small while the package design is established. See <a href="./api.html">API reference</a> for the current exported interface.</p>
+<p>Probability is the mathematics of uncertainty. It helps us reason about events that may or may not happen: a coin lands heads, a message is spam, a patient has a condition, a machine part fails, or a random sample gives a surprising result. The goal is not to guess blindly. The goal is to name what can happen, count it carefully, and update probabilities when new information appears.</p>
+<p>Probability is also the foundation of statistics, simulation, machine learning, risk analysis, quality control, and many scientific models.</p>
+<section id="what-you-should-be-able-to-do-by-the-end" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="what-you-should-be-able-to-do-by-the-end">What you should be able to do by the end</h3>
+<p>After this study path, you should be able to:</p>
+<ul>
+<li>list outcomes in a sample space;</li>
+<li>describe events as subsets of outcomes;</li>
+<li>compute simple probabilities by counting;</li>
+<li>decide when to use factorials, permutations, and combinations;</li>
+<li>compute conditional probabilities and recognize independence;</li>
+<li>define random variables and read probability tables;</li>
+<li>match common distributions to real situations;</li>
+<li>compute expected value, variance, and standard deviation;</li>
+<li>check hand calculations with <code>edumath</code>, Python, and SymPy.</li>
+</ul>
+</section>
+<section id="what-makes-probability-different" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-probability-different">What makes probability different?</h2>
+<p>Algebra often asks, “What value makes this equation true?” Probability asks, “What outcomes are possible, and how much weight should each outcome receive?” A good probability solution usually has three parts:</p>
+<ol type="1">
+<li><strong>Model</strong>: name the experiment and sample space.</li>
+<li><strong>Count or measure</strong>: identify favorable outcomes or probabilities.</li>
+<li><strong>Interpret</strong>: explain what the number means in context.</li>
+</ol>
+<section id="probability-is-not-just-formulas" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="probability-is-not-just-formulas">Probability is not just formulas</h3>
+<p>The same formula can be wrong if the sample space is wrong. Before calculating, ask: <em>What are the outcomes? Are they equally likely? What information is already known?</em></p>
+</section>
+</section>
+<section id="prerequisite-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisite-checklist">Prerequisite checklist</h2>
+<p>You do not need advanced mathematics before starting. It helps to be comfortable with:</p>
+<div class="practice-box">
+<ol type="1">
+<li>Fractions such as <code>1/2</code>, <code>3/4</code>, and <code>5/6</code>.</li>
+<li>Percentages and decimals.</li>
+<li>Basic set language: subset, union, intersection, complement.</li>
+<li>Simple algebraic substitution.</li>
+<li>Tables of counts.</li>
+<li>Multiplication and division with small integers.</li>
+</ol>
+</div>
+<p>If one skill feels weak, continue anyway and slow down when it appears. The lessons review the needed notation in context.</p>
+</section>
+<section id="the-path-through-the-lessons" class="level2">
+<h2 class="anchored" data-anchor-id="the-path-through-the-lessons">The path through the lessons</h2>
+<ol type="1">
+<li><strong>Sample Spaces and Events</strong>: name outcomes, events, complements, unions, intersections, and simple probabilities.</li>
+<li><strong>Counting</strong>: use product rules, factorials, permutations, and combinations before computing probabilities.</li>
+<li><strong>Conditional Probability</strong>: update probabilities after new information, test independence, and use Bayes’ rule.</li>
+<li><strong>Random Variables</strong>: turn outcomes into numbers and read probability mass functions.</li>
+<li><strong>Common Distributions</strong>: recognize Bernoulli, binomial, uniform, and normal patterns.</li>
+<li><strong>Expectation and Variance</strong>: summarize a distribution by long-run center and spread.</li>
+</ol>
+</section>
+<section id="how-to-solve-probability-problems" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-solve-probability-problems">How to solve probability problems</h2>
+<p>Use this checklist whenever a problem feels unclear:</p>
+<ol type="1">
+<li><strong>Name the experiment.</strong> What random process is happening?</li>
+<li><strong>List or describe the sample space.</strong> What outcomes are possible?</li>
+<li><strong>Identify the event.</strong> Which outcomes count as success for this question?</li>
+<li><strong>Check equal likelihood.</strong> Can you count outcomes directly, or do they have different weights?</li>
+<li><strong>Choose the tool.</strong> Counting, conditional probability, a distribution, or expected value?</li>
+<li><strong>Compute slowly.</strong> Keep fractions exact when possible.</li>
+<li><strong>Interpret the answer.</strong> A probability must be between 0 and 1.</li>
+</ol>
+</section>
+<section id="common-beginner-mistakes-to-avoid" class="level2">
+<h2 class="anchored" data-anchor-id="common-beginner-mistakes-to-avoid">Common beginner mistakes to avoid</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Watch these habits
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Do not start with a formula before defining the sample space.</li>
+<li>Do not assume outcomes are equally likely unless the problem says so or the model justifies it.</li>
+<li>Do not confuse <code>P(A | B)</code> with <code>P(B | A)</code>.</li>
+<li>Do not use combinations when order matters.</li>
+<li>Do not treat expected value as a guaranteed outcome.</li>
+<li>Do not ignore units and context when interpreting variance or risk.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="how-the-upgraded-lessons-are-organized" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-upgraded-lessons-are-organized">How the upgraded lessons are organized</h2>
+<p>Each probability lesson includes:</p>
+<ul>
+<li>a short explanation of why the topic matters;</li>
+<li>definitions and formulas in beginner language;</li>
+<li>step-by-step worked examples;</li>
+<li>“Guess first” prompts that build intuition before calculation;</li>
+<li>guided exercises and checkpoints;</li>
+<li>collapsed answers so you can try before looking;</li>
+<li>a browser-native guessing game;</li>
+<li>a final <code>edumath</code> and SymPy appendix with visible code.</li>
+</ul>
+</section>
+<section id="readiness-checkpoint-game" class="level2">
+<h2 class="anchored" data-anchor-id="readiness-checkpoint-game">Readiness checkpoint game</h2>
+<p>Use this quick game to test the core vocabulary before and after the module.</p>
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "probability-cumulative-review",
+  "title": "Probability readiness checkpoint",
+  "defaultTotal": 6
+}
+</script>
+<div class="quiz-shell edu-math-probability-checkpoint" data-default-total="4">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "sample-spaces-events";
+    const BANKS = {
+      "sample-spaces-events": [sampleSpaceQuestion, eventQuestion, complementQuestion, simpleProbabilityQuestion],
+      counting: [factorialQuestion, productRuleQuestion, permutationCombinationQuestion, combinationQuestion],
+      "conditional-probability": [conditionalMeaningQuestion, conditionalCountQuestion, independenceQuestion, bayesDirectionQuestion],
+      "random-variables": [randomVariableQuestion, discreteContinuousQuestion, pmfValidityQuestion, expectedValueQuestion],
+      "common-distributions": [bernoulliQuestion, binomialQuestion, uniformQuestion, normalQuestion],
+      "expectation-variance": [weightedAverageQuestion, possibleOutcomeQuestion, varianceQuestion, fairGameQuestion],
+      "probability-cumulative-review": [sampleSpaceQuestion, permutationCombinationQuestion, conditionalMeaningQuestion, pmfValidityQuestion, binomialQuestion, varianceQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-probability-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-probability-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Probability checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function sampleSpaceQuestion() {
+      return question({
+        prompt: "What is the sample space for one coin flip?",
+        stimulus: "one fair coin",
+        answer: "{H, T}",
+        distractors: ["{H}", "{T}", "{1, 2, 3, 4, 5, 6}"],
+        explanation: "The sample space lists all possible outcomes: heads and tails.",
+      });
+    }
+
+    function eventQuestion() {
+      return question({
+        prompt: "For a fair die, which event represents rolling an even number?",
+        stimulus: "S = {1,2,3,4,5,6}",
+        answer: "{2, 4, 6}",
+        distractors: ["{1, 3, 5}", "{6}", "{2, 3, 5}"],
+        explanation: "An event is a subset of outcomes that satisfy the condition.",
+      });
+    }
+
+    function complementQuestion() {
+      return question({
+        prompt: "What is the complement of rolling even on a fair die?",
+        stimulus: "Even = {2,4,6}",
+        answer: "{1, 3, 5}",
+        distractors: ["{2, 4, 6}", "{1, 2, 3}", "empty set"],
+        explanation: "The complement contains outcomes in the sample space that are not in the event.",
+      });
+    }
+
+    function simpleProbabilityQuestion() {
+      return question({
+        prompt: "What is P(rolling greater than 4) on a fair die?",
+        stimulus: "favorable outcomes: {5,6}",
+        answer: "2/6 = 1/3",
+        distractors: ["1/6", "4/6", "1/2"],
+        explanation: "There are 2 favorable outcomes out of 6 equally likely outcomes.",
+      });
+    }
+
+    function factorialQuestion() {
+      return question({
+        prompt: "Compute 4!.",
+        stimulus: "factorial",
+        answer: "24",
+        distractors: ["8", "16", "4"],
+        explanation: "4! = 4·3·2·1 = 24.",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "A meal has 3 mains and 2 drinks. How many meal choices?",
+        stimulus: "choose one main and one drink",
+        answer: "6",
+        distractors: ["5", "3", "2"],
+        explanation: "Use the product rule: 3·2 = 6.",
+      });
+    }
+
+    function permutationCombinationQuestion() {
+      return question({
+        prompt: "Which method fits choosing 3 students from 10 when order does not matter?",
+        stimulus: "committee selection",
+        answer: "combination",
+        distractors: ["permutation", "factorial only", "conditional probability"],
+        explanation: "Combinations count selections when order does not matter.",
+      });
+    }
+
+    function combinationQuestion() {
+      return question({
+        prompt: "Compute C(5,2).",
+        stimulus: "choose 2 from 5",
+        answer: "10",
+        distractors: ["20", "5", "25"],
+        explanation: "C(5,2)=5·4/(2·1)=10.",
+      });
+    }
+
+    function conditionalMeaningQuestion() {
+      return question({
+        prompt: "What does P(A | B) mean?",
+        stimulus: "conditional notation",
+        answer: "probability of A given B happened",
+        distractors: ["probability of B given A happened", "A and B are impossible", "A or B"],
+        explanation: "The condition after the vertical bar is the information already known.",
+      });
+    }
+
+    function conditionalCountQuestion() {
+      return question({
+        prompt: "A fair die is known to be greater than 3. What is P(even | greater than 3)?",
+        stimulus: "restricted outcomes: {4,5,6}",
+        answer: "2/3",
+        distractors: ["1/2", "1/3", "3/6"],
+        explanation: "Inside {4,5,6}, the even outcomes are {4,6}.",
+      });
+    }
+
+    function independenceQuestion() {
+      return question({
+        prompt: "If A and B are independent, what is P(A | B)?",
+        stimulus: "B gives no information about A",
+        answer: "P(A)",
+        distractors: ["P(B)", "P(A and B)", "0"],
+        explanation: "Independence means knowing B does not change the probability of A.",
+      });
+    }
+
+    function bayesDirectionQuestion() {
+      return question({
+        prompt: "Which probability reverses the condition in P(test positive | disease)?",
+        stimulus: "Bayes direction",
+        answer: "P(disease | test positive)",
+        distractors: ["P(disease and test positive)", "P(test positive)", "P(not disease)"],
+        explanation: "Bayes' rule helps reverse conditional probabilities.",
+      });
+    }
+
+    function randomVariableQuestion() {
+      return question({
+        prompt: "What does a random variable assign to outcomes?",
+        stimulus: "random variable",
+        answer: "numbers",
+        distractors: ["only words", "only probabilities", "only graphs"],
+        explanation: "A random variable is a numeric rule on outcomes.",
+      });
+    }
+
+    function discreteContinuousQuestion() {
+      return question({
+        prompt: "Which is continuous?",
+        stimulus: "types of random variables",
+        answer: "waiting time",
+        distractors: ["number of heads in 3 flips", "die roll", "number of emails"],
+        explanation: "Waiting time can vary over an interval, not just a list of separate values.",
+      });
+    }
+
+    function pmfValidityQuestion() {
+      return question({
+        prompt: "Is {0:0.3, 1:0.7} a valid PMF?",
+        stimulus: "probabilities sum to 1",
+        answer: "yes",
+        distractors: ["no, sums to 0.7", "no, probabilities must be equal", "no, values must start at 1"],
+        explanation: "The probabilities are nonnegative and 0.3+0.7=1.",
+      });
+    }
+
+    function expectedValueQuestion() {
+      return question({
+        prompt: "Find E[X] when X is 0 with probability 0.4 and 1 with probability 0.6.",
+        stimulus: "weighted average",
+        answer: "0.6",
+        distractors: ["0.4", "1", "0.5"],
+        explanation: "E[X]=0·0.4+1·0.6=0.6.",
+      });
+    }
+
+    function bernoulliQuestion() {
+      return question({
+        prompt: "Which distribution models one yes/no trial?",
+        stimulus: "success or failure once",
+        answer: "Bernoulli",
+        distractors: ["Binomial", "Normal", "Uniform"],
+        explanation: "A Bernoulli distribution has one trial with two outcomes.",
+      });
+    }
+
+    function binomialQuestion() {
+      return question({
+        prompt: "Which distribution counts successes in fixed independent trials?",
+        stimulus: "n trials, same p",
+        answer: "Binomial",
+        distractors: ["Bernoulli", "Normal", "Continuous uniform"],
+        explanation: "The binomial distribution counts successes across repeated Bernoulli trials.",
+      });
+    }
+
+    function uniformQuestion() {
+      return question({
+        prompt: "A fair die is an example of which discrete pattern?",
+        stimulus: "all six faces equally likely",
+        answer: "uniform",
+        distractors: ["normal", "binomial", "geometric"],
+        explanation: "Uniform means all listed outcomes have the same probability.",
+      });
+    }
+
+    function normalQuestion() {
+      return question({
+        prompt: "Which distribution is often used for bell-shaped measurement noise?",
+        stimulus: "centered around a mean",
+        answer: "Normal",
+        distractors: ["Bernoulli", "Uniform", "Permutation"],
+        explanation: "The normal distribution is a common model for many measurement errors.",
+      });
+    }
+
+    function weightedAverageQuestion() {
+      return question({
+        prompt: "Compute the expected value of 0 with probability 0.5 and 10 with probability 0.5.",
+        stimulus: "weighted average",
+        answer: "5",
+        distractors: ["10", "0", "0.5"],
+        explanation: "E[X]=0·0.5+10·0.5=5.",
+      });
+    }
+
+    function possibleOutcomeQuestion() {
+      return question({
+        prompt: "Can an expected value be impossible as a single outcome?",
+        stimulus: "fair die mean is 3.5",
+        answer: "yes",
+        distractors: ["no", "only for coins", "only if variance is 0"],
+        explanation: "Expected value is a long-run average, not necessarily an actual outcome.",
+      });
+    }
+
+    function varianceQuestion() {
+      return question({
+        prompt: "What does larger variance usually mean?",
+        stimulus: "spread around the mean",
+        answer: "outcomes are more spread out",
+        distractors: ["mean is always larger", "probabilities do not sum to 1", "outcomes are impossible"],
+        explanation: "Variance measures average squared distance from the mean.",
+      });
+    }
+
+    function fairGameQuestion() {
+      return question({
+        prompt: "A game costs $5 and has expected payout $5. What is its expected net gain?",
+        stimulus: "net gain = payout - cost",
+        answer: "$0",
+        distractors: ["$5", "-$5", "$10"],
+        explanation: "Expected net gain is expected payout minus cost: 5-5=0.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `probability-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to inspect the lesson path.</p>
+<div id="ba7cb763" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> PROBABILITY_PATH</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>PROBABILITY_PATH.slugs()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>['sample-spaces-events',
+ 'counting',
+ 'conditional-probability',
+ 'random-variables',
+ 'common-distributions',
+ 'expectation-variance']</code></pre>
+</div>
+</div>
+<p>Use Python sets for finite probability models.</p>
+<div id="b51b4161" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> probability</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sample_space <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>even <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>probability(even, sample_space)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>0.5</code></pre>
+</div>
+</div>
+<p>Use SymPy for exact fraction arithmetic.</p>
+<div id="ea7c92b2" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sp.Rational(<span class="dv">2</span>, <span class="dv">6</span>).simplify()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle \frac{1}{3}\)</span></p>
+</div>
+</div>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li>OpenStax, <em>Introductory Statistics</em>, probability chapters: <a href="https://openstax.org/details/books/introductory-statistics" class="uri">https://openstax.org/details/books/introductory-statistics</a></li>
+<li>Harvard Stat 110 probability materials by Blitzstein: <a href="https://projects.iq.harvard.edu/stat110" class="uri">https://projects.iq.harvard.edu/stat110</a></li>
+<li>MIT OpenCourseWare probability and statistics materials: <a href="https://ocw.mit.edu/" class="uri">https://ocw.mit.edu/</a></li>
+</ul>
 
 
 </section>
@@ -1353,10 +1974,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../lessons/linear-algebra/eigenvalues-eigenvectors.html" class="pagination-link" aria-label="Eigenvalues and Eigenvectors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Eigenvalues and Eigenvectors</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./installation.html" class="pagination-link" aria-label="Installation">
-        <span class="nav-page-text">Installation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/probability/sample-spaces-events.html" class="pagination-link" aria-label="Sample Spaces and Events">
+        <span class="nav-page-text">Sample Spaces and Events</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1365,4 +1989,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

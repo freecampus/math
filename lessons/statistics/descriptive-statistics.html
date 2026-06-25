@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Summarize data with center and spread.">
+<meta name="description" content="Summarize data with center, spread, shape, outliers, and plots.">
 
 <title>Descriptive Statistics – edu-math</title>
 <style>
@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../lessons/statistics/sampling.html" rel="next">
-<link href="../../lessons/probability/expectation-variance.html" rel="prev">
+<link href="../../lessons/statistics/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Descriptive Statistics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Descriptive Statistics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -519,8 +548,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -648,6 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -695,6 +772,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -702,7 +785,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -719,8 +814,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -825,58 +938,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -895,8 +956,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#data-first-what-is-a-variable" id="toc-data-first-what-is-a-variable" class="nav-link" data-scroll-target="#data-first-what-is-a-variable">Data first: what is a variable?</a></li>
+  <li><a href="#measures-of-center" id="toc-measures-of-center" class="nav-link" data-scroll-target="#measures-of-center">Measures of center</a>
+  <ul class="collapse">
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
+  </ul></li>
+  <li><a href="#measures-of-spread" id="toc-measures-of-spread" class="nav-link" data-scroll-target="#measures-of-spread">Measures of spread</a>
+  <ul class="collapse">
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#variance-and-standard-deviation" id="toc-variance-and-standard-deviation" class="nav-link" data-scroll-target="#variance-and-standard-deviation">Variance and standard deviation</a></li>
+  <li><a href="#quartiles-and-iqr" id="toc-quartiles-and-iqr" class="nav-link" data-scroll-target="#quartiles-and-iqr">Quartiles and IQR</a></li>
+  </ul></li>
+  <li><a href="#outliers-and-shape" id="toc-outliers-and-shape" class="nav-link" data-scroll-target="#outliers-and-shape">Outliers and shape</a></li>
+  <li><a href="#worked-example-1-mean-and-median" id="toc-worked-example-1-mean-and-median" class="nav-link" data-scroll-target="#worked-example-1-mean-and-median">Worked example 1: mean and median</a></li>
+  <li><a href="#worked-example-2-sample-standard-deviation" id="toc-worked-example-2-sample-standard-deviation" class="nav-link" data-scroll-target="#worked-example-2-sample-standard-deviation">Worked example 2: sample standard deviation</a></li>
+  <li><a href="#worked-example-3-choose-the-summary" id="toc-worked-example-3-choose-the-summary" class="nav-link" data-scroll-target="#worked-example-3-choose-the-summary">Worked example 3: choose the summary</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-compute-center" id="toc-lab-1-compute-center" class="nav-link" data-scroll-target="#lab-1-compute-center">Lab 1: compute center</a></li>
+  <li><a href="#lab-2-interpret-spread" id="toc-lab-2-interpret-spread" class="nav-link" data-scroll-target="#lab-2-interpret-spread">Lab 2: interpret spread</a></li>
+  <li><a href="#lab-3-detect-possible-outliers" id="toc-lab-3-detect-possible-outliers" class="nav-link" data-scroll-target="#lab-3-detect-possible-outliers">Lab 3: detect possible outliers</a></li>
+  <li><a href="#lab-4-connect-summaries-to-plots" id="toc-lab-4-connect-summaries-to-plots" class="nav-link" data-scroll-target="#lab-4-connect-summaries-to-plots">Lab 4: connect summaries to plots</a></li>
+  </ul></li>
+  <li><a href="#descriptive-statistics-guessing-game" id="toc-descriptive-statistics-guessing-game" class="nav-link" data-scroll-target="#descriptive-statistics-guessing-game">Descriptive statistics guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/descriptive-statistics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -904,14 +992,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Descriptive Statistics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Descriptive Statistics</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Descriptive Statistics</h1>
 </div>
 
 <div>
   <div class="description">
-    Summarize data with center and spread.
+    Summarize data with center, spread, shape, outliers, and plots.
   </div>
 </div>
 
@@ -928,47 +1016,226 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Descriptive statistics help you understand a dataset before making conclusions. They answer questions such as: Where is the center? How spread out are the values? Is the distribution symmetric or skewed? Are there unusual values?</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Compute mean, median, variance, and standard deviation.</li>
-<li>Interpret center and spread.</li>
-<li>Use descriptive summaries carefully.</li>
+<li>compute and interpret mean, median, mode, range, variance, and standard deviation;</li>
+<li>compute and interpret quartiles and interquartile range;</li>
+<li>identify possible outliers using the <code>1.5 * IQR</code> rule;</li>
+<li>describe distribution shape: symmetric, skewed, unimodal, bimodal, clustered;</li>
+<li>choose summaries that match the data shape;</li>
+<li>use <code>edumath</code>, Python, and SymPy to verify descriptive calculations.</li>
 </ul>
 </section>
-<div id="c6b2bd8b" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics.concepts <span class="im">import</span> describe</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>describe([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">10</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>DescriptiveStats(mean=4.0, median=3.0, variance=12.5, standard_deviation=3.5355339059327378, minimum=1.0, maximum=10.0)</code></pre>
+<section id="data-first-what-is-a-variable" class="level2">
+<h2 class="anchored" data-anchor-id="data-first-what-is-a-variable">Data first: what is a variable?</h2>
+<p>A <strong>variable</strong> is a characteristic that can vary from individual to individual. Examples include height, exam score, commute time, favorite color, or whether a machine part passed inspection.</p>
+<p>Variables can be:</p>
+<ul>
+<li><strong>quantitative</strong>: numerical measurements or counts;</li>
+<li><strong>categorical</strong>: labels or groups.</li>
+</ul>
+<p>This lesson focuses mostly on quantitative variables.</p>
+</section>
+<section id="measures-of-center" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-center">Measures of center</h2>
+<p>A measure of center gives one number that represents a typical value.</p>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean">Mean</h3>
+<p>The <strong>mean</strong> is the arithmetic average:</p>
+<div class="formula-box">
+<pre class="text"><code>mean = sum of values / number of values</code></pre>
 </div>
-</div>
+<p>The mean is useful when the data are roughly symmetric and do not have extreme outliers. It is sensitive to very large or very small values.</p>
+</section>
+<section id="median" class="level3">
+<h3 class="anchored" data-anchor-id="median">Median</h3>
+<p>The <strong>median</strong> is the middle value after sorting the data. If there are two middle values, average them.</p>
+<p>The median is more resistant to outliers than the mean.</p>
+</section>
+<section id="mode" class="level3">
+<h3 class="anchored" data-anchor-id="mode">Mode</h3>
+<p>The <strong>mode</strong> is the most common value or category. A dataset may have one mode, several modes, or no repeated values.</p>
+</section>
+</section>
+<section id="measures-of-spread" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-spread">Measures of spread</h2>
+<p>Spread describes how much the data vary.</p>
+<section id="range" class="level3">
+<h3 class="anchored" data-anchor-id="range">Range</h3>
+<pre class="text"><code>range = maximum - minimum</code></pre>
+<p>Range is easy to compute but depends only on two values.</p>
+</section>
+<section id="variance-and-standard-deviation" class="level3">
+<h3 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h3>
+<p>Variance averages squared deviations from the mean. Standard deviation is the square root of variance, so it is measured in the original units.</p>
+<p>For a sample:</p>
+<pre class="text"><code>sample variance = sum((value - mean)^2) / (n - 1)
+sample standard deviation = sqrt(sample variance)</code></pre>
+<p>The <code>n - 1</code> denominator is used because a sample is estimating a population spread.</p>
+</section>
+<section id="quartiles-and-iqr" class="level3">
+<h3 class="anchored" data-anchor-id="quartiles-and-iqr">Quartiles and IQR</h3>
+<p>Quartiles split sorted data into four parts:</p>
+<ul>
+<li><code>Q1</code>: about 25% of data are at or below this value;</li>
+<li><code>median</code>: about 50% are at or below;</li>
+<li><code>Q3</code>: about 75% are at or below.</li>
+</ul>
+<p>The interquartile range is:</p>
+<pre class="text"><code>IQR = Q3 - Q1</code></pre>
+<p>IQR describes the spread of the middle half of the data.</p>
+</section>
+</section>
+<section id="outliers-and-shape" class="level2">
+<h2 class="anchored" data-anchor-id="outliers-and-shape">Outliers and shape</h2>
+<p>A common rule flags possible outliers below or above these fences:</p>
+<pre class="text"><code>lower fence = Q1 - 1.5 * IQR
+upper fence = Q3 + 1.5 * IQR</code></pre>
+<p>Outliers are not automatically mistakes. They are values that deserve attention. They may represent errors, rare events, or important discoveries.</p>
+<p>Shape words:</p>
+<ul>
+<li><strong>symmetric</strong>: left and right sides look similar;</li>
+<li><strong>right-skewed</strong>: long tail to the right;</li>
+<li><strong>left-skewed</strong>: long tail to the left;</li>
+<li><strong>unimodal</strong>: one main peak;</li>
+<li><strong>bimodal</strong>: two main peaks.</li>
+</ul>
+</section>
+<section id="worked-example-1-mean-and-median" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-mean-and-median">Worked example 1: mean and median</h2>
+<p>Data:</p>
+<pre class="text"><code>2, 3, 4, 5, 100</code></pre>
+<p><strong>Step 1: Compute the mean.</strong></p>
+<pre class="text"><code>mean = (2 + 3 + 4 + 5 + 100) / 5
+mean = 114 / 5
+mean = 22.8</code></pre>
+<p><strong>Step 2: Compute the median.</strong></p>
+<p>The values are already sorted. The middle value is <code>4</code>.</p>
+<p><strong>Step 3: Interpret.</strong></p>
+<p>The mean <code>22.8</code> is much larger than most values because <code>100</code> is an outlier. The median <code>4</code> better represents a typical value in this small dataset.</p>
+</section>
+<section id="worked-example-2-sample-standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-sample-standard-deviation">Worked example 2: sample standard deviation</h2>
+<p>Data:</p>
+<pre class="text"><code>4, 6, 8</code></pre>
+<p><strong>Step 1: Find the mean.</strong></p>
+<pre class="text"><code>mean = (4 + 6 + 8) / 3 = 6</code></pre>
+<p><strong>Step 2: Find deviations from the mean.</strong></p>
+<pre class="text"><code>4 - 6 = -2
+6 - 6 = 0
+8 - 6 = 2</code></pre>
+<p><strong>Step 3: Square the deviations.</strong></p>
+<pre class="text"><code>(-2)^2 = 4
+0^2 = 0
+2^2 = 4</code></pre>
+<p><strong>Step 4: Average with <code>n - 1</code> for sample variance.</strong></p>
+<pre class="text"><code>sample variance = (4 + 0 + 4) / (3 - 1) = 8 / 2 = 4</code></pre>
+<p><strong>Step 5: Take the square root.</strong></p>
+<pre class="text"><code>sample standard deviation = sqrt(4) = 2</code></pre>
+</section>
+<section id="worked-example-3-choose-the-summary" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-choose-the-summary">Worked example 3: choose the summary</h2>
+<p>A neighborhood income dataset is right-skewed because a few households have very large incomes.</p>
+<p><strong>Question:</strong> Should you report mean, median, or both?</p>
+<p><strong>Reasoning:</strong></p>
+<ul>
+<li>The mean will be pulled upward by very high incomes.</li>
+<li>The median tells where the middle household is.</li>
+<li>Reporting both is often best because the gap between mean and median signals skew.</li>
+</ul>
+<p>A careful sentence:</p>
+<pre class="text"><code>The median income describes the typical household better than the mean because
+income is right-skewed, but the mean helps reveal the influence of high incomes.</code></pre>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Computing the mean before checking for outliers.</li>
+<li>Saying standard deviation is “the average distance” without noting the squared-deviation calculation.</li>
+<li>Treating every outlier as an error.</li>
+<li>Using mean and standard deviation for highly skewed data without also showing median and IQR.</li>
+<li>Describing categorical variables with means when percentages or counts are better.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
+<li>Find the mean of <code>1, 2, 3, 4, 10</code>.</li>
+<li>Find the median of <code>1, 2, 3, 4, 10</code>.</li>
 <li>Which is more sensitive to outliers: mean or median?</li>
-<li>What does standard deviation measure?</li>
-<li>Why should summaries be paired with plots?</li>
+<li>What does standard deviation measure in context?</li>
+<li>For <code>Q1=10</code> and <code>Q3=18</code>, find the IQR and upper outlier fence.</li>
+<li>A dataset has a long right tail. Which is larger most often: mean or median?</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: mean.</p>
-<p>The mean uses every value directly, so an extreme value can pull it strongly.</p>
+<ol type="1">
+<li>Mean: <code>(1+2+3+4+10)/5 = 20/5 = 4</code>.</li>
+<li>Median: <code>3</code>.</li>
+<li>The mean is more sensitive because it uses the exact size of every value.</li>
+<li>Standard deviation measures typical spread around the mean, in original units.</li>
+<li><code>IQR=18-10=8</code>; upper fence <code>=18+1.5(8)=30</code>.</li>
+<li>In a right-skewed distribution, the mean is usually larger than the median.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<section id="lab-1-compute-center" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-compute-center">Lab 1: compute center</h3>
+<p><strong>Guess first.</strong> For <code>3, 3, 4, 10</code>, will the mean be larger or smaller than the median?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>mean = (3+3+4+10)/4 = 5
+median = (3+4)/2 = 3.5</code></pre>
+<p>The mean is larger because <code>10</code> pulls it upward.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Find the mean and median of <code>5, 5, 6, 20</code>.</p>
+</div>
+</section>
+<section id="lab-2-interpret-spread" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-interpret-spread">Lab 2: interpret spread</h3>
+<p><strong>Guess first.</strong> If two classes have the same mean but one has a larger standard deviation, what differs?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The class with larger standard deviation has scores more spread out around the mean.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Which dataset has more spread: <code>9,10,11</code> or <code>1,10,19</code>?</p>
+</div>
+</section>
+<section id="lab-3-detect-possible-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-detect-possible-outliers">Lab 3: detect possible outliers</h3>
+<p><strong>Guess first.</strong> If <code>Q1=4</code> and <code>Q3=8</code>, is <code>20</code> a possible outlier?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>IQR = 8 - 4 = 4
+upper fence = 8 + 1.5(4) = 14</code></pre>
+<p>Since <code>20 &gt; 14</code>, it is a possible outlier.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If <code>Q1=12</code> and <code>Q3=20</code>, find the lower fence.</p>
+</div>
+</section>
+<section id="lab-4-connect-summaries-to-plots" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-connect-summaries-to-plots">Lab 4: connect summaries to plots</h3>
+<p><strong>Guess first.</strong> Why should summaries be paired with plots?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Two datasets can share the same mean and standard deviation but have different shapes, clusters, or outliers. A histogram or boxplot reveals structure that a few numbers can hide.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Name one feature a plot can reveal that the mean cannot.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -976,31 +1243,319 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: typical spread around the mean.</p>
-<p>A larger standard deviation means values tend to be farther from the mean.</p>
+<ol type="1">
+<li>Mean <code>=9</code>; median <code>=5.5</code>.</li>
+<li><code>1,10,19</code> has more spread.</li>
+<li>Lower fence <code>=12 - 1.5(8) = 0</code>.</li>
+<li>Possible answers: skew, clusters, gaps, outliers, multiple peaks.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="descriptive-statistics-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics-guessing-game">Descriptive statistics guessing game</h2>
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "descriptive-statistics",
+  "title": "Descriptive statistics checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-statistics-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "descriptive-statistics";
+    const BANKS = {
+      "descriptive-statistics": [meanQuestion, medianQuestion, iqrQuestion, outlierQuestion],
+      sampling: [populationQuestion, biasQuestion, randomSampleQuestion, confoundingQuestion],
+      "probability-for-statistics": [expectedValueQuestion, varianceQuestion, normalModelQuestion, binomialQuestion],
+      "sampling-distributions": [standardErrorQuestion, cltQuestion, samplingDistributionQuestion, sampleSizeQuestion],
+      estimation: [pointEstimateQuestion, confidenceIntervalQuestion, marginQuestion, confidenceMeaningQuestion],
+      "hypothesis-tests": [nullQuestion, pValueQuestion, alphaQuestion, typeErrorQuestion],
+      "comparing-groups": [pairedQuestion, independentQuestion, differenceQuestion, effectSizeQuestion],
+      "chi-square-tests": [observedExpectedQuestion, goodnessFitQuestion, independenceQuestion, chiSquareCautionQuestion],
+      "regression-basics": [slopeQuestion, residualQuestion, correlationQuestion, causationQuestion],
+      "statistics-cumulative-review": [meanQuestion, biasQuestion, standardErrorQuestion, confidenceIntervalQuestion, pValueQuestion, slopeQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-statistics-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-statistics-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Statistics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function meanQuestion() {
+      return question({ prompt: "What is the mean of 2, 4, and 6?", stimulus: "add then divide by 3", answer: "4", distractors: ["3", "6", "12"], explanation: "(2+4+6)/3 = 4." });
+    }
+    function medianQuestion() {
+      return question({ prompt: "Which summary is most resistant to one very large outlier?", stimulus: "center with outliers", answer: "median", distractors: ["mean", "range", "maximum"], explanation: "The median depends on order position, not the exact size of the extreme value." });
+    }
+    function iqrQuestion() {
+      return question({ prompt: "What does the IQR measure?", stimulus: "Q3 - Q1", answer: "spread of the middle half", distractors: ["average value", "sample size", "largest value only"], explanation: "IQR is the distance from the first quartile to the third quartile." });
+    }
+    function outlierQuestion() {
+      return question({ prompt: "A value far above the rest usually affects which summary most?", stimulus: "outlier", answer: "mean", distractors: ["median", "Q1", "sample size"], explanation: "The mean uses the exact size of every value." });
+    }
+    function populationQuestion() {
+      return question({ prompt: "The full group we want to learn about is the...", stimulus: "study target", answer: "population", distractors: ["sample", "statistic", "response"], explanation: "A sample is selected from the population." });
+    }
+    function biasQuestion() {
+      return question({ prompt: "Surveying only gym visitors about exercise is mainly what problem?", stimulus: "who was selected", answer: "selection bias", distractors: ["random sampling", "larger sample size", "low variance"], explanation: "The selected group systematically differs from the target population." });
+    }
+    function randomSampleQuestion() {
+      return question({ prompt: "Why do random samples help?", stimulus: "chance selection", answer: "they reduce systematic selection patterns", distractors: ["they remove all uncertainty", "they prove causation", "they make every answer true"], explanation: "Random selection supports probability-based uncertainty estimates." });
+    }
+    function confoundingQuestion() {
+      return question({ prompt: "A hidden variable related to both treatment and outcome is called a...", stimulus: "causal caution", answer: "confounder", distractors: ["median", "residual", "margin of error"], explanation: "Confounding can create misleading associations." });
+    }
+    function expectedValueQuestion() {
+      return question({ prompt: "Expected value is best described as a...", stimulus: "weighted average", answer: "long-run average", distractors: ["guaranteed outcome", "sample maximum", "p-value"], explanation: "Expected value averages outcomes using probabilities as weights." });
+    }
+    function varianceQuestion() {
+      return question({ prompt: "Variance measures typical squared distance from the...", stimulus: "spread", answer: "mean", distractors: ["maximum", "sample size", "p-value"], explanation: "Variance averages squared deviations from the mean." });
+    }
+    function normalModelQuestion() {
+      return question({ prompt: "The normal distribution is shaped like a...", stimulus: "symmetric model", answer: "bell", distractors: ["line", "triangle", "two-way table"], explanation: "Normal models are symmetric and bell-shaped." });
+    }
+    function binomialQuestion() {
+      return question({ prompt: "A binomial count records the number of...", stimulus: "fixed independent trials", answer: "successes", distractors: ["outliers", "residuals", "quartiles"], explanation: "Binomial variables count successes in a fixed number of independent trials." });
+    }
+    function standardErrorQuestion() {
+      return question({ prompt: "Standard error describes variation of a...", stimulus: "sample-to-sample", answer: "statistic", distractors: ["single raw value", "population label", "survey question wording"], explanation: "It is the standard deviation of a statistic's sampling distribution." });
+    }
+    function cltQuestion() {
+      return question({ prompt: "The central limit theorem says sample means often become approximately...", stimulus: "large n", answer: "normal", distractors: ["categorical", "impossible", "biased"], explanation: "With conditions, the distribution of sample means is approximately normal." });
+    }
+    function samplingDistributionQuestion() {
+      return question({ prompt: "A sampling distribution is the distribution of...", stimulus: "repeat sampling", answer: "a statistic", distractors: ["one questionnaire", "a population name", "a graph title"], explanation: "Imagine calculating the statistic for many random samples." });
+    }
+    function sampleSizeQuestion() {
+      return question({ prompt: "If sample size increases, standard error usually...", stimulus: "SE = s/sqrt(n)", answer: "decreases", distractors: ["increases", "stays forced at 1", "becomes a p-value"], explanation: "The square root of n is in the denominator." });
+    }
+    function pointEstimateQuestion() {
+      return question({ prompt: "A single-number estimate is a...", stimulus: "one value", answer: "point estimate", distractors: ["confidence level", "null hypothesis", "residual"], explanation: "A sample mean or sample proportion can be a point estimate." });
+    }
+    function confidenceIntervalQuestion() {
+      return question({ prompt: "A confidence interval is estimate plus/minus...", stimulus: "uncertainty", answer: "margin of error", distractors: ["sample maximum", "correlation", "confounder"], explanation: "The margin of error measures how far the interval extends from the estimate." });
+    }
+    function marginQuestion() {
+      return question({ prompt: "For a 95% normal interval, the multiplier is about...", stimulus: "critical value", answer: "1.96", distractors: ["0.05", "10", "100"], explanation: "A two-sided 95% normal interval uses z* approximately 1.96." });
+    }
+    function confidenceMeaningQuestion() {
+      return question({ prompt: "95% confidence describes the long-run success rate of the...", stimulus: "repeated samples", answer: "method", distractors: ["single fixed interval", "null being true", "largest observation"], explanation: "The confidence level belongs to the procedure over repeated samples." });
+    }
+    function nullQuestion() {
+      return question({ prompt: "The baseline claim in a test is the...", stimulus: "H0", answer: "null hypothesis", distractors: ["sample statistic", "residual", "histogram"], explanation: "The null often represents no change, no effect, or an existing claim." });
+    }
+    function pValueQuestion() {
+      return question({ prompt: "A p-value is computed assuming which hypothesis is true?", stimulus: "test logic", answer: "null hypothesis", distractors: ["alternative hypothesis", "largest value", "regression line"], explanation: "It measures how surprising the data are under the null model." });
+    }
+    function alphaQuestion() {
+      return question({ prompt: "If p-value <= alpha, the usual decision is to...", stimulus: "decision rule", answer: "reject the null", distractors: ["prove the null", "ignore the data", "increase sample bias"], explanation: "The result is statistically significant at that alpha level." });
+    }
+    function typeErrorQuestion() {
+      return question({ prompt: "Rejecting a true null hypothesis is a Type...", stimulus: "false positive", answer: "I error", distractors: ["II error", "residual", "quartile"], explanation: "Type I error is a false positive decision." });
+    }
+    function pairedQuestion() {
+      return question({ prompt: "Before-and-after measurements on the same people are...", stimulus: "same units twice", answer: "paired", distractors: ["independent", "categorical only", "a histogram"], explanation: "Pairing means observations are naturally linked." });
+    }
+    function independentQuestion() {
+      return question({ prompt: "Two separate randomly selected groups are usually treated as...", stimulus: "different units", answer: "independent samples", distractors: ["paired samples", "one residual", "one population parameter"], explanation: "No observation in one group is matched to a specific observation in the other." });
+    }
+    function differenceQuestion() {
+      return question({ prompt: "When comparing two means, the estimate is often...", stimulus: "group A minus group B", answer: "a difference", distractors: ["a maximum", "a p-value only", "a sample label"], explanation: "The difference in sample means estimates the difference in population means." });
+    }
+    function effectSizeQuestion() {
+      return question({ prompt: "Practical importance is mostly about the...", stimulus: "real-world size", answer: "effect size", distractors: ["file name", "random seed", "graph color"], explanation: "A tiny effect can be statistically significant but not practically important." });
+    }
+    function observedExpectedQuestion() {
+      return question({ prompt: "Chi-square statistics compare observed counts to...", stimulus: "null model", answer: "expected counts", distractors: ["sample means", "residual plots", "confidence levels"], explanation: "Expected counts are what the null model predicts for each category." });
+    }
+    function goodnessFitQuestion() {
+      return question({ prompt: "A goodness-of-fit test uses how many categorical variables?", stimulus: "one-way table", answer: "one", distractors: ["two", "three slopes", "no counts"], explanation: "It compares one categorical distribution to a claimed distribution." });
+    }
+    function independenceQuestion() {
+      return question({ prompt: "A chi-square test of independence uses a...", stimulus: "two categorical variables", answer: "two-way table", distractors: ["scatterplot only", "sample mean", "slope formula"], explanation: "Rows and columns represent the two categorical variables." });
+    }
+    function chiSquareCautionQuestion() {
+      return question({ prompt: "Chi-square methods are based on...", stimulus: "categorical data", answer: "counts", distractors: ["raw angles", "regression slopes only", "derivatives"], explanation: "The data should be frequency counts in categories." });
+    }
+    function slopeQuestion() {
+      return question({ prompt: "In regression, slope is the predicted change in y for...", stimulus: "one-unit change", answer: "one more unit of x", distractors: ["one more residual", "the median only", "a smaller p-value"], explanation: "Slope connects changes in the explanatory variable to predicted changes in the response." });
+    }
+    function residualQuestion() {
+      return question({ prompt: "A residual is observed y minus...", stimulus: "prediction error", answer: "predicted y", distractors: ["mean x", "sample size", "confidence level"], explanation: "Residuals show prediction errors for individual points." });
+    }
+    function correlationQuestion() {
+      return question({ prompt: "Correlation is always between...", stimulus: "r", answer: "-1 and 1", distractors: ["0 and 100", "1 and infinity", "only positive values"], explanation: "Pearson correlation ranges from -1 to 1." });
+    }
+    function causationQuestion() {
+      return question({ prompt: "A strong regression association alone proves causation?", stimulus: "causal caution", answer: "no", distractors: ["yes", "always", "only if slope is positive"], explanation: "Confounding and study design matter for causal claims." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `statistics-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to compute descriptive summaries.</p>
+<div id="5f01a89f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> describe, five_number_summary, outlier_fences</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">100</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>describe(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>DescriptiveStats(mean=22.8, median=4.0, variance=1863.7, standard_deviation=43.17059184213253, minimum=2.0, maximum=100.0)</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: plots reveal shape, clusters, skew, and outliers that a few summary numbers can hide.</p>
+<div id="99493e0f" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>five_number_summary(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>FiveNumberSummary(minimum=2.0, q1=3.0, median=4.0, q3=5.0, maximum=100.0)</code></pre>
 </div>
+</div>
+<div id="abd7dcee" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>outlier_fences(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>OutlierFences(lower=0.0, upper=8.0, outliers=(100.0,))</code></pre>
+</div>
+</div>
+<p>Use SymPy to show the algebra of a mean calculation.</p>
+<div id="48d1b8fc" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sp.simplify((<span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">100</span>) <span class="op">/</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<p><span class="math inline">\(\displaystyle 22.8\)</span></p>
 </div>
 </div>
 
@@ -1428,13 +1983,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/probability/expectation-variance.html" class="pagination-link" aria-label="Expectation and Variance">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Expectation and Variance</span>
+      <a href="../../lessons/statistics/index.html" class="pagination-link" aria-label="Statistics Study Path">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistics Study Path</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/sampling.html" class="pagination-link" aria-label="Sampling">
-        <span class="nav-page-text">Sampling</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/sampling.html" class="pagination-link" aria-label="Sampling and Study Design">
+        <span class="nav-page-text">Sampling and Study Design</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

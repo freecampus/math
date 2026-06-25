@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Factorials and combinations.">
+<meta name="description" content="Product rules, factorials, permutations, and combinations for probability.">
 
 <title>Counting – edu-math</title>
 <style>
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/counting.html">Counting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/counting.html">Counting</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -519,8 +548,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -648,6 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -695,6 +772,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -702,7 +785,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -719,8 +814,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -825,58 +938,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -895,8 +956,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#why-counting-matters-in-probability" id="toc-why-counting-matters-in-probability" class="nav-link" data-scroll-target="#why-counting-matters-in-probability">Why counting matters in probability</a></li>
+  <li><a href="#the-product-rule" id="toc-the-product-rule" class="nav-link" data-scroll-target="#the-product-rule">The product rule</a>
+  <ul class="collapse">
+  <li><a href="#product-rule-question" id="toc-product-rule-question" class="nav-link" data-scroll-target="#product-rule-question">Product rule question</a></li>
+  </ul></li>
+  <li><a href="#the-sum-rule" id="toc-the-sum-rule" class="nav-link" data-scroll-target="#the-sum-rule">The sum rule</a></li>
+  <li><a href="#factorials" id="toc-factorials" class="nav-link" data-scroll-target="#factorials">Factorials</a></li>
+  <li><a href="#permutations-order-matters" id="toc-permutations-order-matters" class="nav-link" data-scroll-target="#permutations-order-matters">Permutations: order matters</a></li>
+  <li><a href="#combinations-order-does-not-matter" id="toc-combinations-order-does-not-matter" class="nav-link" data-scroll-target="#combinations-order-does-not-matter">Combinations: order does not matter</a></li>
+  <li><a href="#with-replacement-versus-without-replacement" id="toc-with-replacement-versus-without-replacement" class="nav-link" data-scroll-target="#with-replacement-versus-without-replacement">With replacement versus without replacement</a></li>
+  <li><a href="#worked-example-1-product-rule" id="toc-worked-example-1-product-rule" class="nav-link" data-scroll-target="#worked-example-1-product-rule">Worked example 1: product rule</a></li>
+  <li><a href="#worked-example-2-combination-probability" id="toc-worked-example-2-combination-probability" class="nav-link" data-scroll-target="#worked-example-2-combination-probability">Worked example 2: combination probability</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-choose-between-sum-rule-and-product-rule" id="toc-lab-1-choose-between-sum-rule-and-product-rule" class="nav-link" data-scroll-target="#lab-1-choose-between-sum-rule-and-product-rule">Lab 1: choose between sum rule and product rule</a></li>
+  <li><a href="#lab-2-expand-factorials-step-by-step" id="toc-lab-2-expand-factorials-step-by-step" class="nav-link" data-scroll-target="#lab-2-expand-factorials-step-by-step">Lab 2: expand factorials step by step</a></li>
+  <li><a href="#lab-3-decide-whether-order-matters" id="toc-lab-3-decide-whether-order-matters" class="nav-link" data-scroll-target="#lab-3-decide-whether-order-matters">Lab 3: decide whether order matters</a></li>
+  <li><a href="#lab-4-compute-a-combination" id="toc-lab-4-compute-a-combination" class="nav-link" data-scroll-target="#lab-4-compute-a-combination">Lab 4: compute a combination</a></li>
+  <li><a href="#lab-5-convert-counting-into-probability" id="toc-lab-5-convert-counting-into-probability" class="nav-link" data-scroll-target="#lab-5-convert-counting-into-probability">Lab 5: convert counting into probability</a></li>
+  </ul></li>
+  <li><a href="#counting-guessing-game" id="toc-counting-guessing-game" class="nav-link" data-scroll-target="#counting-guessing-game">Counting guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/counting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -904,14 +988,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/counting.html">Counting</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/counting.html">Counting</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Counting</h1>
 </div>
 
 <div>
   <div class="description">
-    Factorials and combinations.
+    Product rules, factorials, permutations, and combinations for probability.
   </div>
 </div>
 
@@ -928,47 +1012,197 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Many probability questions are counting questions in disguise. If all outcomes are equally likely, then</p>
+<pre class="text"><code>probability = favorable outcomes / total outcomes</code></pre>
+<p>So before computing a probability, we often need to count how many outcomes are possible and how many satisfy the event.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Compute factorials.</li>
-<li>Compute combinations.</li>
-<li>Use counting before probability.</li>
+<li>use the sum rule and product rule;</li>
+<li>compute factorials;</li>
+<li>decide whether order matters;</li>
+<li>distinguish permutations from combinations;</li>
+<li>distinguish with replacement from without replacement;</li>
+<li>use counting to compute simple probabilities.</li>
 </ul>
 </section>
-<div id="a67a7872" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability.distributions <span class="im">import</span> combinations, factorial</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">5</span>), combinations(<span class="dv">5</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>(120, 10)</code></pre>
-</div>
-</div>
+<section id="why-counting-matters-in-probability" class="level2">
+<h2 class="anchored" data-anchor-id="why-counting-matters-in-probability">Why counting matters in probability</h2>
+<p>Suppose a class has 10 students and 3 students will be chosen for a committee. If every committee is equally likely, a probability about the committee requires knowing how many committees are possible. Listing all committees by hand would be slow, so we use counting principles.</p>
+</section>
+<section id="the-product-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-product-rule">The product rule</h2>
+<p>Use the <strong>product rule</strong> when a process has stages and each choice is combined with each later choice.</p>
+<p>If there are 3 shirt choices and 2 pants choices, then there are</p>
+<pre class="text"><code>3 * 2 = 6</code></pre>
+<p>outfits.</p>
+<section id="product-rule-question" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="product-rule-question">Product rule question</h3>
+<p>Ask: “Do I choose one thing from group A and one thing from group B?” If yes, multiply.</p>
+</section>
+</section>
+<section id="the-sum-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-sum-rule">The sum rule</h2>
+<p>Use the <strong>sum rule</strong> when choices are separate alternatives that cannot happen at the same time.</p>
+<p>If a snack is either one of 4 fruits or one of 3 crackers, then there are</p>
+<pre class="text"><code>4 + 3 = 7</code></pre>
+<p>snack choices.</p>
+</section>
+<section id="factorials" class="level2">
+<h2 class="anchored" data-anchor-id="factorials">Factorials</h2>
+<p>A factorial counts arrangements of all items in a list:</p>
+<pre class="text"><code>n! = n * (n-1) * (n-2) * ... * 2 * 1</code></pre>
+<p>For example:</p>
+<pre class="text"><code>4! = 4 * 3 * 2 * 1 = 24</code></pre>
+<p>There are 24 ways to arrange 4 different books on a shelf.</p>
+</section>
+<section id="permutations-order-matters" class="level2">
+<h2 class="anchored" data-anchor-id="permutations-order-matters">Permutations: order matters</h2>
+<p>A <strong>permutation</strong> counts ordered selections. If you choose 2 winners from 5 people for first place and second place, order matters. Alice then Bob is different from Bob then Alice.</p>
+<p>The formula is</p>
+<pre class="text"><code>P(n,k) = n! / (n-k)!</code></pre>
+<p>For 2 ordered winners from 5 people:</p>
+<pre class="text"><code>P(5,2) = 5 * 4 = 20</code></pre>
+</section>
+<section id="combinations-order-does-not-matter" class="level2">
+<h2 class="anchored" data-anchor-id="combinations-order-does-not-matter">Combinations: order does not matter</h2>
+<p>A <strong>combination</strong> counts unordered selections. If you choose 2 people from 5 for a committee, Alice-Bob is the same committee as Bob-Alice.</p>
+<p>The formula is</p>
+<pre class="text"><code>C(n,k) = n! / (k!(n-k)!)</code></pre>
+<p>For 2 people from 5:</p>
+<pre class="text"><code>C(5,2) = (5 * 4) / (2 * 1) = 10</code></pre>
+</section>
+<section id="with-replacement-versus-without-replacement" class="level2">
+<h2 class="anchored" data-anchor-id="with-replacement-versus-without-replacement">With replacement versus without replacement</h2>
+<p><strong>With replacement</strong> means the same item can be chosen again. Example: rolling a die three times.</p>
+<p><strong>Without replacement</strong> means once an item is chosen, it is removed. Example: dealing cards from a deck.</p>
+<p>This difference changes the count. With replacement, options may stay constant. Without replacement, the number of options usually decreases.</p>
+</section>
+<section id="worked-example-1-product-rule" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-product-rule">Worked example 1: product rule</h2>
+<p>A password has 2 letters followed by 1 digit. Suppose letters can repeat and the digit can be 0 through 9. How many passwords are possible?</p>
+<ol type="1">
+<li>First letter: 26 choices.</li>
+<li>Second letter: 26 choices.</li>
+<li>Digit: 10 choices.</li>
+<li>Multiply:</li>
+</ol>
+<pre class="text"><code>26 * 26 * 10 = 6760</code></pre>
+</section>
+<section id="worked-example-2-combination-probability" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-combination-probability">Worked example 2: combination probability</h2>
+<p>A group has 6 students. A 2-person committee is chosen at random. What is the probability that students Ana and Ben are both chosen?</p>
+<ol type="1">
+<li><p>Count all possible committees:</p>
+<pre class="text"><code>C(6,2) = 15</code></pre></li>
+<li><p>Count favorable committees. There is only one committee containing exactly Ana and Ben together:</p>
+<pre class="text"><code>{Ana, Ben}</code></pre></li>
+<li><p>Compute probability:</p>
+<pre class="text"><code>1 / 15</code></pre></li>
+</ol>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Adding when you should multiply.</li>
+<li>Multiplying when choices are alternatives.</li>
+<li>Using permutations when order does not matter.</li>
+<li>Using combinations when order matters.</li>
+<li>Forgetting that “without replacement” changes later choices.</li>
+<li>Dividing by the wrong total count.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>Compute <code>4!</code>.</li>
-<li>Compute <code>C(6, 2)</code>.</li>
-<li>Why does order matter in permutations but not combinations?</li>
+<li>Compute <code>5!</code>.</li>
+<li>A menu has 4 mains and 3 drinks. How many main-drink meals are possible?</li>
+<li>Compute <code>P(6,2)</code>.</li>
+<li>Compute <code>C(6,2)</code>.</li>
+<li>Are PIN codes permutations or combinations? Explain.</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>24</code>.</p>
-<p><code>4! = 4 * 3 * 2 * 1 = 24</code>.</p>
+<ol type="1">
+<li><code>5! = 120</code>.</li>
+<li><code>4 * 3 = 12</code>.</li>
+<li><code>P(6,2) = 6 * 5 = 30</code>.</li>
+<li><code>C(6,2) = (6 * 5)/(2 * 1) = 15</code>.</li>
+<li>PIN codes are ordered, so they use permutation/product-rule thinking. <code>1234</code> and <code>4321</code> are different PINs.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Counting becomes easier when you first decide what kind of counting problem you have.</p>
+<section id="lab-1-choose-between-sum-rule-and-product-rule" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-choose-between-sum-rule-and-product-rule">Lab 1: choose between sum rule and product rule</h3>
+<p><strong>Guess first.</strong> If you choose one shirt and one pair of pants, should you add or multiply?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>You choose one item from each category. If there are 5 shirts and 4 pants, then</p>
+<pre class="text"><code>5 * 4 = 20</code></pre>
+<p>outfits are possible.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> A lunch is one sandwich and one drink. There are 3 sandwiches and 5 drinks. How many lunches are possible?</p>
+</div>
+</section>
+<section id="lab-2-expand-factorials-step-by-step" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-expand-factorials-step-by-step">Lab 2: expand factorials step by step</h3>
+<p><strong>Guess first.</strong> Is <code>6!</code> equal to <code>6 * 5!</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>6! = 6 * 5 * 4 * 3 * 2 * 1
+   = 720</code></pre>
+<p>Also:</p>
+<pre class="text"><code>6! = 6 * 5!</code></pre>
+<p>This shortcut helps simplify formulas.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute <code>3!</code> and <code>6!/4!</code>.</p>
+</div>
+</section>
+<section id="lab-3-decide-whether-order-matters" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-decide-whether-order-matters">Lab 3: decide whether order matters</h3>
+<p><strong>Guess first.</strong> Does a gold-silver-bronze race result care about order?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Yes. If Ana wins gold and Ben wins silver, that is different from Ben winning gold and Ana winning silver. Ordered awards use permutations.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Decide whether each situation uses permutations or combinations: choosing a 3-person committee; arranging 3 books; choosing first and second place.</p>
+</div>
+</section>
+<section id="lab-4-compute-a-combination" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-compute-a-combination">Lab 4: compute a combination</h3>
+<p><strong>Guess first.</strong> Should <code>C(7,2)</code> be smaller than <code>P(7,2)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>C(7,2) = 7! / (2!5!)
+       = (7 * 6) / (2 * 1)
+       = 21</code></pre>
+<p>It is smaller than <code>P(7,2)=42</code> because combinations ignore order.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute <code>C(8,3)</code>.</p>
+</div>
+</section>
+<section id="lab-5-convert-counting-into-probability" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-convert-counting-into-probability">Lab 5: convert counting into probability</h3>
+<p><strong>Guess first.</strong> If there are 10 equally likely outcomes and 4 favorable outcomes, what is the probability?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>P(event) = favorable / total = 4 / 10 = 2 / 5</code></pre>
+<p>Counting is not the final step; it gives the numerator and denominator.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> From 5 students, 2 are chosen for a committee. What is the probability that a particular pair is chosen?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -976,31 +1210,451 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>15</code>.</p>
-<p><code>C(6, 2) = 6! / (2! 4!) = (6 * 5) / (2 * 1) = 15</code>.</p>
+<ol type="1">
+<li><code>3 * 5 = 15</code> lunches.</li>
+<li><code>3! = 6</code>. Also <code>6!/4! = 6 * 5 = 30</code>.</li>
+<li>Committee: combinations. Arranging books: permutations. First and second place: permutations.</li>
+<li><code>C(8,3) = (8 * 7 * 6)/(3 * 2 * 1) = 56</code>.</li>
+<li>There are <code>C(5,2)=10</code> committees and one particular pair, so the probability is <code>1/10</code>.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="counting-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="counting-guessing-game">Counting guessing game</h2>
+<p>Use this checkpoint to decide which counting idea applies.</p>
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "counting",
+  "title": "Counting checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-probability-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "sample-spaces-events";
+    const BANKS = {
+      "sample-spaces-events": [sampleSpaceQuestion, eventQuestion, complementQuestion, simpleProbabilityQuestion],
+      counting: [factorialQuestion, productRuleQuestion, permutationCombinationQuestion, combinationQuestion],
+      "conditional-probability": [conditionalMeaningQuestion, conditionalCountQuestion, independenceQuestion, bayesDirectionQuestion],
+      "random-variables": [randomVariableQuestion, discreteContinuousQuestion, pmfValidityQuestion, expectedValueQuestion],
+      "common-distributions": [bernoulliQuestion, binomialQuestion, uniformQuestion, normalQuestion],
+      "expectation-variance": [weightedAverageQuestion, possibleOutcomeQuestion, varianceQuestion, fairGameQuestion],
+      "probability-cumulative-review": [sampleSpaceQuestion, permutationCombinationQuestion, conditionalMeaningQuestion, pmfValidityQuestion, binomialQuestion, varianceQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-probability-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-probability-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Probability checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function sampleSpaceQuestion() {
+      return question({
+        prompt: "What is the sample space for one coin flip?",
+        stimulus: "one fair coin",
+        answer: "{H, T}",
+        distractors: ["{H}", "{T}", "{1, 2, 3, 4, 5, 6}"],
+        explanation: "The sample space lists all possible outcomes: heads and tails.",
+      });
+    }
+
+    function eventQuestion() {
+      return question({
+        prompt: "For a fair die, which event represents rolling an even number?",
+        stimulus: "S = {1,2,3,4,5,6}",
+        answer: "{2, 4, 6}",
+        distractors: ["{1, 3, 5}", "{6}", "{2, 3, 5}"],
+        explanation: "An event is a subset of outcomes that satisfy the condition.",
+      });
+    }
+
+    function complementQuestion() {
+      return question({
+        prompt: "What is the complement of rolling even on a fair die?",
+        stimulus: "Even = {2,4,6}",
+        answer: "{1, 3, 5}",
+        distractors: ["{2, 4, 6}", "{1, 2, 3}", "empty set"],
+        explanation: "The complement contains outcomes in the sample space that are not in the event.",
+      });
+    }
+
+    function simpleProbabilityQuestion() {
+      return question({
+        prompt: "What is P(rolling greater than 4) on a fair die?",
+        stimulus: "favorable outcomes: {5,6}",
+        answer: "2/6 = 1/3",
+        distractors: ["1/6", "4/6", "1/2"],
+        explanation: "There are 2 favorable outcomes out of 6 equally likely outcomes.",
+      });
+    }
+
+    function factorialQuestion() {
+      return question({
+        prompt: "Compute 4!.",
+        stimulus: "factorial",
+        answer: "24",
+        distractors: ["8", "16", "4"],
+        explanation: "4! = 4·3·2·1 = 24.",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "A meal has 3 mains and 2 drinks. How many meal choices?",
+        stimulus: "choose one main and one drink",
+        answer: "6",
+        distractors: ["5", "3", "2"],
+        explanation: "Use the product rule: 3·2 = 6.",
+      });
+    }
+
+    function permutationCombinationQuestion() {
+      return question({
+        prompt: "Which method fits choosing 3 students from 10 when order does not matter?",
+        stimulus: "committee selection",
+        answer: "combination",
+        distractors: ["permutation", "factorial only", "conditional probability"],
+        explanation: "Combinations count selections when order does not matter.",
+      });
+    }
+
+    function combinationQuestion() {
+      return question({
+        prompt: "Compute C(5,2).",
+        stimulus: "choose 2 from 5",
+        answer: "10",
+        distractors: ["20", "5", "25"],
+        explanation: "C(5,2)=5·4/(2·1)=10.",
+      });
+    }
+
+    function conditionalMeaningQuestion() {
+      return question({
+        prompt: "What does P(A | B) mean?",
+        stimulus: "conditional notation",
+        answer: "probability of A given B happened",
+        distractors: ["probability of B given A happened", "A and B are impossible", "A or B"],
+        explanation: "The condition after the vertical bar is the information already known.",
+      });
+    }
+
+    function conditionalCountQuestion() {
+      return question({
+        prompt: "A fair die is known to be greater than 3. What is P(even | greater than 3)?",
+        stimulus: "restricted outcomes: {4,5,6}",
+        answer: "2/3",
+        distractors: ["1/2", "1/3", "3/6"],
+        explanation: "Inside {4,5,6}, the even outcomes are {4,6}.",
+      });
+    }
+
+    function independenceQuestion() {
+      return question({
+        prompt: "If A and B are independent, what is P(A | B)?",
+        stimulus: "B gives no information about A",
+        answer: "P(A)",
+        distractors: ["P(B)", "P(A and B)", "0"],
+        explanation: "Independence means knowing B does not change the probability of A.",
+      });
+    }
+
+    function bayesDirectionQuestion() {
+      return question({
+        prompt: "Which probability reverses the condition in P(test positive | disease)?",
+        stimulus: "Bayes direction",
+        answer: "P(disease | test positive)",
+        distractors: ["P(disease and test positive)", "P(test positive)", "P(not disease)"],
+        explanation: "Bayes' rule helps reverse conditional probabilities.",
+      });
+    }
+
+    function randomVariableQuestion() {
+      return question({
+        prompt: "What does a random variable assign to outcomes?",
+        stimulus: "random variable",
+        answer: "numbers",
+        distractors: ["only words", "only probabilities", "only graphs"],
+        explanation: "A random variable is a numeric rule on outcomes.",
+      });
+    }
+
+    function discreteContinuousQuestion() {
+      return question({
+        prompt: "Which is continuous?",
+        stimulus: "types of random variables",
+        answer: "waiting time",
+        distractors: ["number of heads in 3 flips", "die roll", "number of emails"],
+        explanation: "Waiting time can vary over an interval, not just a list of separate values.",
+      });
+    }
+
+    function pmfValidityQuestion() {
+      return question({
+        prompt: "Is {0:0.3, 1:0.7} a valid PMF?",
+        stimulus: "probabilities sum to 1",
+        answer: "yes",
+        distractors: ["no, sums to 0.7", "no, probabilities must be equal", "no, values must start at 1"],
+        explanation: "The probabilities are nonnegative and 0.3+0.7=1.",
+      });
+    }
+
+    function expectedValueQuestion() {
+      return question({
+        prompt: "Find E[X] when X is 0 with probability 0.4 and 1 with probability 0.6.",
+        stimulus: "weighted average",
+        answer: "0.6",
+        distractors: ["0.4", "1", "0.5"],
+        explanation: "E[X]=0·0.4+1·0.6=0.6.",
+      });
+    }
+
+    function bernoulliQuestion() {
+      return question({
+        prompt: "Which distribution models one yes/no trial?",
+        stimulus: "success or failure once",
+        answer: "Bernoulli",
+        distractors: ["Binomial", "Normal", "Uniform"],
+        explanation: "A Bernoulli distribution has one trial with two outcomes.",
+      });
+    }
+
+    function binomialQuestion() {
+      return question({
+        prompt: "Which distribution counts successes in fixed independent trials?",
+        stimulus: "n trials, same p",
+        answer: "Binomial",
+        distractors: ["Bernoulli", "Normal", "Continuous uniform"],
+        explanation: "The binomial distribution counts successes across repeated Bernoulli trials.",
+      });
+    }
+
+    function uniformQuestion() {
+      return question({
+        prompt: "A fair die is an example of which discrete pattern?",
+        stimulus: "all six faces equally likely",
+        answer: "uniform",
+        distractors: ["normal", "binomial", "geometric"],
+        explanation: "Uniform means all listed outcomes have the same probability.",
+      });
+    }
+
+    function normalQuestion() {
+      return question({
+        prompt: "Which distribution is often used for bell-shaped measurement noise?",
+        stimulus: "centered around a mean",
+        answer: "Normal",
+        distractors: ["Bernoulli", "Uniform", "Permutation"],
+        explanation: "The normal distribution is a common model for many measurement errors.",
+      });
+    }
+
+    function weightedAverageQuestion() {
+      return question({
+        prompt: "Compute the expected value of 0 with probability 0.5 and 10 with probability 0.5.",
+        stimulus: "weighted average",
+        answer: "5",
+        distractors: ["10", "0", "0.5"],
+        explanation: "E[X]=0·0.5+10·0.5=5.",
+      });
+    }
+
+    function possibleOutcomeQuestion() {
+      return question({
+        prompt: "Can an expected value be impossible as a single outcome?",
+        stimulus: "fair die mean is 3.5",
+        answer: "yes",
+        distractors: ["no", "only for coins", "only if variance is 0"],
+        explanation: "Expected value is a long-run average, not necessarily an actual outcome.",
+      });
+    }
+
+    function varianceQuestion() {
+      return question({
+        prompt: "What does larger variance usually mean?",
+        stimulus: "spread around the mean",
+        answer: "outcomes are more spread out",
+        distractors: ["mean is always larger", "probabilities do not sum to 1", "outcomes are impossible"],
+        explanation: "Variance measures average squared distance from the mean.",
+      });
+    }
+
+    function fairGameQuestion() {
+      return question({
+        prompt: "A game costs $5 and has expected payout $5. What is its expected net gain?",
+        stimulus: "net gain = payout - cost",
+        answer: "$0",
+        distractors: ["$5", "-$5", "$10"],
+        explanation: "Expected net gain is expected payout minus cost: 5-5=0.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `probability-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> counting helpers.</p>
+<div id="5681e563" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> combinations, factorial, permutations</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">5</span>), permutations(<span class="dv">6</span>, <span class="dv">2</span>), combinations(<span class="dv">6</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(120, 30, 15)</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: permutations count arrangements, so <code>AB</code> and <code>BA</code> are different. Combinations count selections, so <code>AB</code> and <code>BA</code> are the same selection.</p>
+<p>Python’s standard library has similar tools.</p>
+<div id="b96ac249" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">5</span>), math.perm(<span class="dv">6</span>, <span class="dv">2</span>), math.comb(<span class="dv">6</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(120, 30, 15)</code></pre>
 </div>
+</div>
+<p>Use SymPy to keep formulas symbolic.</p>
+<div id="0a49cbcc" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>n, k <span class="op">=</span> sp.symbols(<span class="st">"n k"</span>, integer<span class="op">=</span><span class="va">True</span>, nonnegative<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sp.binomial(<span class="dv">8</span>, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle 56\)</span></p>
 </div>
 </div>
 

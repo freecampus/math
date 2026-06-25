@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Numeric outcomes of random experiments.">
+<meta name="description" content="Numeric outcomes of random experiments, probability tables, PMFs, and expected value.">
 
 <title>Random Variables – edu-math</title>
 <style>
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/random-variables.html">Random Variables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/random-variables.html">Random Variables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -519,8 +548,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -648,6 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -695,6 +772,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -702,7 +785,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -719,8 +814,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -825,58 +938,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -895,9 +956,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#from-outcomes-to-numbers" id="toc-from-outcomes-to-numbers" class="nav-link" data-scroll-target="#from-outcomes-to-numbers">From outcomes to numbers</a></li>
+  <li><a href="#outcome-event-and-random-variable" id="toc-outcome-event-and-random-variable" class="nav-link" data-scroll-target="#outcome-event-and-random-variable">Outcome, event, and random variable</a></li>
+  <li><a href="#discrete-random-variables" id="toc-discrete-random-variables" class="nav-link" data-scroll-target="#discrete-random-variables">Discrete random variables</a></li>
+  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables">Continuous random variables</a></li>
+  <li><a href="#probability-mass-functions" id="toc-probability-mass-functions" class="nav-link" data-scroll-target="#probability-mass-functions">Probability mass functions</a></li>
+  <li><a href="#cumulative-distribution-functions" id="toc-cumulative-distribution-functions" class="nav-link" data-scroll-target="#cumulative-distribution-functions">Cumulative distribution functions</a></li>
+  <li><a href="#expected-value-preview" id="toc-expected-value-preview" class="nav-link" data-scroll-target="#expected-value-preview">Expected value preview</a></li>
+  <li><a href="#worked-example-1-coin-payout" id="toc-worked-example-1-coin-payout" class="nav-link" data-scroll-target="#worked-example-1-coin-payout">Worked example 1: coin payout</a></li>
+  <li><a href="#worked-example-2-validate-a-pmf" id="toc-worked-example-2-validate-a-pmf" class="nav-link" data-scroll-target="#worked-example-2-validate-a-pmf">Worked example 2: validate a PMF</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-turn-outcomes-into-numbers" id="toc-lab-1-turn-outcomes-into-numbers" class="nav-link" data-scroll-target="#lab-1-turn-outcomes-into-numbers">Lab 1: turn outcomes into numbers</a></li>
+  <li><a href="#lab-2-classify-discrete-versus-continuous" id="toc-lab-2-classify-discrete-versus-continuous" class="nav-link" data-scroll-target="#lab-2-classify-discrete-versus-continuous">Lab 2: classify discrete versus continuous</a></li>
+  <li><a href="#lab-3-validate-a-pmf" id="toc-lab-3-validate-a-pmf" class="nav-link" data-scroll-target="#lab-3-validate-a-pmf">Lab 3: validate a PMF</a></li>
+  <li><a href="#lab-4-read-a-pmf-table" id="toc-lab-4-read-a-pmf-table" class="nav-link" data-scroll-target="#lab-4-read-a-pmf-table">Lab 4: read a PMF table</a></li>
+  <li><a href="#lab-5-compute-expected-value-one-row-at-a-time" id="toc-lab-5-compute-expected-value-one-row-at-a-time" class="nav-link" data-scroll-target="#lab-5-compute-expected-value-one-row-at-a-time">Lab 5: compute expected value one row at a time</a></li>
+  </ul></li>
+  <li><a href="#random-variable-guessing-game" id="toc-random-variable-guessing-game" class="nav-link" data-scroll-target="#random-variable-guessing-game">Random-variable guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -905,14 +985,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/random-variables.html">Random Variables</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/random-variables.html">Random Variables</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Random Variables</h1>
 </div>
 
 <div>
   <div class="description">
-    Numeric outcomes of random experiments.
+    Numeric outcomes of random experiments, probability tables, PMFs, and expected value.
   </div>
 </div>
 
@@ -929,51 +1009,218 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>A random experiment can have outcomes like heads, tails, red card, blue card, or rain tomorrow. A <strong>random variable</strong> turns those outcomes into numbers. This is powerful because once outcomes are numbers, we can compute averages, spreads, probability tables, and distributions.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Define a random variable.</li>
-<li>Distinguish discrete and continuous variables.</li>
-<li>Interpret expected value.</li>
+<li>define a random variable;</li>
+<li>distinguish outcomes, events, and random variables;</li>
+<li>classify random variables as discrete or continuous;</li>
+<li>read and validate a probability mass function;</li>
+<li>compute expected value from a small probability table;</li>
+<li>use Python, <code>edumath</code>, and SymPy to check probability tables.</li>
 </ul>
 </section>
-<p>A random variable assigns a number to each outcome of a random experiment.</p>
-<div id="ba8c25bd" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability.distributions <span class="im">import</span> expected_value</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>expected_value([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="fl">0.4</span>, <span class="fl">0.6</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>0.6</code></pre>
-</div>
-</div>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="practice-box">
-<ol type="1">
-<li>Is a coin-flip payout discrete or continuous?</li>
-<li>What does expected value represent?</li>
-<li>Can expected value be a value that never occurs exactly?</li>
-</ol>
-</div>
-</section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<section id="from-outcomes-to-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="from-outcomes-to-numbers">From outcomes to numbers</h2>
+<p>A <strong>random variable</strong> is a rule that assigns a number to each outcome of a random experiment.</p>
+<p>Example: flip one coin. The sample space is</p>
+<pre class="text"><code>S = {H, T}</code></pre>
+<p>Define a random variable <code>X</code> by:</p>
+<pre class="text"><code>X(H) = 1
+X(T) = 0</code></pre>
+<p>Now <code>X</code> is the number of heads in one flip.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Note</span>Random variable naming
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: discrete.</p>
-<p>A coin-flip payout has a finite list of possible values.</p>
+<p>Random variables are often named with capital letters such as <code>X</code>, <code>Y</code>, or <code>T</code>. A particular value is often written with a lowercase letter, such as <code>X = x</code>.</p>
 </div>
 </div>
+</section>
+<section id="outcome-event-and-random-variable" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-event-and-random-variable">Outcome, event, and random variable</h2>
+<p>These three ideas are related but different:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Idea</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Outcome</td>
+<td>one result of the experiment</td>
+<td><code>HT</code> from two coin flips</td>
+</tr>
+<tr class="even">
+<td>Event</td>
+<td>a set of outcomes</td>
+<td>“exactly one head” = <code>{HT, TH}</code></td>
+</tr>
+<tr class="odd">
+<td>Random variable</td>
+<td>number assigned to outcomes</td>
+<td><code>X = number of heads</code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code>X</code> counts heads in two flips, then:</p>
+<pre class="text"><code>X(HH) = 2
+X(HT) = 1
+X(TH) = 1
+X(TT) = 0</code></pre>
+</section>
+<section id="discrete-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-random-variables">Discrete random variables</h2>
+<p>A <strong>discrete</strong> random variable has possible values that can be listed, such as:</p>
+<ul>
+<li>number of heads in 3 flips;</li>
+<li>result of a die roll;</li>
+<li>number of emails received in an hour;</li>
+<li>payout from a simple game.</li>
+</ul>
+<p>Discrete random variables are often described with a table.</p>
+</section>
+<section id="continuous-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-random-variables">Continuous random variables</h2>
+<p>A <strong>continuous</strong> random variable can take values along an interval, such as:</p>
+<ul>
+<li>waiting time;</li>
+<li>height;</li>
+<li>temperature;</li>
+<li>measurement error.</li>
+</ul>
+<p>For continuous variables, the probability of one exact value is usually <code>0</code>. We ask for probabilities over intervals, such as “between 2 and 3 minutes.”</p>
+</section>
+<section id="probability-mass-functions" class="level2">
+<h2 class="anchored" data-anchor-id="probability-mass-functions">Probability mass functions</h2>
+<p>A <strong>probability mass function</strong>, or PMF, gives probabilities for a discrete random variable.</p>
+<p>Example:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>x</code></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>P(X=x)</code></td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.6</td>
+</tr>
+</tbody>
+</table>
+<p>This table is valid because:</p>
+<ol type="1">
+<li>all probabilities are nonnegative;</li>
+<li>the probabilities add to 1.</li>
+</ol>
+</section>
+<section id="cumulative-distribution-functions" class="level2">
+<h2 class="anchored" data-anchor-id="cumulative-distribution-functions">Cumulative distribution functions</h2>
+<p>The <strong>cumulative distribution function</strong>, or CDF, gives <code>P(X &lt;= x)</code>. It adds all probabilities up to a value.</p>
+<p>For the PMF above:</p>
+<pre class="text"><code>P(X &lt;= 0) = 0.4
+P(X &lt;= 1) = 1.0</code></pre>
+<p>CDFs are useful because many probability questions ask for “at most” or “no more than” a value.</p>
+</section>
+<section id="expected-value-preview" class="level2">
+<h2 class="anchored" data-anchor-id="expected-value-preview">Expected value preview</h2>
+<p>Expected value is the long-run average of a random variable:</p>
+<pre class="text"><code>E[X] = sum of value * probability</code></pre>
+<p>For the table above:</p>
+<pre class="text"><code>E[X] = 0(0.4) + 1(0.6) = 0.6</code></pre>
+</section>
+<section id="worked-example-1-coin-payout" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-coin-payout">Worked example 1: coin payout</h2>
+<p>A game pays <code>$3</code> for heads and <code>$0</code> for tails. The coin has probability <code>0.5</code> of heads and <code>0.5</code> of tails. Let <code>X</code> be the payout.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>outcome</th>
+<th style="text-align: right;">H</th>
+<th style="text-align: right;">T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>X</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>probability</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+</tbody>
+</table>
+<p>The expected payout is</p>
+<pre class="text"><code>E[X] = 3(0.5) + 0(0.5) = 1.5</code></pre>
+<p>This does not mean one play pays <code>$1.50</code>. It means the long-run average payout is <code>$1.50</code> per play.</p>
+</section>
+<section id="worked-example-2-validate-a-pmf" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-validate-a-pmf">Worked example 2: validate a PMF</h2>
+<p>A proposed PMF is:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>x</code></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>P(X=x)</code></td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+</tbody>
+</table>
+<p>Check it:</p>
+<pre class="text"><code>0.2 + 0.5 + 0.4 = 1.1</code></pre>
+<p>The probabilities add to more than 1, so this is not a valid PMF.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Confusing a random variable with the probability itself.</li>
+<li>Forgetting that random variables produce numbers.</li>
+<li>Thinking every random variable is discrete.</li>
+<li>Accepting a PMF without checking that probabilities sum to 1.</li>
+<li>Treating expected value as a guaranteed single outcome.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Let <code>X</code> be the number of heads in two coin flips. What is <code>X(HT)</code>?</li>
+<li>Is waiting time discrete or continuous?</li>
+<li>Is <code>{0: 0.2, 1: 0.8}</code> a valid PMF?</li>
+<li>Is <code>{0: 0.2, 1: 0.9}</code> a valid PMF?</li>
+<li>Compute the expected value for values <code>0, 10</code> with probabilities <code>0.7, 0.3</code>.</li>
+</ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -981,15 +1228,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the long-run average value across many repetitions.</p>
+<ol type="1">
+<li><code>X(HT)=1</code> because there is one head.</li>
+<li>Continuous.</li>
+<li>Yes. Probabilities are nonnegative and add to 1.</li>
+<li>No.&nbsp;The probabilities add to 1.1.</li>
+<li><code>0(0.7)+10(0.3)=3</code>.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Random variables become easier when you say the rule out loud: “This outcome gets this number.”</p>
+<section id="lab-1-turn-outcomes-into-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-turn-outcomes-into-numbers">Lab 1: turn outcomes into numbers</h3>
+<p><strong>Guess first.</strong> In two coin flips, what number should <code>HH</code> get if <code>X</code> counts heads?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Count heads in each outcome:</p>
+<pre class="text"><code>HH -&gt; 2
+HT -&gt; 1
+TH -&gt; 1
+TT -&gt; 0</code></pre>
+<p>The random variable is not the coin flip itself. It is the number assigned to the result.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Let <code>Y</code> be the number of tails in two coin flips. Find <code>Y(HH)</code>, <code>Y(HT)</code>, and <code>Y(TT)</code>.</p>
+</div>
+</section>
+<section id="lab-2-classify-discrete-versus-continuous" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-classify-discrete-versus-continuous">Lab 2: classify discrete versus continuous</h3>
+<p><strong>Guess first.</strong> Is “number of calls in one hour” discrete or continuous?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>A count is discrete because possible values are separate numbers:</p>
+<pre class="text"><code>0, 1, 2, 3, ...</code></pre>
+<p>A measurement like time or length is usually continuous.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Classify each as discrete or continuous: shoe size, exact height, number of defective parts, time until a bus arrives.</p>
+</div>
+</section>
+<section id="lab-3-validate-a-pmf" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-validate-a-pmf">Lab 3: validate a PMF</h3>
+<p><strong>Guess first.</strong> Can probabilities in a PMF add to less than 1?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>For a valid PMF, probabilities must cover all possible values and add to 1. For</p>
+<pre class="text"><code>P(X=0)=0.25, P(X=1)=0.25, P(X=2)=0.50</code></pre>
+<p>the total is</p>
+<pre class="text"><code>0.25 + 0.25 + 0.50 = 1</code></pre>
+<p>so the PMF is valid.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Check whether <code>P(X=0)=0.1</code>, <code>P(X=1)=0.2</code>, <code>P(X=2)=0.6</code> is a valid PMF.</p>
+</div>
+</section>
+<section id="lab-4-read-a-pmf-table" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-read-a-pmf-table">Lab 4: read a PMF table</h3>
+<p><strong>Guess first.</strong> If the table says <code>P(X=2)=0.30</code>, does that mean <code>X</code> always equals 2?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>A probability of <code>0.30</code> means value 2 occurs in about 30% of many repetitions, not always.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If <code>P(X=0)=0.2</code>, <code>P(X=1)=0.5</code>, and <code>P(X=2)=0.3</code>, what is <code>P(X &gt;= 1)</code>?</p>
+</div>
+</section>
+<section id="lab-5-compute-expected-value-one-row-at-a-time" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-compute-expected-value-one-row-at-a-time">Lab 5: compute expected value one row at a time</h3>
+<p><strong>Guess first.</strong> Which is bigger: the value with highest probability or the expected value?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>For values <code>0, 5, 10</code> with probabilities <code>0.2, 0.5, 0.3</code>:</p>
+<pre class="text"><code>E[X] = 0(0.2) + 5(0.5) + 10(0.3)
+     = 0 + 2.5 + 3
+     = 5.5</code></pre>
+<p>Expected value is a weighted average, not necessarily the most likely value.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute expected value for values <code>1, 2, 3</code> with probabilities <code>0.2, 0.5, 0.3</code>.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -997,15 +1313,453 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: yes.</p>
-<p>The expected value can be an average that is not itself a possible outcome, such as <code>3.5</code> for a fair die.</p>
+<ol type="1">
+<li><code>Y(HH)=0</code>, <code>Y(HT)=1</code>, and <code>Y(TT)=2</code>.</li>
+<li>Shoe size is often treated as discrete; exact height is continuous; number of defective parts is discrete; bus waiting time is continuous.</li>
+<li>Not valid. The probabilities add to <code>0.9</code>, not <code>1</code>.</li>
+<li><code>P(X &gt;= 1)=P(X=1)+P(X=2)=0.5+0.3=0.8</code>.</li>
+<li><code>1(0.2)+2(0.5)+3(0.3)=0.2+1.0+0.9=2.1</code>.</li>
+</ol>
 </div>
+</div>
+</div>
+</section>
+</section>
+<section id="random-variable-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="random-variable-guessing-game">Random-variable guessing game</h2>
+<p>Use this checkpoint to practice classifying random variables and checking PMFs.</p>
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "random-variables",
+  "title": "Random variables checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-probability-checkpoint" data-default-total="4">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "sample-spaces-events";
+    const BANKS = {
+      "sample-spaces-events": [sampleSpaceQuestion, eventQuestion, complementQuestion, simpleProbabilityQuestion],
+      counting: [factorialQuestion, productRuleQuestion, permutationCombinationQuestion, combinationQuestion],
+      "conditional-probability": [conditionalMeaningQuestion, conditionalCountQuestion, independenceQuestion, bayesDirectionQuestion],
+      "random-variables": [randomVariableQuestion, discreteContinuousQuestion, pmfValidityQuestion, expectedValueQuestion],
+      "common-distributions": [bernoulliQuestion, binomialQuestion, uniformQuestion, normalQuestion],
+      "expectation-variance": [weightedAverageQuestion, possibleOutcomeQuestion, varianceQuestion, fairGameQuestion],
+      "probability-cumulative-review": [sampleSpaceQuestion, permutationCombinationQuestion, conditionalMeaningQuestion, pmfValidityQuestion, binomialQuestion, varianceQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-probability-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-probability-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Probability checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function sampleSpaceQuestion() {
+      return question({
+        prompt: "What is the sample space for one coin flip?",
+        stimulus: "one fair coin",
+        answer: "{H, T}",
+        distractors: ["{H}", "{T}", "{1, 2, 3, 4, 5, 6}"],
+        explanation: "The sample space lists all possible outcomes: heads and tails.",
+      });
+    }
+
+    function eventQuestion() {
+      return question({
+        prompt: "For a fair die, which event represents rolling an even number?",
+        stimulus: "S = {1,2,3,4,5,6}",
+        answer: "{2, 4, 6}",
+        distractors: ["{1, 3, 5}", "{6}", "{2, 3, 5}"],
+        explanation: "An event is a subset of outcomes that satisfy the condition.",
+      });
+    }
+
+    function complementQuestion() {
+      return question({
+        prompt: "What is the complement of rolling even on a fair die?",
+        stimulus: "Even = {2,4,6}",
+        answer: "{1, 3, 5}",
+        distractors: ["{2, 4, 6}", "{1, 2, 3}", "empty set"],
+        explanation: "The complement contains outcomes in the sample space that are not in the event.",
+      });
+    }
+
+    function simpleProbabilityQuestion() {
+      return question({
+        prompt: "What is P(rolling greater than 4) on a fair die?",
+        stimulus: "favorable outcomes: {5,6}",
+        answer: "2/6 = 1/3",
+        distractors: ["1/6", "4/6", "1/2"],
+        explanation: "There are 2 favorable outcomes out of 6 equally likely outcomes.",
+      });
+    }
+
+    function factorialQuestion() {
+      return question({
+        prompt: "Compute 4!.",
+        stimulus: "factorial",
+        answer: "24",
+        distractors: ["8", "16", "4"],
+        explanation: "4! = 4·3·2·1 = 24.",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "A meal has 3 mains and 2 drinks. How many meal choices?",
+        stimulus: "choose one main and one drink",
+        answer: "6",
+        distractors: ["5", "3", "2"],
+        explanation: "Use the product rule: 3·2 = 6.",
+      });
+    }
+
+    function permutationCombinationQuestion() {
+      return question({
+        prompt: "Which method fits choosing 3 students from 10 when order does not matter?",
+        stimulus: "committee selection",
+        answer: "combination",
+        distractors: ["permutation", "factorial only", "conditional probability"],
+        explanation: "Combinations count selections when order does not matter.",
+      });
+    }
+
+    function combinationQuestion() {
+      return question({
+        prompt: "Compute C(5,2).",
+        stimulus: "choose 2 from 5",
+        answer: "10",
+        distractors: ["20", "5", "25"],
+        explanation: "C(5,2)=5·4/(2·1)=10.",
+      });
+    }
+
+    function conditionalMeaningQuestion() {
+      return question({
+        prompt: "What does P(A | B) mean?",
+        stimulus: "conditional notation",
+        answer: "probability of A given B happened",
+        distractors: ["probability of B given A happened", "A and B are impossible", "A or B"],
+        explanation: "The condition after the vertical bar is the information already known.",
+      });
+    }
+
+    function conditionalCountQuestion() {
+      return question({
+        prompt: "A fair die is known to be greater than 3. What is P(even | greater than 3)?",
+        stimulus: "restricted outcomes: {4,5,6}",
+        answer: "2/3",
+        distractors: ["1/2", "1/3", "3/6"],
+        explanation: "Inside {4,5,6}, the even outcomes are {4,6}.",
+      });
+    }
+
+    function independenceQuestion() {
+      return question({
+        prompt: "If A and B are independent, what is P(A | B)?",
+        stimulus: "B gives no information about A",
+        answer: "P(A)",
+        distractors: ["P(B)", "P(A and B)", "0"],
+        explanation: "Independence means knowing B does not change the probability of A.",
+      });
+    }
+
+    function bayesDirectionQuestion() {
+      return question({
+        prompt: "Which probability reverses the condition in P(test positive | disease)?",
+        stimulus: "Bayes direction",
+        answer: "P(disease | test positive)",
+        distractors: ["P(disease and test positive)", "P(test positive)", "P(not disease)"],
+        explanation: "Bayes' rule helps reverse conditional probabilities.",
+      });
+    }
+
+    function randomVariableQuestion() {
+      return question({
+        prompt: "What does a random variable assign to outcomes?",
+        stimulus: "random variable",
+        answer: "numbers",
+        distractors: ["only words", "only probabilities", "only graphs"],
+        explanation: "A random variable is a numeric rule on outcomes.",
+      });
+    }
+
+    function discreteContinuousQuestion() {
+      return question({
+        prompt: "Which is continuous?",
+        stimulus: "types of random variables",
+        answer: "waiting time",
+        distractors: ["number of heads in 3 flips", "die roll", "number of emails"],
+        explanation: "Waiting time can vary over an interval, not just a list of separate values.",
+      });
+    }
+
+    function pmfValidityQuestion() {
+      return question({
+        prompt: "Is {0:0.3, 1:0.7} a valid PMF?",
+        stimulus: "probabilities sum to 1",
+        answer: "yes",
+        distractors: ["no, sums to 0.7", "no, probabilities must be equal", "no, values must start at 1"],
+        explanation: "The probabilities are nonnegative and 0.3+0.7=1.",
+      });
+    }
+
+    function expectedValueQuestion() {
+      return question({
+        prompt: "Find E[X] when X is 0 with probability 0.4 and 1 with probability 0.6.",
+        stimulus: "weighted average",
+        answer: "0.6",
+        distractors: ["0.4", "1", "0.5"],
+        explanation: "E[X]=0·0.4+1·0.6=0.6.",
+      });
+    }
+
+    function bernoulliQuestion() {
+      return question({
+        prompt: "Which distribution models one yes/no trial?",
+        stimulus: "success or failure once",
+        answer: "Bernoulli",
+        distractors: ["Binomial", "Normal", "Uniform"],
+        explanation: "A Bernoulli distribution has one trial with two outcomes.",
+      });
+    }
+
+    function binomialQuestion() {
+      return question({
+        prompt: "Which distribution counts successes in fixed independent trials?",
+        stimulus: "n trials, same p",
+        answer: "Binomial",
+        distractors: ["Bernoulli", "Normal", "Continuous uniform"],
+        explanation: "The binomial distribution counts successes across repeated Bernoulli trials.",
+      });
+    }
+
+    function uniformQuestion() {
+      return question({
+        prompt: "A fair die is an example of which discrete pattern?",
+        stimulus: "all six faces equally likely",
+        answer: "uniform",
+        distractors: ["normal", "binomial", "geometric"],
+        explanation: "Uniform means all listed outcomes have the same probability.",
+      });
+    }
+
+    function normalQuestion() {
+      return question({
+        prompt: "Which distribution is often used for bell-shaped measurement noise?",
+        stimulus: "centered around a mean",
+        answer: "Normal",
+        distractors: ["Bernoulli", "Uniform", "Permutation"],
+        explanation: "The normal distribution is a common model for many measurement errors.",
+      });
+    }
+
+    function weightedAverageQuestion() {
+      return question({
+        prompt: "Compute the expected value of 0 with probability 0.5 and 10 with probability 0.5.",
+        stimulus: "weighted average",
+        answer: "5",
+        distractors: ["10", "0", "0.5"],
+        explanation: "E[X]=0·0.5+10·0.5=5.",
+      });
+    }
+
+    function possibleOutcomeQuestion() {
+      return question({
+        prompt: "Can an expected value be impossible as a single outcome?",
+        stimulus: "fair die mean is 3.5",
+        answer: "yes",
+        distractors: ["no", "only for coins", "only if variance is 0"],
+        explanation: "Expected value is a long-run average, not necessarily an actual outcome.",
+      });
+    }
+
+    function varianceQuestion() {
+      return question({
+        prompt: "What does larger variance usually mean?",
+        stimulus: "spread around the mean",
+        answer: "outcomes are more spread out",
+        distractors: ["mean is always larger", "probabilities do not sum to 1", "outcomes are impossible"],
+        explanation: "Variance measures average squared distance from the mean.",
+      });
+    }
+
+    function fairGameQuestion() {
+      return question({
+        prompt: "A game costs $5 and has expected payout $5. What is its expected net gain?",
+        stimulus: "net gain = payout - cost",
+        answer: "$0",
+        distractors: ["$5", "-$5", "$10"],
+        explanation: "Expected net gain is expected payout minus cost: 5-5=0.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `probability-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to compute expected value.</p>
+<div id="6b033b48" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> expected_value, validate_pmf</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>probabilities <span class="op">=</span> [<span class="fl">0.4</span>, <span class="fl">0.6</span>]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>expected_value(values, probabilities), validate_pmf(values, probabilities).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(0.6, 'Correct.')</code></pre>
+</div>
+</div>
+<p>Use Python to build a PMF table.</p>
+<div id="9626c30e" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pmf <span class="op">=</span> {<span class="dv">0</span>: <span class="fl">0.4</span>, <span class="dv">1</span>: <span class="fl">0.6</span>}</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(pmf.values())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>1.0</code></pre>
+</div>
+</div>
+<p>Use SymPy for exact weighted averages.</p>
+<div id="6ea60827" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>probabilities <span class="op">=</span> [sp.Rational(<span class="dv">1</span>, <span class="dv">4</span>), sp.Rational(<span class="dv">1</span>, <span class="dv">4</span>), sp.Rational(<span class="dv">1</span>, <span class="dv">2</span>)]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(value <span class="op">*</span> probability <span class="cf">for</span> value, probability <span class="kw">in</span> <span class="bu">zip</span>(values, probabilities))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle \frac{5}{4}\)</span></p>
 </div>
 </div>
 

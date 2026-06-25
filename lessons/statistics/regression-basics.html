@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Model relationships between variables.">
+<meta name="description" content="Scatterplots, correlation, least-squares lines, residuals, prediction, and causation cautions.">
 
 <title>Regression Basics – edu-math</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,8 +69,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/differential-equations/index.html" rel="next">
-<link href="../../lessons/statistics/hypothesis-tests.html" rel="prev">
+<link href="../../lessons/statistics/statistics-cumulative-review.html" rel="next">
+<link href="../../lessons/statistics/chi-square-tests.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/regression-basics.html">Regression Basics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/regression-basics.html">Regression Basics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -484,8 +519,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -613,6 +690,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -660,6 +743,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -667,7 +756,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -684,8 +785,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -790,58 +909,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -860,8 +927,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#scatterplots-first" id="toc-scatterplots-first" class="nav-link" data-scroll-target="#scatterplots-first">Scatterplots first</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a></li>
+  <li><a href="#regression-line" id="toc-regression-line" class="nav-link" data-scroll-target="#regression-line">Regression line</a></li>
+  <li><a href="#residuals" id="toc-residuals" class="nav-link" data-scroll-target="#residuals">Residuals</a></li>
+  <li><a href="#prediction-and-extrapolation" id="toc-prediction-and-extrapolation" class="nav-link" data-scroll-target="#prediction-and-extrapolation">Prediction and extrapolation</a></li>
+  <li><a href="#causation-caution" id="toc-causation-caution" class="nav-link" data-scroll-target="#causation-caution">Causation caution</a></li>
+  <li><a href="#worked-example-1-interpret-a-slope" id="toc-worked-example-1-interpret-a-slope" class="nav-link" data-scroll-target="#worked-example-1-interpret-a-slope">Worked example 1: interpret a slope</a></li>
+  <li><a href="#worked-example-2-make-a-prediction" id="toc-worked-example-2-make-a-prediction" class="nav-link" data-scroll-target="#worked-example-2-make-a-prediction">Worked example 2: make a prediction</a></li>
+  <li><a href="#worked-example-3-compute-a-residual" id="toc-worked-example-3-compute-a-residual" class="nav-link" data-scroll-target="#worked-example-3-compute-a-residual">Worked example 3: compute a residual</a></li>
+  <li><a href="#worked-example-4-fit-a-perfect-line" id="toc-worked-example-4-fit-a-perfect-line" class="nav-link" data-scroll-target="#worked-example-4-fit-a-perfect-line">Worked example 4: fit a perfect line</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-interpret-direction" id="toc-lab-1-interpret-direction" class="nav-link" data-scroll-target="#lab-1-interpret-direction">Lab 1: interpret direction</a></li>
+  <li><a href="#lab-2-use-the-line" id="toc-lab-2-use-the-line" class="nav-link" data-scroll-target="#lab-2-use-the-line">Lab 2: use the line</a></li>
+  <li><a href="#lab-3-residual-sign" id="toc-lab-3-residual-sign" class="nav-link" data-scroll-target="#lab-3-residual-sign">Lab 3: residual sign</a></li>
+  <li><a href="#lab-4-causation-language" id="toc-lab-4-causation-language" class="nav-link" data-scroll-target="#lab-4-causation-language">Lab 4: causation language</a></li>
+  </ul></li>
+  <li><a href="#regression-guessing-game" id="toc-regression-guessing-game" class="nav-link" data-scroll-target="#regression-guessing-game">Regression guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/regression-basics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -869,14 +956,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/regression-basics.html">Regression Basics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/regression-basics.html">Regression Basics</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Regression Basics</h1>
 </div>
 
 <div>
   <div class="description">
-    Model relationships between variables.
+    Scatterplots, correlation, least-squares lines, residuals, prediction, and causation cautions.
   </div>
 </div>
 
@@ -893,42 +980,187 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Regression models relationships between variables. In simple linear regression, we use one quantitative explanatory variable <code>x</code> to predict one quantitative response variable <code>y</code>.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Interpret slope and intercept in simple linear regression.</li>
-<li>Recognize residuals.</li>
-<li>Avoid causal overclaims.</li>
+<li>read scatterplots for direction, form, strength, and outliers;</li>
+<li>interpret correlation;</li>
+<li>interpret slope and intercept in a simple linear regression line;</li>
+<li>compute and interpret residuals;</li>
+<li>use a regression line for prediction;</li>
+<li>explain why association alone does not prove causation.</li>
 </ul>
 </section>
-<p>Regression models a relationship between an explanatory variable and a response variable.</p>
+<section id="scatterplots-first" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplots-first">Scatterplots first</h2>
+<p>Before fitting a line, look at the data. A scatterplot can show:</p>
+<ul>
+<li><strong>direction</strong>: positive, negative, or no clear association;</li>
+<li><strong>form</strong>: linear or curved;</li>
+<li><strong>strength</strong>: tight or scattered pattern;</li>
+<li><strong>outliers</strong>: unusual points;</li>
+<li><strong>clusters</strong>: groups that may need separate attention.</li>
+</ul>
+<p>A line is appropriate only when the relationship is roughly linear.</p>
+</section>
+<section id="correlation" class="level2">
+<h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
+<p>Pearson correlation <code>r</code> measures the strength and direction of a linear relationship.</p>
+<p>Properties:</p>
+<ul>
+<li><code>r</code> is between <code>-1</code> and <code>1</code>;</li>
+<li>positive <code>r</code> means y tends to increase as x increases;</li>
+<li>negative <code>r</code> means y tends to decrease as x increases;</li>
+<li><code>r</code> near <code>0</code> means little linear association;</li>
+<li>correlation is unitless;</li>
+<li>correlation is sensitive to outliers.</li>
+</ul>
+</section>
+<section id="regression-line" class="level2">
+<h2 class="anchored" data-anchor-id="regression-line">Regression line</h2>
+<p>A simple linear regression line has the form:</p>
 <div class="formula-box">
-<p>Simple linear regression has the form <code>y = beta_0 + beta_1 x + error</code>.</p>
+<pre class="text"><code>predicted y = intercept + slope * x</code></pre>
 </div>
+<p>The <strong>slope</strong> is the predicted change in <code>y</code> for a one-unit increase in <code>x</code>. The <strong>intercept</strong> is the predicted <code>y</code> value when <code>x=0</code>, if that value is meaningful in context.</p>
+</section>
+<section id="residuals" class="level2">
+<h2 class="anchored" data-anchor-id="residuals">Residuals</h2>
+<p>A residual is the prediction error for one point:</p>
+<pre class="text"><code>residual = observed y - predicted y</code></pre>
+<p>Positive residual: observed value is above the line. Negative residual: observed value is below the line.</p>
+<p>Residual plots help check whether a linear model is appropriate. A curved pattern in residuals suggests the line is missing structure.</p>
+</section>
+<section id="prediction-and-extrapolation" class="level2">
+<h2 class="anchored" data-anchor-id="prediction-and-extrapolation">Prediction and extrapolation</h2>
+<p>Interpolation means predicting within the range of observed <code>x</code> values. Extrapolation means predicting outside that range. Extrapolation can be risky because the relationship may not continue.</p>
+</section>
+<section id="causation-caution" class="level2">
+<h2 class="anchored" data-anchor-id="causation-caution">Causation caution</h2>
+<p>Regression describes association. It does not automatically prove that changing <code>x</code> causes a change in <code>y</code>. Causal conclusions require careful design, such as random assignment or strong observational methods.</p>
+</section>
+<section id="worked-example-1-interpret-a-slope" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-interpret-a-slope">Worked example 1: interpret a slope</h2>
+<p>A regression line predicts exam score from study hours:</p>
+<pre class="text"><code>predicted score = 62 + 4.5 * hours</code></pre>
+<p><strong>Question:</strong> Interpret the slope.</p>
+<p><strong>Answer:</strong> For each additional hour studied, the model predicts an average increase of <code>4.5</code> exam points.</p>
+<p>This is a prediction statement. It does not automatically prove that forcing one more hour of study causes exactly <code>4.5</code> more points for every student.</p>
+</section>
+<section id="worked-example-2-make-a-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-make-a-prediction">Worked example 2: make a prediction</h2>
+<p>Use the same line:</p>
+<pre class="text"><code>predicted score = 62 + 4.5 * hours</code></pre>
+<p>Predict score for <code>6</code> hours.</p>
+<p><strong>Step 1: Substitute.</strong></p>
+<pre class="text"><code>predicted score = 62 + 4.5(6)</code></pre>
+<p><strong>Step 2: Compute.</strong></p>
+<pre class="text"><code>62 + 27 = 89</code></pre>
+<p>The predicted score is <code>89</code>.</p>
+</section>
+<section id="worked-example-3-compute-a-residual" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-compute-a-residual">Worked example 3: compute a residual</h2>
+<p>A student studied <code>6</code> hours and scored <code>84</code>. The model predicted <code>89</code>.</p>
+<pre class="text"><code>residual = observed - predicted = 84 - 89 = -5</code></pre>
+<p>The residual is <code>-5</code>, meaning the student scored <code>5</code> points below the model’s prediction.</p>
+</section>
+<section id="worked-example-4-fit-a-perfect-line" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-4-fit-a-perfect-line">Worked example 4: fit a perfect line</h2>
+<p>Data:</p>
+<pre class="text"><code>x: 1, 2, 3
+y: 3, 5, 7</code></pre>
+<p>Each time <code>x</code> increases by <code>1</code>, <code>y</code> increases by <code>2</code>, so slope is <code>2</code>. Using point <code>(1,3)</code>:</p>
+<pre class="text"><code>3 = intercept + 2(1)
+intercept = 1</code></pre>
+<p>The line is:</p>
+<pre class="text"><code>predicted y = 1 + 2x</code></pre>
+<p>For <code>x=4</code>, predicted <code>y=9</code>.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Interpreting the intercept outside a meaningful range.</li>
+<li>Using correlation for a curved relationship.</li>
+<li>Ignoring outliers that strongly affect the line.</li>
+<li>Treating a high correlation as proof of causation.</li>
+<li>Extrapolating far beyond observed data.</li>
+<li>Forgetting that residuals are observed minus predicted.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What does the slope represent?</li>
-<li>What is a residual?</li>
+<li>Interpret the slope in <code>predicted y = 10 + 3x</code>.</li>
+<li>Predict <code>y</code> when <code>x=5</code> for <code>predicted y = 10 + 3x</code>.</li>
+<li>If observed <code>y=22</code> and predicted <code>y=25</code>, find the residual.</li>
+<li>What does correlation near <code>-1</code> mean?</li>
+<li>Why is extrapolation risky?</li>
 <li>Why does regression alone not prove causation?</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the expected change in the response for a one-unit increase in the explanatory variable, according to the fitted model.</p>
+<ol type="1">
+<li>For each one-unit increase in <code>x</code>, predicted <code>y</code> increases by <code>3</code> units.</li>
+<li><code>10 + 3(5) = 25</code>.</li>
+<li><code>22 - 25 = -3</code>.</li>
+<li>A strong negative linear association.</li>
+<li>The relationship may change outside the observed range.</li>
+<li>Confounding, selection effects, or reverse causation may explain the association.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<section id="lab-1-interpret-direction" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-interpret-direction">Lab 1: interpret direction</h3>
+<p><strong>Guess first.</strong> If taller plants tend to have larger leaves, is the association positive or negative?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>As height increases, leaf size tends to increase, so the association is positive.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If price increases and demand decreases, what is the direction?</p>
+</div>
+</section>
+<section id="lab-2-use-the-line" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-use-the-line">Lab 2: use the line</h3>
+<p><strong>Guess first.</strong> In <code>y = 5 + 2x</code>, what is the predicted change in <code>y</code> when <code>x</code> increases by <code>1</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The slope is <code>2</code>, so predicted <code>y</code> increases by <code>2</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Predict <code>y</code> for <code>x=4</code> in <code>y=5+2x</code>.</p>
+</div>
+</section>
+<section id="lab-3-residual-sign" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-residual-sign">Lab 3: residual sign</h3>
+<p><strong>Guess first.</strong> If a point is above the regression line, is the residual positive or negative?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Above the line means observed <code>y</code> is greater than predicted <code>y</code>, so the residual is positive.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If observed is <code>12</code> and predicted is <code>15</code>, find the residual.</p>
+</div>
+</section>
+<section id="lab-4-causation-language" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-causation-language">Lab 4: causation language</h3>
+<p><strong>Guess first.</strong> Can an observational regression prove causation by itself?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>No.&nbsp;It can show association, but causal claims require design and reasoning about confounders.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Name one reason association may not be causation.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -936,31 +1168,320 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: observed value minus predicted value.</p>
-<p>Residuals measure model error for individual data points.</p>
+<ol type="1">
+<li>Negative.</li>
+<li><code>5+2(4)=13</code>.</li>
+<li><code>12-15=-3</code>.</li>
+<li>Confounding, reverse causation, selection effects, or coincidence.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="regression-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="regression-guessing-game">Regression guessing game</h2>
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "regression-basics",
+  "title": "Regression basics checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-statistics-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "descriptive-statistics";
+    const BANKS = {
+      "descriptive-statistics": [meanQuestion, medianQuestion, iqrQuestion, outlierQuestion],
+      sampling: [populationQuestion, biasQuestion, randomSampleQuestion, confoundingQuestion],
+      "probability-for-statistics": [expectedValueQuestion, varianceQuestion, normalModelQuestion, binomialQuestion],
+      "sampling-distributions": [standardErrorQuestion, cltQuestion, samplingDistributionQuestion, sampleSizeQuestion],
+      estimation: [pointEstimateQuestion, confidenceIntervalQuestion, marginQuestion, confidenceMeaningQuestion],
+      "hypothesis-tests": [nullQuestion, pValueQuestion, alphaQuestion, typeErrorQuestion],
+      "comparing-groups": [pairedQuestion, independentQuestion, differenceQuestion, effectSizeQuestion],
+      "chi-square-tests": [observedExpectedQuestion, goodnessFitQuestion, independenceQuestion, chiSquareCautionQuestion],
+      "regression-basics": [slopeQuestion, residualQuestion, correlationQuestion, causationQuestion],
+      "statistics-cumulative-review": [meanQuestion, biasQuestion, standardErrorQuestion, confidenceIntervalQuestion, pValueQuestion, slopeQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-statistics-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-statistics-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Statistics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function meanQuestion() {
+      return question({ prompt: "What is the mean of 2, 4, and 6?", stimulus: "add then divide by 3", answer: "4", distractors: ["3", "6", "12"], explanation: "(2+4+6)/3 = 4." });
+    }
+    function medianQuestion() {
+      return question({ prompt: "Which summary is most resistant to one very large outlier?", stimulus: "center with outliers", answer: "median", distractors: ["mean", "range", "maximum"], explanation: "The median depends on order position, not the exact size of the extreme value." });
+    }
+    function iqrQuestion() {
+      return question({ prompt: "What does the IQR measure?", stimulus: "Q3 - Q1", answer: "spread of the middle half", distractors: ["average value", "sample size", "largest value only"], explanation: "IQR is the distance from the first quartile to the third quartile." });
+    }
+    function outlierQuestion() {
+      return question({ prompt: "A value far above the rest usually affects which summary most?", stimulus: "outlier", answer: "mean", distractors: ["median", "Q1", "sample size"], explanation: "The mean uses the exact size of every value." });
+    }
+    function populationQuestion() {
+      return question({ prompt: "The full group we want to learn about is the...", stimulus: "study target", answer: "population", distractors: ["sample", "statistic", "response"], explanation: "A sample is selected from the population." });
+    }
+    function biasQuestion() {
+      return question({ prompt: "Surveying only gym visitors about exercise is mainly what problem?", stimulus: "who was selected", answer: "selection bias", distractors: ["random sampling", "larger sample size", "low variance"], explanation: "The selected group systematically differs from the target population." });
+    }
+    function randomSampleQuestion() {
+      return question({ prompt: "Why do random samples help?", stimulus: "chance selection", answer: "they reduce systematic selection patterns", distractors: ["they remove all uncertainty", "they prove causation", "they make every answer true"], explanation: "Random selection supports probability-based uncertainty estimates." });
+    }
+    function confoundingQuestion() {
+      return question({ prompt: "A hidden variable related to both treatment and outcome is called a...", stimulus: "causal caution", answer: "confounder", distractors: ["median", "residual", "margin of error"], explanation: "Confounding can create misleading associations." });
+    }
+    function expectedValueQuestion() {
+      return question({ prompt: "Expected value is best described as a...", stimulus: "weighted average", answer: "long-run average", distractors: ["guaranteed outcome", "sample maximum", "p-value"], explanation: "Expected value averages outcomes using probabilities as weights." });
+    }
+    function varianceQuestion() {
+      return question({ prompt: "Variance measures typical squared distance from the...", stimulus: "spread", answer: "mean", distractors: ["maximum", "sample size", "p-value"], explanation: "Variance averages squared deviations from the mean." });
+    }
+    function normalModelQuestion() {
+      return question({ prompt: "The normal distribution is shaped like a...", stimulus: "symmetric model", answer: "bell", distractors: ["line", "triangle", "two-way table"], explanation: "Normal models are symmetric and bell-shaped." });
+    }
+    function binomialQuestion() {
+      return question({ prompt: "A binomial count records the number of...", stimulus: "fixed independent trials", answer: "successes", distractors: ["outliers", "residuals", "quartiles"], explanation: "Binomial variables count successes in a fixed number of independent trials." });
+    }
+    function standardErrorQuestion() {
+      return question({ prompt: "Standard error describes variation of a...", stimulus: "sample-to-sample", answer: "statistic", distractors: ["single raw value", "population label", "survey question wording"], explanation: "It is the standard deviation of a statistic's sampling distribution." });
+    }
+    function cltQuestion() {
+      return question({ prompt: "The central limit theorem says sample means often become approximately...", stimulus: "large n", answer: "normal", distractors: ["categorical", "impossible", "biased"], explanation: "With conditions, the distribution of sample means is approximately normal." });
+    }
+    function samplingDistributionQuestion() {
+      return question({ prompt: "A sampling distribution is the distribution of...", stimulus: "repeat sampling", answer: "a statistic", distractors: ["one questionnaire", "a population name", "a graph title"], explanation: "Imagine calculating the statistic for many random samples." });
+    }
+    function sampleSizeQuestion() {
+      return question({ prompt: "If sample size increases, standard error usually...", stimulus: "SE = s/sqrt(n)", answer: "decreases", distractors: ["increases", "stays forced at 1", "becomes a p-value"], explanation: "The square root of n is in the denominator." });
+    }
+    function pointEstimateQuestion() {
+      return question({ prompt: "A single-number estimate is a...", stimulus: "one value", answer: "point estimate", distractors: ["confidence level", "null hypothesis", "residual"], explanation: "A sample mean or sample proportion can be a point estimate." });
+    }
+    function confidenceIntervalQuestion() {
+      return question({ prompt: "A confidence interval is estimate plus/minus...", stimulus: "uncertainty", answer: "margin of error", distractors: ["sample maximum", "correlation", "confounder"], explanation: "The margin of error measures how far the interval extends from the estimate." });
+    }
+    function marginQuestion() {
+      return question({ prompt: "For a 95% normal interval, the multiplier is about...", stimulus: "critical value", answer: "1.96", distractors: ["0.05", "10", "100"], explanation: "A two-sided 95% normal interval uses z* approximately 1.96." });
+    }
+    function confidenceMeaningQuestion() {
+      return question({ prompt: "95% confidence describes the long-run success rate of the...", stimulus: "repeated samples", answer: "method", distractors: ["single fixed interval", "null being true", "largest observation"], explanation: "The confidence level belongs to the procedure over repeated samples." });
+    }
+    function nullQuestion() {
+      return question({ prompt: "The baseline claim in a test is the...", stimulus: "H0", answer: "null hypothesis", distractors: ["sample statistic", "residual", "histogram"], explanation: "The null often represents no change, no effect, or an existing claim." });
+    }
+    function pValueQuestion() {
+      return question({ prompt: "A p-value is computed assuming which hypothesis is true?", stimulus: "test logic", answer: "null hypothesis", distractors: ["alternative hypothesis", "largest value", "regression line"], explanation: "It measures how surprising the data are under the null model." });
+    }
+    function alphaQuestion() {
+      return question({ prompt: "If p-value <= alpha, the usual decision is to...", stimulus: "decision rule", answer: "reject the null", distractors: ["prove the null", "ignore the data", "increase sample bias"], explanation: "The result is statistically significant at that alpha level." });
+    }
+    function typeErrorQuestion() {
+      return question({ prompt: "Rejecting a true null hypothesis is a Type...", stimulus: "false positive", answer: "I error", distractors: ["II error", "residual", "quartile"], explanation: "Type I error is a false positive decision." });
+    }
+    function pairedQuestion() {
+      return question({ prompt: "Before-and-after measurements on the same people are...", stimulus: "same units twice", answer: "paired", distractors: ["independent", "categorical only", "a histogram"], explanation: "Pairing means observations are naturally linked." });
+    }
+    function independentQuestion() {
+      return question({ prompt: "Two separate randomly selected groups are usually treated as...", stimulus: "different units", answer: "independent samples", distractors: ["paired samples", "one residual", "one population parameter"], explanation: "No observation in one group is matched to a specific observation in the other." });
+    }
+    function differenceQuestion() {
+      return question({ prompt: "When comparing two means, the estimate is often...", stimulus: "group A minus group B", answer: "a difference", distractors: ["a maximum", "a p-value only", "a sample label"], explanation: "The difference in sample means estimates the difference in population means." });
+    }
+    function effectSizeQuestion() {
+      return question({ prompt: "Practical importance is mostly about the...", stimulus: "real-world size", answer: "effect size", distractors: ["file name", "random seed", "graph color"], explanation: "A tiny effect can be statistically significant but not practically important." });
+    }
+    function observedExpectedQuestion() {
+      return question({ prompt: "Chi-square statistics compare observed counts to...", stimulus: "null model", answer: "expected counts", distractors: ["sample means", "residual plots", "confidence levels"], explanation: "Expected counts are what the null model predicts for each category." });
+    }
+    function goodnessFitQuestion() {
+      return question({ prompt: "A goodness-of-fit test uses how many categorical variables?", stimulus: "one-way table", answer: "one", distractors: ["two", "three slopes", "no counts"], explanation: "It compares one categorical distribution to a claimed distribution." });
+    }
+    function independenceQuestion() {
+      return question({ prompt: "A chi-square test of independence uses a...", stimulus: "two categorical variables", answer: "two-way table", distractors: ["scatterplot only", "sample mean", "slope formula"], explanation: "Rows and columns represent the two categorical variables." });
+    }
+    function chiSquareCautionQuestion() {
+      return question({ prompt: "Chi-square methods are based on...", stimulus: "categorical data", answer: "counts", distractors: ["raw angles", "regression slopes only", "derivatives"], explanation: "The data should be frequency counts in categories." });
+    }
+    function slopeQuestion() {
+      return question({ prompt: "In regression, slope is the predicted change in y for...", stimulus: "one-unit change", answer: "one more unit of x", distractors: ["one more residual", "the median only", "a smaller p-value"], explanation: "Slope connects changes in the explanatory variable to predicted changes in the response." });
+    }
+    function residualQuestion() {
+      return question({ prompt: "A residual is observed y minus...", stimulus: "prediction error", answer: "predicted y", distractors: ["mean x", "sample size", "confidence level"], explanation: "Residuals show prediction errors for individual points." });
+    }
+    function correlationQuestion() {
+      return question({ prompt: "Correlation is always between...", stimulus: "r", answer: "-1 and 1", distractors: ["0 and 100", "1 and infinity", "only positive values"], explanation: "Pearson correlation ranges from -1 to 1." });
+    }
+    function causationQuestion() {
+      return question({ prompt: "A strong regression association alone proves causation?", stimulus: "causal caution", answer: "no", distractors: ["yes", "always", "only if slope is positive"], explanation: "Confounding and study design matter for causal claims." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `statistics-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to fit a simple regression line and compute residuals.</p>
+<div id="2dc07200" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> predict, residuals, simple_linear_regression</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> simple_linear_regression([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>line</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>RegressionLine(slope=2.0, intercept=1.0, correlation=1.0)</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: association can be caused by confounding, selection effects, or other variables not included in the model.</p>
+<div id="77a2b857" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>predict(line, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>9.0</code></pre>
 </div>
+</div>
+<div id="3fe909cf" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>residuals(line, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(0.0, 0.0, 0.0)</code></pre>
+</div>
+</div>
+<p>Use SymPy to solve for an intercept from one point and a known slope.</p>
+<div id="23a2f7fb" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> sp.symbols(<span class="st">"b"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(<span class="dv">3</span>, b <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">1</span>), b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>[1]</code></pre>
 </div>
 </div>
 
@@ -1388,13 +1909,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/statistics/hypothesis-tests.html" class="pagination-link" aria-label="Hypothesis Tests">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hypothesis Tests</span>
+      <a href="../../lessons/statistics/chi-square-tests.html" class="pagination-link" aria-label="Chi-Square Tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Chi-Square Tests</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/differential-equations/index.html" class="pagination-link" aria-label="Differential Equations Study Path">
-        <span class="nav-page-text">Differential Equations Study Path</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/statistics-cumulative-review.html" class="pagination-link" aria-label="Statistics Cumulative Review">
+        <span class="nav-page-text">Statistics Cumulative Review</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

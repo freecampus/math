@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Bernoulli, binomial, uniform, and normal distributions.">
+<meta name="description" content="Bernoulli, binomial, uniform, normal, and other probability patterns.">
 
 <title>Common Distributions – edu-math</title>
 <style>
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/common-distributions.html">Common Distributions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/common-distributions.html">Common Distributions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -519,8 +548,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -648,6 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -695,6 +772,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -702,7 +785,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -719,8 +814,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -825,58 +938,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -895,9 +956,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#what-is-a-distribution" id="toc-what-is-a-distribution" class="nav-link" data-scroll-target="#what-is-a-distribution">What is a distribution?</a></li>
+  <li><a href="#bernoulli-distribution" id="toc-bernoulli-distribution" class="nav-link" data-scroll-target="#bernoulli-distribution">Bernoulli distribution</a></li>
+  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution">Binomial distribution</a></li>
+  <li><a href="#uniform-distributions" id="toc-uniform-distributions" class="nav-link" data-scroll-target="#uniform-distributions">Uniform distributions</a></li>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal distribution</a></li>
+  <li><a href="#optional-geometric-and-poisson-patterns" id="toc-optional-geometric-and-poisson-patterns" class="nav-link" data-scroll-target="#optional-geometric-and-poisson-patterns">Optional: geometric and Poisson patterns</a></li>
+  <li><a href="#how-to-choose-a-distribution" id="toc-how-to-choose-a-distribution" class="nav-link" data-scroll-target="#how-to-choose-a-distribution">How to choose a distribution</a></li>
+  <li><a href="#worked-example-1-bernoulli" id="toc-worked-example-1-bernoulli" class="nav-link" data-scroll-target="#worked-example-1-bernoulli">Worked example 1: Bernoulli</a></li>
+  <li><a href="#worked-example-2-binomial-probability" id="toc-worked-example-2-binomial-probability" class="nav-link" data-scroll-target="#worked-example-2-binomial-probability">Worked example 2: binomial probability</a></li>
+  <li><a href="#worked-example-3-scenario-matching" id="toc-worked-example-3-scenario-matching" class="nav-link" data-scroll-target="#worked-example-3-scenario-matching">Worked example 3: scenario matching</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-identify-bernoulli-versus-binomial" id="toc-lab-1-identify-bernoulli-versus-binomial" class="nav-link" data-scroll-target="#lab-1-identify-bernoulli-versus-binomial">Lab 1: identify Bernoulli versus binomial</a></li>
+  <li><a href="#lab-2-compute-a-binomial-pmf-step-by-step" id="toc-lab-2-compute-a-binomial-pmf-step-by-step" class="nav-link" data-scroll-target="#lab-2-compute-a-binomial-pmf-step-by-step">Lab 2: compute a binomial PMF step by step</a></li>
+  <li><a href="#lab-3-identify-a-uniform-situation" id="toc-lab-3-identify-a-uniform-situation" class="nav-link" data-scroll-target="#lab-3-identify-a-uniform-situation">Lab 3: identify a uniform situation</a></li>
+  <li><a href="#lab-4-interpret-normal-center-and-spread" id="toc-lab-4-interpret-normal-center-and-spread" class="nav-link" data-scroll-target="#lab-4-interpret-normal-center-and-spread">Lab 4: interpret normal center and spread</a></li>
+  <li><a href="#lab-5-choose-a-distribution-from-a-story" id="toc-lab-5-choose-a-distribution-from-a-story" class="nav-link" data-scroll-target="#lab-5-choose-a-distribution-from-a-story">Lab 5: choose a distribution from a story</a></li>
+  </ul></li>
+  <li><a href="#distribution-guessing-game" id="toc-distribution-guessing-game" class="nav-link" data-scroll-target="#distribution-guessing-game">Distribution guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/common-distributions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -905,14 +986,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/common-distributions.html">Common Distributions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/common-distributions.html">Common Distributions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Common Distributions</h1>
 </div>
 
 <div>
   <div class="description">
-    Bernoulli, binomial, uniform, and normal distributions.
+    Bernoulli, binomial, uniform, normal, and other probability patterns.
   </div>
 </div>
 
@@ -929,50 +1010,172 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>A <strong>distribution</strong> describes how probability is spread across possible values of a random variable. Some patterns appear so often that they have names. Learning these names helps you recognize the right model before doing calculations.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Recognize common probability distributions.</li>
-<li>Compute binomial probabilities.</li>
-<li>Match distributions to situations.</li>
+<li>explain what a probability distribution is;</li>
+<li>recognize Bernoulli, binomial, uniform, and normal distributions;</li>
+<li>connect distribution parameters to real stories;</li>
+<li>compute simple binomial probabilities;</li>
+<li>choose a reasonable distribution for a described situation;</li>
+<li>use <code>edumath</code>, Python, and SymPy to evaluate distribution formulas.</li>
 </ul>
 </section>
-<div id="544de9d2" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability.distributions <span class="im">import</span> binomial_pmf</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>binomial_pmf(trials<span class="op">=</span><span class="dv">10</span>, successes<span class="op">=</span><span class="dv">3</span>, probability<span class="op">=</span><span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>0.1171875</code></pre>
-</div>
-</div>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="practice-box">
+<section id="what-is-a-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-distribution">What is a distribution?</h2>
+<p>A probability distribution tells us which values a random variable can take and how likely those values are.</p>
+<p>For a discrete random variable, this may be a table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>x</code></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>P(X=x)</code></td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.7</td>
+</tr>
+</tbody>
+</table>
+<p>For a continuous random variable, a distribution is usually described by a curve or density. Areas under the curve represent probabilities.</p>
+</section>
+<section id="bernoulli-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="bernoulli-distribution">Bernoulli distribution</h2>
+<p>A <strong>Bernoulli</strong> random variable models one trial with two outcomes:</p>
+<pre class="text"><code>1 = success
+0 = failure</code></pre>
+<p>If success has probability <code>p</code>, then:</p>
+<pre class="text"><code>P(X=1) = p
+P(X=0) = 1-p</code></pre>
+<p>Examples:</p>
+<ul>
+<li>one coin flip coded as heads = 1;</li>
+<li>one product is defective or not;</li>
+<li>one email is spam or not.</li>
+</ul>
+</section>
+<section id="binomial-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="binomial-distribution">Binomial distribution</h2>
+<p>A <strong>binomial</strong> random variable counts the number of successes in a fixed number of independent Bernoulli trials.</p>
+<p>A binomial model needs:</p>
 <ol type="1">
-<li>Which distribution models one yes/no trial?</li>
-<li>Which distribution models the number of successes in fixed trials?</li>
-<li>Which distribution is often used for measurement noise?</li>
+<li>fixed number of trials <code>n</code>;</li>
+<li>each trial has success/failure;</li>
+<li>the success probability <code>p</code> is the same each time;</li>
+<li>trials are independent;</li>
+<li>the random variable counts successes.</li>
 </ol>
+<p>The probability of exactly <code>k</code> successes is:</p>
+<div class="formula-box">
+<pre class="text"><code>P(X=k) = C(n,k) p^k (1-p)^(n-k)</code></pre>
 </div>
 </section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<section id="uniform-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="uniform-distributions">Uniform distributions</h2>
+<p>A <strong>uniform</strong> distribution gives equal probability to all allowed outcomes.</p>
+<p>A fair die is discrete uniform:</p>
+<pre class="text"><code>P(1)=P(2)=...=P(6)=1/6</code></pre>
+<p>A continuous uniform distribution on an interval, such as from 0 to 1, spreads probability evenly across the whole interval.</p>
+</section>
+<section id="normal-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="normal-distribution">Normal distribution</h2>
+<p>A <strong>normal</strong> distribution is the bell-shaped distribution often used for measurement errors, natural variation, and averages of many small independent effects.</p>
+<p>It is described by:</p>
+<ul>
+<li>a mean, which controls the center;</li>
+<li>a standard deviation, which controls the spread.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Warning</span>Normal does not mean automatic
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: Bernoulli distribution.</p>
-<p>It models a single trial with two outcomes, often coded as <code>0</code> and <code>1</code>.</p>
+<p>Not every bell-looking data set is exactly normal, and not every measurement should be modeled as normal. Always connect the distribution to the story and check assumptions when possible.</p>
 </div>
 </div>
+</section>
+<section id="optional-geometric-and-poisson-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="optional-geometric-and-poisson-patterns">Optional: geometric and Poisson patterns</h2>
+<p>Two other common patterns are useful to recognize:</p>
+<ul>
+<li><strong>Geometric</strong>: number of trials until the first success.</li>
+<li><strong>Poisson</strong>: number of events in a fixed time or region when events occur at a roughly constant rate.</li>
+</ul>
+<p>This lesson focuses on Bernoulli, binomial, uniform, and normal, but you will meet geometric and Poisson distributions in many statistics courses.</p>
+</section>
+<section id="how-to-choose-a-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-choose-a-distribution">How to choose a distribution</h2>
+<p>Ask these questions:</p>
+<ol type="1">
+<li>Is there one success/failure trial? Use Bernoulli.</li>
+<li>Are there fixed independent success/failure trials and are you counting successes? Use binomial.</li>
+<li>Are all values equally likely? Use uniform.</li>
+<li>Is the variable continuous and clustered symmetrically around a mean? A normal model may be reasonable.</li>
+<li>Are you counting events over time or space? Consider Poisson.</li>
+</ol>
+</section>
+<section id="worked-example-1-bernoulli" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-bernoulli">Worked example 1: Bernoulli</h2>
+<p>A machine part either passes inspection or fails inspection. Let <code>X=1</code> if it passes and <code>X=0</code> if it fails. If the pass probability is <code>0.92</code>, then:</p>
+<pre class="text"><code>P(X=1) = 0.92
+P(X=0) = 0.08</code></pre>
+<p>This is Bernoulli because there is one yes/no trial.</p>
+</section>
+<section id="worked-example-2-binomial-probability" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-binomial-probability">Worked example 2: binomial probability</h2>
+<p>A quiz has 5 multiple-choice questions. Suppose a student guesses randomly and has probability <code>0.25</code> of answering each question correctly. What is the probability of exactly 2 correct answers?</p>
+<ol type="1">
+<li>There are fixed trials: <code>n=5</code>.</li>
+<li>Success means correct answer.</li>
+<li>Success probability is <code>p=0.25</code>.</li>
+<li>We want <code>k=2</code> successes.</li>
+<li>Use the binomial formula:</li>
+</ol>
+<pre class="text"><code>P(X=2) = C(5,2)(0.25)^2(0.75)^3
+       = 10(0.0625)(0.421875)
+       = 0.263671875</code></pre>
+</section>
+<section id="worked-example-3-scenario-matching" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-scenario-matching">Worked example 3: scenario matching</h2>
+<p>Choose a distribution for each story:</p>
+<ol type="1">
+<li>One email is spam or not spam: Bernoulli.</li>
+<li>Number of heads in 20 fair coin flips: binomial.</li>
+<li>Result of a fair die: discrete uniform.</li>
+<li>Small measurement error from a calibrated instrument: normal may be reasonable.</li>
+</ol>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Calling every two-outcome situation binomial; one trial is Bernoulli.</li>
+<li>Using binomial when the success probability changes across trials.</li>
+<li>Using binomial when trials are not independent.</li>
+<li>Forgetting that uniform means equal probabilities.</li>
+<li>Assuming normal distributions for counts or strongly skewed data.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
+<div class="practice-box">
+<ol type="1">
+<li>Which distribution models one yes/no trial?</li>
+<li>Which distribution models the number of successes in fixed independent trials?</li>
+<li>Which distribution models a fair die roll?</li>
+<li>Which distribution is often used for bell-shaped measurement noise?</li>
+<li>Compute <code>P(X=3)</code> for <code>X ~ Binomial(n=4, p=0.5)</code>.</li>
+</ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -980,16 +1183,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: binomial distribution.</p>
-<p>It counts successes across a fixed number of independent Bernoulli trials.</p>
+<ol type="1">
+<li>Bernoulli.</li>
+<li>Binomial.</li>
+<li>Discrete uniform.</li>
+<li>Normal.</li>
+<li><code>C(4,3)(0.5)^3(0.5)^1 = 4/16 = 1/4</code>.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Distribution problems become easier when you match the story before touching a formula.</p>
+<section id="lab-1-identify-bernoulli-versus-binomial" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-identify-bernoulli-versus-binomial">Lab 1: identify Bernoulli versus binomial</h3>
+<p><strong>Guess first.</strong> Is “one coin flip” Bernoulli or binomial?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>One coin flip has one success/failure trial, so it is Bernoulli. Ten coin flips and the number of heads would be binomial.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Classify each as Bernoulli or binomial: one free throw made or missed; number of made free throws in 8 attempts.</p>
+</div>
+</section>
+<section id="lab-2-compute-a-binomial-pmf-step-by-step" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-compute-a-binomial-pmf-step-by-step">Lab 2: compute a binomial PMF step by step</h3>
+<p><strong>Guess first.</strong> In <code>C(n,k)p^k(1-p)^(n-k)</code>, does <code>k</code> count successes or failures?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>For <code>n=3</code>, <code>k=2</code>, and <code>p=0.5</code>:</p>
+<pre class="text"><code>P(X=2) = C(3,2)(0.5)^2(0.5)^1
+       = 3(0.25)(0.5)
+       = 0.375</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute <code>P(X=1)</code> for <code>X ~ Binomial(n=3, p=0.25)</code>.</p>
+</div>
+</section>
+<section id="lab-3-identify-a-uniform-situation" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-identify-a-uniform-situation">Lab 3: identify a uniform situation</h3>
+<p><strong>Guess first.</strong> Is a loaded die uniform?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>A fair die is uniform because each face has probability <code>1/6</code>. A loaded die is not uniform because some faces have different probabilities.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Give one example of a discrete uniform random variable and one example that is not uniform.</p>
+</div>
+</section>
+<section id="lab-4-interpret-normal-center-and-spread" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-interpret-normal-center-and-spread">Lab 4: interpret normal center and spread</h3>
+<p><strong>Guess first.</strong> If two normal distributions have the same mean but one has a larger standard deviation, which is more spread out?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The standard deviation controls spread. A larger standard deviation means values are more spread out from the mean.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> What does the mean control in a normal distribution? What does the standard deviation control?</p>
+</div>
+</section>
+<section id="lab-5-choose-a-distribution-from-a-story" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-choose-a-distribution-from-a-story">Lab 5: choose a distribution from a story</h3>
+<p><strong>Guess first.</strong> Which distribution fits “number of defective items in a sample of 20 independent items”?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>This counts successes in a fixed number of independent yes/no trials. If the defect probability is the same for each item, a binomial distribution is reasonable.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Choose a distribution: waiting time until a bus arrives; whether one message is spam; result of a fair spinner with 5 equal sections.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -997,15 +1256,451 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: normal distribution.</p>
-<p>Many measurement errors are modeled as approximately normal because small independent sources of variation accumulate.</p>
+<ol type="1">
+<li>One free throw made or missed: Bernoulli. Number made in 8 attempts: binomial.</li>
+<li><code>C(3,1)(0.25)^1(0.75)^2 = 3(0.25)(0.5625) = 0.421875</code>.</li>
+<li>Uniform example: fair die. Not uniform: weighted die or weather tomorrow.</li>
+<li>The mean controls center. The standard deviation controls spread.</li>
+<li>Waiting time: often continuous, sometimes modeled with an exponential-like distribution. One spam decision: Bernoulli. Fair spinner with 5 equal sections: discrete uniform.</li>
+</ol>
 </div>
+</div>
+</div>
+</section>
+</section>
+<section id="distribution-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-guessing-game">Distribution guessing game</h2>
+<p>Use this checkpoint to match stories with common distributions.</p>
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "common-distributions",
+  "title": "Common distributions checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-probability-checkpoint" data-default-total="4">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "sample-spaces-events";
+    const BANKS = {
+      "sample-spaces-events": [sampleSpaceQuestion, eventQuestion, complementQuestion, simpleProbabilityQuestion],
+      counting: [factorialQuestion, productRuleQuestion, permutationCombinationQuestion, combinationQuestion],
+      "conditional-probability": [conditionalMeaningQuestion, conditionalCountQuestion, independenceQuestion, bayesDirectionQuestion],
+      "random-variables": [randomVariableQuestion, discreteContinuousQuestion, pmfValidityQuestion, expectedValueQuestion],
+      "common-distributions": [bernoulliQuestion, binomialQuestion, uniformQuestion, normalQuestion],
+      "expectation-variance": [weightedAverageQuestion, possibleOutcomeQuestion, varianceQuestion, fairGameQuestion],
+      "probability-cumulative-review": [sampleSpaceQuestion, permutationCombinationQuestion, conditionalMeaningQuestion, pmfValidityQuestion, binomialQuestion, varianceQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-probability-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-probability-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Probability checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function sampleSpaceQuestion() {
+      return question({
+        prompt: "What is the sample space for one coin flip?",
+        stimulus: "one fair coin",
+        answer: "{H, T}",
+        distractors: ["{H}", "{T}", "{1, 2, 3, 4, 5, 6}"],
+        explanation: "The sample space lists all possible outcomes: heads and tails.",
+      });
+    }
+
+    function eventQuestion() {
+      return question({
+        prompt: "For a fair die, which event represents rolling an even number?",
+        stimulus: "S = {1,2,3,4,5,6}",
+        answer: "{2, 4, 6}",
+        distractors: ["{1, 3, 5}", "{6}", "{2, 3, 5}"],
+        explanation: "An event is a subset of outcomes that satisfy the condition.",
+      });
+    }
+
+    function complementQuestion() {
+      return question({
+        prompt: "What is the complement of rolling even on a fair die?",
+        stimulus: "Even = {2,4,6}",
+        answer: "{1, 3, 5}",
+        distractors: ["{2, 4, 6}", "{1, 2, 3}", "empty set"],
+        explanation: "The complement contains outcomes in the sample space that are not in the event.",
+      });
+    }
+
+    function simpleProbabilityQuestion() {
+      return question({
+        prompt: "What is P(rolling greater than 4) on a fair die?",
+        stimulus: "favorable outcomes: {5,6}",
+        answer: "2/6 = 1/3",
+        distractors: ["1/6", "4/6", "1/2"],
+        explanation: "There are 2 favorable outcomes out of 6 equally likely outcomes.",
+      });
+    }
+
+    function factorialQuestion() {
+      return question({
+        prompt: "Compute 4!.",
+        stimulus: "factorial",
+        answer: "24",
+        distractors: ["8", "16", "4"],
+        explanation: "4! = 4·3·2·1 = 24.",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "A meal has 3 mains and 2 drinks. How many meal choices?",
+        stimulus: "choose one main and one drink",
+        answer: "6",
+        distractors: ["5", "3", "2"],
+        explanation: "Use the product rule: 3·2 = 6.",
+      });
+    }
+
+    function permutationCombinationQuestion() {
+      return question({
+        prompt: "Which method fits choosing 3 students from 10 when order does not matter?",
+        stimulus: "committee selection",
+        answer: "combination",
+        distractors: ["permutation", "factorial only", "conditional probability"],
+        explanation: "Combinations count selections when order does not matter.",
+      });
+    }
+
+    function combinationQuestion() {
+      return question({
+        prompt: "Compute C(5,2).",
+        stimulus: "choose 2 from 5",
+        answer: "10",
+        distractors: ["20", "5", "25"],
+        explanation: "C(5,2)=5·4/(2·1)=10.",
+      });
+    }
+
+    function conditionalMeaningQuestion() {
+      return question({
+        prompt: "What does P(A | B) mean?",
+        stimulus: "conditional notation",
+        answer: "probability of A given B happened",
+        distractors: ["probability of B given A happened", "A and B are impossible", "A or B"],
+        explanation: "The condition after the vertical bar is the information already known.",
+      });
+    }
+
+    function conditionalCountQuestion() {
+      return question({
+        prompt: "A fair die is known to be greater than 3. What is P(even | greater than 3)?",
+        stimulus: "restricted outcomes: {4,5,6}",
+        answer: "2/3",
+        distractors: ["1/2", "1/3", "3/6"],
+        explanation: "Inside {4,5,6}, the even outcomes are {4,6}.",
+      });
+    }
+
+    function independenceQuestion() {
+      return question({
+        prompt: "If A and B are independent, what is P(A | B)?",
+        stimulus: "B gives no information about A",
+        answer: "P(A)",
+        distractors: ["P(B)", "P(A and B)", "0"],
+        explanation: "Independence means knowing B does not change the probability of A.",
+      });
+    }
+
+    function bayesDirectionQuestion() {
+      return question({
+        prompt: "Which probability reverses the condition in P(test positive | disease)?",
+        stimulus: "Bayes direction",
+        answer: "P(disease | test positive)",
+        distractors: ["P(disease and test positive)", "P(test positive)", "P(not disease)"],
+        explanation: "Bayes' rule helps reverse conditional probabilities.",
+      });
+    }
+
+    function randomVariableQuestion() {
+      return question({
+        prompt: "What does a random variable assign to outcomes?",
+        stimulus: "random variable",
+        answer: "numbers",
+        distractors: ["only words", "only probabilities", "only graphs"],
+        explanation: "A random variable is a numeric rule on outcomes.",
+      });
+    }
+
+    function discreteContinuousQuestion() {
+      return question({
+        prompt: "Which is continuous?",
+        stimulus: "types of random variables",
+        answer: "waiting time",
+        distractors: ["number of heads in 3 flips", "die roll", "number of emails"],
+        explanation: "Waiting time can vary over an interval, not just a list of separate values.",
+      });
+    }
+
+    function pmfValidityQuestion() {
+      return question({
+        prompt: "Is {0:0.3, 1:0.7} a valid PMF?",
+        stimulus: "probabilities sum to 1",
+        answer: "yes",
+        distractors: ["no, sums to 0.7", "no, probabilities must be equal", "no, values must start at 1"],
+        explanation: "The probabilities are nonnegative and 0.3+0.7=1.",
+      });
+    }
+
+    function expectedValueQuestion() {
+      return question({
+        prompt: "Find E[X] when X is 0 with probability 0.4 and 1 with probability 0.6.",
+        stimulus: "weighted average",
+        answer: "0.6",
+        distractors: ["0.4", "1", "0.5"],
+        explanation: "E[X]=0·0.4+1·0.6=0.6.",
+      });
+    }
+
+    function bernoulliQuestion() {
+      return question({
+        prompt: "Which distribution models one yes/no trial?",
+        stimulus: "success or failure once",
+        answer: "Bernoulli",
+        distractors: ["Binomial", "Normal", "Uniform"],
+        explanation: "A Bernoulli distribution has one trial with two outcomes.",
+      });
+    }
+
+    function binomialQuestion() {
+      return question({
+        prompt: "Which distribution counts successes in fixed independent trials?",
+        stimulus: "n trials, same p",
+        answer: "Binomial",
+        distractors: ["Bernoulli", "Normal", "Continuous uniform"],
+        explanation: "The binomial distribution counts successes across repeated Bernoulli trials.",
+      });
+    }
+
+    function uniformQuestion() {
+      return question({
+        prompt: "A fair die is an example of which discrete pattern?",
+        stimulus: "all six faces equally likely",
+        answer: "uniform",
+        distractors: ["normal", "binomial", "geometric"],
+        explanation: "Uniform means all listed outcomes have the same probability.",
+      });
+    }
+
+    function normalQuestion() {
+      return question({
+        prompt: "Which distribution is often used for bell-shaped measurement noise?",
+        stimulus: "centered around a mean",
+        answer: "Normal",
+        distractors: ["Bernoulli", "Uniform", "Permutation"],
+        explanation: "The normal distribution is a common model for many measurement errors.",
+      });
+    }
+
+    function weightedAverageQuestion() {
+      return question({
+        prompt: "Compute the expected value of 0 with probability 0.5 and 10 with probability 0.5.",
+        stimulus: "weighted average",
+        answer: "5",
+        distractors: ["10", "0", "0.5"],
+        explanation: "E[X]=0·0.5+10·0.5=5.",
+      });
+    }
+
+    function possibleOutcomeQuestion() {
+      return question({
+        prompt: "Can an expected value be impossible as a single outcome?",
+        stimulus: "fair die mean is 3.5",
+        answer: "yes",
+        distractors: ["no", "only for coins", "only if variance is 0"],
+        explanation: "Expected value is a long-run average, not necessarily an actual outcome.",
+      });
+    }
+
+    function varianceQuestion() {
+      return question({
+        prompt: "What does larger variance usually mean?",
+        stimulus: "spread around the mean",
+        answer: "outcomes are more spread out",
+        distractors: ["mean is always larger", "probabilities do not sum to 1", "outcomes are impossible"],
+        explanation: "Variance measures average squared distance from the mean.",
+      });
+    }
+
+    function fairGameQuestion() {
+      return question({
+        prompt: "A game costs $5 and has expected payout $5. What is its expected net gain?",
+        stimulus: "net gain = payout - cost",
+        answer: "$0",
+        distractors: ["$5", "-$5", "$10"],
+        explanation: "Expected net gain is expected payout minus cost: 5-5=0.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `probability-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> for Bernoulli and binomial calculations.</p>
+<div id="f021a319" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> bernoulli_pmf, binomial_mean, binomial_pmf, binomial_variance</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>bernoulli_pmf(<span class="dv">1</span>, <span class="fl">0.7</span>), binomial_pmf(trials<span class="op">=</span><span class="dv">5</span>, successes<span class="op">=</span><span class="dv">2</span>, probability<span class="op">=</span><span class="fl">0.25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(0.7, 0.263671875)</code></pre>
+</div>
+</div>
+<p>Compute binomial mean and variance.</p>
+<div id="123484da" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>binomial_mean(<span class="dv">10</span>, <span class="fl">0.4</span>), binomial_variance(<span class="dv">10</span>, <span class="fl">0.4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(4.0, 2.4)</code></pre>
+</div>
+</div>
+<p>Use SymPy for exact binomial expressions.</p>
+<div id="25abc190" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> sp.Rational(<span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>sp.binomial(n, k) <span class="op">*</span> p<span class="op">**</span>k <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> p) <span class="op">**</span> (n <span class="op">-</span> k)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle \frac{135}{512}\)</span></p>
 </div>
 </div>
 

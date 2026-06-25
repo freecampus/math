@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Install and use edu-math in cloud Python environments.">
+<meta name="description" content="Use trigonometry for right triangles, height and distance problems, components, and periodic models.">
 
-<title>Using edu-math in Google Colab – edu-math</title>
+<title>Applications of Trigonometry – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../changelog.html" rel="next">
-<link href="../../lessons/review/mock-test.html" rel="prev">
+<link href="../../lessons/calculus/index.html" rel="next">
+<link href="../../lessons/trigonometry/trig-equations.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -113,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/colab/usage.html">Colab</a></li><li class="breadcrumb-item"><a href="../../lessons/colab/usage.html">Using edu-math in Google Colab</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/applications.html">Applications of Trigonometry</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -510,17 +539,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Trigonometry</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -648,6 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -695,6 +772,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -702,7 +785,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -719,8 +814,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -825,58 +938,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -895,25 +956,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install" id="toc-install" class="nav-link active" data-scroll-target="#install">Install</a></li>
-  <li><a href="#import-helpers" id="toc-import-helpers" class="nav-link" data-scroll-target="#import-helpers">Import Helpers</a></li>
-  <li><a href="#plot-in-colab" id="toc-plot-in-colab" class="nav-link" data-scroll-target="#plot-in-colab">Plot in Colab</a></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#the-modeling-routine" id="toc-the-modeling-routine" class="nav-link" data-scroll-target="#the-modeling-routine">The modeling routine</a></li>
+  <li><a href="#right-triangle-ratios" id="toc-right-triangle-ratios" class="nav-link" data-scroll-target="#right-triangle-ratios">Right-triangle ratios</a></li>
+  <li><a href="#angles-of-elevation-and-depression" id="toc-angles-of-elevation-and-depression" class="nav-link" data-scroll-target="#angles-of-elevation-and-depression">Angles of elevation and depression</a></li>
+  <li><a href="#components-and-navigation" id="toc-components-and-navigation" class="nav-link" data-scroll-target="#components-and-navigation">Components and navigation</a></li>
+  <li><a href="#periodic-models" id="toc-periodic-models" class="nav-link" data-scroll-target="#periodic-models">Periodic models</a></li>
+  <li><a href="#worked-example-1-height-from-angle-of-elevation" id="toc-worked-example-1-height-from-angle-of-elevation" class="nav-link" data-scroll-target="#worked-example-1-height-from-angle-of-elevation">Worked example 1: height from angle of elevation</a></li>
+  <li><a href="#worked-example-2-split-a-force-into-components" id="toc-worked-example-2-split-a-force-into-components" class="nav-link" data-scroll-target="#worked-example-2-split-a-force-into-components">Worked example 2: split a force into components</a></li>
+  <li><a href="#worked-example-3-build-a-sinusoidal-model" id="toc-worked-example-3-build-a-sinusoidal-model" class="nav-link" data-scroll-target="#worked-example-3-build-a-sinusoidal-model">Worked example 3: build a sinusoidal model</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-choose-the-right-ratio" id="toc-lab-1-choose-the-right-ratio" class="nav-link" data-scroll-target="#lab-1-choose-the-right-ratio">Lab 1: choose the right ratio</a></li>
+  <li><a href="#lab-2-solve-a-height-problem" id="toc-lab-2-solve-a-height-problem" class="nav-link" data-scroll-target="#lab-2-solve-a-height-problem">Lab 2: solve a height problem</a></li>
+  <li><a href="#lab-3-compute-components" id="toc-lab-3-compute-components" class="nav-link" data-scroll-target="#lab-3-compute-components">Lab 3: compute components</a></li>
+  <li><a href="#lab-4-identify-sinusoid-parameters" id="toc-lab-4-identify-sinusoid-parameters" class="nav-link" data-scroll-target="#lab-4-identify-sinusoid-parameters">Lab 4: identify sinusoid parameters</a></li>
+  <li><a href="#lab-5-check-units-and-reasonableness" id="toc-lab-5-check-units-and-reasonableness" class="nav-link" data-scroll-target="#lab-5-check-units-and-reasonableness">Lab 5: check units and reasonableness</a></li>
+  </ul></li>
+  <li><a href="#applications-guessing-game" id="toc-applications-guessing-game" class="nav-link" data-scroll-target="#applications-guessing-game">Applications guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/colab/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/applications.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/colab/usage.html">Colab</a></li><li class="breadcrumb-item"><a href="../../lessons/colab/usage.html">Using edu-math in Google Colab</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/applications.html">Applications of Trigonometry</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Using edu-math in Google Colab</h1>
+<h1 class="title">Applications of Trigonometry</h1>
 </div>
 
 <div>
   <div class="description">
-    Install and use edu-math in cloud Python environments.
+    Use trigonometry for right triangles, height and distance problems, components, and periodic models.
   </div>
 </div>
 
@@ -930,27 +1008,524 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="install" class="level2">
-<h2 class="anchored" data-anchor-id="install">Install</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install osl<span class="op">-</span>edu<span class="op">-</span>math</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When working from a source checkout instead of a released package, install from the repository root:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">-</span>e .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Trigonometry is useful because it turns angle information into measurements. When a problem has a right triangle, a direction, a rotating object, a wave, or a repeating pattern, trig gives a language for connecting the pieces.</p>
+<section id="learning-objectives" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
+<ul>
+<li>choose sine, cosine, or tangent from a right-triangle diagram;</li>
+<li>solve height and distance problems using angles of elevation or depression;</li>
+<li>split a vector into horizontal and vertical components;</li>
+<li>identify amplitude, period, midline, and shift in a sinusoidal model;</li>
+<li>check whether a numerical answer is reasonable;</li>
+<li>use Python and SymPy to compute or verify application results.</li>
+</ul>
 </section>
-<section id="import-helpers" class="level2">
-<h2 class="anchored" data-anchor-id="import-helpers">Import Helpers</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> function_scene</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.calculus.derivatives <span class="im">import</span> derivative</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.python_fundamentals <span class="im">import</span> array_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="the-modeling-routine" class="level2">
+<h2 class="anchored" data-anchor-id="the-modeling-routine">The modeling routine</h2>
+<p>A trigonometry application is not just a calculation. It is a translation from words to a diagram and then from a diagram to an equation.</p>
+<ol type="1">
+<li><strong>Draw or imagine the right triangle or cycle.</strong> Mark known lengths and angles.</li>
+<li><strong>Choose the unknown.</strong> Name the height, distance, component, or time value you want.</li>
+<li><strong>Select a trig relationship.</strong> Use SOH-CAH-TOA for right triangles or a sinusoidal model for periodic behavior.</li>
+<li><strong>Solve the equation.</strong> Use algebra and a calculator or exact values.</li>
+<li><strong>Check units and size.</strong> A tree height should be positive; a component should not be longer than the vector; a period should match the context.</li>
+</ol>
 </section>
-<section id="plot-in-colab" class="level2">
-<h2 class="anchored" data-anchor-id="plot-in-colab">Plot in Colab</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> function_scene(<span class="st">"x**2"</span>, x_min<span class="op">=-</span><span class="dv">5</span>, x_max<span class="op">=</span><span class="dv">5</span>, y_min<span class="op">=-</span><span class="dv">2</span>, y_max<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="right-triangle-ratios" class="level2">
+<h2 class="anchored" data-anchor-id="right-triangle-ratios">Right-triangle ratios</h2>
+<p>For an acute angle in a right triangle:</p>
+<div class="formula-box">
+<pre class="text"><code>sin(angle) = opposite / hypotenuse
+cos(angle) = adjacent / hypotenuse
+tan(angle) = opposite / adjacent</code></pre>
+</div>
+<p>A memory phrase is SOH-CAH-TOA.</p>
+<p>The most important decision is not the formula itself; it is correctly labeling which side is opposite and which side is adjacent relative to the chosen angle.</p>
 </section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p>Browser-side Quarto widgets are designed for the documentation site. In Colab, prefer the Python helpers and Matplotlib figures.</p>
+<section id="angles-of-elevation-and-depression" class="level2">
+<h2 class="anchored" data-anchor-id="angles-of-elevation-and-depression">Angles of elevation and depression</h2>
+<p>An <strong>angle of elevation</strong> is measured upward from a horizontal line. An <strong>angle of depression</strong> is measured downward from a horizontal line. In many textbook problems, the horizontal distance is adjacent to the angle and the vertical height is opposite the angle.</p>
+<p>That means tangent often appears:</p>
+<pre class="text"><code>tan(angle) = height / horizontal distance
+height = horizontal distance * tan(angle)</code></pre>
+</section>
+<section id="components-and-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="components-and-navigation">Components and navigation</h2>
+<p>If a quantity of length <code>r</code> points at an angle <code>theta</code> from the positive horizontal direction, its components are:</p>
+<pre class="text"><code>horizontal component = r cos(theta)
+vertical component   = r sin(theta)</code></pre>
+<p>This is the same unit-circle idea scaled by <code>r</code>.</p>
+</section>
+<section id="periodic-models" class="level2">
+<h2 class="anchored" data-anchor-id="periodic-models">Periodic models</h2>
+<p>Sine and cosine model smooth repeating behavior, such as tides, daylight, temperature cycles, circular motion, and alternating current. A common model is:</p>
+<pre class="text"><code>y = A sin(B(t - C)) + D</code></pre>
+<p>where:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>|A|</code></td>
+<td>amplitude, or distance from midline to maximum</td>
+</tr>
+<tr class="even">
+<td><code>2pi / |B|</code></td>
+<td>period, or time for one full cycle</td>
+</tr>
+<tr class="odd">
+<td><code>D</code></td>
+<td>midline, or average value</td>
+</tr>
+<tr class="even">
+<td><code>C</code></td>
+<td>horizontal shift</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="worked-example-1-height-from-angle-of-elevation" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-height-from-angle-of-elevation">Worked example 1: height from angle of elevation</h2>
+<p>A student stands <code>40 meters</code> from a building. The angle of elevation to the top is <code>35 degrees</code>. Estimate the building height, ignoring the student’s eye height.</p>
+<p><strong>Step 1: Draw the triangle.</strong></p>
+<p>The horizontal distance is adjacent to the angle. The building height is opposite the angle.</p>
+<p><strong>Step 2: Choose a ratio.</strong></p>
+<p>Tangent uses opposite and adjacent:</p>
+<pre class="text"><code>tan(35 degrees) = height / 40</code></pre>
+<p><strong>Step 3: Solve.</strong></p>
+<pre class="text"><code>height = 40 tan(35 degrees)
+height is about 28.0 meters</code></pre>
+<p><strong>Step 4: Check reasonableness.</strong></p>
+<p>Since <code>35 degrees</code> is less than <code>45 degrees</code>, the height should be less than the horizontal distance <code>40 meters</code>. The estimate <code>28.0 meters</code> is reasonable.</p>
+</section>
+<section id="worked-example-2-split-a-force-into-components" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-split-a-force-into-components">Worked example 2: split a force into components</h2>
+<p>A <code>50 newton</code> force is applied at <code>30 degrees</code> above the horizontal. Find the horizontal and vertical components.</p>
+<p><strong>Step 1: Use the component formulas.</strong></p>
+<pre class="text"><code>horizontal = 50 cos(30 degrees)
+vertical = 50 sin(30 degrees)</code></pre>
+<p><strong>Step 2: Use exact values.</strong></p>
+<pre class="text"><code>cos(30 degrees) = sqrt(3)/2
+sin(30 degrees) = 1/2</code></pre>
+<p>So:</p>
+<pre class="text"><code>horizontal = 25sqrt(3) newtons, about 43.3 newtons
+vertical = 25 newtons</code></pre>
+<p><strong>Step 3: Check.</strong></p>
+<p>Each component should be less than the original <code>50 newtons</code>, and the horizontal component should be larger because the angle is closer to horizontal than vertical.</p>
+</section>
+<section id="worked-example-3-build-a-sinusoidal-model" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-build-a-sinusoidal-model">Worked example 3: build a sinusoidal model</h2>
+<p>A small tide varies between <code>2 meters</code> and <code>8 meters</code>. The time from one high tide to the next is <code>12 hours</code>. Suppose high tide occurs at <code>t=0</code>.</p>
+<p><strong>Step 1: Find the midline.</strong></p>
+<pre class="text"><code>midline = (maximum + minimum) / 2 = (8 + 2) / 2 = 5</code></pre>
+<p><strong>Step 2: Find the amplitude.</strong></p>
+<pre class="text"><code>amplitude = (maximum - minimum) / 2 = (8 - 2) / 2 = 3</code></pre>
+<p><strong>Step 3: Find <code>B</code> from the period.</strong></p>
+<pre class="text"><code>period = 2pi / |B| = 12
+B = 2pi/12 = pi/6</code></pre>
+<p><strong>Step 4: Choose cosine because the model starts at a maximum.</strong></p>
+<pre class="text"><code>height = 3cos((pi/6)t) + 5</code></pre>
+<p>Check: at <code>t=0</code>, <code>cos(0)=1</code>, so the height is <code>8 meters</code>, which matches high tide.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Labeling opposite and adjacent from the wrong angle.</li>
+<li>Using degrees in a calculator or program that expects radians.</li>
+<li>Forgetting to add eye height, sensor height, or starting height when the context includes it.</li>
+<li>Reporting a component larger than the original vector.</li>
+<li>Using a sine model when a cosine model would be simpler for a maximum or minimum starting point.</li>
+<li>Forgetting units.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
+<div class="practice-box">
+<ol type="1">
+<li>A ladder is <code>10 feet</code> long and makes a <code>70 degree</code> angle with the ground. How high up the wall does it reach?</li>
+<li>A ramp rises <code>2 meters</code> over a horizontal distance of <code>12 meters</code>. What is the angle of elevation?</li>
+<li>Find the components of a <code>20 newton</code> force at <code>60 degrees</code> above the horizontal.</li>
+<li>A Ferris wheel car is modeled by <code>h(t)=15cos((pi/20)t)+18</code>. What are the amplitude, midline, and period?</li>
+<li>A ship travels <code>100 km</code> at <code>40 degrees</code> north of east. Estimate the east and north components.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Height is opposite the <code>70 degree</code> angle and the ladder is the hypotenuse: <code>height=10sin(70 degrees)</code>, about <code>9.4 feet</code>.</li>
+<li><code>tan(theta)=2/12=1/6</code>, so <code>theta=arctan(1/6)</code>, about <code>9.5 degrees</code>.</li>
+<li>Horizontal component: <code>20cos(60 degrees)=10 newtons</code>; vertical component: <code>20sin(60 degrees)=10sqrt(3)</code>, about <code>17.3 newtons</code>.</li>
+<li>Amplitude is <code>15</code>, midline is <code>h=18</code>, and period is <code>2pi/(pi/20)=40</code> time units.</li>
+<li>East component: <code>100cos(40 degrees)</code>, about <code>76.6 km</code>; north component: <code>100sin(40 degrees)</code>, about <code>64.3 km</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<section id="lab-1-choose-the-right-ratio" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-choose-the-right-ratio">Lab 1: choose the right ratio</h3>
+<p><strong>Guess first.</strong> If you know adjacent distance and want opposite height, which ratio should you use?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Use tangent because:</p>
+<pre class="text"><code>tan(angle) = opposite / adjacent</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If you know hypotenuse and want adjacent, which ratio should you use?</p>
+</div>
+</section>
+<section id="lab-2-solve-a-height-problem" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-solve-a-height-problem">Lab 2: solve a height problem</h3>
+<p><strong>Guess first.</strong> A pole casts a horizontal distance of <code>15 m</code> from an angle of elevation of <code>30 degrees</code>. Is the height greater or less than <code>15 m</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Because <code>30 degrees</code> is less than <code>45 degrees</code>, the height should be less than <code>15 m</code>. Compute:</p>
+<pre class="text"><code>height = 15tan(30 degrees) = 15/sqrt(3), about 8.7 m</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Estimate the height for horizontal distance <code>20 m</code> and angle <code>45 degrees</code>.</p>
+</div>
+</section>
+<section id="lab-3-compute-components" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-compute-components">Lab 3: compute components</h3>
+<p><strong>Guess first.</strong> For a vector at <code>0 degrees</code>, should the vertical component be positive, negative, or zero?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>At <code>0 degrees</code>, the vector points horizontally, so:</p>
+<pre class="text"><code>vertical = r sin(0 degrees) = 0
+horizontal = r cos(0 degrees) = r</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> For a <code>12</code> unit vector at <code>90 degrees</code>, what are the horizontal and vertical components?</p>
+</div>
+</section>
+<section id="lab-4-identify-sinusoid-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-identify-sinusoid-parameters">Lab 4: identify sinusoid parameters</h3>
+<p><strong>Guess first.</strong> In <code>y=4sin(2t)+7</code>, what is the midline?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The <code>+7</code> shifts the graph up, so the midline is:</p>
+<pre class="text"><code>y = 7</code></pre>
+<p>The amplitude is <code>4</code>, and the period is:</p>
+<pre class="text"><code>2pi / 2 = pi</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> For <code>y=6cos((pi/3)t)-2</code>, identify amplitude, midline, and period.</p>
+</div>
+</section>
+<section id="lab-5-check-units-and-reasonableness" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-check-units-and-reasonableness">Lab 5: check units and reasonableness</h3>
+<p><strong>Guess first.</strong> If a <code>30 m</code> rope is used as a hypotenuse, can the vertical height be <code>35 m</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>No.&nbsp;In a right triangle, the hypotenuse is the longest side. A height of <code>35 m</code> would be impossible if the rope is only <code>30 m</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If a <code>50 N</code> force has components <code>60 N</code> and <code>20 N</code>, what warning sign do you notice?</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Cosine, because <code>cos(angle)=adjacent/hypotenuse</code>.</li>
+<li><code>height=20tan(45 degrees)=20 m</code>.</li>
+<li>Horizontal component <code>0</code>; vertical component <code>12</code>.</li>
+<li>Amplitude <code>6</code>, midline <code>y=-2</code>, period <code>2pi/(pi/3)=6</code>.</li>
+<li>A component cannot be larger than the original vector, so the answer should be rechecked.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="applications-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="applications-guessing-game">Applications guessing game</h2>
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "applications",
+  "title": "Trigonometry applications checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-trigonometry-checkpoint" data-default-total="4">
+
+</div>
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "unit-circle";
+    const BANKS = {
+      "radians-and-degrees": [degreesRadiansQuestion, coterminalQuestion, referenceAngleQuestion, quadrantQuestion],
+      "unit-circle": [coordinateQuestion, signsQuestion, specialAngleQuestion, tangentQuestion],
+      "sine-cosine": [sineCoordinateQuestion, cosineCoordinateQuestion, rightTriangleQuestion, signQuestion],
+      "trig-functions-and-graphs": [amplitudeQuestion, periodQuestion, midlineQuestion, phaseQuestion],
+      identities: [pythagoreanIdentityQuestion, tangentIdentityQuestion, reciprocalQuestion, verifyIdentityQuestion],
+      "trig-equations": [basicSineEquationQuestion, basicCosineEquationQuestion, periodicQuestion, intervalQuestion],
+      applications: [rightTriangleQuestion, elevationQuestion, sinusoidQuestion, bearingQuestion],
+      "trigonometry-cumulative-review": [degreesRadiansQuestion, coordinateQuestion, specialAngleQuestion, amplitudeQuestion, pythagoreanIdentityQuestion, basicSineEquationQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-trigonometry-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-trigonometry-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Trigonometry checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", { class: "quiz-count", type: "number", min: "1", max: "20", value: String(state.total) });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function degreesRadiansQuestion() {
+      return question({ prompt: "Convert 180 degrees to radians.", stimulus: "half turn", answer: "pi", distractors: ["2pi", "pi/2", "180pi"], explanation: "A full turn is 2pi radians, so a half turn is pi radians." });
+    }
+    function coterminalQuestion() {
+      return question({ prompt: "Which angle is coterminal with -30 degrees in [0,360)?", stimulus: "add 360 degrees", answer: "330 degrees", distractors: ["30 degrees", "300 degrees", "-390 degrees"], explanation: "-30 + 360 = 330." });
+    }
+    function referenceAngleQuestion() {
+      return question({ prompt: "What is the reference angle for 150 degrees?", stimulus: "Quadrant II", answer: "30 degrees", distractors: ["60 degrees", "150 degrees", "210 degrees"], explanation: "In Quadrant II, reference angle is 180 - theta." });
+    }
+    function quadrantQuestion() {
+      return question({ prompt: "Which quadrant contains 240 degrees?", stimulus: "between 180 and 270", answer: "III", distractors: ["I", "II", "IV"], explanation: "Angles between 180 and 270 degrees are in Quadrant III." });
+    }
+    function coordinateQuestion() {
+      return question({ prompt: "On the unit circle, which coordinate is sine?", stimulus: "point = (cos theta, sin theta)", answer: "vertical coordinate", distractors: ["horizontal coordinate", "radius length", "angle measure"], explanation: "Sine is the y-coordinate." });
+    }
+    function signsQuestion() {
+      return question({ prompt: "In Quadrant II, what are the signs of sine and cosine?", stimulus: "x negative, y positive", answer: "sine positive, cosine negative", distractors: ["both positive", "both negative", "sine negative, cosine positive"], explanation: "Sine is y, cosine is x." });
+    }
+    function specialAngleQuestion() {
+      return question({ prompt: "What is sin(30 degrees)?", stimulus: "special angle", answer: "1/2", distractors: ["sqrt(3)/2", "sqrt(2)/2", "1"], explanation: "The 30-60-90 triangle gives sin(30)=1/2." });
+    }
+    function tangentQuestion() {
+      return question({ prompt: "What is tan(theta) in terms of sine and cosine?", stimulus: "tangent ratio", answer: "sin(theta)/cos(theta)", distractors: ["cos(theta)/sin(theta)", "1/sin(theta)", "sin(theta)+cos(theta)"], explanation: "Tangent is sine divided by cosine when cosine is not zero." });
+    }
+    function sineCoordinateQuestion() {
+      return question({ prompt: "At 90 degrees, what is sine?", stimulus: "unit-circle point (0,1)", answer: "1", distractors: ["0", "-1", "undefined"], explanation: "The y-coordinate at 90 degrees is 1." });
+    }
+    function cosineCoordinateQuestion() {
+      return question({ prompt: "At 180 degrees, what is cosine?", stimulus: "unit-circle point (-1,0)", answer: "-1", distractors: ["1", "0", "undefined"], explanation: "The x-coordinate at 180 degrees is -1." });
+    }
+    function rightTriangleQuestion() {
+      return question({ prompt: "In a right triangle, sine equals which ratio?", stimulus: "SOH-CAH-TOA", answer: "opposite / hypotenuse", distractors: ["adjacent / hypotenuse", "opposite / adjacent", "hypotenuse / opposite"], explanation: "SOH means sine = opposite over hypotenuse." });
+    }
+    function signQuestion() {
+      return question({ prompt: "At 300 degrees, is sine positive or negative?", stimulus: "Quadrant IV", answer: "negative", distractors: ["positive", "zero", "undefined"], explanation: "Quadrant IV has negative y-values, so sine is negative." });
+    }
+    function amplitudeQuestion() {
+      return question({ prompt: "What is the amplitude of y = 3 sin(x)?", stimulus: "vertical stretch", answer: "3", distractors: ["1", "2pi", "pi"], explanation: "Amplitude is the absolute value of the coefficient in front of sine or cosine." });
+    }
+    function periodQuestion() {
+      return question({ prompt: "What is the period of sin(x)?", stimulus: "basic sine wave", answer: "2pi", distractors: ["pi", "1", "4pi"], explanation: "Basic sine repeats every 2pi radians." });
+    }
+    function midlineQuestion() {
+      return question({ prompt: "What is the midline of y = sin(x) + 4?", stimulus: "vertical shift", answer: "y = 4", distractors: ["y = 1", "y = -4", "x = 4"], explanation: "The +4 shifts the center line to y=4." });
+    }
+    function phaseQuestion() {
+      return question({ prompt: "In y = sin(x - pi/2), which way is the graph shifted?", stimulus: "inside subtraction", answer: "right", distractors: ["left", "up", "down"], explanation: "Subtracting inside shifts the graph right." });
+    }
+    function pythagoreanIdentityQuestion() {
+      return question({ prompt: "Complete the identity: sin^2(x) + cos^2(x) = ?", stimulus: "Pythagorean identity", answer: "1", distractors: ["0", "tan(x)", "2"], explanation: "The unit-circle point has distance 1 from the origin." });
+    }
+    function tangentIdentityQuestion() {
+      return question({ prompt: "Which identity rewrites tan(x)?", stimulus: "quotient identity", answer: "sin(x)/cos(x)", distractors: ["cos(x)/sin(x)", "1/cos(x)", "1/sin(x)"], explanation: "tan(x)=sin(x)/cos(x)." });
+    }
+    function reciprocalQuestion() {
+      return question({ prompt: "Which reciprocal identity is correct?", stimulus: "secant", answer: "sec(x)=1/cos(x)", distractors: ["sec(x)=1/sin(x)", "sec(x)=sin(x)/cos(x)", "sec(x)=cos(x)"], explanation: "Secant is reciprocal cosine." });
+    }
+    function verifyIdentityQuestion() {
+      return question({ prompt: "What is the safest first move when proving a trig identity?", stimulus: "identity strategy", answer: "rewrite one side using known identities", distractors: ["divide by zero", "change both sides randomly", "plug in one angle only"], explanation: "Use known identities and algebra to transform one side into the other." });
+    }
+    function basicSineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=0.", stimulus: "x-axis intersections", answer: "0 and 180 degrees", distractors: ["90 and 270 degrees", "30 and 150 degrees", "45 and 225 degrees"], explanation: "Sine is y-coordinate, which is 0 on the x-axis." });
+    }
+    function basicCosineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve cos(theta)=0.", stimulus: "y-axis intersections", answer: "90 and 270 degrees", distractors: ["0 and 180 degrees", "30 and 330 degrees", "45 and 315 degrees"], explanation: "Cosine is x-coordinate, which is 0 on the y-axis." });
+    }
+    function periodicQuestion() {
+      return question({ prompt: "Why can sin(theta)=1/2 have infinitely many solutions?", stimulus: "periodicity", answer: "sine repeats every full turn", distractors: ["sine is linear", "angles stop at 360", "cosine is undefined"], explanation: "Adding 360 degrees or 2pi radians gives coterminal solutions." });
+    }
+    function intervalQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=1.", stimulus: "top of unit circle", answer: "90 degrees", distractors: ["0 degrees", "180 degrees", "270 degrees"], explanation: "The top of the unit circle is (0,1)." });
+    }
+    function elevationQuestion() {
+      return question({ prompt: "For angle of elevation, opposite side usually represents what?", stimulus: "right-triangle model", answer: "height", distractors: ["horizontal distance", "hypotenuse always", "angle measure"], explanation: "Height is vertical, opposite the ground angle." });
+    }
+    function sinusoidQuestion() {
+      return question({ prompt: "Which trig function type models repeating seasonal behavior?", stimulus: "periodic data", answer: "sinusoidal", distractors: ["linear", "quadratic", "constant only"], explanation: "Sine and cosine model smooth repeating cycles." });
+    }
+    function bearingQuestion() {
+      return question({ prompt: "A vector with components (3,4) has length?", stimulus: "right triangle", answer: "5", distractors: ["7", "1", "12"], explanation: "Use the Pythagorean theorem: sqrt(3^2+4^2)=5." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `trigonometry-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Python is useful for numerical estimates, exact symbolic forms, and checking units in repeated calculations.</p>
+<div id="bb1e67e9" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">40</span> <span class="op">*</span> math.tan(math.radians(<span class="dv">35</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(height, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>28.0</code></pre>
+</div>
+</div>
+<p>Use exact SymPy values when the angle is special.</p>
+<div id="a6b2db99" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>horizontal <span class="op">=</span> <span class="dv">50</span> <span class="op">*</span> sp.cos(sp.pi <span class="op">/</span> <span class="dv">6</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>vertical <span class="op">=</span> <span class="dv">50</span> <span class="op">*</span> sp.sin(sp.pi <span class="op">/</span> <span class="dv">6</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>sp.simplify(horizontal), sp.simplify(vertical)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(25*sqrt(3), 25)</code></pre>
+</div>
+</div>
+<p>Use <code>edumath</code> helpers to keep degree-based computations explicit.</p>
+<div id="f37aa956" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> sine_cosine_tangent</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sine, cosine, tangent <span class="op">=</span> sine_cosine_tangent(<span class="dv">35</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(tangent, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>0.7002</code></pre>
+</div>
+</div>
+<p>A sinusoidal model can also be evaluated directly.</p>
+<div id="8b0f799b" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">"t"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>tide <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> sp.cos((sp.pi <span class="op">/</span> <span class="dv">6</span>) <span class="op">*</span> t) <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>sp.simplify(tide.subs(t, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<p><span class="math inline">\(\displaystyle 2\)</span></p>
+</div>
+</div>
 
 
 </section>
@@ -1376,13 +1951,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/review/mock-test.html" class="pagination-link" aria-label="Mock Test">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mock Test</span>
+      <a href="../../lessons/trigonometry/trig-equations.html" class="pagination-link" aria-label="Trigonometric Equations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Trigonometric Equations</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../changelog.html" class="pagination-link" aria-label="Changelog">
-        <span class="nav-page-text">Changelog</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/calculus/index.html" class="pagination-link" aria-label="Calculus Study Path">
+        <span class="nav-page-text">Calculus Study Path</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1391,4 +1966,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/colab/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/applications.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

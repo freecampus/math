@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Evidence against a baseline claim.">
+<meta name="description" content="Null and alternative hypotheses, test statistics, p-values, significance, and errors.">
 
 <title>Hypothesis Tests – edu-math</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/statistics/regression-basics.html" rel="next">
+<link href="../../lessons/statistics/comparing-groups.html" rel="next">
 <link href="../../lessons/statistics/estimation.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/hypothesis-tests.html">Hypothesis Tests</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/hypothesis-tests.html">Hypothesis Tests</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -484,8 +519,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -613,6 +690,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -660,6 +743,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -667,7 +756,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -684,8 +785,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -790,58 +909,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -860,9 +927,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#misreading-p-values" id="toc-misreading-p-values" class="nav-link" data-scroll-target="#misreading-p-values">Misreading p-values</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#the-logic-of-a-test" id="toc-the-logic-of-a-test" class="nav-link" data-scroll-target="#the-logic-of-a-test">The logic of a test</a></li>
+  <li><a href="#null-and-alternative-hypotheses" id="toc-null-and-alternative-hypotheses" class="nav-link" data-scroll-target="#null-and-alternative-hypotheses">Null and alternative hypotheses</a></li>
+  <li><a href="#test-statistic" id="toc-test-statistic" class="nav-link" data-scroll-target="#test-statistic">Test statistic</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values">P-values</a></li>
+  <li><a href="#significance-level" id="toc-significance-level" class="nav-link" data-scroll-target="#significance-level">Significance level</a></li>
+  <li><a href="#type-i-and-type-ii-errors" id="toc-type-i-and-type-ii-errors" class="nav-link" data-scroll-target="#type-i-and-type-ii-errors">Type I and Type II errors</a></li>
+  <li><a href="#worked-example-1-one-sample-z-test" id="toc-worked-example-1-one-sample-z-test" class="nav-link" data-scroll-target="#worked-example-1-one-sample-z-test">Worked example 1: one-sample z test</a></li>
+  <li><a href="#worked-example-2-interpret-a-p-value" id="toc-worked-example-2-interpret-a-p-value" class="nav-link" data-scroll-target="#worked-example-2-interpret-a-p-value">Worked example 2: interpret a p-value</a></li>
+  <li><a href="#worked-example-3-significance-versus-importance" id="toc-worked-example-3-significance-versus-importance" class="nav-link" data-scroll-target="#worked-example-3-significance-versus-importance">Worked example 3: significance versus importance</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-write-hypotheses" id="toc-lab-1-write-hypotheses" class="nav-link" data-scroll-target="#lab-1-write-hypotheses">Lab 1: write hypotheses</a></li>
+  <li><a href="#lab-2-compute-a-statistic" id="toc-lab-2-compute-a-statistic" class="nav-link" data-scroll-target="#lab-2-compute-a-statistic">Lab 2: compute a statistic</a></li>
+  <li><a href="#lab-3-interpret-a-p-value" id="toc-lab-3-interpret-a-p-value" class="nav-link" data-scroll-target="#lab-3-interpret-a-p-value">Lab 3: interpret a p-value</a></li>
+  <li><a href="#lab-4-classify-errors" id="toc-lab-4-classify-errors" class="nav-link" data-scroll-target="#lab-4-classify-errors">Lab 4: classify errors</a></li>
+  </ul></li>
+  <li><a href="#hypothesis-testing-guessing-game" id="toc-hypothesis-testing-guessing-game" class="nav-link" data-scroll-target="#hypothesis-testing-guessing-game">Hypothesis testing guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/hypothesis-tests.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -870,14 +955,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/hypothesis-tests.html">Hypothesis Tests</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/hypothesis-tests.html">Hypothesis Tests</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Hypothesis Tests</h1>
 </div>
 
 <div>
   <div class="description">
-    Evidence against a baseline claim.
+    Null and alternative hypotheses, test statistics, p-values, significance, and errors.
   </div>
 </div>
 
@@ -894,44 +979,200 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>A hypothesis test asks whether observed data are surprising under a baseline claim. Tests do not prove truth. They organize evidence, probability, and a pre-chosen decision rule.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Define null and alternative hypotheses.</li>
-<li>Interpret p-values cautiously.</li>
-<li>Connect tests to uncertainty.</li>
+<li>write null and alternative hypotheses;</li>
+<li>compute a simple z test statistic;</li>
+<li>interpret p-values correctly;</li>
+<li>make a reject/fail-to-reject decision using a significance level;</li>
+<li>distinguish statistical significance from practical importance;</li>
+<li>identify Type I and Type II errors.</li>
 </ul>
 </section>
-<p>A hypothesis test asks whether observed data are surprising under a baseline claim called the null hypothesis.</p>
-<section id="misreading-p-values" class="level3 common-mistake">
-<h3 class="anchored" data-anchor-id="misreading-p-values">Misreading p-values</h3>
-<p>A p-value is not the probability that the null hypothesis is true.</p>
+<section id="the-logic-of-a-test" class="level2">
+<h2 class="anchored" data-anchor-id="the-logic-of-a-test">The logic of a test</h2>
+<p>A hypothesis test begins by temporarily assuming the <strong>null hypothesis</strong> is true. Then it asks:</p>
+<pre class="text"><code>If the null hypothesis were true, how unusual would our data be?</code></pre>
+<p>If the data would be very unusual under the null, we have evidence against the null.</p>
 </section>
+<section id="null-and-alternative-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="null-and-alternative-hypotheses">Null and alternative hypotheses</h2>
+<p>The <strong>null hypothesis</strong> <code>H0</code> is the baseline claim. It often says no effect, no difference, or a known value.</p>
+<p>The <strong>alternative hypothesis</strong> <code>Ha</code> is what we look for evidence toward. It can be two-sided or one-sided.</p>
+<p>Examples:</p>
+<pre class="text"><code>H0: mu = 100
+Ha: mu != 100</code></pre>
+<pre class="text"><code>H0: p = 0.50
+Ha: p &gt; 0.50</code></pre>
+</section>
+<section id="test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="test-statistic">Test statistic</h2>
+<p>A test statistic measures how far the estimate is from the null value in standard error units.</p>
+<div class="formula-box">
+<pre class="text"><code>z = (estimate - null value) / standard error</code></pre>
+</div>
+<p>A large positive or negative statistic means the estimate is far from the null value relative to expected sampling variability.</p>
+</section>
+<section id="p-values" class="level2">
+<h2 class="anchored" data-anchor-id="p-values">P-values</h2>
+<p>A p-value is the probability, assuming the null hypothesis is true, of obtaining a result at least as extreme as the observed one.</p>
+<p>A p-value is <strong>not</strong>:</p>
+<ul>
+<li>the probability that the null hypothesis is true;</li>
+<li>the probability that the alternative hypothesis is true;</li>
+<li>the size of the effect;</li>
+<li>a guarantee that the result matters practically.</li>
+</ul>
+</section>
+<section id="significance-level" class="level2">
+<h2 class="anchored" data-anchor-id="significance-level">Significance level</h2>
+<p>The significance level <code>alpha</code> is chosen before the test, often <code>0.05</code>.</p>
+<p>Decision rule:</p>
+<pre class="text"><code>if p-value &lt;= alpha: reject H0
+if p-value &gt; alpha: fail to reject H0</code></pre>
+<p>“Fail to reject” does not mean “prove the null.” It means the data did not provide strong enough evidence against the null using that test and alpha.</p>
+</section>
+<section id="type-i-and-type-ii-errors" class="level2">
+<h2 class="anchored" data-anchor-id="type-i-and-type-ii-errors">Type I and Type II errors</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>Reality</th>
+<th>Error?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>reject <code>H0</code></td>
+<td><code>H0</code> true</td>
+<td>Type I error</td>
+</tr>
+<tr class="even">
+<td>fail to reject <code>H0</code></td>
+<td><code>H0</code> false</td>
+<td>Type II error</td>
+</tr>
+</tbody>
+</table>
+<p>A Type I error is a false positive. A Type II error is a false negative.</p>
+</section>
+<section id="worked-example-1-one-sample-z-test" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-one-sample-z-test">Worked example 1: one-sample z test</h2>
+<p>A process is supposed to have mean <code>100</code>. A random sample gives mean <code>105</code>, and the standard error is <code>2.5</code>. Test whether the mean is greater than <code>100</code>.</p>
+<p><strong>Step 1: State hypotheses.</strong></p>
+<pre class="text"><code>H0: mu = 100
+Ha: mu &gt; 100</code></pre>
+<p><strong>Step 2: Compute the z statistic.</strong></p>
+<pre class="text"><code>z = (105 - 100) / 2.5
+z = 5 / 2.5
+z = 2</code></pre>
+<p><strong>Step 3: Interpret.</strong></p>
+<p>The sample mean is <code>2</code> standard errors above the null value.</p>
+<p><strong>Step 4: Use a p-value.</strong></p>
+<p>For a greater-than test, <code>z=2</code> gives p-value about <code>0.023</code>.</p>
+<p><strong>Step 5: Make a decision at alpha <code>0.05</code>.</strong></p>
+<p>Since <code>0.023 &lt;= 0.05</code>, reject <code>H0</code>.</p>
+<p><strong>Conclusion:</strong> The data provide evidence that the process mean is greater than <code>100</code>, assuming the test conditions are appropriate.</p>
+</section>
+<section id="worked-example-2-interpret-a-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-interpret-a-p-value">Worked example 2: interpret a p-value</h2>
+<p>A test gives p-value <code>0.18</code>.</p>
+<p><strong>Incorrect interpretation:</strong> There is an <code>18%</code> chance the null is true.</p>
+<p><strong>Correct interpretation:</strong> If the null hypothesis were true, results this extreme or more extreme would happen about <code>18%</code> of the time. That is not very surprising, so at alpha <code>0.05</code> we fail to reject the null.</p>
+</section>
+<section id="worked-example-3-significance-versus-importance" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-significance-versus-importance">Worked example 3: significance versus importance</h2>
+<p>A huge study finds a treatment improves average score by <code>0.2</code> points with p-value <code>0.001</code>.</p>
+<p>The result is statistically significant, but the effect may be too small to matter in practice. Always ask:</p>
+<pre class="text"><code>How large is the effect in real units?</code></pre>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Saying the p-value is the probability the null is true.</li>
+<li>Choosing alpha after seeing the p-value.</li>
+<li>Treating “fail to reject” as proof that the null is true.</li>
+<li>Ignoring practical importance.</li>
+<li>Running many tests and reporting only the significant ones.</li>
+<li>Forgetting to check study design and assumptions.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What is a null hypothesis?</li>
-<li>What does a small p-value suggest?</li>
-<li>Why does statistical significance not always mean practical importance?</li>
+<li>Write hypotheses for testing whether a population mean differs from <code>50</code>.</li>
+<li>Compute <code>z</code> when estimate is <code>42</code>, null value is <code>40</code>, and standard error is <code>1</code>.</li>
+<li>At alpha <code>0.05</code>, what decision is made for p-value <code>0.03</code>?</li>
+<li>At alpha <code>0.05</code>, what decision is made for p-value <code>0.20</code>?</li>
+<li>What is a Type I error?</li>
+<li>Why can a tiny p-value still describe an unimportant effect?</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the baseline claim tested against the data.</p>
-<p>It often represents “no effect”, “no difference”, or an existing assumption.</p>
+<ol type="1">
+<li><code>H0: mu = 50</code>; <code>Ha: mu != 50</code>.</li>
+<li><code>z=(42-40)/1=2</code>.</li>
+<li>Reject <code>H0</code>.</li>
+<li>Fail to reject <code>H0</code>.</li>
+<li>Rejecting a true null hypothesis; a false positive.</li>
+<li>A very large sample can detect a very small effect that has little practical importance.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<section id="lab-1-write-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-write-hypotheses">Lab 1: write hypotheses</h3>
+<p><strong>Guess first.</strong> If the question says “has increased,” is the alternative usually <code>&gt;</code> or <code>!=</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>“Increased” is directional, so the alternative is usually <code>&gt;</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Write the alternative for “the mean is less than 20.”</p>
+</div>
+</section>
+<section id="lab-2-compute-a-statistic" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-compute-a-statistic">Lab 2: compute a statistic</h3>
+<p><strong>Guess first.</strong> If an estimate is exactly equal to the null value, what is the z statistic?</p>
+<p><strong>Guided exercise.</strong></p>
+<pre class="text"><code>z = (estimate - null) / SE = 0 / SE = 0</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Compute <code>z</code> for estimate <code>12</code>, null <code>10</code>, and <code>SE=4</code>.</p>
+</div>
+</section>
+<section id="lab-3-interpret-a-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-interpret-a-p-value">Lab 3: interpret a p-value</h3>
+<p><strong>Guess first.</strong> Is a smaller p-value stronger or weaker evidence against <code>H0</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Smaller p-values mean the observed result is more surprising under <code>H0</code>, so they are stronger evidence against <code>H0</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> At alpha <code>0.01</code>, is p-value <code>0.03</code> significant?</p>
+</div>
+</section>
+<section id="lab-4-classify-errors" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-classify-errors">Lab 4: classify errors</h3>
+<p><strong>Guess first.</strong> Is a false positive Type I or Type II?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>A false positive means rejecting a true null hypothesis. That is Type I error.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> What kind of error is failing to reject a false null?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -939,31 +1180,313 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the observed data would be unlikely if the null hypothesis were true.</p>
-<p>That is evidence against the null, not proof that the alternative is true.</p>
+<ol type="1">
+<li><code>Ha: mu &lt; 20</code>.</li>
+<li><code>z=(12-10)/4=0.5</code>.</li>
+<li>No.&nbsp;<code>0.03 &gt; 0.01</code>, so fail to reject at alpha <code>0.01</code>.</li>
+<li>Type II error.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="hypothesis-testing-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing-guessing-game">Hypothesis testing guessing game</h2>
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "hypothesis-tests",
+  "title": "Hypothesis tests checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-statistics-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "descriptive-statistics";
+    const BANKS = {
+      "descriptive-statistics": [meanQuestion, medianQuestion, iqrQuestion, outlierQuestion],
+      sampling: [populationQuestion, biasQuestion, randomSampleQuestion, confoundingQuestion],
+      "probability-for-statistics": [expectedValueQuestion, varianceQuestion, normalModelQuestion, binomialQuestion],
+      "sampling-distributions": [standardErrorQuestion, cltQuestion, samplingDistributionQuestion, sampleSizeQuestion],
+      estimation: [pointEstimateQuestion, confidenceIntervalQuestion, marginQuestion, confidenceMeaningQuestion],
+      "hypothesis-tests": [nullQuestion, pValueQuestion, alphaQuestion, typeErrorQuestion],
+      "comparing-groups": [pairedQuestion, independentQuestion, differenceQuestion, effectSizeQuestion],
+      "chi-square-tests": [observedExpectedQuestion, goodnessFitQuestion, independenceQuestion, chiSquareCautionQuestion],
+      "regression-basics": [slopeQuestion, residualQuestion, correlationQuestion, causationQuestion],
+      "statistics-cumulative-review": [meanQuestion, biasQuestion, standardErrorQuestion, confidenceIntervalQuestion, pValueQuestion, slopeQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-statistics-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-statistics-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Statistics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function meanQuestion() {
+      return question({ prompt: "What is the mean of 2, 4, and 6?", stimulus: "add then divide by 3", answer: "4", distractors: ["3", "6", "12"], explanation: "(2+4+6)/3 = 4." });
+    }
+    function medianQuestion() {
+      return question({ prompt: "Which summary is most resistant to one very large outlier?", stimulus: "center with outliers", answer: "median", distractors: ["mean", "range", "maximum"], explanation: "The median depends on order position, not the exact size of the extreme value." });
+    }
+    function iqrQuestion() {
+      return question({ prompt: "What does the IQR measure?", stimulus: "Q3 - Q1", answer: "spread of the middle half", distractors: ["average value", "sample size", "largest value only"], explanation: "IQR is the distance from the first quartile to the third quartile." });
+    }
+    function outlierQuestion() {
+      return question({ prompt: "A value far above the rest usually affects which summary most?", stimulus: "outlier", answer: "mean", distractors: ["median", "Q1", "sample size"], explanation: "The mean uses the exact size of every value." });
+    }
+    function populationQuestion() {
+      return question({ prompt: "The full group we want to learn about is the...", stimulus: "study target", answer: "population", distractors: ["sample", "statistic", "response"], explanation: "A sample is selected from the population." });
+    }
+    function biasQuestion() {
+      return question({ prompt: "Surveying only gym visitors about exercise is mainly what problem?", stimulus: "who was selected", answer: "selection bias", distractors: ["random sampling", "larger sample size", "low variance"], explanation: "The selected group systematically differs from the target population." });
+    }
+    function randomSampleQuestion() {
+      return question({ prompt: "Why do random samples help?", stimulus: "chance selection", answer: "they reduce systematic selection patterns", distractors: ["they remove all uncertainty", "they prove causation", "they make every answer true"], explanation: "Random selection supports probability-based uncertainty estimates." });
+    }
+    function confoundingQuestion() {
+      return question({ prompt: "A hidden variable related to both treatment and outcome is called a...", stimulus: "causal caution", answer: "confounder", distractors: ["median", "residual", "margin of error"], explanation: "Confounding can create misleading associations." });
+    }
+    function expectedValueQuestion() {
+      return question({ prompt: "Expected value is best described as a...", stimulus: "weighted average", answer: "long-run average", distractors: ["guaranteed outcome", "sample maximum", "p-value"], explanation: "Expected value averages outcomes using probabilities as weights." });
+    }
+    function varianceQuestion() {
+      return question({ prompt: "Variance measures typical squared distance from the...", stimulus: "spread", answer: "mean", distractors: ["maximum", "sample size", "p-value"], explanation: "Variance averages squared deviations from the mean." });
+    }
+    function normalModelQuestion() {
+      return question({ prompt: "The normal distribution is shaped like a...", stimulus: "symmetric model", answer: "bell", distractors: ["line", "triangle", "two-way table"], explanation: "Normal models are symmetric and bell-shaped." });
+    }
+    function binomialQuestion() {
+      return question({ prompt: "A binomial count records the number of...", stimulus: "fixed independent trials", answer: "successes", distractors: ["outliers", "residuals", "quartiles"], explanation: "Binomial variables count successes in a fixed number of independent trials." });
+    }
+    function standardErrorQuestion() {
+      return question({ prompt: "Standard error describes variation of a...", stimulus: "sample-to-sample", answer: "statistic", distractors: ["single raw value", "population label", "survey question wording"], explanation: "It is the standard deviation of a statistic's sampling distribution." });
+    }
+    function cltQuestion() {
+      return question({ prompt: "The central limit theorem says sample means often become approximately...", stimulus: "large n", answer: "normal", distractors: ["categorical", "impossible", "biased"], explanation: "With conditions, the distribution of sample means is approximately normal." });
+    }
+    function samplingDistributionQuestion() {
+      return question({ prompt: "A sampling distribution is the distribution of...", stimulus: "repeat sampling", answer: "a statistic", distractors: ["one questionnaire", "a population name", "a graph title"], explanation: "Imagine calculating the statistic for many random samples." });
+    }
+    function sampleSizeQuestion() {
+      return question({ prompt: "If sample size increases, standard error usually...", stimulus: "SE = s/sqrt(n)", answer: "decreases", distractors: ["increases", "stays forced at 1", "becomes a p-value"], explanation: "The square root of n is in the denominator." });
+    }
+    function pointEstimateQuestion() {
+      return question({ prompt: "A single-number estimate is a...", stimulus: "one value", answer: "point estimate", distractors: ["confidence level", "null hypothesis", "residual"], explanation: "A sample mean or sample proportion can be a point estimate." });
+    }
+    function confidenceIntervalQuestion() {
+      return question({ prompt: "A confidence interval is estimate plus/minus...", stimulus: "uncertainty", answer: "margin of error", distractors: ["sample maximum", "correlation", "confounder"], explanation: "The margin of error measures how far the interval extends from the estimate." });
+    }
+    function marginQuestion() {
+      return question({ prompt: "For a 95% normal interval, the multiplier is about...", stimulus: "critical value", answer: "1.96", distractors: ["0.05", "10", "100"], explanation: "A two-sided 95% normal interval uses z* approximately 1.96." });
+    }
+    function confidenceMeaningQuestion() {
+      return question({ prompt: "95% confidence describes the long-run success rate of the...", stimulus: "repeated samples", answer: "method", distractors: ["single fixed interval", "null being true", "largest observation"], explanation: "The confidence level belongs to the procedure over repeated samples." });
+    }
+    function nullQuestion() {
+      return question({ prompt: "The baseline claim in a test is the...", stimulus: "H0", answer: "null hypothesis", distractors: ["sample statistic", "residual", "histogram"], explanation: "The null often represents no change, no effect, or an existing claim." });
+    }
+    function pValueQuestion() {
+      return question({ prompt: "A p-value is computed assuming which hypothesis is true?", stimulus: "test logic", answer: "null hypothesis", distractors: ["alternative hypothesis", "largest value", "regression line"], explanation: "It measures how surprising the data are under the null model." });
+    }
+    function alphaQuestion() {
+      return question({ prompt: "If p-value <= alpha, the usual decision is to...", stimulus: "decision rule", answer: "reject the null", distractors: ["prove the null", "ignore the data", "increase sample bias"], explanation: "The result is statistically significant at that alpha level." });
+    }
+    function typeErrorQuestion() {
+      return question({ prompt: "Rejecting a true null hypothesis is a Type...", stimulus: "false positive", answer: "I error", distractors: ["II error", "residual", "quartile"], explanation: "Type I error is a false positive decision." });
+    }
+    function pairedQuestion() {
+      return question({ prompt: "Before-and-after measurements on the same people are...", stimulus: "same units twice", answer: "paired", distractors: ["independent", "categorical only", "a histogram"], explanation: "Pairing means observations are naturally linked." });
+    }
+    function independentQuestion() {
+      return question({ prompt: "Two separate randomly selected groups are usually treated as...", stimulus: "different units", answer: "independent samples", distractors: ["paired samples", "one residual", "one population parameter"], explanation: "No observation in one group is matched to a specific observation in the other." });
+    }
+    function differenceQuestion() {
+      return question({ prompt: "When comparing two means, the estimate is often...", stimulus: "group A minus group B", answer: "a difference", distractors: ["a maximum", "a p-value only", "a sample label"], explanation: "The difference in sample means estimates the difference in population means." });
+    }
+    function effectSizeQuestion() {
+      return question({ prompt: "Practical importance is mostly about the...", stimulus: "real-world size", answer: "effect size", distractors: ["file name", "random seed", "graph color"], explanation: "A tiny effect can be statistically significant but not practically important." });
+    }
+    function observedExpectedQuestion() {
+      return question({ prompt: "Chi-square statistics compare observed counts to...", stimulus: "null model", answer: "expected counts", distractors: ["sample means", "residual plots", "confidence levels"], explanation: "Expected counts are what the null model predicts for each category." });
+    }
+    function goodnessFitQuestion() {
+      return question({ prompt: "A goodness-of-fit test uses how many categorical variables?", stimulus: "one-way table", answer: "one", distractors: ["two", "three slopes", "no counts"], explanation: "It compares one categorical distribution to a claimed distribution." });
+    }
+    function independenceQuestion() {
+      return question({ prompt: "A chi-square test of independence uses a...", stimulus: "two categorical variables", answer: "two-way table", distractors: ["scatterplot only", "sample mean", "slope formula"], explanation: "Rows and columns represent the two categorical variables." });
+    }
+    function chiSquareCautionQuestion() {
+      return question({ prompt: "Chi-square methods are based on...", stimulus: "categorical data", answer: "counts", distractors: ["raw angles", "regression slopes only", "derivatives"], explanation: "The data should be frequency counts in categories." });
+    }
+    function slopeQuestion() {
+      return question({ prompt: "In regression, slope is the predicted change in y for...", stimulus: "one-unit change", answer: "one more unit of x", distractors: ["one more residual", "the median only", "a smaller p-value"], explanation: "Slope connects changes in the explanatory variable to predicted changes in the response." });
+    }
+    function residualQuestion() {
+      return question({ prompt: "A residual is observed y minus...", stimulus: "prediction error", answer: "predicted y", distractors: ["mean x", "sample size", "confidence level"], explanation: "Residuals show prediction errors for individual points." });
+    }
+    function correlationQuestion() {
+      return question({ prompt: "Correlation is always between...", stimulus: "r", answer: "-1 and 1", distractors: ["0 and 100", "1 and infinity", "only positive values"], explanation: "Pearson correlation ranges from -1 to 1." });
+    }
+    function causationQuestion() {
+      return question({ prompt: "A strong regression association alone proves causation?", stimulus: "causal caution", answer: "no", distractors: ["yes", "always", "only if slope is positive"], explanation: "Confounding and study design matter for causal claims." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `statistics-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> for z statistics and normal-approximation p-values.</p>
+<div id="a3b51082" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> one_sample_z_test, z_test_statistic</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>z_test_statistic(<span class="dv">105</span>, <span class="dv">100</span>, <span class="fl">2.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>2.0</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: a tiny effect can be statistically significant in a large sample but still too small to matter in practice.</p>
+<div id="8d27aca7" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>one_sample_z_test(<span class="dv">105</span>, <span class="dv">100</span>, <span class="fl">2.5</span>, alternative<span class="op">=</span><span class="st">"greater"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>HypothesisTestResult(statistic=2.0, p_value=0.02275013194817921, alternative='greater')</code></pre>
 </div>
+</div>
+<p>Use SymPy to rearrange the z-statistic formula.</p>
+<div id="632f8f64" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>z, estimate, null, se <span class="op">=</span> sp.symbols(<span class="st">"z estimate null se"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(z, (estimate <span class="op">-</span> null) <span class="op">/</span> se), estimate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>[null + se*z]</code></pre>
 </div>
 </div>
 
@@ -1396,8 +1919,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/regression-basics.html" class="pagination-link" aria-label="Regression Basics">
-        <span class="nav-page-text">Regression Basics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/comparing-groups.html" class="pagination-link" aria-label="Comparing Groups">
+        <span class="nav-page-text">Comparing Groups</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

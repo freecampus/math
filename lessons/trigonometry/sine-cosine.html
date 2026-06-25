@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Understanding sine and cosine through the unit circle.">
+<meta name="description" content="Sine and cosine as unit-circle coordinates and right-triangle ratios.">
 
 <title>Sine and Cosine – edu-math</title>
 <style>
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/calculus/index.html" rel="next">
-<link href="../../lessons/algebra/cumulative-review.html" rel="prev">
+<link href="../../lessons/trigonometry/trig-functions-and-graphs.html" rel="next">
+<link href="../../lessons/trigonometry/unit-circle.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -112,8 +112,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -333,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/sine-cosine.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/sine-cosine.html">Sine and Cosine</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/sine-cosine.html">Sine and Cosine</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -521,8 +519,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -650,6 +690,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -697,6 +743,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -704,7 +756,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -721,8 +785,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -827,58 +909,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -897,15 +927,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-first-angle" id="toc-a-first-angle" class="nav-link active" data-scroll-target="#a-first-angle">A first angle</a></li>
-  <li><a href="#reading-the-picture" id="toc-reading-the-picture" class="nav-link" data-scroll-target="#reading-the-picture">Reading the picture</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#sine-and-cosine-on-the-unit-circle" id="toc-sine-and-cosine-on-the-unit-circle" class="nav-link" data-scroll-target="#sine-and-cosine-on-the-unit-circle">Sine and cosine on the unit circle</a></li>
+  <li><a href="#sine-and-cosine-in-right-triangles" id="toc-sine-and-cosine-in-right-triangles" class="nav-link" data-scroll-target="#sine-and-cosine-in-right-triangles">Sine and cosine in right triangles</a>
+  <ul class="collapse">
+  <li><a href="#same-values-two-viewpoints" id="toc-same-values-two-viewpoints" class="nav-link" data-scroll-target="#same-values-two-viewpoints">Same values, two viewpoints</a></li>
+  </ul></li>
   <li><a href="#special-angles" id="toc-special-angles" class="nav-link" data-scroll-target="#special-angles">Special angles</a></li>
-  <li><a href="#quadrants-and-signs" id="toc-quadrants-and-signs" class="nav-link" data-scroll-target="#quadrants-and-signs">Quadrants and signs</a></li>
-  <li><a href="#same-circle-changing-angle" id="toc-same-circle-changing-angle" class="nav-link" data-scroll-target="#same-circle-changing-angle">Same circle, changing angle</a></li>
-  <li><a href="#in-a-live-notebook" id="toc-in-a-live-notebook" class="nav-link" data-scroll-target="#in-a-live-notebook">In a live notebook</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
-  <li><a href="#interactive-unit-circle" id="toc-interactive-unit-circle" class="nav-link" data-scroll-target="#interactive-unit-circle">Interactive unit circle</a></li>
+  <li><a href="#signs-beyond-the-first-quadrant" id="toc-signs-beyond-the-first-quadrant" class="nav-link" data-scroll-target="#signs-beyond-the-first-quadrant">Signs beyond the first quadrant</a></li>
+  <li><a href="#worked-example-1-unit-circle-value" id="toc-worked-example-1-unit-circle-value" class="nav-link" data-scroll-target="#worked-example-1-unit-circle-value">Worked example 1: unit-circle value</a></li>
+  <li><a href="#worked-example-2-right-triangle" id="toc-worked-example-2-right-triangle" class="nav-link" data-scroll-target="#worked-example-2-right-triangle">Worked example 2: right triangle</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-cosine-as-horizontal-coordinate" id="toc-lab-1-cosine-as-horizontal-coordinate" class="nav-link" data-scroll-target="#lab-1-cosine-as-horizontal-coordinate">Lab 1: cosine as horizontal coordinate</a></li>
+  <li><a href="#lab-2-sine-as-vertical-coordinate" id="toc-lab-2-sine-as-vertical-coordinate" class="nav-link" data-scroll-target="#lab-2-sine-as-vertical-coordinate">Lab 2: sine as vertical coordinate</a></li>
+  <li><a href="#lab-3-right-triangle-ratios" id="toc-lab-3-right-triangle-ratios" class="nav-link" data-scroll-target="#lab-3-right-triangle-ratios">Lab 3: right-triangle ratios</a></li>
+  <li><a href="#lab-4-combine-reference-angle-and-sign" id="toc-lab-4-combine-reference-angle-and-sign" class="nav-link" data-scroll-target="#lab-4-combine-reference-angle-and-sign">Lab 4: combine reference angle and sign</a></li>
+  </ul></li>
+  <li><a href="#sine-cosine-guessing-game" id="toc-sine-cosine-guessing-game" class="nav-link" data-scroll-target="#sine-cosine-guessing-game">Sine-cosine guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/trigonometry/sine-cosine.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -913,14 +955,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/sine-cosine.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/sine-cosine.html">Sine and Cosine</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/index.html">Trigonometry</a></li><li class="breadcrumb-item"><a href="../../lessons/trigonometry/sine-cosine.html">Sine and Cosine</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Sine and Cosine</h1>
 </div>
 
 <div>
   <div class="description">
-    Understanding sine and cosine through the unit circle.
+    Sine and cosine as unit-circle coordinates and right-triangle ratios.
   </div>
 </div>
 
@@ -937,200 +979,196 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Sine and cosine describe the coordinates of a point moving around the unit circle.</p>
-<p>The <strong>unit circle</strong> is a circle with radius <code>1</code> centered at the origin. If an angle starts on the positive x-axis and rotates counterclockwise, the point on the circle has coordinates:</p>
-<pre class="text"><code>(cos(theta), sin(theta))</code></pre>
-<p>That means:</p>
+<p>Sine and cosine are the core trigonometric functions. On the unit circle, they are coordinates. In a right triangle, they are ratios. As functions, they become repeating waves. This lesson connects the first two meanings so later graph and equation work makes sense.</p>
+<section id="learning-objectives" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li><code>cos(theta)</code> is the horizontal coordinate.</li>
-<li><code>sin(theta)</code> is the vertical coordinate.</li>
+<li>explain cosine as horizontal coordinate;</li>
+<li>explain sine as vertical coordinate;</li>
+<li>compute sine and cosine for common angles;</li>
+<li>use right-triangle ratios <code>sin = opposite/hypotenuse</code> and <code>cos = adjacent/hypotenuse</code>;</li>
+<li>decide signs from the quadrant;</li>
+<li>check values with a unit-circle plot and SymPy.</li>
 </ul>
-<section id="a-first-angle" class="level2">
-<h2 class="anchored" data-anchor-id="a-first-angle">A first angle</h2>
-<p>At <code>30</code> degrees, the point is mostly to the right and slightly above the x-axis. The cosine value is the horizontal distance from the origin, and the sine value is the vertical height.</p>
-<div id="01f4141b" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry.plots <span class="im">import</span> plot_unit_circle</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plot_unit_circle(<span class="dv">30</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-2-output-1.png" width="683" height="683" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-2-output-2.png" width="683" height="683" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
-<section id="reading-the-picture" class="level2">
-<h2 class="anchored" data-anchor-id="reading-the-picture">Reading the picture</h2>
-<p>In the plot:</p>
+<section id="sine-and-cosine-on-the-unit-circle" class="level2">
+<h2 class="anchored" data-anchor-id="sine-and-cosine-on-the-unit-circle">Sine and cosine on the unit circle</h2>
+<p>For an angle <code>theta</code>, the unit-circle point is:</p>
+<pre class="text"><code>(cos(theta), sin(theta))</code></pre>
+<p>So:</p>
 <ul>
-<li>the black segment is the radius of the unit circle;</li>
-<li>the red segment shows the cosine component;</li>
-<li>the blue segment shows the sine component.</li>
+<li><code>cos(theta)</code> tells how far left or right the point is;</li>
+<li><code>sin(theta)</code> tells how far up or down the point is.</li>
 </ul>
-<p>Because every point is on a circle of radius <code>1</code>, sine and cosine always stay between <code>-1</code> and <code>1</code>.</p>
+<p>At <code>30 degrees</code>, the point is mostly to the right and slightly above the x-axis, so cosine is larger than sine.</p>
+</section>
+<section id="sine-and-cosine-in-right-triangles" class="level2">
+<h2 class="anchored" data-anchor-id="sine-and-cosine-in-right-triangles">Sine and cosine in right triangles</h2>
+<p>In a right triangle with acute angle <code>theta</code>:</p>
+<pre class="text"><code>sin(theta) = opposite / hypotenuse
+cos(theta) = adjacent / hypotenuse</code></pre>
+<p>The hypotenuse is always the side across from the right angle and is the longest side.</p>
+<section id="same-values-two-viewpoints" class="level3 key-idea">
+<h3 class="anchored" data-anchor-id="same-values-two-viewpoints">Same values, two viewpoints</h3>
+<p>For acute angles, the right-triangle ratios match the unit-circle coordinates. The unit circle extends the definitions to angles beyond <code>0</code> to <code>90</code> degrees.</p>
+</section>
 </section>
 <section id="special-angles" class="level2">
 <h2 class="anchored" data-anchor-id="special-angles">Special angles</h2>
-<p>Some common angles have exact sine and cosine values. These values are useful because they appear constantly in trigonometry, geometry, and calculus.</p>
-<div id="dbe8887a" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry.plots <span class="im">import</span> unit_circle_point</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> angle <span class="kw">in</span> [<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">60</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">270</span>, <span class="dv">360</span>]:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    point <span class="op">=</span> unit_circle_point(angle)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"</span><span class="sc">{</span>angle<span class="sc">:&gt;3}</span><span class="ss"> degrees: "</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"cos(theta) = </span><span class="sc">{</span>point<span class="sc">.</span>cosine<span class="sc">: .3f}</span><span class="ss">, "</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"sin(theta) = </span><span class="sc">{</span>point<span class="sc">.</span>sine<span class="sc">: .3f}</span><span class="ss">"</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  0 degrees: cos(theta) =  1.000, sin(theta) =  0.000
- 30 degrees: cos(theta) =  0.866, sin(theta) =  0.500
- 45 degrees: cos(theta) =  0.707, sin(theta) =  0.707
- 60 degrees: cos(theta) =  0.500, sin(theta) =  0.866
- 90 degrees: cos(theta) =  0.000, sin(theta) =  1.000
-180 degrees: cos(theta) = -1.000, sin(theta) =  0.000
-270 degrees: cos(theta) = -0.000, sin(theta) = -1.000
-360 degrees: cos(theta) =  1.000, sin(theta) = -0.000</code></pre>
-</div>
-</div>
-</section>
-<section id="quadrants-and-signs" class="level2">
-<h2 class="anchored" data-anchor-id="quadrants-and-signs">Quadrants and signs</h2>
-<p>The sign of sine and cosine depends on the quadrant.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Quadrant</th>
-<th style="text-align: right;">Angle range</th>
-<th style="text-align: right;">Cosine</th>
-<th style="text-align: right;">Sine</th>
+<th style="text-align: right;">angle</th>
+<th style="text-align: right;">sine</th>
+<th style="text-align: right;">cosine</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>I</td>
-<td style="text-align: right;"><code>0</code> to <code>90</code> degrees</td>
-<td style="text-align: right;">positive</td>
-<td style="text-align: right;">positive</td>
+<td style="text-align: right;"><code>0°</code></td>
+<td style="text-align: right;"><code>0</code></td>
+<td style="text-align: right;"><code>1</code></td>
 </tr>
 <tr class="even">
-<td>II</td>
-<td style="text-align: right;"><code>90</code> to <code>180</code> degrees</td>
-<td style="text-align: right;">negative</td>
-<td style="text-align: right;">positive</td>
+<td style="text-align: right;"><code>30°</code></td>
+<td style="text-align: right;"><code>1/2</code></td>
+<td style="text-align: right;"><code>sqrt(3)/2</code></td>
 </tr>
 <tr class="odd">
-<td>III</td>
-<td style="text-align: right;"><code>180</code> to <code>270</code> degrees</td>
-<td style="text-align: right;">negative</td>
-<td style="text-align: right;">negative</td>
+<td style="text-align: right;"><code>45°</code></td>
+<td style="text-align: right;"><code>sqrt(2)/2</code></td>
+<td style="text-align: right;"><code>sqrt(2)/2</code></td>
 </tr>
 <tr class="even">
-<td>IV</td>
-<td style="text-align: right;"><code>270</code> to <code>360</code> degrees</td>
-<td style="text-align: right;">positive</td>
-<td style="text-align: right;">negative</td>
+<td style="text-align: right;"><code>60°</code></td>
+<td style="text-align: right;"><code>sqrt(3)/2</code></td>
+<td style="text-align: right;"><code>1/2</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>90°</code></td>
+<td style="text-align: right;"><code>1</code></td>
+<td style="text-align: right;"><code>0</code></td>
 </tr>
 </tbody>
 </table>
-<p>For example, at <code>225</code> degrees the point is in quadrant III, so both coordinates are negative.</p>
-<div id="43498202" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plot_unit_circle(<span class="dv">225</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-4-output-1.png" width="683" height="683" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-4-output-2.png" width="683" height="683" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Notice that sine increases from <code>0</code> to <code>1</code> on the first quadrant, while cosine decreases from <code>1</code> to <code>0</code>.</p>
 </section>
-<section id="same-circle-changing-angle" class="level2">
-<h2 class="anchored" data-anchor-id="same-circle-changing-angle">Same circle, changing angle</h2>
-<p>The angle changes the point, but the rule stays the same:</p>
-<pre class="text"><code>horizontal position = cos(theta)
-vertical position = sin(theta)</code></pre>
-<p>The next examples show angles with the same reference angle but different signs because they are in different quadrants.</p>
-<div id="d92736a0" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plot_unit_circle(<span class="dv">60</span>, axis<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plot_unit_circle(<span class="dv">120</span>, axis<span class="op">=</span>axes[<span class="dv">1</span>])</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-5-output-1.png" width="971" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-5-output-2.png" width="971" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>At <code>60</code> degrees, sine and cosine are both positive. At <code>120</code> degrees, sine is still positive, but cosine is negative because the point is now to the left of the y-axis.</p>
+<section id="signs-beyond-the-first-quadrant" class="level2">
+<h2 class="anchored" data-anchor-id="signs-beyond-the-first-quadrant">Signs beyond the first quadrant</h2>
+<p>Use quadrant signs:</p>
+<pre class="text"><code>Quadrant I:   sine +, cosine +
+Quadrant II:  sine +, cosine -
+Quadrant III: sine -, cosine -
+Quadrant IV:  sine -, cosine +</code></pre>
+<p>The reference angle gives the size; the quadrant gives the sign.</p>
 </section>
-<section id="in-a-live-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="in-a-live-notebook">In a live notebook</h2>
-<p>The package also includes an interactive widget for live Jupyter notebooks.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry.plots <span class="im">import</span> display_unit_circle_widget</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>display_unit_circle_widget(initial_angle<span class="op">=</span><span class="dv">45</span>, min_angle<span class="op">=-</span><span class="dv">360</span>, max_angle<span class="op">=</span><span class="dv">360</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="worked-example-1-unit-circle-value" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-unit-circle-value">Worked example 1: unit-circle value</h2>
+<p>Find <code>cos(240 degrees)</code>.</p>
+<ol type="1">
+<li><code>240 degrees</code> is in Quadrant III.</li>
+<li>The reference angle is <code>240 - 180 = 60 degrees</code>.</li>
+<li><code>cos(60 degrees)=1/2</code>.</li>
+<li>In Quadrant III, cosine is negative.</li>
+</ol>
+<p>So:</p>
+<pre class="text"><code>cos(240 degrees) = -1/2</code></pre>
 </section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<section id="worked-example-2-right-triangle" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-right-triangle">Worked example 2: right triangle</h2>
+<p>A right triangle has angle <code>theta</code>, opposite side 5, adjacent side 12, and hypotenuse 13.</p>
+<pre class="text"><code>sin(theta) = opposite / hypotenuse = 5/13
+cos(theta) = adjacent / hypotenuse = 12/13</code></pre>
+<p>These ratios do not depend on the triangle’s size, only on the angle.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Swapping sine and cosine.</li>
+<li>Using the adjacent side for sine.</li>
+<li>Forgetting signs outside Quadrant I.</li>
+<li>Treating <code>sin(theta)</code> as <code>sin * theta</code>; it is function notation.</li>
+<li>Using decimal approximations when an exact value is expected.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
 <li>What are <code>cos(0 degrees)</code> and <code>sin(0 degrees)</code>?</li>
-<li>At <code>90 degrees</code>, which coordinate is zero?</li>
-<li>At <code>225 degrees</code>, are sine and cosine positive or negative?</li>
-<li>Why can sine and cosine never be larger than <code>1</code> on the unit circle?</li>
+<li>Find <code>sin(60 degrees)</code>.</li>
+<li>Find <code>cos(120 degrees)</code>.</li>
+<li>In a right triangle, the opposite side is 7 and hypotenuse is 25. Find sine.</li>
+<li>At <code>300 degrees</code>, is sine positive or negative?</li>
 </ol>
 </div>
-</section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>cos(0 degrees) = 1</code> and <code>sin(0 degrees) = 0</code>.</p>
-<p>At <code>0 degrees</code>, the unit-circle point is <code>(1, 0)</code>.</p>
+<ol type="1">
+<li><code>cos(0)=1</code> and <code>sin(0)=0</code>.</li>
+<li><code>sqrt(3)/2</code>.</li>
+<li>Reference angle <code>60</code>, Quadrant II cosine is negative, so <code>-1/2</code>.</li>
+<li><code>7/25</code>.</li>
+<li>Negative, because <code>300 degrees</code> is in Quadrant IV.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>Work slowly: identify the angle, choose the viewpoint, then apply the ratio or unit-circle value.</p>
+<section id="lab-1-cosine-as-horizontal-coordinate" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-cosine-as-horizontal-coordinate">Lab 1: cosine as horizontal coordinate</h3>
+<p><strong>Guess first.</strong> At <code>180 degrees</code>, is cosine <code>1</code>, <code>0</code>, or <code>-1</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>At <code>180 degrees</code>, the unit-circle point is <code>(-1,0)</code>. Cosine is the x-coordinate, so:</p>
+<pre class="text"><code>cos(180 degrees) = -1</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Find <code>cos(270 degrees)</code>.</p>
+</div>
+</section>
+<section id="lab-2-sine-as-vertical-coordinate" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-sine-as-vertical-coordinate">Lab 2: sine as vertical coordinate</h3>
+<p><strong>Guess first.</strong> At <code>90 degrees</code>, is sine <code>0</code> or <code>1</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>At <code>90 degrees</code>, the unit-circle point is <code>(0,1)</code>. Sine is the y-coordinate, so:</p>
+<pre class="text"><code>sin(90 degrees) = 1</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Find <code>sin(180 degrees)</code>.</p>
+</div>
+</section>
+<section id="lab-3-right-triangle-ratios" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-right-triangle-ratios">Lab 3: right-triangle ratios</h3>
+<p><strong>Guess first.</strong> For sine, do you use opposite or adjacent?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>SOH-CAH-TOA says:</p>
+<pre class="text"><code>sin = opposite / hypotenuse
+cos = adjacent / hypotenuse</code></pre>
+<p>If opposite is 3, adjacent is 4, and hypotenuse is 5, then <code>sin=3/5</code> and <code>cos=4/5</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> In a <code>5-12-13</code> right triangle, with angle opposite side 12, find sine and cosine.</p>
+</div>
+</section>
+<section id="lab-4-combine-reference-angle-and-sign" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-combine-reference-angle-and-sign">Lab 4: combine reference angle and sign</h3>
+<p><strong>Guess first.</strong> Does <code>sin(210 degrees)</code> have the same sign as <code>sin(30 degrees)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The reference angle is <code>30 degrees</code>, but <code>210 degrees</code> is in Quadrant III. Sine is negative in Quadrant III, so:</p>
+<pre class="text"><code>sin(210 degrees) = -1/2</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Find <code>cos(300 degrees)</code>.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -1138,251 +1176,293 @@ vertical position = sin(theta)</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: cosine is zero.</p>
-<p>At <code>90 degrees</code>, the unit-circle point is <code>(0, 1)</code>.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: both are negative.</p>
-<p><code>225 degrees</code> is in quadrant III, where x- and y-coordinates are both negative.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 4
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: sine and cosine are coordinates of a point on a circle with radius <code>1</code>.</p>
-<p>No horizontal or vertical coordinate on that circle can have magnitude greater than <code>1</code>.</p>
+<ol type="1">
+<li><code>cos(270 degrees)=0</code>.</li>
+<li><code>sin(180 degrees)=0</code>.</li>
+<li><code>sin=12/13</code> and <code>cos=5/13</code>.</li>
+<li>Reference angle <code>60</code>; Quadrant IV cosine is positive, so <code>cos(300)=1/2</code>.</li>
+</ol>
 </div>
 </div>
 </div>
 </section>
-<section id="interactive-unit-circle" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-unit-circle">Interactive unit circle</h2>
-<p>Use the slider or type an angle between <code>-360</code> and <code>360</code> degrees. Positive angles rotate counterclockwise; negative angles rotate clockwise.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="169" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 168;"><span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="fu">unitCircleExplorer</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-1" data-nodetype="expression">
+</section>
+<section id="sine-cosine-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="sine-cosine-guessing-game">Sine-cosine guessing game</h2>
+<script type="application/json" class="edu-math-trigonometry-checkpoint-config">
+{
+  "topic": "sine-cosine",
+  "title": "Sine and cosine checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-trigonometry-checkpoint" data-default-total="4">
 
 </div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="174" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 173;"><span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">unitCircleExplorer</span>() {</span>
-<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> <span class="bu">root</span> <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;section class="trig-explorer"&gt;&lt;/section&gt;`</span><span class="op">;</span></span>
-<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> slider <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;input class="trig-angle-slider" type="range" min="-360" max="360" step="1" value="45"&gt;`</span><span class="op">;</span></span>
-<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> input <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;input class="trig-angle-input" type="number" min="-360" max="360" step="1" value="45"&gt;`</span><span class="op">;</span></span>
-<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> chart <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> values <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="trig-values"&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> controls <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div class="trig-controls"&gt;</span></span>
-<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;label&gt;</span></span>
-<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span&gt;Angle&lt;/span&gt;</span></span>
-<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a><span class="vs">      </span><span class="sc">${</span>slider<span class="sc">}</span></span>
-<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/label&gt;</span></span>
-<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;label&gt;</span></span>
-<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span&gt;Degrees&lt;/span&gt;</span></span>
-<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a><span class="vs">      </span><span class="sc">${</span>input<span class="sc">}</span></span>
-<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/label&gt;</span></span>
-<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>  slider<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"input"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>    input<span class="op">.</span><span class="at">value</span> <span class="op">=</span> slider<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
-<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>  input<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"input"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> angle <span class="op">=</span> <span class="fu">clamp</span>(<span class="bu">Number</span>(input<span class="op">.</span><span class="at">value</span>) <span class="op">||</span> <span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">360</span><span class="op">,</span> <span class="dv">360</span>)<span class="op">;</span></span>
-<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a>    input<span class="op">.</span><span class="at">value</span> <span class="op">=</span> angle<span class="op">;</span></span>
-<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a>    slider<span class="op">.</span><span class="at">value</span> <span class="op">=</span> angle<span class="op">;</span></span>
-<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a>  <span class="bu">root</span><span class="op">.</span><span class="fu">append</span>(controls<span class="op">,</span> chart<span class="op">,</span> values)<span class="op">;</span></span>
-<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>()<span class="op">;</span></span>
-<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">root</span><span class="op">;</span></span>
-<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">render</span>() {</span>
-<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> angle <span class="op">=</span> <span class="bu">Number</span>(slider<span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
-<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a>    chart<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>    chart<span class="op">.</span><span class="fu">append</span>(<span class="fu">drawUnitCircle</span>(angle))<span class="op">;</span></span>
-<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> radians <span class="op">=</span> angle <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span> <span class="op">/</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> cosine <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(radians)<span class="op">;</span></span>
-<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> sine <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(radians)<span class="op">;</span></span>
-<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a>    values<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
-<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span&gt;cos(</span><span class="sc">${</span>angle<span class="sc">}</span><span class="vs">°) = </span><span class="sc">${</span>cosine<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
-<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span&gt;sin(</span><span class="sc">${</span>angle<span class="sc">}</span><span class="vs">°) = </span><span class="sc">${</span>sine<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
-<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
-<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-2" data-nodetype="declaration">
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "unit-circle";
+    const BANKS = {
+      "radians-and-degrees": [degreesRadiansQuestion, coterminalQuestion, referenceAngleQuestion, quadrantQuestion],
+      "unit-circle": [coordinateQuestion, signsQuestion, specialAngleQuestion, tangentQuestion],
+      "sine-cosine": [sineCoordinateQuestion, cosineCoordinateQuestion, rightTriangleQuestion, signQuestion],
+      "trig-functions-and-graphs": [amplitudeQuestion, periodQuestion, midlineQuestion, phaseQuestion],
+      identities: [pythagoreanIdentityQuestion, tangentIdentityQuestion, reciprocalQuestion, verifyIdentityQuestion],
+      "trig-equations": [basicSineEquationQuestion, basicCosineEquationQuestion, periodicQuestion, intervalQuestion],
+      applications: [rightTriangleQuestion, elevationQuestion, sinusoidQuestion, bearingQuestion],
+      "trigonometry-cumulative-review": [degreesRadiansQuestion, coordinateQuestion, specialAngleQuestion, amplitudeQuestion, pythagoreanIdentityQuestion, basicSineEquationQuestion],
+    };
 
+    document.querySelectorAll(".edu-math-trigonometry-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-trigonometry-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Trigonometry checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", { class: "quiz-count", type: "number", min: "1", max: "20", value: String(state.total) });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function degreesRadiansQuestion() {
+      return question({ prompt: "Convert 180 degrees to radians.", stimulus: "half turn", answer: "pi", distractors: ["2pi", "pi/2", "180pi"], explanation: "A full turn is 2pi radians, so a half turn is pi radians." });
+    }
+    function coterminalQuestion() {
+      return question({ prompt: "Which angle is coterminal with -30 degrees in [0,360)?", stimulus: "add 360 degrees", answer: "330 degrees", distractors: ["30 degrees", "300 degrees", "-390 degrees"], explanation: "-30 + 360 = 330." });
+    }
+    function referenceAngleQuestion() {
+      return question({ prompt: "What is the reference angle for 150 degrees?", stimulus: "Quadrant II", answer: "30 degrees", distractors: ["60 degrees", "150 degrees", "210 degrees"], explanation: "In Quadrant II, reference angle is 180 - theta." });
+    }
+    function quadrantQuestion() {
+      return question({ prompt: "Which quadrant contains 240 degrees?", stimulus: "between 180 and 270", answer: "III", distractors: ["I", "II", "IV"], explanation: "Angles between 180 and 270 degrees are in Quadrant III." });
+    }
+    function coordinateQuestion() {
+      return question({ prompt: "On the unit circle, which coordinate is sine?", stimulus: "point = (cos theta, sin theta)", answer: "vertical coordinate", distractors: ["horizontal coordinate", "radius length", "angle measure"], explanation: "Sine is the y-coordinate." });
+    }
+    function signsQuestion() {
+      return question({ prompt: "In Quadrant II, what are the signs of sine and cosine?", stimulus: "x negative, y positive", answer: "sine positive, cosine negative", distractors: ["both positive", "both negative", "sine negative, cosine positive"], explanation: "Sine is y, cosine is x." });
+    }
+    function specialAngleQuestion() {
+      return question({ prompt: "What is sin(30 degrees)?", stimulus: "special angle", answer: "1/2", distractors: ["sqrt(3)/2", "sqrt(2)/2", "1"], explanation: "The 30-60-90 triangle gives sin(30)=1/2." });
+    }
+    function tangentQuestion() {
+      return question({ prompt: "What is tan(theta) in terms of sine and cosine?", stimulus: "tangent ratio", answer: "sin(theta)/cos(theta)", distractors: ["cos(theta)/sin(theta)", "1/sin(theta)", "sin(theta)+cos(theta)"], explanation: "Tangent is sine divided by cosine when cosine is not zero." });
+    }
+    function sineCoordinateQuestion() {
+      return question({ prompt: "At 90 degrees, what is sine?", stimulus: "unit-circle point (0,1)", answer: "1", distractors: ["0", "-1", "undefined"], explanation: "The y-coordinate at 90 degrees is 1." });
+    }
+    function cosineCoordinateQuestion() {
+      return question({ prompt: "At 180 degrees, what is cosine?", stimulus: "unit-circle point (-1,0)", answer: "-1", distractors: ["1", "0", "undefined"], explanation: "The x-coordinate at 180 degrees is -1." });
+    }
+    function rightTriangleQuestion() {
+      return question({ prompt: "In a right triangle, sine equals which ratio?", stimulus: "SOH-CAH-TOA", answer: "opposite / hypotenuse", distractors: ["adjacent / hypotenuse", "opposite / adjacent", "hypotenuse / opposite"], explanation: "SOH means sine = opposite over hypotenuse." });
+    }
+    function signQuestion() {
+      return question({ prompt: "At 300 degrees, is sine positive or negative?", stimulus: "Quadrant IV", answer: "negative", distractors: ["positive", "zero", "undefined"], explanation: "Quadrant IV has negative y-values, so sine is negative." });
+    }
+    function amplitudeQuestion() {
+      return question({ prompt: "What is the amplitude of y = 3 sin(x)?", stimulus: "vertical stretch", answer: "3", distractors: ["1", "2pi", "pi"], explanation: "Amplitude is the absolute value of the coefficient in front of sine or cosine." });
+    }
+    function periodQuestion() {
+      return question({ prompt: "What is the period of sin(x)?", stimulus: "basic sine wave", answer: "2pi", distractors: ["pi", "1", "4pi"], explanation: "Basic sine repeats every 2pi radians." });
+    }
+    function midlineQuestion() {
+      return question({ prompt: "What is the midline of y = sin(x) + 4?", stimulus: "vertical shift", answer: "y = 4", distractors: ["y = 1", "y = -4", "x = 4"], explanation: "The +4 shifts the center line to y=4." });
+    }
+    function phaseQuestion() {
+      return question({ prompt: "In y = sin(x - pi/2), which way is the graph shifted?", stimulus: "inside subtraction", answer: "right", distractors: ["left", "up", "down"], explanation: "Subtracting inside shifts the graph right." });
+    }
+    function pythagoreanIdentityQuestion() {
+      return question({ prompt: "Complete the identity: sin^2(x) + cos^2(x) = ?", stimulus: "Pythagorean identity", answer: "1", distractors: ["0", "tan(x)", "2"], explanation: "The unit-circle point has distance 1 from the origin." });
+    }
+    function tangentIdentityQuestion() {
+      return question({ prompt: "Which identity rewrites tan(x)?", stimulus: "quotient identity", answer: "sin(x)/cos(x)", distractors: ["cos(x)/sin(x)", "1/cos(x)", "1/sin(x)"], explanation: "tan(x)=sin(x)/cos(x)." });
+    }
+    function reciprocalQuestion() {
+      return question({ prompt: "Which reciprocal identity is correct?", stimulus: "secant", answer: "sec(x)=1/cos(x)", distractors: ["sec(x)=1/sin(x)", "sec(x)=sin(x)/cos(x)", "sec(x)=cos(x)"], explanation: "Secant is reciprocal cosine." });
+    }
+    function verifyIdentityQuestion() {
+      return question({ prompt: "What is the safest first move when proving a trig identity?", stimulus: "identity strategy", answer: "rewrite one side using known identities", distractors: ["divide by zero", "change both sides randomly", "plug in one angle only"], explanation: "Use known identities and algebra to transform one side into the other." });
+    }
+    function basicSineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=0.", stimulus: "x-axis intersections", answer: "0 and 180 degrees", distractors: ["90 and 270 degrees", "30 and 150 degrees", "45 and 225 degrees"], explanation: "Sine is y-coordinate, which is 0 on the x-axis." });
+    }
+    function basicCosineEquationQuestion() {
+      return question({ prompt: "In [0,360), solve cos(theta)=0.", stimulus: "y-axis intersections", answer: "90 and 270 degrees", distractors: ["0 and 180 degrees", "30 and 330 degrees", "45 and 315 degrees"], explanation: "Cosine is x-coordinate, which is 0 on the y-axis." });
+    }
+    function periodicQuestion() {
+      return question({ prompt: "Why can sin(theta)=1/2 have infinitely many solutions?", stimulus: "periodicity", answer: "sine repeats every full turn", distractors: ["sine is linear", "angles stop at 360", "cosine is undefined"], explanation: "Adding 360 degrees or 2pi radians gives coterminal solutions." });
+    }
+    function intervalQuestion() {
+      return question({ prompt: "In [0,360), solve sin(theta)=1.", stimulus: "top of unit circle", answer: "90 degrees", distractors: ["0 degrees", "180 degrees", "270 degrees"], explanation: "The top of the unit circle is (0,1)." });
+    }
+    function elevationQuestion() {
+      return question({ prompt: "For angle of elevation, opposite side usually represents what?", stimulus: "right-triangle model", answer: "height", distractors: ["horizontal distance", "hypotenuse always", "angle measure"], explanation: "Height is vertical, opposite the ground angle." });
+    }
+    function sinusoidQuestion() {
+      return question({ prompt: "Which trig function type models repeating seasonal behavior?", stimulus: "periodic data", answer: "sinusoidal", distractors: ["linear", "quadratic", "constant only"], explanation: "Sine and cosine model smooth repeating cycles." });
+    }
+    function bearingQuestion() {
+      return question({ prompt: "A vector with components (3,4) has length?", stimulus: "right triangle", answer: "5", distractors: ["7", "1", "12"], explanation: "Use the Pythagorean theorem: sqrt(3^2+4^2)=5." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `trigonometry-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> to compute a unit-circle point.</p>
+<div id="5a46a7e3" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> plot_unit_circle, special_angle_values, unit_circle_point</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> unit_circle_point(<span class="dv">30</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(point.cosine, point.sine)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(special_angle_values(<span class="dv">30</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.8660254037844387 0.49999999999999994
+ExactTrigValues(sine='1/2', cosine='sqrt(3)/2', tangent='sqrt(3)/3')</code></pre>
 </div>
 </div>
+<p>Show the unit-circle plot.</p>
+<div id="0a49c992" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plot_unit_circle(<span class="dv">30</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<figure class="figure">
+<p><img src="sine-cosine_files/figure-html/cell-3-output-1.png" width="683" height="683" class="figure-img"></p>
+</figure>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb11" data-startfrom="228" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 227;"><span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawUnitCircle</span>(angleDegrees) {</span>
-<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> width <span class="op">=</span> <span class="dv">560</span><span class="op">;</span></span>
-<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> height <span class="op">=</span> <span class="dv">560</span><span class="op">;</span></span>
-<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> margin <span class="op">=</span> <span class="dv">44</span><span class="op">;</span></span>
-<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> radius <span class="op">=</span> <span class="dv">210</span><span class="op">;</span></span>
-<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> center <span class="op">=</span> { <span class="dt">x</span><span class="op">:</span> width <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> height <span class="op">/</span> <span class="dv">2</span> }<span class="op">;</span></span>
-<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> radians <span class="op">=</span> angleDegrees <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span> <span class="op">/</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> point <span class="op">=</span> {</span>
-<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> center<span class="op">.</span><span class="at">x</span> <span class="op">+</span> radius <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(radians)<span class="op">,</span></span>
-<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> center<span class="op">.</span><span class="at">y</span> <span class="op">-</span> radius <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(radians)</span>
-<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> projection <span class="op">=</span> { <span class="dt">x</span><span class="op">:</span> point<span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> center<span class="op">.</span><span class="at">y</span> }<span class="op">;</span></span>
-<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> radiusLabel <span class="op">=</span> {</span>
-<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> (center<span class="op">.</span><span class="at">x</span> <span class="op">+</span> point<span class="op">.</span><span class="at">x</span>) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span></span>
-<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> (center<span class="op">.</span><span class="at">y</span> <span class="op">+</span> point<span class="op">.</span><span class="at">y</span>) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">10</span></span>
-<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> cosineLabel <span class="op">=</span> {</span>
-<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> (center<span class="op">.</span><span class="at">x</span> <span class="op">+</span> projection<span class="op">.</span><span class="at">x</span>) <span class="op">/</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> center<span class="op">.</span><span class="at">y</span> <span class="op">+</span> <span class="dv">28</span></span>
-<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> sineLabel <span class="op">=</span> {</span>
-<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> projection<span class="op">.</span><span class="at">x</span> <span class="op">+</span> (projection<span class="op">.</span><span class="at">x</span> <span class="op">&gt;=</span> center<span class="op">.</span><span class="at">x</span> <span class="op">?</span> <span class="dv">12</span> <span class="op">:</span> <span class="op">-</span><span class="dv">12</span>)<span class="op">,</span></span>
-<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> (projection<span class="op">.</span><span class="at">y</span> <span class="op">+</span> point<span class="op">.</span><span class="at">y</span>) <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">create</span>(<span class="st">"svg"</span>)</span>
-<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"viewBox"</span><span class="op">,</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> width<span class="op">,</span> height])</span>
-<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"role"</span><span class="op">,</span> <span class="st">"img"</span>)</span>
-<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"aria-label"</span><span class="op">,</span> <span class="st">"Interactive unit circle showing sine and cosine"</span>)</span>
-<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-unit-circle"</span>)<span class="op">;</span></span>
-<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)</span>
-<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"cx"</span><span class="op">,</span> center<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"cy"</span><span class="op">,</span> center<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> radius)</span>
-<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"none"</span>)</span>
-<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span> <span class="st">"#9aa0a6"</span>)</span>
-<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-width"</span><span class="op">,</span> <span class="dv">2</span>)</span>
-<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-dasharray"</span><span class="op">,</span> <span class="st">"7 7"</span>)<span class="op">;</span></span>
-<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"line"</span>)</span>
-<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x1"</span><span class="op">,</span> margin)</span>
-<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y1"</span><span class="op">,</span> center<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x2"</span><span class="op">,</span> width <span class="op">-</span> margin)</span>
-<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y2"</span><span class="op">,</span> center<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-axis"</span>)<span class="op">;</span></span>
-<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"line"</span>)</span>
-<span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x1"</span><span class="op">,</span> center<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y1"</span><span class="op">,</span> margin)</span>
-<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x2"</span><span class="op">,</span> center<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y2"</span><span class="op">,</span> height <span class="op">-</span> margin)</span>
-<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-axis"</span>)<span class="op">;</span></span>
-<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"line"</span>)</span>
-<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x1"</span><span class="op">,</span> center<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y1"</span><span class="op">,</span> center<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x2"</span><span class="op">,</span> point<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y2"</span><span class="op">,</span> point<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-radius"</span>)<span class="op">;</span></span>
-<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
-<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> radiusLabel<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> radiusLabel<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-label radius-label"</span>)</span>
-<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(<span class="st">"radius"</span>)<span class="op">;</span></span>
-<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"line"</span>)</span>
-<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x1"</span><span class="op">,</span> center<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y1"</span><span class="op">,</span> center<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x2"</span><span class="op">,</span> projection<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y2"</span><span class="op">,</span> projection<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-cosine"</span>)<span class="op">;</span></span>
-<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
-<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> cosineLabel<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> cosineLabel<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-label cosine-label"</span>)</span>
-<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"middle"</span>)</span>
-<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(<span class="st">"cosine"</span>)<span class="op">;</span></span>
-<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"line"</span>)</span>
-<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x1"</span><span class="op">,</span> projection<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y1"</span><span class="op">,</span> projection<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x2"</span><span class="op">,</span> point<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y2"</span><span class="op">,</span> point<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-sine"</span>)<span class="op">;</span></span>
-<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
-<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> sineLabel<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> sineLabel<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-label sine-label"</span>)</span>
-<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"dominant-baseline"</span><span class="op">,</span> <span class="st">"middle"</span>)</span>
-<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> projection<span class="op">.</span><span class="at">x</span> <span class="op">&gt;=</span> center<span class="op">.</span><span class="at">x</span> <span class="op">?</span> <span class="st">"start"</span> <span class="op">:</span> <span class="st">"end"</span>)</span>
-<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(<span class="st">"sine"</span>)<span class="op">;</span></span>
-<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)</span>
-<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"cx"</span><span class="op">,</span> point<span class="op">.</span><span class="at">x</span>)</span>
-<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"cy"</span><span class="op">,</span> point<span class="op">.</span><span class="at">y</span>)</span>
-<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="dv">6</span>)</span>
-<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"trig-point"</span>)<span class="op">;</span></span>
-<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
-<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> width <span class="op">-</span> margin <span class="op">+</span> <span class="dv">8</span>)</span>
-<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> center<span class="op">.</span><span class="at">y</span> <span class="op">+</span> <span class="dv">5</span>)</span>
-<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(<span class="st">"x"</span>)<span class="op">;</span></span>
-<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
-<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> center<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">8</span>)</span>
-<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> margin <span class="op">-</span> <span class="dv">12</span>)</span>
-<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(<span class="st">"y"</span>)<span class="op">;</span></span>
-<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> svg<span class="op">.</span><span class="fu">node</span>()<span class="op">;</span></span>
-<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clamp</span>(value<span class="op">,</span> min<span class="op">,</span> max) {</span>
-<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(min<span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(max<span class="op">,</span> value))<span class="op">;</span></span>
-<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-3-1" data-nodetype="declaration">
-
+<figure class="figure">
+<p><img src="sine-cosine_files/figure-html/cell-3-output-2.png" width="683" height="683" class="figure-img"></p>
+</figure>
 </div>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-2" data-nodetype="declaration">
-
-</div>
-</div>
+<p>Use SymPy for exact sine and cosine.</p>
+<div id="a2752554" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sp.sin(sp.pi <span class="op">/</span> <span class="dv">6</span>), sp.cos(<span class="dv">2</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(1/2, -1/2)</code></pre>
 </div>
 </div>
 
@@ -1390,17 +1470,6 @@ vertical position = sin(theta)</code></pre>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InVuaXRDaXJjbGVFeHBsb3JlcigpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmdW5jdGlvbiB1bml0Q2lyY2xlRXhwbG9yZXIoKSB7XG4gIGNvbnN0IHJvb3QgPSBodG1sYDxzZWN0aW9uIGNsYXNzPVwidHJpZy1leHBsb3JlclwiPjwvc2VjdGlvbj5gO1xuICBjb25zdCBzbGlkZXIgPSBodG1sYDxpbnB1dCBjbGFzcz1cInRyaWctYW5nbGUtc2xpZGVyXCIgdHlwZT1cInJhbmdlXCIgbWluPVwiLTM2MFwiIG1heD1cIjM2MFwiIHN0ZXA9XCIxXCIgdmFsdWU9XCI0NVwiPmA7XG4gIGNvbnN0IGlucHV0ID0gaHRtbGA8aW5wdXQgY2xhc3M9XCJ0cmlnLWFuZ2xlLWlucHV0XCIgdHlwZT1cIm51bWJlclwiIG1pbj1cIi0zNjBcIiBtYXg9XCIzNjBcIiBzdGVwPVwiMVwiIHZhbHVlPVwiNDVcIj5gO1xuICBjb25zdCBjaGFydCA9IGh0bWxgPGRpdj48L2Rpdj5gO1xuICBjb25zdCB2YWx1ZXMgPSBodG1sYDxkaXYgY2xhc3M9XCJ0cmlnLXZhbHVlc1wiPjwvZGl2PmA7XG5cbiAgY29uc3QgY29udHJvbHMgPSBodG1sYDxkaXYgY2xhc3M9XCJ0cmlnLWNvbnRyb2xzXCI+XG4gICAgPGxhYmVsPlxuICAgICAgPHNwYW4+QW5nbGU8L3NwYW4+XG4gICAgICAke3NsaWRlcn1cbiAgICA8L2xhYmVsPlxuICAgIDxsYWJlbD5cbiAgICAgIDxzcGFuPkRlZ3JlZXM8L3NwYW4+XG4gICAgICAke2lucHV0fVxuICAgIDwvbGFiZWw+XG4gIDwvZGl2PmA7XG5cbiAgc2xpZGVyLmFkZEV2ZW50TGlzdGVuZXIoXCJpbnB1dFwiLCAoKSA9PiB7XG4gICAgaW5wdXQudmFsdWUgPSBzbGlkZXIudmFsdWU7XG4gICAgcmVuZGVyKCk7XG4gIH0pO1xuXG4gIGlucHV0LmFkZEV2ZW50TGlzdGVuZXIoXCJpbnB1dFwiLCAoKSA9PiB7XG4gICAgY29uc3QgYW5nbGUgPSBjbGFtcChOdW1iZXIoaW5wdXQudmFsdWUpIHx8IDAsIC0zNjAsIDM2MCk7XG4gICAgaW5wdXQudmFsdWUgPSBhbmdsZTtcbiAgICBzbGlkZXIudmFsdWUgPSBhbmdsZTtcbiAgICByZW5kZXIoKTtcbiAgfSk7XG5cbiAgcm9vdC5hcHBlbmQoY29udHJvbHMsIGNoYXJ0LCB2YWx1ZXMpO1xuICByZW5kZXIoKTtcbiAgcmV0dXJuIHJvb3Q7XG5cbiAgZnVuY3Rpb24gcmVuZGVyKCkge1xuICAgIGNvbnN0IGFuZ2xlID0gTnVtYmVyKHNsaWRlci52YWx1ZSk7XG4gICAgY2hhcnQuaW5uZXJIVE1MID0gXCJcIjtcbiAgICBjaGFydC5hcHBlbmQoZHJhd1VuaXRDaXJjbGUoYW5nbGUpKTtcblxuICAgIGNvbnN0IHJhZGlhbnMgPSBhbmdsZSAqIE1hdGguUEkgLyAxODA7XG4gICAgY29uc3QgY29zaW5lID0gTWF0aC5jb3MocmFkaWFucyk7XG4gICAgY29uc3Qgc2luZSA9IE1hdGguc2luKHJhZGlhbnMpO1xuXG4gICAgdmFsdWVzLmlubmVySFRNTCA9IGBcbiAgICAgIDxzcGFuPmNvcygke2FuZ2xlfcKwKSA9ICR7Y29zaW5lLnRvRml4ZWQoMyl9PC9zcGFuPlxuICAgICAgPHNwYW4+c2luKCR7YW5nbGV9wrApID0gJHtzaW5lLnRvRml4ZWQoMyl9PC9zcGFuPlxuICAgIGA7XG4gIH1cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1bmN0aW9uIGRyYXdVbml0Q2lyY2xlKGFuZ2xlRGVncmVlcykge1xuICBjb25zdCB3aWR0aCA9IDU2MDtcbiAgY29uc3QgaGVpZ2h0ID0gNTYwO1xuICBjb25zdCBtYXJnaW4gPSA0NDtcbiAgY29uc3QgcmFkaXVzID0gMjEwO1xuICBjb25zdCBjZW50ZXIgPSB7IHg6IHdpZHRoIC8gMiwgeTogaGVpZ2h0IC8gMiB9O1xuICBjb25zdCByYWRpYW5zID0gYW5nbGVEZWdyZWVzICogTWF0aC5QSSAvIDE4MDtcbiAgY29uc3QgcG9pbnQgPSB7XG4gICAgeDogY2VudGVyLnggKyByYWRpdXMgKiBNYXRoLmNvcyhyYWRpYW5zKSxcbiAgICB5OiBjZW50ZXIueSAtIHJhZGl1cyAqIE1hdGguc2luKHJhZGlhbnMpXG4gIH07XG4gIGNvbnN0IHByb2plY3Rpb24gPSB7IHg6IHBvaW50LngsIHk6IGNlbnRlci55IH07XG4gIGNvbnN0IHJhZGl1c0xhYmVsID0ge1xuICAgIHg6IChjZW50ZXIueCArIHBvaW50LngpIC8gMiArIDEwLFxuICAgIHk6IChjZW50ZXIueSArIHBvaW50LnkpIC8gMiAtIDEwXG4gIH07XG4gIGNvbnN0IGNvc2luZUxhYmVsID0ge1xuICAgIHg6IChjZW50ZXIueCArIHByb2plY3Rpb24ueCkgLyAyLFxuICAgIHk6IGNlbnRlci55ICsgMjhcbiAgfTtcbiAgY29uc3Qgc2luZUxhYmVsID0ge1xuICAgIHg6IHByb2plY3Rpb24ueCArIChwcm9qZWN0aW9uLnggPj0gY2VudGVyLnggPyAxMiA6IC0xMiksXG4gICAgeTogKHByb2plY3Rpb24ueSArIHBvaW50LnkpIC8gMlxuICB9O1xuXG4gIGNvbnN0IHN2ZyA9IGQzLmNyZWF0ZShcInN2Z1wiKVxuICAgIC5hdHRyKFwidmlld0JveFwiLCBbMCwgMCwgd2lkdGgsIGhlaWdodF0pXG4gICAgLmF0dHIoXCJyb2xlXCIsIFwiaW1nXCIpXG4gICAgLmF0dHIoXCJhcmlhLWxhYmVsXCIsIFwiSW50ZXJhY3RpdmUgdW5pdCBjaXJjbGUgc2hvd2luZyBzaW5lIGFuZCBjb3NpbmVcIilcbiAgICAuYXR0cihcImNsYXNzXCIsIFwidHJpZy11bml0LWNpcmNsZVwiKTtcblxuICBzdmcuYXBwZW5kKFwiY2lyY2xlXCIpXG4gICAgLmF0dHIoXCJjeFwiLCBjZW50ZXIueClcbiAgICAuYXR0cihcImN5XCIsIGNlbnRlci55KVxuICAgIC5hdHRyKFwiclwiLCByYWRpdXMpXG4gICAgLmF0dHIoXCJmaWxsXCIsIFwibm9uZVwiKVxuICAgIC5hdHRyKFwic3Ryb2tlXCIsIFwiIzlhYTBhNlwiKVxuICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDIpXG4gICAgLmF0dHIoXCJzdHJva2UtZGFzaGFycmF5XCIsIFwiNyA3XCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJsaW5lXCIpXG4gICAgLmF0dHIoXCJ4MVwiLCBtYXJnaW4pXG4gICAgLmF0dHIoXCJ5MVwiLCBjZW50ZXIueSlcbiAgICAuYXR0cihcIngyXCIsIHdpZHRoIC0gbWFyZ2luKVxuICAgIC5hdHRyKFwieTJcIiwgY2VudGVyLnkpXG4gICAgLmF0dHIoXCJjbGFzc1wiLCBcInRyaWctYXhpc1wiKTtcblxuICBzdmcuYXBwZW5kKFwibGluZVwiKVxuICAgIC5hdHRyKFwieDFcIiwgY2VudGVyLngpXG4gICAgLmF0dHIoXCJ5MVwiLCBtYXJnaW4pXG4gICAgLmF0dHIoXCJ4MlwiLCBjZW50ZXIueClcbiAgICAuYXR0cihcInkyXCIsIGhlaWdodCAtIG1hcmdpbilcbiAgICAuYXR0cihcImNsYXNzXCIsIFwidHJpZy1heGlzXCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJsaW5lXCIpXG4gICAgLmF0dHIoXCJ4MVwiLCBjZW50ZXIueClcbiAgICAuYXR0cihcInkxXCIsIGNlbnRlci55KVxuICAgIC5hdHRyKFwieDJcIiwgcG9pbnQueClcbiAgICAuYXR0cihcInkyXCIsIHBvaW50LnkpXG4gICAgLmF0dHIoXCJjbGFzc1wiLCBcInRyaWctcmFkaXVzXCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJ0ZXh0XCIpXG4gICAgLmF0dHIoXCJ4XCIsIHJhZGl1c0xhYmVsLngpXG4gICAgLmF0dHIoXCJ5XCIsIHJhZGl1c0xhYmVsLnkpXG4gICAgLmF0dHIoXCJjbGFzc1wiLCBcInRyaWctbGFiZWwgcmFkaXVzLWxhYmVsXCIpXG4gICAgLnRleHQoXCJyYWRpdXNcIik7XG5cbiAgc3ZnLmFwcGVuZChcImxpbmVcIilcbiAgICAuYXR0cihcIngxXCIsIGNlbnRlci54KVxuICAgIC5hdHRyKFwieTFcIiwgY2VudGVyLnkpXG4gICAgLmF0dHIoXCJ4MlwiLCBwcm9qZWN0aW9uLngpXG4gICAgLmF0dHIoXCJ5MlwiLCBwcm9qZWN0aW9uLnkpXG4gICAgLmF0dHIoXCJjbGFzc1wiLCBcInRyaWctY29zaW5lXCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJ0ZXh0XCIpXG4gICAgLmF0dHIoXCJ4XCIsIGNvc2luZUxhYmVsLngpXG4gICAgLmF0dHIoXCJ5XCIsIGNvc2luZUxhYmVsLnkpXG4gICAgLmF0dHIoXCJjbGFzc1wiLCBcInRyaWctbGFiZWwgY29zaW5lLWxhYmVsXCIpXG4gICAgLmF0dHIoXCJ0ZXh0LWFuY2hvclwiLCBcIm1pZGRsZVwiKVxuICAgIC50ZXh0KFwiY29zaW5lXCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJsaW5lXCIpXG4gICAgLmF0dHIoXCJ4MVwiLCBwcm9qZWN0aW9uLngpXG4gICAgLmF0dHIoXCJ5MVwiLCBwcm9qZWN0aW9uLnkpXG4gICAgLmF0dHIoXCJ4MlwiLCBwb2ludC54KVxuICAgIC5hdHRyKFwieTJcIiwgcG9pbnQueSlcbiAgICAuYXR0cihcImNsYXNzXCIsIFwidHJpZy1zaW5lXCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJ0ZXh0XCIpXG4gICAgLmF0dHIoXCJ4XCIsIHNpbmVMYWJlbC54KVxuICAgIC5hdHRyKFwieVwiLCBzaW5lTGFiZWwueSlcbiAgICAuYXR0cihcImNsYXNzXCIsIFwidHJpZy1sYWJlbCBzaW5lLWxhYmVsXCIpXG4gICAgLmF0dHIoXCJkb21pbmFudC1iYXNlbGluZVwiLCBcIm1pZGRsZVwiKVxuICAgIC5hdHRyKFwidGV4dC1hbmNob3JcIiwgcHJvamVjdGlvbi54ID49IGNlbnRlci54ID8gXCJzdGFydFwiIDogXCJlbmRcIilcbiAgICAudGV4dChcInNpbmVcIik7XG5cbiAgc3ZnLmFwcGVuZChcImNpcmNsZVwiKVxuICAgIC5hdHRyKFwiY3hcIiwgcG9pbnQueClcbiAgICAuYXR0cihcImN5XCIsIHBvaW50LnkpXG4gICAgLmF0dHIoXCJyXCIsIDYpXG4gICAgLmF0dHIoXCJjbGFzc1wiLCBcInRyaWctcG9pbnRcIik7XG5cbiAgc3ZnLmFwcGVuZChcInRleHRcIilcbiAgICAuYXR0cihcInhcIiwgd2lkdGggLSBtYXJnaW4gKyA4KVxuICAgIC5hdHRyKFwieVwiLCBjZW50ZXIueSArIDUpXG4gICAgLnRleHQoXCJ4XCIpO1xuXG4gIHN2Zy5hcHBlbmQoXCJ0ZXh0XCIpXG4gICAgLmF0dHIoXCJ4XCIsIGNlbnRlci54ICsgOClcbiAgICAuYXR0cihcInlcIiwgbWFyZ2luIC0gMTIpXG4gICAgLnRleHQoXCJ5XCIpO1xuXG4gIHJldHVybiBzdmcubm9kZSgpO1xufVxuXG5mdW5jdGlvbiBjbGFtcCh2YWx1ZSwgbWluLCBtYXgpIHtcbiAgcmV0dXJuIE1hdGgubWF4KG1pbiwgTWF0aC5taW4obWF4LCB2YWx1ZSkpO1xufVxuIn1dfQ==
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../lessons/trigonometry";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1821,13 +1890,13 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/algebra/cumulative-review.html" class="pagination-link" aria-label="College Algebra Cumulative Review">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">College Algebra Cumulative Review</span>
+      <a href="../../lessons/trigonometry/unit-circle.html" class="pagination-link" aria-label="The Unit Circle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Unit Circle</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/calculus/index.html" class="pagination-link" aria-label="Calculus Study Path">
-        <span class="nav-page-text">Calculus Study Path</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="pagination-link" aria-label="Trigonometric Functions and Graphs">
+        <span class="nav-page-text">Trigonometric Functions and Graphs</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

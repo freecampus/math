@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Samples, populations, and variability.">
+<meta name="description" content="Populations, samples, bias, random sampling, experiments, observational studies, and confounding.">
 
-<title>Sampling – edu-math</title>
+<title>Sampling and Study Design – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/statistics/estimation.html" rel="next">
+<link href="../../lessons/statistics/probability-for-statistics.html" rel="next">
 <link href="../../lessons/statistics/descriptive-statistics.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -296,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/sampling.html">Sampling</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/sampling.html">Sampling and Study Design</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -484,8 +519,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -613,6 +690,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -660,6 +743,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -667,7 +756,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -684,8 +785,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -790,58 +909,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -860,8 +927,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#population-sample-parameter-statistic" id="toc-population-sample-parameter-statistic" class="nav-link" data-scroll-target="#population-sample-parameter-statistic">Population, sample, parameter, statistic</a></li>
+  <li><a href="#bias-versus-variability" id="toc-bias-versus-variability" class="nav-link" data-scroll-target="#bias-versus-variability">Bias versus variability</a></li>
+  <li><a href="#common-sources-of-bias" id="toc-common-sources-of-bias" class="nav-link" data-scroll-target="#common-sources-of-bias">Common sources of bias</a>
+  <ul class="collapse">
+  <li><a href="#selection-bias" id="toc-selection-bias" class="nav-link" data-scroll-target="#selection-bias">Selection bias</a></li>
+  <li><a href="#nonresponse-bias" id="toc-nonresponse-bias" class="nav-link" data-scroll-target="#nonresponse-bias">Nonresponse bias</a></li>
+  <li><a href="#response-bias" id="toc-response-bias" class="nav-link" data-scroll-target="#response-bias">Response bias</a></li>
+  <li><a href="#undercoverage" id="toc-undercoverage" class="nav-link" data-scroll-target="#undercoverage">Undercoverage</a></li>
+  </ul></li>
+  <li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling">Random sampling</a></li>
+  <li><a href="#observational-studies-and-experiments" id="toc-observational-studies-and-experiments" class="nav-link" data-scroll-target="#observational-studies-and-experiments">Observational studies and experiments</a></li>
+  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
+  <li><a href="#worked-example-1-identify-population-and-sample" id="toc-worked-example-1-identify-population-and-sample" class="nav-link" data-scroll-target="#worked-example-1-identify-population-and-sample">Worked example 1: identify population and sample</a></li>
+  <li><a href="#worked-example-2-bias-does-not-disappear-with-size" id="toc-worked-example-2-bias-does-not-disappear-with-size" class="nav-link" data-scroll-target="#worked-example-2-bias-does-not-disappear-with-size">Worked example 2: bias does not disappear with size</a></li>
+  <li><a href="#worked-example-3-experiment-or-observational-study" id="toc-worked-example-3-experiment-or-observational-study" class="nav-link" data-scroll-target="#worked-example-3-experiment-or-observational-study">Worked example 3: experiment or observational study?</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-classify-the-target" id="toc-lab-1-classify-the-target" class="nav-link" data-scroll-target="#lab-1-classify-the-target">Lab 1: classify the target</a></li>
+  <li><a href="#lab-2-spot-bias" id="toc-lab-2-spot-bias" class="nav-link" data-scroll-target="#lab-2-spot-bias">Lab 2: spot bias</a></li>
+  <li><a href="#lab-3-separate-randomness-roles" id="toc-lab-3-separate-randomness-roles" class="nav-link" data-scroll-target="#lab-3-separate-randomness-roles">Lab 3: separate randomness roles</a></li>
+  <li><a href="#lab-4-identify-confounding" id="toc-lab-4-identify-confounding" class="nav-link" data-scroll-target="#lab-4-identify-confounding">Lab 4: identify confounding</a></li>
+  </ul></li>
+  <li><a href="#sampling-guessing-game" id="toc-sampling-guessing-game" class="nav-link" data-scroll-target="#sampling-guessing-game">Sampling guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/sampling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -869,14 +961,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/descriptive-statistics.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/sampling.html">Sampling</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/sampling.html">Sampling and Study Design</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Sampling</h1>
+<h1 class="title">Sampling and Study Design</h1>
 </div>
 
 <div>
   <div class="description">
-    Samples, populations, and variability.
+    Populations, samples, bias, random sampling, experiments, observational studies, and confounding.
   </div>
 </div>
 
@@ -893,39 +985,220 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Statistics begins before formulas. If the data are collected poorly, even a correct calculation can lead to a wrong conclusion. Sampling and study design ask whether the data can answer the question.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Distinguish sample and population.</li>
-<li>Explain sampling variability.</li>
-<li>Recognize bias.</li>
+<li>distinguish population, sample, parameter, and statistic;</li>
+<li>identify common sources of bias;</li>
+<li>explain why random sampling matters;</li>
+<li>distinguish observational studies from experiments;</li>
+<li>recognize confounding and the limits of causal claims;</li>
+<li>design a simple sampling plan for a real question.</li>
 </ul>
 </section>
-<p>A sample is a subset of a population. Good samples help us learn about the population without measuring everyone.</p>
+<section id="population-sample-parameter-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="population-sample-parameter-statistic">Population, sample, parameter, statistic</h2>
+<p>A <strong>population</strong> is the full group or process we want to learn about. A <strong>sample</strong> is the subset actually observed.</p>
+<p>A <strong>parameter</strong> is a number describing the population. A <strong>statistic</strong> is a number computed from a sample.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Word</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>population</td>
+<td>full target group</td>
+<td>all registered voters in a city</td>
+</tr>
+<tr class="even">
+<td>sample</td>
+<td>observed subset</td>
+<td>600 selected voters</td>
+</tr>
+<tr class="odd">
+<td>parameter</td>
+<td>unknown population value</td>
+<td>true support proportion</td>
+</tr>
+<tr class="even">
+<td>statistic</td>
+<td>sample value</td>
+<td>sample support proportion</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bias-versus-variability" class="level2">
+<h2 class="anchored" data-anchor-id="bias-versus-variability">Bias versus variability</h2>
+<p>Two things can make sample results differ from the truth:</p>
+<ul>
+<li><strong>Sampling variability</strong>: random samples naturally differ from each other.</li>
+<li><strong>Bias</strong>: the method systematically pushes results in a wrong direction.</li>
+</ul>
+<p>Large samples reduce variability, but they do not automatically remove bias.</p>
+</section>
+<section id="common-sources-of-bias" class="level2">
+<h2 class="anchored" data-anchor-id="common-sources-of-bias">Common sources of bias</h2>
+<section id="selection-bias" class="level3">
+<h3 class="anchored" data-anchor-id="selection-bias">Selection bias</h3>
+<p>Selection bias occurs when the method for choosing the sample misses important parts of the population.</p>
+<p>Example: estimating average commute time by surveying only people at a downtown train station.</p>
+</section>
+<section id="nonresponse-bias" class="level3">
+<h3 class="anchored" data-anchor-id="nonresponse-bias">Nonresponse bias</h3>
+<p>Nonresponse bias occurs when selected individuals do not respond and responders differ from nonresponders.</p>
+<p>Example: a long optional survey receives answers mostly from people with strong opinions.</p>
+</section>
+<section id="response-bias" class="level3">
+<h3 class="anchored" data-anchor-id="response-bias">Response bias</h3>
+<p>Response bias occurs when wording, social pressure, or measurement method changes answers.</p>
+<p>Example: asking, “Do you support this obviously beneficial program?”</p>
+</section>
+<section id="undercoverage" class="level3">
+<h3 class="anchored" data-anchor-id="undercoverage">Undercoverage</h3>
+<p>Undercoverage occurs when some groups are not included in the sampling frame.</p>
+<p>Example: an online-only survey excludes people without reliable internet access.</p>
+</section>
+</section>
+<section id="random-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="random-sampling">Random sampling</h2>
+<p>Random sampling means the selection uses chance. A simple random sample gives every group of the chosen size the same chance of selection.</p>
+<p>Random sampling helps because it reduces systematic selection patterns and lets us use probability to describe sampling variability.</p>
+<p>Random does not mean perfect. A random sample can still be unlucky, but the chance process makes uncertainty measurable.</p>
+</section>
+<section id="observational-studies-and-experiments" class="level2">
+<h2 class="anchored" data-anchor-id="observational-studies-and-experiments">Observational studies and experiments</h2>
+<p>An <strong>observational study</strong> records data without assigning treatments. It can show association, but causal claims are difficult because other variables may explain the association.</p>
+<p>An <strong>experiment</strong> assigns treatments. Random assignment helps balance other variables across groups, making causal conclusions more credible.</p>
+<p>Important distinction:</p>
+<pre class="text"><code>random sampling helps generalize to a population
+random assignment helps support cause-and-effect claims</code></pre>
+</section>
+<section id="confounding" class="level2">
+<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
+<p>A confounder is a variable related to both the explanatory variable and the response variable.</p>
+<p>Example: An observational study finds that people who buy expensive running shoes run faster. Fitness level could be a confounder: fitter runners may buy better shoes and also run faster.</p>
+</section>
+<section id="worked-example-1-identify-population-and-sample" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-identify-population-and-sample">Worked example 1: identify population and sample</h2>
+<p>A researcher wants to estimate the average sleep time of all students at a large college. She surveys <code>80</code> students in one morning chemistry class.</p>
+<p><strong>Step 1: Identify the population.</strong></p>
+<p>The population is all students at the college.</p>
+<p><strong>Step 2: Identify the sample.</strong></p>
+<p>The sample is the <code>80</code> students in that chemistry class who were surveyed.</p>
+<p><strong>Step 3: Ask whether the sample is representative.</strong></p>
+<p>Probably not. Students in one morning class may differ from the full student population. This is selection bias or undercoverage.</p>
+</section>
+<section id="worked-example-2-bias-does-not-disappear-with-size" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-bias-does-not-disappear-with-size">Worked example 2: bias does not disappear with size</h2>
+<p>A website poll receives <code>50,000</code> responses about a political issue.</p>
+<p><strong>Question:</strong> Is the huge sample size enough to trust the result?</p>
+<p><strong>Reasoning:</strong></p>
+<ul>
+<li>The sample is voluntary.</li>
+<li>People with strong opinions are more likely to respond.</li>
+<li>Visitors to the website may not represent the target population.</li>
+</ul>
+<p><strong>Conclusion:</strong> The large sample size reduces random variability among website responders, but it does not fix voluntary response bias.</p>
+</section>
+<section id="worked-example-3-experiment-or-observational-study" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-experiment-or-observational-study">Worked example 3: experiment or observational study?</h2>
+<p>Researchers compare recovery times between patients who chose physical therapy and patients who chose rest.</p>
+<p><strong>Step 1: Were treatments assigned?</strong></p>
+<p>No.&nbsp;Patients chose their own approach.</p>
+<p><strong>Step 2: Classify the study.</strong></p>
+<p>This is observational.</p>
+<p><strong>Step 3: Identify a possible confounder.</strong></p>
+<p>Injury severity may affect both treatment choice and recovery time.</p>
+<p><strong>Conclusion:</strong> The study can show an association but does not by itself prove that physical therapy caused the difference.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Thinking a large sample always removes bias.</li>
+<li>Confusing random sampling with random assignment.</li>
+<li>Generalizing beyond the population represented by the sample.</li>
+<li>Treating correlation from an observational study as causation.</li>
+<li>Ignoring nonresponse.</li>
+<li>Failing to define the population before collecting data.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What is a population?</li>
-<li>What is sampling bias?</li>
-<li>Why do random samples help?</li>
+<li>Define population and sample for a survey of <code>200</code> households used to study all households in a city.</li>
+<li>A teacher asks only students in the front row about homework time. Name a likely bias.</li>
+<li>A randomized experiment assigns patients to treatment or placebo. What does random assignment help with?</li>
+<li>A random sample of city residents is used to estimate city support for a policy. What does random sampling help with?</li>
+<li>A study finds coffee drinkers sleep less. Name a possible confounder.</li>
 </ol>
 </div>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the full group or process we want to learn about.</p>
+<ol type="1">
+<li>Population: all households in the city. Sample: the <code>200</code> surveyed households.</li>
+<li>Selection bias; front-row students may not represent the class.</li>
+<li>Random assignment helps support cause-and-effect conclusions by balancing confounders across groups.</li>
+<li>Random sampling helps generalize to the city population and quantify sampling variability.</li>
+<li>Possible confounders include work schedule, stress, age, or health status.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<section id="lab-1-classify-the-target" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-classify-the-target">Lab 1: classify the target</h3>
+<p><strong>Guess first.</strong> Is “all students at a school” a sample or population?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>If the research question is about the whole school, then all students at the school are the population. A sample would be the students actually measured.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> In a poll of <code>1,000</code> adults used to learn about all adults in a country, what is the sample?</p>
+</div>
+</section>
+<section id="lab-2-spot-bias" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-spot-bias">Lab 2: spot bias</h3>
+<p><strong>Guess first.</strong> What bias appears when only people with internet access can answer?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>This is undercoverage because people without internet access are left out of the sampling frame.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> What bias appears when selected people refuse to answer?</p>
+</div>
+</section>
+<section id="lab-3-separate-randomness-roles" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-separate-randomness-roles">Lab 3: separate randomness roles</h3>
+<p><strong>Guess first.</strong> Which supports causal claims: random sampling or random assignment?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Random assignment supports causal claims. Random sampling supports generalizing from the sample to the population.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Which one helps estimate a population percentage?</p>
+</div>
+</section>
+<section id="lab-4-identify-confounding" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-identify-confounding">Lab 4: identify confounding</h3>
+<p><strong>Guess first.</strong> If students who study more get higher grades, could motivation be a confounder?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Yes. Motivation may affect both study time and grades.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> In an association between exercise and lower stress, name one possible confounder.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -933,31 +1206,309 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: a systematic way the sample differs from the population.</p>
-<p>Bias can make estimates wrong even when the sample is large.</p>
+<ol type="1">
+<li>The <code>1,000</code> adults who were polled.</li>
+<li>Nonresponse bias.</li>
+<li>Random sampling.</li>
+<li>Possible answers include sleep, income, health, job type, or available free time.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="sampling-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-guessing-game">Sampling guessing game</h2>
+<script type="application/json" class="edu-math-statistics-checkpoint-config">
+{
+  "topic": "sampling",
+  "title": "Sampling and study design checkpoint",
+  "defaultTotal": 5
+}
+</script>
+<div class="quiz-shell edu-math-statistics-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "descriptive-statistics";
+    const BANKS = {
+      "descriptive-statistics": [meanQuestion, medianQuestion, iqrQuestion, outlierQuestion],
+      sampling: [populationQuestion, biasQuestion, randomSampleQuestion, confoundingQuestion],
+      "probability-for-statistics": [expectedValueQuestion, varianceQuestion, normalModelQuestion, binomialQuestion],
+      "sampling-distributions": [standardErrorQuestion, cltQuestion, samplingDistributionQuestion, sampleSizeQuestion],
+      estimation: [pointEstimateQuestion, confidenceIntervalQuestion, marginQuestion, confidenceMeaningQuestion],
+      "hypothesis-tests": [nullQuestion, pValueQuestion, alphaQuestion, typeErrorQuestion],
+      "comparing-groups": [pairedQuestion, independentQuestion, differenceQuestion, effectSizeQuestion],
+      "chi-square-tests": [observedExpectedQuestion, goodnessFitQuestion, independenceQuestion, chiSquareCautionQuestion],
+      "regression-basics": [slopeQuestion, residualQuestion, correlationQuestion, causationQuestion],
+      "statistics-cumulative-review": [meanQuestion, biasQuestion, standardErrorQuestion, confidenceIntervalQuestion, pValueQuestion, slopeQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-statistics-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-statistics-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Statistics checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function meanQuestion() {
+      return question({ prompt: "What is the mean of 2, 4, and 6?", stimulus: "add then divide by 3", answer: "4", distractors: ["3", "6", "12"], explanation: "(2+4+6)/3 = 4." });
+    }
+    function medianQuestion() {
+      return question({ prompt: "Which summary is most resistant to one very large outlier?", stimulus: "center with outliers", answer: "median", distractors: ["mean", "range", "maximum"], explanation: "The median depends on order position, not the exact size of the extreme value." });
+    }
+    function iqrQuestion() {
+      return question({ prompt: "What does the IQR measure?", stimulus: "Q3 - Q1", answer: "spread of the middle half", distractors: ["average value", "sample size", "largest value only"], explanation: "IQR is the distance from the first quartile to the third quartile." });
+    }
+    function outlierQuestion() {
+      return question({ prompt: "A value far above the rest usually affects which summary most?", stimulus: "outlier", answer: "mean", distractors: ["median", "Q1", "sample size"], explanation: "The mean uses the exact size of every value." });
+    }
+    function populationQuestion() {
+      return question({ prompt: "The full group we want to learn about is the...", stimulus: "study target", answer: "population", distractors: ["sample", "statistic", "response"], explanation: "A sample is selected from the population." });
+    }
+    function biasQuestion() {
+      return question({ prompt: "Surveying only gym visitors about exercise is mainly what problem?", stimulus: "who was selected", answer: "selection bias", distractors: ["random sampling", "larger sample size", "low variance"], explanation: "The selected group systematically differs from the target population." });
+    }
+    function randomSampleQuestion() {
+      return question({ prompt: "Why do random samples help?", stimulus: "chance selection", answer: "they reduce systematic selection patterns", distractors: ["they remove all uncertainty", "they prove causation", "they make every answer true"], explanation: "Random selection supports probability-based uncertainty estimates." });
+    }
+    function confoundingQuestion() {
+      return question({ prompt: "A hidden variable related to both treatment and outcome is called a...", stimulus: "causal caution", answer: "confounder", distractors: ["median", "residual", "margin of error"], explanation: "Confounding can create misleading associations." });
+    }
+    function expectedValueQuestion() {
+      return question({ prompt: "Expected value is best described as a...", stimulus: "weighted average", answer: "long-run average", distractors: ["guaranteed outcome", "sample maximum", "p-value"], explanation: "Expected value averages outcomes using probabilities as weights." });
+    }
+    function varianceQuestion() {
+      return question({ prompt: "Variance measures typical squared distance from the...", stimulus: "spread", answer: "mean", distractors: ["maximum", "sample size", "p-value"], explanation: "Variance averages squared deviations from the mean." });
+    }
+    function normalModelQuestion() {
+      return question({ prompt: "The normal distribution is shaped like a...", stimulus: "symmetric model", answer: "bell", distractors: ["line", "triangle", "two-way table"], explanation: "Normal models are symmetric and bell-shaped." });
+    }
+    function binomialQuestion() {
+      return question({ prompt: "A binomial count records the number of...", stimulus: "fixed independent trials", answer: "successes", distractors: ["outliers", "residuals", "quartiles"], explanation: "Binomial variables count successes in a fixed number of independent trials." });
+    }
+    function standardErrorQuestion() {
+      return question({ prompt: "Standard error describes variation of a...", stimulus: "sample-to-sample", answer: "statistic", distractors: ["single raw value", "population label", "survey question wording"], explanation: "It is the standard deviation of a statistic's sampling distribution." });
+    }
+    function cltQuestion() {
+      return question({ prompt: "The central limit theorem says sample means often become approximately...", stimulus: "large n", answer: "normal", distractors: ["categorical", "impossible", "biased"], explanation: "With conditions, the distribution of sample means is approximately normal." });
+    }
+    function samplingDistributionQuestion() {
+      return question({ prompt: "A sampling distribution is the distribution of...", stimulus: "repeat sampling", answer: "a statistic", distractors: ["one questionnaire", "a population name", "a graph title"], explanation: "Imagine calculating the statistic for many random samples." });
+    }
+    function sampleSizeQuestion() {
+      return question({ prompt: "If sample size increases, standard error usually...", stimulus: "SE = s/sqrt(n)", answer: "decreases", distractors: ["increases", "stays forced at 1", "becomes a p-value"], explanation: "The square root of n is in the denominator." });
+    }
+    function pointEstimateQuestion() {
+      return question({ prompt: "A single-number estimate is a...", stimulus: "one value", answer: "point estimate", distractors: ["confidence level", "null hypothesis", "residual"], explanation: "A sample mean or sample proportion can be a point estimate." });
+    }
+    function confidenceIntervalQuestion() {
+      return question({ prompt: "A confidence interval is estimate plus/minus...", stimulus: "uncertainty", answer: "margin of error", distractors: ["sample maximum", "correlation", "confounder"], explanation: "The margin of error measures how far the interval extends from the estimate." });
+    }
+    function marginQuestion() {
+      return question({ prompt: "For a 95% normal interval, the multiplier is about...", stimulus: "critical value", answer: "1.96", distractors: ["0.05", "10", "100"], explanation: "A two-sided 95% normal interval uses z* approximately 1.96." });
+    }
+    function confidenceMeaningQuestion() {
+      return question({ prompt: "95% confidence describes the long-run success rate of the...", stimulus: "repeated samples", answer: "method", distractors: ["single fixed interval", "null being true", "largest observation"], explanation: "The confidence level belongs to the procedure over repeated samples." });
+    }
+    function nullQuestion() {
+      return question({ prompt: "The baseline claim in a test is the...", stimulus: "H0", answer: "null hypothesis", distractors: ["sample statistic", "residual", "histogram"], explanation: "The null often represents no change, no effect, or an existing claim." });
+    }
+    function pValueQuestion() {
+      return question({ prompt: "A p-value is computed assuming which hypothesis is true?", stimulus: "test logic", answer: "null hypothesis", distractors: ["alternative hypothesis", "largest value", "regression line"], explanation: "It measures how surprising the data are under the null model." });
+    }
+    function alphaQuestion() {
+      return question({ prompt: "If p-value <= alpha, the usual decision is to...", stimulus: "decision rule", answer: "reject the null", distractors: ["prove the null", "ignore the data", "increase sample bias"], explanation: "The result is statistically significant at that alpha level." });
+    }
+    function typeErrorQuestion() {
+      return question({ prompt: "Rejecting a true null hypothesis is a Type...", stimulus: "false positive", answer: "I error", distractors: ["II error", "residual", "quartile"], explanation: "Type I error is a false positive decision." });
+    }
+    function pairedQuestion() {
+      return question({ prompt: "Before-and-after measurements on the same people are...", stimulus: "same units twice", answer: "paired", distractors: ["independent", "categorical only", "a histogram"], explanation: "Pairing means observations are naturally linked." });
+    }
+    function independentQuestion() {
+      return question({ prompt: "Two separate randomly selected groups are usually treated as...", stimulus: "different units", answer: "independent samples", distractors: ["paired samples", "one residual", "one population parameter"], explanation: "No observation in one group is matched to a specific observation in the other." });
+    }
+    function differenceQuestion() {
+      return question({ prompt: "When comparing two means, the estimate is often...", stimulus: "group A minus group B", answer: "a difference", distractors: ["a maximum", "a p-value only", "a sample label"], explanation: "The difference in sample means estimates the difference in population means." });
+    }
+    function effectSizeQuestion() {
+      return question({ prompt: "Practical importance is mostly about the...", stimulus: "real-world size", answer: "effect size", distractors: ["file name", "random seed", "graph color"], explanation: "A tiny effect can be statistically significant but not practically important." });
+    }
+    function observedExpectedQuestion() {
+      return question({ prompt: "Chi-square statistics compare observed counts to...", stimulus: "null model", answer: "expected counts", distractors: ["sample means", "residual plots", "confidence levels"], explanation: "Expected counts are what the null model predicts for each category." });
+    }
+    function goodnessFitQuestion() {
+      return question({ prompt: "A goodness-of-fit test uses how many categorical variables?", stimulus: "one-way table", answer: "one", distractors: ["two", "three slopes", "no counts"], explanation: "It compares one categorical distribution to a claimed distribution." });
+    }
+    function independenceQuestion() {
+      return question({ prompt: "A chi-square test of independence uses a...", stimulus: "two categorical variables", answer: "two-way table", distractors: ["scatterplot only", "sample mean", "slope formula"], explanation: "Rows and columns represent the two categorical variables." });
+    }
+    function chiSquareCautionQuestion() {
+      return question({ prompt: "Chi-square methods are based on...", stimulus: "categorical data", answer: "counts", distractors: ["raw angles", "regression slopes only", "derivatives"], explanation: "The data should be frequency counts in categories." });
+    }
+    function slopeQuestion() {
+      return question({ prompt: "In regression, slope is the predicted change in y for...", stimulus: "one-unit change", answer: "one more unit of x", distractors: ["one more residual", "the median only", "a smaller p-value"], explanation: "Slope connects changes in the explanatory variable to predicted changes in the response." });
+    }
+    function residualQuestion() {
+      return question({ prompt: "A residual is observed y minus...", stimulus: "prediction error", answer: "predicted y", distractors: ["mean x", "sample size", "confidence level"], explanation: "Residuals show prediction errors for individual points." });
+    }
+    function correlationQuestion() {
+      return question({ prompt: "Correlation is always between...", stimulus: "r", answer: "-1 and 1", distractors: ["0 and 100", "1 and infinity", "only positive values"], explanation: "Pearson correlation ranges from -1 to 1." });
+    }
+    function causationQuestion() {
+      return question({ prompt: "A strong regression association alone proves causation?", stimulus: "causal caution", answer: "no", distractors: ["yes", "always", "only if slope is positive"], explanation: "Confounding and study design matter for causal claims." });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+    function radioList(options, onSelect) {
+      const name = `statistics-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> exercise builders to practice identifying sampling issues.</p>
+<div id="8e267c4a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> sampling_bias_exercise</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> sampling_bias_exercise(seed<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>exercise.prompt, exercise.expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>('Name the main bias: Survey only people who visit a gym about exercise habits.',
+ 'selection-bias')</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: random sampling reduces systematic selection patterns and supports probability-based uncertainty estimates.</p>
-</div>
+<p>SymPy can help rearrange formulas, but study-design reasoning is mostly conceptual.</p>
+<div id="cb6e5b17" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>bias, estimate, truth <span class="op">=</span> sp.symbols(<span class="st">"bias estimate truth"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(bias, estimate <span class="op">-</span> truth), estimate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>[bias + truth]</code></pre>
 </div>
 </div>
 
@@ -1390,8 +1941,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/estimation.html" class="pagination-link" aria-label="Estimation">
-        <span class="nav-page-text">Estimation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/probability-for-statistics.html" class="pagination-link" aria-label="Probability for Statistics">
+        <span class="nav-page-text">Probability for Statistics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

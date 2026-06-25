@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Probability after new information.">
+<meta name="description" content="Probability after new information, independence, multiplication rules, and Bayes’ rule.">
 
 <title>Conditional Probability – edu-math</title>
 <style>
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,6 +113,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -296,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/conditional-probability.html">Conditional Probability</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/conditional-probability.html">Conditional Probability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -484,8 +548,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
       </ul>
@@ -613,6 +719,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/probability/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
@@ -660,6 +772,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
@@ -667,7 +785,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/sampling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sampling</span></a>
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -684,8 +814,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lessons/statistics/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/statistics/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
       </ul>
@@ -790,58 +938,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">Review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/diagnostic-quiz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostic Quiz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/formula-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Formula Sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mixed-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mixed Practice</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/review/mock-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mock Test</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Colab</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lessons/colab/usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using edu-math in Google Colab</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -860,9 +956,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#conditional-probability-as-a-smaller-universe" id="toc-conditional-probability-as-a-smaller-universe" class="nav-link" data-scroll-target="#conditional-probability-as-a-smaller-universe">Conditional probability as a smaller universe</a></li>
+  <li><a href="#the-formula-pa-b" id="toc-the-formula-pa-b" class="nav-link" data-scroll-target="#the-formula-pa-b">The formula <code>P(A | B)</code></a></li>
+  <li><a href="#two-way-tables" id="toc-two-way-tables" class="nav-link" data-scroll-target="#two-way-tables">Two-way tables</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a></li>
+  <li><a href="#multiplication-rule" id="toc-multiplication-rule" class="nav-link" data-scroll-target="#multiplication-rule">Multiplication rule</a></li>
+  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule">Bayes’ rule</a></li>
+  <li><a href="#worked-example-1-cards" id="toc-worked-example-1-cards" class="nav-link" data-scroll-target="#worked-example-1-cards">Worked example 1: cards</a></li>
+  <li><a href="#worked-example-2-independence-check" id="toc-worked-example-2-independence-check" class="nav-link" data-scroll-target="#worked-example-2-independence-check">Worked example 2: independence check</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
+  <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
+  <ul class="collapse">
+  <li><a href="#lab-1-identify-the-condition" id="toc-lab-1-identify-the-condition" class="nav-link" data-scroll-target="#lab-1-identify-the-condition">Lab 1: identify the condition</a></li>
+  <li><a href="#lab-2-compute-from-a-small-set" id="toc-lab-2-compute-from-a-small-set" class="nav-link" data-scroll-target="#lab-2-compute-from-a-small-set">Lab 2: compute from a small set</a></li>
+  <li><a href="#lab-3-use-a-two-way-table" id="toc-lab-3-use-a-two-way-table" class="nav-link" data-scroll-target="#lab-3-use-a-two-way-table">Lab 3: use a two-way table</a></li>
+  <li><a href="#lab-4-test-independence" id="toc-lab-4-test-independence" class="nav-link" data-scroll-target="#lab-4-test-independence">Lab 4: test independence</a></li>
+  <li><a href="#lab-5-bayes-with-natural-frequencies" id="toc-lab-5-bayes-with-natural-frequencies" class="nav-link" data-scroll-target="#lab-5-bayes-with-natural-frequencies">Lab 5: Bayes with natural frequencies</a></li>
+  </ul></li>
+  <li><a href="#conditional-probability-guessing-game" id="toc-conditional-probability-guessing-game" class="nav-link" data-scroll-target="#conditional-probability-guessing-game">Conditional probability guessing game</a></li>
+  <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/probability/conditional-probability.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -870,14 +984,14 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/sample-spaces-events.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/conditional-probability.html">Conditional Probability</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/index.html">Probability</a></li><li class="breadcrumb-item"><a href="../../lessons/probability/conditional-probability.html">Conditional Probability</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Conditional Probability</h1>
 </div>
 
 <div>
   <div class="description">
-    Probability after new information.
+    Probability after new information, independence, multiplication rules, and Bayes’ rule.
   </div>
 </div>
 
@@ -894,44 +1008,219 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Conditional probability answers questions like “What is the probability of <code>A</code> if we already know <code>B</code> happened?” This is the mathematics of updating. A weather forecast changes after seeing clouds, a medical risk changes after a test result, and a card probability changes after you learn the suit.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
+<p>After this lesson you should be able to:</p>
 <ul>
-<li>Interpret conditional probability.</li>
-<li>Recognize independence.</li>
-<li>Use Bayes’ rule conceptually.</li>
+<li>interpret <code>P(A | B)</code> in words;</li>
+<li>compute conditional probability from counts, sets, and two-way tables;</li>
+<li>distinguish <code>P(A | B)</code> from <code>P(B | A)</code>;</li>
+<li>recognize independence;</li>
+<li>use the multiplication rule;</li>
+<li>use Bayes’ rule in beginner-friendly examples.</li>
 </ul>
 </section>
+<section id="conditional-probability-as-a-smaller-universe" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability-as-a-smaller-universe">Conditional probability as a smaller universe</h2>
+<p>The notation <code>P(A | B)</code> means:</p>
+<pre class="text"><code>probability of A given that B has happened</code></pre>
+<p>The event after the vertical bar is the information we already know. It restricts the sample space to <code>B</code>.</p>
+<p>For a fair die, suppose we know the roll is greater than 3. The possible outcomes are no longer <code>{1,2,3,4,5,6}</code>. They are only:</p>
+<pre class="text"><code>{4, 5, 6}</code></pre>
+<p>If <code>A</code> is “roll even,” then inside this smaller universe the favorable outcomes are <code>{4,6}</code>. So</p>
+<pre class="text"><code>P(even | greater than 3) = 2/3</code></pre>
+</section>
+<section id="the-formula-pa-b" class="level2">
+<h2 class="anchored" data-anchor-id="the-formula-pa-b">The formula <code>P(A | B)</code></h2>
+<p>When <code>P(B) &gt; 0</code>,</p>
 <div class="formula-box">
-<p><code>P(A | B) = P(A and B) / P(B)</code></p>
+<pre class="text"><code>P(A | B) = P(A and B) / P(B)</code></pre>
 </div>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<p>This formula says: among the cases where <code>B</code> happened, what fraction also have <code>A</code>?</p>
+</section>
+<section id="two-way-tables" class="level2">
+<h2 class="anchored" data-anchor-id="two-way-tables">Two-way tables</h2>
+<p>Two-way tables are useful because they organize counts. Suppose 100 students are classified by whether they studied and whether they passed.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Passed</th>
+<th style="text-align: right;">Did not pass</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Studied</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="even">
+<td>Did not study</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+<p>To find <code>P(passed | studied)</code>, restrict to the studied row:</p>
+<pre class="text"><code>P(passed | studied) = 54 / 60 = 0.9</code></pre>
+<p>To find <code>P(studied | passed)</code>, restrict to the passed column:</p>
+<pre class="text"><code>P(studied | passed) = 54 / 74</code></pre>
+<p>These are different questions.</p>
+</section>
+<section id="independence" class="level2">
+<h2 class="anchored" data-anchor-id="independence">Independence</h2>
+<p>Events <code>A</code> and <code>B</code> are <strong>independent</strong> if knowing <code>B</code> happened does not change the probability of <code>A</code>:</p>
+<pre class="text"><code>P(A | B) = P(A)</code></pre>
+<p>Equivalently:</p>
+<pre class="text"><code>P(A and B) = P(A)P(B)</code></pre>
+<p>Independence is not the same as “cannot happen together.” If two events cannot happen together, then knowing one happened usually changes the probability of the other to zero.</p>
+</section>
+<section id="multiplication-rule" class="level2">
+<h2 class="anchored" data-anchor-id="multiplication-rule">Multiplication rule</h2>
+<p>The conditional formula can be rearranged:</p>
+<pre class="text"><code>P(A and B) = P(A | B)P(B)</code></pre>
+<p>Also:</p>
+<pre class="text"><code>P(A and B) = P(B | A)P(A)</code></pre>
+<p>This is useful for multi-stage probability problems.</p>
+</section>
+<section id="bayes-rule" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-rule">Bayes’ rule</h2>
+<p>Bayes’ rule reverses conditional probability:</p>
+<div class="formula-box">
+<pre class="text"><code>P(A | B) = P(B | A)P(A) / P(B)</code></pre>
+</div>
+<p>A beginner-friendly way to use Bayes’ rule is with natural frequencies. Imagine 1000 people:</p>
+<ul>
+<li>10 have a condition;</li>
+<li>the test catches 9 of those 10;</li>
+<li>990 do not have the condition;</li>
+<li>99 of those 990 falsely test positive.</li>
+</ul>
+<p>Then 108 people test positive total, and 9 of those actually have the condition:</p>
+<pre class="text"><code>P(condition | positive) = 9 / 108 = 1 / 12</code></pre>
+</section>
+<section id="worked-example-1-cards" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-cards">Worked example 1: cards</h2>
+<p>A standard deck has 52 cards. Suppose a card is known to be a face card: jack, queen, or king. What is the probability that it is a king?</p>
+<ol type="1">
+<li>Restrict to the condition. There are 12 face cards.</li>
+<li>Count the favorable outcomes inside that condition. There are 4 kings.</li>
+<li>Compute:</li>
+</ol>
+<pre class="text"><code>P(king | face card) = 4/12 = 1/3</code></pre>
+</section>
+<section id="worked-example-2-independence-check" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-independence-check">Worked example 2: independence check</h2>
+<p>Suppose <code>P(A)=0.4</code>, <code>P(B)=0.5</code>, and <code>P(A and B)=0.2</code>. Are <code>A</code> and <code>B</code> independent?</p>
+<p>Check the product:</p>
+<pre class="text"><code>P(A)P(B) = 0.4 * 0.5 = 0.2</code></pre>
+<p>This matches <code>P(A and B)</code>, so the events are independent.</p>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Confusing <code>P(A | B)</code> with <code>P(B | A)</code>.</li>
+<li>Forgetting that the condition changes the denominator.</li>
+<li>Calling events independent because they feel unrelated, without checking.</li>
+<li>Thinking mutually exclusive events are independent.</li>
+<li>Ignoring base rates in Bayes’ rule problems.</li>
+</ul>
+</section>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
 <li>What does <code>P(A | B)</code> mean in words?</li>
-<li>If events are independent, how does <code>P(A | B)</code> relate to <code>P(A)</code>?</li>
-<li>Why is conditional probability important for inference?</li>
+<li>A fair die is known to be odd. What is <code>P(roll 5 | odd)</code>?</li>
+<li>In the student table above, compute <code>P(studied | passed)</code>.</li>
+<li>If <code>P(A)=0.3</code>, <code>P(B)=0.2</code>, and <code>P(A and B)=0.06</code>, are the events independent?</li>
+<li>Why can <code>P(test positive | disease)</code> be very different from <code>P(disease | test positive)</code>?</li>
 </ol>
 </div>
-</section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 1
+<span class="screen-reader-only">Tip</span>Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: the probability of event <code>A</code> given that event <code>B</code> has occurred.</p>
+<ol type="1">
+<li>The probability that <code>A</code> happens given that <code>B</code> has happened.</li>
+<li>The odd outcomes are <code>{1,3,5}</code>. Only one is 5, so the probability is <code>1/3</code>.</li>
+<li><code>54/74</code>.</li>
+<li>Yes, because <code>0.3 * 0.2 = 0.06</code>.</li>
+<li>They condition on different groups. One starts among people with the disease; the other starts among people who tested positive.</li>
+</ol>
 </div>
 </div>
+</div>
+</section>
+<section id="subtopic-guided-practice-and-checkpoints" class="level2">
+<h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
+<p>The most important habit is to identify the condition first. The condition tells you the denominator.</p>
+<section id="lab-1-identify-the-condition" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-identify-the-condition">Lab 1: identify the condition</h3>
+<p><strong>Guess first.</strong> In <code>P(A | B)</code>, which event becomes the smaller universe?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The event after the bar, <code>B</code>, is the condition. If the problem says “given that B occurred,” you count only outcomes in <code>B</code>.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> In <code>P(rain | cloudy)</code>, which event is the condition? What does the probability mean in words?</p>
+</div>
+</section>
+<section id="lab-2-compute-from-a-small-set" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-compute-from-a-small-set">Lab 2: compute from a small set</h3>
+<p><strong>Guess first.</strong> If the condition has 4 outcomes and 3 also satisfy <code>A</code>, what is <code>P(A | condition)</code>?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>For a die, let <code>A = even = {2,4,6}</code> and <code>B = at least 4 = {4,5,6}</code>. Inside <code>B</code>, the outcomes that are also in <code>A</code> are <code>{4,6}</code>.</p>
+<pre class="text"><code>P(A | B) = 2/3</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> For a die, compute <code>P(greater than 2 | even)</code>.</p>
+</div>
+</section>
+<section id="lab-3-use-a-two-way-table" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-use-a-two-way-table">Lab 3: use a two-way table</h3>
+<p><strong>Guess first.</strong> To find <code>P(passed | studied)</code>, do you divide by the studied total or the passed total?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>The condition is “studied,” so use the studied total as the denominator:</p>
+<pre class="text"><code>P(passed | studied) = 54 / 60</code></pre>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> Using the table above, compute <code>P(did not study | did not pass)</code>.</p>
+</div>
+</section>
+<section id="lab-4-test-independence" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-test-independence">Lab 4: test independence</h3>
+<p><strong>Guess first.</strong> If <code>P(A | B)</code> is different from <code>P(A)</code>, are the events independent?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>If <code>P(A)=0.5</code> but <code>P(A | B)=0.8</code>, knowing <code>B</code> changes the probability of <code>A</code>. Therefore the events are not independent.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> If <code>P(A)=0.2</code>, <code>P(B)=0.5</code>, and <code>P(A and B)=0.1</code>, are <code>A</code> and <code>B</code> independent?</p>
+</div>
+</section>
+<section id="lab-5-bayes-with-natural-frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="lab-5-bayes-with-natural-frequencies">Lab 5: Bayes with natural frequencies</h3>
+<p><strong>Guess first.</strong> If a test has false positives, does every positive result mean the condition is likely?</p>
+<p><strong>Guided exercise.</strong></p>
+<p>Use counts. If 100 people test positive and 20 of those truly have the condition, then</p>
+<pre class="text"><code>P(condition | positive) = 20/100 = 0.2</code></pre>
+<p>The denominator is all positive tests, not all people with the condition.</p>
+<div class="practice-box">
+<p><strong>Checkpoint.</strong> In 500 people, 25 have a condition. A test catches 20 of them and falsely flags 45 people without the condition. What is <code>P(condition | positive)</code>?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -939,31 +1228,453 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 2
+<span class="screen-reader-only">Tip</span>Lab checkpoint answers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Answer: <code>P(A | B) = P(A)</code>.</p>
-<p>Independence means knowing <code>B</code> happened does not change the probability of <code>A</code>.</p>
+<ol type="1">
+<li>The condition is cloudy. It means the probability of rain among situations where it is cloudy.</li>
+<li>Even outcomes are <code>{2,4,6}</code>. Greater than 2 inside that set is <code>{4,6}</code>, so the probability is <code>2/3</code>.</li>
+<li>Among the 26 students who did not pass, 20 did not study, so the probability is <code>20/26 = 10/13</code>.</li>
+<li>Yes. <code>P(A)P(B)=0.2*0.5=0.1</code>, matching <code>P(A and B)</code>.</li>
+<li>There are <code>20+45=65</code> positive tests. The probability is <code>20/65 = 4/13</code>.</li>
+</ol>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+</section>
+<section id="conditional-probability-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability-guessing-game">Conditional probability guessing game</h2>
+<p>Use this checkpoint to practice conditions, independence, and Bayes direction.</p>
+<script type="application/json" class="edu-math-probability-checkpoint-config">
+{
+  "topic": "conditional-probability",
+  "title": "Conditional probability checkpoint",
+  "defaultTotal": 4
+}
+</script>
+<div class="quiz-shell edu-math-probability-checkpoint" data-default-total="4">
+
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Solution 3
+<script>
+  (() => {
+    const DEFAULT_TOPIC = "sample-spaces-events";
+    const BANKS = {
+      "sample-spaces-events": [sampleSpaceQuestion, eventQuestion, complementQuestion, simpleProbabilityQuestion],
+      counting: [factorialQuestion, productRuleQuestion, permutationCombinationQuestion, combinationQuestion],
+      "conditional-probability": [conditionalMeaningQuestion, conditionalCountQuestion, independenceQuestion, bayesDirectionQuestion],
+      "random-variables": [randomVariableQuestion, discreteContinuousQuestion, pmfValidityQuestion, expectedValueQuestion],
+      "common-distributions": [bernoulliQuestion, binomialQuestion, uniformQuestion, normalQuestion],
+      "expectation-variance": [weightedAverageQuestion, possibleOutcomeQuestion, varianceQuestion, fairGameQuestion],
+      "probability-cumulative-review": [sampleSpaceQuestion, permutationCombinationQuestion, conditionalMeaningQuestion, pmfValidityQuestion, binomialQuestion, varianceQuestion],
+    };
+
+    document.querySelectorAll(".edu-math-probability-checkpoint:not([data-ready])").forEach(init);
+
+    function init(root) {
+      const config = readConfig(root);
+      const state = { config, total: config.defaultTotal, index: 0, score: 0 };
+      root.dataset.ready = "true";
+      renderStart(root, state);
+    }
+
+    function readConfig(root) {
+      const node = root.previousElementSibling;
+      let parsed = {};
+      if (node?.classList?.contains("edu-math-probability-checkpoint-config")) {
+        try {
+          parsed = JSON.parse(node.textContent || "{}");
+        } catch {
+          parsed = {};
+        }
+      }
+      return {
+        topic: parsed.topic || root.dataset.topic || DEFAULT_TOPIC,
+        title: parsed.title || "Probability checkpoint",
+        defaultTotal: Math.max(1, Math.min(20, Number(parsed.defaultTotal || 4))),
+      };
+    }
+
+    function renderStart(root, state) {
+      root.replaceChildren();
+      const input = element("input", {
+        class: "quiz-count",
+        type: "number",
+        min: "1",
+        max: "20",
+        value: String(state.total),
+      });
+      const button = element("button", { type: "button" }, "Start checkpoint");
+      button.addEventListener("click", () => {
+        state.total = Math.max(1, Math.min(20, Number(input.value) || 4));
+        state.index = 0;
+        state.score = 0;
+        renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(
+        element("p", { class: "quiz-topic" }, state.config.title),
+        element("div", { class: "quiz-start" }, element("label", {}, element("span", {}, "Number of questions"), input), button),
+      );
+    }
+
+    function renderQuestion(root, state, question) {
+      root.replaceChildren();
+      let answered = false;
+      const progress = element(
+        "div",
+        { class: "quiz-progress" },
+        element("span", {}, `Question ${state.index + 1} of ${state.total}`),
+        element("span", {}, `Score: ${state.score}/${state.total}`),
+      );
+      const feedback = element("p", { class: "quiz-feedback", "aria-live": "polite" });
+      const next = element("button", { type: "button", disabled: "" }, "Next question");
+      const options = radioList(question.options, (selected) => {
+        if (answered) return;
+        answered = true;
+        const correct = selected === question.answer;
+        if (correct) state.score += 1;
+        feedback.className = correct ? "quiz-feedback correct" : "quiz-feedback wrong";
+        feedback.replaceChildren(correct ? "Correct." : `Not quite. The answer is ${question.answer}.`, " ", question.explanation);
+        options.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        progress.lastElementChild.textContent = `Score: ${state.score}/${state.total}`;
+        next.disabled = false;
+      });
+      next.addEventListener("click", () => {
+        state.index += 1;
+        if (state.index >= state.total) renderDone(root, state);
+        else renderQuestion(root, state, makeQuestion(state.config.topic));
+      });
+      root.append(progress, stimulus(question.stimulus), element("p", { class: "quiz-prompt" }, question.prompt), feedback, options, next);
+    }
+
+    function renderDone(root, state) {
+      root.replaceChildren();
+      const restart = element("button", { type: "button" }, "Try again");
+      restart.addEventListener("click", () => renderStart(root, state));
+      root.append(element("h3", {}, "Checkpoint complete"), element("p", {}, `Final score: ${state.score}/${state.total}`), restart);
+    }
+
+    function makeQuestion(topic) {
+      const bank = BANKS[topic] || BANKS[DEFAULT_TOPIC];
+      return choice(bank)();
+    }
+
+    function sampleSpaceQuestion() {
+      return question({
+        prompt: "What is the sample space for one coin flip?",
+        stimulus: "one fair coin",
+        answer: "{H, T}",
+        distractors: ["{H}", "{T}", "{1, 2, 3, 4, 5, 6}"],
+        explanation: "The sample space lists all possible outcomes: heads and tails.",
+      });
+    }
+
+    function eventQuestion() {
+      return question({
+        prompt: "For a fair die, which event represents rolling an even number?",
+        stimulus: "S = {1,2,3,4,5,6}",
+        answer: "{2, 4, 6}",
+        distractors: ["{1, 3, 5}", "{6}", "{2, 3, 5}"],
+        explanation: "An event is a subset of outcomes that satisfy the condition.",
+      });
+    }
+
+    function complementQuestion() {
+      return question({
+        prompt: "What is the complement of rolling even on a fair die?",
+        stimulus: "Even = {2,4,6}",
+        answer: "{1, 3, 5}",
+        distractors: ["{2, 4, 6}", "{1, 2, 3}", "empty set"],
+        explanation: "The complement contains outcomes in the sample space that are not in the event.",
+      });
+    }
+
+    function simpleProbabilityQuestion() {
+      return question({
+        prompt: "What is P(rolling greater than 4) on a fair die?",
+        stimulus: "favorable outcomes: {5,6}",
+        answer: "2/6 = 1/3",
+        distractors: ["1/6", "4/6", "1/2"],
+        explanation: "There are 2 favorable outcomes out of 6 equally likely outcomes.",
+      });
+    }
+
+    function factorialQuestion() {
+      return question({
+        prompt: "Compute 4!.",
+        stimulus: "factorial",
+        answer: "24",
+        distractors: ["8", "16", "4"],
+        explanation: "4! = 4·3·2·1 = 24.",
+      });
+    }
+
+    function productRuleQuestion() {
+      return question({
+        prompt: "A meal has 3 mains and 2 drinks. How many meal choices?",
+        stimulus: "choose one main and one drink",
+        answer: "6",
+        distractors: ["5", "3", "2"],
+        explanation: "Use the product rule: 3·2 = 6.",
+      });
+    }
+
+    function permutationCombinationQuestion() {
+      return question({
+        prompt: "Which method fits choosing 3 students from 10 when order does not matter?",
+        stimulus: "committee selection",
+        answer: "combination",
+        distractors: ["permutation", "factorial only", "conditional probability"],
+        explanation: "Combinations count selections when order does not matter.",
+      });
+    }
+
+    function combinationQuestion() {
+      return question({
+        prompt: "Compute C(5,2).",
+        stimulus: "choose 2 from 5",
+        answer: "10",
+        distractors: ["20", "5", "25"],
+        explanation: "C(5,2)=5·4/(2·1)=10.",
+      });
+    }
+
+    function conditionalMeaningQuestion() {
+      return question({
+        prompt: "What does P(A | B) mean?",
+        stimulus: "conditional notation",
+        answer: "probability of A given B happened",
+        distractors: ["probability of B given A happened", "A and B are impossible", "A or B"],
+        explanation: "The condition after the vertical bar is the information already known.",
+      });
+    }
+
+    function conditionalCountQuestion() {
+      return question({
+        prompt: "A fair die is known to be greater than 3. What is P(even | greater than 3)?",
+        stimulus: "restricted outcomes: {4,5,6}",
+        answer: "2/3",
+        distractors: ["1/2", "1/3", "3/6"],
+        explanation: "Inside {4,5,6}, the even outcomes are {4,6}.",
+      });
+    }
+
+    function independenceQuestion() {
+      return question({
+        prompt: "If A and B are independent, what is P(A | B)?",
+        stimulus: "B gives no information about A",
+        answer: "P(A)",
+        distractors: ["P(B)", "P(A and B)", "0"],
+        explanation: "Independence means knowing B does not change the probability of A.",
+      });
+    }
+
+    function bayesDirectionQuestion() {
+      return question({
+        prompt: "Which probability reverses the condition in P(test positive | disease)?",
+        stimulus: "Bayes direction",
+        answer: "P(disease | test positive)",
+        distractors: ["P(disease and test positive)", "P(test positive)", "P(not disease)"],
+        explanation: "Bayes' rule helps reverse conditional probabilities.",
+      });
+    }
+
+    function randomVariableQuestion() {
+      return question({
+        prompt: "What does a random variable assign to outcomes?",
+        stimulus: "random variable",
+        answer: "numbers",
+        distractors: ["only words", "only probabilities", "only graphs"],
+        explanation: "A random variable is a numeric rule on outcomes.",
+      });
+    }
+
+    function discreteContinuousQuestion() {
+      return question({
+        prompt: "Which is continuous?",
+        stimulus: "types of random variables",
+        answer: "waiting time",
+        distractors: ["number of heads in 3 flips", "die roll", "number of emails"],
+        explanation: "Waiting time can vary over an interval, not just a list of separate values.",
+      });
+    }
+
+    function pmfValidityQuestion() {
+      return question({
+        prompt: "Is {0:0.3, 1:0.7} a valid PMF?",
+        stimulus: "probabilities sum to 1",
+        answer: "yes",
+        distractors: ["no, sums to 0.7", "no, probabilities must be equal", "no, values must start at 1"],
+        explanation: "The probabilities are nonnegative and 0.3+0.7=1.",
+      });
+    }
+
+    function expectedValueQuestion() {
+      return question({
+        prompt: "Find E[X] when X is 0 with probability 0.4 and 1 with probability 0.6.",
+        stimulus: "weighted average",
+        answer: "0.6",
+        distractors: ["0.4", "1", "0.5"],
+        explanation: "E[X]=0·0.4+1·0.6=0.6.",
+      });
+    }
+
+    function bernoulliQuestion() {
+      return question({
+        prompt: "Which distribution models one yes/no trial?",
+        stimulus: "success or failure once",
+        answer: "Bernoulli",
+        distractors: ["Binomial", "Normal", "Uniform"],
+        explanation: "A Bernoulli distribution has one trial with two outcomes.",
+      });
+    }
+
+    function binomialQuestion() {
+      return question({
+        prompt: "Which distribution counts successes in fixed independent trials?",
+        stimulus: "n trials, same p",
+        answer: "Binomial",
+        distractors: ["Bernoulli", "Normal", "Continuous uniform"],
+        explanation: "The binomial distribution counts successes across repeated Bernoulli trials.",
+      });
+    }
+
+    function uniformQuestion() {
+      return question({
+        prompt: "A fair die is an example of which discrete pattern?",
+        stimulus: "all six faces equally likely",
+        answer: "uniform",
+        distractors: ["normal", "binomial", "geometric"],
+        explanation: "Uniform means all listed outcomes have the same probability.",
+      });
+    }
+
+    function normalQuestion() {
+      return question({
+        prompt: "Which distribution is often used for bell-shaped measurement noise?",
+        stimulus: "centered around a mean",
+        answer: "Normal",
+        distractors: ["Bernoulli", "Uniform", "Permutation"],
+        explanation: "The normal distribution is a common model for many measurement errors.",
+      });
+    }
+
+    function weightedAverageQuestion() {
+      return question({
+        prompt: "Compute the expected value of 0 with probability 0.5 and 10 with probability 0.5.",
+        stimulus: "weighted average",
+        answer: "5",
+        distractors: ["10", "0", "0.5"],
+        explanation: "E[X]=0·0.5+10·0.5=5.",
+      });
+    }
+
+    function possibleOutcomeQuestion() {
+      return question({
+        prompt: "Can an expected value be impossible as a single outcome?",
+        stimulus: "fair die mean is 3.5",
+        answer: "yes",
+        distractors: ["no", "only for coins", "only if variance is 0"],
+        explanation: "Expected value is a long-run average, not necessarily an actual outcome.",
+      });
+    }
+
+    function varianceQuestion() {
+      return question({
+        prompt: "What does larger variance usually mean?",
+        stimulus: "spread around the mean",
+        answer: "outcomes are more spread out",
+        distractors: ["mean is always larger", "probabilities do not sum to 1", "outcomes are impossible"],
+        explanation: "Variance measures average squared distance from the mean.",
+      });
+    }
+
+    function fairGameQuestion() {
+      return question({
+        prompt: "A game costs $5 and has expected payout $5. What is its expected net gain?",
+        stimulus: "net gain = payout - cost",
+        answer: "$0",
+        distractors: ["$5", "-$5", "$10"],
+        explanation: "Expected net gain is expected payout minus cost: 5-5=0.",
+      });
+    }
+
+    function question({ prompt, stimulus, answer, distractors, explanation }) {
+      return { prompt, stimulus, answer, options: shuffle([answer, ...distractors]), explanation };
+    }
+
+    function radioList(options, onSelect) {
+      const name = `probability-checkpoint-${Math.random().toString(36).slice(2)}`;
+      const container = element("div", { class: "quiz-options" });
+      options.forEach((option) => {
+        const input = element("input", { type: "radio", name, value: option });
+        input.addEventListener("change", () => onSelect(option));
+        container.append(element("label", {}, input, element("span", {}, option)));
+      });
+      return container;
+    }
+
+    function stimulus(text) {
+      return element("pre", { class: "quiz-stimulus" }, text);
+    }
+
+    function element(tag, attrs = {}, ...children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      node.append(...children);
+      return node;
+    }
+
+    function choice(values) {
+      return values[Math.floor(Math.random() * values.length)];
+    }
+
+    function shuffle(values) {
+      const copy = values.slice();
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[other]] = [copy[other], copy[index]];
+      }
+      return copy;
+    }
+  })();
+</script>
+</section>
+<section id="using-this-lesson-with-edumath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
+<p>Use <code>edumath</code> for finite conditional probabilities.</p>
+<div id="91c50071" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.probability <span class="im">import</span> conditional_probability, is_independent</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sample_space <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>even <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>at_least_four <span class="op">=</span> {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>conditional_probability(even, at_least_four, sample_space)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>0.6666666666666666</code></pre>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Answer: inference updates beliefs when new information is observed, and conditional probability is the language for that update.</p>
+<p>Check independence using the product rule.</p>
+<div id="0f28aaf3" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>is_independent(prob_a<span class="op">=</span><span class="fl">0.4</span>, prob_b<span class="op">=</span><span class="fl">0.5</span>, prob_a_and_b<span class="op">=</span><span class="fl">0.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>True</code></pre>
 </div>
+</div>
+<p>Use SymPy for exact Bayes-rule arithmetic.</p>
+<div id="153cbfcd" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>true_positives <span class="op">=</span> sp.Integer(<span class="dv">20</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>false_positives <span class="op">=</span> sp.Integer(<span class="dv">45</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>true_positives <span class="op">/</span> (true_positives <span class="op">+</span> false_positives)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<p><span class="math inline">\(\displaystyle \frac{4}{13}\)</span></p>
 </div>
 </div>
 

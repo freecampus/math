@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Point estimates, confidence intervals, margin of error, and uncertainty.">
+<meta name="description" content="Categorical data, observed and expected counts, goodness-of-fit, and independence tests.">
 
-<title>Estimation – edu-math</title>
+<title>Chi-Square Tests – edu-math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/statistics/hypothesis-tests.html" rel="next">
-<link href="../../lessons/statistics/sampling-distributions.html" rel="prev">
+<link href="../../lessons/statistics/regression-basics.html" rel="next">
+<link href="../../lessons/statistics/comparing-groups.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -360,7 +360,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/estimation.html">Estimation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/chi-square-tests.html">Chi-Square Tests</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -802,7 +802,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/statistics/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
@@ -820,7 +820,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/statistics/chi-square-tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Chi-Square Tests</span></a>
   </div>
 </li>
@@ -957,39 +957,41 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#parameters-and-estimates" id="toc-parameters-and-estimates" class="nav-link" data-scroll-target="#parameters-and-estimates">Parameters and estimates</a></li>
-  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a></li>
-  <li><a href="#interpreting-confidence-level" id="toc-interpreting-confidence-level" class="nav-link" data-scroll-target="#interpreting-confidence-level">Interpreting confidence level</a></li>
-  <li><a href="#what-changes-interval-width" id="toc-what-changes-interval-width" class="nav-link" data-scroll-target="#what-changes-interval-width">What changes interval width?</a></li>
-  <li><a href="#worked-example-1-confidence-interval-for-a-mean" id="toc-worked-example-1-confidence-interval-for-a-mean" class="nav-link" data-scroll-target="#worked-example-1-confidence-interval-for-a-mean">Worked example 1: confidence interval for a mean</a></li>
-  <li><a href="#worked-example-2-confidence-interval-for-a-proportion" id="toc-worked-example-2-confidence-interval-for-a-proportion" class="nav-link" data-scroll-target="#worked-example-2-confidence-interval-for-a-proportion">Worked example 2: confidence interval for a proportion</a></li>
-  <li><a href="#worked-example-3-explain-a-wider-interval" id="toc-worked-example-3-explain-a-wider-interval" class="nav-link" data-scroll-target="#worked-example-3-explain-a-wider-interval">Worked example 3: explain a wider interval</a></li>
+  <li><a href="#categorical-counts" id="toc-categorical-counts" class="nav-link" data-scroll-target="#categorical-counts">Categorical counts</a></li>
+  <li><a href="#observed-and-expected-counts" id="toc-observed-and-expected-counts" class="nav-link" data-scroll-target="#observed-and-expected-counts">Observed and expected counts</a></li>
+  <li><a href="#goodness-of-fit-test" id="toc-goodness-of-fit-test" class="nav-link" data-scroll-target="#goodness-of-fit-test">Goodness-of-fit test</a></li>
+  <li><a href="#test-of-independence" id="toc-test-of-independence" class="nav-link" data-scroll-target="#test-of-independence">Test of independence</a></li>
+  <li><a href="#expected-counts-in-a-two-way-table" id="toc-expected-counts-in-a-two-way-table" class="nav-link" data-scroll-target="#expected-counts-in-a-two-way-table">Expected counts in a two-way table</a></li>
+  <li><a href="#worked-example-1-goodness-of-fit" id="toc-worked-example-1-goodness-of-fit" class="nav-link" data-scroll-target="#worked-example-1-goodness-of-fit">Worked example 1: goodness-of-fit</a></li>
+  <li><a href="#worked-example-2-expected-count-in-a-two-way-table" id="toc-worked-example-2-expected-count-in-a-two-way-table" class="nav-link" data-scroll-target="#worked-example-2-expected-count-in-a-two-way-table">Worked example 2: expected count in a two-way table</a></li>
+  <li><a href="#worked-example-3-interpret-association-carefully" id="toc-worked-example-3-interpret-association-carefully" class="nav-link" data-scroll-target="#worked-example-3-interpret-association-carefully">Worked example 3: interpret association carefully</a></li>
+  <li><a href="#assumptions-and-cautions" id="toc-assumptions-and-cautions" class="nav-link" data-scroll-target="#assumptions-and-cautions">Assumptions and cautions</a></li>
   <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common pitfalls</a></li>
   <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice exercises</a></li>
   <li><a href="#subtopic-guided-practice-and-checkpoints" id="toc-subtopic-guided-practice-and-checkpoints" class="nav-link" data-scroll-target="#subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</a>
   <ul class="collapse">
-  <li><a href="#lab-1-estimate-versus-parameter" id="toc-lab-1-estimate-versus-parameter" class="nav-link" data-scroll-target="#lab-1-estimate-versus-parameter">Lab 1: estimate versus parameter</a></li>
-  <li><a href="#lab-2-build-margin-of-error" id="toc-lab-2-build-margin-of-error" class="nav-link" data-scroll-target="#lab-2-build-margin-of-error">Lab 2: build margin of error</a></li>
-  <li><a href="#lab-3-interval-interpretation" id="toc-lab-3-interval-interpretation" class="nav-link" data-scroll-target="#lab-3-interval-interpretation">Lab 3: interval interpretation</a></li>
-  <li><a href="#lab-4-width-decisions" id="toc-lab-4-width-decisions" class="nav-link" data-scroll-target="#lab-4-width-decisions">Lab 4: width decisions</a></li>
+  <li><a href="#lab-1-choose-the-chi-square-test" id="toc-lab-1-choose-the-chi-square-test" class="nav-link" data-scroll-target="#lab-1-choose-the-chi-square-test">Lab 1: choose the chi-square test</a></li>
+  <li><a href="#lab-2-compute-expected-counts" id="toc-lab-2-compute-expected-counts" class="nav-link" data-scroll-target="#lab-2-compute-expected-counts">Lab 2: compute expected counts</a></li>
+  <li><a href="#lab-3-compute-a-contribution" id="toc-lab-3-compute-a-contribution" class="nav-link" data-scroll-target="#lab-3-compute-a-contribution">Lab 3: compute a contribution</a></li>
+  <li><a href="#lab-4-interpret-the-result" id="toc-lab-4-interpret-the-result" class="nav-link" data-scroll-target="#lab-4-interpret-the-result">Lab 4: interpret the result</a></li>
   </ul></li>
-  <li><a href="#estimation-guessing-game" id="toc-estimation-guessing-game" class="nav-link" data-scroll-target="#estimation-guessing-game">Estimation guessing game</a></li>
+  <li><a href="#chi-square-guessing-game" id="toc-chi-square-guessing-game" class="nav-link" data-scroll-target="#chi-square-guessing-game">Chi-square guessing game</a></li>
   <li><a href="#using-this-lesson-with-edumath-and-sympy" id="toc-using-this-lesson-with-edumath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/chi-square-tests.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/estimation.html">Estimation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../../lessons/statistics/chi-square-tests.html">Chi-Square Tests</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Estimation</h1>
+<h1 class="title">Chi-Square Tests</h1>
 </div>
 
 <div>
   <div class="description">
-    Point estimates, confidence intervals, margin of error, and uncertainty.
+    Categorical data, observed and expected counts, goodness-of-fit, and independence tests.
   </div>
 </div>
 
@@ -1006,111 +1008,111 @@ window.Quarto = {
 </header>
 
 
-<p>Estimation uses sample data to approximate an unknown population quantity. A good estimate should include uncertainty, because a different random sample would usually give a different result.</p>
+<p>Chi-square tests are used with categorical count data. They compare what we observed with what a null model says we should expect.</p>
 <section id="learning-objectives" class="level3 learning-objectives">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
 <p>After this lesson you should be able to:</p>
 <ul>
-<li>distinguish point estimates from interval estimates;</li>
-<li>compute a margin of error from a critical value and standard error;</li>
-<li>build introductory confidence intervals for means and proportions;</li>
-<li>interpret confidence level correctly;</li>
-<li>explain how sample size, spread, and confidence level affect interval width;</li>
-<li>use <code>edumath</code> to verify confidence interval calculations.</li>
+<li>organize categorical data as counts;</li>
+<li>distinguish goodness-of-fit tests from tests of independence;</li>
+<li>compute expected counts in simple settings;</li>
+<li>compute a chi-square contribution <code>(observed - expected)^2 / expected</code>;</li>
+<li>interpret large chi-square statistics as evidence against the null model;</li>
+<li>recognize assumptions and limitations of chi-square methods.</li>
 </ul>
 </section>
-<section id="parameters-and-estimates" class="level2">
-<h2 class="anchored" data-anchor-id="parameters-and-estimates">Parameters and estimates</h2>
-<p>A <strong>parameter</strong> is an unknown number about a population, such as a true mean <code>mu</code> or true proportion <code>p</code>.</p>
-<p>A <strong>point estimate</strong> is one sample-based guess, such as sample mean <code>x-bar</code> or sample proportion <code>p-hat</code>.</p>
-<p>A point estimate is useful but incomplete because it does not show uncertainty.</p>
+<section id="categorical-counts" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-counts">Categorical counts</h2>
+<p>Chi-square methods use counts, not raw measurements. Examples:</p>
+<ul>
+<li>number of voters in each party category;</li>
+<li>number of products classified as pass/fail by factory;</li>
+<li>number of people in combinations of smoking status and disease status.</li>
+</ul>
+<p>Percentages are useful for interpretation, but the test is based on counts.</p>
 </section>
-<section id="confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h2>
-<p>A confidence interval has the form:</p>
+<section id="observed-and-expected-counts" class="level2">
+<h2 class="anchored" data-anchor-id="observed-and-expected-counts">Observed and expected counts</h2>
+<ul>
+<li><strong>Observed counts</strong> are the counts actually collected.</li>
+<li><strong>Expected counts</strong> are the counts predicted by the null hypothesis.</li>
+</ul>
+<p>The chi-square statistic adds a standardized discrepancy for each category:</p>
 <div class="formula-box">
-<pre class="text"><code>estimate ± margin of error</code></pre>
+<pre class="text"><code>chi-square = sum((observed - expected)^2 / expected)</code></pre>
 </div>
-<p>For many introductory normal-approximation settings:</p>
-<pre class="text"><code>margin of error = critical value * standard error</code></pre>
-<p>A <code>95%</code> normal critical value is approximately <code>1.96</code>.</p>
+<p>Large discrepancies create larger chi-square statistics.</p>
 </section>
-<section id="interpreting-confidence-level" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-confidence-level">Interpreting confidence level</h2>
-<p>A <code>95%</code> confidence level means that if we repeatedly used the same method on many random samples, about <code>95%</code> of the intervals would contain the true parameter.</p>
-<p>It does <strong>not</strong> mean there is a <code>95%</code> probability that one already-computed interval contains the fixed parameter. In introductory courses we often use informal language, but the more precise idea is long-run performance of the method.</p>
+<section id="goodness-of-fit-test" class="level2">
+<h2 class="anchored" data-anchor-id="goodness-of-fit-test">Goodness-of-fit test</h2>
+<p>A goodness-of-fit test uses one categorical variable. It asks whether the distribution of counts matches a claimed distribution.</p>
+<p>Example: Are colors of candies produced in the claimed proportions?</p>
 </section>
-<section id="what-changes-interval-width" class="level2">
-<h2 class="anchored" data-anchor-id="what-changes-interval-width">What changes interval width?</h2>
-<p>Intervals become wider when:</p>
+<section id="test-of-independence" class="level2">
+<h2 class="anchored" data-anchor-id="test-of-independence">Test of independence</h2>
+<p>A chi-square test of independence uses two categorical variables in a two-way table. It asks whether the variables are associated.</p>
+<p>Example: Is smoking status associated with disease status?</p>
+</section>
+<section id="expected-counts-in-a-two-way-table" class="level2">
+<h2 class="anchored" data-anchor-id="expected-counts-in-a-two-way-table">Expected counts in a two-way table</h2>
+<p>For a test of independence:</p>
+<pre class="text"><code>expected count = (row total * column total) / grand total</code></pre>
+<p>This formula represents what we would expect if the row and column variables were independent.</p>
+</section>
+<section id="worked-example-1-goodness-of-fit" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-goodness-of-fit">Worked example 1: goodness-of-fit</h2>
+<p>A fair die should have equal counts for six faces. It is rolled <code>60</code> times, so the expected count for each face is:</p>
+<pre class="text"><code>60 / 6 = 10</code></pre>
+<p>Suppose face <code>1</code> appears <code>16</code> times. Its chi-square contribution is:</p>
+<pre class="text"><code>(16 - 10)^2 / 10 = 36/10 = 3.6</code></pre>
+<p>You would compute this contribution for each face and add them.</p>
+</section>
+<section id="worked-example-2-expected-count-in-a-two-way-table" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-expected-count-in-a-two-way-table">Worked example 2: expected count in a two-way table</h2>
+<p>A table has row total <code>40</code>, column total <code>30</code>, and grand total <code>100</code>. Find the expected count for that cell under independence.</p>
+<p><strong>Step 1: Write the formula.</strong></p>
+<pre class="text"><code>expected = row total * column total / grand total</code></pre>
+<p><strong>Step 2: Substitute.</strong></p>
+<pre class="text"><code>expected = 40 * 30 / 100 = 12</code></pre>
+<p><strong>Interpretation:</strong> If the variables are independent, we would expect about <code>12</code> observations in that cell.</p>
+</section>
+<section id="worked-example-3-interpret-association-carefully" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-3-interpret-association-carefully">Worked example 3: interpret association carefully</h2>
+<p>A chi-square test finds a small p-value for association between exercise category and stress category.</p>
+<p><strong>What can we say?</strong></p>
+<p>The variables are statistically associated in the data.</p>
+<p><strong>What can we not automatically say?</strong></p>
+<p>We cannot automatically say exercise causes lower stress. The data may be observational, and variables such as health, work schedule, or income may confound the relationship.</p>
+</section>
+<section id="assumptions-and-cautions" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions-and-cautions">Assumptions and cautions</h2>
+<p>Chi-square tests generally require:</p>
 <ul>
-<li>confidence level increases;</li>
-<li>data are more variable;</li>
-<li>sample size is smaller.</li>
+<li>count data in categories;</li>
+<li>independent observations;</li>
+<li>expected counts not too small for the approximation being used;</li>
+<li>a sampling or study design appropriate for the conclusion.</li>
 </ul>
-<p>Intervals become narrower when:</p>
-<ul>
-<li>confidence level decreases;</li>
-<li>data are less variable;</li>
-<li>sample size increases.</li>
-</ul>
-</section>
-<section id="worked-example-1-confidence-interval-for-a-mean" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-1-confidence-interval-for-a-mean">Worked example 1: confidence interval for a mean</h2>
-<p>A sample of <code>36</code> observations has mean <code>50</code> and standard deviation <code>12</code>. Use an approximate <code>95%</code> interval for the population mean.</p>
-<p><strong>Step 1: Compute standard error.</strong></p>
-<pre class="text"><code>SE = s / sqrt(n) = 12 / sqrt(36) = 12 / 6 = 2</code></pre>
-<p><strong>Step 2: Compute margin of error.</strong></p>
-<pre class="text"><code>ME = 1.96 * 2 = 3.92</code></pre>
-<p><strong>Step 3: Build the interval.</strong></p>
-<pre class="text"><code>50 ± 3.92 = (46.08, 53.92)</code></pre>
-<p><strong>Step 4: Interpret.</strong></p>
-<p>We are <code>95%</code> confident, using this method, that the population mean is between about <code>46.08</code> and <code>53.92</code>, assuming the sampling conditions are appropriate.</p>
-</section>
-<section id="worked-example-2-confidence-interval-for-a-proportion" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-2-confidence-interval-for-a-proportion">Worked example 2: confidence interval for a proportion</h2>
-<p>In a sample of <code>100</code> people, <code>60</code> say yes. Estimate the population yes proportion with a <code>95%</code> confidence interval.</p>
-<p><strong>Step 1: Find the sample proportion.</strong></p>
-<pre class="text"><code>p-hat = 60 / 100 = 0.60</code></pre>
-<p><strong>Step 2: Find standard error.</strong></p>
-<pre class="text"><code>SE = sqrt(p-hat(1-p-hat)/n)
-SE = sqrt(0.60 * 0.40 / 100)
-SE = sqrt(0.0024)
-SE is about 0.049</code></pre>
-<p><strong>Step 3: Find margin of error.</strong></p>
-<pre class="text"><code>ME = 1.96 * 0.049, about 0.096</code></pre>
-<p><strong>Step 4: Build the interval.</strong></p>
-<pre class="text"><code>0.60 ± 0.096 = (0.504, 0.696)</code></pre>
-<p><strong>Interpretation:</strong> The data are consistent with a population yes proportion from about <code>50.4%</code> to <code>69.6%</code>, under the usual conditions.</p>
-</section>
-<section id="worked-example-3-explain-a-wider-interval" class="level2">
-<h2 class="anchored" data-anchor-id="worked-example-3-explain-a-wider-interval">Worked example 3: explain a wider interval</h2>
-<p>Two studies estimate the same mean with the same standard deviation. Study A has <code>n=25</code>; Study B has <code>n=100</code>.</p>
-<p><strong>Question:</strong> Which interval is wider?</p>
-<p><strong>Reasoning:</strong></p>
-<pre class="text"><code>SE_A = s / sqrt(25) = s/5
-SE_B = s / sqrt(100) = s/10</code></pre>
-<p>Study A has larger standard error, so its interval is wider.</p>
 </section>
 <section id="common-pitfalls" class="level2">
 <h2 class="anchored" data-anchor-id="common-pitfalls">Common pitfalls</h2>
 <ul>
-<li>Saying “there is a 95% probability the parameter is in this interval” without understanding the frequentist meaning.</li>
-<li>Forgetting that a confidence interval depends on sampling conditions.</li>
-<li>Reporting an interval without context or units.</li>
-<li>Thinking a narrow interval is good if the sampling method was biased.</li>
-<li>Confusing confidence level with the sample proportion.</li>
+<li>Using percentages instead of counts in the test statistic.</li>
+<li>Applying chi-square tests to quantitative measurements without categorizing.</li>
+<li>Ignoring small expected counts.</li>
+<li>Treating association as causation.</li>
+<li>Forgetting that a significant test does not say which categories are most responsible without further investigation.</li>
 </ul>
 </section>
 <section id="practice-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h2>
 <div class="practice-box">
 <ol type="1">
-<li>What is a point estimate?</li>
-<li>A mean is <code>80</code>, standard error is <code>4</code>, and critical value is <code>1.96</code>. Find the <code>95%</code> interval.</li>
-<li>If confidence level increases from <code>90%</code> to <code>99%</code>, does the interval usually get wider or narrower?</li>
-<li>If sample size increases, what usually happens to margin of error?</li>
-<li>Interpret the interval <code>(12.4, 18.8)</code> for a population mean measured in hours.</li>
+<li>A test comparing candy colors to claimed proportions is goodness-of-fit or independence?</li>
+<li>A test studying gender category and voting category in a two-way table is goodness-of-fit or independence?</li>
+<li>Compute expected count for row total <code>50</code>, column total <code>20</code>, grand total <code>200</code>.</li>
+<li>Compute the chi-square contribution for observed <code>14</code> and expected <code>10</code>.</li>
+<li>Why is a small p-value in a chi-square test of independence not automatically proof of causation?</li>
 </ol>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1126,11 +1128,11 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>A single-number estimate of a population parameter, such as a sample mean.</li>
-<li>Margin of error <code>=1.96(4)=7.84</code>; interval <code>(72.16, 87.84)</code>.</li>
-<li>Wider, because higher confidence requires a larger critical value.</li>
-<li>It usually decreases because standard error decreases.</li>
-<li>A careful interpretation: using the method and assumptions, we are confident that the population mean is between <code>12.4</code> and <code>18.8</code> hours.</li>
+<li>Goodness-of-fit.</li>
+<li>Test of independence.</li>
+<li><code>50*20/200=5</code>.</li>
+<li><code>(14-10)^2/10 = 16/10 = 1.6</code>.</li>
+<li>The study may be observational and confounding variables may explain the association.</li>
 </ol>
 </div>
 </div>
@@ -1138,40 +1140,40 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 </section>
 <section id="subtopic-guided-practice-and-checkpoints" class="level2">
 <h2 class="anchored" data-anchor-id="subtopic-guided-practice-and-checkpoints">Subtopic guided practice and checkpoints</h2>
-<section id="lab-1-estimate-versus-parameter" class="level3">
-<h3 class="anchored" data-anchor-id="lab-1-estimate-versus-parameter">Lab 1: estimate versus parameter</h3>
-<p><strong>Guess first.</strong> Is <code>p-hat=0.42</code> a parameter or statistic?</p>
+<section id="lab-1-choose-the-chi-square-test" class="level3">
+<h3 class="anchored" data-anchor-id="lab-1-choose-the-chi-square-test">Lab 1: choose the chi-square test</h3>
+<p><strong>Guess first.</strong> One categorical variable or two?</p>
 <p><strong>Guided exercise.</strong></p>
-<p><code>p-hat</code> is computed from a sample, so it is a statistic and a point estimate of population proportion <code>p</code>.</p>
+<p>One categorical variable usually suggests goodness-of-fit. Two categorical variables in a table usually suggest independence or association.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> Is population mean <code>mu</code> a parameter or statistic?</p>
+<p><strong>Checkpoint.</strong> Favorite color in one sample versus claimed distribution: which test type?</p>
 </div>
 </section>
-<section id="lab-2-build-margin-of-error" class="level3">
-<h3 class="anchored" data-anchor-id="lab-2-build-margin-of-error">Lab 2: build margin of error</h3>
-<p><strong>Guess first.</strong> If standard error doubles, what happens to margin of error?</p>
+<section id="lab-2-compute-expected-counts" class="level3">
+<h3 class="anchored" data-anchor-id="lab-2-compute-expected-counts">Lab 2: compute expected counts</h3>
+<p><strong>Guess first.</strong> If row total and column total are large, should the expected count also tend to be larger?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>Since <code>ME = critical value * SE</code>, doubling <code>SE</code> doubles the margin of error.</p>
+<p>Yes. The formula multiplies row total and column total, then divides by the grand total.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> Find margin of error when critical value is <code>2</code> and <code>SE=3</code>.</p>
+<p><strong>Checkpoint.</strong> Compute expected count for row total <code>30</code>, column total <code>50</code>, grand total <code>150</code>.</p>
 </div>
 </section>
-<section id="lab-3-interval-interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-interval-interpretation">Lab 3: interval interpretation</h3>
-<p><strong>Guess first.</strong> Does a confidence interval prove the parameter is inside?</p>
+<section id="lab-3-compute-a-contribution" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-compute-a-contribution">Lab 3: compute a contribution</h3>
+<p><strong>Guess first.</strong> If observed equals expected, what is the contribution?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>No.&nbsp;It gives a plausible range using a method with known long-run performance. The interval can miss the true parameter.</p>
+<pre class="text"><code>(observed - expected)^2 / expected = 0^2 / expected = 0</code></pre>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> What does <code>95%</code> confidence describe: the single interval or the long-run method?</p>
+<p><strong>Checkpoint.</strong> Compute contribution for observed <code>8</code>, expected <code>5</code>.</p>
 </div>
 </section>
-<section id="lab-4-width-decisions" class="level3">
-<h3 class="anchored" data-anchor-id="lab-4-width-decisions">Lab 4: width decisions</h3>
-<p><strong>Guess first.</strong> Which is wider: a <code>90%</code> interval or a <code>99%</code> interval from the same data?</p>
+<section id="lab-4-interpret-the-result" class="level3">
+<h3 class="anchored" data-anchor-id="lab-4-interpret-the-result">Lab 4: interpret the result</h3>
+<p><strong>Guess first.</strong> Does a large chi-square statistic mean observed counts are close to expected counts?</p>
 <p><strong>Guided exercise.</strong></p>
-<p>The <code>99%</code> interval is wider because it requires more confidence.</p>
+<p>No.&nbsp;Large chi-square statistics come from large discrepancies between observed and expected counts.</p>
 <div class="practice-box">
-<p><strong>Checkpoint.</strong> What happens to interval width if data are more variable?</p>
+<p><strong>Checkpoint.</strong> What does a small p-value suggest in a chi-square test?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -1186,22 +1188,22 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Parameter.</li>
-<li><code>ME=6</code>.</li>
-<li>The long-run method.</li>
-<li>It gets wider, all else equal.</li>
+<li>Goodness-of-fit.</li>
+<li><code>30*50/150=10</code>.</li>
+<li><code>(8-5)^2/5 = 9/5 = 1.8</code>.</li>
+<li>Evidence against the null model: claimed distribution for goodness-of-fit or independence for a two-way table.</li>
 </ol>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="estimation-guessing-game" class="level2">
-<h2 class="anchored" data-anchor-id="estimation-guessing-game">Estimation guessing game</h2>
+<section id="chi-square-guessing-game" class="level2">
+<h2 class="anchored" data-anchor-id="chi-square-guessing-game">Chi-square guessing game</h2>
 <script type="application/json" class="edu-math-statistics-checkpoint-config">
 {
-  "topic": "estimation",
-  "title": "Estimation checkpoint",
+  "topic": "chi-square-tests",
+  "title": "Chi-square tests checkpoint",
   "defaultTotal": 5
 }
 </script>
@@ -1463,31 +1465,26 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 </section>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
-<p>Use <code>edumath</code> to compute confidence intervals.</p>
-<div id="5bd51833" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.statistics <span class="im">import</span> confidence_interval_mean, confidence_interval_proportion</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>confidence_interval_mean([<span class="dv">48</span>, <span class="dv">52</span>, <span class="dv">51</span>, <span class="dv">49</span>, <span class="dv">50</span>], confidence_level<span class="op">=</span><span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute expected counts with Python.</p>
+<div id="5bbe5e1a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>row_total <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>column_total <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>grand_total <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>expected <span class="op">=</span> row_total <span class="op">*</span> column_total <span class="op">/</span> grand_total</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>ConfidenceInterval(estimate=50.0, lower=48.614096175650324, upper=51.385903824349676, margin_of_error=1.3859038243496775, confidence_level=0.95)</code></pre>
+<pre><code>12.0</code></pre>
 </div>
 </div>
-<div id="4cb92e9d" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>confidence_interval_proportion(<span class="dv">60</span>, <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>ConfidenceInterval(estimate=0.6, lower=0.5039817664728938, upper=0.6960182335271061, margin_of_error=0.09601823352710616, confidence_level=0.95)</code></pre>
-</div>
-</div>
-<p>Use SymPy to rearrange the interval formula.</p>
-<div id="22eba0cc" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>estimate, critical, se <span class="op">=</span> sp.symbols(<span class="st">"estimate critical se"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>lower <span class="op">=</span> estimate <span class="op">-</span> critical <span class="op">*</span> se</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>upper <span class="op">=</span> estimate <span class="op">+</span> critical <span class="op">*</span> se</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>sp.simplify(upper <span class="op">-</span> lower)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
-<p><span class="math inline">\(\displaystyle 2 \mathcal{criti} se\)</span></p>
+<p>Use SymPy to represent the chi-square contribution formula.</p>
+<div id="cc13f614" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>observed, expected <span class="op">=</span> sp.symbols(<span class="st">"observed expected"</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>contribution <span class="op">=</span> (observed <span class="op">-</span> expected) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> expected</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>sp.expand(contribution)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<p><span class="math inline">\(\displaystyle expected - 2 observed + \frac{observed^{2}}{expected}\)</span></p>
 </div>
 </div>
 
@@ -1915,13 +1912,13 @@ SE_B = s / sqrt(100) = s/10</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/statistics/sampling-distributions.html" class="pagination-link" aria-label="Sampling Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sampling Distributions</span>
+      <a href="../../lessons/statistics/comparing-groups.html" class="pagination-link" aria-label="Comparing Groups">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Groups</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/statistics/hypothesis-tests.html" class="pagination-link" aria-label="Hypothesis Tests">
-        <span class="nav-page-text">Hypothesis Tests</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/statistics/regression-basics.html" class="pagination-link" aria-label="Regression Basics">
+        <span class="nav-page-text">Regression Basics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1930,4 +1927,4 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osl-incubator/edu-math/edit/main/lessons/statistics/chi-square-tests.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osl-incubator/edu-math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
