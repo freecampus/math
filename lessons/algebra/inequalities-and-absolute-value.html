@@ -1143,18 +1143,11 @@ x &gt;= 3    x is greater than or equal to 3</code></pre>
 <section id="visualizing-absolute-value" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-absolute-value">Visualizing absolute value</h2>
 <p>The graph of <code>|x - a|</code> forms a V-shape centered at <code>x = a</code>. A horizontal cutoff line tells you which points are close enough to the center.</p>
-<div id="e92fac9f" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-<figure class="figure">
-<p><img src="inequalities-and-absolute-value_files/figure-html/cell-2-output-1.png" width="779" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
+<div id="3a0e50e7" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="inequalities-and-absolute-value_files/figure-html/cell-2-output-2.png" width="779" height="491" class="figure-img"></p>
+<p><img src="inequalities-and-absolute-value_files/figure-html/cell-2-output-1.png" width="779" height="491" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2872,7 +2865,7 @@ x = 10                 x = -2</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>SymPy can solve inequalities and show interval-style answers. Use it to verify your work after you solve the inequality by hand.</p>
-<div id="09093633" class="cell" data-execution_count="2">
+<div id="11a02db1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
@@ -2881,7 +2874,7 @@ x = 10                 x = -2</code></pre>
 <p><span class="math inline">\(\displaystyle -1 \leq x\)</span></p>
 </div>
 </div>
-<div id="8cac2049" class="cell" data-execution_count="3">
+<div id="5b8bd660" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sp.solve_univariate_inequality(sp.Abs(x <span class="op">-</span> <span class="dv">2</span>) <span class="op">&lt;=</span> <span class="dv">5</span>, x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle -3 \leq x \wedge x \leq 7\)</span></p>

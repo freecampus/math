@@ -629,7 +629,7 @@
     "href": "lessons/algebra/inequalities-and-absolute-value.html#visualizing-absolute-value",
     "title": "Inequalities and Absolute Value",
     "section": "Visualizing absolute value",
-    "text": "Visualizing absolute value\nThe graph of |x - a| forms a V-shape centered at x = a. A horizontal cutoff line tells you which points are close enough to the center.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe solution is where the V-shaped graph is at or below the cutoff line.",
+    "text": "Visualizing absolute value\nThe graph of |x - a| forms a V-shape centered at x = a. A horizontal cutoff line tells you which points are close enough to the center.\n\n\n\n\n\n\n\n\n\nThe solution is where the V-shaped graph is at or below the cutoff line.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1443,7 +1443,7 @@
     "href": "lessons/algebra/linear-and-quadratic-functions.html#visualizing-slope-and-intercept",
     "title": "Linear and Quadratic Functions",
     "section": "Visualizing slope and intercept",
-    "text": "Visualizing slope and intercept\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe point (3, 7) lies on the line. Moving one unit to the right increases the output by 2, because the slope is 2.",
+    "text": "Visualizing slope and intercept\n\n\n\n\n\n\n\n\n\nThe point (3, 7) lies on the line. Moving one unit to the right increases the output by 2, because the slope is 2.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1690,7 +1690,7 @@
     "href": "lessons/algebra/transformations-composition-inverses.html#visual-example",
     "title": "Transformations, Composition, and Inverses",
     "section": "Visual example",
-    "text": "Visual example\nCompare f(x)=x^2 with g(x)=2(x-3)^2+1.\n\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe base vertex (0, 0) becomes (3, 1), and the graph becomes narrower because of the vertical stretch by 2.",
+    "text": "Visual example\nCompare f(x)=x^2 with g(x)=2(x-3)^2+1.\n\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\n\n\n\n\n\n\n\n\nThe base vertex (0, 0) becomes (3, 1), and the graph becomes narrower because of the vertical stretch by 2.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -1859,7 +1859,7 @@
     "href": "lessons/algebra/transformations-composition-inverses.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Transformations, Composition, and Inverses",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse transformed_expression to generate transformed functions and then compare the base and transformed graphs.\n\nfrom edumath.algebra import transformation_scene, transformed_expression\n\ntransformed_expression(\"x**2\", vertical_scale=2, horizontal_shift=3, vertical_shift=1)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\nscene = transformation_scene(\"x**2\", vertical_scale=2, horizontal_shift=3, vertical_shift=1)\nfig, ax = scene.render()\nfig",
+    "text": "Using this lesson with edumath and SymPy\nUse transformed_expression to generate transformed functions and then compare the base and transformed graphs.\n\nfrom edumath.algebra import transformation_scene, transformed_expression\n\ntransformed_expression(\"x**2\", vertical_scale=2, horizontal_shift=3, vertical_shift=1)\n\n\\(\\displaystyle 2 x^{2} - 12 x + 19\\)\n\n\n\nscene = transformation_scene(\"x**2\", vertical_scale=2, horizontal_shift=3, vertical_shift=1)\nfig, ax = scene.render()",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2210,7 +2210,7 @@
     "href": "lessons/trigonometry/unit-circle.html#using-this-lesson-with-edumath-and-sympy",
     "title": "The Unit Circle",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse edumath to find quadrants, signs, and special-angle values.\n\nfrom edumath.trigonometry import quadrant, special_angle_values, trig_signs\n\nprint(quadrant(210))\nprint(trig_signs(210))\nprint(special_angle_values(30))\n\nIII\n{'sine': '-', 'cosine': '-', 'tangent': '+'}\nExactTrigValues(sine='1/2', cosine='sqrt(3)/2', tangent='sqrt(3)/3')\n\n\nUse the plotting helper for a unit-circle picture.\n\nfrom edumath.trigonometry import plot_unit_circle\n\nfig, ax = plot_unit_circle(150)\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse SymPy for exact values.\n\nimport sympy as sp\n\nsp.sin(5 * sp.pi / 6), sp.cos(5 * sp.pi / 6), sp.tan(5 * sp.pi / 4)\n\n(1/2, -sqrt(3)/2, 1)",
+    "text": "Using this lesson with edumath and SymPy\nUse edumath to find quadrants, signs, and special-angle values.\n\nfrom edumath.trigonometry import quadrant, special_angle_values, trig_signs\n\nprint(quadrant(210))\nprint(trig_signs(210))\nprint(special_angle_values(30))\n\nIII\n{'sine': '-', 'cosine': '-', 'tangent': '+'}\nExactTrigValues(sine='1/2', cosine='sqrt(3)/2', tangent='sqrt(3)/3')\n\n\nUse the plotting helper for a unit-circle picture.\n\nfrom edumath.trigonometry import plot_unit_circle\n\nfig, ax = plot_unit_circle(150)\n\n\n\n\n\n\n\n\nUse SymPy for exact values.\n\nimport sympy as sp\n\nsp.sin(5 * sp.pi / 6), sp.cos(5 * sp.pi / 6), sp.tan(5 * sp.pi / 4)\n\n(1/2, -sqrt(3)/2, 1)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -2366,7 +2366,7 @@
     "href": "lessons/trigonometry/sine-cosine.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Sine and Cosine",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse edumath to compute a unit-circle point.\n\nfrom edumath.trigonometry import plot_unit_circle, special_angle_values, unit_circle_point\n\npoint = unit_circle_point(30)\nprint(point.cosine, point.sine)\nprint(special_angle_values(30))\n\n0.8660254037844387 0.49999999999999994\nExactTrigValues(sine='1/2', cosine='sqrt(3)/2', tangent='sqrt(3)/3')\n\n\nShow the unit-circle plot.\n\nfig, ax = plot_unit_circle(30)\nfig\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse SymPy for exact sine and cosine.\n\nimport sympy as sp\n\nsp.sin(sp.pi / 6), sp.cos(2 * sp.pi / 3)\n\n(1/2, -1/2)",
+    "text": "Using this lesson with edumath and SymPy\nUse edumath to compute a unit-circle point.\n\nfrom edumath.trigonometry import plot_unit_circle, special_angle_values, unit_circle_point\n\npoint = unit_circle_point(30)\nprint(point.cosine, point.sine)\nprint(special_angle_values(30))\n\n0.8660254037844387 0.49999999999999994\nExactTrigValues(sine='1/2', cosine='sqrt(3)/2', tangent='sqrt(3)/3')\n\n\nShow the unit-circle plot.\n\nfig, ax = plot_unit_circle(30)\n\n\n\n\n\n\n\n\nUse SymPy for exact sine and cosine.\n\nimport sympy as sp\n\nsp.sin(sp.pi / 6), sp.cos(2 * sp.pi / 3)\n\n(1/2, -1/2)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6899,7 +6899,7 @@
     "href": "lessons/python/plotting.html#line-plots",
     "title": "Plotting With Python",
     "section": "Line Plots",
-    "text": "Line Plots\nA line plot is useful when values have a natural order, such as time.\n\nfrom edumath.python_fundamentals import plot_values\n\nbalances = [100, 105, 111, 118, 126]\nfig, ax = plot_values(balances, title=\"Account balance\")\nfig",
+    "text": "Line Plots\nA line plot is useful when values have a natural order, such as time.\n\nfrom edumath.python_fundamentals import plot_values\n\nbalances = [100, 105, 111, 118, 126]\nfig, ax = plot_values(balances, title=\"Account balance\")",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6912,7 +6912,7 @@
     "href": "lessons/python/plotting.html#scatter-plots",
     "title": "Plotting With Python",
     "section": "Scatter Plots",
-    "text": "Scatter Plots\nA scatter plot is useful for paired data.\n\nfrom edumath.python_fundamentals import scatter_values\n\nrisk = [1, 2, 3, 4, 5]\nexpected_return = [2, 3, 5, 6, 8]\n\nfig, ax = scatter_values(\n    risk,\n    expected_return,\n    title=\"Risk and expected return\",\n)\nfig",
+    "text": "Scatter Plots\nA scatter plot is useful for paired data.\n\nfrom edumath.python_fundamentals import scatter_values\n\nrisk = [1, 2, 3, 4, 5]\nexpected_return = [2, 3, 5, 6, 8]\n\nfig, ax = scatter_values(\n    risk,\n    expected_return,\n    title=\"Risk and expected return\",\n)",
     "crumbs": [
       "Home",
       "Lessons",
@@ -6964,7 +6964,7 @@
     "href": "lessons/python/plotting.html#solutions",
     "title": "Plotting With Python",
     "section": "Solutions",
-    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer:\nfrom edumath.python_fundamentals import plot_values\n\nfig, ax = plot_values([1, 4, 9, 16], title=\"Square numbers\")\nfig\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer:\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.scatter([1, 2, 3], [3, 2, 5])\nfig\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer:\nax.set_title(\"Observed values by input\")\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: the values decrease from x = 1 to x = 2, then increase sharply at x = 3.",
+    "text": "Solutions\n\n\n\n\n\n\nTipSolution 1\n\n\n\n\n\nAnswer:\nfrom edumath.python_fundamentals import plot_values\n\nfig, ax = plot_values([1, 4, 9, 16], title=\"Square numbers\")\n\n\n\n\n\n\n\n\n\nTipSolution 2\n\n\n\n\n\nAnswer:\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.scatter([1, 2, 3], [3, 2, 5])\n\n\n\n\n\n\n\n\n\nTipSolution 3\n\n\n\n\n\nAnswer:\nax.set_title(\"Observed values by input\")\n\n\n\n\n\n\n\n\n\nTipSolution 4\n\n\n\n\n\nAnswer: the values decrease from x = 1 to x = 2, then increase sharply at x = 3.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -10409,7 +10409,7 @@
     "href": "lessons/algebra/symbolic-computation-with-sympy.html#tables-and-plots",
     "title": "Symbolic Computation with SymPy",
     "section": "Tables and plots",
-    "text": "Tables and plots\n\nfrom edumath.algebra import expression_table, function_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = function_scene(\"x**2 - 3*x + 2\", x_min=-2, x_max=5, y_min=-2, y_max=8)\nfig, ax = scene.render()\nfig",
+    "text": "Tables and plots\n\nfrom edumath.algebra import expression_table, function_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = function_scene(\"x**2 - 3*x + 2\", x_min=-2, x_max=5, y_min=-2, y_max=8)\nfig, ax = scene.render()",
     "crumbs": [
       "Home",
       "Lessons",
@@ -10695,7 +10695,7 @@
     "href": "lessons/algebra/polynomials.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Polynomials",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse polynomial_summary when you want a compact symbolic report, and use polynomial_root_scene when you want to connect roots to the graph.\n\nfrom edumath.algebra import polynomial_root_scene, polynomial_summary\n\nsummary = polynomial_summary(\"(x - 2)**2*(x + 1)\")\nsummary.degree, summary.leading_coefficient, summary.root_multiplicities\n\n(3, 1, ((-1, 1), (2, 2)))\n\n\n\nscene = polynomial_root_scene(\"(x - 2)**2*(x + 1)\", x_min=-4, x_max=4)\nfig, ax = scene.render()\nfig",
+    "text": "Using this lesson with edumath and SymPy\nUse polynomial_summary when you want a compact symbolic report, and use polynomial_root_scene when you want to connect roots to the graph.\n\nfrom edumath.algebra import polynomial_root_scene, polynomial_summary\n\nsummary = polynomial_summary(\"(x - 2)**2*(x + 1)\")\nsummary.degree, summary.leading_coefficient, summary.root_multiplicities\n\n(3, 1, ((-1, 1), (2, 2)))\n\n\n\nscene = polynomial_root_scene(\"(x - 2)**2*(x + 1)\", x_min=-4, x_max=4)\nfig, ax = scene.render()",
     "crumbs": [
       "Home",
       "Lessons",
@@ -10786,7 +10786,7 @@
     "href": "lessons/algebra/expressions-and-equations.html#equivalent-expressions",
     "title": "Expressions and Equations",
     "section": "Equivalent expressions",
-    "text": "Equivalent expressions\nTwo expressions are equivalent if they produce the same value for every allowed input.\nFor example:\n(x + 1)^2\nand\nx^2 + 2x + 1\nare equivalent. One form is factored around a repeated linear factor; the other form is expanded.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe graph is the same because the two formulas define the same function. The forms emphasize different information:\n\n(x + 1)^2 makes the root x = -1 visible.\nx^2 + 2x + 1 makes the coefficients visible.",
+    "text": "Equivalent expressions\nTwo expressions are equivalent if they produce the same value for every allowed input.\nFor example:\n(x + 1)^2\nand\nx^2 + 2x + 1\nare equivalent. One form is factored around a repeated linear factor; the other form is expanded.\n\n\n\n\n\n\n\n\n\nThe graph is the same because the two formulas define the same function. The forms emphasize different information:\n\n(x + 1)^2 makes the root x = -1 visible.\nx^2 + 2x + 1 makes the coefficients visible.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -11267,7 +11267,7 @@
     "href": "lessons/algebra/functions-and-graphs.html#formula-to-graph",
     "title": "Functions and Graphs",
     "section": "Formula to graph",
-    "text": "Formula to graph\nThe graph of a function is the set of points:\n(x, f(x))\nThe package includes reusable plotting helpers for this input-output view.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe dashed guides show that input x = 4 produces output f(4) = 6.",
+    "text": "Formula to graph\nThe graph of a function is the set of points:\n(x, f(x))\nThe package includes reusable plotting helpers for this input-output view.\n\n\n\n\n\n\n\n\n\nThe dashed guides show that input x = 4 produces output f(4) = 6.",
     "crumbs": [
       "Home",
       "Lessons",
@@ -11306,7 +11306,7 @@
     "href": "lessons/algebra/functions-and-graphs.html#comparing-function-families",
     "title": "Functions and Graphs",
     "section": "Comparing function families",
-    "text": "Comparing function families\nDifferent formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions to ask when reading a graph:\n\nIs it increasing, decreasing, or both?\nDoes it have a lowest or highest point?\nWhere does it cross the axes?\nIs it symmetric?\nDoes it grow slowly, linearly, quadratically, or faster?\nDoes the formula restrict the domain?",
+    "text": "Comparing function families\nDifferent formulas create different shapes. Recognizing these shapes helps you guess models from data and understand transformations later.\n\n\n\n\n\n\n\n\n\nQuestions to ask when reading a graph:\n\nIs it increasing, decreasing, or both?\nDoes it have a lowest or highest point?\nWhere does it cross the axes?\nIs it symmetric?\nDoes it grow slowly, linearly, quadratically, or faster?\nDoes the formula restrict the domain?",
     "crumbs": [
       "Home",
       "Lessons",
@@ -11423,7 +11423,7 @@
     "href": "lessons/algebra/functions-and-graphs.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Functions and Graphs",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nUse edumath to move from formula to table to graph. This is useful when you want to test how a formula behaves before doing more formal analysis.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()\nfig",
+    "text": "Using this lesson with edumath and SymPy\nUse edumath to move from formula to table to graph. This is useful when you want to test how a formula behaves before doing more formal analysis.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()",
     "crumbs": [
       "Home",
       "Lessons",
@@ -11553,7 +11553,7 @@
     "href": "lessons/algebra/index.html#using-this-lesson-with-edumath-and-sympy",
     "title": "Algebra Study Path",
     "section": "Using this lesson with edumath and SymPy",
-    "text": "Using this lesson with edumath and SymPy\nThe lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()\nfig",
+    "text": "Using this lesson with edumath and SymPy\nThe lessons hide most implementation code so you can focus on mathematics. When you work in a notebook or Google Colab, you can import the same helpers directly and use them as study tools.\n\nfrom edumath.algebra import expression_table, input_output_scene\n\nexpression_table(\"x**2 - 3*x + 2\", inputs=(-1, 0, 1, 2, 3, 4))\n\n((-1.0, 6.0), (0.0, 2.0), (1.0, 0.0), (2.0, 0.0), (3.0, 2.0), (4.0, 6.0))\n\n\n\nscene = input_output_scene(\"x**2 - 3*x + 2\", x_value=4, x_min=-2, x_max=5)\nfig, ax = scene.render()",
     "crumbs": [
       "Home",
       "Lessons",

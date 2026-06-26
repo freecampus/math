@@ -1136,22 +1136,15 @@ x(x - 3) = 0</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="3a7a3093" class="cell" data-execution_count="1">
+<div id="c3d34803" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stderr">
 <pre><code>&lt;lambdifygenerated-2&gt;:2: RuntimeWarning: divide by zero encountered in power
   return (x - 2)**(-1.0)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-<figure class="figure">
-<p><img src="rational-and-radical-functions_files/figure-html/cell-2-output-2.png" width="779" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="rational-and-radical-functions_files/figure-html/cell-2-output-3.png" width="779" height="491" class="figure-img"></p>
+<p><img src="rational-and-radical-functions_files/figure-html/cell-2-output-2.png" width="779" height="491" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2709,7 +2702,7 @@ x = 4 or x = -1</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use the parser/solver workflow to check candidate solutions. For rational and radical equations, still inspect restrictions and original-equation checks.</p>
-<div id="0a411ae7" class="cell" data-execution_count="2">
+<div id="7eb1d179" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.core <span class="im">import</span> parse_equation</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2735,7 +2728,7 @@ x = 7/3: valid</code></pre>
 </div>
 </div>
 <p>Use SymPy to check algebraic forms, while you remain responsible for restrictions.</p>
-<div id="fd47471f" class="cell" data-execution_count="3">
+<div id="bf1b39cd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
@@ -2745,14 +2738,14 @@ x = 7/3: valid</code></pre>
 <pre><code>((x + 3)/(x + 2), (x + 3)/(x + 2))</code></pre>
 </div>
 </div>
-<div id="cb47f03f" class="cell" data-execution_count="4">
+<div id="2432d58c" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>denominator <span class="op">=</span> sp.denom(expr)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sp.factor(denominator), sp.solve(sp.Eq(denominator, <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>((x - 3)*(x + 2), [-2, 3])</code></pre>
 </div>
 </div>
-<div id="cb735e5a" class="cell" data-execution_count="5">
+<div id="298f1d81" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> sp.Eq(<span class="dv">1</span><span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> <span class="dv">2</span><span class="op">/</span>(x <span class="op">+</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(equation, x)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2760,7 +2753,7 @@ x = 7/3: valid</code></pre>
 <pre><code>[(0, True), (3, True)]</code></pre>
 </div>
 </div>
-<div id="00bb4701" class="cell" data-execution_count="6">
+<div id="9e63b962" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>radical_equation <span class="op">=</span> sp.Eq(sp.sqrt(x <span class="op">+</span> <span class="dv">5</span>), x <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(radical_equation, x)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>[(candidate, sp.checksol(radical_equation, x, candidate)) <span class="cf">for</span> candidate <span class="kw">in</span> candidates]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

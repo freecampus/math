@@ -1068,23 +1068,16 @@ window.Quarto = {
 <section id="visual-example" class="level2">
 <h2 class="anchored" data-anchor-id="visual-example">Visual example</h2>
 <p>Compare <code>f(x)=x^2</code> with <code>g(x)=2(x-3)^2+1</code>.</p>
-<div id="4a334146" class="cell" data-execution_count="1">
+<div id="4af4e51f" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
 <p><span class="math inline">\(\displaystyle 2 x^{2} - 12 x + 19\)</span></p>
 </div>
 </div>
-<div id="5e76cae2" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-<figure class="figure">
-<p><img src="transformations-composition-inverses_files/figure-html/cell-3-output-1.png" width="779" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
+<div id="8f13463b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="transformations-composition-inverses_files/figure-html/cell-3-output-2.png" width="779" height="491" class="figure-img"></p>
+<p><img src="transformations-composition-inverses_files/figure-html/cell-3-output-1.png" width="779" height="491" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2854,7 +2847,7 @@ y = (x + 7)/2           divide by 2</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>transformed_expression</code> to generate transformed functions and then compare the base and transformed graphs.</p>
-<div id="b4627f59" class="cell" data-execution_count="3">
+<div id="ce71b017" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.algebra <span class="im">import</span> transformation_scene, transformed_expression</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>transformed_expression(<span class="st">"x**2"</span>, vertical_scale<span class="op">=</span><span class="dv">2</span>, horizontal_shift<span class="op">=</span><span class="dv">3</span>, vertical_shift<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2862,21 +2855,13 @@ y = (x + 7)/2           divide by 2</code></pre>
 <p><span class="math inline">\(\displaystyle 2 x^{2} - 12 x + 19\)</span></p>
 </div>
 </div>
-<div id="f128ae1a" class="cell" data-execution_count="4">
+<div id="80093aa4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> transformation_scene(<span class="st">"x**2"</span>, vertical_scale<span class="op">=</span><span class="dv">2</span>, horizontal_shift<span class="op">=</span><span class="dv">3</span>, vertical_shift<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-<figure class="figure">
-<p><img src="transformations-composition-inverses_files/figure-html/cell-5-output-1.png" width="779" height="491" class="figure-img"></p>
-</figure>
-</div>
-</div>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="transformations-composition-inverses_files/figure-html/cell-5-output-2.png" width="779" height="491" class="figure-img"></p>
+<p><img src="transformations-composition-inverses_files/figure-html/cell-5-output-1.png" width="779" height="491" class="figure-img"></p>
 </figure>
 </div>
 </div>

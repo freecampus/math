@@ -1426,7 +1426,7 @@ cos = adjacent / hypotenuse</code></pre>
 <section id="using-this-lesson-with-edumath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-edumath-and-sympy">Using this lesson with edumath and SymPy</h2>
 <p>Use <code>edumath</code> to compute a unit-circle point.</p>
-<div id="8665d778" class="cell" data-execution_count="1">
+<div id="737910c1" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> edumath.trigonometry <span class="im">import</span> plot_unit_circle, special_angle_values, unit_circle_point</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> unit_circle_point(<span class="dv">30</span>)</span>
@@ -1438,26 +1438,18 @@ ExactTrigValues(sine='1/2', cosine='sqrt(3)/2', tangent='sqrt(3)/3')</code></pre
 </div>
 </div>
 <p>Show the unit-circle plot.</p>
-<div id="e309cba1" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plot_unit_circle(<span class="dv">30</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="b0077d07" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plot_unit_circle(<span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="sine-cosine_files/figure-html/cell-3-output-1.png" width="683" height="683" class="figure-img"></p>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sine-cosine_files/figure-html/cell-3-output-2.png" width="683" height="683" class="figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 <p>Use SymPy for exact sine and cosine.</p>
-<div id="b5803399" class="cell" data-execution_count="3">
+<div id="e351d44d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sp.sin(sp.pi <span class="op">/</span> <span class="dv">6</span>), sp.cos(<span class="dv">2</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
