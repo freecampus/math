@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.4.4](https://github.com/freecampus/math/compare/0.4.3...0.4.4) (2026-06-26)
+
+
+### Bug Fixes
+
+* Fix double plotting ([#2](https://github.com/freecampus/math/issues/2)) ([b577d5b](https://github.com/freecampus/math/commit/b577d5b4198ad8fc25d7bd910d60bebcfc8a412e))
+
 ## [0.4.3](https://github.com/freecampus/math/compare/0.4.2...0.4.3) (2026-06-25)
 
 
