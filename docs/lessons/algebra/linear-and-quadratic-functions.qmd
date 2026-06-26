@@ -91,7 +91,6 @@ scene = input_output_scene(
     title="The line y = 2x + 1 at x = 3",
 )
 fig, ax = scene.render()
-fig
 ```
 
 The point `(3, 7)` lies on the line. Moving one unit to the right increases the
@@ -212,7 +211,6 @@ scene = compare_functions_scene(
     title="Changing the coefficient a in y = a*x^2",
 )
 fig, ax = scene.render()
-fig
 ```
 
 ## Converting vertex form to standard form

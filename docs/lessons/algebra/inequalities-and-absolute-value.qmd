@@ -181,7 +181,6 @@ scene = compare_functions_scene(
     title="Solving |x - 2| <= 5 visually",
 )
 fig, ax = scene.render()
-fig
 ```
 
 The solution is where the V-shaped graph is at or below the cutoff line.

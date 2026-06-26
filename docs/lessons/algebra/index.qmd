@@ -135,7 +135,6 @@ scene = input_output_scene(
     y_max=8,
 )
 fig, ax = scene.render()
-fig
 ```
 
 ## How the upgraded lessons are organized
@@ -182,7 +181,6 @@ expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
 #| echo: true
 scene = input_output_scene("x**2 - 3*x + 2", x_value=4, x_min=-2, x_max=5)
 fig, ax = scene.render()
-fig
 ```
 
 ## Further reading

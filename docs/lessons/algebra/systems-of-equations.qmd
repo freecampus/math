@@ -54,7 +54,6 @@ scene = compare_functions_scene(
     title="A system with one intersection",
 )
 fig, ax = scene.render()
-fig
 ```
 
 ## Solving by substitution

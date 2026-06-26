@@ -123,7 +123,6 @@ expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
 #| echo: true
 scene = function_scene("x**2 - 3*x + 2", x_min=-2, x_max=5, y_min=-2, y_max=8)
 fig, ax = scene.render()
-fig
 ```
 
 ## Browser symbolic tools

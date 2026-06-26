@@ -95,7 +95,6 @@ from edumath.algebra import polynomial_root_scene
 
 scene = polynomial_root_scene("(x - 2)*(x + 3)", x_min=-5, x_max=5, y_min=-10, y_max=10)
 fig, ax = scene.render()
-fig
 ```
 
 ## Building polynomials from roots
@@ -141,7 +140,6 @@ Graph behavior:
 ```{python}
 scene = polynomial_root_scene("(x - 2)**2*(x + 1)", x_min=-4, x_max=4, y_min=-10, y_max=10)
 fig, ax = scene.render()
-fig
 ```
 
 ## End behavior
@@ -179,7 +177,6 @@ scene = compare_functions_scene(
     title="Polynomial end behavior patterns",
 )
 fig, ax = scene.render()
-fig
 ```
 
 ## Polynomial division and the Factor Theorem
@@ -489,7 +486,6 @@ summary.degree, summary.leading_coefficient, summary.root_multiplicities
 #| echo: true
 scene = polynomial_root_scene("(x - 2)**2*(x + 1)", x_min=-4, x_max=4)
 fig, ax = scene.render()
-fig
 ```
 
 ## Further reading

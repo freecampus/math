@@ -255,7 +255,6 @@ Show the unit-circle plot.
 ```{python}
 #| echo: true
 fig, ax = plot_unit_circle(30)
-fig
 ```
 
 Use SymPy for exact sine and cosine.
