@@ -12,6 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  POETRY_INSTALLER_PARALLEL: "false"
   VIRTUALENV_ACTIVATORS: "bash,python"
 
 jobs:
