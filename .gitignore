@@ -209,6 +209,9 @@ tempCodeRunnerFile.py
 # Quarto preview/build temp files when /tmp is unavailable.
 .quarto-tmp/
 
+# Makim scripts retained after an interrupted or failed task.
+tmp*.makim
+
 # PyPI configuration file
 .pypirc
 

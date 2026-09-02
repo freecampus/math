@@ -30,10 +30,13 @@ class PlotRange:
         if self.minimum >= self.maximum:
             msg = "minimum must be smaller than maximum"
             raise ValueError(msg)
-        return np.linspace(
-            self.minimum,
-            self.maximum,
-            self.samples,
+        return np.asarray(
+            np.linspace(
+                self.minimum,
+                self.maximum,
+                self.samples,
+                dtype=np.float64,
+            ),
             dtype=np.float64,
         )
 

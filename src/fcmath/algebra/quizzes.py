@@ -351,7 +351,10 @@ def expression_points(
     if y_values.shape != x_values.shape:
         y_values = np.broadcast_to(y_values, x_values.shape).astype(np.float64)
 
-    y_values = np.where(np.isfinite(y_values), y_values, np.float64(np.nan))
+    y_values = np.asarray(
+        np.where(np.isfinite(y_values), y_values, np.float64(np.nan)),
+        dtype=np.float64,
+    )
     return x_values, y_values
 
 
