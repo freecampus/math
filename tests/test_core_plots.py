@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from edumath.core import (
+from fcmath.core import (
     ExplicitFunction2D,
     ParametricCurve2D,
     PlotRange,

@@ -1,0 +1,25 @@
+---
+title: Frequently asked questions
+description: Answers about prerequisites, progress, computation, and course status.
+page_type: resource
+---
+
+## Is completion a grade or certificate?
+
+No. Progress is a local study bookmark. The project does not issue grades,
+credentials, or readiness guarantees.
+
+## Where is progress stored?
+
+Only in your browser's local storage. You can export, import, and reset it. No
+name, answer history, or analytics record is sent to FreeCampus Math.
+
+## Should I use SymPy before solving manually?
+
+Usually no. Predict a result and show the mathematical method first; then use
+SymPy to verify, explore edge cases, or extend the problem.
+
+## What does “in development” mean?
+
+The published structure is usable, but an item bank, assessment, or course is
+still being expanded or audited against all declared outcomes.

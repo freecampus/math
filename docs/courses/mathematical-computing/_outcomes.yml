@@ -1,0 +1,21 @@
+{
+  "course_id": "mathematical-computing",
+  "outcomes": [
+    {
+      "id": "mathematical-computing-outcome-1",
+      "description": "Write clear Python programs for mathematical experiments and verification."
+    },
+    {
+      "id": "mathematical-computing-outcome-2",
+      "description": "Use arrays, vectorization, plotting, and functions without obscuring assumptions."
+    },
+    {
+      "id": "mathematical-computing-outcome-3",
+      "description": "Distinguish exact symbolic results from floating-point approximations."
+    },
+    {
+      "id": "mathematical-computing-outcome-4",
+      "description": "Design reproducible computations with tests, labels, units, and error checks."
+    }
+  ]
+}

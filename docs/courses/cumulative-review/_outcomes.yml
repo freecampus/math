@@ -1,0 +1,21 @@
+{
+  "course_id": "cumulative-review",
+  "outcomes": [
+    {
+      "id": "cumulative-review-outcome-1",
+      "description": "Select methods without being told which subject a mixed problem belongs to."
+    },
+    {
+      "id": "cumulative-review-outcome-2",
+      "description": "Synthesize conceptual, manual, symbolic, computational, and interpretive skills."
+    },
+    {
+      "id": "cumulative-review-outcome-3",
+      "description": "Diagnose persistent gaps and build an evidence-based review plan."
+    },
+    {
+      "id": "cumulative-review-outcome-4",
+      "description": "Communicate complete solutions under untimed and timed conditions."
+    }
+  ]
+}

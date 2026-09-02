@@ -5,9 +5,9 @@ from typing import Any
 import pytest
 import sympy as sp
 
-from edumath.core import parse_equation
-from edumath.settings import configure, get_settings, reset_settings
-from edumath.solvers import (
+from fcmath.core import parse_equation
+from fcmath.settings import configure, get_settings, reset_settings
+from fcmath.solvers import (
     EquationSolution,
     OpenAIEquationExplanationClient,
     extract_openai_response_text,
@@ -16,7 +16,7 @@ from edumath.solvers import (
 
 
 @pytest.fixture(autouse=True)
-def reset_edumath_settings() -> Iterator[None]:
+def reset_fcmath_settings() -> Iterator[None]:
     reset_settings()
     yield
     reset_settings()

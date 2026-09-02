@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 import sympy as sp
 
-from edumath.calculus import (
+from fcmath.calculus import (
     CALCULUS_PATH,
     antiderivative_question,
     average_rate_of_change,

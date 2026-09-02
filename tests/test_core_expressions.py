@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 import sympy as sp
 
-from edumath.core import (
+from fcmath.core import (
     MathExpression,
     expression_equivalent,
     infer_variable,
@@ -65,3 +65,20 @@ def test_math_expression_samples_scalar_and_array_values() -> None:
 
 def test_expression_equivalent_checks_symbolic_equivalence() -> None:
     assert expression_equivalent("(x + 1)**2", "x**2 + 2*x + 1")
+
+
+def test_parser_rejects_python_syntax_and_excessive_complexity() -> None:
+    with pytest.raises(ValueError, match="unsafe syntax"):
+        parse_expression("__import__('os').system('echo unsafe')")
+
+    with pytest.raises(ValueError, match="unsupported"):
+        parse_expression("[x for x in range(3)]")
+
+    with pytest.raises(ValueError, match="exceeds"):
+        parse_expression("x" * 300)
+
+    with pytest.raises(ValueError, match="nested numeric powers"):
+        parse_expression("9^9^9")
+
+    with pytest.raises(ValueError, match="numeric exponent exceeds"):
+        parse_expression("2^1001")

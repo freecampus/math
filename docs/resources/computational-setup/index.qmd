@@ -1,0 +1,25 @@
+---
+title: Computational setup
+description: Install FreeCampus Math and use the same lesson sources locally or in Colab.
+page_type: resource
+---
+
+Website lessons are canonical QMD sources. Generated notebooks preserve the
+same narrative and activity order for Jupyter and Google Colab.
+
+```bash
+python -m pip install freecampus-math
+```
+
+```python
+import fcmath
+import numpy as np
+import sympy as sp
+```
+
+Use exact SymPy numbers such as `sp.Rational(1, 3)` when exactness matters. Use
+NumPy floating-point arrays for numerical work, state tolerances, and compare
+against a known case before trusting a larger computation.
+
+Contributors can find the full environment in the
+[developer installation guide](../../developers/installation.qmd).

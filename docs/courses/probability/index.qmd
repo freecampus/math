@@ -1,0 +1,30 @@
+---
+title: Probability
+description: Axioms, conditioning, random variables, distributions, and expectation.
+id: probability
+page_type: course
+status: active
+---
+
+Axioms, conditioning, random variables, distributions, and expectation.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Model sample spaces and derive probabilities from axioms and counting arguments.
+- Use conditional probability, independence, and Bayes reasoning precisely.
+- Analyze discrete and continuous random variables and distributions.
+- Compute and interpret expectation, variance, and simulation error.
+
+## Prerequisites
+
+advanced-algebra
+
+## Units
+
+- [1. Probability Models and Random Variables](units/foundations/index.qmd)
+
+[Begin or continue the course](units/foundations/index.qmd){.btn .btn-primary}

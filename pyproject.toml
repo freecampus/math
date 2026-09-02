@@ -1,18 +1,19 @@
 [project]
-name = "osl-edu-math"
-version = "0.4.4"  # semantic-release
-description = "Python tools for math education workflows."
+name = "freecampus-math"
+version = "0.1.0"  # semantic-release
+description = "Proof-aware mathematics curriculum tools for exact, numerical, and interactive learning."
 readme = "README.md"
 requires-python = ">=3.10,<4"
 license = "BSD-3-Clause"
 authors = [
-  { name = "Open Science Labs Incubator" }
+  { name = "FreeCampus contributors" }
 ]
 keywords = [
   "education",
-  "math",
+  "mathematics",
   "python",
-  "open-science",
+  "symbolic-computation",
+  "open-education",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -23,60 +24,74 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Education",
   "Topic :: Scientific/Engineering :: Mathematics",
 ]
 dependencies = [
-  "matplotlib>=2",
-  "numpy>=2",
-  "ipywidgets>=6",
-  "ipython>=7",
-  "sympy>=1"
+  "matplotlib>=3.8,<4",
+  "numpy>=1.26,<3",
+  "sympy>=1.12,<2",
 ]
 
 [project.urls]
-Homepage = "https://github.com/osl-incubator/edu-math"
-Repository = "https://github.com/osl-incubator/edu-math"
-Issues = "https://github.com/osl-incubator/edu-math/issues"
-Documentation = "https://osl-incubator.github.io/edu-math/"
+Homepage = "https://freecampus.github.io/math/"
+Repository = "https://github.com/freecampus/math"
+Issues = "https://github.com/freecampus/math/issues"
+Documentation = "https://freecampus.github.io/math/"
 
 [project.optional-dependencies]
+notebook = [
+  "ipython>=8.18,<10",
+  "ipywidgets>=8.1,<9",
+]
 dev = [
-  "pytest>=8",
-  "pytest-cov>=5",
-  "ruff>=0.6",
-  "mypy>=1.10",
-  "pre-commit>=3",
+  "ipython>=8.18,<10",
+  "ipywidgets>=8.1,<9",
+  "jupyter>=1.1,<2",
+  "nbclient>=0.10,<1",
+  "nbconvert>=7.16,<8",
+  "pytest>=8,<10",
+  "pytest-cov>=5,<8",
+  "ruff>=0.9,<1",
+  "mypy>=1.10,<3",
+  "pre-commit>=3.7,<5",
+  "PyYAML>=6,<7",
   "makim==1.29.0",
 ]
-docs = []
 
 [tool.poetry.group.dev.dependencies]
-quarto-cli = ">=1.9.0"
-pytest = ">=8"
-pytest-cov = ">=5"
-ruff = ">=0.6"
-mypy = ">=1.10"
-pre-commit = ">=3"
+quarto-cli = ">=1.9,<2"
+pytest = ">=8,<10"
+pytest-cov = ">=5,<8"
+ruff = ">=0.9,<1"
+mypy = ">=1.10,<3"
+pre-commit = ">=3.7,<5"
 makim = "==1.29.0"
-click = "^8.4.1"
+click = ">=8.1,<9"
+ipython = ">=8.18,<10"
+ipywidgets = ">=8.1,<9"
+jupyter = ">=1.1,<2"
+nbclient = ">=0.10,<1"
+nbconvert = ">=7.16,<8"
+pyyaml = ">=6,<7"
 
 [build-system]
-requires = ["poetry-core>=2"]
+requires = ["poetry-core>=2,<3"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 packages = [
-  { include = "edumath", from = "src" },
+  { include = "fcmath", from = "src" },
 ]
 include = [
-  "src/edumath/py.typed",
+  "src/fcmath/py.typed",
 ]
 
 [tool.ruff]
 line-length = 88
 target-version = "py310"
-src = ["src", "tests"]
+src = ["src", "tests", "scripts"]
 
 [tool.ruff.lint]
 select = [
@@ -94,6 +109,9 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["D"]
+"scripts/**" = ["E402"]
+"src/fcmath/__init__.py" = ["F401"]
+"src/fcmath/validation/__init__.py" = ["F401"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -115,5 +133,6 @@ module = [
   "IPython.*",
   "ipywidgets.*",
   "sympy.*",
+  "yaml.*",
 ]
 ignore_missing_imports = true

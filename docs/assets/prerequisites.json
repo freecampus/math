@@ -1,0 +1,41 @@
+{
+  "courses": {
+    "advanced-algebra": [],
+    "cumulative-review": [
+      "advanced-algebra",
+      "linear-algebra",
+      "differential-calculus",
+      "integral-calculus",
+      "differential-equations",
+      "discrete-mathematics",
+      "probability",
+      "statistics",
+      "mathematical-computing"
+    ],
+    "differential-calculus": [
+      "advanced-algebra"
+    ],
+    "differential-equations": [
+      "integral-calculus",
+      "linear-algebra"
+    ],
+    "discrete-mathematics": [
+      "advanced-algebra"
+    ],
+    "integral-calculus": [
+      "differential-calculus"
+    ],
+    "linear-algebra": [
+      "advanced-algebra"
+    ],
+    "mathematical-computing": [],
+    "probability": [
+      "advanced-algebra"
+    ],
+    "statistics": [
+      "probability",
+      "mathematical-computing"
+    ]
+  },
+  "schemaVersion": 1
+}

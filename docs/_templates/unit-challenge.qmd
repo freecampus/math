@@ -1,0 +1,69 @@
+---
+title: "Unit challenge"
+description: "Cumulative problems integrating the unit's main outcomes."
+id: course-unit-challenge
+course_id: course-id
+unit_id: unit-id
+page_type: unit-challenge
+status: in-development
+estimated_time: "90 minutes"
+skill_modes: [mixed]
+outcome_ids: [course-outcome-1, course-outcome-2]
+assessment:
+  mode: untimed
+  feedback: deferred
+execute:
+  echo: false
+---
+
+## Purpose and instructions
+
+Explain which unit outcomes are assessed, what resources may be used, and how
+learners should record reasoning. This is integrated practice, not a collection
+of minimally varied lesson exercises.
+
+## Part A: concepts and conditions
+
+Use explanation, counterexample, classification, or assumption-checking tasks.
+Require mathematical justification, not keyword recall.
+
+## Part B: manual reasoning
+
+Use multi-step problems that combine at least two lessons. Ask learners to show
+the governing result, intermediate work, domain restrictions, and a check.
+
+## Part C: computation and interpretation
+
+Use computation because it reveals structure, tests a conjecture, or scales a
+method—not merely to repeat arithmetic. Require a prediction before code and an
+interpretation after it.
+
+## Part D: synthesis
+
+Include one unfamiliar problem in which the learner must choose and defend a
+method. A valid solution may compare symbolic, numerical, or graphical routes.
+
+## Solutions and rubric
+
+::: {.callout-tip collapse="true" title="Complete solutions"}
+Provide step-by-step solutions, alternative methods where instructive, common
+failure modes, and explicit verification. Map each problem to its outcome and
+skill mode.
+:::
+
+::: {.callout-note}
+### Reflection
+
+Ask learners to identify which errors were conceptual, procedural,
+computational, or interpretive, then link targeted review lessons.
+:::
+
+## Using this challenge with fcmath and SymPy
+
+```{python}
+#| echo: true
+# Add reproducible verification code only after the manual solutions.
+```
+
+Explain which results are exact or approximate and why the computation is a
+check rather than a substitute for the argument.

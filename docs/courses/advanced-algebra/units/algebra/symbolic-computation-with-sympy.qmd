@@ -1,0 +1,302 @@
+---
+title: Symbolic Computation with SymPy
+description: Use SymPy to check algebra, solve equations, inspect domains, and explore responsibly.
+execute:
+  echo: false
+id: advanced-algebra-algebra-symbolic-computation-with-sympy
+course_id: advanced-algebra
+unit_id: algebra
+page_type: lesson
+status: active
+estimated_time: "60 minutes"
+skill_modes: [conceptual, manual-calculation, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-3, advanced-algebra-outcome-5]
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to create SymPy symbols, distinguish expressions from equations, use common symbolic commands, solve and check equations, inspect restrictions, make tables and plots, and compare SymPy with browser symbolic tools.
+:::
+
+## Motivation: a calculator that understands symbols
+
+A numeric calculator gives decimal values. A symbolic system keeps exact expressions and manipulates formulas. SymPy is a Python computer algebra system. It helps you check and explore, but you still decide the domain and meaning.
+
+## Creating symbols and expressions
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+expr = (x + 1)**2
+expr
+```
+
+Use `*` for multiplication and `**` for powers. Write `2*x`, not `2x`; write `x**2`, not `x^2`.
+
+## Expressions versus equations
+
+```{python}
+#| echo: true
+expr = 2*x + 3
+equation = sp.Eq(2*x + 3, 11)
+expr, equation
+```
+
+In Python, `=` assigns a name. A mathematical equation uses `sp.Eq(left, right)`.
+
+## Core commands
+
+| Task | SymPy command | Meaning |
+|---|---|---|
+| Expand | `sp.expand(expr)` | multiply out |
+| Factor | `sp.factor(expr)` | write as product |
+| Simplify | `sp.simplify(expr)` | try a simpler equivalent form |
+| Cancel | `sp.cancel(expr)` | simplify rational expression |
+| Together | `sp.together(expr)` | combine rational terms |
+
+```{python}
+#| echo: true
+expr = (x + 2)*(x - 3)
+sp.expand(expr), sp.factor(x**2 - x - 6)
+```
+
+```{python}
+#| echo: true
+rational_expr = (x**2 - 1)/(x - 1)
+sp.cancel(rational_expr)
+```
+
+The result `x + 1` needs a warning: the original expression excludes `x = 1`.
+
+## Solving and checking
+
+```{python}
+#| echo: true
+sp.solve(sp.Eq(3*x - 7, 11), x)
+```
+
+```{python}
+#| echo: true
+sp.solve(x**2 - 5*x + 6, x)
+```
+
+```{python}
+#| echo: true
+sp.checksol(sp.Eq(3*x - 7, 11), x, 6)
+```
+
+For radical equations, checking prevents extraneous answers.
+
+```{python}
+#| echo: true
+radical_equation = sp.Eq(sp.sqrt(x + 5), x - 1)
+[(candidate, sp.checksol(radical_equation, x, candidate)) for candidate in sp.solve(radical_equation, x)]
+```
+
+## Domains and restrictions
+
+Use `sp.denom` to inspect rational restrictions:
+
+```{python}
+#| echo: true
+expr = (x**2 - 9)/(x**2 - x - 6)
+denominator = sp.denom(expr)
+sp.factor(denominator), sp.solve(sp.Eq(denominator, 0), x)
+```
+
+For logs, require positive inputs. For even roots, require nonnegative radicands. Assumptions can help, but beginners should first write restrictions in words.
+
+## Exact and approximate answers
+
+```{python}
+#| echo: true
+sp.sqrt(2), sp.Rational(1, 3), sp.N(sp.sqrt(2))
+```
+
+Exact values are usually better during algebra. Decimals are useful for final interpretation.
+
+## Tables and plots
+
+```{python}
+#| echo: true
+from fcmath.algebra import expression_table, function_scene
+
+expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
+```
+
+```{python}
+#| echo: true
+scene = function_scene("x**2 - 3*x + 2", x_min=-2, x_max=5, y_min=-2, y_max=8)
+fig, ax = scene.render()
+```
+
+## Browser symbolic tools
+
+- [math.js](https://mathjs.org/docs/index.html): browser evaluation and symbolic simplification.
+- [Nerdamer](https://nerdamer.com/documentation.html): browser factoring and solving demos.
+- [Algebrite](https://github.com/davidedc/Algebrite): JavaScript/TypeScript CAS exploration.
+- [PyScript](https://docs.pyscript.net/latest/): actual Python/SymPy in the browser, with heavier load time.
+
+A PyScript sandbox could load SymPy using a package configuration. Verify the exact current PyScript syntax before publishing a live sandbox.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Create a SymPy symbol named `t`.
+2. Write the SymPy expression for `(x + 3)^2`.
+3. Expand `(x + 3)^2`.
+4. Factor `x^2 - 7x + 12`.
+5. Solve `4x - 9 = 15`.
+6. Check whether `x = 4` solves `x^2 - 7x + 12 = 0`.
+7. Find the denominator of `(x + 1)/(x - 5)`.
+8. Explain why canceling `(x^2 - 1)/(x - 1)` needs a warning.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `t = sp.symbols("t")`.
+2. `(x + 3)**2`.
+3. `x**2 + 6*x + 9`.
+4. `(x - 4)*(x - 3)`.
+5. `x = 6`.
+6. Yes, substitution gives `0`.
+7. `x - 5`.
+8. The original expression excludes `x = 1`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+Symbolic computation is powerful when you know what question you are asking.
+Guess the command, run it, and then interpret the result mathematically.
+
+### Lab 1: create symbols and parse expressions
+
+**Guess first.** Should `x` be typed as a Python string or a SymPy symbol before
+building `x^2 + 1`?
+
+**Guided exercise.**
+
+```python
+import sympy as sp
+x = sp.Symbol("x")
+expr = x**2 + 1
+```
+
+The expression is symbolic, so SymPy can expand, factor, differentiate later,
+and substitute exact values.
+
+::: {.practice-box}
+**Checkpoint.** Create symbols `a` and `b`, then build the expression
+`(a + b)^2`. Which SymPy command expands it?
+:::
+
+### Lab 2: expressions versus equations
+
+**Guess first.** Is `x**2 - 4` an equation by itself?
+
+**Guided exercise.**
+
+```python
+expr = x**2 - 4          # expression
+Eq(expr, 0)              # equation
+```
+
+An expression can be simplified or factored. An equation can be solved.
+
+::: {.practice-box}
+**Checkpoint.** Write a SymPy equation for `3x + 2 = 11`. Then solve it.
+:::
+
+### Lab 3: solve and check
+
+**Guess first.** Why should you check a symbolic answer after solving?
+
+**Guided exercise.**
+
+```text
+solve gives candidates
+checksol tests candidates in the original equation
+```
+
+This matters especially for rational and radical equations, where restrictions
+or squaring can create invalid candidates.
+
+::: {.practice-box}
+**Checkpoint.** Solve `sqrt(x + 5) = x - 1` with SymPy, then check each solution
+in the original equation.
+:::
+
+### Lab 4: exact versus approximate output
+
+**Guess first.** Which is more informative: `sqrt(2)` or `1.41421356`?
+
+**Guided exercise.**
+
+Exact forms preserve structure. Decimal approximations help with measurement and
+graphing. Use exact answers while solving, then approximate when interpreting.
+
+::: {.practice-box}
+**Checkpoint.** Compute an exact value for `log(5)` and then a decimal
+approximation. State when each form is useful.
+:::
+
+## Guessing game checkpoint
+
+<script type="application/json" class="fcmath-guessing-game-config">
+{
+  "topic": "symbolic-computation-sympy",
+  "title": "SymPy command checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include ../../../../_includes/guessing-game.qmd >}}
+
+## Using this lesson with fcmath and SymPy
+
+
+The solver layer expects SymPy objects. If a student starts with typed text,
+parse it first, then solve the parsed equation.
+
+```{python}
+#| echo: true
+from fcmath.core import parse_equation
+from fcmath.solvers import solve_equation_steps
+
+parsed = parse_equation("3x + 2 = 11")
+solution = solve_equation_steps(parsed)
+print(solution.render_text())
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x")
+expr = (x + 2)*(x - 3)
+sp.expand(expr), sp.factor(sp.expand(expr))
+```
+
+```{python}
+#| echo: true
+equation = sp.Eq(sp.sqrt(x + 5), x - 1)
+candidates = sp.solve(equation, x)
+[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]
+```
+
+```{python}
+#| echo: true
+from fcmath.algebra import expand_question
+
+question = expand_question((x + 1)**2)
+question.check("x**2 + 2*x + 1").message
+```
+
+## Further reading
+
+- SymPy documentation: <https://docs.sympy.org/>
+- PyScript documentation: <https://docs.pyscript.net/latest/>

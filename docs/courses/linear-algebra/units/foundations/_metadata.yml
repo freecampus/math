@@ -1,0 +1,11 @@
+{
+  "id": "foundations",
+  "title": "Vectors, Matrices, and Linear Maps",
+  "course_id": "linear-algebra",
+  "outcomes": [
+    "Represent and reason about vectors, matrices, systems, and linear transformations.",
+    "Distinguish computation from the structural claims that make an algorithm valid.",
+    "Interpret rank, independence, bases, eigenvalues, and eigenvectors geometrically.",
+    "Verify exact calculations with SymPy and numerical calculations with NumPy."
+  ]
+}

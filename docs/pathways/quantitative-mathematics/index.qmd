@@ -1,0 +1,42 @@
+---
+title: Mathematics for Quantitative Studies
+description: A coherent pathway from algebraic fluency to proof, calculus, probability, statistics, and mathematical computing.
+id: quantitative-mathematics
+page_type: pathway
+status: in-development
+---
+
+This pathway develops the mathematical independence needed for advanced
+quantitative work. You will alternate among theory, complete manual solutions,
+computation, and interpretation. Definitions and hypotheses matter as much as
+answers; computational output must be explained and checked.
+
+[Start here](start-here.qmd){.btn .btn-primary}
+[Take the diagnostic](diagnostic.qmd){.btn .btn-outline-primary}
+
+## How the pathway works
+
+1. **Orient.** Read [Start here](start-here.qmd) and set up a sustainable study
+   routine.
+2. **Diagnose.** Use the low-stakes [diagnostic](diagnostic.qmd) to locate gaps.
+3. **Build foundations.** Study algebra and mathematical computing before or
+   alongside the proof- and model-intensive courses.
+4. **Deepen structure.** Connect linear algebra, calculus, discrete mathematics,
+   probability, statistics, and differential equations.
+5. **Integrate.** Use cumulative mixed practice so the method is not revealed by
+   a chapter heading.
+
+## Standard of mathematical work
+
+A strong solution should identify the governing definition or theorem, verify
+its hypotheses, show a logically complete argument, distinguish exact results
+from approximations, and interpret the answer in context. Examples are not
+proofs; plots are evidence, not proof; software output is a claim to be checked.
+
+## Pathway tools
+
+- [Recommended course sequence](course-sequence.qmd)
+- [Overall progress](progress.qmd)
+- [Cumulative review and practice](../../courses/cumulative-review/index.qmd)
+- [Notation and terminology](../../resources/notation/index.qmd)
+- [Formula reference](../../resources/formula-reference/index.qmd)

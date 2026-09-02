@@ -1,0 +1,12 @@
+---
+title: Mixed and Comprehensive Practice
+description: Integrate methods across the pathway and turn evidence into a focused review plan.
+page_type: unit
+---
+
+Mixed practice removes the topic label that usually gives away a method. Work
+untimed first, document why each method applies, and use timed sets only after
+your reasoning is reliable.
+
+- [Comprehensive practice](comprehensive-practice.qmd)
+- [Timed practice](timed-practice.qmd)

@@ -1,0 +1,11 @@
+{
+  "id": "ordinary-differential-equations",
+  "title": "Ordinary Differential Equations",
+  "course_id": "differential-equations",
+  "outcomes": [
+    "Classify differential equations and select justified solution methods.",
+    "Solve and verify foundational first-order equations and linear systems.",
+    "Use slope fields and phase behavior to reason before calculating.",
+    "Compare exact and numerical solutions while tracking assumptions and error."
+  ]
+}

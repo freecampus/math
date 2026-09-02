@@ -6,7 +6,7 @@ import math
 
 import pytest
 
-from edumath.statistics import (
+from fcmath.statistics import (
     STATISTICS_PATH,
     confidence_interval_proportion,
     correlation,

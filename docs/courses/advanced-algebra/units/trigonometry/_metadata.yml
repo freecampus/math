@@ -1,0 +1,12 @@
+{
+  "id": "trigonometry",
+  "title": "Trigonometry and Periodic Structure",
+  "course_id": "advanced-algebra",
+  "outcomes": [
+    "Transform algebraic expressions while preserving domains and equivalence.",
+    "Analyze functions through symbolic, graphical, numerical, and inverse viewpoints.",
+    "Solve equations, inequalities, and systems and justify each transformation.",
+    "Use trigonometric representations and identities in exact and applied reasoning.",
+    "Construct, critique, and verify algebraic models with appropriate computational tools."
+  ]
+}

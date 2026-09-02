@@ -1,4 +1,4 @@
-from edumath.core import check_expression_answer, check_numeric_answer
+from fcmath.core import check_expression_answer, check_numeric_answer
 
 
 def test_check_numeric_answer_uses_tolerance() -> None:

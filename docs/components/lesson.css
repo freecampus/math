@@ -1,0 +1,61 @@
+.quarto-title .description {
+  max-width: 62ch;
+  color: var(--fc-muted);
+  font-size: 1.08rem;
+}
+.learning-objectives,
+.lesson-completion,
+.progress-dashboard {
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  background: var(--fc-surface-soft);
+  padding: var(--fc-space-3) var(--fc-space-4);
+  margin-block: var(--fc-space-3) var(--fc-space-4);
+}
+.lesson-completion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--fc-space-2);
+  justify-content: flex-end;
+  padding-block: var(--fc-space-2);
+}
+.lesson-completion.is-complete {
+  border-inline-start: 0.35rem solid var(--fc-success);
+}
+.callout {
+  border-radius: var(--fc-radius);
+}
+details {
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  padding: var(--fc-space-2) var(--fc-space-3);
+  margin-block: var(--fc-space-3);
+}
+details > summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding-block: var(--fc-space-1);
+}
+.progress-overall progress,
+.fc-quiz progress {
+  width: 100%;
+  min-height: 0.85rem;
+  accent-color: var(--fc-primary);
+}
+.course-progress-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--fc-space-4) 0 0;
+}
+.course-progress-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--fc-border);
+}
+.progress-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--fc-space-2);
+}

@@ -1,0 +1,30 @@
+---
+title: Comprehensive practice
+description: A mixed, untimed assessment spanning the quantitative mathematics pathway.
+page_type: assessment
+estimated_time: "180 minutes"
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-2, advanced-algebra-outcome-3, advanced-algebra-outcome-4, advanced-algebra-outcome-5, linear-algebra-outcome-1, linear-algebra-outcome-2, linear-algebra-outcome-3, linear-algebra-outcome-4, differential-calculus-outcome-1, differential-calculus-outcome-2, differential-calculus-outcome-3, differential-calculus-outcome-4, integral-calculus-outcome-1, integral-calculus-outcome-2, integral-calculus-outcome-3, integral-calculus-outcome-4, differential-equations-outcome-1, differential-equations-outcome-2, differential-equations-outcome-3, differential-equations-outcome-4, discrete-mathematics-outcome-1, discrete-mathematics-outcome-2, discrete-mathematics-outcome-3, discrete-mathematics-outcome-4, probability-outcome-1, probability-outcome-2, probability-outcome-3, probability-outcome-4, statistics-outcome-1, statistics-outcome-2, statistics-outcome-3, statistics-outcome-4, mathematical-computing-outcome-1, mathematical-computing-outcome-2, mathematical-computing-outcome-3, mathematical-computing-outcome-4]
+id: quantitative-mathematics-comprehensive
+course_id: cumulative-review
+unit_id: mixed-practice
+status: in-development
+skill_modes: [mixed]
+---
+
+This assessment is intentionally cumulative. For every solution, state the
+relevant definitions or hypotheses, show a manual argument, and use computation
+only as a separately labeled verification.
+
+## How to use this assessment
+
+1. Complete one pass without notes and without a timer.
+2. Mark confidence before checking any solution.
+3. Classify each gap as conceptual, procedural, computational, or interpretive.
+4. Return to the linked course outcomes and retry after spaced review.
+
+::: {.callout-note}
+## Assessment status
+
+The infrastructure and scoring model are active. The full comprehensive item
+bank remains in development and will expand during the curriculum content audit.
+:::

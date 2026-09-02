@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-from edumath.discrete_math import (
+from fcmath.discrete_math import (
     DISCRETE_MATH_PATH,
     and_,
     cartesian_product,

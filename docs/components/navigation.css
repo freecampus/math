@@ -1,0 +1,20 @@
+.navbar {
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--fc-primary) 35%, transparent);
+}
+.navbar-brand {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+.sidebar-navigation .sidebar-item-text {
+  line-height: 1.35;
+}
+.sidebar-item-container .active {
+  font-weight: 700;
+  border-inline-start: 0.2rem solid var(--fc-accent);
+  padding-inline-start: 0.45rem;
+}
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--fc-muted);
+}

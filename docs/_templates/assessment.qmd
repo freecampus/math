@@ -1,0 +1,58 @@
+---
+title: "Assessment title"
+description: "What this diagnostic, cumulative, or comprehensive assessment measures."
+id: assessment-id
+pathway_id: quantitative-mathematics
+page_type: assessment
+status: in-development
+estimated_time: "120 minutes"
+skill_modes: [mixed]
+outcome_ids: [course-outcome-1]
+assessment:
+  purpose: diagnostic
+  mode: untimed
+  feedback: deferred
+  attempts: unlimited
+execute:
+  echo: false
+---
+
+## Purpose
+
+State what decisions this assessment supports and what it does **not** certify.
+For diagnostics, make clear that the result guides study rather than assigning
+a grade.
+
+## Instructions
+
+- State timing, allowed resources, answer format, and feedback timing.
+- Explain how to save or export completion without storing raw answers.
+- Describe accessibility alternatives and how to use a static version.
+- List the covered outcomes and skill-mode balance.
+
+## Assessment
+
+Reference one validated quiz bank or embed questions that compile to the same
+internal model. Use stable IDs and explicit validation policies. Do not expose
+answers before checking in an interactive version.
+
+```html
+<!-- Example: <fc-quiz data-source="../../quizzes/pathway/diagnostic.yml"></fc-quiz> -->
+```
+
+## Results and interpretation
+
+Explain performance by outcome or course, not as a single misleading score.
+Give concrete review routes and distinguish conceptual gaps from calculation or
+tool-use gaps.
+
+## Solutions
+
+::: {.callout-tip collapse="true" title="Static solutions and explanations"}
+Provide a renderer-independent fallback with complete explanations. For a timed
+assessment, place this after the attempt section and label feedback as deferred.
+:::
+
+## Next step
+
+Link the recommended course sequence, targeted lessons, and cumulative practice.

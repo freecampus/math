@@ -1,0 +1,31 @@
+---
+title: Overall progress
+description: Review course completion and manage browser-local progress without an account.
+id: quantitative-mathematics-progress
+page_type: progress
+status: active
+---
+
+Your completion choices are stored in this browser under a versioned curriculum
+schema. FreeCampus Math stores no name, raw answer, detailed attempt history, or
+behavioral analytics. Clearing site data removes the record.
+
+<div class="progress-dashboard" data-progress-summary="pathway" aria-live="polite">
+  <p>Progress will appear when JavaScript is available.</p>
+</div>
+
+## Manage your local record
+
+<div class="progress-actions">
+  <button type="button" class="btn btn-secondary" data-progress-action="export">Export progress</button>
+  <label class="btn btn-secondary" for="progress-import">Import progress</label>
+  <input id="progress-import" type="file" accept="application/json" data-progress-action="import" hidden>
+  <button type="button" class="btn btn-outline-danger" data-progress-action="reset">Reset progress</button>
+</div>
+
+<div class="visually-hidden" role="status" data-progress-announcement></div>
+
+::: {.callout-note}
+Completion is a study bookmark, not proof of mastery. Use diagnostic and
+cumulative assessments to decide what to review.
+:::

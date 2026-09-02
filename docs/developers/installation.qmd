@@ -1,0 +1,33 @@
+---
+title: Developer installation
+description: Install the FreeCampus Math package or configure a contributor environment.
+page_type: developer
+---
+
+Learners can use the website and generated Colab lessons without configuring a
+local contributor environment.
+
+## Install the package
+
+```bash
+python -m pip install freecampus-math
+```
+
+The distribution is `freecampus-math`; the Python import is `fcmath`.
+
+```python
+import fcmath
+print(fcmath.__version__)
+```
+
+## Contributor environment
+
+```bash
+conda env create -f conda/dev.yaml
+conda activate fcmath
+poetry config virtualenvs.create false
+poetry install --extras "dev"
+```
+
+Run the full local gate with `makim all.ci`. Curriculum-only edits can start
+with `makim curriculum.validate` and a scoped Quarto render.

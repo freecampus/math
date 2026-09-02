@@ -1,0 +1,11 @@
+---
+title: Resources
+description: Shared notation, formulas, computational setup, study methods, and answers to common questions.
+page_type: resource-index
+---
+
+- [Notation and terminology](notation/index.qmd)
+- [Formula reference](formula-reference/index.qmd)
+- [Computational setup](computational-setup/index.qmd)
+- [Study guidance](study-guidance/index.qmd)
+- [Frequently asked questions](faq/index.qmd)

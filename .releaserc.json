@@ -8,12 +8,12 @@
       {
         "replacements": [
           {
-            "files": ["src/edumath/__init__.py"],
+            "files": ["src/fcmath/__init__.py"],
             "from": "__version__ = \".*\"  # semantic-release",
             "to": "__version__ = \"${nextRelease.version}\"  # semantic-release",
             "results": [
               {
-                "file": "src/edumath/__init__.py",
+                "file": "src/fcmath/__init__.py",
                 "hasChanged": true,
                 "numMatches": 1,
                 "numReplacements": 1
@@ -60,26 +60,15 @@
         "changelogFile": "CHANGELOG.md"
       }
     ],
-    [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "poetry build --clean",
-        "publishCmd": "poetry publish"
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": ["dist/*.whl", "dist/*.tar.gz"]
-      }
-    ],
+    ["@semantic-release/exec", { "prepareCmd": "poetry build --clean" }],
+    ["@semantic-release/github", { "assets": ["dist/*.whl", "dist/*.tar.gz"] }],
     [
       "@semantic-release/git",
       {
         "assets": [
           "pyproject.toml",
           "CHANGELOG.md",
-          "src/edumath/__init__.py",
+          "src/fcmath/__init__.py",
           "CITATION.cff"
         ],
         "message": "chore(release): ${nextRelease.version}"

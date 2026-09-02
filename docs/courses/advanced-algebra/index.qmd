@@ -1,0 +1,32 @@
+---
+title: Advanced Algebra
+description: Structural algebra, functions, trigonometry, modeling, and symbolic reasoning.
+id: advanced-algebra
+page_type: course
+status: active
+---
+
+Structural algebra, functions, trigonometry, modeling, and symbolic reasoning.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Transform algebraic expressions while preserving domains and equivalence.
+- Analyze functions through symbolic, graphical, numerical, and inverse viewpoints.
+- Solve equations, inequalities, and systems and justify each transformation.
+- Use trigonometric representations and identities in exact and applied reasoning.
+- Construct, critique, and verify algebraic models with appropriate computational tools.
+
+## Prerequisites
+
+No course prerequisite; use the pathway diagnostic to check readiness.
+
+## Units
+
+- [1. Algebraic Structures and Functions](units/algebra/index.qmd)
+- [2. Trigonometry and Periodic Structure](units/trigonometry/index.qmd)
+
+[Begin or continue the course](units/algebra/index.qmd){.btn .btn-primary}

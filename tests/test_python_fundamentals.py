@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-from edumath.python_fundamentals import (
+from fcmath.python_fundamentals import (
     array_summary,
     classify_number,
     cumulative_sum,

@@ -1,0 +1,44 @@
+<!--
+Reusable authoring patterns. Copy the needed block into a lesson and replace its
+contents; do not include this entire file in a published page.
+-->
+
+::: {.definition}
+### Definition
+State the mathematical object, domain, and notation, then give a minimal example.
+:::
+
+::: {.theorem}
+### Theorem or rule
+State every hypothesis and the conclusion precisely.
+:::
+
+::: {.intuition}
+### Intuition
+Connect the formal statement to a visual, limiting case, or invariant.
+:::
+
+::: {.worked-example}
+### Worked example
+State the problem, plan the method, justify each step, interpret, and verify.
+:::
+
+::: {.common-mistake}
+### Common mistake
+Show an incorrect step, explain why it fails, and repair it.
+:::
+
+::: {.practice-box data-skill-mode="symbolic-reasoning"}
+### Practice
+Give a focused task with a hint and a collapsed, step-by-step solution.
+:::
+
+::: {.checkpoint data-skill-mode="interpretation"}
+### Checkpoint
+Ask for a prediction or interpretation before revealing the explanation.
+:::
+
+::: {.computation}
+### Computational activity
+Label the activity, predict first, compute reproducibly, interpret, and verify.
+:::

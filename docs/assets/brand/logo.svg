@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-labelledby="title desc">
+  <title id="title">FreeCampus Math</title>
+  <desc id="desc">An open book whose pages form an x and y coordinate axis, followed by the project name.</desc>
+  <rect width="240" height="48" rx="7" fill="#173f5f"/>
+  <path d="M13 13c7-3 13-2 18 2v22c-5-4-11-5-18-2zm36 0c-7-3-13-2-18 2v22c5-4 11-5 18-2z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M31 10v29M18 30l9-9m-5 0h5v5" fill="none" stroke="#f5b66c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="61" y="30" fill="#fff" font-family="system-ui,sans-serif" font-size="18" font-weight="700">FreeCampus Math</text>
+</svg>

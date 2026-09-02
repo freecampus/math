@@ -1,4 +1,4 @@
-- edu-math version:
+- FreeCampus Math version:
 - Python version:
 - Operating System:
 

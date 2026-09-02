@@ -2,7 +2,7 @@ import math
 
 import matplotlib.pyplot as plt
 
-from edumath.trigonometry.plots import (
+from fcmath.trigonometry.plots import (
     plot_unit_circle,
     unit_circle_point,
     unit_circle_widget,

@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 import sympy as sp
 
-from edumath.differential_equations import (
+from fcmath.differential_equations import (
     DIFFERENTIAL_EQUATIONS_PATH,
     classify_equilibrium_1d,
     classify_ode_exercise,

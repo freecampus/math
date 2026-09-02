@@ -1,0 +1,21 @@
+{
+  "course_id": "probability",
+  "outcomes": [
+    {
+      "id": "probability-outcome-1",
+      "description": "Model sample spaces and derive probabilities from axioms and counting arguments."
+    },
+    {
+      "id": "probability-outcome-2",
+      "description": "Use conditional probability, independence, and Bayes reasoning precisely."
+    },
+    {
+      "id": "probability-outcome-3",
+      "description": "Analyze discrete and continuous random variables and distributions."
+    },
+    {
+      "id": "probability-outcome-4",
+      "description": "Compute and interpret expectation, variance, and simulation error."
+    }
+  ]
+}

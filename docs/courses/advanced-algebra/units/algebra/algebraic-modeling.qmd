@@ -1,0 +1,311 @@
+---
+title: Algebraic Modeling
+description: Translate real situations into algebraic models and interpret results.
+execute:
+  echo: false
+id: advanced-algebra-algebra-algebraic-modeling
+course_id: advanced-algebra
+unit_id: algebra
+page_type: lesson
+status: active
+estimated_time: "60 minutes"
+skill_modes: [conceptual, manual-calculation, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-5]
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to define variables with units, translate words into equations, choose a model family, solve for unknowns, interpret results, and use SymPy to check model parameters.
+:::
+
+## Motivation: a model is a useful simplification
+
+A model is a simplified mathematical description. A road map is not the city, but it helps you travel. An algebraic model is not the full situation, but it helps you calculate, compare, predict, and decide.
+
+## The modeling cycle
+
+1. Understand the situation.
+2. Define variables with units.
+3. State assumptions.
+4. Choose a model family.
+5. Translate relationships into equations.
+6. Solve or analyze.
+7. Interpret the result.
+8. Check reasonableness and limitations.
+
+::: {.key-idea}
+### Key idea
+
+Choosing variables and interpreting answers are part of the mathematics.
+:::
+
+## Variables, parameters, and units
+
+In `C(n) = 50 + 12n`, `n` might be number of items, `C(n)` cost in dollars, `50` a fixed cost, and `12` dollars per item. Units help you catch mistakes.
+
+## Translating words into algebra
+
+| Words | Algebra |
+|---|---|
+| five more than `x` | `x + 5` |
+| five less than `x` | `x - 5` |
+| twice `x` | `2x` |
+| `x` decreased by `20%` | `0.80x` |
+| total adult and student tickets | `a + s` |
+| revenue from adult tickets at `$12` each | `12a` |
+
+::: {.common-mistake}
+### Common mistake
+
+Do not start solving before defining what each variable means.
+:::
+
+## Linear models
+
+Linear models have the form `y = mx + b`. The slope is a constant rate of change, and the intercept is the starting value.
+
+A repair service charges `$40` to visit and `$25` per hour:
+
+```text
+C(h) = 40 + 25h
+```
+
+A plant is `10 cm` tall on day `0` and `22 cm` tall on day `6`:
+
+```text
+slope = (22 - 10)/(6 - 0) = 2 cm/day
+H(t) = 10 + 2t
+```
+
+```{python}
+from fcmath.algebra import line_from_points
+
+line = line_from_points((0, 10), (6, 22))
+line.expression
+```
+
+## Systems as models
+
+A club sold `50` tickets. Adult tickets cost `$10`, student tickets cost `$6`, and total revenue was `$380`.
+
+```text
+a + s = 50
+10a + 6s = 380
+```
+
+Substitute `s = 50 - a`:
+
+```text
+10a + 6(50 - a) = 380
+4a = 80
+a = 20
+s = 30
+```
+
+## Quadratic models
+
+Quadratic models describe curved relationships and often have a maximum or minimum. A height model such as `h(t) = -16t^2 + 64t + 5` opens downward, so its vertex is the maximum height.
+
+A vertex form model is:
+
+```text
+f(x) = a(x - h)^2 + k
+```
+
+If the vertex is `(3, 10)` and the graph passes through `(5, 2)`, then `2 = a(5 - 3)^2 + 10`, so `a = -2`.
+
+## Rational, radical, exponential, and logarithmic models
+
+- Rational: time for fixed distance, `T(r) = 120/r`, with `r > 0`.
+- Radical: side length from area, `s(A) = sqrt(A)`, with `A >= 0`.
+- Exponential: repeated percentage growth, `P(t)=P_0(1+r)^t`.
+- Logarithmic: solving an exponential model for time.
+
+## Model checking
+
+Ask whether units are consistent, the answer is in the domain, the size and sign are reasonable, whole numbers are required, and the model is being used outside its intended range.
+
+## Browser symbolic practice
+
+Use [math.js](https://mathjs.org/docs/index.html) for browser calculators, [Nerdamer](https://nerdamer.com/documentation.html) for parameter solving, [Algebrite](https://github.com/davidedc/Algebrite) for CAS exploration, or [PyScript](https://docs.pyscript.net/latest/) for a heavier Python/SymPy sandbox.
+
+Try entering two points to compute a line, evaluating a candidate formula at data points, and comparing linear and exponential predictions.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Translate: "seven more than twice `x`."
+2. A taxi charges `$4` plus `$2.50` per mile. Write a cost model.
+3. A line passes through `(1, 5)` and `(4, 17)`. Find a linear model.
+4. A store sells notebooks for `$3` and pens for `$2`. A customer buys `12` items for `$31`. Set up and solve a system.
+5. A square has area `A`. Write side length as a function of `A`.
+6. A value starts at `800` and decays by `6%` per year. Write a model.
+7. A quadratic has vertex `(2, 9)` and passes through `(4, 1)`. Find `a`.
+8. Explain one limitation of a taxi cost model.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `2x + 7`.
+2. `C(m)=4+2.50m`.
+3. `y = 4x + 1`.
+4. `n+p=12`, `3n+2p=31`; `n=7`, `p=5`.
+5. `s(A)=sqrt(A)`, `A >= 0`.
+6. `V(t)=800(0.94)^t`.
+7. `1=a(4-2)^2+9`, so `a=-2`.
+8. It may ignore minimum fares, traffic charges, rounding, or rate changes.
+:::
+
+## Subtopic guided practice and checkpoints
+
+Modeling is not just solving. It is choosing variables, translating conditions,
+solving, and checking whether the result makes sense in context.
+
+### Lab 1: define variables and units
+
+**Guess first.** If a problem asks for time and distance, why is it dangerous to
+write equations before defining variables?
+
+**Guided exercise.**
+
+Suppose a taxi charges `$4` plus `$2.50` per mile. Define:
+
+```text
+m = number of miles
+C = total cost in dollars
+```
+
+Then the model is:
+
+```text
+C = 4 + 2.50m
+```
+
+::: {.practice-box}
+**Checkpoint.** A gym charges a `$25` sign-up fee plus `$18` per month. Define
+variables with units and write a cost model.
+:::
+
+### Lab 2: translate words into equations
+
+**Guess first.** In “five more than twice a number is seventeen,” which part is
+the variable expression?
+
+**Guided exercise.**
+
+```text
+number -> n
+twice a number -> 2n
+five more than twice a number -> 2n + 5
+is seventeen -> = 17
+```
+
+So:
+
+```text
+2n + 5 = 17
+2n = 12
+n = 6
+```
+
+::: {.practice-box}
+**Checkpoint.** Translate and solve: “Three less than four times a number is
+twenty-one.”
+:::
+
+### Lab 3: linear model from two data points
+
+**Guess first.** If data points are `(2, 11)` and `(6, 23)`, is the rate of
+change positive or negative?
+
+**Guided exercise.**
+
+```text
+m = (23 - 11)/(6 - 2) = 12/4 = 3
+y - 11 = 3(x - 2)
+y = 3x + 5
+```
+
+The model predicts an output of `5` when `x = 0`.
+
+::: {.practice-box}
+**Checkpoint.** Build a linear model through `(1, 9)` and `(5, 21)`.
+Interpret the slope.
+:::
+
+### Lab 4: check a model result
+
+**Guess first.** If a ticket problem gives `a = -3` adult tickets, should you
+accept the algebraic answer?
+
+**Guided exercise.**
+
+A model answer must satisfy three tests:
+
+1. It satisfies the equation or system.
+2. It has the right units.
+3. It makes sense in the context.
+
+Negative ticket counts, negative lengths, and fractional people usually mean the
+model or interpretation needs review.
+
+::: {.practice-box}
+**Checkpoint.** A calculation gives `2.4` buses for a field trip. What final
+answer should the planner use, and why?
+:::
+
+## Guessing game checkpoint
+
+<script type="application/json" class="fcmath-guessing-game-config">
+{
+  "topic": "algebraic-modeling",
+  "title": "Algebraic modeling checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include ../../../../_includes/guessing-game.qmd >}}
+
+## Using this lesson with fcmath and SymPy
+
+
+Use parsed equations to check the algebra after you have defined variables and
+units. The computer can solve, but you must decide whether the model makes sense.
+
+```{python}
+#| echo: true
+from fcmath.core import parse_equation
+from fcmath.solvers import solve_equation_steps
+
+model_solution = solve_equation_steps(parse_equation("2*n + 5 = 17"))
+print(model_solution.render_text())
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+m, b = sp.symbols("m b")
+sp.solve((sp.Eq(m*2 + b, 7), sp.Eq(m*5 + b, 16)), (m, b))
+```
+
+```{python}
+#| echo: true
+a, x = sp.symbols("a x")
+model = a*(x - 3)**2 + 10
+sp.solve(sp.Eq(model.subs(x, 5), 2), a)
+```
+
+```{python}
+#| echo: true
+from fcmath.algebra import expression_table
+
+expression_table("35 + 8*x", inputs=(0, 1, 2, 3, 4))
+```
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*: <https://openstax.org/books/college-algebra-2e/pages/index>
+- OpenStax, *Precalculus*: <https://openstax.org/books/precalculus/pages/index>

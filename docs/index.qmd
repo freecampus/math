@@ -1,15 +1,55 @@
 ---
-title: edu-math
-description: Python tools for math education workflows.
+title: FreeCampus Math
+description: A proof-aware pathway for advanced quantitative and computational study.
+page_type: home
+listing: false
 ---
 
-`edu-math` is a Python package for math education workflows.
+::: {.hero}
+## Learn mathematics as a connected way of reasoning
 
-The package is currently at its initial infrastructure stage. The project
-includes source packaging, tests, linting, documentation, release automation,
-and CI scaffolding.
+Develop theory, manual problem-solving ability, computational fluency, and
+interpretive judgment across algebra, proof, linear algebra, calculus,
+differential equations, probability, statistics, and Python.
 
-## Development status
+[Start Mathematics for Quantitative Studies](pathways/quantitative-mathematics/start-here.qmd){.btn .btn-primary .btn-lg}
+[Take the diagnostic](pathways/quantitative-mathematics/diagnostic.qmd){.btn .btn-outline-primary .btn-lg}
+:::
 
-The public API is intentionally small while the package design is established.
-See [API reference](api.qmd) for the current exported interface.
+## One pathway, connected subject courses
+
+You can follow one recommended sequence or enter a subject course directly.
+Stable outcomes and prerequisites connect every course; QMD lessons provide the
+same full lesson material on the website and in generated Colab notebooks.
+
+{{< include courses/_cards.qmd >}}
+
+## What rigorous study means here
+
+::: {.course-grid}
+### Explain before calculating
+
+Definitions, domains, hypotheses, and limitations remain visible. Worked
+solutions show why each step follows, not only which operation to perform.
+
+### Work manually and computationally
+
+You first build an auditable mathematical argument, then use SymPy, NumPy, and
+other appropriate tools to verify, explore, and scale the idea.
+
+### Practice retrieval and synthesis
+
+Topic-specific checkpoints sit near the concepts they test. Unit challenges and
+cumulative mixed practice ask you to select methods independently.
+
+### Keep control of your learning record
+
+Completion stays in your browser without an account. Export, import, or reset it
+at any time; raw answers and behavioral histories are not stored.
+:::
+
+## Continue where you left off
+
+<div class="progress-dashboard" data-progress-summary="pathway" aria-live="polite">
+  <p>Enable JavaScript to see browser-local progress. All lessons remain available without it.</p>
+</div>

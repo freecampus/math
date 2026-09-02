@@ -1,0 +1,21 @@
+{
+  "course_id": "differential-equations",
+  "outcomes": [
+    {
+      "id": "differential-equations-outcome-1",
+      "description": "Classify differential equations and select justified solution methods."
+    },
+    {
+      "id": "differential-equations-outcome-2",
+      "description": "Solve and verify foundational first-order equations and linear systems."
+    },
+    {
+      "id": "differential-equations-outcome-3",
+      "description": "Use slope fields and phase behavior to reason before calculating."
+    },
+    {
+      "id": "differential-equations-outcome-4",
+      "description": "Compare exact and numerical solutions while tracking assumptions and error."
+    }
+  ]
+}

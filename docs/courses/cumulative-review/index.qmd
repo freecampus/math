@@ -1,0 +1,30 @@
+---
+title: Cumulative Review and Practice
+description: Interleaved retrieval, comprehensive assessment, and readiness reflection.
+id: cumulative-review
+page_type: course
+status: in-development
+---
+
+Interleaved retrieval, comprehensive assessment, and readiness reflection.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Select methods without being told which subject a mixed problem belongs to.
+- Synthesize conceptual, manual, symbolic, computational, and interpretive skills.
+- Diagnose persistent gaps and build an evidence-based review plan.
+- Communicate complete solutions under untimed and timed conditions.
+
+## Prerequisites
+
+advanced-algebra, linear-algebra, differential-calculus, integral-calculus, differential-equations, discrete-mathematics, probability, statistics, mathematical-computing
+
+## Units
+
+- [1. Mixed and Comprehensive Practice](units/mixed-practice/index.qmd)
+
+[Begin or continue the course](units/mixed-practice/index.qmd){.btn .btn-primary}

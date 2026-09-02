@@ -1,0 +1,57 @@
+---
+title: "Unit title"
+description: "What this unit connects and why the sequence matters."
+id: course-unit-overview
+course_id: course-id
+unit_id: unit-id
+page_type: unit-overview
+status: in-development
+estimated_time: "10 hours"
+skill_modes: [mixed]
+outcome_ids: [course-outcome-1]
+execute:
+  echo: false
+---
+
+## Purpose
+
+Explain the mathematical arc of the unit and how it supports later study.
+
+::: {.learning-objectives}
+### Unit outcomes
+
+- List measurable outcomes synchronized with the course outcome file.
+- Include conceptual, manual, computational, and interpretive expectations.
+:::
+
+::: {.prerequisites}
+### Readiness check
+
+Link prerequisites and provide two or three short questions with collapsed,
+step-by-step solutions. Direct learners with gaps to the relevant review.
+:::
+
+## Unit map
+
+Introduce each lesson in catalog order. Explain what it contributes rather than
+repeating its title. End with the unit challenge and estimated study plan.
+
+## Central ideas and notation
+
+Preview the definitions, notation, and connections that unify the unit. Link to
+the notation guide rather than duplicating global conventions.
+
+## How to study this unit
+
+Recommend a deliberate cycle: predict, reason manually, compute where useful,
+interpret, verify, and retrieve the idea later without notes.
+
+## Readiness checkpoint
+
+Add a brief topic-specific prediction or classification task with a collapsed
+answer. Do not introduce a full lesson before its prerequisites.
+
+## Unit resources and next step
+
+Link the first lesson, relevant reference pages, generated notebook collection,
+and eventual unit challenge.

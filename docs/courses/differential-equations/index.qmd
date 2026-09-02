@@ -1,0 +1,30 @@
+---
+title: Differential Equations
+description: Qualitative, symbolic, and numerical analysis of dynamical models.
+id: differential-equations
+page_type: course
+status: active
+---
+
+Qualitative, symbolic, and numerical analysis of dynamical models.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Classify differential equations and select justified solution methods.
+- Solve and verify foundational first-order equations and linear systems.
+- Use slope fields and phase behavior to reason before calculating.
+- Compare exact and numerical solutions while tracking assumptions and error.
+
+## Prerequisites
+
+integral-calculus, linear-algebra
+
+## Units
+
+- [1. Ordinary Differential Equations](units/ordinary-differential-equations/index.qmd)
+
+[Begin or continue the course](units/ordinary-differential-equations/index.qmd){.btn .btn-primary}

@@ -1,0 +1,722 @@
+---
+title: Expressions and Equations
+description: Build symbolic fluency with expressions, identities, equations, and solution sets.
+execute:
+  echo: false
+id: advanced-algebra-algebra-expressions-and-equations
+course_id: advanced-algebra
+unit_id: algebra
+page_type: lesson
+status: active
+estimated_time: "120 minutes"
+skill_modes: [conceptual, manual-calculation, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-3]
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- distinguish expressions, equations, identities, contradictions, and solution
+  sets;
+- evaluate expressions by substitution while tracking the order of operations;
+- recognize when two expressions are equivalent;
+- expand, factor, collect, and simplify basic algebraic expressions;
+- solve one-variable linear equations and check solutions;
+- use SymPy to verify algebraic work without replacing mathematical reasoning.
+:::
+
+## Motivation
+
+Graduate-level quantitative courses assume that algebra is automatic. In
+calculus, you rearrange expressions before differentiating. In statistics, you
+solve for parameters and simplify likelihoods. In optimization, you transform
+constraints. In linear algebra, you solve systems whose entries may be symbolic.
+
+The goal is not to memorize isolated tricks. The goal is to develop a reliable
+habit:
+
+> Convert a problem into symbols, transform the symbols without changing their
+> meaning, and interpret the result in context.
+
+## Expressions, equations, and identities
+
+An **expression** is a mathematical phrase. It can be evaluated, simplified, or
+transformed, but by itself it is not true or false.
+
+Examples:
+
+```text
+3x + 2
+x^2 - 5x + 6
+2(a + b)
+sqrt(x - 1)
+```
+
+An **equation** states that two expressions are equal:
+
+```text
+3x + 2 = 14
+```
+
+An equation may be true for one value, many values, all values, or no values.
+
+An **identity** is true for every value in its domain:
+
+```text
+2(x + 3) = 2x + 6
+```
+
+A **contradiction** is never true:
+
+```text
+x + 1 = x + 2
+```
+
+::: {.callout-tip}
+## Why this distinction matters
+
+When you simplify an expression, you are changing its form. When you solve an
+equation, you are finding values that make a statement true. Confusing these two
+tasks is one of the most common causes of algebra mistakes.
+:::
+
+## Variables, constants, and parameters
+
+A **variable** represents a quantity that can change. A **constant** is fixed. A
+**parameter** is fixed during one problem but may vary across problems.
+
+For example, in
+
+```text
+f(x) = ax + b
+```
+
+`x` is usually the input variable, while `a` and `b` are parameters. Changing
+`x` moves along one line. Changing `a` or `b` changes the line itself.
+
+## Evaluating an expression
+
+To evaluate an expression, substitute a value for the variable and follow the
+order of operations.
+
+Example:
+
+```text
+2x^2 - 3x + 1, when x = 4
+```
+
+Substitute:
+
+```text
+2(4)^2 - 3(4) + 1
+```
+
+Compute powers before multiplication:
+
+```text
+2(16) - 12 + 1 = 32 - 12 + 1 = 21
+```
+
+Use a table when you want to see many inputs at once.
+
+```{python}
+from fcmath.algebra import expression_table
+
+expression_table("2*x**2 - 3*x + 1", inputs=(-2, -1, 0, 1, 2, 3, 4))
+```
+
+## Equivalent expressions
+
+Two expressions are **equivalent** if they produce the same value for every
+allowed input.
+
+For example:
+
+```text
+(x + 1)^2
+```
+
+and
+
+```text
+x^2 + 2x + 1
+```
+
+are equivalent. One form is factored around a repeated linear factor; the other
+form is expanded.
+
+```{python}
+from fcmath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("(x + 1)**2", "x**2 + 2*x + 1"),
+    labels=("factored form", "expanded form"),
+    x_min=-5,
+    x_max=3,
+    y_min=-1,
+    y_max=16,
+    title="Equivalent expressions have the same graph",
+)
+fig, ax = scene.render()
+```
+
+The graph is the same because the two formulas define the same function. The
+forms emphasize different information:
+
+- `(x + 1)^2` makes the root `x = -1` visible.
+- `x^2 + 2x + 1` makes the coefficients visible.
+
+## Expanding, factoring, and simplifying
+
+Algebra often asks you to choose the most useful form.
+
+### Expanding
+
+Expanding uses distribution:
+
+```text
+(x + 3)(x - 2)
+```
+
+Multiply every term in the first factor by every term in the second:
+
+```text
+x*x + x*(-2) + 3*x + 3*(-2)
+= x^2 - 2x + 3x - 6
+= x^2 + x - 6
+```
+
+### Factoring
+
+Factoring reverses expansion:
+
+```text
+x^2 + x - 6 = (x + 3)(x - 2)
+```
+
+This form immediately tells us the zeros: `x = -3` and `x = 2`.
+
+### Simplifying
+
+Simplifying means rewriting an expression in a cleaner equivalent form. It does
+not always mean \"shorter\"; it means \"more useful for the task.\"
+
+```{python}
+import sympy as sp
+
+x = sp.Symbol("x")
+sp.expand((x + 3) * (x - 2)), sp.factor(x**2 + x - 6)
+```
+
+## Equations and solution sets
+
+Solving an equation means finding all values that make it true.
+
+Consider:
+
+```text
+3x + 2 = 14
+```
+
+Subtract `2` from both sides:
+
+```text
+3x = 12
+```
+
+Divide both sides by `3`:
+
+```text
+x = 4
+```
+
+Check:
+
+```text
+3(4) + 2 = 14
+```
+
+So the solution set is `{4}`.
+
+::: {.key-idea}
+### Balanced operations
+
+Whatever operation you perform on one side of an equation must be performed on
+the other side. The goal is to produce an equivalent equation with the same
+solution set.
+:::
+
+## Identities, contradictions, and conditional equations
+
+Not every equation has exactly one answer.
+
+### Identity
+
+```text
+2(x + 3) = 2x + 6
+```
+
+Expanding the left side gives:
+
+```text
+2x + 6 = 2x + 6
+```
+
+This is true for every `x`.
+
+### Contradiction
+
+```text
+x + 1 = x + 2
+```
+
+Subtract `x` from both sides:
+
+```text
+1 = 2
+```
+
+This is never true, so there is no solution.
+
+### Conditional equation
+
+```text
+4x - 7 = 9
+```
+
+This is true only when `x = 4`.
+
+## Domain restrictions
+
+Algebraic transformations must respect domain restrictions.
+
+For example:
+
+```text
+(x^2 - 1)/(x - 1)
+```
+
+can be simplified as:
+
+```text
+((x - 1)(x + 1))/(x - 1) = x + 1
+```
+
+but the original expression is undefined at `x = 1`. The simplified expression
+`x + 1` is defined at `x = 1`, so the two expressions are equivalent only when
+`x != 1`.
+
+::: {.callout-warning}
+## Important
+
+Cancelling a factor can remove visible evidence of a restriction. Always record
+values that make a denominator zero, a logarithm invalid, or an even root
+undefined over the real numbers.
+:::
+
+## SymPy as a verification tool
+
+The package's quiz helpers can generate questions where the expected answer is
+derived from the expression.
+
+```{python}
+from fcmath.algebra import expand_question, factor_question
+
+expand = expand_question((x + 1) ** 2)
+factor = factor_question(x**2 - 5 * x + 6)
+
+expand.check("x**2 + 2*x + 1").message, factor.check("(x - 2)*(x - 3)").message
+```
+
+Use this as a checker, not as a replacement for understanding. A computer
+algebra system can confirm equivalence, but you still need to know which form is
+useful and what restrictions apply.
+
+## Worked examples
+
+### Example 1: expand and interpret
+
+Expand:
+
+```text
+(x - 4)(x + 2)
+```
+
+Solution:
+
+```text
+x^2 + 2x - 4x - 8 = x^2 - 2x - 8
+```
+
+Interpretation:
+
+- Factored form shows zeros at `x = 4` and `x = -2`.
+- Expanded form shows degree `2`, leading coefficient `1`, and constant term
+  `-8`.
+
+### Example 2: solve a linear equation
+
+Solve:
+
+```text
+5 - 2x = 17
+```
+
+Subtract `5`:
+
+```text
+-2x = 12
+```
+
+Divide by `-2`:
+
+```text
+x = -6
+```
+
+Check:
+
+```text
+5 - 2(-6) = 5 + 12 = 17
+```
+
+### Example 3: classify an equation
+
+Classify:
+
+```text
+3(x - 2) + 6 = 3x
+```
+
+Expand:
+
+```text
+3x - 6 + 6 = 3x
+```
+
+Simplify:
+
+```text
+3x = 3x
+```
+
+This is an identity.
+
+## Common mistakes
+
+::: {.common-mistake}
+### Changing only one side
+
+If you subtract `2` from the left side but not the right side, the new equation
+is not equivalent to the original.
+:::
+
+::: {.common-mistake}
+### Losing a negative sign
+
+When solving `-3x = 12`, divide by `-3`, not by `3`. The solution is `x = -4`.
+:::
+
+::: {.common-mistake}
+### Cancelling terms instead of factors
+
+In `(x + 3)/x`, you cannot cancel the `x` in the denominator with the `x` inside
+`x + 3`. Cancellation applies to common factors, not pieces of sums.
+:::
+
+::: {.common-mistake}
+### Ignoring restrictions
+
+If an original denominator is zero at a value, that value is excluded even if a
+simplified expression appears to allow it.
+:::
+
+## Practice
+
+::: {.practice-box}
+1. Evaluate `2x + 5` when `x = 3`.
+2. Evaluate `x^2 - 4x + 1` when `x = -2`.
+3. Expand `(x + 5)(x - 1)`.
+4. Factor `x^2 - 7x + 10`.
+5. Solve `4x - 7 = 9`.
+6. Solve `-2x + 6 = 14`.
+7. Classify `2(x + 4) = 2x + 8` as identity, contradiction, or conditional
+   equation.
+8. Classify `x + 5 = x - 1`.
+9. State the restriction for `(x^2 - 9)/(x - 3)`.
+10. Explain why `(x^2 - 9)/(x - 3)` is not exactly the same function as `x + 3`
+    over all real numbers.
+11. Solve `a*x + b = c` for `x`, assuming `a != 0`.
+12. Challenge: create two different-looking expressions that are equivalent to
+    `x^2 - 4`.
+:::
+
+## Solutions
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+
+Answer: `11`.
+
+Substitute `x = 3`: `2(3) + 5 = 6 + 5 = 11`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+
+Answer: `13`.
+
+`(-2)^2 - 4(-2) + 1 = 4 + 8 + 1 = 13`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+
+Answer: `x^2 + 4x - 5`.
+
+`(x + 5)(x - 1) = x^2 - x + 5x - 5 = x^2 + 4x - 5`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+
+Answer: `(x - 5)(x - 2)`.
+
+We need two numbers that multiply to `10` and add to `-7`: `-5` and `-2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+
+Answer: `x = 4`.
+
+Add `7` to both sides to get `4x = 16`, then divide by `4`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+
+Answer: `x = -4`.
+
+Subtract `6` from both sides to get `-2x = 8`, then divide by `-2`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+
+Answer: identity.
+
+The left side expands to `2x + 8`, so both sides are the same expression.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+
+Answer: contradiction.
+
+Subtracting `x` from both sides gives `5 = -1`, which is never true.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+
+Answer: `x != 3`.
+
+The denominator `x - 3` cannot equal zero.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+
+`(x^2 - 9)/(x - 3)` simplifies to `x + 3` for `x != 3`, but the original
+expression is undefined at `x = 3`. The graph has a removable hole there.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 11
+
+Answer: `x = (c - b)/a`.
+
+Subtract `b` from both sides: `a*x = c - b`. Divide by `a`, assuming `a != 0`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution 12
+
+Two examples are `(x - 2)(x + 2)` and `(x^2 - 2x) + (2x - 4)`.
+
+There are infinitely many equivalent forms. The important skill is being able to
+prove equivalence by algebraic transformation.
+:::
+
+## Why this matters later
+
+- **Calculus:** simplifying before differentiating or integrating can turn a
+  hard problem into an easy one.
+- **Linear algebra:** equations become systems, and systems become matrix
+  equations.
+- **Statistics:** parameters are estimated by solving or optimizing algebraic
+  expressions.
+- **Optimization:** constraints are equations and inequalities that define the
+  feasible set.
+
+## Subtopic guided practice and checkpoints
+
+Use these mini-labs after the main explanations. Each lab asks you to **guess
+first**, then follow the steps, then try a checkpoint without looking back.
+
+### Lab 1: expression, equation, or identity?
+
+**Guess first.** Decide whether each object is an expression, an equation, or an
+identity.
+
+```text
+A. 3x - 7
+B. 3x - 7 = 11
+C. 2(x + 1) = 2x + 2
+```
+
+**Guided exercise.**
+
+1. Look for an equals sign. No equals sign means expression, so A is an
+   expression.
+2. If there is an equals sign, ask whether it is true for all allowed values or
+   only some values.
+3. B is an equation because it is true only for `x = 6`.
+4. C is an identity because expanding the left side gives `2x + 2`, so both
+   sides match for every `x`.
+
+::: {.practice-box}
+**Checkpoint.** Classify each: `5 - y`, `y^2 = 9`, `(x - 4)^2 = x^2 - 8x + 16`.
+Then write one sentence explaining how you decided.
+:::
+
+### Lab 2: substitute carefully
+
+**Guess first.** For `E = 2a^2 - 3b`, estimate whether the value is positive or
+negative when `a = -2` and `b = 5`.
+
+**Guided exercise.**
+
+```text
+E = 2a^2 - 3b
+  = 2(-2)^2 - 3(5)
+  = 2(4) - 15
+  = 8 - 15
+  = -7
+```
+
+Notice that `(-2)^2 = 4`. Parentheses protect the negative sign.
+
+::: {.practice-box}
+**Checkpoint.** Evaluate `4p - 2q^2` when `p = -3` and `q = -2`. Show the
+substitution line before simplifying.
+:::
+
+### Lab 3: build equivalent forms
+
+**Guess first.** Is `(x + 5)(x - 2)` equivalent to `x^2 + 3x - 10`,
+`x^2 - 3x - 10`, or `x^2 + 7x - 10`?
+
+**Guided exercise.**
+
+```text
+(x + 5)(x - 2)
+= x(x - 2) + 5(x - 2)
+= x^2 - 2x + 5x - 10
+= x^2 + 3x - 10
+```
+
+Every equivalent form tells a different story: expanded form shows coefficients,
+while factored form shows roots.
+
+::: {.practice-box}
+**Checkpoint.** Expand `(2x - 1)(x + 4)`. Then factor your result back to check.
+:::
+
+### Lab 4: solve and check a linear equation
+
+**Guess first.** In `4(x - 2) + 3 = 19`, should `x` be smaller than 5, equal to
+5, or larger than 5?
+
+**Guided exercise.**
+
+```text
+4(x - 2) + 3 = 19
+4x - 8 + 3 = 19        expand
+4x - 5 = 19            combine like terms
+4x = 24                add 5 to both sides
+x = 6                  divide by 4
+```
+
+Check in the original equation:
+
+```text
+4(6 - 2) + 3 = 16 + 3 = 19
+```
+
+::: {.practice-box}
+**Checkpoint.** Solve `3(2x + 1) - 5 = 16`. Show each balanced operation and
+check the answer in the original equation.
+:::
+
+## Guessing game checkpoint
+
+Before moving to the Python/SymPy appendix, practice the core moves from this
+lesson. This short quiz may show an expression, graph, equation, solution set, or
+description and ask you to choose the matching mathematical object.
+
+<script type="application/json" class="fcmath-guessing-game-config">
+{
+  "topic": "expressions-equations",
+  "title": "Expressions and equations checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include ../../../../_includes/guessing-game.qmd >}}
+
+## Using this lesson with fcmath and SymPy
+
+
+Use the parser/solver workflow when a text equation should become a SymPy
+equation first and a step-by-step `fcmath` solution second.
+
+```{python}
+#| echo: true
+from fcmath.core import parse_equation
+from fcmath.solvers import solve_equation_steps
+
+step_solution = solve_equation_steps(parse_equation("4(x - 2) + 3 = 19"))
+print(step_solution.render_text())
+```
+
+Use SymPy to check symbolic transformations and use `fcmath` quiz helpers to
+turn those transformations into auto-checkable practice.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+from fcmath.algebra import expand_question, factor_question
+
+x = sp.Symbol("x")
+expanded = sp.expand((x + 3) * (x - 2))
+factored = sp.factor(x**2 + x - 6)
+expanded, factored
+```
+
+```{python}
+#| echo: true
+question = expand_question((x + 1) ** 2)
+question.check("x**2 + 2*x + 1").message
+```
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*, Chapter 1 and Chapter 2:
+  <https://openstax.org/books/college-algebra-2e/pages/index>
+- Paul's Online Math Notes, Algebra:
+  <https://tutorial.math.lamar.edu/>

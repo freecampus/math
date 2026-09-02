@@ -1,0 +1,26 @@
+.math.display,
+.katex-display,
+mjx-container[display="true"] {
+  max-width: var(--fc-wide);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.35rem;
+  scrollbar-width: thin;
+}
+table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+figure {
+  max-width: var(--fc-wide);
+}
+figcaption {
+  color: var(--fc-muted);
+  font-size: 0.92rem;
+}
+pre {
+  max-width: var(--fc-wide);
+}

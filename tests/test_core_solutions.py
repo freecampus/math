@@ -1,4 +1,4 @@
-from edumath.core import (
+from fcmath.core import (
     Exercise,
     SolutionStep,
     WorkedSolution,

@@ -1,0 +1,25 @@
+---
+title: Notation and terminology
+description: Shared conventions for logic, algebra, calculus, linear algebra, probability, and statistics.
+page_type: resource
+---
+
+## Global conventions
+
+- $\mathbb{N}=\{0,1,2,\ldots\}$ unless a lesson explicitly states otherwise.
+- Intervals use brackets for included finite endpoints and parentheses for
+  excluded endpoints and for $\pm\infty$.
+- $=$ asserts equality; $\approx$ marks approximation; $\equiv$ marks an
+  identity or congruence as defined by context.
+- Vectors are bold lowercase, matrices bold uppercase, and scalars italic.
+- Random variables are uppercase and their observed values lowercase.
+- Decimal points use a period. Group large numbers with thin spaces in prose.
+
+## Precision language
+
+A value is **exact** when no rounding or numerical approximation was used. A
+value is **approximate** when rounded or numerically computed, **simulated** when
+produced by a random mechanism, and **estimated** when inferred from data.
+
+Every symbol must be defined near first use, and every equation must be read in
+its domain. Notation is a compression device, not a substitute for meaning.

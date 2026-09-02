@@ -1,15 +1,16 @@
 cff-version: 1.2.0
-message: "If you use edu-math in your work, please cite this software."
+message: "If you use FreeCampus Math in your work, please cite this software."
 type: software
-title: "edu-math"
-version: "0.4.4" # semantic-release
+title: "FreeCampus Math"
+version: "0.1.0" # semantic-release
 authors:
-  - name: "Open Science Labs Incubator"
-abstract: "Python tools for math education workflows."
-repository-code: "https://github.com/osl-incubator/edu-math"
-url: "https://osl-incubator.github.io/edu-math/"
+  - name: "FreeCampus contributors"
+abstract: "Proof-aware mathematics curriculum and reusable Python learning tools."
+repository-code: "https://github.com/freecampus/math"
+url: "https://freecampus.github.io/math/"
 license: "BSD-3-Clause"
 keywords:
   - education
-  - math
+  - mathematics
   - python
+  - open educational resources

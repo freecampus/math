@@ -1,0 +1,19 @@
+---
+title: Formula reference
+description: A compact index of high-use formulas with hypotheses and interpretation prompts.
+page_type: resource
+---
+
+A formula is useful only with its hypotheses. Use this page for retrieval after
+you can derive or explain the result in its course.
+
+| Idea | Statement | Conditions to check |
+|---|---|---|
+| Quadratic roots | $x=(-b\pm\sqrt{b^2-4ac})/(2a)$ | $a\ne0$; real versus complex domain |
+| Derivative definition | $f'(a)=\lim_{h\to0}[f(a+h)-f(a)]/h$ | The limit exists and is finite |
+| Fundamental Theorem | $\int_a^b f(x)\,dx=F(b)-F(a)$ | $f$ continuous; $F'=f$ on the interval |
+| Bayes' rule | $P(A\mid B)=P(B\mid A)P(A)/P(B)$ | $P(B)>0$ |
+| Standardization | $z=(x-\mu)/\sigma$ | $\sigma>0$; interpretation depends on model |
+
+Add formulas to your own reference with a derivation, units, failure cases, and
+one example. A bare formula list encourages unsafe pattern matching.

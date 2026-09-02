@@ -1,0 +1,30 @@
+---
+title: Mathematical Computing with Python
+description: Reproducible numerical, symbolic, and visual mathematical work.
+id: mathematical-computing
+page_type: course
+status: active
+---
+
+Reproducible numerical, symbolic, and visual mathematical work.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Write clear Python programs for mathematical experiments and verification.
+- Use arrays, vectorization, plotting, and functions without obscuring assumptions.
+- Distinguish exact symbolic results from floating-point approximations.
+- Design reproducible computations with tests, labels, units, and error checks.
+
+## Prerequisites
+
+No course prerequisite; use the pathway diagnostic to check readiness.
+
+## Units
+
+- [1. Python Foundations for Mathematical Work](units/python-foundations/index.qmd)
+
+[Begin or continue the course](units/python-foundations/index.qmd){.btn .btn-primary}

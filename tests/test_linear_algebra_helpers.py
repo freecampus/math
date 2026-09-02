@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 
-from edumath.linear_algebra import (
+from fcmath.linear_algebra import (
     LINEAR_ALGEBRA_PATH,
     can_multiply,
     determinant_2x2,
