@@ -4,3 +4,10 @@ overrides:
       parser: remark
       proseWrap: always
       printWidth: 80
+  - files:
+      - "docs/courses/_catalog.yml"
+      - "docs/courses/*/_outcomes.yml"
+      - "docs/courses/*/units/*/_metadata.yml"
+      - "docs/quizzes/**/*.yml"
+    options:
+      parser: json

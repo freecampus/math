@@ -1,0 +1,21 @@
+{
+  "course_id": "discrete-mathematics",
+  "outcomes": [
+    {
+      "id": "discrete-mathematics-outcome-1",
+      "description": "Translate statements into precise logical and set-theoretic notation."
+    },
+    {
+      "id": "discrete-mathematics-outcome-2",
+      "description": "Construct direct, contrapositive, contradiction, and induction arguments."
+    },
+    {
+      "id": "discrete-mathematics-outcome-3",
+      "description": "Analyze functions, relations, sequences, and graph structures."
+    },
+    {
+      "id": "discrete-mathematics-outcome-4",
+      "description": "Separate examples and computational evidence from mathematical proof."
+    }
+  ]
+}

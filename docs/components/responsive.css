@@ -1,0 +1,37 @@
+@media (max-width: 575px) {
+  :root {
+    --fc-space-4: 1.1rem;
+    --fc-space-5: 1.6rem;
+  }
+  main.content {
+    font-size: 1rem;
+  }
+  .quiz-controls > *,
+  .progress-actions > * {
+    flex: 1 1 100%;
+  }
+  .fc-quiz > header,
+  .fc-quiz > form,
+  .fc-quiz > .quiz-feedback,
+  .fc-quiz > .quiz-score {
+    padding-inline: 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+@media (forced-colors: active) {
+  .learning-objectives,
+  .lesson-completion,
+  .fc-quiz,
+  .quiz-options label {
+    border: 1px solid CanvasText;
+  }
+}

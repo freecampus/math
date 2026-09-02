@@ -1,0 +1,316 @@
+---
+title: Systems of Differential Equations
+description: Model several changing quantities that influence each other.
+execute:
+  echo: false
+id: differential-equations-ordinary-differential-equations-systems
+course_id: differential-equations
+unit_id: ordinary-differential-equations
+page_type: lesson
+status: active
+estimated_time: "65 minutes"
+skill_modes: [conceptual, manual-calculation, computational, interpretation]
+outcome_ids: [differential-equations-outcome-1, differential-equations-outcome-2, differential-equations-outcome-3, differential-equations-outcome-4]
+---
+
+A system of differential equations tracks more than one changing quantity. This
+is useful when variables interact, such as predators and prey, position and
+velocity, or two chemical concentrations.
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- recognize a system of first-order differential equations;
+- explain coupled variables;
+- find equilibrium points by setting all derivatives equal to zero;
+- write simple linear systems in matrix form;
+- interpret phase-plane arrows;
+- connect simple matrix systems to growth, decay, rotation, or saddle behavior.
+:::
+
+## General form
+
+A two-variable first-order system often looks like
+
+```text
+dx/dt = f(x,y)
+dy/dt = g(x,y)
+```
+
+The state is the point `(x,y)`. As time changes, the state moves through the
+plane.
+
+::: {.key-idea}
+In a single ODE, the solution is a curve `y(t)`. In a two-variable system, the
+solution is a moving point `(x(t), y(t))`.
+:::
+
+## Coupling
+
+A system is **coupled** when one variable affects the other variable's rate of
+change.
+
+Example:
+
+```text
+x' = y
+y' = -x
+```
+
+Here `x'` depends on `y`, and `y'` depends on `x`. Neither equation is fully
+independent.
+
+## Equilibrium points
+
+An equilibrium point is a state where nothing changes. For a two-variable
+system, set both derivatives equal to zero:
+
+```text
+f(x,y)=0
+g(x,y)=0
+```
+
+Both equations must be true at the same time.
+
+## Worked example 1: find an equilibrium
+
+Find the equilibrium of
+
+```text
+x' = 2 - x
+y' = 3 - y
+```
+
+Set each derivative to zero:
+
+```text
+2 - x = 0
+3 - y = 0
+```
+
+Solve:
+
+```text
+x = 2
+y = 3
+```
+
+The equilibrium point is `(2,3)`.
+
+## Linear systems and matrices
+
+A linear homogeneous system can be written as
+
+```text
+u' = A u
+```
+
+where `u` is a vector of variables and `A` is a matrix of coefficients.
+
+For example,
+
+```text
+x' = -2x
+y' = 3y
+```
+
+can be written as
+
+```text
+[x']   [-2  0][x]
+[y'] = [ 0  3][y]
+```
+
+The `x` component decays while the `y` component grows.
+
+## Phase-plane intuition
+
+At each point `(x,y)`, the system gives a vector `(x',y')`. A phase plane draws
+many of these vectors. A trajectory follows the arrows.
+
+- Arrows pointing toward an equilibrium suggest stability.
+- Arrows pointing away suggest instability.
+- Circular or rotating arrows suggest oscillation.
+- Different directions along different axes can create saddle-like behavior.
+
+## Worked example 2: rotation
+
+Consider
+
+```text
+x' = y
+y' = -x
+```
+
+At `(1,0)`, the derivative vector is `(0,-1)`, so the state moves downward. At
+`(0,-1)`, the derivative vector is `(-1,0)`, so the state moves left. This
+pattern produces rotation around the origin.
+
+## Common pitfalls
+
+- Setting only one derivative equal to zero when finding an equilibrium.
+- Confusing the phase plane `(x,y)` with a graph of `y` versus `x`.
+- Assuming every system has a simple formula solution.
+- Forgetting that a vector in the phase plane represents a rate of change.
+- Using eigenvalues before understanding the qualitative picture.
+
+## Practice
+
+::: {.practice-box}
+1. Is `x'=x+y`, `y'=y` coupled? Explain.
+
+2. Find the equilibrium of `x'=5-x`, `y'=-2-y`.
+
+3. Write `x'=2x+y`, `y'=3x-y` in matrix form.
+
+4. At the point `(1,2)`, what is the vector for `x'=y`, `y'=-x`?
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. Yes. The rate `x'` depends on `y`.
+2. Set derivatives to zero: `x=5`, `y=-2`, so the equilibrium is `(5,-2)`.
+3. `u' = A u` with `A = [[2,1],[3,-1]]`.
+4. `(x',y')=(2,-1)`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+For systems, every state has a vector of rates. Learn to read the vector before
+trying to solve formulas.
+
+### Lab 1: identify state variables and coupling
+
+**Guess first.** In `x' = y`, `y' = -x`, does each variable influence the other?
+
+**Guided exercise.**
+
+```text
+x' = y      the rate of x depends on y
+y' = -x     the rate of y depends on x
+```
+
+The system is coupled because the variables appear in each other's derivative
+rules.
+
+::: {.practice-box}
+**Checkpoint.** Decide whether `x' = 2x`, `y' = -3y` is coupled. Then decide
+whether `x' = x + y`, `y' = y` is coupled.
+:::
+
+### Lab 2: find an equilibrium point
+
+**Guess first.** For `x' = 4 - 2x`, `y' = y + 1`, where might motion stop?
+
+**Guided exercise.**
+
+Set both derivatives equal to zero:
+
+```text
+4 - 2x = 0
+-2x = -4
+x = 2
+```
+
+and
+
+```text
+y + 1 = 0
+y = -1
+```
+
+The equilibrium point is `(2, -1)`.
+
+::: {.practice-box}
+**Checkpoint.** Find the equilibrium of `x' = 3 - x + y`, `y' = x - 1`. Solve
+the two equations carefully.
+:::
+
+### Lab 3: evaluate a phase-plane vector
+
+**Guess first.** For `x' = y`, `y' = -x`, what direction should the vector at
+`(0, 2)` point?
+
+**Guided exercise.**
+
+```text
+x' = y = 2
+y' = -x = 0
+```
+
+The vector is `(2, 0)`, so it points to the right.
+
+::: {.practice-box}
+**Checkpoint.** For `x' = x - y`, `y' = x + y`, find the vector at `(1, -2)`.
+:::
+
+### Lab 4: connect matrix form to behavior
+
+**Guess first.** In `u' = Au`, what does the matrix do?
+
+**Guided exercise.**
+
+For
+
+```text
+x' = -2x
+y' = 3y
+```
+
+the matrix is diagonal:
+
+```text
+A = [-2  0]
+    [ 0  3]
+```
+
+The `x` component decays because its coefficient is negative. The `y` component
+grows because its coefficient is positive. Different directions have different
+behaviors, which is the beginning of phase-plane analysis.
+
+::: {.practice-box}
+**Checkpoint.** Write the matrix for `x' = x + 2y`, `y' = -3x + y`. Which
+entries show coupling?
+:::
+
+## Systems checkpoint
+
+<script type="application/json" class="fcmath-de-checkpoint-config">
+{
+  "topic": "systems",
+  "title": "Systems checkpoint",
+  "defaultTotal": 4
+}
+</script>
+
+{{< include ../../../../_includes/differential-equations-checkpoint.qmd >}}
+
+## Using this lesson with fcmath and SymPy
+
+Use SymPy to find equilibrium points by solving simultaneous equations.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x, y = sp.symbols("x y")
+sp.solve((sp.Eq(2 - x, 0), sp.Eq(3 - y, 0)), (x, y))
+```
+
+Use `fcmath` to approximate a simple system numerically.
+
+```{python}
+#| echo: true
+from fcmath.differential_equations import system_euler_method
+
+system_euler_method(
+    lambda t, state: (state[1], -state[0]),
+    initial_t=0,
+    initial_state=(1, 0),
+    step=0.1,
+    steps=5,
+)
+```

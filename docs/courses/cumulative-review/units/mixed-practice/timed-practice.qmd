@@ -1,0 +1,22 @@
+---
+title: Timed Practice
+description: Build speed only after complete mathematical reasoning is dependable.
+id: cumulative-review-mixed-practice-timed-practice
+course_id: cumulative-review
+unit_id: mixed-practice
+page_type: assessment
+status: active
+estimated_time: "35 minutes"
+skill_modes: [conceptual, manual-calculation]
+outcome_ids: [cumulative-review-outcome-1, cumulative-review-outcome-2, cumulative-review-outcome-3, cumulative-review-outcome-4]
+---
+
+Timed work samples fluency; it does not replace understanding. Choose a mixed
+set, hide feedback until the end, record the time limit before starting, and
+stop when time expires. Review every item afterward, including correct answers
+reached through fragile reasoning.
+
+::: {.callout-warning}
+Timed results are local practice evidence, not a grade, credential, or prediction
+of performance in another setting.
+:::

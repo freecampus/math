@@ -1,0 +1,21 @@
+{
+  "course_id": "differential-calculus",
+  "outcomes": [
+    {
+      "id": "differential-calculus-outcome-1",
+      "description": "Use limits to analyze local behavior and state when limit laws apply."
+    },
+    {
+      "id": "differential-calculus-outcome-2",
+      "description": "Derive and interpret derivatives from definitions, rules, and approximations."
+    },
+    {
+      "id": "differential-calculus-outcome-3",
+      "description": "Connect differentiability to graphs, models, error, and optimization."
+    },
+    {
+      "id": "differential-calculus-outcome-4",
+      "description": "Check symbolic results and investigate edge cases computationally."
+    }
+  ]
+}

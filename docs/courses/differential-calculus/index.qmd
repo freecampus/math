@@ -1,0 +1,30 @@
+---
+title: Differential Calculus
+description: Limits, derivatives, approximation, optimization, and rigorous local reasoning.
+id: differential-calculus
+page_type: course
+status: active
+---
+
+Limits, derivatives, approximation, optimization, and rigorous local reasoning.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Use limits to analyze local behavior and state when limit laws apply.
+- Derive and interpret derivatives from definitions, rules, and approximations.
+- Connect differentiability to graphs, models, error, and optimization.
+- Check symbolic results and investigate edge cases computationally.
+
+## Prerequisites
+
+advanced-algebra
+
+## Units
+
+- [1. Limits and Differentiation](units/differentiation/index.qmd)
+
+[Begin or continue the course](units/differentiation/index.qmd){.btn .btn-primary}

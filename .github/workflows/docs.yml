@@ -1,10 +1,9 @@
-name: Documentation
+name: Documentation deployment
 
 on:
-  pull_request:
+  workflow_dispatch:
   push:
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,38 +16,44 @@ env:
   VIRTUALENV_ACTIVATORS: "bash,python"
 
 jobs:
-  build:
+  deploy:
+    name: Validate, render, and deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 25
     defaults:
       run:
         shell: bash -l {0}
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: latest
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
-          activate-environment: edumath
+          activate-environment: fcmath
           auto-update-conda: true
           conda-solver: libmamba
           python-version: "3.10"
-
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.cache/pip
+            .cache/deno
+          key: docs-${{ runner.os }}-${{ hashFiles('poetry.lock', 'docs/_quarto.yml') }}
       - name: Install dependencies
         run: |
           poetry config virtualenvs.create false
           poetry install --extras "dev"
-
-      - name: Render Quarto site
+      - name: Required structural checks
+        run: |
+          makim curriculum.validate
+          makim curriculum.check-generated
+          makim notebooks.check
+      - name: Render and smoke-test site
         run: makim docs.build
-
-      - name: GitHub Pages action
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: peaceiris/actions-gh-pages@v3.5.9
+      - name: Deploy GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build

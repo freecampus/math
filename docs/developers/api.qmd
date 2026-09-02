@@ -1,0 +1,72 @@
+---
+title: Python API
+description: The deliberately small, documented public API supporting lessons, quizzes, and validation.
+page_type: developer
+---
+
+The public `fcmath` surface focuses on reusable mathematical behavior. Subject
+helpers not listed here remain experimental and may change while courses are
+audited.
+
+## Safe expression handling and solving
+
+```python
+from fcmath import parse_equation, solve_equation_steps
+
+equation = parse_equation("2(x - 3) + 4 = 10")
+solution = solve_equation_steps(equation)
+print(solution.answer)
+print(solution.render_text())
+```
+
+Learner input is parsed with a restricted mathematical namespace, lexical and
+complexity limits, and no arbitrary Python evaluation.
+
+::: {.callout-warning}
+### Optional external explanations
+
+Equation solving is deterministic and local by default. The lower-level solver
+API retains an optional `explain=True` integration, but no lesson, notebook,
+test, or documentation build enables it. A caller must explicitly configure an
+API key. Enabling it sends the original equation, verified solution steps, and
+checks to an external OpenAI service; the provider's data terms, network
+availability, and usage charges then apply. Never send personal, confidential,
+or assessment data. The returned prose is supplementary—the SymPy result and
+local verification remain the source of truth.
+:::
+
+## Policy-driven answer validation
+
+```python
+from fcmath import ValidationPolicy, check_answer
+
+policy = ValidationPolicy(
+    mode="symbolic-equivalence",
+    variables=("x",),
+    domain="real",
+)
+result = check_answer("(x + 1)^2", "x^2 + 2*x + 1", policy)
+assert result.correct
+```
+
+Validators support explicit numeric tolerances, symbolic equivalence, requested
+forms, real solution sets and intervals, matrices, units, multiple-select sets,
+and normalized Python output.
+
+## Shared quiz data
+
+```python
+from fcmath import load_quiz
+
+bank = load_quiz("docs/quizzes/pathway/diagnostic.yml")
+result = bank.check("diagnostic-algebra-equation", "6")
+print(result.message)
+```
+
+The same validated bank feeds the accessible website component and optional
+`fcmath.quizzes.notebook.NotebookQuiz` renderer.
+
+## Plotting
+
+Stable scene primitives are exported from `fcmath.plotting`. Subject-specific
+plotting helpers remain experimental until their course API is reviewed.

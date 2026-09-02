@@ -224,3 +224,7 @@ __marimo__/
 # LLM
 ROADMAP.md
 PLAN.md
+
+# Quarto execution caches and session scratch files
+docs/_freeze/
+docs/.quarto/

@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-from edumath.algebra import (
+from fcmath.algebra import (
     COLLEGE_ALGEBRA_PATH,
     QuadraticModel,
     expand_expression_exercise,

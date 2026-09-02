@@ -1,0 +1,21 @@
+{
+  "course_id": "statistics",
+  "outcomes": [
+    {
+      "id": "statistics-outcome-1",
+      "description": "Connect study design and sampling mechanisms to valid statistical conclusions."
+    },
+    {
+      "id": "statistics-outcome-2",
+      "description": "Quantify uncertainty using sampling distributions, intervals, and tests."
+    },
+    {
+      "id": "statistics-outcome-3",
+      "description": "Check assumptions and distinguish statistical from practical significance."
+    },
+    {
+      "id": "statistics-outcome-4",
+      "description": "Fit, diagnose, and interpret foundational statistical models reproducibly."
+    }
+  ]
+}

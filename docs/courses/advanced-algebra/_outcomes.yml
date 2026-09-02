@@ -1,0 +1,25 @@
+{
+  "course_id": "advanced-algebra",
+  "outcomes": [
+    {
+      "id": "advanced-algebra-outcome-1",
+      "description": "Transform algebraic expressions while preserving domains and equivalence."
+    },
+    {
+      "id": "advanced-algebra-outcome-2",
+      "description": "Analyze functions through symbolic, graphical, numerical, and inverse viewpoints."
+    },
+    {
+      "id": "advanced-algebra-outcome-3",
+      "description": "Solve equations, inequalities, and systems and justify each transformation."
+    },
+    {
+      "id": "advanced-algebra-outcome-4",
+      "description": "Use trigonometric representations and identities in exact and applied reasoning."
+    },
+    {
+      "id": "advanced-algebra-outcome-5",
+      "description": "Construct, critique, and verify algebraic models with appropriate computational tools."
+    }
+  ]
+}

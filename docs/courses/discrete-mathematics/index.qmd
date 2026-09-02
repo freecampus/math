@@ -1,0 +1,30 @@
+---
+title: Discrete Mathematics
+description: Logic, proof, sets, relations, sequences, induction, and graphs.
+id: discrete-mathematics
+page_type: course
+status: active
+---
+
+Logic, proof, sets, relations, sequences, induction, and graphs.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Translate statements into precise logical and set-theoretic notation.
+- Construct direct, contrapositive, contradiction, and induction arguments.
+- Analyze functions, relations, sequences, and graph structures.
+- Separate examples and computational evidence from mathematical proof.
+
+## Prerequisites
+
+advanced-algebra
+
+## Units
+
+- [1. Logic, Proof, and Discrete Structures](units/foundations/index.qmd)
+
+[Begin or continue the course](units/foundations/index.qmd){.btn .btn-primary}

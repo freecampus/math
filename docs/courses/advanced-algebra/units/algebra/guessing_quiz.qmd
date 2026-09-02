@@ -1,0 +1,50 @@
+---
+title: Guessing Quiz
+description: Interactive algebra guessing quiz.
+format:
+  html:
+    code-fold: false
+    code-copy: false
+    code-tools: false
+id: advanced-algebra-algebra-guessing-quiz
+course_id: advanced-algebra
+unit_id: algebra
+page_type: lesson
+status: active
+estimated_time: "35 minutes"
+skill_modes: [conceptual, manual-calculation, computational]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-2, advanced-algebra-outcome-3]
+---
+
+This page demonstrates the first interactive algebra quiz in `FreeCampus Math`.
+
+The package also provides a Python notebook widget, but rendered Quarto HTML
+does not keep a live Python kernel after publication. This page uses a
+browser-native version of the quiz so it remains interactive as a static HTML
+document.
+
+## Guess the expression
+
+Choose the expression that matches the graph.
+
+<script type="application/json" class="fcmath-guessing-game-config">
+{
+  "topic": "functions-graphs",
+  "title": "Graph-to-expression guessing game",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include ../../../../_includes/guessing-game.qmd >}}
+
+## Python notebook widget
+
+Use this version in a live Jupyter notebook or notebook-style Quarto preview
+with a running Python kernel.
+
+```python
+from fcmath.algebra import GuessingQuizWidget
+
+quiz = GuessingQuizWidget(total_questions=5)
+quiz.display()
+```

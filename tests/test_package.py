@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-import edumath
+import fcmath
 
 
 def test_package_exposes_version() -> None:
@@ -9,4 +9,4 @@ def test_package_exposes_version() -> None:
     match = re.search(r'^version = "([^"]+)"', pyproject.read_text(), re.MULTILINE)
 
     assert match is not None
-    assert edumath.__version__ == match.group(1)
+    assert fcmath.__version__ == match.group(1)

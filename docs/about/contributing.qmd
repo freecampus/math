@@ -1,0 +1,14 @@
+---
+title: Contributing
+description: Add or improve curriculum while preserving stable IDs, rigor, accessibility, and reproducibility.
+page_type: contributing
+---
+
+Begin with the repository `AGENTS.md` and `CONTRIBUTING.md`. Curriculum structure
+is declared in `docs/courses/_catalog.yml`; QMD files are canonical; generated
+navigation and notebooks must not be edited by hand.
+
+A lesson contribution should define measurable outcomes, prerequisites and
+notation; explain hypotheses and limitations; include complete worked
+reasoning; provide manual and computational practice; use accessible topic-
+specific checkpoints; and end with a reproducible `fcmath`/SymPy appendix.

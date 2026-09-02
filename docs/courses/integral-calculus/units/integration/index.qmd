@@ -1,0 +1,18 @@
+---
+title: Integration and Accumulation
+description: Build integrals from accumulation, connect them to derivatives, and use them responsibly.
+page_type: unit
+---
+
+Integration turns local rates into global change. This unit develops the definite
+integral as a limit of sums, the Fundamental Theorem of Calculus, techniques for
+antiderivatives, and model-based applications.
+
+## Unit outcomes
+
+- explain what an integral accumulates and how units propagate;
+- state and apply the hypotheses of the Fundamental Theorem of Calculus;
+- select a technique from structure rather than pattern matching alone;
+- estimate, compute, interpret, and independently verify definite integrals.
+
+Begin with [Integrals](integrals.qmd).

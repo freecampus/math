@@ -1,6 +1,6 @@
 import sympy as sp
 
-from edumath.core import (
+from fcmath.core import (
     AnswerCheck,
     AnswerOption,
     Exercise,

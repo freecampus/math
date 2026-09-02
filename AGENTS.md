@@ -1,20 +1,20 @@
-# edu-math Contributor Guide
+# FreeCampus Math Contributor Guide
 
 This file is the shared operating manual for AI contributors working in
-`edu-math`.
+`FreeCampus Math`.
 
 ## Project identity
 
-- PyPI package: `osl-edu-math`
-- Python import package: `edumath`
-- Repository: `osl-incubator/edu-math`
+- PyPI package: `freecampus-math`
+- Python import package: `fcmath`
+- Repository: `freecampus/math`
 - Build backend: Poetry
 - Environment/workflow: conda + Poetry + Makim
 - Runtime: Python 3.10+
 
 ## Repository layout
 
-- `src/edumath/`: package source
+- `src/fcmath/`: package source
 - `tests/`: pytest coverage
 - `docs/`: Quarto documentation website
 - `conda/`: conda environment files
@@ -23,7 +23,7 @@ This file is the shared operating manual for AI contributors working in
 
 ```bash
 conda env create -f conda/dev.yaml
-conda activate edumath
+conda activate fcmath
 poetry config virtualenvs.create false
 poetry install --extras "dev"
 ```
@@ -49,8 +49,9 @@ makim all.ci
 ## Documentation and lesson standards
 
 The documentation is a Quarto website. Student-facing course material belongs
-under `docs/lessons/`; avoid calling these pages "notebooks" in navigation or
-lesson text unless the page is specifically about notebook usage.
+under `docs/courses/<course-id>/units/<unit-id>/`; avoid calling these pages
+"notebooks" in navigation or lesson text unless the page is specifically about
+notebook usage.
 
 Lessons should be complete, pedagogical study material for university-level math
 preparation. They should not be minimal API demos. Prefer self-contained
@@ -83,7 +84,7 @@ Use this general flow for each lesson:
    block so students can try first.
 7. A topic-relevant interactive checkpoint or guessing game before the Python
    appendix.
-8. A final section named `Using this lesson with edumath and SymPy` that shows
+8. A final section named `Using this lesson with fcmath and SymPy` that shows
    visible code examples (`#| echo: true`) for students who want to reproduce or
    extend the ideas computationally.
 
@@ -93,7 +94,7 @@ Use this general flow for each lesson:
   is the lesson objective.
 - Show mathematical expressions, plots, tables, and step-by-step outcomes rather
   than raw setup code.
-- Put visible Python examples at the end of the lesson in the edumath/SymPy
+- Put visible Python examples at the end of the lesson in the fcmath/SymPy
   appendix.
 - Keep examples runnable in Quarto and reusable in Jupyter/Colab when practical.
 
@@ -116,12 +117,12 @@ the prompt might ask students to guess:
 - a system's intersection point or classification.
 
 When a pattern is reusable across lessons, create or update shared code/includes
-instead of duplicating large blocks. For Algebra lesson pages, shared Quarto
-fragments may live in `docs/lessons/algebra/_includes/`.
+instead of duplicating large blocks. Shared Quarto fragments live in
+`docs/_includes/`; reusable mathematical behavior belongs in `src/fcmath/`.
 
 ### Source package support for lessons
 
-Reusable lesson functionality belongs in `src/edumath/` and should be organized
+Reusable lesson functionality belongs in `src/fcmath/` and should be organized
 by math branch. Add or update package modules when they improve the pedagogy,
 for example:
 
@@ -131,8 +132,8 @@ for example:
 - step-by-step solution helpers;
 - reusable data structures for expressions, equations, and functions.
 
-Add tests in `tests/` for behavior changes in `src/edumath/`. Keep the public
-API intentionally small and documented.
+Add tests in `tests/` for behavior changes in `src/fcmath/`. Keep the public API
+intentionally small and documented.
 
 ### Documentation validation
 
@@ -166,14 +167,14 @@ include:
 - examples that help students connect the symbolic solution with the underlying
   math.
 
-Also, whenever you notice an opportunity to improve the `edumath` library,
+Also, whenever you notice an opportunity to improve the `fcmath` library,
 suggest new reusable features, helper functions, visualizations, or utilities
 that could support student learning. Prioritize proposals that are pedagogically
 useful, reusable across lessons, and easy to integrate into the existing
 library.
 
-Ensure the explanations has a walkthrough, step by step resolution, to help the
-student to understand how to resolve it equations and formula.
+Ensure explanations include a step-by-step walkthrough that helps the learner
+understand how to solve equations and work with formulas.
 
-Each subtopic inside the lesson can have guided exercices, checkpoint exercices
-and guessing game.
+Each lesson subtopic may include guided exercises, checkpoint exercises, and a
+topic-specific guessing game.

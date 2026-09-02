@@ -40,8 +40,8 @@ repos:
 
       - id: mypy
         name: mypy
-        entry: mypy src
-        files: ^src/edumath/.*\.py$
+        entry: mypy src scripts
+        files: ^(src/fcmath|scripts)/.*\.py$
         language: system
         pass_filenames: false
         types:

@@ -2,7 +2,7 @@ import math
 
 import pytest
 
-from edumath.probability import (
+from fcmath.probability import (
     PROBABILITY_PATH,
     bernoulli_pmf,
     binomial_mean,

@@ -1,0 +1,11 @@
+{
+  "id": "integration",
+  "title": "Integration and Accumulation",
+  "course_id": "integral-calculus",
+  "outcomes": [
+    "Interpret definite integrals as signed accumulation and limits of sums.",
+    "Use the Fundamental Theorem of Calculus with its hypotheses visible.",
+    "Select, execute, and verify integration techniques.",
+    "Model geometric and quantitative accumulation and analyze approximation error."
+  ]
+}

@@ -1,2 +1,9 @@
 docs/changelog.md
 CHANGELOG.md
+notebooks/
+docs/_quarto.yml
+docs/_sidebar.yml
+docs/courses/_cards.qmd
+docs/assets/curriculum-map.json
+docs/assets/navigation.json
+docs/assets/prerequisites.json

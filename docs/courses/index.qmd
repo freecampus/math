@@ -1,0 +1,33 @@
+---
+title: Courses
+description: Explore the subject courses joined by Mathematics for Quantitative Studies.
+id: course-catalog
+page_type: catalog
+---
+
+The pathway is the recommended entry point. Each course is also independently
+navigable and publishes its prerequisites, outcomes, units, and current status.
+
+::: {.course-grid}
+### Foundations and structure
+
+- [Advanced Algebra](advanced-algebra/index.qmd)
+- [Discrete Mathematics](discrete-mathematics/index.qmd)
+- [Linear Algebra](linear-algebra/index.qmd)
+- [Mathematical Computing with Python](mathematical-computing/index.qmd)
+
+### Change and dynamical systems
+
+- [Differential Calculus](differential-calculus/index.qmd)
+- [Integral Calculus](integral-calculus/index.qmd)
+- [Differential Equations](differential-equations/index.qmd)
+
+### Uncertainty and data
+
+- [Probability](probability/index.qmd)
+- [Statistics](statistics/index.qmd)
+
+### Integration
+
+- [Cumulative Review and Practice](cumulative-review/index.qmd)
+:::

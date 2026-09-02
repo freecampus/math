@@ -1,0 +1,335 @@
+{
+  "items": {
+    "advanced-algebra-algebra-algebraic-modeling": {
+      "file": "courses/advanced-algebra/units/algebra/algebraic-modeling.qmd",
+      "next_id": "advanced-algebra-algebra-symbolic-computation-with-sympy",
+      "previous_id": "advanced-algebra-algebra-systems-of-equations"
+    },
+    "advanced-algebra-algebra-cumulative-review": {
+      "file": "courses/advanced-algebra/units/algebra/cumulative-review.qmd",
+      "next_id": "advanced-algebra-trigonometry-radians-and-degrees",
+      "previous_id": "advanced-algebra-algebra-guessing-quiz"
+    },
+    "advanced-algebra-algebra-exponentials-and-logarithms": {
+      "file": "courses/advanced-algebra/units/algebra/exponentials-and-logarithms.qmd",
+      "next_id": "advanced-algebra-algebra-systems-of-equations",
+      "previous_id": "advanced-algebra-algebra-rational-and-radical-functions"
+    },
+    "advanced-algebra-algebra-expressions-and-equations": {
+      "file": "courses/advanced-algebra/units/algebra/expressions-and-equations.qmd",
+      "next_id": "advanced-algebra-algebra-inequalities-and-absolute-value",
+      "previous_id": null
+    },
+    "advanced-algebra-algebra-functions-and-graphs": {
+      "file": "courses/advanced-algebra/units/algebra/functions-and-graphs.qmd",
+      "next_id": "advanced-algebra-algebra-transformations-composition-inverses",
+      "previous_id": "advanced-algebra-algebra-inequalities-and-absolute-value"
+    },
+    "advanced-algebra-algebra-guessing-quiz": {
+      "file": "courses/advanced-algebra/units/algebra/guessing_quiz.qmd",
+      "next_id": "advanced-algebra-algebra-cumulative-review",
+      "previous_id": "advanced-algebra-algebra-symbolic-computation-with-sympy"
+    },
+    "advanced-algebra-algebra-inequalities-and-absolute-value": {
+      "file": "courses/advanced-algebra/units/algebra/inequalities-and-absolute-value.qmd",
+      "next_id": "advanced-algebra-algebra-functions-and-graphs",
+      "previous_id": "advanced-algebra-algebra-expressions-and-equations"
+    },
+    "advanced-algebra-algebra-linear-and-quadratic-functions": {
+      "file": "courses/advanced-algebra/units/algebra/linear-and-quadratic-functions.qmd",
+      "next_id": "advanced-algebra-algebra-polynomials",
+      "previous_id": "advanced-algebra-algebra-transformations-composition-inverses"
+    },
+    "advanced-algebra-algebra-polynomials": {
+      "file": "courses/advanced-algebra/units/algebra/polynomials.qmd",
+      "next_id": "advanced-algebra-algebra-rational-and-radical-functions",
+      "previous_id": "advanced-algebra-algebra-linear-and-quadratic-functions"
+    },
+    "advanced-algebra-algebra-rational-and-radical-functions": {
+      "file": "courses/advanced-algebra/units/algebra/rational-and-radical-functions.qmd",
+      "next_id": "advanced-algebra-algebra-exponentials-and-logarithms",
+      "previous_id": "advanced-algebra-algebra-polynomials"
+    },
+    "advanced-algebra-algebra-symbolic-computation-with-sympy": {
+      "file": "courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.qmd",
+      "next_id": "advanced-algebra-algebra-guessing-quiz",
+      "previous_id": "advanced-algebra-algebra-algebraic-modeling"
+    },
+    "advanced-algebra-algebra-systems-of-equations": {
+      "file": "courses/advanced-algebra/units/algebra/systems-of-equations.qmd",
+      "next_id": "advanced-algebra-algebra-algebraic-modeling",
+      "previous_id": "advanced-algebra-algebra-exponentials-and-logarithms"
+    },
+    "advanced-algebra-algebra-transformations-composition-inverses": {
+      "file": "courses/advanced-algebra/units/algebra/transformations-composition-inverses.qmd",
+      "next_id": "advanced-algebra-algebra-linear-and-quadratic-functions",
+      "previous_id": "advanced-algebra-algebra-functions-and-graphs"
+    },
+    "advanced-algebra-trigonometry-applications": {
+      "file": "courses/advanced-algebra/units/trigonometry/applications.qmd",
+      "next_id": "linear-algebra-foundations-vectors",
+      "previous_id": "advanced-algebra-trigonometry-trig-equations"
+    },
+    "advanced-algebra-trigonometry-identities": {
+      "file": "courses/advanced-algebra/units/trigonometry/identities.qmd",
+      "next_id": "advanced-algebra-trigonometry-trig-equations",
+      "previous_id": "advanced-algebra-trigonometry-trig-functions-and-graphs"
+    },
+    "advanced-algebra-trigonometry-radians-and-degrees": {
+      "file": "courses/advanced-algebra/units/trigonometry/radians-and-degrees.qmd",
+      "next_id": "advanced-algebra-trigonometry-unit-circle",
+      "previous_id": "advanced-algebra-algebra-cumulative-review"
+    },
+    "advanced-algebra-trigonometry-sine-cosine": {
+      "file": "courses/advanced-algebra/units/trigonometry/sine-cosine.qmd",
+      "next_id": "advanced-algebra-trigonometry-trig-functions-and-graphs",
+      "previous_id": "advanced-algebra-trigonometry-unit-circle"
+    },
+    "advanced-algebra-trigonometry-trig-equations": {
+      "file": "courses/advanced-algebra/units/trigonometry/trig-equations.qmd",
+      "next_id": "advanced-algebra-trigonometry-applications",
+      "previous_id": "advanced-algebra-trigonometry-identities"
+    },
+    "advanced-algebra-trigonometry-trig-functions-and-graphs": {
+      "file": "courses/advanced-algebra/units/trigonometry/trig-functions-and-graphs.qmd",
+      "next_id": "advanced-algebra-trigonometry-identities",
+      "previous_id": "advanced-algebra-trigonometry-sine-cosine"
+    },
+    "advanced-algebra-trigonometry-unit-circle": {
+      "file": "courses/advanced-algebra/units/trigonometry/unit-circle.qmd",
+      "next_id": "advanced-algebra-trigonometry-sine-cosine",
+      "previous_id": "advanced-algebra-trigonometry-radians-and-degrees"
+    },
+    "cumulative-review-mixed-practice-timed-practice": {
+      "file": "courses/cumulative-review/units/mixed-practice/timed-practice.qmd",
+      "next_id": "quantitative-mathematics-comprehensive",
+      "previous_id": "mathematical-computing-python-foundations-plotting"
+    },
+    "differential-calculus-differentiation-derivative-rules": {
+      "file": "courses/differential-calculus/units/differentiation/derivative-rules.qmd",
+      "next_id": "differential-calculus-differentiation-optimization",
+      "previous_id": "differential-calculus-differentiation-derivatives"
+    },
+    "differential-calculus-differentiation-derivatives": {
+      "file": "courses/differential-calculus/units/differentiation/derivatives.qmd",
+      "next_id": "differential-calculus-differentiation-derivative-rules",
+      "previous_id": "differential-calculus-differentiation-limits"
+    },
+    "differential-calculus-differentiation-limits": {
+      "file": "courses/differential-calculus/units/differentiation/limits.qmd",
+      "next_id": "differential-calculus-differentiation-derivatives",
+      "previous_id": "linear-algebra-foundations-eigenvalues-eigenvectors"
+    },
+    "differential-calculus-differentiation-optimization": {
+      "file": "courses/differential-calculus/units/differentiation/optimization.qmd",
+      "next_id": "integral-calculus-integration-integrals",
+      "previous_id": "differential-calculus-differentiation-derivative-rules"
+    },
+    "differential-equations-ordinary-differential-equations-first-order-equations": {
+      "file": "courses/differential-equations/units/ordinary-differential-equations/first-order-equations.qmd",
+      "next_id": "differential-equations-ordinary-differential-equations-separable-equations",
+      "previous_id": "integral-calculus-integration-applications"
+    },
+    "differential-equations-ordinary-differential-equations-linear-equations": {
+      "file": "courses/differential-equations/units/ordinary-differential-equations/linear-equations.qmd",
+      "next_id": "differential-equations-ordinary-differential-equations-slope-fields",
+      "previous_id": "differential-equations-ordinary-differential-equations-separable-equations"
+    },
+    "differential-equations-ordinary-differential-equations-separable-equations": {
+      "file": "courses/differential-equations/units/ordinary-differential-equations/separable-equations.qmd",
+      "next_id": "differential-equations-ordinary-differential-equations-linear-equations",
+      "previous_id": "differential-equations-ordinary-differential-equations-first-order-equations"
+    },
+    "differential-equations-ordinary-differential-equations-slope-fields": {
+      "file": "courses/differential-equations/units/ordinary-differential-equations/slope-fields.qmd",
+      "next_id": "differential-equations-ordinary-differential-equations-systems",
+      "previous_id": "differential-equations-ordinary-differential-equations-linear-equations"
+    },
+    "differential-equations-ordinary-differential-equations-systems": {
+      "file": "courses/differential-equations/units/ordinary-differential-equations/systems.qmd",
+      "next_id": "discrete-mathematics-foundations-logic",
+      "previous_id": "differential-equations-ordinary-differential-equations-slope-fields"
+    },
+    "discrete-mathematics-foundations-functions-relations": {
+      "file": "courses/discrete-mathematics/units/foundations/functions-relations.qmd",
+      "next_id": "discrete-mathematics-foundations-sequences",
+      "previous_id": "discrete-mathematics-foundations-sets"
+    },
+    "discrete-mathematics-foundations-graphs": {
+      "file": "courses/discrete-mathematics/units/foundations/graphs.qmd",
+      "next_id": "probability-foundations-sample-spaces-events",
+      "previous_id": "discrete-mathematics-foundations-induction"
+    },
+    "discrete-mathematics-foundations-induction": {
+      "file": "courses/discrete-mathematics/units/foundations/induction.qmd",
+      "next_id": "discrete-mathematics-foundations-graphs",
+      "previous_id": "discrete-mathematics-foundations-sequences"
+    },
+    "discrete-mathematics-foundations-logic": {
+      "file": "courses/discrete-mathematics/units/foundations/logic.qmd",
+      "next_id": "discrete-mathematics-foundations-sets",
+      "previous_id": "differential-equations-ordinary-differential-equations-systems"
+    },
+    "discrete-mathematics-foundations-sequences": {
+      "file": "courses/discrete-mathematics/units/foundations/sequences.qmd",
+      "next_id": "discrete-mathematics-foundations-induction",
+      "previous_id": "discrete-mathematics-foundations-functions-relations"
+    },
+    "discrete-mathematics-foundations-sets": {
+      "file": "courses/discrete-mathematics/units/foundations/sets.qmd",
+      "next_id": "discrete-mathematics-foundations-functions-relations",
+      "previous_id": "discrete-mathematics-foundations-logic"
+    },
+    "integral-calculus-integration-applications": {
+      "file": "courses/integral-calculus/units/integration/applications.qmd",
+      "next_id": "differential-equations-ordinary-differential-equations-first-order-equations",
+      "previous_id": "integral-calculus-integration-integration-techniques"
+    },
+    "integral-calculus-integration-integrals": {
+      "file": "courses/integral-calculus/units/integration/integrals.qmd",
+      "next_id": "integral-calculus-integration-integration-techniques",
+      "previous_id": "differential-calculus-differentiation-optimization"
+    },
+    "integral-calculus-integration-integration-techniques": {
+      "file": "courses/integral-calculus/units/integration/integration-techniques.qmd",
+      "next_id": "integral-calculus-integration-applications",
+      "previous_id": "integral-calculus-integration-integrals"
+    },
+    "linear-algebra-foundations-eigenvalues-eigenvectors": {
+      "file": "courses/linear-algebra/units/foundations/eigenvalues-eigenvectors.qmd",
+      "next_id": "differential-calculus-differentiation-limits",
+      "previous_id": "linear-algebra-foundations-linear-transformations"
+    },
+    "linear-algebra-foundations-linear-transformations": {
+      "file": "courses/linear-algebra/units/foundations/linear-transformations.qmd",
+      "next_id": "linear-algebra-foundations-eigenvalues-eigenvectors",
+      "previous_id": "linear-algebra-foundations-systems-and-elimination"
+    },
+    "linear-algebra-foundations-matrices": {
+      "file": "courses/linear-algebra/units/foundations/matrices.qmd",
+      "next_id": "linear-algebra-foundations-matrix-operations",
+      "previous_id": "linear-algebra-foundations-vectors"
+    },
+    "linear-algebra-foundations-matrix-operations": {
+      "file": "courses/linear-algebra/units/foundations/matrix-operations.qmd",
+      "next_id": "linear-algebra-foundations-systems-and-elimination",
+      "previous_id": "linear-algebra-foundations-matrices"
+    },
+    "linear-algebra-foundations-systems-and-elimination": {
+      "file": "courses/linear-algebra/units/foundations/systems-and-elimination.qmd",
+      "next_id": "linear-algebra-foundations-linear-transformations",
+      "previous_id": "linear-algebra-foundations-matrix-operations"
+    },
+    "linear-algebra-foundations-vectors": {
+      "file": "courses/linear-algebra/units/foundations/vectors.qmd",
+      "next_id": "linear-algebra-foundations-matrices",
+      "previous_id": "advanced-algebra-trigonometry-applications"
+    },
+    "mathematical-computing-python-foundations-basics": {
+      "file": "courses/mathematical-computing/units/python-foundations/basics.qmd",
+      "next_id": "mathematical-computing-python-foundations-functions-and-control-flow",
+      "previous_id": "statistics-foundations-statistics-cumulative-review"
+    },
+    "mathematical-computing-python-foundations-functions-and-control-flow": {
+      "file": "courses/mathematical-computing/units/python-foundations/functions-and-control-flow.qmd",
+      "next_id": "mathematical-computing-python-foundations-numpy-and-arrays",
+      "previous_id": "mathematical-computing-python-foundations-basics"
+    },
+    "mathematical-computing-python-foundations-numpy-and-arrays": {
+      "file": "courses/mathematical-computing/units/python-foundations/numpy-and-arrays.qmd",
+      "next_id": "mathematical-computing-python-foundations-plotting",
+      "previous_id": "mathematical-computing-python-foundations-functions-and-control-flow"
+    },
+    "mathematical-computing-python-foundations-plotting": {
+      "file": "courses/mathematical-computing/units/python-foundations/plotting.qmd",
+      "next_id": "cumulative-review-mixed-practice-timed-practice",
+      "previous_id": "mathematical-computing-python-foundations-numpy-and-arrays"
+    },
+    "probability-foundations-common-distributions": {
+      "file": "courses/probability/units/foundations/common-distributions.qmd",
+      "next_id": "probability-foundations-expectation-variance",
+      "previous_id": "probability-foundations-random-variables"
+    },
+    "probability-foundations-conditional-probability": {
+      "file": "courses/probability/units/foundations/conditional-probability.qmd",
+      "next_id": "probability-foundations-random-variables",
+      "previous_id": "probability-foundations-counting"
+    },
+    "probability-foundations-counting": {
+      "file": "courses/probability/units/foundations/counting.qmd",
+      "next_id": "probability-foundations-conditional-probability",
+      "previous_id": "probability-foundations-sample-spaces-events"
+    },
+    "probability-foundations-expectation-variance": {
+      "file": "courses/probability/units/foundations/expectation-variance.qmd",
+      "next_id": "statistics-foundations-descriptive-statistics",
+      "previous_id": "probability-foundations-common-distributions"
+    },
+    "probability-foundations-random-variables": {
+      "file": "courses/probability/units/foundations/random-variables.qmd",
+      "next_id": "probability-foundations-common-distributions",
+      "previous_id": "probability-foundations-conditional-probability"
+    },
+    "probability-foundations-sample-spaces-events": {
+      "file": "courses/probability/units/foundations/sample-spaces-events.qmd",
+      "next_id": "probability-foundations-counting",
+      "previous_id": "discrete-mathematics-foundations-graphs"
+    },
+    "quantitative-mathematics-comprehensive": {
+      "file": "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd",
+      "next_id": null,
+      "previous_id": "cumulative-review-mixed-practice-timed-practice"
+    },
+    "statistics-foundations-chi-square-tests": {
+      "file": "courses/statistics/units/foundations/chi-square-tests.qmd",
+      "next_id": "statistics-foundations-regression-basics",
+      "previous_id": "statistics-foundations-comparing-groups"
+    },
+    "statistics-foundations-comparing-groups": {
+      "file": "courses/statistics/units/foundations/comparing-groups.qmd",
+      "next_id": "statistics-foundations-chi-square-tests",
+      "previous_id": "statistics-foundations-hypothesis-tests"
+    },
+    "statistics-foundations-descriptive-statistics": {
+      "file": "courses/statistics/units/foundations/descriptive-statistics.qmd",
+      "next_id": "statistics-foundations-sampling",
+      "previous_id": "probability-foundations-expectation-variance"
+    },
+    "statistics-foundations-estimation": {
+      "file": "courses/statistics/units/foundations/estimation.qmd",
+      "next_id": "statistics-foundations-hypothesis-tests",
+      "previous_id": "statistics-foundations-sampling-distributions"
+    },
+    "statistics-foundations-hypothesis-tests": {
+      "file": "courses/statistics/units/foundations/hypothesis-tests.qmd",
+      "next_id": "statistics-foundations-comparing-groups",
+      "previous_id": "statistics-foundations-estimation"
+    },
+    "statistics-foundations-probability-for-statistics": {
+      "file": "courses/statistics/units/foundations/probability-for-statistics.qmd",
+      "next_id": "statistics-foundations-sampling-distributions",
+      "previous_id": "statistics-foundations-sampling"
+    },
+    "statistics-foundations-regression-basics": {
+      "file": "courses/statistics/units/foundations/regression-basics.qmd",
+      "next_id": "statistics-foundations-statistics-cumulative-review",
+      "previous_id": "statistics-foundations-chi-square-tests"
+    },
+    "statistics-foundations-sampling": {
+      "file": "courses/statistics/units/foundations/sampling.qmd",
+      "next_id": "statistics-foundations-probability-for-statistics",
+      "previous_id": "statistics-foundations-descriptive-statistics"
+    },
+    "statistics-foundations-sampling-distributions": {
+      "file": "courses/statistics/units/foundations/sampling-distributions.qmd",
+      "next_id": "statistics-foundations-estimation",
+      "previous_id": "statistics-foundations-probability-for-statistics"
+    },
+    "statistics-foundations-statistics-cumulative-review": {
+      "file": "courses/statistics/units/foundations/statistics-cumulative-review.qmd",
+      "next_id": "mathematical-computing-python-foundations-basics",
+      "previous_id": "statistics-foundations-regression-basics"
+    }
+  },
+  "schemaVersion": 1
+}

@@ -1,0 +1,16 @@
+---
+title: About FreeCampus Math
+description: Project purpose, commitments, scope, and governance.
+page_type: about
+---
+
+FreeCampus Math is an open, institution-independent curriculum for learners
+preparing for advanced quantitative and computational study.
+
+The project commits to mathematical accuracy, complete reasoning, accessible
+interaction, reproducible computation, learner privacy, and candid course
+status. It claims no affiliation with a university, employer, or assessment.
+
+Package and contributor material is intentionally secondary to the learner
+pathway. See [Contributing](contributing.qmd) to improve lessons, validators,
+accessibility, or infrastructure.

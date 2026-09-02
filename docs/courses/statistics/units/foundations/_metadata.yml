@@ -1,0 +1,11 @@
+{
+  "id": "foundations",
+  "title": "Statistical Reasoning and Inference",
+  "course_id": "statistics",
+  "outcomes": [
+    "Connect study design and sampling mechanisms to valid statistical conclusions.",
+    "Quantify uncertainty using sampling distributions, intervals, and tests.",
+    "Check assumptions and distinguish statistical from practical significance.",
+    "Fit, diagnose, and interpret foundational statistical models reproducibly."
+  ]
+}

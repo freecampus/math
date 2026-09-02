@@ -1,0 +1,205 @@
+---
+title: "Lesson title"
+description: "One sentence describing the mathematical capability developed here."
+id: course-unit-lesson
+course_id: course-id
+unit_id: unit-id
+page_type: lesson
+status: in-development
+estimated_time: "90 minutes"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, computational, interpretation]
+outcome_ids: [course-outcome-1]
+computational_dependencies: [freecampus-math, sympy]
+execute:
+  echo: false
+  warning: false
+---
+
+<!--
+Author checklist:
+- Keep the stable IDs synchronized with docs/courses/_catalog.yml.
+- State every hypothesis, domain restriction, and approximation.
+- Include complete manual reasoning before delegating work to software.
+- Give each activity a skill mode and each exercise an answer or solution.
+- Put visible reproducible code in the final fcmath/SymPy section.
+Delete this comment before publishing.
+-->
+
+## Why this matters
+
+Connect the idea to later mathematics or a genuine application. Name what the
+learner will be able to reason about—not merely which formula will be used.
+
+::: {.learning-objectives}
+### What you should be able to do
+
+- State a measurable conceptual outcome.
+- Complete a representative calculation and justify each step.
+- Interpret a symbolic, numerical, or graphical result and check its validity.
+:::
+
+::: {.prerequisites}
+### Prerequisites
+
+- Link the exact earlier concept the lesson uses.
+- Give a one-line reminder or a short readiness question.
+:::
+
+## Definitions and notation
+
+Define every new object, its domain, and the notation used. Distinguish a
+definition from a theorem, convention, or useful intuition.
+
+::: {.definition}
+### Definition
+
+Give the formal definition, followed by a plain-language interpretation and a
+small example that satisfies it.
+:::
+
+## Theory, conditions, and intuition
+
+State the result precisely. Explain why its assumptions are necessary, then
+connect the symbolic statement to a diagram, table, or limiting case when that
+adds insight.
+
+::: {.theorem}
+### Result
+
+State the result with its hypotheses and conclusion.
+:::
+
+::: {.intuition}
+### Intuition
+
+Explain the mechanism without replacing the formal statement.
+:::
+
+## Worked manual example
+
+::: {.worked-example}
+### Example: a representative problem
+
+**Problem.** State the problem and all relevant conditions.
+
+**Plan.** Name the governing definition or theorem and explain why it applies.
+
+1. Show the first mathematical transformation and justify it.
+2. Continue one logical step at a time; preserve exact values where possible.
+3. State the result with its domain, units, or interpretation.
+4. Verify by substitution, an independent method, a bound, or a limiting case.
+:::
+
+## Concept checkpoint
+
+::: {.checkpoint data-skill-mode="conceptual"}
+### Check the idea
+
+Pose one focused conceptual question before asking for extended calculation.
+
+::: {.callout-tip collapse="true" title="Answer and explanation"}
+Give the answer, explain the decisive idea, and address a plausible
+misconception.
+:::
+:::
+
+## Guided manual practice
+
+::: {.practice-box data-skill-mode="manual-calculation"}
+### Guided exercise
+
+Give a problem that is close enough to the worked example for the learner to
+begin independently. Add staged prompts only where they develop strategy.
+
+::: {.callout-note collapse="true" title="Hint"}
+Point to a method or first step without revealing the answer.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+1. Identify the relevant conditions.
+2. Carry out and justify each step.
+3. State and independently check the final result.
+:::
+:::
+
+## Computational application
+
+Label this as a demonstration, guided activity, required practice, optional
+exploration, or verification. Explain the inputs and expected mathematical
+output before showing a result. State whether that result is exact,
+floating-point, estimated, or simulated.
+
+```{python}
+# Hidden setup or deterministic demonstration code may appear here.
+# Keep the mathematical result and its interpretation visible in the prose.
+```
+
+## Computational checkpoint
+
+::: {.checkpoint data-skill-mode="computational"}
+### Predict, compute, and interpret
+
+Ask the learner to predict an output or qualitative behavior, run or inspect a
+short computation, and explain what the result means mathematically.
+
+::: {.callout-tip collapse="true" title="Answer and explanation"}
+Give the expected result, interpretation, and one numerical or symbolic check.
+:::
+:::
+
+## Interpretation and verification
+
+Compare the manual and computational results. Discuss precision, domains,
+conditioning, model assumptions, or other limitations that matter here.
+
+## Common mistakes and limitations
+
+::: {.common-mistake}
+### Common mistake
+
+Show the tempting incorrect step, explain exactly why it fails, and repair it.
+:::
+
+Include a boundary case or counterexample when it clarifies the theorem's
+scope.
+
+## Lesson review
+
+Include questions that collectively assess the declared outcomes and mix at
+least two relevant skill modes. Each question needs a stable ID, answer policy,
+hint, explanation, and outcome ID when expressed as structured quiz data.
+
+## Topic checkpoint or guessing game
+
+Add a topic-specific interactive checkpoint before the computational appendix.
+The prompt should require mathematical prediction—for example an expression,
+solution set, graph, transformation, factorization, or parameter value—not
+generic clicking.
+
+## Summary and next step
+
+- Restate the central definition or result.
+- Name the most reliable manual strategy and its validity conditions.
+- State what computation adds and what it does not prove.
+- Link the next lesson and explain the connection.
+
+## Using this lesson with fcmath and SymPy
+
+This appendix makes the computational work reproducible in Quarto, Jupyter, or
+Colab. Keep its code visible and explain how each output connects to the manual
+reasoning above.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+from fcmath import parse_expression
+
+x = sp.symbols("x", real=True)
+expression = parse_expression("x^2 - 1", variables=(x,))
+sp.factor(expression)
+```
+
+Explain the exact output, show how to check it, and note any domain or parser
+assumptions. When the lesson solves equations, include the equivalent SymPy
+workflow and interpret every returned solution or solution set.

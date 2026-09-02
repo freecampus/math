@@ -5041,10 +5041,10 @@ pygments = ["pygments (>=2.2)"]
 test = ["coverage (>=5.3.1)", "prompt-toolkit (>=3.0.29)", "pygments (>=2.2)", "pyte (>=0.8.0)", "pytest (>=7)", "pytest-cov", "pytest-mock", "pytest-rerunfailures", "pytest-subprocess", "pytest-timeout", "requests", "restructuredtext_lint", "virtualenv (>=20.16.2)", "xonsh[bestshell]"]
 
 [extras]
-dev = ["makim", "mypy", "pre-commit", "pytest", "pytest-cov", "ruff"]
-docs = []
+dev = ["ipython", "ipywidgets", "jupyter", "makim", "mypy", "nbclient", "nbconvert", "pre-commit", "pytest", "pytest-cov", "pyyaml", "ruff"]
+notebook = ["ipython", "ipywidgets"]
 
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4"
-content-hash = "8afdea5750f88b68737ae6e4c7d29ad74e82733d40e7c1609a812de7b22e1b14"
+content-hash = "0e2d490c1c0b17be4e594fb195f635ba8b35e12a4f28535ef56c3beeb330709a"

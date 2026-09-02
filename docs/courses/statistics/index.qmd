@@ -1,0 +1,30 @@
+---
+title: Statistics
+description: Design, estimation, inference, comparison, and regression.
+id: statistics
+page_type: course
+status: active
+---
+
+Design, estimation, inference, comparison, and regression.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Connect study design and sampling mechanisms to valid statistical conclusions.
+- Quantify uncertainty using sampling distributions, intervals, and tests.
+- Check assumptions and distinguish statistical from practical significance.
+- Fit, diagnose, and interpret foundational statistical models reproducibly.
+
+## Prerequisites
+
+probability, mathematical-computing
+
+## Units
+
+- [1. Statistical Reasoning and Inference](units/foundations/index.qmd)
+
+[Begin or continue the course](units/foundations/index.qmd){.btn .btn-primary}

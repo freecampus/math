@@ -1,4 +1,4 @@
-name: edumath
+name: fcmath
 channels:
   - nodefaults
   - conda-forge

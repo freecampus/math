@@ -1,0 +1,18 @@
+---
+title: Python Foundations for Mathematical Work
+description: Learn a reproducible computational language for exact, numerical, and visual reasoning.
+page_type: unit
+---
+
+Computing is a mathematical instrument, not a replacement for reasoning. This
+unit builds the Python habits needed throughout the pathway: readable programs,
+functions, arrays, plots, verification, and explicit interpretation.
+
+## Unit outcomes
+
+- express a mathematical procedure as readable, testable Python;
+- recognize data types, shapes, and sources of floating-point error;
+- use functions and vectorized arrays to organize computations;
+- produce labeled visualizations that make a mathematical claim inspectable.
+
+Begin with [Python Basics](basics.qmd).

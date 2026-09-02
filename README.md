@@ -1,78 +1,75 @@
-# edu-math
+# FreeCampus Math
 
-![CI](https://img.shields.io/github/actions/workflow/status/osl-incubator/edu-math/ci.yml?logo=github&label=CI)
-[![Python Versions](https://img.shields.io/pypi/pyversions/osl-edu-math)](https://pypi.org/project/osl-edu-math/)
-[![Package Version](https://img.shields.io/pypi/v/osl-edu-math?color=blue)](https://pypi.org/project/osl-edu-math/)
-![License](https://img.shields.io/pypi/l/osl-edu-math?color=blue)
+![CI](https://img.shields.io/github/actions/workflow/status/freecampus/math/ci.yml?logo=github&label=CI)
+[![Python Versions](https://img.shields.io/pypi/pyversions/freecampus-math)](https://pypi.org/project/freecampus-math/)
+[![Package Version](https://img.shields.io/pypi/v/freecampus-math?color=blue)](https://pypi.org/project/freecampus-math/)
+![License](https://img.shields.io/pypi/l/freecampus-math?color=blue)
 
-`edu-math` is a Python package for math education workflows.
+FreeCampus Math is an open, institution-independent curriculum for advanced
+quantitative and computational study. Its **Mathematics for Quantitative
+Studies** pathway joins subject courses in algebra, proof, linear algebra,
+calculus, differential equations, probability, statistics, and Python.
 
-The PyPI distribution is `osl-edu-math`; the import package remains `edumath`.
+The learning standard is proof-aware and computationally reproducible:
 
-The project is in its initial scaffold stage. The repository includes packaging,
-testing, linting, documentation, release automation, and GitHub workflow
-infrastructure adapted from the Open Science Labs Incubator Python package
-template used by `prisma-flow`.
+- state definitions, domains, hypotheses, and limitations;
+- show complete manual reasoning rather than answer-only procedures;
+- distinguish exact, approximate, simulated, and estimated results;
+- use computation to verify and extend mathematics, not replace it;
+- interpret results and audit edge cases;
+- retrieve and synthesize ideas through checkpoints and cumulative practice.
 
-## Installation
+QMD files are the canonical lessons. The website and executable Colab notebooks
+are generated formats. Browser-local completion needs no account and stores no
+raw answers or behavioral history.
+
+## Start learning
+
+Visit <https://freecampus.github.io/math/> and choose **Start pathway**. The
+pathway diagnostic and course prerequisite graph help you choose an entry point.
+
+## Install the lesson-support package
+
+The PyPI distribution is `freecampus-math`; the import is `fcmath`.
 
 ```bash
-pip install osl-edu-math
+python -m pip install freecampus-math
 ```
 
-## Symbolic equation solving
-
-`edumath.solvers` provides SymPy-backed equation solving with structured
-solution steps. The math is computed locally and can be used without any API
-key:
-
 ```python
-from edumath.core import parse_equation
-from edumath.solvers import solve_equation_steps
+from fcmath import ValidationPolicy, check_answer, parse_equation
+from fcmath.solvers import solve_equation_steps
 
-equation = parse_equation("2(x - 3) + 4 = 10")
-solution = solve_equation_steps(equation)
+solution = solve_equation_steps(parse_equation("2(x - 3) + 4 = 10"))
 print(solution.answer)
-print(solution.render_text())
+
+policy = ValidationPolicy(mode="symbolic-equivalence", variables=("x",))
+assert check_answer("(x + 1)^2", "x^2 + 2*x + 1", policy).correct
 ```
 
-Optional AI tutor explanations can be enabled through `edumath.settings`. The AI
-text is added after SymPy/edumath has solved and checked the equation, so the
-symbolic result remains the source of truth:
-
-```python
-from edumath.core import parse_equation
-from edumath.settings import configure
-from edumath.solvers import solve_equation_steps
-
-configure(openai_api_key="YOUR_OPENAI_API_KEY")
-equation = parse_equation("2(x - 3) + 4 = 10")
-solution = solve_equation_steps(equation, explain=True)
-print(solution.explanation)
-```
+The public API is deliberately small: safe expression handling, mathematical
+answer validation, shared quizzes, plotting primitives, and selected solvers.
+Unreviewed subject helpers are experimental.
 
 ## Development
 
 ```bash
 conda env create -f conda/dev.yaml
-conda activate edumath
+conda activate fcmath
 poetry config virtualenvs.create false
 poetry install --extras "dev"
+makim all.ci
 ```
 
-Run checks through Makim:
+Important focused commands:
 
 ```bash
-makim tests.linter
+makim curriculum.validate
+makim curriculum.generate
+makim notebooks.build
 makim tests.unit
-makim package.build
 makim docs.build
 ```
 
-## Project layout
-
-- `src/edumath/`: Python package source
-- `tests/`: pytest test suite
-- `docs/`: Quarto documentation website
-- `conda/`: development and release environment files
-- `.github/`: issue templates and GitHub Actions workflows
+See `AGENTS.md` and `CONTRIBUTING.md` for lesson, accessibility, and catalog
+requirements.

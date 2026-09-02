@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: >
-        Thank you for wanting to report a problem with edu-math documentation.
+        Thank you for wanting to report a problem with FreeCampus Math documentation.
 
   - type: textarea
     attributes:

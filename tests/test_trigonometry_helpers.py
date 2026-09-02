@@ -1,6 +1,6 @@
 import math
 
-from edumath.trigonometry import (
+from fcmath.trigonometry import (
     TRIGONOMETRY_PATH,
     angle_conversion_exercise,
     coterminal_angle,

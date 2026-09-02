@@ -1,0 +1,25 @@
+meta:
+  name: FreeCampus Math
+  link: https://freecampus.github.io/math/
+color:
+  palette:
+    navy: "#173f5f"
+    ink: "#17202a"
+    amber: "#b45309"
+    paper: "#ffffff"
+    mist: "#f4f7f8"
+  foreground: ink
+  background: paper
+  primary: navy
+  secondary: amber
+typography:
+  fonts:
+    - family: Source Sans 3
+      source: google
+    - family: Source Serif 4
+      source: google
+    - family: Source Code Pro
+      source: google
+  base: Source Sans 3
+  headings: Source Serif 4
+  monospace: Source Code Pro

@@ -1,0 +1,30 @@
+---
+title: Integral Calculus
+description: Accumulation, the Fundamental Theorem, techniques, and applications.
+id: integral-calculus
+page_type: course
+status: active
+---
+
+Accumulation, the Fundamental Theorem, techniques, and applications.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Interpret definite integrals as signed accumulation and limits of sums.
+- Use the Fundamental Theorem of Calculus with its hypotheses visible.
+- Select, execute, and verify integration techniques.
+- Model geometric and quantitative accumulation and analyze approximation error.
+
+## Prerequisites
+
+differential-calculus
+
+## Units
+
+- [1. Integration and Accumulation](units/integration/index.qmd)
+
+[Begin or continue the course](units/integration/index.qmd){.btn .btn-primary}

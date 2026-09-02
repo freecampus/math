@@ -2,24 +2,24 @@ import math
 
 import sympy as sp
 
-from edumath.calculus.derivatives import derivative, finite_difference, tangent_line
-from edumath.calculus.integrals import antiderivative, definite_integral
-from edumath.differential_equations.solvers import euler_method
-from edumath.discrete_math.logic import implies, truth_table
-from edumath.linear_algebra.concepts import (
+from fcmath.calculus.derivatives import derivative, finite_difference, tangent_line
+from fcmath.calculus.integrals import antiderivative, definite_integral
+from fcmath.differential_equations.solvers import euler_method
+from fcmath.discrete_math.logic import implies, truth_table
+from fcmath.linear_algebra.concepts import (
     dot_product,
     matrix_vector_product,
     solve_linear_system,
     vector_norm,
 )
-from edumath.probability.distributions import (
+from fcmath.probability.distributions import (
     binomial_pmf,
     combinations,
     expected_value,
     factorial,
 )
-from edumath.statistics.concepts import describe, z_score
-from edumath.trigonometry.concepts import (
+from fcmath.statistics.concepts import describe, z_score
+from fcmath.trigonometry.concepts import (
     coterminal_angle,
     degrees_to_radians,
     radians_to_degrees,

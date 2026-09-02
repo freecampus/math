@@ -1,0 +1,30 @@
+---
+title: Linear Algebra
+description: Vector spaces, matrix methods, linear maps, and spectral structure.
+id: linear-algebra
+page_type: course
+status: active
+---
+
+Vector spaces, matrix methods, linear maps, and spectral structure.
+
+This course expects complete reasoning: definitions and hypotheses are stated,
+manual arguments remain visible, computation is labeled as exact or approximate,
+and conclusions are interpreted rather than merely reported.
+
+## Course outcomes
+
+- Represent and reason about vectors, matrices, systems, and linear transformations.
+- Distinguish computation from the structural claims that make an algorithm valid.
+- Interpret rank, independence, bases, eigenvalues, and eigenvectors geometrically.
+- Verify exact calculations with SymPy and numerical calculations with NumPy.
+
+## Prerequisites
+
+advanced-algebra
+
+## Units
+
+- [1. Vectors, Matrices, and Linear Maps](units/foundations/index.qmd)
+
+[Begin or continue the course](units/foundations/index.qmd){.btn .btn-primary}

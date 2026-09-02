@@ -1,0 +1,21 @@
+{
+  "course_id": "linear-algebra",
+  "outcomes": [
+    {
+      "id": "linear-algebra-outcome-1",
+      "description": "Represent and reason about vectors, matrices, systems, and linear transformations."
+    },
+    {
+      "id": "linear-algebra-outcome-2",
+      "description": "Distinguish computation from the structural claims that make an algorithm valid."
+    },
+    {
+      "id": "linear-algebra-outcome-3",
+      "description": "Interpret rank, independence, bases, eigenvalues, and eigenvectors geometrically."
+    },
+    {
+      "id": "linear-algebra-outcome-4",
+      "description": "Verify exact calculations with SymPy and numerical calculations with NumPy."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+---
+title: Study guidance
+description: Evidence-informed routines for learning proof-aware, computational mathematics.
+page_type: resource
+---
+
+## Prefer retrieval to rereading
+
+Close the lesson and reconstruct a definition, proof outline, graph, or method.
+Then compare. The difference between your reconstruction and the source is
+useful evidence for the next study session.
+
+## Keep an error log
+
+For each consequential error, record the prompt, your reasoning, the first
+invalid step, the underlying misconception, and a new problem that tests the
+same idea. Do not record only the correct answer.
+
+## Interleave after initial learning
+
+Blocked practice helps you learn a new method. Mixed practice teaches you to
+choose among methods. Use both, in that order, and revisit material over days
+rather than compressing all practice into one sitting.

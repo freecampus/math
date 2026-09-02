@@ -1,0 +1,48 @@
+@media print {
+  nav,
+  .navbar,
+  .sidebar,
+  .margin-sidebar,
+  .lesson-completion,
+  .quiz-controls,
+  .progress-actions {
+    display: none !important;
+  }
+  body {
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 11pt;
+  }
+  main.content,
+  main.content > * {
+    max-width: none !important;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    overflow-wrap: anywhere;
+  }
+  details {
+    display: block;
+  }
+  details > * {
+    display: block !important;
+  }
+  .fc-quiz {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .quiz-feedback {
+    display: block !important;
+  }
+  mjx-container,
+  table,
+  figure,
+  pre {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,382 @@
+---
+title: Exponentials and Logarithms
+description: Learn exponential growth, decay, logarithms, equations, and models.
+execute:
+  echo: false
+id: advanced-algebra-algebra-exponentials-and-logarithms
+course_id: advanced-algebra
+unit_id: algebra
+page_type: lesson
+status: active
+estimated_time: "75 minutes"
+skill_modes: [conceptual, manual-calculation, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-2, advanced-algebra-outcome-3, advanced-algebra-outcome-5]
+---
+
+::: {.learning-objectives}
+### Learning objectives
+
+After this lesson you should be able to:
+
+- evaluate positive, zero, and negative exponents;
+- distinguish exponential growth from exponential decay;
+- interpret parameters in `a*b^x` and `A(1 + r)^t`;
+- explain logarithms as inverse operations;
+- convert between logarithmic and exponential form;
+- solve basic exponential and logarithmic equations;
+- check logarithm domain restrictions;
+- use SymPy and browser symbolic tools to verify your work.
+:::
+
+## Motivation: repeated multiplication
+
+Linear growth adds the same amount each step. Exponential growth multiplies by the same factor each step. If `$100` grows by `5%` per year, the values are:
+
+```text
+100, 100(1.05), 100(1.05)^2, 100(1.05)^3, ...
+```
+
+Exponential functions appear in compound interest, population growth, medicine decay, half-life, and many risk models.
+
+## Exponent rules with meaning
+
+| Rule | Example | Meaning |
+|---|---|---|
+| `a^m * a^n = a^(m+n)` | `2^3 * 2^4 = 2^7` | combine repeated factors |
+| `(a^m)^n = a^(mn)` | `(2^3)^4 = 2^12` | repeat a repeated product |
+| `a^0 = 1` | `5^0 = 1` | keeps exponent patterns consistent |
+| `a^-n = 1/a^n` | `2^-3 = 1/8` | negative exponent means reciprocal |
+
+::: {.common-mistake}
+### Common mistake
+
+`2^3 + 2^4` is not `2^7`. Exponent rules apply to multiplication with the same base, not addition.
+:::
+
+## Exponential functions
+
+An exponential function has the variable in the exponent:
+
+```text
+f(x) = a*b^x
+```
+
+- `a` is the starting value when `x = 0`;
+- `b` is the growth or decay factor;
+- `b > 1` gives growth;
+- `0 < b < 1` gives decay.
+
+Example: `P(t) = 200(1.04)^t` starts at `200` and grows by `4%` per time step. Example: `A(t) = 80(0.75)^t` keeps `75%` and loses `25%` per time step.
+
+```{python}
+from fcmath.algebra import compare_functions_scene
+
+scene = compare_functions_scene(
+    ("2**x", "0.5**x", "x**2"),
+    labels=("growth: 2^x", "decay: (1/2)^x", "comparison: x^2"),
+    x_min=-3,
+    x_max=6,
+    y_min=-1,
+    y_max=40,
+    title="Exponential growth, decay, and polynomial comparison",
+)
+fig, ax = scene.render()
+```
+
+## Percent growth and decay
+
+The model:
+
+```text
+A(t) = A_0(1 + r)^t
+```
+
+uses a rate `r` written as a decimal. A `6%` growth rate gives factor `1.06`. A `20%` decay rate gives factor `0.80`.
+
+::: {.key-idea}
+### Key idea
+
+A growth rate is not the same as a growth factor. Add the rate to `1` for growth and subtract it from `1` for decay.
+:::
+
+## Logarithms undo exponentials
+
+A logarithm answers: **what exponent produced this number?**
+
+```text
+log_b(y) = x means b^x = y
+```
+
+| Exponential form | Logarithmic form |
+|---|---|
+| `2^3 = 8` | `log_2(8) = 3` |
+| `10^2 = 100` | `log_10(100) = 2` |
+| `e^0 = 1` | `ln(1) = 0` |
+
+The natural logarithm `ln(x)` means `log_e(x)`.
+
+## Domain and range
+
+For `b^x` with `b > 0` and `b != 1`, the domain is all real numbers and the range is positive real numbers. For `log_b(x)`, the domain is positive real numbers and the range is all real numbers.
+
+Thus `log(x - 4)` requires `x - 4 > 0`, so `x > 4`.
+
+::: {.common-mistake}
+### Log domain warning
+
+In real-valued algebra, `log(0)` and `log(-3)` are not defined. Always check log inputs before accepting a solution.
+:::
+
+## Logarithm laws
+
+For `M > 0`, `N > 0`, `b > 0`, and `b != 1`:
+
+```text
+log_b(MN) = log_b(M) + log_b(N)
+log_b(M/N) = log_b(M) - log_b(N)
+log_b(M^p) = p log_b(M)
+```
+
+Logarithms do not distribute over addition: `log(x + y)` is not `log(x) + log(y)`.
+
+## Solving exponential equations
+
+Common-base example:
+
+```text
+2^(x + 1) = 16 = 2^4
+x + 1 = 4
+x = 3
+```
+
+Taking logarithms:
+
+```text
+3^x = 20
+log(3^x) = log(20)
+x log(3) = log(20)
+x = log(20)/log(3)
+```
+
+Growth model:
+
+```text
+100(1.05)^t = 150
+(1.05)^t = 1.5
+t = log(1.5)/log(1.05)
+```
+
+## Solving logarithmic equations
+
+Direct rewrite:
+
+```text
+log_2(x - 1) = 3
+2^3 = x - 1
+x = 9
+```
+
+Check the domain: `x > 1`, so `9` is valid.
+
+Combining logs:
+
+```text
+log(x) + log(x - 3) = log(10)
+```
+
+Domain: `x > 3`. Combine:
+
+```text
+log(x(x - 3)) = log(10)
+x(x - 3) = 10
+x^2 - 3x - 10 = 0
+(x - 5)(x + 2) = 0
+```
+
+Only `x = 5` satisfies the domain.
+
+## Applications
+
+- Compound interest: `A(t) = 500(1.06)^t`.
+- Half-life: `A(t) = A_0(1/2)^(t/h)` where `h` is the half-life.
+- Doubling time: `P(t) = P_0*2^(t/d)` where `d` is the doubling time.
+
+## Browser symbolic practice
+
+Useful browser tools include [math.js](https://mathjs.org/docs/index.html), [Nerdamer](https://nerdamer.com/documentation.html), [Algebrite](https://github.com/davidedc/Algebrite), and [PyScript](https://docs.pyscript.net/latest/). Try evaluating an exponential model, comparing `2^x` and `x^2`, solving `3^x = 20`, and checking domains such as `log(2x - 5)`.
+
+## Practice exercises
+
+::: {.practice-box}
+1. Evaluate `2^5` and `2^-3`.
+2. Does `300(1.07)^t` represent growth or decay? What is the percent rate?
+3. Does `90(0.82)^t` represent growth or decay? What is the percent rate?
+4. Rewrite `log_5(125) = 3` in exponential form.
+5. Rewrite `4^3 = 64` in logarithmic form.
+6. Solve `2^(x - 1) = 32`.
+7. Solve `5^x = 18` exactly.
+8. Find the domain of `log(x + 6)`.
+9. Solve `log_3(x + 2) = 4`.
+10. Write a model for a value starting at `1000` and decaying by `12%` per year.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solutions
+
+1. `32` and `1/8`.
+2. Growth by `7%`.
+3. Decay by `18%`.
+4. `5^3 = 125`.
+5. `log_4(64) = 3`.
+6. `x = 6`.
+7. `x = log(18)/log(5)`.
+8. `x > -6`.
+9. `x = 79`.
+10. `A(t) = 1000(0.88)^t`.
+:::
+
+## Subtopic guided practice and checkpoints
+
+Exponentials build repeated multiplication. Logarithms answer exponent
+questions. Guess which inverse operation you need before solving.
+
+### Lab 1: exponent rules with meaning
+
+**Guess first.** Is `a^3 * a^4` closer to `a^7` or `a^12`?
+
+**Guided exercise.**
+
+```text
+a^3 * a^4 = (a*a*a)(a*a*a*a) = a^7
+```
+
+Add exponents only when the bases match and you are multiplying powers.
+
+::: {.practice-box}
+**Checkpoint.** Simplify `x^5/x^2` and `(2x^3)^2`. State which rule you used.
+:::
+
+### Lab 2: growth and decay
+
+**Guess first.** In `P(t) = 500(1.08)^t`, is the quantity growing or decaying?
+
+**Guided exercise.**
+
+The base is `1.08`, which is larger than `1`, so the model grows by `8%` each
+time period. At `t = 3`:
+
+```text
+P(3) = 500(1.08)^3
+     = 629.856
+```
+
+::: {.practice-box}
+**Checkpoint.** Interpret `A(t) = 1200(0.85)^t`. Is it growth or decay? What is
+the percent change each time period?
+:::
+
+### Lab 3: logarithms as inverse questions
+
+**Guess first.** What power of `2` gives `32`?
+
+**Guided exercise.**
+
+```text
+log_2(32) = ?
+2^? = 32
+2^5 = 32
+log_2(32) = 5
+```
+
+::: {.practice-box}
+**Checkpoint.** Rewrite `log_3(81) = 4` in exponential form. Then evaluate
+`log_5(1/25)`.
+:::
+
+### Lab 4: solve exponential and logarithmic equations
+
+**Guess first.** To solve `3^(x - 1) = 27`, should you use common bases or logs?
+
+**Guided exercise.**
+
+```text
+3^(x - 1) = 27
+3^(x - 1) = 3^3
+x - 1 = 3
+x = 4
+```
+
+For a logarithmic equation, rewrite in exponential form:
+
+```text
+log_2(x + 6) = 5
+x + 6 = 2^5
+x + 6 = 32
+x = 26
+```
+
+Check the log domain: `x + 6 > 0`, and `26` works.
+
+::: {.practice-box}
+**Checkpoint.** Solve `5^(2x) = 125` and `log_3(x - 1) = 2`. Include a domain
+check for the logarithmic equation.
+:::
+
+## Guessing game checkpoint
+
+<script type="application/json" class="fcmath-guessing-game-config">
+{
+  "topic": "exponentials-logarithms",
+  "title": "Exponentials and logarithms checkpoint",
+  "defaultTotal": 5
+}
+</script>
+
+{{< include ../../../../_includes/guessing-game.qmd >}}
+
+## Using this lesson with fcmath and SymPy
+
+
+Use parsed equations with the solver for exact symbolic answers, then interpret
+them using exponent and logarithm rules.
+
+```{python}
+#| echo: true
+from fcmath.core import parse_equation
+from fcmath.solvers import solve_equation_steps
+
+exponential_solution = solve_equation_steps(parse_equation("3^(x - 1) = 27"))
+print(exponential_solution.render_text())
+```
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.Symbol("x", positive=True)
+sp.solve(sp.Eq(3**x, 20), x)
+```
+
+```{python}
+#| echo: true
+sp.solve(sp.Eq(sp.log(x, 10), 3), x)
+```
+
+```{python}
+#| echo: true
+equation = sp.Eq(sp.log(x) + sp.log(x - 3), sp.log(10))
+candidates = sp.solve(equation, x)
+[(candidate, sp.checksol(equation, x, candidate)) for candidate in candidates]
+```
+
+```{python}
+#| echo: true
+t = sp.symbols("t")
+solution = sp.solve(sp.Eq(100 * 1.05**t, 150), t)[0]
+float(solution)
+```
+
+## Further reading
+
+- OpenStax, *College Algebra 2e*: <https://openstax.org/books/college-algebra-2e/pages/index>
+- Khan Academy, Algebra 2: <https://www.khanacademy.org/math/algebra2>
