@@ -35,7 +35,7 @@ jobs:
           miniforge-version: latest
           environment-file: conda/release.yaml
           channels: conda-forge,nodefaults
-          activate-environment: edumath
+          activate-environment: fcmath
           auto-update-conda: true
           conda-solver: libmamba
           python-version: "3.13"
