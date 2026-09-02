@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
 
 permissions:
   contents: write
@@ -20,9 +22,11 @@ env:
 
 jobs:
   release:
+    name: Verify and prepare release
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    environment: pypi
+    outputs:
+      has-distributions: ${{ steps.distributions.outputs.available }}
     defaults:
       run:
         shell: bash -l {0}
@@ -51,17 +55,48 @@ jobs:
           makim notebooks.check
           makim tests.unit
       - name: Semantic-release dry run
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event_name == 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: makim release.dry
       - name: Publish release
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: makim release.ci
+      - name: Detect release distributions
+        id: distributions
+        if: github.event_name != 'pull_request'
+        run: |
+          if compgen -G "dist/*" > /dev/null; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Upload distributions for trusted publishing
+        if: steps.distributions.outputs.available == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-distributions
+          path: dist/
+
+  publish-pypi:
+    name: Publish distributions to PyPI
+    if: ${{ github.event_name != 'pull_request' && needs.release.outputs.has-distributions == 'true' }}
+    needs: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: pypi
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Download release distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: release-distributions
+          path: dist/
       - name: Publish distributions to PyPI with trusted publishing
-        if: github.event_name == 'workflow_dispatch'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/
