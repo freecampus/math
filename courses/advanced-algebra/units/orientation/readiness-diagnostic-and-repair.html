@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Measure prerequisite skills by subdomain, diagnose the cause of errors, and complete a targeted correction and reassessment loop.">
+
+<title>Readiness Diagnostic and Targeted Repair – FreeCampus Math</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../courses/advanced-algebra/units/mathematical-language/index.html" rel="next">
+<link href="../../../../courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-446fb54370a7a8a17a7083c01ae5dd9f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#173f5f">
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjs@14.8.1/lib/browser/math.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../assets/brand/logo.svg" alt="FreeCampus Math" class="navbar-logo light-content">
+    <img src="../../../../assets/brand/logo.svg" alt="FreeCampus Math" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">FreeCampus Math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../../pathways/quantitative-mathematics/index.html" aria-current="page"> 
+<span class="menu-text">Start pathway</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../courses/index.html"> 
+<span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../resources/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/freecampus/math"> <i class="bi bi-github" role="img" aria-label="FreeCampus Math source repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../courses/index.html">Courses</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/index.html">Advanced Algebra</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/orientation/index.html">Orientation, Diagnostic, and Prerequisite Repair</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.html">Readiness Diagnostic and Targeted Repair</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FreeCampus Math</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Mathematics for Quantitative Studies</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../pathways/quantitative-mathematics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematics for Quantitative Studies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../pathways/quantitative-mathematics/start-here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start here</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../pathways/quantitative-mathematics/diagnostic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pathway diagnostic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../pathways/quantitative-mathematics/course-sequence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recommended course sequence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../pathways/quantitative-mathematics/progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overall progress</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Courses</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Courses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Advanced Algebra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Orientation, Diagnostic, and Prerequisite Repair</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/orientation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Orientation, Diagnostic, and Prerequisite Repair</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Read and Write an Algebraic Argument</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Readiness Diagnostic and Targeted Repair</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Mathematical Language, Numbers, and Proof Foundations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical Language, Numbers, and Proof Foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Algebraic Structures and Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expressions and Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inequalities and Absolute Value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformations, Composition, and Inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear and Quadratic Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rational and Radical Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponentials and Logarithms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems of Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbolic Computation with SymPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/guessing_quiz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guessing Quiz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">College Algebra Cumulative Review</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Trigonometry and Periodic Structure</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometry Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radians and Degrees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Unit Circle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sine and Cosine</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Functions and Graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Identities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trigonometric Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications of Trigonometry</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Vectors, Matrices, and Linear Maps</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Algebra Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/matrix-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix Operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems and Elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/linear-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/linear-algebra/units/foundations/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Differential Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Limits and Differentiation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-calculus/units/differentiation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-calculus/units/differentiation/limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-calculus/units/differentiation/derivatives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivatives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-calculus/units/differentiation/derivative-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivative Rules</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-calculus/units/differentiation/optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Integral Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/integral-calculus/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integral Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Integration and Accumulation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/integral-calculus/units/integration/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integration and Accumulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/integral-calculus/units/integration/integrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/integral-calculus/units/integration/integration-techniques.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integration Techniques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/integral-calculus/units/integration/applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus Applications</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+ <span class="menu-text">Differential Equations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+ <span class="menu-text">Ordinary Differential Equations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Equations Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First-Order Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Separable Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Differential Equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slope Fields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systems of Differential Equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+ <span class="menu-text">Discrete Mathematics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+ <span class="menu-text">Logic, Proof, and Discrete Structures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Mathematics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/logic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/functions-relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Relations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Induction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/discrete-mathematics/units/foundations/graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false">
+ <span class="menu-text">Probability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false">
+ <span class="menu-text">Probability Models and Random Variables</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample Spaces and Events</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/counting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Counting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/conditional-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conditional Probability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/common-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/probability/units/foundations/expectation-variance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expectation and Variance</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
+ <span class="menu-text">Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
+ <span class="menu-text">Statistical Reasoning and Inference</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Study Path</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptive Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling and Study Design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability for Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypothesis Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/comparing-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chi-Square Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/regression-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/statistics/units/foundations/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics Cumulative Review</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false">
+ <span class="menu-text">Mathematical Computing with Python</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/mathematical-computing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical Computing with Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python Foundations for Mathematical Work</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Foundations for Mathematical Work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions and Control Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NumPy and Arrays</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plotting With Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false">
+ <span class="menu-text">Cumulative Review and Practice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/cumulative-review/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cumulative Review and Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false">
+ <span class="menu-text">Mixed and Comprehensive Practice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/cumulative-review/units/mixed-practice/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mixed and Comprehensive Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/cumulative-review/units/mixed-practice/timed-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Timed Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/cumulative-review/units/mixed-practice/comprehensive-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comprehensive practice</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../resources/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../resources/notation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notation and terminology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../resources/formula-reference/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formula reference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../resources/computational-setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computational setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../resources/study-guidance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study guidance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../resources/faq/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequently asked questions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="true">
+ <span class="menu-text">About</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../about/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About FreeCampus Math</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../about/contributing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="true">
+ <span class="menu-text">Developers</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../developers/installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developer installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../developers/api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../changelog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link active" data-scroll-target="#why-this-matters">Why this matters</a>
+  <ul class="collapse">
+  <li><a href="#what-you-should-be-able-to-do" id="toc-what-you-should-be-able-to-do" class="nav-link" data-scroll-target="#what-you-should-be-able-to-do">What you should be able to do</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#five-minute-retrieval-warm-up" id="toc-five-minute-retrieval-warm-up" class="nav-link" data-scroll-target="#five-minute-retrieval-warm-up">Five-minute retrieval warm-up</a></li>
+  <li><a href="#how-to-take-the-baseline-diagnostic" id="toc-how-to-take-the-baseline-diagnostic" class="nav-link" data-scroll-target="#how-to-take-the-baseline-diagnostic">1. How to take the baseline diagnostic</a></li>
+  <li><a href="#diagnose-the-first-cause" id="toc-diagnose-the-first-cause" class="nav-link" data-scroll-target="#diagnose-the-first-cause">2. Diagnose the first cause</a>
+  <ul class="collapse">
+  <li><a href="#example-1-error-classification" id="toc-example-1-error-classification" class="nav-link" data-scroll-target="#example-1-error-classification">Example 1: error classification</a></li>
+  </ul></li>
+  <li><a href="#repair-strand-a-exact-rational-arithmetic" id="toc-repair-strand-a-exact-rational-arithmetic" class="nav-link" data-scroll-target="#repair-strand-a-exact-rational-arithmetic">3. Repair strand A: exact rational arithmetic</a>
+  <ul class="collapse">
+  <li><a href="#example-2-a-signed-fraction-calculation" id="toc-example-2-a-signed-fraction-calculation" class="nav-link" data-scroll-target="#example-2-a-signed-fraction-calculation">Example 2: a signed fraction calculation</a></li>
+  <li><a href="#guided-repair-a" id="toc-guided-repair-a" class="nav-link" data-scroll-target="#guided-repair-a">Guided repair A</a></li>
+  </ul></li>
+  <li><a href="#repair-strand-b-signs-order-and-absolute-size" id="toc-repair-strand-b-signs-order-and-absolute-size" class="nav-link" data-scroll-target="#repair-strand-b-signs-order-and-absolute-size">4. Repair strand B: signs, order, and absolute size</a>
+  <ul class="collapse">
+  <li><a href="#example-3-compound-signs-and-order" id="toc-example-3-compound-signs-and-order" class="nav-link" data-scroll-target="#example-3-compound-signs-and-order">Example 3: compound signs and order</a></li>
+  <li><a href="#guided-repair-b" id="toc-guided-repair-b" class="nav-link" data-scroll-target="#guided-repair-b">Guided repair B</a></li>
+  </ul></li>
+  <li><a href="#repair-strand-c-factors-powers-roots-and-scientific-notation" id="toc-repair-strand-c-factors-powers-roots-and-scientific-notation" class="nav-link" data-scroll-target="#repair-strand-c-factors-powers-roots-and-scientific-notation">5. Repair strand C: factors, powers, roots, and scientific notation</a>
+  <ul class="collapse">
+  <li><a href="#example-4-exact-powers-and-scale" id="toc-example-4-exact-powers-and-scale" class="nav-link" data-scroll-target="#example-4-exact-powers-and-scale">Example 4: exact powers and scale</a></li>
+  <li><a href="#guided-repair-c" id="toc-guided-repair-c" class="nav-link" data-scroll-target="#guided-repair-c">Guided repair C</a></li>
+  </ul></li>
+  <li><a href="#repair-strand-d-ratios-percentages-and-units" id="toc-repair-strand-d-ratios-percentages-and-units" class="nav-link" data-scroll-target="#repair-strand-d-ratios-percentages-and-units">6. Repair strand D: ratios, percentages, and units</a>
+  <ul class="collapse">
+  <li><a href="#example-5-unit-aware-rate" id="toc-example-5-unit-aware-rate" class="nav-link" data-scroll-target="#example-5-unit-aware-rate">Example 5: unit-aware rate</a></li>
+  <li><a href="#guided-repair-d" id="toc-guided-repair-d" class="nav-link" data-scroll-target="#guided-repair-d">Guided repair D</a></li>
+  </ul></li>
+  <li><a href="#repair-strand-e-equations-and-order" id="toc-repair-strand-e-equations-and-order" class="nav-link" data-scroll-target="#repair-strand-e-equations-and-order">7. Repair strand E: equations and order</a>
+  <ul class="collapse">
+  <li><a href="#example-6-a-parameter-case" id="toc-example-6-a-parameter-case" class="nav-link" data-scroll-target="#example-6-a-parameter-case">Example 6: a parameter case</a></li>
+  <li><a href="#guided-repair-e" id="toc-guided-repair-e" class="nav-link" data-scroll-target="#guided-repair-e">Guided repair E</a></li>
+  </ul></li>
+  <li><a href="#repair-strand-f-coordinates-graphs-and-estimation" id="toc-repair-strand-f-coordinates-graphs-and-estimation" class="nav-link" data-scroll-target="#repair-strand-f-coordinates-graphs-and-estimation">8. Repair strand F: coordinates, graphs, and estimation</a>
+  <ul class="collapse">
+  <li><a href="#example-7-interpret-slope-with-units" id="toc-example-7-interpret-slope-with-units" class="nav-link" data-scroll-target="#example-7-interpret-slope-with-units">Example 7: interpret slope with units</a></li>
+  <li><a href="#guided-repair-f" id="toc-guided-repair-f" class="nav-link" data-scroll-target="#guided-repair-f">Guided repair F</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes-and-limitations" id="toc-common-mistakes-and-limitations" class="nav-link" data-scroll-target="#common-mistakes-and-limitations">9. Common mistakes and limitations</a>
+  <ul class="collapse">
+  <li><a href="#mistake-using-the-total-score-as-the-diagnosis" id="toc-mistake-using-the-total-score-as-the-diagnosis" class="nav-link" data-scroll-target="#mistake-using-the-total-score-as-the-diagnosis">Mistake: using the total score as the diagnosis</a></li>
+  <li><a href="#mistake-studying-the-displayed-answer-instead-of-the-failed-operation" id="toc-mistake-studying-the-displayed-answer-instead-of-the-failed-operation" class="nav-link" data-scroll-target="#mistake-studying-the-displayed-answer-instead-of-the-failed-operation">Mistake: studying the displayed answer instead of the failed operation</a></li>
+  <li><a href="#mistake-taking-the-reassessment-immediately" id="toc-mistake-taking-the-reassessment-immediately" class="nav-link" data-scroll-target="#mistake-taking-the-reassessment-immediately">Mistake: taking the reassessment immediately</a></li>
+  <li><a href="#mistake-using-a-calculator-to-hide-representation-gaps" id="toc-mistake-using-a-calculator-to-hide-representation-gaps" class="nav-link" data-scroll-target="#mistake-using-a-calculator-to-hide-representation-gaps">Mistake: using a calculator to hide representation gaps</a></li>
+  <li><a href="#mistake-treating-speed-as-mastery" id="toc-mistake-treating-speed-as-mastery" class="nav-link" data-scroll-target="#mistake-treating-speed-as-mastery">Mistake: treating speed as mastery</a></li>
+  </ul></li>
+  <li><a href="#topic-checkpoint-baseline-diagnostic" id="toc-topic-checkpoint-baseline-diagnostic" class="nav-link" data-scroll-target="#topic-checkpoint-baseline-diagnostic">10. Topic checkpoint: baseline diagnostic</a></li>
+  <li><a href="#build-a-correction-portfolio" id="toc-build-a-correction-portfolio" class="nav-link" data-scroll-target="#build-a-correction-portfolio">11. Build a correction portfolio</a>
+  <ul class="collapse">
+  <li><a href="#example-8-correction-record" id="toc-example-8-correction-record" class="nav-link" data-scroll-target="#example-8-correction-record">Example 8: correction record</a></li>
+  </ul></li>
+  <li><a href="#second-attempt-mastery-check" id="toc-second-attempt-mastery-check" class="nav-link" data-scroll-target="#second-attempt-mastery-check">12. Second-attempt mastery check</a></li>
+  <li><a href="#examination-strategy-clinic" id="toc-examination-strategy-clinic" class="nav-link" data-scroll-target="#examination-strategy-clinic">13. Examination strategy clinic</a>
+  <ul class="collapse">
+  <li><a href="#problem-reason-before-computing" id="toc-problem-reason-before-computing" class="nav-link" data-scroll-target="#problem-reason-before-computing">Problem: reason before computing</a></li>
+  </ul></li>
+  <li><a href="#exercises-by-purpose-and-difficulty" id="toc-exercises-by-purpose-and-difficulty" class="nav-link" data-scroll-target="#exercises-by-purpose-and-difficulty">14. Exercises by purpose and difficulty</a></li>
+  <li><a href="#cumulative-retrieval" id="toc-cumulative-retrieval" class="nav-link" data-scroll-target="#cumulative-retrieval">15. Cumulative retrieval</a></li>
+  <li><a href="#summary-and-next-step" id="toc-summary-and-next-step" class="nav-link" data-scroll-target="#summary-and-next-step">16. Summary and next step</a></li>
+  <li><a href="#references-and-further-study" id="toc-references-and-further-study" class="nav-link" data-scroll-target="#references-and-further-study">References and further study</a></li>
+  <li><a href="#using-this-lesson-with-fcmath-and-sympy" id="toc-using-this-lesson-with-fcmath-and-sympy" class="nav-link" data-scroll-target="#using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/freecampus/math/edit/main/courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/freecampus/math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<a class="skip-link" href="#quarto-document-content">Skip to main content</a>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../courses/index.html">Courses</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/index.html">Advanced Algebra</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/orientation/index.html">Orientation, Diagnostic, and Prerequisite Repair</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.html">Readiness Diagnostic and Targeted Repair</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Readiness Diagnostic and Targeted Repair</h1>
+</div>
+
+<div>
+  <div class="description">
+    Measure prerequisite skills by subdomain, diagnose the cause of errors, and complete a targeted correction and reassessment loop.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="why-this-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters">Why this matters</h2>
+<p>Advanced problems can fail for a basic reason. A correct plan for a parameter problem may collapse because of a sign error; a calculus derivation may fail because fractions were combined incorrectly; a model may be numerically correct but meaningless because units were ignored. The remedy is not to repeat an entire elementary course. It is to identify the exact weak link, repair it, and verify the repair on a parallel problem.</p>
+<p>This chapter uses a <strong>diagnostic cycle</strong>:</p>
+<p><span class="math display">\[
+\text{attempt}\longrightarrow\text{classify}\longrightarrow
+\text{repair}\longrightarrow\text{reattempt}\longrightarrow\text{reflect}.
+\]</span></p>
+<p>A diagnostic is not an entrance barrier and its total score is not a measure of mathematical potential. It is evidence about present fluency. Honest evidence lets you spend time where it produces the largest gain.</p>
+<section id="what-you-should-be-able-to-do" class="level3 learning-objectives">
+<h3 class="anchored" data-anchor-id="what-you-should-be-able-to-do">What you should be able to do</h3>
+<p>After completing the chapter, you should be able to:</p>
+<ul>
+<li>calculate exactly with signed integers and rational numbers;</li>
+<li>use factors, powers, roots, and scientific notation without false laws;</li>
+<li>solve proportions and interpret rates, percentages, and dimensional units;</li>
+<li>read coordinates, slope, scale, and qualitative behavior from a graph;</li>
+<li>estimate sign, order of magnitude, and plausible bounds before computing;</li>
+<li>classify an error by its first cause rather than its last symptom;</li>
+<li>build and complete a targeted repair route from subskill evidence;</li>
+<li>use a calculator or SymPy to verify work without surrendering method choice;</li>
+<li>demonstrate repair on a second attempt and document the change in reasoning.</li>
+</ul>
+</section>
+<section id="prerequisites" class="level3 prerequisites">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>Complete <a href="../../../../courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.html">How to read and write an algebraic argument</a> first. In particular, use <span class="math inline">\(=\)</span> only for equality, preserve exact values, and mark steps that produce candidates rather than equivalent equations.</p>
+</section>
+</section>
+<section id="five-minute-retrieval-warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="five-minute-retrieval-warm-up">Five-minute retrieval warm-up</h2>
+<ol type="1">
+<li>Which is more informative after a mistake: “careless error” or “I distributed the negative sign to the first term but not the second”? Why?</li>
+<li>If a calculator reports <code>0.3333333333</code>, what exact number might have produced it, and what can the display alone prove?</li>
+<li>Estimate <span class="math inline">\(49.8\times0.203\)</span> before multiplying.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Warm-up answers">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Warm-up answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The second description identifies a reproducible operation and therefore a repair. “Careless” does not specify what to practice.</li>
+<li><span class="math inline">\(1/3\)</span> is one possibility, but many real numbers round to that display. The display proves only a finite-precision approximation to the calculator’s internal result.</li>
+<li><span class="math inline">\(50\times0.2=10\)</span>, so the product should be close to <span class="math inline">\(10\)</span> (in fact <span class="math inline">\(10.1094\)</span>). An output near <span class="math inline">\(100\)</span> or <span class="math inline">\(1\)</span> should be rejected immediately.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-take-the-baseline-diagnostic" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-take-the-baseline-diagnostic">1. How to take the baseline diagnostic</h2>
+<p>Set aside 45–60 uninterrupted minutes. Use paper, but do not use notes, calculator, search, or computer algebra on the first attempt. Write enough work to reveal your method. If you are unsure, record a best attempt and mark your confidence as high, medium, or low.</p>
+<p>The structured diagnostic near the end contains 24 questions in six strands:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Questions</th>
+<th>Strand</th>
+<th>Evidence sought</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1–4</td>
+<td>exact rational arithmetic</td>
+<td>grouping, signs, common denominators, exact form</td>
+</tr>
+<tr class="even">
+<td>5–8</td>
+<td>powers, roots, factors</td>
+<td>laws with conditions, square roots, divisibility</td>
+</tr>
+<tr class="odd">
+<td>9–12</td>
+<td>ratios, percentages, units</td>
+<td>multiplicative comparison and dimensional meaning</td>
+</tr>
+<tr class="even">
+<td>13–16</td>
+<td>elementary equations and order</td>
+<td>inverse operations, inequalities, checks</td>
+</tr>
+<tr class="odd">
+<td>17–20</td>
+<td>coordinates and graphs</td>
+<td>scale, slope, intercepts, qualitative reading</td>
+</tr>
+<tr class="even">
+<td>21–24</td>
+<td>estimation and interpretation</td>
+<td>magnitude, plausibility, exact versus approximate</td>
+</tr>
+</tbody>
+</table>
+<p>After submitting, score each strand separately. A result of 3 or 4 correct means “continue, then retrieve again this week.” A result of 2 means “complete the strand repair below.” A result of 0 or 1 means “complete the repair slowly, practice five additional examples, and reassess before Unit 1.” Confidence also matters: a correct low-confidence answer belongs in retrieval practice.</p>
+</section>
+<section id="diagnose-the-first-cause" class="level2">
+<h2 class="anchored" data-anchor-id="diagnose-the-first-cause">2. Diagnose the first cause</h2>
+<p>Use one of these categories for every missed or guessed problem.</p>
+<ul>
+<li><strong>Concept error:</strong> a definition or law is misunderstood, such as believing <span class="math inline">\(a^{-2}\)</span> is negative.</li>
+<li><strong>Representation error:</strong> a correct idea is translated incorrectly among words, symbols, tables, graphs, or units.</li>
+<li><strong>Strategy error:</strong> the chosen method is valid in principle but poorly suited, or no plan was selected.</li>
+<li><strong>Validity error:</strong> a condition is lost, an implication reversed, or an operation applied outside its domain.</li>
+<li><strong>Algebra error:</strong> a symbolic law is misapplied, such as distributing a power over addition.</li>
+<li><strong>Arithmetic error:</strong> the symbolic plan is correct but a numeric operation is wrong.</li>
+<li><strong>Notation error:</strong> the work says something different from the intention, such as using <span class="math inline">\(=\)</span> for approximation.</li>
+<li><strong>Interpretation error:</strong> the computed number is not connected back to the question, scale, or units.</li>
+</ul>
+<p>Do not classify from the final wrong line. Mark the first line that would need to change for the remainder to become valid.</p>
+<section id="example-1-error-classification" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-1-error-classification">Example 1: error classification</h3>
+<p>A learner computes</p>
+<p><span class="math display">\[
+\frac23-\frac58=\frac{-3}{5}.
+\]</span></p>
+<p>This is not merely an arithmetic slip. The learner subtracted numerators and denominators as if fraction bars were independent components. That is an <strong>algebra/representation error</strong>: unlike units were combined. The repair is to rename both fractions in fifteenths:</p>
+<p><span class="math display">\[
+\frac23-\frac58=\frac{16}{24}-\frac{15}{24}=\frac1{24}.
+\]</span></p>
+<p>A useful reattempt changes the surface form, for example <span class="math inline">\(5/6-7/10\)</span>, while testing the same common-unit idea.</p>
+</section>
+</section>
+<section id="repair-strand-a-exact-rational-arithmetic" class="level2">
+<h2 class="anchored" data-anchor-id="repair-strand-a-exact-rational-arithmetic">3. Repair strand A: exact rational arithmetic</h2>
+<p>A fraction <span class="math inline">\(a/b\)</span> with <span class="math inline">\(b\ne0\)</span> is a number, not a pair of independent digits. Addition compares common-sized parts:</p>
+<p><span class="math display">\[
+\frac ab+\frac cd=\frac{ad+bc}{bd},\qquad b,d\ne0.
+\]</span></p>
+<p>Division asks how many copies of one number fit in another, so multiplying by a reciprocal is derived from the inverse property:</p>
+<p><span class="math display">\[
+\frac ab\div\frac cd=\frac ab\cdot\frac dc,
+\qquad b,c,d\ne0.
+\]</span></p>
+<section id="example-2-a-signed-fraction-calculation" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-2-a-signed-fraction-calculation">Example 2: a signed fraction calculation</h3>
+<p>Evaluate</p>
+<p><span class="math display">\[
+-\frac34+\frac56\div\left(-\frac{10}{9}\right).
+\]</span></p>
+<p>Division comes before addition:</p>
+<p><span class="math display">\[
+\frac56\div\left(-\frac{10}{9}\right)
+=\frac56\left(-\frac9{10}\right)
+=-\frac{45}{60}=-\frac34.
+\]</span></p>
+<p>Therefore the total is <span class="math inline">\(-3/4-3/4=-3/2\)</span>. A decimal check gives <span class="math inline">\(-1.5\)</span>, consistent with adding two negative numbers of magnitude <span class="math inline">\(0.75\)</span>.</p>
+</section>
+<section id="guided-repair-a" class="level3 practice-box" data-problem-id="aa-0-2-guided-rational" data-level="A">
+<h3 class="anchored" data-anchor-id="guided-repair-a">Guided repair A</h3>
+<p>Compute <span class="math inline">\(\frac7{12}-\frac58\)</span> exactly, then estimate to check the sign.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The least common denominator is <span class="math inline">\(24\)</span>: <span class="math inline">\(14/24-15/24=-1/24\)</span>. Since <span class="math inline">\(7/12\approx0.583\)</span> and <span class="math inline">\(5/8=0.625\)</span>, a small negative answer is plausible.</p>
+</div>
+</div>
+</div>
+</section>
+<p><strong>Mastery signal:</strong> four mixed fraction problems correct in succession, with unsimplified denominators and signs checked rather than guessed.</p>
+</section>
+<section id="repair-strand-b-signs-order-and-absolute-size" class="level2">
+<h2 class="anchored" data-anchor-id="repair-strand-b-signs-order-and-absolute-size">4. Repair strand B: signs, order, and absolute size</h2>
+<p>A leading negative sign means multiplication by <span class="math inline">\(-1\)</span>. Thus <span class="math inline">\(-(a-b)=-a+b\)</span>, not <span class="math inline">\(-a-b\)</span>. On a number line, <span class="math inline">\(-7&lt;-2\)</span> because <span class="math inline">\(-7\)</span> lies farther left, even though its absolute value is larger.</p>
+<p>Multiplying an inequality by a negative reverses order. If <span class="math inline">\(a&lt;b\)</span>, then <span class="math inline">\(b-a&gt;0\)</span>; multiplying by <span class="math inline">\(-1\)</span> gives <span class="math inline">\(a-b&lt;0\)</span>. This is the reason, not a memorized symbol trick.</p>
+<section id="example-3-compound-signs-and-order" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-3-compound-signs-and-order">Example 3: compound signs and order</h3>
+<p>Simplify <span class="math inline">\(-2[3-(x-4)]\)</span>.</p>
+<p>First preserve the inner grouping:</p>
+<p><span class="math display">\[
+3-(x-4)=3-x+4=7-x.
+\]</span></p>
+<p>Then distribute <span class="math inline">\(-2\)</span> to the entire bracket:</p>
+<p><span class="math display">\[
+-2(7-x)=-14+2x.
+\]</span></p>
+<p>At <span class="math inline">\(x=0\)</span>, both the original and final expressions equal <span class="math inline">\(-14\)</span>, a quick check that catches the common answer <span class="math inline">\(-14-2x\)</span>.</p>
+</section>
+<section id="guided-repair-b" class="level3 practice-box" data-problem-id="aa-0-2-guided-order" data-level="A">
+<h3 class="anchored" data-anchor-id="guided-repair-b">Guided repair B</h3>
+<p>Solve <span class="math inline">\(-3(2x-1)\le9\)</span> and test one allowed and one excluded value.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Expand: <span class="math inline">\(-6x+3\le9\)</span>, so <span class="math inline">\(-6x\le6\)</span>. Division by <span class="math inline">\(-6\)</span> reverses order, giving <span class="math inline">\(x\ge-1\)</span>. The boundary <span class="math inline">\(x=-1\)</span> yields <span class="math inline">\(9\le9\)</span>; the excluded value <span class="math inline">\(x=-2\)</span> yields <span class="math inline">\(15\le9\)</span>, false.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="repair-strand-c-factors-powers-roots-and-scientific-notation" class="level2">
+<h2 class="anchored" data-anchor-id="repair-strand-c-factors-powers-roots-and-scientific-notation">5. Repair strand C: factors, powers, roots, and scientific notation</h2>
+<p>For nonzero <span class="math inline">\(a\)</span> and integers <span class="math inline">\(m,n\)</span>,</p>
+<p><span class="math display">\[
+a^ma^n=a^{m+n},\qquad
+\frac{a^m}{a^n}=a^{m-n},\qquad
+a^{-n}=\frac1{a^n}.
+\]</span></p>
+<p>The product and quotient laws require a common base. Powers do not distribute over addition: <span class="math inline">\((a+b)^2=a^2+2ab+b^2\)</span>. Over the reals, <span class="math inline">\(\sqrt{u}\)</span> denotes the nonnegative number whose square is <span class="math inline">\(u\)</span>, so <span class="math inline">\(u\ge0\)</span> and <span class="math inline">\(\sqrt{x^2}=|x|\)</span>.</p>
+<p>Scientific notation writes a nonzero number as <span class="math inline">\(c\times10^n\)</span> with <span class="math inline">\(1\le|c|&lt;10\)</span>. It separates significant size from decimal placement.</p>
+<section id="example-4-exact-powers-and-scale" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-4-exact-powers-and-scale">Example 4: exact powers and scale</h3>
+<p>Compute</p>
+<p><span class="math display">\[
+\frac{(3\times10^{-4})(8\times10^7)}{6\times10^2}.
+\]</span></p>
+<p>Separate coefficients and powers:</p>
+<p><span class="math display">\[
+\frac{3\cdot8}{6}\times10^{-4+7-2}
+=4\times10^1=40.
+\]</span></p>
+<p>The exponent estimate <span class="math inline">\(-4+7-2=1\)</span> predicts tens, so <span class="math inline">\(40\)</span> has a plausible scale.</p>
+</section>
+<section id="guided-repair-c" class="level3 practice-box" data-problem-id="aa-0-2-guided-powers" data-level="B">
+<h3 class="anchored" data-anchor-id="guided-repair-c">Guided repair C</h3>
+<p>Simplify <span class="math inline">\((12x^5y^{-2})/(18x^{-1}y)\)</span> for nonzero <span class="math inline">\(x,y\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reduce coefficients and subtract exponents:</p>
+<p><span class="math display">\[
+\frac{12}{18}x^{5-(-1)}y^{-2-1}
+=\frac23x^6y^{-3}
+=\frac{2x^6}{3y^3}.
+\]</span></p>
+<p>The conditions <span class="math inline">\(x,y\ne0\)</span> justify the negative exponents and original quotient.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="repair-strand-d-ratios-percentages-and-units" class="level2">
+<h2 class="anchored" data-anchor-id="repair-strand-d-ratios-percentages-and-units">6. Repair strand D: ratios, percentages, and units</h2>
+<p>A ratio compares quantities multiplicatively. A rate carries units, such as kilometers per hour. A percentage change is measured relative to the original value:</p>
+<p><span class="math display">\[
+\text{relative change}=\frac{\text{new}-\text{old}}{\text{old}}.
+\]</span></p>
+<p>An increase of <span class="math inline">\(20\%\)</span> multiplies by <span class="math inline">\(1.20\)</span>; a later decrease of <span class="math inline">\(20\%\)</span> multiplies by <span class="math inline">\(0.80\)</span>. The combined factor is <span class="math inline">\(0.96\)</span>, not <span class="math inline">\(1\)</span>.</p>
+<p>Dimensional analysis treats units as algebraic factors. It catches impossible additions and missing conversions.</p>
+<section id="example-5-unit-aware-rate" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-5-unit-aware-rate">Example 5: unit-aware rate</h3>
+<p>A vehicle travels <span class="math inline">\(180\)</span> kilometers in <span class="math inline">\(2.5\)</span> hours. Its average speed is</p>
+<p><span class="math display">\[
+\frac{180\ \mathrm{km}}{2.5\ \mathrm h}=72\ \mathrm{km/h}.
+\]</span></p>
+<p>Converting to meters per second,</p>
+<p><span class="math display">\[
+72\frac{\mathrm{km}}{\mathrm h}
+\cdot\frac{1000\ \mathrm m}{1\ \mathrm{km}}
+\cdot\frac{1\ \mathrm h}{3600\ \mathrm s}
+=20\ \mathrm{m/s}.
+\]</span></p>
+<p>The cancelled units are part of the reasoning.</p>
+</section>
+<section id="guided-repair-d" class="level3 practice-box" data-problem-id="aa-0-2-guided-percent" data-level="B">
+<h3 class="anchored" data-anchor-id="guided-repair-d">Guided repair D</h3>
+<p>A price rises from <span class="math inline">\(80\)</span> to <span class="math inline">\(92\)</span>, then receives a <span class="math inline">\(10\%\)</span> discount. Find the final price and the overall percentage change from the original.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The discount multiplier is <span class="math inline">\(0.90\)</span>, so the final price is <span class="math inline">\(92(0.90)=82.80\)</span>. The overall change is <span class="math inline">\(2.80/80=0.035=3.5\%\)</span> increase. Adding <span class="math inline">\(15\%-10\%=5\%\)</span> would be wrong because the changes use different bases.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="repair-strand-e-equations-and-order" class="level2">
+<h2 class="anchored" data-anchor-id="repair-strand-e-equations-and-order">7. Repair strand E: equations and order</h2>
+<p>Solving means describing every value in the stated universe that makes the original statement true. Reversible operations preserve the solution set; nonreversible operations create candidates that need checks.</p>
+<p>For a proportion <span class="math inline">\(a/b=c/d\)</span>, cross multiplication is shorthand for multiplying by <span class="math inline">\(bd\)</span>. It requires <span class="math inline">\(b,d\ne0\)</span>. For a linear equation with a parameter, isolate the coefficient before dividing and split the zero case.</p>
+<section id="example-6-a-parameter-case" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-6-a-parameter-case">Example 6: a parameter case</h3>
+<p>Solve <span class="math inline">\(k(x-2)=3k\)</span> for real <span class="math inline">\(x\)</span>.</p>
+<p>If <span class="math inline">\(k\ne0\)</span>, division by <span class="math inline">\(k\)</span> gives <span class="math inline">\(x-2=3\)</span>, so <span class="math inline">\(x=5\)</span>. If <span class="math inline">\(k=0\)</span>, the equation is <span class="math inline">\(0=0\)</span> for every real <span class="math inline">\(x\)</span>. Thus</p>
+<p><span class="math display">\[
+S_k=\begin{cases}
+\mathbb R,&amp;k=0,\\
+\{5\},&amp;k\ne0.
+\end{cases}
+\]</span></p>
+<p>The classification is more complete than the unqualified answer <span class="math inline">\(x=5\)</span>.</p>
+</section>
+<section id="guided-repair-e" class="level3 practice-box" data-problem-id="aa-0-2-guided-equation" data-level="B">
+<h3 class="anchored" data-anchor-id="guided-repair-e">Guided repair E</h3>
+<p>Solve <span class="math inline">\(\frac{x-1}{3}-\frac{x+2}{4}=2\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Multiply both sides by <span class="math inline">\(12\)</span>: <span class="math inline">\(4(x-1)-3(x+2)=24\)</span>. Expanding gives <span class="math inline">\(4x-4-3x-6=24\)</span>, so <span class="math inline">\(x=34\)</span>. Check: <span class="math inline">\(33/3-36/4=11-9=2\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="repair-strand-f-coordinates-graphs-and-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="repair-strand-f-coordinates-graphs-and-estimation">8. Repair strand F: coordinates, graphs, and estimation</h2>
+<p>A point <span class="math inline">\((x,y)\)</span> records an input and output. The slope between distinct points <span class="math inline">\((x_1,y_1)\)</span> and <span class="math inline">\((x_2,y_2)\)</span> is</p>
+<p><span class="math display">\[
+m=\frac{y_2-y_1}{x_2-x_1}.
+\]</span></p>
+<p>Read axis labels and scale before estimating. A steep-looking line can have a small numerical slope if the axes use different units. A graph suggests behavior on its window; it does not prove exact roots or global behavior.</p>
+<section id="example-7-interpret-slope-with-units" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-7-interpret-slope-with-units">Example 7: interpret slope with units</h3>
+<p>A tank contains <span class="math inline">\(120\)</span> liters at minute <span class="math inline">\(2\)</span> and <span class="math inline">\(84\)</span> liters at minute <span class="math inline">\(8\)</span>. The average rate of change is</p>
+<p><span class="math display">\[
+\frac{84-120}{8-2}=-6\ \mathrm{liters/minute}.
+\]</span></p>
+<p>The negative sign means volume decreased as time increased. A linear extrapolation would predict <span class="math inline">\(132\)</span> liters at minute <span class="math inline">\(0\)</span>, but that conclusion is a model assumption, not a fact supplied by two data points.</p>
+</section>
+<section id="guided-repair-f" class="level3 practice-box" data-problem-id="aa-0-2-guided-graph" data-level="B">
+<h3 class="anchored" data-anchor-id="guided-repair-f">Guided repair F</h3>
+<p>A line passes through <span class="math inline">\((-2,5)\)</span> and <span class="math inline">\((4,-7)\)</span>. Find its slope and equation, then check both points.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The slope is <span class="math inline">\((-7-5)/(4-(-2))=-12/6=-2\)</span>. Using <span class="math inline">\(y=mx+b\)</span> with <span class="math inline">\((-2,5)\)</span> gives <span class="math inline">\(5=4+b\)</span>, so <span class="math inline">\(b=1\)</span> and <span class="math inline">\(y=-2x+1\)</span>. Substitution gives <span class="math inline">\(5\)</span> and <span class="math inline">\(-7\)</span> at the stated inputs.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="common-mistakes-and-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-limitations">9. Common mistakes and limitations</h2>
+<section id="mistake-using-the-total-score-as-the-diagnosis" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-using-the-total-score-as-the-diagnosis">Mistake: using the total score as the diagnosis</h3>
+<p>Two learners with 16 correct answers may need entirely different repairs. One may miss all unit questions while another misses sign and order questions. Record strand scores and first causes; the total is only a summary.</p>
+</section>
+<section id="mistake-studying-the-displayed-answer-instead-of-the-failed-operation" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-studying-the-displayed-answer-instead-of-the-failed-operation">Mistake: studying the displayed answer instead of the failed operation</h3>
+<p>Rereading <code>-13/36</code> does not repair fraction addition. Close the solution and perform the same operation on a new pair of fractions. A transfer problem—not recognition of the old answer—is the evidence of repair.</p>
+</section>
+<section id="mistake-taking-the-reassessment-immediately" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-taking-the-reassessment-immediately">Mistake: taking the reassessment immediately</h3>
+<p>An immediate parallel problem can measure short-term imitation. Insert another activity or a delay, then retrieve the method without the model in view. Repeat again later in mixed practice.</p>
+</section>
+<section id="mistake-using-a-calculator-to-hide-representation-gaps" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-using-a-calculator-to-hide-representation-gaps">Mistake: using a calculator to hide representation gaps</h3>
+<p>A decimal output may conceal a wrong denominator, a lost exact form, or an incorrect unit. Write the mathematical operation first, estimate its scale, and then use a tool for independent verification.</p>
+</section>
+<section id="mistake-treating-speed-as-mastery" class="level3 common-mistake">
+<h3 class="anchored" data-anchor-id="mistake-treating-speed-as-mastery">Mistake: treating speed as mastery</h3>
+<p>Early repair should prioritize a correct, explainable method. Add time pressure only after several accurate attempts. A fast invalid rule becomes harder—not easier—to unlearn through repetition.</p>
+</section>
+<p>This diagnostic samples prerequisites; it cannot prove mastery of every possible school-algebra task. Low confidence, a long pause, or an unexplained guess is useful evidence even when the selected answer is correct.</p>
+</section>
+<section id="topic-checkpoint-baseline-diagnostic" class="level2">
+<h2 class="anchored" data-anchor-id="topic-checkpoint-baseline-diagnostic">10. Topic checkpoint: baseline diagnostic</h2>
+<p>Record each answer and confidence before submitting. If website controls are not available, the generated notebook provides the same questions and collapsed solutions.</p>
+<p><fc-quiz data-source="../../../../quizzes/advanced-algebra/readiness-diagnostic.yml"></fc-quiz></p>
+</section>
+<section id="build-a-correction-portfolio" class="level2">
+<h2 class="anchored" data-anchor-id="build-a-correction-portfolio">11. Build a correction portfolio</h2>
+<p>For every missed or low-confidence item, use this six-column record:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Required entry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Problem ID</td>
+<td>stable question identifier</td>
+</tr>
+<tr class="even">
+<td>First attempt</td>
+<td>enough work to reveal the original method</td>
+</tr>
+<tr class="odd">
+<td>First invalid step</td>
+<td>exact line or decision where validity was lost</td>
+</tr>
+<tr class="even">
+<td>Error class</td>
+<td>one category from Section 2</td>
+</tr>
+<tr class="odd">
+<td>Corrected argument</td>
+<td>complete work, not only the corrected answer</td>
+</tr>
+<tr class="even">
+<td>Transfer check</td>
+<td>a new problem testing the same idea</td>
+</tr>
+</tbody>
+</table>
+<p>A repair is complete only when the transfer check is solved without copying the worked example. Schedule another one-question retrieval after two or three days. This delay tests learning rather than short-term imitation.</p>
+<section id="example-8-correction-record" class="level3 worked-example">
+<h3 class="anchored" data-anchor-id="example-8-correction-record">Example 8: correction record</h3>
+<p><strong>Problem.</strong> Decrease <span class="math inline">\(200\)</span> by <span class="math inline">\(15\%\)</span>.</p>
+<p><strong>First attempt.</strong> <span class="math inline">\(200-15=185\)</span>.</p>
+<p><strong>First invalid step.</strong> The percent sign was treated as 15 units rather than <span class="math inline">\(15/100\)</span> of the original quantity.</p>
+<p><strong>Class.</strong> Representation error.</p>
+<p><strong>Correction.</strong> <span class="math inline">\(200(1-0.15)=200(0.85)=170\)</span>.</p>
+<p><strong>Transfer check.</strong> Increase <span class="math inline">\(240\)</span> by <span class="math inline">\(12\%\)</span>: <span class="math inline">\(240(1.12)=268.8\)</span>.</p>
+<p><strong>Reflection.</strong> Translate a percentage to a multiplier before performing the arithmetic.</p>
+</section>
+</section>
+<section id="second-attempt-mastery-check" class="level2">
+<h2 class="anchored" data-anchor-id="second-attempt-mastery-check">12. Second-attempt mastery check</h2>
+<p>Complete these after the targeted repairs, preferably on a later day.</p>
+<ol type="1">
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-01" data-level="A">
+<p>Compute <span class="math inline">\(-\frac79+\frac5{12}\)</span> exactly.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-02" data-level="A">
+<p>Simplify <span class="math inline">\(-[2x-(3-x)]\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-03" data-level="B">
+<p>Simplify <span class="math inline">\((6a^{-2}b^4)(3a^5b^{-1})\)</span> for nonzero <span class="math inline">\(a,b\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-04" data-level="B">
+<p>Convert <span class="math inline">\(3.6\times10^5\)</span> millimeters to kilometers.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-05" data-level="B">
+<p>A quantity falls from <span class="math inline">\(250\)</span> to <span class="math inline">\(215\)</span>. Find its percentage decrease.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-06" data-level="B">
+<p>Solve <span class="math inline">\(-4&lt;2x+6\le12\)</span> and write interval notation.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-07" data-level="C">
+<p>Solve <span class="math inline">\(m(x+1)=m^2\)</span> for <span class="math inline">\(x\)</span>, classifying all real <span class="math inline">\(m\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-08" data-level="C">
+<p>A line through <span class="math inline">\((1,8)\)</span> has slope <span class="math inline">\(-3\)</span>. Find where it crosses each axis and interpret the sign of the slope.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-09" data-level="C">
+<p>Without a calculator, place <span class="math inline">\(\sqrt{70}\)</span> between consecutive tenths.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-mastery-10" data-level="D">
+<p>A value is increased by <span class="math inline">\(p\%\)</span> and then decreased by <span class="math inline">\(p\%\)</span>. Prove that the result is below the original for every <span class="math inline">\(0&lt;p&lt;100\)</span>, and find the percentage loss in terms of <span class="math inline">\(p\)</span>.</p>
+</div></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Mastery-check answers">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Mastery-check answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Common denominator <span class="math inline">\(36\)</span> gives <span class="math inline">\(-28/36+15/36=-13/36\)</span>.</li>
+<li><span class="math inline">\(-[2x-3+x]=-(3x-3)=-3x+3\)</span>.</li>
+<li><span class="math inline">\(18a^3b^3\)</span>.</li>
+<li><span class="math inline">\(3.6\times10^5\text{ mm}\cdot10^{-6}\text{ km/mm}=0.36\text{ km}\)</span>.</li>
+<li><span class="math inline">\((250-215)/250=35/250=0.14\)</span>, so <span class="math inline">\(14\%\)</span>.</li>
+<li>Subtract <span class="math inline">\(6\)</span> and divide by <span class="math inline">\(2\)</span>: <span class="math inline">\(-5&lt;x\le3\)</span>, or <span class="math inline">\((-5,3]\)</span>.</li>
+<li>If <span class="math inline">\(m=0\)</span>, every real <span class="math inline">\(x\)</span> works. If <span class="math inline">\(m\ne0\)</span>, <span class="math inline">\(x+1=m\)</span>, so <span class="math inline">\(x=m-1\)</span>.</li>
+<li><span class="math inline">\(y-8=-3(x-1)\)</span>, hence <span class="math inline">\(y=-3x+11\)</span>. The <span class="math inline">\(y\)</span>-intercept is <span class="math inline">\((0,11)\)</span> and the <span class="math inline">\(x\)</span>-intercept is <span class="math inline">\((11/3,0)\)</span>. Output decreases three units per one-unit input increase.</li>
+<li><span class="math inline">\(8.3^2=68.89&lt;70\)</span> and <span class="math inline">\(8.4^2=70.56&gt;70\)</span>, so <span class="math inline">\(8.3&lt;\sqrt{70}&lt;8.4\)</span>.</li>
+<li>See the full solution below.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Full solution to Problem 10">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Full solution to Problem 10
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let the original positive value be <span class="math inline">\(V\)</span>. The increase multiplies it by <span class="math inline">\(1+p/100\)</span> and the decrease multiplies the result by <span class="math inline">\(1-p/100\)</span>. Thus</p>
+<p><span class="math display">\[
+V\left(1+\frac p{100}\right)\left(1-\frac p{100}\right)
+=V\left(1-\frac{p^2}{10000}\right).
+\]</span></p>
+<p>For <span class="math inline">\(0&lt;p&lt;100\)</span>, we have <span class="math inline">\(0&lt;p^2/10000&lt;1\)</span>, so the multiplier is positive and strictly below <span class="math inline">\(1\)</span>. The loss is <span class="math inline">\(V p^2/10000\)</span>, which is <span class="math inline">\(p^2/100\)</span> percent of the original. The proof explains why equal percentage changes do not cancel: the second percentage uses a different base.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="examination-strategy-clinic" class="level2">
+<h2 class="anchored" data-anchor-id="examination-strategy-clinic">13. Examination strategy clinic</h2>
+<section id="problem-reason-before-computing" class="level3 worked-example" data-problem-id="aa-0-2-exam-clinic" data-level="D">
+<h3 class="anchored" data-anchor-id="problem-reason-before-computing">Problem: reason before computing</h3>
+<p>Positive numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> satisfy <span class="math inline">\(a/b=3/5\)</span>. Without assigning arbitrary values, determine</p>
+<p><span class="math display">\[
+\frac{2a+3b}{4a-b}
+\]</span></p>
+<p>and state why the denominator is nonzero.</p>
+<p><strong>Plan.</strong> A ratio determines a common scale. Write <span class="math inline">\(a=3t\)</span> and <span class="math inline">\(b=5t\)</span> for some <span class="math inline">\(t&gt;0\)</span>.</p>
+<p><strong>Execution.</strong> Substitution gives</p>
+<p><span class="math display">\[
+\frac{2(3t)+3(5t)}{4(3t)-5t}
+=\frac{21t}{7t}=3.
+\]</span></p>
+<p>Because <span class="math inline">\(t&gt;0\)</span>, the denominator <span class="math inline">\(7t\)</span> is nonzero and cancellation is valid.</p>
+<p><strong>Why this method.</strong> Choosing <span class="math inline">\(a=3,b=5\)</span> would produce the right number but would not explain why every positive pair with the ratio works. Introducing the scale <span class="math inline">\(t\)</span> converts an example into a general argument.</p>
+</section>
+</section>
+<section id="exercises-by-purpose-and-difficulty" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-by-purpose-and-difficulty">14. Exercises by purpose and difficulty</h2>
+<p>Use these if a strand score remains below three. Select at least two from the weak strand and one mixed problem.</p>
+<ol type="1">
+<li><div class="exercise" data-problem-id="aa-0-2-review-01" data-level="A">
+<p>Evaluate <span class="math inline">\(5-2[3-(4-9)]\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-02" data-level="A">
+<p>Compute <span class="math inline">\(7/15\div(-14/25)\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-03" data-level="A">
+<p>Write <span class="math inline">\(0.000072\)</span> in scientific notation.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-04" data-level="B">
+<p>Explain why <span class="math inline">\((-3)^4\)</span> and <span class="math inline">\(-3^4\)</span> differ.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-05" data-level="B">
+<p>A recipe ratio is <span class="math inline">\(3\)</span> cups flour to <span class="math inline">\(2\)</span> cups liquid. Scale it to <span class="math inline">\(7.5\)</span> cups flour.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-06" data-level="B">
+<p>Convert <span class="math inline">\(54\)</span> kilometers per hour to meters per second.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-07" data-level="B">
+<p>Solve <span class="math inline">\(3(x-4)-2(x+1)=5\)</span> and check.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-08" data-level="B">
+<p>Find the slope through <span class="math inline">\((-3,-2)\)</span> and <span class="math inline">\((5,10)\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-09" data-level="C">
+<p>Find the number that becomes <span class="math inline">\(126\)</span> after a <span class="math inline">\(12\%\)</span> increase.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-10" data-level="C">
+<p>Determine all real <span class="math inline">\(q\)</span> for which <span class="math inline">\(q/(q-2)&gt;0\)</span> using sign reasoning.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-11" data-level="C">
+<p>A graph’s horizontal axis is seconds and vertical axis is meters. Explain the units and meaning of a secant slope of <span class="math inline">\(-4.2\)</span>.</p>
+</div></li>
+<li><div class="exercise" data-problem-id="aa-0-2-review-12" data-level="D">
+<p>Prove that if <span class="math inline">\(0&lt;a&lt;b\)</span>, then <span class="math inline">\(1/a&gt;1/b\)</span>, without relying on decimal examples.</p>
+</div></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Exercise answers">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><span class="math inline">\(-11\)</span>. 2. <span class="math inline">\(-5/6\)</span>. 3. <span class="math inline">\(7.2\times10^{-5}\)</span>. 4. Parentheses make the first base <span class="math inline">\(-3\)</span>, giving <span class="math inline">\(81\)</span>; exponent precedence makes the second <span class="math inline">\(-(3^4)=-81\)</span>.</li>
+<li>The scale factor is <span class="math inline">\(2.5\)</span>, so liquid is <span class="math inline">\(5\)</span> cups. 6. <span class="math inline">\(15\)</span> m/s. 7. <span class="math inline">\(x=19\)</span>.</li>
+<li><span class="math inline">\(12/8=3/2\)</span>. 9. <span class="math inline">\(126/1.12=112.5\)</span>. 10. Critical points are <span class="math inline">\(0\)</span> and <span class="math inline">\(2\)</span>; the quotient is positive on <span class="math inline">\((-\infty,0)\cup(2,\infty)\)</span>. 11. Average position changes by <span class="math inline">\(-4.2\)</span> meters per second; the negative sign indicates decreasing position over the interval. 12. Since <span class="math inline">\(a,b&gt;0\)</span>, <span class="math inline">\(ab&gt;0\)</span>. Multiplying <span class="math inline">\(a&lt;b\)</span> by the positive number <span class="math inline">\(1/(ab)\)</span> preserves order and gives <span class="math inline">\(1/b&lt;1/a\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="cumulative-retrieval" class="level2">
+<h2 class="anchored" data-anchor-id="cumulative-retrieval">15. Cumulative retrieval</h2>
+<p>Return to argument language. For each claim below, state whether the displayed relation should be <span class="math inline">\(\Rightarrow\)</span> or <span class="math inline">\(\Leftrightarrow\)</span>, and name conditions.</p>
+<ol type="1">
+<li><span class="math inline">\(x/5=3\)</span> ___ <span class="math inline">\(x=15\)</span>.</li>
+<li><span class="math inline">\(x=-2\)</span> ___ <span class="math inline">\(x^2=4\)</span>.</li>
+<li><span class="math inline">\(ax=ay\)</span> ___ <span class="math inline">\(x=y\)</span>.</li>
+<li><span class="math inline">\(1/x&lt;0\)</span> ___ <span class="math inline">\(x&lt;0\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><span class="math inline">\(\Leftrightarrow\)</span> over the reals because multiplication by nonzero <span class="math inline">\(5\)</span> is reversible. 2. Only <span class="math inline">\(\Rightarrow\)</span>. 3. <span class="math inline">\(\Leftrightarrow\)</span> if <span class="math inline">\(a\ne0\)</span>; only the forward implication from <span class="math inline">\(x=y\)</span> is unconditional. 4. <span class="math inline">\(\Leftrightarrow\)</span> on the domain <span class="math inline">\(x\ne0\)</span>: a reciprocal has the same sign as its nonzero input.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-and-next-step" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-next-step">16. Summary and next step</h2>
+<ul>
+<li>Score diagnostics by subskill, not only by total.</li>
+<li>Preserve first attempts and classify the first cause of each error.</li>
+<li>Repair with a worked model, a new transfer problem, delayed retrieval, and a second attempt.</li>
+<li>Keep exact arithmetic and units visible; estimate before accepting output.</li>
+<li>Use tools only after a manual attempt, and interpret their precision and assumptions.</li>
+<li>Advance when the reassessment shows reliable reasoning, not when the examples merely look familiar.</li>
+</ul>
+<p>Proceed to <a href="../../../../courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.html">Sets, intervals, statements, and quantifiers</a>. If one strand remains below mastery, interleave its repair exercises with the next chapter rather than postponing all progress.</p>
+</section>
+<section id="references-and-further-study" class="level2">
+<h2 class="anchored" data-anchor-id="references-and-further-study">References and further study</h2>
+<ul>
+<li>OpenStax, <a href="https://openstax.org/details/books/prealgebra-2e"><em>Prealgebra 2e</em></a>, for open prerequisite practice with complete examples.</li>
+<li>OpenStax, <a href="https://openstax.org/details/books/algebra-and-trigonometry-2e"><em>Algebra and Trigonometry 2e</em></a>, for algebraic review in a later-course context.</li>
+<li>George Pólya, <em>How to Solve It</em>, for planning and retrospective checking.</li>
+<li>The Learning Scientists, <a href="https://www.learningscientists.org/retrieval-practice">Retrieval Practice</a>, for an accessible research-informed explanation of delayed self-testing.</li>
+<li>SymPy documentation, <a href="https://docs.sympy.org/latest/explanation/gotchas.html">Gotchas and Pitfalls</a>, for exact arithmetic and symbol assumptions.</li>
+</ul>
+</section>
+<section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
+<h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
+<p>Use Python to verify a completed correction, not to skip the first attempt. The first cell preserves exact fractions; the second compares an exact value with a floating approximation.</p>
+<div id="6208eb9b" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fractions <span class="im">import</span> Fraction</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span>Fraction(<span class="dv">3</span>, <span class="dv">4</span>) <span class="op">+</span> Fraction(<span class="dv">5</span>, <span class="dv">6</span>) <span class="op">/</span> Fraction(<span class="op">-</span><span class="dv">10</span>, <span class="dv">9</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>Fraction(-3, 2)</code></pre>
+</div>
+</div>
+<p>The output <code>Fraction(-3, 2)</code> is exact. A binary floating-point result would be an approximation even if its printed digits looked simple.</p>
+<div id="67ee5bd7" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>exact <span class="op">=</span> sp.sqrt(<span class="dv">70</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>approximation <span class="op">=</span> sp.N(exact, <span class="dv">12</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> (sp.Rational(<span class="dv">83</span>, <span class="dv">10</span>) <span class="op">**</span> <span class="dv">2</span>, sp.Rational(<span class="dv">84</span>, <span class="dv">10</span>) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>exact, approximation, bounds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(sqrt(70), 8.36660026534, (6889/100, 1764/25))</code></pre>
+</div>
+</div>
+<p>The squared endpoints <span class="math inline">\(68.89\)</span> and <span class="math inline">\(70.56\)</span> prove <span class="math inline">\(8.3&lt;\sqrt{70}&lt;8.4\)</span>; the decimal is a convenient report after the bound has already explained its plausibility.</p>
+<p>For a portfolio, store only problem IDs, classifications, and your own written corrections. Do not build code that exposes solutions before an honest attempt or uploads raw answers without informed consent.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+  (() => {
+    const stylesheet = [...document.styleSheets].find((sheet) =>
+      sheet.href?.endsWith("/styles.css"),
+    );
+    const siteRoot = stylesheet
+      ? new URL(".", stylesheet.href)
+      : new URL("./", document.baseURI);
+    for (const name of ["quiz-web.js", "learning-ui.js"]) {
+      const script = document.createElement("script");
+      script.src = new URL(`assets/${name}`, siteRoot);
+      script.defer = true;
+      document.body.append(script);
+    }
+  })();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/freecampus\.github\.io\/math\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.html" class="pagination-link" aria-label="How to Read and Write an Algebraic Argument">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to Read and Write an Algebraic Argument</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../courses/advanced-algebra/units/mathematical-language/index.html" class="pagination-link" aria-label="Mathematical Language, Numbers, and Proof Foundations">
+        <span class="nav-page-text">Mathematical Language, Numbers, and Proof Foundations</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>FreeCampus Math — open, institution-independent mathematics education.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/freecampus/math/edit/main/courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/freecampus/math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Progress remains in your browser; no account or analytics profile is required.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

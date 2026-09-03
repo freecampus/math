@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "advanced-algebra-argument-language-checkpoint",
+  "title": "Argument language and validity checkpoint",
+  "purpose": "lesson-review",
+  "status": "active",
+  "questions": [
+    {
+      "id": "argument-language-relation",
+      "type": "single-choice",
+      "prompt": "Which relation is valid over the real numbers?",
+      "options": [
+        { "id": "a", "text": "$x=4\\Leftrightarrow x^2=16$" },
+        { "id": "b", "text": "$x=4\\Rightarrow x^2=16$" },
+        { "id": "c", "text": "$x^2=16\\Rightarrow x=4$" },
+        { "id": "d", "text": "$x^2=16\\Leftrightarrow x=-4$" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "List every real number whose square is 16.",
+      "explanation": "The value $x=4$ certainly implies $x^2=16$. The reverse direction fails because $x=-4$ also has square 16."
+    },
+    {
+      "id": "argument-language-domain",
+      "type": "multiple-select",
+      "prompt": "For $E(x)=\\sqrt{x-1}/(x-4)$ over the reals, select every necessary restriction.",
+      "options": [
+        { "id": "a", "text": "$x\\ge1$" },
+        { "id": "b", "text": "$x\\ne4$" },
+        { "id": "c", "text": "$x>4$" },
+        { "id": "d", "text": "$x\\ne1$" }
+      ],
+      "answer": ["a", "b"],
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-1",
+      "validation": { "mode": "set-equality" },
+      "hint": "Audit the radical and denominator separately.",
+      "explanation": "The radicand requires $x-1\\ge0$, while the denominator requires $x-4\\ne0$. The domain is $[1,4)\\cup(4,\\infty)$."
+    },
+    {
+      "id": "argument-language-first-error",
+      "type": "single-choice",
+      "prompt": "A learner writes $a=b\\ne0$, $a^2=ab$, $a^2-b^2=ab-b^2$, $(a-b)(a+b)=b(a-b)$, $a+b=b$. Which transition is first invalid?",
+      "options": [
+        { "id": "a", "text": "$a=b$ to $a^2=ab$" },
+        { "id": "b", "text": "$a^2=ab$ to $a^2-b^2=ab-b^2$" },
+        { "id": "c", "text": "factoring both sides" },
+        { "id": "d", "text": "cancelling the factor $a-b$" }
+      ],
+      "answer": "d",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Evaluate the cancelled factor using the first assumption.",
+      "explanation": "Because $a=b$, the factor $a-b$ equals zero. Cancelling it is division by zero. Every earlier equality follows from a valid equality-preserving operation."
+    },
+    {
+      "id": "argument-language-radical",
+      "type": "numeric",
+      "prompt": "How many real solutions does $\\sqrt{x+2}=x$ have?",
+      "answer": 1,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-1",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Square to find candidates, then test them in the original equation.",
+      "explanation": "Squaring gives $(x-2)(x+1)=0$, but substitution rejects $x=-1$. Only $x=2$ satisfies the original equation."
+    },
+    {
+      "id": "argument-language-counterexample",
+      "type": "single-choice",
+      "prompt": "Which choice is a valid counterexample to $\\sqrt{a+b}=\\sqrt a+\\sqrt b$ over the nonnegative reals?",
+      "options": [
+        { "id": "a", "text": "$a=0,b=0$" },
+        { "id": "b", "text": "$a=1,b=0$" },
+        { "id": "c", "text": "$a=1,b=1$" },
+        { "id": "d", "text": "$a=-1,b=1$" }
+      ],
+      "answer": "c",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "The inputs must satisfy the stated nonnegative domain and make the two sides unequal.",
+      "explanation": "At $a=b=1$, the left side is $\\sqrt2$ and the right side is 2. The negative choice is outside the stated domain."
+    },
+    {
+      "id": "argument-language-exactness",
+      "type": "single-choice",
+      "prompt": "Which is the most accurate report?",
+      "options": [
+        { "id": "a", "text": "$\\sqrt2=1.414$" },
+        { "id": "b", "text": "$\\sqrt2\\approx1.414$ to three decimal places" },
+        { "id": "c", "text": "$\\sqrt2=1.414\\ldots$ with no qualification" },
+        { "id": "d", "text": "$\\sqrt2\\Rightarrow1.414$" }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "A terminating decimal cannot equal an irrational number.",
+      "explanation": "$\\sqrt2$ is exact and irrational; 1.414 is a rounded decimal approximation. The approximation symbol and precision make the claim honest."
+    },
+    {
+      "id": "argument-language-parameter",
+      "type": "single-choice",
+      "prompt": "For real $a$, what is the complete solution classification of $ax=3a$?",
+      "options": [
+        { "id": "a", "text": "$x=3$ for every $a$" },
+        { "id": "b", "text": "no solution when $a=0$" },
+        { "id": "c", "text": "every real $x$ when $a=0$; $x=3$ when $a\\ne0$" },
+        { "id": "d", "text": "every real $x$ for every $a$" }
+      ],
+      "answer": "c",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-1",
+      "validation": { "mode": "exact" },
+      "hint": "Handle the case in which division by $a$ is unavailable.",
+      "explanation": "If $a=0$, the equation becomes $0=0$. If $a\\ne0$, division by $a$ is reversible and gives $x=3$."
+    },
+    {
+      "id": "argument-language-proof-picture",
+      "type": "single-choice",
+      "prompt": "Why does a graph alone not prove that $x^4+1$ has no real zero?",
+      "options": [
+        { "id": "a", "text": "Graphs never contain mathematical information." },
+        {
+          "id": "b",
+          "text": "A finite window and resolution do not inspect every real input."
+        },
+        { "id": "c", "text": "Polynomial graphs are always inaccurate." },
+        {
+          "id": "d",
+          "text": "The claim is false because every polynomial has a real zero."
+        }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-14",
+      "validation": { "mode": "exact" },
+      "hint": "Separate evidence from a general argument.",
+      "explanation": "A plot is useful evidence but has a finite window and finite resolution. The proof is $x^4\\ge0$, so $x^4+1\\ge1>0$ for every real $x$."
+    }
+  ]
+}

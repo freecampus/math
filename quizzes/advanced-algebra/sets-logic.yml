@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "id": "advanced-algebra-sets-logic-checkpoint",
+  "title": "Sets, intervals, and logic checkpoint",
+  "purpose": "lesson-review",
+  "status": "active",
+  "questions": [
+    {
+      "id": "sets-logic-membership",
+      "type": "multiple-select",
+      "prompt": "Let $A=\\{0,\\{1\\},2\\}$. Select every true statement.",
+      "options": [
+        { "id": "a", "text": "$0\\in A$" },
+        { "id": "b", "text": "$1\\in A$" },
+        { "id": "c", "text": "$\\{1\\}\\in A$" },
+        { "id": "d", "text": "$\\{0,2\\}\\subseteq A$" }
+      ],
+      "answer": ["a", "c", "d"],
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "set-equality" },
+      "hint": "Braces change the object; check elements and subsets separately.",
+      "explanation": "$0$ and the set $\\{1\\}$ are elements. The elements 0 and 2 make $\\{0,2\\}$ a subset. The number 1 itself is not an element."
+    },
+    {
+      "id": "sets-logic-interval",
+      "type": "single-choice",
+      "prompt": "Write $x<-4$ or $2\\le x<7$ in interval notation.",
+      "options": [
+        { "id": "a", "text": "$(-\\infty,-4]\\cup(2,7)$" },
+        { "id": "b", "text": "$(-\\infty,-4)\\cup[2,7)$" },
+        { "id": "c", "text": "$[-4,2]$" },
+        { "id": "d", "text": "$(-4,7)$" }
+      ],
+      "answer": "b",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "Use endpoint inclusion exactly as the inequalities specify.",
+      "explanation": "The strict bound excludes $-4$, the nonstrict lower bound includes 2, and the strict upper bound excludes 7. 'Or' produces a union."
+    },
+    {
+      "id": "sets-logic-operations",
+      "type": "single-choice",
+      "prompt": "If $A=(-3,4]$ and $B=[1,7)$, what is $A\\setminus B$?",
+      "options": [
+        { "id": "a", "text": "$(-3,1)$" },
+        { "id": "b", "text": "$(-3,1]$" },
+        { "id": "c", "text": "$[4,7)$" },
+        { "id": "d", "text": "$[-3,1)$" }
+      ],
+      "answer": "a",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "Remove every point that belongs to $B$, including 1.",
+      "explanation": "The portion of $A$ below 1 remains. Neither $-3$ nor 1 is included, so the difference is $(-3,1)$."
+    },
+    {
+      "id": "sets-logic-demorgan",
+      "type": "single-choice",
+      "prompt": "Which expression equals $(A\\cup B)^c$ relative to a fixed universe?",
+      "options": [
+        { "id": "a", "text": "$A^c\\cup B^c$" },
+        { "id": "b", "text": "$A^c\\cap B^c$" },
+        { "id": "c", "text": "$A\\cap B$" },
+        { "id": "d", "text": "$A\\setminus B$" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Not in either set means not in $A$ and not in $B$.",
+      "explanation": "De Morgan's law gives $(A\\cup B)^c=A^c\\cap B^c$. Complement switches union to intersection."
+    },
+    {
+      "id": "sets-logic-counterexample",
+      "type": "single-choice",
+      "prompt": "Which integer is a counterexample to: if an integer is divisible by 3, then it is divisible by 6?",
+      "options": [
+        { "id": "a", "text": "$2$" },
+        { "id": "b", "text": "$3$" },
+        { "id": "c", "text": "$6$" },
+        { "id": "d", "text": "$12$" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "A counterexample must satisfy the hypothesis and fail the conclusion.",
+      "explanation": "$3$ is divisible by 3 but not by 6. The value 2 fails the hypothesis, while 6 and 12 satisfy the conclusion."
+    },
+    {
+      "id": "sets-logic-contrapositive",
+      "type": "single-choice",
+      "prompt": "What is the contrapositive of 'if $x>5$, then $x>0$'?",
+      "options": [
+        { "id": "a", "text": "If $x>0$, then $x>5$." },
+        { "id": "b", "text": "If $x\\le5$, then $x\\le0$." },
+        { "id": "c", "text": "If $x\\le0$, then $x\\le5$." },
+        { "id": "d", "text": "If $x<0$, then $x<5$." }
+      ],
+      "answer": "c",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "Negate the conclusion and hypothesis, then reverse direction.",
+      "explanation": "The negation of $x>0$ is $x\\le0$, and the negation of $x>5$ is $x\\le5$."
+    },
+    {
+      "id": "sets-logic-quantifier-negation",
+      "type": "single-choice",
+      "prompt": "Negate: 'For every real $x$, there exists an integer $n$ with $n>x$.'",
+      "options": [
+        {
+          "id": "a",
+          "text": "There exists a real $x$ such that every integer $n$ satisfies $n\\le x$."
+        },
+        {
+          "id": "b",
+          "text": "For every real $x$, every integer $n$ satisfies $n\\le x$."
+        },
+        {
+          "id": "c",
+          "text": "There exists an integer $n$ greater than every real $x$."
+        },
+        {
+          "id": "d",
+          "text": "There exists a real $x$ and an integer $n$ with $n>x$."
+        }
+      ],
+      "answer": "a",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "Switch each quantifier and negate $n>x$.",
+      "explanation": "$\\neg\\forall$ becomes $\\exists$, $\\neg\\exists$ becomes $\\forall$, and not $n>x$ is $n\\le x$."
+    },
+    {
+      "id": "sets-logic-quantifier-order",
+      "type": "single-choice",
+      "prompt": "Which statement is true over the reals?",
+      "options": [
+        {
+          "id": "a",
+          "text": "There exists $y$ such that for every $x$, $y>x$."
+        },
+        {
+          "id": "b",
+          "text": "For every $x$, there exists $y$ such that $y>x$."
+        },
+        { "id": "c", "text": "For every $x$, every $y$ satisfies $y>x$." },
+        {
+          "id": "d",
+          "text": "There exists $x$ such that every $y$ satisfies $y>x$."
+        }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "For a given $x$, try choosing $y=x+1$.",
+      "explanation": "After any real $x$ is given, $y=x+1$ is larger. No single real number is larger than every real number."
+    },
+    {
+      "id": "sets-logic-parameter-interval",
+      "type": "single-choice",
+      "prompt": "For which real $a$ is $(-\\infty,a)\\cap[3,\\infty)$ nonempty?",
+      "options": [
+        { "id": "a", "text": "$a\\ge3$" },
+        { "id": "b", "text": "$a>3$" },
+        { "id": "c", "text": "$a<3$" },
+        { "id": "d", "text": "every real $a$" }
+      ],
+      "answer": "b",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "A point must satisfy $x<a$ and $x\\ge3$ simultaneously.",
+      "explanation": "Such an $x$ exists exactly when there is room above or at 3 but below $a$, which requires $a>3$. At $a=3$, no point satisfies both."
+    },
+    {
+      "id": "sets-logic-rational-set",
+      "type": "single-choice",
+      "prompt": "What is $\\{x\\in\\mathbb R:(x-1)/(x+2)\\ge0\\}$?",
+      "options": [
+        { "id": "a", "text": "$[-2,1]$" },
+        { "id": "b", "text": "$(-\\infty,-2)\\cup[1,\\infty)$" },
+        { "id": "c", "text": "$(-\\infty,-2]\\cup(1,\\infty)$" },
+        { "id": "d", "text": "$(-2,1)$" }
+      ],
+      "answer": "b",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "Use critical values $-2$ and 1; exclude the denominator zero.",
+      "explanation": "The quotient is nonnegative left of $-2$ and from 1 onward. The zero at 1 is included, while the pole at $-2$ is excluded."
+    }
+  ]
+}
