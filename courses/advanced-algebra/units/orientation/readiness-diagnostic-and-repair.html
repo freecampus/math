@@ -2099,7 +2099,7 @@ V\left(1+\frac p{100}\right)\left(1-\frac p{100}\right)
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use Python to verify a completed correction, not to skip the first attempt. The first cell preserves exact fractions; the second compares an exact value with a floating approximation.</p>
-<div id="83ba9027" class="cell" data-execution_count="1">
+<div id="1e0be972" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fractions <span class="im">import</span> Fraction</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span>Fraction(<span class="dv">3</span>, <span class="dv">4</span>) <span class="op">+</span> Fraction(<span class="dv">5</span>, <span class="dv">6</span>) <span class="op">/</span> Fraction(<span class="op">-</span><span class="dv">10</span>, <span class="dv">9</span>)</span>
@@ -2109,7 +2109,7 @@ V\left(1+\frac p{100}\right)\left(1-\frac p{100}\right)
 </div>
 </div>
 <p>The output <code>Fraction(-3, 2)</code> is exact. A binary floating-point result would be an approximation even if its printed digits looked simple.</p>
-<div id="f533e5e8" class="cell" data-execution_count="2">
+<div id="52b73580" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
@@ -2244,11 +2244,6 @@ V\left(1+\frac p{100}\right)\left(1-\frac p{100}\right)
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

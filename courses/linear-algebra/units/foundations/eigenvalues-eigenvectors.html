@@ -1988,7 +1988,7 @@ A^4\mathbf{v}=3^4\mathbf{v}=81\mathbf{v}.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy is very useful for eigenvalue work because it can return exact symbolic answers. In a PyScript/Pyodide page, the same commands can be used after loading SymPy.</p>
-<div id="4a2d8000" class="cell" data-execution_count="1">
+<div id="df13b9c2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.linear_algebra <span class="im">import</span> eigenvalues_2x2, validate_eigenpair</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">3</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]]</span>
@@ -2001,7 +2001,7 @@ A^4\mathbf{v}=3^4\mathbf{v}=81\mathbf{v}.
 Correct.</code></pre>
 </div>
 </div>
-<div id="6827f313" class="cell" data-execution_count="2">
+<div id="3bc2dec4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">3</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]])</span>
@@ -2137,11 +2137,6 @@ Correct.</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

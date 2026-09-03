@@ -1507,7 +1507,7 @@ x &gt;= 3    x is greater than or equal to 3</code></pre>
 <section id="visualizing-absolute-value" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-absolute-value">Visualizing absolute value</h2>
 <p>The graph of <code>|x - a|</code> forms a V-shape centered at <code>x = a</code>. A horizontal cutoff line tells you which points are close enough to the center.</p>
-<div id="2bae5190" class="cell" data-execution_count="1">
+<div id="ae0297a2" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -3229,7 +3229,7 @@ x = 10                 x = -2</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy can solve inequalities and show interval-style answers. Use it to verify your work after you solve the inequality by hand.</p>
-<div id="95c0df11" class="cell" data-execution_count="2">
+<div id="c2c12d1d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
@@ -3238,7 +3238,7 @@ x = 10                 x = -2</code></pre>
 <p><span class="math inline">\(\displaystyle -1 \leq x\)</span></p>
 </div>
 </div>
-<div id="32e845da" class="cell" data-execution_count="3">
+<div id="bf151f6c" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sp.solve_univariate_inequality(sp.Abs(x <span class="op">-</span> <span class="dv">2</span>) <span class="op">&lt;=</span> <span class="dv">5</span>, x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle -3 \leq x \wedge x \leq 7\)</span></p>
@@ -3372,11 +3372,6 @@ x = 10                 x = -2</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

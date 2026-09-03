@@ -2227,7 +2227,7 @@ x\in A\setminus(B\cup C)
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy represents mathematical sets explicitly. Use these objects to check a manual result and inspect endpoint behavior.</p>
-<div id="3edfc3c9" class="cell" data-execution_count="1">
+<div id="b1343b12" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Interval.Lopen(<span class="op">-</span><span class="dv">3</span>, <span class="dv">4</span>)  <span class="co"># (-3, 4]</span></span>
@@ -2242,7 +2242,7 @@ x\in A\setminus(B\cup C)
 </div>
 <p>The output should represent <span class="math inline">\([1,4]\)</span>, <span class="math inline">\((-3,7)\)</span>, and <span class="math inline">\((-3,1)\)</span>, respectively. Names such as <code>Lopen</code> describe the open <strong>left</strong> endpoint; always compare the rendered set with your inequality interpretation.</p>
 <p>Use <code>solveset</code> rather than assuming that a generic list of roots carries domain information:</p>
-<div id="12633f70" class="cell" data-execution_count="2">
+<div id="319c3202" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>polynomial_solutions <span class="op">=</span> sp.solveset(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">6</span>, x, domain<span class="op">=</span>sp.S.Reals)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>rational_inequality <span class="op">=</span> sp.solve_univariate_inequality(</span>
@@ -2257,7 +2257,7 @@ x\in A\setminus(B\cup C)
 </div>
 <p>The expected exact sets are <span class="math inline">\(\{2,3\}\)</span> and <span class="math inline">\((-\infty,-2)\cup[1,\infty)\)</span>. The excluded denominator value is absent from the second result.</p>
 <p>Logic can also be represented symbolically, but a computer simplification does not replace a proof that explains the universe and predicates:</p>
-<div id="f8a0fc09" class="cell" data-execution_count="3">
+<div id="31eff688" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>P, Q <span class="op">=</span> sp.symbols(<span class="st">"P Q"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sp.simplify_logic(sp.Equivalent(sp.Implies(P, Q), sp.Implies(<span class="op">~</span>Q, <span class="op">~</span>P)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
@@ -2386,11 +2386,6 @@ x\in A\setminus(B\cup C)
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

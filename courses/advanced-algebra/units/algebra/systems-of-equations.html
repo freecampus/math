@@ -1407,7 +1407,7 @@ x - y = 1</code></pre>
 <li>Parallel distinct lines: no solution.</li>
 <li>Same line written two ways: infinitely many solutions.</li>
 </ul>
-<div id="5ae32776" class="cell" data-execution_count="1">
+<div id="e12668b8" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2987,7 +2987,7 @@ y = 1/2</code></pre>
 </section>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
-<div id="325b4325" class="cell" data-execution_count="2">
+<div id="10352fd8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
@@ -2996,13 +2996,13 @@ y = 1/2</code></pre>
 <pre><code>{x: 3, y: 6}</code></pre>
 </div>
 </div>
-<div id="84773135" class="cell" data-execution_count="3">
+<div id="d20295a1" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sp.linsolve((sp.Matrix([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]]), sp.Matrix([<span class="dv">5</span>, <span class="dv">1</span>])), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle \left\{\left( 3, \  2\right)\right\}\)</span></p>
 </div>
 </div>
-<div id="d135250c" class="cell" data-execution_count="4">
+<div id="6b6ebea0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, x<span class="op">**</span><span class="dv">2</span>), sp.Eq(y, x <span class="op">+</span> <span class="dv">2</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[(-1, 1), (2, 4)]</code></pre>
@@ -3136,11 +3136,6 @@ y = 1/2</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

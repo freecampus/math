@@ -2040,7 +2040,7 @@ P(X=0) = 0.08</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>fcmath</code> for Bernoulli and binomial calculations.</p>
-<div id="d22ce295" class="cell" data-execution_count="1">
+<div id="19059b40" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.probability <span class="im">import</span> bernoulli_pmf, binomial_mean, binomial_pmf, binomial_variance</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>bernoulli_pmf(<span class="dv">1</span>, <span class="fl">0.7</span>), binomial_pmf(trials<span class="op">=</span><span class="dv">5</span>, successes<span class="op">=</span><span class="dv">2</span>, probability<span class="op">=</span><span class="fl">0.25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2049,14 +2049,14 @@ P(X=0) = 0.08</code></pre>
 </div>
 </div>
 <p>Compute binomial mean and variance.</p>
-<div id="53b29058" class="cell" data-execution_count="2">
+<div id="41e4e0c5" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>binomial_mean(<span class="dv">10</span>, <span class="fl">0.4</span>), binomial_variance(<span class="dv">10</span>, <span class="fl">0.4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>(4.0, 2.4)</code></pre>
 </div>
 </div>
 <p>Use SymPy for exact binomial expressions.</p>
-<div id="28fd92e6" class="cell" data-execution_count="3">
+<div id="19ed0974" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
@@ -2188,11 +2188,6 @@ P(X=0) = 0.08</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
