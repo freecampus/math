@@ -202,6 +202,7 @@ For horizontal asymptotes, compare degrees:
 | numerator degree larger by one | slant asymptote preview |
 
 ```{python}
+#| fig-alt: "Graphs comparing three rational expressions with shifted asymptotic and simplified linear behavior."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(

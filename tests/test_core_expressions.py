@@ -63,6 +63,16 @@ def test_math_expression_samples_scalar_and_array_values() -> None:
     assert sampled.tolist() == [2.0, 1.0, 2.0]
 
 
+def test_math_expression_samples_capitalized_absolute_value() -> None:
+    expression = MathExpression.parse("Abs(x - 2)")
+    values = np.array([-6.0, 2.0, 10.0])
+
+    sampled = expression.sample(values)
+
+    assert expression.expression == sp.Abs(sp.Symbol("x") - 2)
+    assert sampled.tolist() == [8.0, 0.0, 8.0]
+
+
 def test_expression_equivalent_checks_symbolic_equivalence() -> None:
     assert expression_equivalent("(x + 1)**2", "x**2 + 2*x + 1")
 

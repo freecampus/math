@@ -69,6 +69,7 @@ f(x) = a*b^x
 Example: `P(t) = 200(1.04)^t` starts at `200` and grows by `4%` per time step. Example: `A(t) = 80(0.75)^t` keeps `75%` and loses `25%` per time step.
 
 ```{python}
+#| fig-alt: "Graphs comparing exponential growth, exponential decay, and quadratic growth."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(

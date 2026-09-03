@@ -20,7 +20,7 @@ from fcmath.validation import load_structured_data
 
 CATALOG = ROOT / "docs/courses/_catalog.yml"
 CODE_FENCE = re.compile(r"^```\{python\}\s*$")
-GENERATOR_VERSION = 3
+GENERATOR_VERSION = 4
 DEPENDENCY_SPECS = {
     "matplotlib": "matplotlib>=3.8,<4",
     "networkx": "networkx>=3.2,<4",
@@ -134,7 +134,6 @@ def build_notebook(
     for index, cell in enumerate(cells):
         identity = f"{item_id}:{index}:{''.join(cell['source'])}"
         cell["id"] = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:12]
-    revision = git_revision()
     source_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
     input_hash = source_input_hash(source, text)
     return {
@@ -151,7 +150,6 @@ def build_notebook(
                 "generator_version": GENERATOR_VERSION,
                 "item_id": item_id,
                 "canonical_source": source.relative_to(ROOT).as_posix(),
-                "source_revision": revision,
                 "source_sha256": source_hash,
                 "input_sha256": input_hash,
                 "dependencies": setup_dependencies,
@@ -452,19 +450,6 @@ def dependency_specs(dependencies: list[str]) -> list[str]:
         names = ", ".join(sorted(unknown))
         raise ValueError(f"unknown computational dependency: {names}")
     return [DEPENDENCY_SPECS[name] for name in dependencies if name != "fcmath"]
-
-
-def git_revision() -> str:
-    try:
-        return subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
-    except (OSError, subprocess.CalledProcessError):
-        return "unknown"
 
 
 def notebook_path(source: Path, output_root: Path) -> Path:

@@ -66,7 +66,9 @@ def test_topic_checkpoint_is_compiled_to_readable_notebook_practice() -> None:
         if cell["cell_type"] == "markdown"
     )
 
-    assert notebook["metadata"]["fcmath"]["generator_version"] == 3
+    metadata = notebook["metadata"]["fcmath"]
+    assert metadata["generator_version"] == 4
+    assert "source_revision" not in metadata
     assert "Select the expanded form." in markdown
     assert "Answer and explanation" in markdown
     assert "website-only controls are omitted" not in markdown

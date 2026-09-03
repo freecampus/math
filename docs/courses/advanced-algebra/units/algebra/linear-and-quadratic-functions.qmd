@@ -87,6 +87,7 @@ line.expression
 ## Visualizing slope and intercept
 
 ```{python}
+#| fig-alt: "Line y equals 2x plus 1 with dashed guides highlighting the point 3 comma 7."
 from fcmath.algebra import input_output_scene
 
 scene = input_output_scene(
@@ -207,6 +208,7 @@ model.expression, model.discriminant, model.vertex, model.roots
 ## Comparing quadratic parameters
 
 ```{python}
+#| fig-alt: "Four parabolas showing how positive, negative, large, and small leading coefficients change shape."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(

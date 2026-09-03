@@ -177,6 +177,7 @@ The graph of `|x - a|` forms a V-shape centered at `x = a`. A horizontal cutoff
 line tells you which points are close enough to the center.
 
 ```{python}
+#| fig-alt: "V-shaped absolute-value graph and horizontal cutoff line intersecting at x equals negative 3 and 7."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(

@@ -339,19 +339,22 @@ def expression_points(
 ) -> tuple[npt.NDArray[np.float64], npt.NDArray[np.float64]]:
     """Evaluate an expression on an evenly spaced domain."""
 
-    x_values = np.linspace(x_min, x_max, sample_count)
+    x_values = np.linspace(x_min, x_max, sample_count, dtype=np.float64)
     function = sp.lambdify(X, expr, "numpy")
-    y_values = function(x_values)
+    evaluated = function(x_values)
 
-    if np.isscalar(y_values):
-        y_values = np.full_like(x_values, y_values, dtype=float)
+    if np.isscalar(evaluated):
+        y_values = np.full_like(x_values, evaluated, dtype=np.float64)
     else:
-        y_values = np.asarray(y_values, dtype=float)
+        y_values = np.asarray(evaluated, dtype=np.float64)
 
     if y_values.shape != x_values.shape:
-        y_values = np.broadcast_to(y_values, x_values.shape).astype(float)
+        y_values = np.broadcast_to(y_values, x_values.shape).astype(np.float64)
 
-    y_values = np.where(np.isfinite(y_values), y_values, np.nan)
+    y_values = np.asarray(
+        np.where(np.isfinite(y_values), y_values, np.float64(np.nan)),
+        dtype=np.float64,
+    )
     return x_values, y_values
 
 

@@ -37,6 +37,7 @@ DEFAULT_SYMBOLS: dict[str, Any] = {
     "log": sp.log,
     "ln": sp.log,
     "abs": sp.Abs,
+    "Abs": sp.Abs,
 }
 
 _PARSE_TRANSFORMATIONS = (

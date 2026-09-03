@@ -262,6 +262,7 @@ Show the unit-circle plot.
 
 ```{python}
 #| echo: true
+#| fig-alt: "Unit circle with a radius at 30 degrees and its cosine and sine coordinates."
 fig, ax = plot_unit_circle(30)
 ```
 
