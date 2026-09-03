@@ -1,5 +1,5 @@
 {
-  "curriculumVersion": 2,
+  "curriculumVersion": 3,
   "notebooks": {
     "courses/advanced-algebra/units/algebra/algebraic-modeling.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/algebraic-modeling.ipynb",
     "courses/advanced-algebra/units/algebra/cumulative-review.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/cumulative-review.ipynb",
@@ -69,8 +69,7 @@
     "courses/statistics/units/foundations/regression-basics.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/statistics/units/foundations/regression-basics.ipynb",
     "courses/statistics/units/foundations/sampling-distributions.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/statistics/units/foundations/sampling-distributions.ipynb",
     "courses/statistics/units/foundations/sampling.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/statistics/units/foundations/sampling.ipynb",
-    "courses/statistics/units/foundations/statistics-cumulative-review.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/statistics/units/foundations/statistics-cumulative-review.ipynb",
-    "pathways/quantitative-mathematics/diagnostic.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/pathways/quantitative-mathematics/diagnostic.ipynb"
+    "courses/statistics/units/foundations/statistics-cumulative-review.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/statistics/units/foundations/statistics-cumulative-review.ipynb"
   },
   "pages": {
     "courses/advanced-algebra/units/algebra/algebraic-modeling.qmd": "advanced-algebra-algebra-algebraic-modeling",
@@ -96,7 +95,7 @@
     "courses/advanced-algebra/units/trigonometry/trig-equations.qmd": "advanced-algebra-trigonometry-trig-equations",
     "courses/advanced-algebra/units/trigonometry/trig-functions-and-graphs.qmd": "advanced-algebra-trigonometry-trig-functions-and-graphs",
     "courses/advanced-algebra/units/trigonometry/unit-circle.qmd": "advanced-algebra-trigonometry-unit-circle",
-    "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd": "quantitative-mathematics-comprehensive",
+    "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd": "cumulative-review-comprehensive-practice",
     "courses/cumulative-review/units/mixed-practice/timed-practice.qmd": "cumulative-review-mixed-practice-timed-practice",
     "courses/differential-calculus/units/differentiation/derivative-rules.qmd": "differential-calculus-differentiation-derivative-rules",
     "courses/differential-calculus/units/differentiation/derivatives.qmd": "differential-calculus-differentiation-derivatives",
@@ -141,8 +140,7 @@
     "courses/statistics/units/foundations/regression-basics.qmd": "statistics-foundations-regression-basics",
     "courses/statistics/units/foundations/sampling-distributions.qmd": "statistics-foundations-sampling-distributions",
     "courses/statistics/units/foundations/sampling.qmd": "statistics-foundations-sampling",
-    "courses/statistics/units/foundations/statistics-cumulative-review.qmd": "statistics-foundations-statistics-cumulative-review",
-    "pathways/quantitative-mathematics/diagnostic.qmd": "quantitative-mathematics-diagnostic"
+    "courses/statistics/units/foundations/statistics-cumulative-review.qmd": "statistics-foundations-statistics-cumulative-review"
   },
   "schemaVersion": 1
 }
