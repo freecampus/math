@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+# [0.5.0](https://github.com/freecampus/math/compare/0.4.5...0.5.0) (2026-09-03)
+
+
+### Features
+
+* Improve algebra ([#5](https://github.com/freecampus/math/issues/5)) ([953254c](https://github.com/freecampus/math/commit/953254ce77b040c47d1e82ebc4cd5c86b4912dec))
+
 ## [0.4.5](https://github.com/freecampus/math/compare/0.4.4...0.4.5) (2026-09-03)
 
 

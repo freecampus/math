@@ -1,6 +1,6 @@
 [project]
 name = "freecampus-math"
-version = "0.4.5"  # semantic-release
+version = "0.5.0"  # semantic-release
 description = "Proof-aware mathematics curriculum tools for exact, numerical, and interactive learning."
 readme = "README.md"
 requires-python = ">=3.10,<4"
