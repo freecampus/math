@@ -148,6 +148,7 @@ are equivalent. One form is factored around a repeated linear factor; the other
 form is expanded.
 
 ```{python}
+#| fig-alt: "Coincident parabolas showing that the factored and expanded expressions are equivalent."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(

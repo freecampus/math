@@ -126,6 +126,7 @@ expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
 ```
 
 ```{python}
+#| fig-alt: "Parabola with dashed guides connecting input 4 to the corresponding output 6."
 scene = input_output_scene(
     "x**2 - 3*x + 2",
     x_value=4,
@@ -179,6 +180,7 @@ expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
 
 ```{python}
 #| echo: true
+#| fig-alt: "Parabola with a highlighted input-output point and dashed coordinate guides."
 scene = input_output_scene("x**2 - 3*x + 2", x_value=4, x_min=-2, x_max=5)
 fig, ax = scene.render()
 ```

@@ -79,6 +79,7 @@ transformed_expression(
 ```
 
 ```{python}
+#| fig-alt: "Graphs of a base parabola and its vertically stretched and shifted transformation."
 scene = transformation_scene(
     "x**2",
     vertical_scale=2,
@@ -541,6 +542,7 @@ transformed_expression("x**2", vertical_scale=2, horizontal_shift=3, vertical_sh
 
 ```{python}
 #| echo: true
+#| fig-alt: "Graphs comparing a base parabola with its stretched and shifted transformation."
 scene = transformation_scene("x**2", vertical_scale=2, horizontal_shift=3, vertical_shift=1)
 fig, ax = scene.render()
 ```

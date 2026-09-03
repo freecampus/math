@@ -117,6 +117,7 @@ The graph of a function is the set of points:
 The package includes reusable plotting helpers for this input-output view.
 
 ```{python}
+#| fig-alt: "Parabola with dashed guides showing that input 4 produces output 6."
 from fcmath.algebra import input_output_scene
 
 scene = input_output_scene(
@@ -192,6 +193,7 @@ Different formulas create different shapes. Recognizing these shapes helps you
 guess models from data and understand transformations later.
 
 ```{python}
+#| fig-alt: "Graphs comparing linear, quadratic, cubic, and square-root function families."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(
@@ -508,6 +510,7 @@ expression_table("x**2 - 3*x + 2", inputs=(-1, 0, 1, 2, 3, 4))
 
 ```{python}
 #| echo: true
+#| fig-alt: "Parabola with a highlighted input-output point and dashed coordinate guides."
 scene = input_output_scene("x**2 - 3*x + 2", x_value=4, x_min=-2, x_max=5)
 fig, ax = scene.render()
 ```

@@ -50,6 +50,7 @@ In two variables, each linear equation is a line. A system asks where the lines 
 - Same line written two ways: infinitely many solutions.
 
 ```{python}
+#| fig-alt: "Lines y equals x plus 1 and y equals negative x plus 5 intersecting at 2 comma 3."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(

@@ -99,6 +99,7 @@ The factored form makes roots visible. The expanded form makes degree, leading
 coefficient, and constant term visible.
 
 ```{python}
+#| fig-alt: "Quadratic graph crossing the x-axis at roots negative 3 and 2."
 from fcmath.algebra import polynomial_root_scene
 
 scene = polynomial_root_scene("(x - 2)*(x + 3)", x_min=-5, x_max=5, y_min=-10, y_max=10)
@@ -146,6 +147,7 @@ Graph behavior:
 - even multiplicity: the graph touches/bounces off the x-axis.
 
 ```{python}
+#| fig-alt: "Cubic graph crossing at negative 1 and touching the x-axis at the repeated root 2."
 scene = polynomial_root_scene("(x - 2)**2*(x + 1)", x_min=-4, x_max=4, y_min=-10, y_max=10)
 fig, ax = scene.render()
 ```
@@ -173,6 +175,7 @@ Rules:
 | odd | negative | up | down |
 
 ```{python}
+#| fig-alt: "Graphs comparing polynomial end behavior for even and odd degrees with positive and negative leading coefficients."
 from fcmath.algebra import compare_functions_scene
 
 scene = compare_functions_scene(
@@ -492,6 +495,7 @@ summary.degree, summary.leading_coefficient, summary.root_multiplicities
 
 ```{python}
 #| echo: true
+#| fig-alt: "Polynomial graph crossing at negative 1 and touching the x-axis at the repeated root 2."
 scene = polynomial_root_scene("(x - 2)**2*(x + 1)", x_min=-4, x_max=4)
 fig, ax = scene.render()
 ```

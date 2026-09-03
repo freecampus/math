@@ -30,6 +30,7 @@ variation, outliers, and relationships between variables.
 A line plot is useful when values have a natural order, such as time.
 
 ```{python}
+#| fig-alt: "Line graph showing account balance increasing across five observations."
 from fcmath.python_fundamentals import plot_values
 
 balances = [100, 105, 111, 118, 126]
@@ -41,6 +42,7 @@ fig, ax = plot_values(balances, title="Account balance")
 A scatter plot is useful for paired data.
 
 ```{python}
+#| fig-alt: "Scatter plot showing expected return generally increasing as risk rises."
 from fcmath.python_fundamentals import scatter_values
 
 risk = [1, 2, 3, 4, 5]

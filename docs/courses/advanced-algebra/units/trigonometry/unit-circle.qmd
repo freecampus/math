@@ -261,6 +261,7 @@ Use the plotting helper for a unit-circle picture.
 
 ```{python}
 #| echo: true
+#| fig-alt: "Unit circle with a radius at 150 degrees and its cosine and sine coordinates."
 from fcmath.trigonometry import plot_unit_circle
 
 fig, ax = plot_unit_circle(150)
