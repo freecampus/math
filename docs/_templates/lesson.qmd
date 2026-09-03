@@ -30,6 +30,11 @@ Delete this comment before publishing.
 Connect the idea to later mathematics or a genuine application. Name what the
 learner will be able to reason about—not merely which formula will be used.
 
+## Five-minute retrieval warm-up
+
+Give three to five short questions using only prerequisites. Put concise answers
+in one collapsed block and link each gap to its repair route.
+
 ::: {.learning-objectives}
 ### What you should be able to do
 
@@ -89,6 +94,10 @@ Explain the mechanism without replacing the formal statement.
 3. State the result with its domain, units, or interpretation.
 4. Verify by substitution, an independent method, a bound, or a limiting case.
 :::
+
+Repeat worked examples across the chapter rather than collecting them in one
+place. A substantial core chapter normally needs 12–25 examples covering an
+ordinary case, boundary case, failure case, and unfamiliar synthesis case.
 
 ## Concept checkpoint
 
@@ -163,6 +172,23 @@ Show the tempting incorrect step, explain exactly why it fails, and repair it.
 Include a boundary case or counterexample when it clarifies the theorem's
 scope.
 
+## Examination strategy clinic
+
+Use one difficult Level C or D problem whose method is not named in the prompt.
+Model how to inventory conditions, test small cases, select a representation,
+discard unproductive routes, write the proof, and verify the result.
+
+## Exercises by purpose and difficulty
+
+Label problems with stable `data-problem-id` values and Levels A–D. Vary the
+logical form and representation, not merely the coefficients. Include concise
+answers to every problem and complete solutions to selected problems.
+
+## Cumulative retrieval
+
+Include at least two problems that require ideas from earlier chapters. Explain
+which prior result is being retrieved only in the solution, not in the prompt.
+
 ## Lesson review
 
 Include questions that collectively assess the declared outcomes and mix at
@@ -182,6 +208,11 @@ generic clicking.
 - Name the most reliable manual strategy and its validity conditions.
 - State what computation adds and what it does not prove.
 - Link the next lesson and explain the connection.
+
+## References and further study
+
+List authoritative sources actually used in review. Link descriptive titles;
+do not reproduce source prose or let one reference dictate the presentation.
 
 ## Using this lesson with fcmath and SymPy
 

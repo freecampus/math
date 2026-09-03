@@ -1,32 +1,201 @@
 ---
 title: Advanced Algebra
-description: Structural algebra, functions, trigonometry, modeling, and symbolic reasoning.
+description: A proof-aware, book-scale course in algebraic structure, functions, equations, inequalities, modeling, and trigonometry.
 id: advanced-algebra
 page_type: course
 status: active
+execute:
+  echo: false
 ---
 
-Structural algebra, functions, trigonometry, modeling, and symbolic reasoning.
+Advanced Algebra is being developed as a rigorous, self-contained mathematical
+text and practice course. Its goal is not merely to review formulas. It develops
+the language, structural insight, proof habits, exact computation, modeling
+judgment, and examination endurance required for demanding later work in
+calculus, linear algebra, probability, statistics, optimization, discrete
+mathematics, and differential equations.
 
-This course expects complete reasoning: definitions and hypotheses are stated,
-manual arguments remain visible, computation is labeled as exact or approximate,
-and conclusions are interpreted rather than merely reported.
+The course begins slowly enough to make hidden assumptions visible, then advances
+to unfamiliar multi-step problems. Every published reference chapter includes
+manual derivations, boundary and failure cases, guided practice, four levels of
+exercises, selected full solutions, a cumulative retrieval set, an interactive
+checkpoint, and a final reproducible `fcmath`/SymPy appendix.
+
+::: {.callout-important}
+## Reconstruction status
+
+The complete book architecture contains 11 units and 49 planned chapters.
+Orientation, the readiness system, and the first mathematical-language chapter
+are the reference implementation for the reconstruction. Existing algebra and
+trigonometry lessons remain available while they are split, deepened, reviewed,
+and migrated. Their stable public routes and progress IDs will not be removed
+without tested redirects and progress migration.
+:::
+
+## Who this course is for
+
+The main route is designed for a learner who has seen school algebra but needs
+to make it dependable enough for advanced quantitative study. A strong learner
+may move quickly through fluency exercises, but should still attempt the proof,
+parameter, counterexample, and examination problems. A learner rebuilding
+foundations should begin with the diagnostic and use the repair routes rather
+than interpreting a low initial score as a reason to stop.
+
+Expected work for the finished main route is 240–320 active hours, with an
+additional honors and examination bank. “Active” means predicting, writing,
+solving, checking, revising, and retrieving—not merely reading pages.
 
 ## Course outcomes
 
-- Transform algebraic expressions while preserving domains and equivalence.
-- Analyze functions through symbolic, graphical, numerical, and inverse viewpoints.
-- Solve equations, inequalities, and systems and justify each transformation.
-- Use trigonometric representations and identities in exact and applied reasoning.
-- Construct, critique, and verify algebraic models with appropriate computational tools.
+By the end of the complete course, you should be able to:
 
-## Prerequisites
+1. transform algebraic expressions while preserving domains and equivalence;
+2. analyze functions through symbolic, graphical, numerical, and inverse
+   viewpoints;
+3. solve equations, inequalities, and systems and justify each transformation;
+4. use trigonometric representations and identities in exact and applied
+   reasoning;
+5. construct, critique, and verify algebraic models with appropriate
+   computational tools;
+6. express conditions precisely with sets, logic, intervals, and quantifiers;
+7. reason across number systems using exact values, order, distance, bounds, and
+   controlled approximation;
+8. write proofs, equivalence arguments, case analyses, and decisive
+   counterexamples;
+9. connect polynomial coefficients, factors, roots, multiplicities, complex
+   structure, and graphs;
+10. analyze exponential, logarithmic, sequence, and growth structures;
+11. classify and solve simultaneous constraints, including nonlinear and
+    parameter-dependent systems;
+12. construct, compose, restrict, and invert functions with explicit domain and
+    range conditions;
+13. use `fcmath` and SymPy to explore and verify results while exposing
+    assumptions, precision, and limitations;
+14. solve unfamiliar cumulative problems under demanding examination conditions
+    and communicate verifiable reasoning.
 
-No course prerequisite; use the pathway diagnostic to check readiness.
+## Prerequisites and honest placement
 
-## Units
+There is no required earlier FreeCampus course. You should be ready to work with
+signed quantities, fractions, powers, ratios, and basic coordinates. The
+[Orientation, Diagnostic, and Prerequisite Repair](units/orientation/index.qmd)
+unit measures those strands separately and supplies a correction-and-reassessment
+loop.
 
-- [1. Algebraic Structures and Functions](units/algebra/index.qmd)
-- [2. Trigonometry and Periodic Structure](units/trigonometry/index.qmd)
+Do not skip orientation solely because the arithmetic looks familiar. Its first
+chapter teaches the equality, implication, domain, and counterexample language
+used to grade every later solution.
 
-[Begin or continue the course](units/algebra/index.qmd){.btn .btn-primary}
+## Published study route
+
+1. [Orientation, Diagnostic, and Prerequisite Repair](units/orientation/index.qmd)
+   - read and write valid algebraic arguments;
+   - take a strand-level diagnostic;
+   - complete targeted repair and reassessment.
+2. [Mathematical Language, Numbers, and Proof Foundations](units/mathematical-language/index.qmd)
+   - begin with sets, intervals, statements, and quantifiers;
+   - continue to the current algebra route while the remaining proof-foundation
+     chapters undergo review.
+3. [Algebraic Structures and Functions](units/algebra/index.qmd)
+   - use the existing lessons as substantial preparation and migration seeds;
+   - retain explicit domains and proof language from the new foundation units.
+4. [Trigonometry and Periodic Structure](units/trigonometry/index.qmd)
+   - study radians, the unit circle, functions, identities, equations, and
+     applications.
+
+[Begin with orientation](units/orientation/index.qmd){.btn .btn-primary}
+
+## Complete book architecture
+
+The published route will grow into this coherent sequence. A planned chapter is
+not labeled complete merely because a short page exists; publication requires
+worked examples, exercises, solutions, assessment evidence, computational
+verification, and mathematical review.
+
+| Book unit | Focus | Planned chapters |
+|---:|---|---:|
+| 0 | Orientation, diagnostic, and prerequisite repair | 2 |
+| 1 | Mathematical language, numbers, and proof foundations | 4 |
+| 2 | Expressions, equations, and parameters | 5 |
+| 3 | Inequalities, bounds, and optimization | 4 |
+| 4 | Functions and representation | 5 |
+| 5 | Linear, quadratic, polynomial, and complex structure | 6 |
+| 6 | Rational, radical, and algebraic functions | 4 |
+| 7 | Exponentials, logarithms, sequences, and growth | 5 |
+| 8 | Systems, constraints, and algebraic modeling | 4 |
+| 9 | Trigonometry and periodic structure | 7 |
+| 10 | Synthesis and demanding examination preparation | 3 |
+
+## Four levels of problems
+
+Exercises are labeled by the kind of evidence they seek:
+
+- **Level A — fluency:** carry out one defined skill accurately;
+- **Level B — connected reasoning:** choose among familiar methods, compare
+  representations, or write a routine proof;
+- **Level C — synthesis:** combine ideas in an unfamiliar multi-step problem;
+- **Level D — honors/examination:** prove, construct, classify, optimize, or
+  discover a method that is not named in the prompt.
+
+The text teaches the ideas needed for Level D problems. Hard problems are not an
+unsupported collection of tricks. Attempt them after Levels A–C, use graduated
+hints when necessary, and study the full solution only after recording a serious
+attempt.
+
+## How solutions are judged
+
+A complete solution is evaluated on interpretation, assumptions and domain,
+justified reasoning, correct algebra and notation, exceptional cases,
+verification, final form, and applied meaning or units. Two solutions reaching
+the same number may therefore receive different evaluations if one loses a
+case or relies on an invalid step.
+
+Use this writing cycle:
+
+1. state the universe, givens, and target;
+2. choose a representation and governing result;
+3. change one mathematical feature per line;
+4. separate reversible steps from implication-only steps;
+5. check candidates in the original conditions;
+6. state the final set, exact value, approximation, or interpretation requested;
+7. review the method and name the earliest cause of any error.
+
+## Computation policy
+
+Manual reasoning comes first unless programming is itself the learning goal.
+Use `fcmath` and SymPy to expose structure, generate controlled practice,
+visualize parameter families, or independently verify a result. Always state
+whether output is exact, floating-point, estimated, fitted, or simulated.
+Inspect domains and assumptions, and never infer global truth solely from a
+plotting window or finite sample.
+
+Every interactive checkpoint has a readable non-interactive representation in
+the generated notebook. Most explanatory code is hidden in the main lesson
+flow; visible reproducible code appears in the final appendix.
+
+## A demanding weekly study pattern
+
+A sustainable week uses several kinds of work:
+
+- **Session 1:** retrieval warm-up, definitions, and first examples;
+- **Session 2:** remaining theory and guided problems without notes;
+- **Session 3:** Levels A and B, followed by correction classification;
+- **Session 4:** computational exploration and Level C synthesis;
+- **Session 5:** one Level D problem, mixed retrieval from earlier chapters, and
+  a short timed set;
+- **Later retrieval:** repeat selected problems after two days and again after
+  one or two weeks.
+
+Keep a correction portfolio. Preserve the original attempt, mark the first
+invalid step, classify the error, write the corrected argument, and solve a new
+transfer problem. This makes revision visible and prevents repeated practice
+from becoming answer memorization.
+
+## References and originality
+
+The course synthesizes original explanations and problems after consulting
+multiple authoritative sources, including works by Lang, Gelfand and
+collaborators, Velleman, Pólya, OpenStax, Stitz and Zeager, the NIST Digital
+Library of Mathematical Functions, and official SymPy documentation. No one
+institution or examination dictates the curriculum. The standard is broad,
+transferable mathematical readiness.

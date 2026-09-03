@@ -11,7 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from fcmath.quizzes import load_quiz
-from fcmath.validation import ValidationIssue, load_structured_data, validate_catalog
+from fcmath.validation import (
+    ValidationIssue,
+    load_structured_data,
+    validate_catalog,
+    validate_coverage_matrix,
+)
 
 
 def main() -> int:
@@ -19,9 +24,16 @@ def main() -> int:
     parser.add_argument(
         "--catalog", type=Path, default=ROOT / "docs/courses/_catalog.yml"
     )
+    parser.add_argument(
+        "--coverage",
+        type=Path,
+        default=ROOT / "docs/courses/advanced-algebra/_coverage.yml",
+    )
     args = parser.parse_args()
     issues = list(validate_catalog(args.catalog, docs_root=ROOT / "docs"))
+    issues.extend(validate_coverage_matrix(args.coverage, args.catalog))
     catalog = load_structured_data(args.catalog)
+    coverage = load_structured_data(args.coverage)
     outcome_ids = {
         outcome["id"]
         for course in catalog.get("courses", [])
@@ -80,7 +92,8 @@ def main() -> int:
         return 1
     print(
         f"Curriculum valid: {len(catalog['courses'])} courses, "
-        f"{len(outcome_ids)} outcomes, {len(question_ids)} quiz questions."
+        f"{len(outcome_ids)} outcomes, {len(question_ids)} quiz questions, "
+        f"{coverage['chapter_count']} planned Advanced Algebra chapters."
     )
     return 0
 

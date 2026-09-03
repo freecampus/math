@@ -1,0 +1,1438 @@
+{
+  "schema_version": 1,
+  "course_id": "advanced-algebra",
+  "architecture_version": 1,
+  "chapter_count": 49,
+  "problem_level_policy":
+    {
+      "A": "fluency with one defined skill",
+      "B": "connected reasoning and routine proof",
+      "C": "unfamiliar synthesis across ideas",
+      "D": "honors or demanding examination reasoning",
+    },
+  "route_compatibility":
+    {
+      "policy": "preserve-current-routes-during-incremental-migration",
+      "note": "Existing algebra and trigonometry pages remain public until a tested redirect and progress migration exists.",
+    },
+  "units":
+    [
+      {
+        "book_unit": 0,
+        "id": "orientation",
+        "title": "Orientation, diagnostic, and prerequisite repair",
+        "status": "active",
+        "chapters":
+          [
+            {
+              "number": "0.1",
+              "id": "advanced-algebra-chapter-0-1-reading-writing-algebraic-arguments",
+              "title": "How to read and write an algebraic argument",
+              "scope": "Build a disciplined distinction among expressions, predicates, implications, equivalences, identities, and approximations while learning to audit written algebra line by line.",
+              "status": "active",
+              "reference_exemplar": true,
+              "prerequisite_chapter_ids": [],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "annotated argument audit",
+                  "Level D repair-and-justify problem",
+                ],
+              "fcmath_support":
+                [
+                  "quiz answer validation",
+                  "future transformation audit record",
+                ],
+              "catalog_item_id": "advanced-algebra-orientation-reading-writing-algebraic-arguments",
+              "source_file": "courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.qmd",
+            },
+            {
+              "number": "0.2",
+              "id": "advanced-algebra-chapter-0-2-readiness-diagnostic-repair",
+              "title": "Readiness diagnostic and targeted repair",
+              "scope": "Measure and repair exact arithmetic, signed-number, power, ratio, unit, coordinate, and estimation skills through a correction portfolio rather than a single undifferentiated score.",
+              "status": "active",
+              "reference_exemplar": true,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-0-1-reading-writing-algebraic-arguments",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-13",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "subskill diagnostic",
+                  "worked correction portfolio",
+                  "second-attempt mastery check",
+                ],
+              "fcmath_support":
+                ["validated diagnostic quiz", "exact-versus-float checks"],
+              "catalog_item_id": "advanced-algebra-orientation-readiness-diagnostic-and-repair",
+              "source_file": "courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd",
+            },
+          ],
+      },
+      {
+        "book_unit": 1,
+        "id": "mathematical-language",
+        "title": "Mathematical language, numbers, and proof foundations",
+        "status": "active",
+        "chapters":
+          [
+            {
+              "number": "1.1",
+              "id": "advanced-algebra-chapter-1-1-sets-intervals-statements-quantifiers",
+              "title": "Sets, intervals, statements, and quantifiers",
+              "scope": "Translate precisely among roster, set-builder, interval, logical, and verbal descriptions and prove or refute claims using membership arguments and correctly negated quantifiers.",
+              "status": "active",
+              "reference_exemplar": true,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-0-2-readiness-diagnostic-repair"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "set-and-logic checkpoint",
+                  "interval identity proof",
+                  "quantifier negation examination problem",
+                ],
+              "fcmath_support":
+                [
+                  "SymPy Set and Interval verification",
+                  "validated solution-set questions",
+                ],
+              "catalog_item_id": "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers",
+              "source_file": "courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd",
+            },
+            {
+              "number": "1.2",
+              "id": "advanced-algebra-chapter-1-2-real-number-system-extensions",
+              "title": "The real number system and its extensions",
+              "scope": "Organize natural, integer, rational, irrational, real, and complex numbers by closure and structure while connecting absolute value, order, distance, exact radicals, and approximation.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-1-1-sets-intervals-statements-quantifiers",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "classification and closure set",
+                  "absolute-value derivation",
+                  "exact/approximate comparison",
+                ],
+              "fcmath_support":
+                ["exact numeric representations", "assumption-aware symbols"],
+            },
+            {
+              "number": "1.3",
+              "id": "advanced-algebra-chapter-1-3-algebraic-laws-valid-transformation",
+              "title": "Algebraic laws and valid transformation",
+              "scope": "Use field and order laws to justify transformations, state cancellation conditions, distinguish conditional from unconditional identities, and construct counterexamples to common false laws.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-1-2-real-number-system-extensions"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-8",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "line-by-line law annotation",
+                  "false-law counterexamples",
+                  "parameter-domain classification",
+                ],
+              "fcmath_support":
+                ["transformation audit record", "symbolic equivalence checks"],
+            },
+            {
+              "number": "1.4",
+              "id": "advanced-algebra-chapter-1-4-proof-methods-algebra",
+              "title": "Proof methods for algebra",
+              "scope": "Write direct, case, contrapositive, contradiction, equivalence, existence, uniqueness, and introductory induction arguments suited to algebraic statements.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-1-3-algebraic-laws-valid-transformation",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "six-form proof portfolio",
+                  "peer-review rubric",
+                  "timed proof selection",
+                ],
+              "fcmath_support":
+                ["proof-step renderer", "counterexample search support"],
+            },
+          ],
+      },
+      {
+        "book_unit": 2,
+        "id": "expressions-equations",
+        "title": "Expressions, equations, and parameters",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "2.1",
+              "id": "advanced-algebra-chapter-2-1-expression-structure-canonical-forms",
+              "title": "Expression structure and canonical forms",
+              "scope": "Read operation trees, substitute with dimensions, collect terms, expand or factor strategically, and choose a form that exposes the structure needed for the next argument.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-1-4-proof-methods-algebra"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "structure-recognition set",
+                  "equivalent-form explanations",
+                  "mixed canonical-form challenge",
+                ],
+              "fcmath_support":
+                [
+                  "expression parser",
+                  "expression table",
+                  "symbolic form comparison",
+                ],
+            },
+            {
+              "number": "2.2",
+              "id": "advanced-algebra-chapter-2-2-exponents-radicals-exact-arithmetic",
+              "title": "Exponents, radicals, and exact arithmetic",
+              "scope": "Derive and apply exponent and radical laws with their hypotheses, rationalize appropriately, compare exact and approximate forms, and handle exceptional bases and exponents.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-2-1-expression-structure-canonical-forms",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "law derivation set",
+                  "exact simplification checkpoint",
+                  "exception-case classification",
+                ],
+              "fcmath_support":
+                ["exact arithmetic helpers", "assumption-aware simplification"],
+            },
+            {
+              "number": "2.3",
+              "id": "advanced-algebra-chapter-2-3-linear-equations-literal-formulas",
+              "title": "Linear equations and literal formulas",
+              "scope": "Solve and classify linear equations with numeric or symbolic parameters, rearrange formulas with units, and explain how zero coefficients create identity or contradiction cases.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-2-2-exponents-radicals-exact-arithmetic",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "parameter case split",
+                  "literal-formula application",
+                  "timed equation set",
+                ],
+              "fcmath_support":
+                ["equation-operation tracker", "solution-set validator"],
+            },
+            {
+              "number": "2.4",
+              "id": "advanced-algebra-chapter-2-4-absolute-value-piecewise-equations",
+              "title": "Absolute-value and piecewise equations",
+              "scope": "Interpret absolute value as distance, solve through justified cases, analyze piecewise definitions at boundaries, and recognize when proposed branches are impossible.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-2-3-linear-equations-literal-formulas",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-8",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "distance-model tasks",
+                  "case analysis proof",
+                  "piecewise boundary checkpoint",
+                ],
+              "fcmath_support": ["piecewise plot", "solution-set validator"],
+            },
+            {
+              "number": "2.5",
+              "id": "advanced-algebra-chapter-2-5-equation-transformations-extraneous-roots",
+              "title": "Equation transformations, extraneous roots, and numerical checks",
+              "scope": "Classify reversible and implication-only transformations, track domain restrictions, detect lost or introduced candidates, and verify symbolic or numerical solver output against the original equation.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-2-4-absolute-value-piecewise-equations",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "transformation audit",
+                  "extraneous-root laboratory",
+                  "solver-output critique",
+                ],
+              "fcmath_support":
+                ["equation-operation tracker", "domain-aware verifier"],
+            },
+          ],
+      },
+      {
+        "book_unit": 3,
+        "id": "inequalities",
+        "title": "Inequalities, bounds, and optimization",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "3.1",
+              "id": "advanced-algebra-chapter-3-1-order-properties-linear-inequalities",
+              "title": "Order properties and linear inequalities",
+              "scope": "Derive inequality rules from order properties, solve compound and parameter-dependent inequalities, and express solutions equivalently on number lines and in interval notation.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-2-5-equation-transformations-extraneous-roots",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-7",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "order-law derivation",
+                  "compound inequality set",
+                  "parameter sign cases",
+                ],
+              "fcmath_support": ["interval validator", "number-line renderer"],
+            },
+            {
+              "number": "3.2",
+              "id": "advanced-algebra-chapter-3-2-absolute-value-inequalities-distance",
+              "title": "Absolute-value inequalities and distance regions",
+              "scope": "Convert absolute-value bounds into geometric distance regions, handle intersections and unions correctly, and extend the reasoning to nested or parameterized constraints.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-3-1-order-properties-linear-inequalities",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "distance-region checkpoint",
+                  "nested inequality set",
+                  "proof of equivalence",
+                ],
+              "fcmath_support":
+                ["interval validator", "distance-region visualizer"],
+            },
+            {
+              "number": "3.3",
+              "id": "advanced-algebra-chapter-3-3-polynomial-rational-inequalities",
+              "title": "Polynomial and rational inequalities",
+              "scope": "Build sign charts from critical points and multiplicities, respect undefined points, solve exact inequalities, and justify endpoint inclusion without relying on graph appearance alone.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-3-2-absolute-value-inequalities-distance",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-9",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "sign-chart construction",
+                  "rational-domain audit",
+                  "mixed inequality examination",
+                ],
+              "fcmath_support":
+                ["sign-chart builder", "root and pole verification"],
+            },
+            {
+              "number": "3.4",
+              "id": "advanced-algebra-chapter-3-4-classical-inequalities-optimization",
+              "title": "Classical inequalities and algebraic optimization",
+              "scope": "Prove and apply AM-GM, square-based bounds, triangle inequalities, and equality conditions to constrained optimization and sharp-constant problems.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-3-3-polynomial-rational-inequalities",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "inequality proofs",
+                  "equality-case analysis",
+                  "sharp bound challenge",
+                ],
+              "fcmath_support":
+                ["parameter-family exploration", "symbolic equality checks"],
+            },
+          ],
+      },
+      {
+        "book_unit": 4,
+        "id": "functions",
+        "title": "Functions and representation",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "4.1",
+              "id": "advanced-algebra-chapter-4-1-functions-as-mappings",
+              "title": "Functions as mappings",
+              "scope": "Treat functions as domain-codomain rules, distinguish images from preimages, analyze injectivity and surjectivity, and identify when a formula fails to define the stated function.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-3-4-classical-inequalities-optimization",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-12",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "mapping classification",
+                  "fiber analysis",
+                  "definition-based proof",
+                ],
+              "fcmath_support": ["mapping diagram", "domain checker"],
+            },
+            {
+              "number": "4.2",
+              "id": "advanced-algebra-chapter-4-2-graphs-tables-formulas-behavior",
+              "title": "Graphs, tables, formulas, and qualitative behavior",
+              "scope": "Infer domain, range, intercepts, symmetry, monotonicity, extrema, discontinuities, and rates of change across graphical, tabular, symbolic, and verbal representations.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-4-1-functions-as-mappings"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "representation translation",
+                  "graph interpretation set",
+                  "behavior justification",
+                ],
+              "fcmath_support":
+                [
+                  "multi-representation explorer",
+                  "accessible plot descriptions",
+                ],
+            },
+            {
+              "number": "4.3",
+              "id": "advanced-algebra-chapter-4-3-transformations-parameter-families",
+              "title": "Transformations and parameter families",
+              "scope": "Derive horizontal and vertical graph transformations from input-output reasoning, distinguish parameter roles, and predict family behavior before plotting.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-4-2-graphs-tables-formulas-behavior",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-12",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "transformation derivations",
+                  "graph-to-formula checkpoint",
+                  "parameter-family investigation",
+                ],
+              "fcmath_support":
+                ["parameter-family plots", "transformation scene"],
+            },
+            {
+              "number": "4.4",
+              "id": "advanced-algebra-chapter-4-4-function-arithmetic-composition",
+              "title": "Function arithmetic and composition",
+              "scope": "Compute arithmetic combinations and compositions with correct domains, interpret composition as a process, and solve decomposition or construction problems.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-4-3-transformations-parameter-families",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-12",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "domain-aware compositions",
+                  "process modeling",
+                  "decomposition challenge",
+                ],
+              "fcmath_support": ["composition helper", "domain propagation"],
+            },
+            {
+              "number": "4.5",
+              "id": "advanced-algebra-chapter-4-5-inverses-restricted-domains",
+              "title": "Inverses and restricted domains",
+              "scope": "Determine when inverses exist, choose meaningful domain restrictions, derive inverse formulas, and relate inverse graphs and compositions while distinguishing inverse functions from reciprocals.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-4-4-function-arithmetic-composition",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-12",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "injectivity proof",
+                  "domain restriction design",
+                  "inverse verification",
+                ],
+              "fcmath_support":
+                ["inverse explorer", "composition identity checker"],
+            },
+          ],
+      },
+      {
+        "book_unit": 5,
+        "id": "polynomial-complex",
+        "title": "Linear, quadratic, polynomial, and complex structure",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "5.1",
+              "id": "advanced-algebra-chapter-5-1-linear-affine-models",
+              "title": "Linear and affine models",
+              "scope": "Connect slope, intercept, proportionality, units, residuals, and parameter sensitivity while distinguishing affine structure from direct variation.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-4-5-inverses-restricted-domains"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-11",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "multi-representation linear set",
+                  "unit-aware model",
+                  "residual critique",
+                ],
+              "fcmath_support": ["line plot", "residual summary"],
+            },
+            {
+              "number": "5.2",
+              "id": "advanced-algebra-chapter-5-2-quadratic-forms-completing-square",
+              "title": "Quadratic forms and completing the square",
+              "scope": "Move among expanded, vertex, and factored forms, derive the quadratic formula, analyze the discriminant, and solve parameter problems involving roots and extrema.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-5-1-linear-affine-models"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-9",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "formula derivation",
+                  "form-selection set",
+                  "discriminant parameter challenge",
+                ],
+              "fcmath_support":
+                ["quadratic form converter", "root and vertex visualizer"],
+            },
+            {
+              "number": "5.3",
+              "id": "advanced-algebra-chapter-5-3-polynomial-arithmetic-division",
+              "title": "Polynomial arithmetic and division",
+              "scope": "Use degree and coefficient structure, long and synthetic division, the division algorithm, and the remainder theorem with proofs and exact computations.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-5-2-quadratic-forms-completing-square",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-9",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "division algorithm proof",
+                  "mixed division set",
+                  "remainder construction",
+                ],
+              "fcmath_support":
+                ["stepwise polynomial division", "symbolic remainder check"],
+            },
+            {
+              "number": "5.4",
+              "id": "advanced-algebra-chapter-5-4-factorization-root-structure",
+              "title": "Factorization and root structure",
+              "scope": "Connect factors and roots, use rational-root and factor theorems, track multiplicity, and construct polynomials from algebraic constraints.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-5-3-polynomial-arithmetic-division"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-9",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "root-factor proofs",
+                  "factorization laboratory",
+                  "constraint construction",
+                ],
+              "fcmath_support":
+                ["factor question generator", "root multiplicity report"],
+            },
+            {
+              "number": "5.5",
+              "id": "advanced-algebra-chapter-5-5-complex-numbers-plane",
+              "title": "Complex numbers and the complex plane",
+              "scope": "Compute in rectangular and polar viewpoints, interpret conjugation and modulus geometrically, solve quadratic equations over the complex numbers, and derive powers from angle structure.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-5-4-factorization-root-structure"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-9",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "complex arithmetic set",
+                  "plane interpretation",
+                  "exact root derivation",
+                ],
+              "fcmath_support":
+                ["complex-plane visualizer", "exact complex simplification"],
+            },
+            {
+              "number": "5.6",
+              "id": "advanced-algebra-chapter-5-6-polynomial-graphs-fundamental-theorem",
+              "title": "Polynomial graphs and the Fundamental Theorem of Algebra",
+              "scope": "Relate degree, leading behavior, zeros, multiplicities, conjugate pairs, and turning behavior while using the Fundamental Theorem of Algebra precisely rather than as a factoring algorithm.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-5-5-complex-numbers-plane"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-9",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "graph reconstruction",
+                  "theorem consequence proofs",
+                  "polynomial synthesis examination",
+                ],
+              "fcmath_support":
+                ["root/multiplicity plot", "numerical-root comparison"],
+            },
+          ],
+      },
+      {
+        "book_unit": 6,
+        "id": "rational-radical",
+        "title": "Rational, radical, and algebraic functions",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "6.1",
+              "id": "advanced-algebra-chapter-6-1-rational-expressions-domain-simplification",
+              "title": "Rational expressions and domain-aware simplification",
+              "scope": "Simplify rational expressions while preserving excluded values, combine fractions structurally, and distinguish equality of formulas from equality of functions with stated domains.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-5-6-polynomial-graphs-fundamental-theorem",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "domain ledger",
+                  "rational simplification set",
+                  "function-equality proof",
+                ],
+              "fcmath_support":
+                ["domain-aware transformation", "hole detector"],
+            },
+            {
+              "number": "6.2",
+              "id": "advanced-algebra-chapter-6-2-rational-equations-inequalities-graphs",
+              "title": "Rational equations, inequalities, and graphs",
+              "scope": "Solve rational constraints with poles and extraneous candidates, derive asymptotic behavior, and connect exact sign analysis to graph structure.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-6-1-rational-expressions-domain-simplification",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-9",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "equation verification",
+                  "sign chart",
+                  "asymptote and hole analysis",
+                ],
+              "fcmath_support": ["rational graph explorer", "pole/root report"],
+            },
+            {
+              "number": "6.3",
+              "id": "advanced-algebra-chapter-6-3-radical-equations-algebraic-branches",
+              "title": "Radical equations and algebraic branches",
+              "scope": "Analyze principal roots and branches, solve radical equations through implication-aware transformations, and reject candidates using domain and substitution checks.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-6-2-rational-equations-inequalities-graphs",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "branch classification",
+                  "extraneous-root set",
+                  "solver critique",
+                ],
+              "fcmath_support": ["radical domain checker", "equation audit"],
+            },
+            {
+              "number": "6.4",
+              "id": "advanced-algebra-chapter-6-4-algebraic-functions-implicit-relations",
+              "title": "Algebraic functions and implicit relations",
+              "scope": "Distinguish relations from functions, solve for local algebraic branches, study symmetry and singular behavior, and decide what a two-dimensional plot can and cannot establish.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-6-3-radical-equations-algebraic-branches",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-12",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "relation/function classification",
+                  "branch analysis",
+                  "implicit curve interpretation",
+                ],
+              "fcmath_support": ["implicit plot", "branch solver"],
+            },
+          ],
+      },
+      {
+        "book_unit": 7,
+        "id": "growth-sequences",
+        "title": "Exponentials, logarithms, sequences, and growth",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "7.1",
+              "id": "advanced-algebra-chapter-7-1-exponential-functions-change",
+              "title": "Exponential functions and multiplicative change",
+              "scope": "Derive exponential models from constant ratios, compare discrete and continuous growth parameters, and analyze domains, ranges, asymptotes, and units.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-6-4-algebraic-functions-implicit-relations",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-10",
+                  "advanced-algebra-outcome-11",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "parameter interpretation",
+                  "growth/decay model",
+                  "representation comparison",
+                ],
+              "fcmath_support":
+                ["growth table and plot", "exact/float evaluator"],
+            },
+            {
+              "number": "7.2",
+              "id": "advanced-algebra-chapter-7-2-logarithms-inverse-functions",
+              "title": "Logarithms as inverse functions",
+              "scope": "Define logarithms through inverse functions, derive log laws with positivity conditions, interpret scales, and move between exponential and logarithmic statements exactly.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-7-1-exponential-functions-change"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-10",
+                  "advanced-algebra-outcome-12",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                ["inverse derivation", "law proof", "domain-error analysis"],
+              "fcmath_support":
+                ["assumption-aware log expansion", "inverse graph"],
+            },
+            {
+              "number": "7.3",
+              "id": "advanced-algebra-chapter-7-3-exponential-logarithmic-equations",
+              "title": "Exponential and logarithmic equations",
+              "scope": "Solve exponential and logarithmic equations by structural, inverse, substitution, and numerical methods while checking domain, uniqueness, and approximation error.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-7-2-logarithms-inverse-functions"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-10",
+                  "advanced-algebra-outcome-13",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "exact solution set",
+                  "numerical error check",
+                  "mixed examination problem",
+                ],
+              "fcmath_support":
+                ["solveset workflow", "root approximation report"],
+            },
+            {
+              "number": "7.4",
+              "id": "advanced-algebra-chapter-7-4-sequences-recurrences-finite-sums",
+              "title": "Sequences, recurrences, and finite sums",
+              "scope": "Analyze explicit and recursive sequences, derive arithmetic and geometric sums, use sigma notation, and prove elementary identities by induction.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-7-3-exponential-logarithmic-equations",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-10",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                ["recurrence translation", "sum derivation", "induction proof"],
+              "fcmath_support": ["sequence table", "symbolic summation"],
+            },
+            {
+              "number": "7.5",
+              "id": "advanced-algebra-chapter-7-5-growth-models-logarithmic-scales",
+              "title": "Growth models and logarithmic scales",
+              "scope": "Construct, compare, linearize, and critique growth models, interpret half-life and doubling time, and identify extrapolation and scale limitations.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-7-4-sequences-recurrences-finite-sums",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-10",
+                  "advanced-algebra-outcome-11",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "model comparison project",
+                  "sensitivity analysis",
+                  "log-scale interpretation",
+                ],
+              "fcmath_support":
+                ["residual and sensitivity summary", "log-scale plot"],
+            },
+          ],
+      },
+      {
+        "book_unit": 8,
+        "id": "systems-modeling",
+        "title": "Systems, constraints, and algebraic modeling",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "8.1",
+              "id": "advanced-algebra-chapter-8-1-linear-systems-elimination",
+              "title": "Linear systems and elimination structure",
+              "scope": "Classify and solve linear systems, interpret elimination structurally, treat parameter-dependent rank cases, and connect symbolic solutions to intersections and constraints.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-7-5-growth-models-logarithmic-scales",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-11",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "method comparison",
+                  "parameter classification",
+                  "exact solver verification",
+                ],
+              "fcmath_support": ["elimination steps", "system classification"],
+            },
+            {
+              "number": "8.2",
+              "id": "advanced-algebra-chapter-8-2-nonlinear-systems",
+              "title": "Nonlinear systems",
+              "scope": "Solve nonlinear systems by substitution, elimination, symmetry, factoring, and numerical methods while controlling multiplicity, missed intersections, and extraneous solutions.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-8-1-linear-systems-elimination"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-9",
+                  "advanced-algebra-outcome-11",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "finite solution classification",
+                  "graph/algebra comparison",
+                  "numerical completeness critique",
+                ],
+              "fcmath_support":
+                ["intersection explorer", "solution-set verifier"],
+            },
+            {
+              "number": "8.3",
+              "id": "advanced-algebra-chapter-8-3-translating-situations-models",
+              "title": "Translating situations into models",
+              "scope": "Choose variables, assumptions, equations, constraints, and units from unfamiliar situations and judge whether the resulting algebra answers the original question.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-8-2-nonlinear-systems"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-11",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "model construction tasks",
+                  "assumption audit",
+                  "unfamiliar synthesis problem",
+                ],
+              "fcmath_support": ["unit-aware model record", "scenario plot"],
+            },
+            {
+              "number": "8.4",
+              "id": "advanced-algebra-chapter-8-4-sensitivity-uncertainty-model-critique",
+              "title": "Sensitivity, uncertainty, and model critique",
+              "scope": "Quantify how inputs and assumptions affect conclusions, distinguish uncertainty from algebraic error, examine residuals, and communicate limitations honestly.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-8-3-translating-situations-models"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-11",
+                  "advanced-algebra-outcome-13",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "sensitivity laboratory",
+                  "residual analysis",
+                  "written model critique",
+                ],
+              "fcmath_support":
+                ["sensitivity summary", "residual visualization"],
+            },
+          ],
+      },
+      {
+        "book_unit": 9,
+        "id": "trigonometry",
+        "title": "Trigonometry and periodic structure",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "9.1",
+              "id": "advanced-algebra-chapter-9-1-angles-radians-arcs-sectors",
+              "title": "Angles, radians, arc length, and sectors",
+              "scope": "Derive radian measure from arc geometry, convert representations exactly, and solve arc, sector, and angular-speed problems with orientation and units.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-8-4-sensitivity-uncertainty-model-critique",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "exact conversion set",
+                  "arc-sector derivation",
+                  "unit-aware application",
+                ],
+              "fcmath_support": ["angle converter", "circle visualizer"],
+            },
+            {
+              "number": "9.2",
+              "id": "advanced-algebra-chapter-9-2-unit-circle-exact-values",
+              "title": "Unit-circle definitions and exact values",
+              "scope": "Define trigonometric functions as coordinates, derive special-angle values, reason by symmetry and reference angles, and distinguish exact values from decimal approximations.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-9-1-angles-radians-arcs-sectors"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-8",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "exact-value derivations",
+                  "quadrant reasoning",
+                  "unit-circle checkpoint",
+                ],
+              "fcmath_support":
+                ["exact-angle helper", "unit-circle visualizer"],
+            },
+            {
+              "number": "9.3",
+              "id": "advanced-algebra-chapter-9-3-triangle-trigonometry-inverses",
+              "title": "Right-triangle trigonometry and inverse functions",
+              "scope": "Solve triangles with stated assumptions, define inverse trigonometric principal ranges, and connect triangle ratios to unit-circle functions without confusing inverses and reciprocals.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-9-2-unit-circle-exact-values"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-12",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "triangle solution set",
+                  "principal-value analysis",
+                  "domain/range proof",
+                ],
+              "fcmath_support": ["triangle solver", "inverse-range visualizer"],
+            },
+            {
+              "number": "9.4",
+              "id": "advanced-algebra-chapter-9-4-trigonometric-graphs-transformations",
+              "title": "Trigonometric graphs and transformations",
+              "scope": "Analyze amplitude, period, phase, midline, frequency, asymptotes, and parameter identifiability from formulas, data, and periodic graphs.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-9-3-triangle-trigonometry-inverses"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "graph-to-model tasks",
+                  "parameter-family exploration",
+                  "periodic data fit",
+                ],
+              "fcmath_support": ["periodic family plot", "parameter estimator"],
+            },
+            {
+              "number": "9.5",
+              "id": "advanced-algebra-chapter-9-5-trigonometric-identities-proof",
+              "title": "Trigonometric identities and proof",
+              "scope": "Derive and prove reciprocal, quotient, Pythagorean, cofunction, sum, difference, and multiple-angle identities with domain-aware equivalence reasoning.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-9-4-trigonometric-graphs-transformations",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "identity proof portfolio",
+                  "domain audit",
+                  "strategy examination",
+                ],
+              "fcmath_support": ["identity checker", "counterexample sampler"],
+            },
+            {
+              "number": "9.6",
+              "id": "advanced-algebra-chapter-9-6-trigonometric-equations-inequalities",
+              "title": "Trigonometric equations and inequalities",
+              "scope": "Find general and interval-restricted solutions, preserve periodic families, solve transformed equations, and verify completeness and extraneous candidates.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-9-5-trigonometric-identities-proof"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-13",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "general-solution set",
+                  "interval solution checkpoint",
+                  "solver-output critique",
+                ],
+              "fcmath_support":
+                ["periodic solution validator", "trigonometric sign chart"],
+            },
+            {
+              "number": "9.7",
+              "id": "advanced-algebra-chapter-9-7-sines-cosines-vectors-periodic-models",
+              "title": "Laws of sines and cosines, vectors, and periodic models",
+              "scope": "Derive and apply non-right-triangle laws, resolve ambiguous cases, connect components and dot products to geometry, and build defensible periodic models.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-9-6-trigonometric-equations-inequalities",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-11",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "ambiguous-case analysis",
+                  "vector derivation",
+                  "periodic modeling project",
+                ],
+              "fcmath_support":
+                ["triangle case classifier", "vector and periodic plots"],
+            },
+          ],
+      },
+      {
+        "book_unit": 10,
+        "id": "synthesis",
+        "title": "Synthesis and demanding examination preparation",
+        "status": "planned",
+        "chapters":
+          [
+            {
+              "number": "10.1",
+              "id": "advanced-algebra-chapter-10-1-structural-problem-solving",
+              "title": "Structural problem-solving methods",
+              "scope": "Select representations and methods under uncertainty, exploit invariants and symmetry, work backward, introduce auxiliary quantities, and verify multi-stage solutions efficiently.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-9-7-sines-cosines-vectors-periodic-models",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-1",
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                ["strategy journal", "mixed timed set", "method comparison"],
+              "fcmath_support":
+                ["solution audit renderer", "stable mixed-problem assembly"],
+            },
+            {
+              "number": "10.2",
+              "id": "advanced-algebra-chapter-10-2-mixed-proof-problem-laboratory",
+              "title": "Mixed proof and problem laboratory",
+              "scope": "Integrate algebra, functions, inequalities, modeling, and trigonometry in unfamiliar proof, construction, classification, and counterexample problems.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                ["advanced-algebra-chapter-10-1-structural-problem-solving"],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-2",
+                  "advanced-algebra-outcome-4",
+                  "advanced-algebra-outcome-8",
+                  "advanced-algebra-outcome-9",
+                  "advanced-algebra-outcome-10",
+                  "advanced-algebra-outcome-11",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "proof laboratory",
+                  "Level D oral defense",
+                  "independently reviewed challenge set",
+                ],
+              "fcmath_support":
+                ["proof-step renderer", "parameter exploration"],
+            },
+            {
+              "number": "10.3",
+              "id": "advanced-algebra-chapter-10-3-cumulative-examinations-corrections",
+              "title": "Cumulative examinations and correction portfolio",
+              "scope": "Demonstrate durable mastery under timed and untimed conditions, classify errors, produce complete corrections, and document readiness through repeated cumulative evidence.",
+              "status": "planned",
+              "reference_exemplar": false,
+              "prerequisite_chapter_ids":
+                [
+                  "advanced-algebra-chapter-10-2-mixed-proof-problem-laboratory",
+                ],
+              "outcome_ids":
+                [
+                  "advanced-algebra-outcome-3",
+                  "advanced-algebra-outcome-5",
+                  "advanced-algebra-outcome-6",
+                  "advanced-algebra-outcome-7",
+                  "advanced-algebra-outcome-12",
+                  "advanced-algebra-outcome-13",
+                  "advanced-algebra-outcome-14",
+                ],
+              "problem_levels": ["A", "B", "C", "D"],
+              "assessment_evidence":
+                [
+                  "three examination forms",
+                  "grading rubric",
+                  "correction and reassessment portfolio",
+                ],
+              "fcmath_support":
+                ["seeded assessment assembly", "outcome-level score summary"],
+            },
+          ],
+      },
+    ],
+}

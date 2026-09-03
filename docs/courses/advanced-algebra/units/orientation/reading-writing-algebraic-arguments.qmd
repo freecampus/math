@@ -1,0 +1,900 @@
+---
+title: How to Read and Write an Algebraic Argument
+description: Learn to distinguish claims, preserve logical direction, justify each algebraic step, and repair invalid solutions.
+execute:
+  echo: false
+  warning: false
+id: advanced-algebra-orientation-reading-writing-algebraic-arguments
+course_id: advanced-algebra
+unit_id: orientation
+page_type: lesson
+status: active
+estimated_time: "300 minutes"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-6, advanced-algebra-outcome-8, advanced-algebra-outcome-14]
+---
+
+## Why this matters
+
+A correct final number does not by itself make a mathematical solution correct.
+A solution is an **argument**: it begins with stated objects and conditions,
+passes through justified steps, and ends with a conclusion that answers the
+question. That standard matters in advanced courses because an unnoticed lost
+case, illegal cancellation, or reversed implication can survive many lines of
+otherwise flawless algebra.
+
+This chapter teaches a method you can use on every later page:
+
+1. identify what each line claims;
+2. record the domain and assumptions;
+3. decide whether a step preserves equivalence or only implication;
+4. name the law or definition that permits the step;
+5. check the conclusion against the original problem.
+
+The material may look elementary, but the habits are not. The most demanding
+algebra examinations often hide their difficulty in a condition, a quantifier,
+or an exceptional parameter rather than in long arithmetic.
+
+::: {.learning-objectives}
+### What you should be able to do
+
+After completing the chapter, you should be able to:
+
+- distinguish an expression, equation, identity, inequality, predicate, and
+  solution set;
+- use $=$, $\approx$, $\Rightarrow$, and $\Leftrightarrow$ with correct meanings;
+- write aligned calculations in which equality is transitive from line to line;
+- state domain restrictions before simplifying or solving;
+- decide whether a transformation is reversible;
+- identify and explain the **first** invalid step in a proposed solution;
+- repair an invalid argument without concealing the original error;
+- present exact and approximate results appropriately;
+- write a concise proof or counterexample rather than relying on examples as
+  proof.
+:::
+
+::: {.prerequisites}
+### Prerequisites
+
+You need signed arithmetic, fraction arithmetic, order of operations, and the
+meaning of a variable. If the warm-up reveals a gap, continue to the next
+chapter's targeted repair route before attempting the examination set.
+:::
+
+## Five-minute retrieval warm-up
+
+Work without a calculator.
+
+1. Evaluate $7-3(2-5)$.
+2. Compute $\frac34-\frac56$ exactly.
+3. Solve $5x-2=18$ and check the result.
+4. Evaluate $2a^2-ab$ when $a=-2$ and $b=3$.
+5. Is $0.333$ equal to $1/3$, or is it an approximation?
+
+::: {.callout-tip collapse="true" title="Warm-up answers"}
+1. $7-3(-3)=16$.
+2. $\frac{9}{12}-\frac{10}{12}=-\frac1{12}$.
+3. $5x=20$, so $x=4$; indeed $5(4)-2=18$.
+4. $2(-2)^2-(-2)(3)=8+6=14$.
+5. $0.333=333/1000$ exactly and is only an approximation to $1/3$. The
+   repeating decimal $0.\overline{3}$ equals $1/3$.
+:::
+
+## 1. Mathematical objects and mathematical claims
+
+An **expression** names a mathematical object but does not assert that
+something is true. For example,
+
+$$
+3x^2-2x+1
+$$
+
+is an expression. It can be evaluated or transformed. It is not true or false.
+
+An **equation** asserts that two expressions have equal values:
+
+$$
+3x^2-2x+1=0.
+$$
+
+Its truth may depend on $x$. An **inequality** compares values, as in
+$3x^2-2x+1>0$. A **predicate** is a statement containing variables that becomes
+true or false when the variables are specified. Thus $P(x)$ might mean
+“$x^2<4$.”
+
+An **identity** is an equation true for every value in a stated common domain.
+For example,
+
+$$
+(x+1)^2=x^2+2x+1
+$$
+
+is an identity for all real or complex $x$. In contrast, $x^2=4$ is a
+**conditional equation**: it is true only for $x=-2$ and $x=2$ over the reals.
+
+A **solution set** collects every allowed value that makes a predicate true. The
+solution set of $x^2<4$ over the reals is $(-2,2)$. The phrase “over the reals”
+is part of the problem; over the integers the solution set would be
+$\{-1,0,1\}$.
+
+::: {.worked-example}
+### Example 1: classify before calculating
+
+Classify each item.
+
+1. $2x+5$
+2. $2x+5=11$
+3. $2(x+3)=2x+6$
+4. $x/0$
+5. $x^2\ge 0$ for every real $x$
+
+**Solution.** Item 1 is an expression. Item 2 is a conditional equation with
+solution set $\{3\}$. Item 3 is an identity over any usual number system in
+which the operations are defined. Item 4 is not a real or complex expression
+with a defined value because division by zero is undefined. Item 5 is a
+universally quantified true statement over the reals; its justification uses
+order, not merely several examples.
+:::
+
+::: {.checkpoint data-problem-id="aa-0-1-checkpoint-object" data-level="A" data-skill-mode="conceptual"}
+### Checkpoint: object or claim?
+
+Why is “simplify $x^2-1$” incomplete unless a desired form or purpose is given?
+
+::: {.callout-tip collapse="true" title="Answer and explanation"}
+The expression already has a valid expanded form. It could instead be factored
+as $(x-1)(x+1)$, but neither representation is universally simpler. Expanded
+form exposes coefficients; factored form exposes zeros. A mathematical task
+should specify the information or operation sought.
+:::
+:::
+
+## 2. Four symbols that must not be confused
+
+### Equality: $=$
+
+The symbol $=$ says that the expressions on its two sides denote the same
+value. It is symmetric and transitive: if $A=B$, then $B=A$; if $A=B$ and
+$B=C$, then $A=C$.
+
+An equality chain such as
+
+$$
+(x+2)^2=x^2+4x+4=(x^2+4x)+4
+$$
+
+claims that **every** displayed expression has the same value under the stated
+conditions.
+
+### Approximation: $\approx$
+
+The symbol $\approx$ reports closeness under an understood precision:
+
+$$
+\sqrt2\approx1.4142.
+$$
+
+The right side is not equal to $\sqrt2$. Good work states the precision or
+error when it matters, for example $\sqrt2=1.41421356\ldots$ and
+$\sqrt2\approx1.4142$ to four decimal places.
+
+### Implication: $\Rightarrow$
+
+The statement $P\Rightarrow Q$ means that whenever $P$ is true, $Q$ must be
+true. It does not say that $Q$ forces $P$.
+
+$$
+x=3\Rightarrow x^2=9
+$$
+
+is true, while its converse is false over the reals because $x=-3$ also has
+square $9$.
+
+### Equivalence: $\Leftrightarrow$
+
+The statement $P\Leftrightarrow Q$ means both $P\Rightarrow Q$ and
+$Q\Rightarrow P$. The statements have the same truth value under the stated
+conditions. In solving,
+
+$$
+3x-5=7\Leftrightarrow3x=12\Leftrightarrow x=4
+$$
+
+because adding $5$ and dividing by nonzero $3$ are reversible.
+
+::: {.worked-example}
+### Example 2: a one-way operation
+
+Suppose $x=-2$. Squaring gives $x^2=4$, so
+
+$$
+x=-2\Rightarrow x^2=4.
+$$
+
+But $x^2=4$ allows both $x=-2$ and $x=2$. Therefore we may not replace the
+arrow with $\Leftrightarrow$. Squaring an equation can enlarge its solution set.
+When we square during a solution, the outputs are **candidates** until checked
+in the original equation.
+:::
+
+::: {.worked-example}
+### Example 3: when multiplication is reversible
+
+For real $a$, compare
+
+$$
+x=5
+\quad\text{and}\quad
+ax=5a.
+$$
+
+Multiplying by $a$ always proves $x=5\Rightarrow ax=5a$. The reverse direction
+requires $a\ne0$ so that division by $a$ is defined. If $a=0$, the second
+equation is $0=0$ and every real $x$ satisfies it. Hence
+
+$$
+a\ne0\implies (x=5\Leftrightarrow ax=5a).
+$$
+
+This is the prototype for parameter cases: never cancel a parameter before
+checking whether it can be zero.
+:::
+
+## 3. Conditions and domains belong to the argument
+
+The **domain** is the set of allowed inputs. It may be stated by the problem or
+forced by an expression. Over the real numbers:
+
+- a denominator cannot be zero;
+- an even-index radical needs a nonnegative radicand;
+- a logarithm needs a positive argument;
+- an inverse trigonometric function uses a specified principal range.
+
+Restrictions must be recorded before an operation hides them.
+
+::: {.worked-example}
+### Example 4: cancellation changes visible domain information
+
+Consider
+
+$$
+R(x)=\frac{x^2-1}{x-1}.
+$$
+
+The original denominator requires $x\ne1$. Factoring gives
+
+$$
+R(x)=\frac{(x-1)(x+1)}{x-1}=x+1,\qquad x\ne1.
+$$
+
+The formulas agree for every $x$ in the original domain, but they do not define
+the same real-valued function if $x+1$ is assigned domain $\mathbb R$. The first
+function has a hole at $x=1$; the second does not. The correct final line keeps
+the restriction.
+:::
+
+::: {.worked-example}
+### Example 5: a radical candidate must be checked
+
+Solve $\sqrt{x+2}=x$ over the reals.
+
+**Conditions.** The radical requires $x\ge-2$, and because its value is
+nonnegative, equality requires $x\ge0$.
+
+**Implication step.** Squaring gives
+
+$$
+\sqrt{x+2}=x\Rightarrow x+2=x^2,
+$$
+
+so $x^2-x-2=0$ and $(x-2)(x+1)=0$. The candidates are $2$ and $-1$.
+
+**Check.** At $x=2$, $\sqrt4=2$. At $x=-1$, the left side is $1$ but the right
+side is $-1$. Therefore the solution set is $\{2\}$. The invalid candidate was
+created by a nonreversible step; it is not an arithmetic accident.
+:::
+
+## 4. How to write a readable algebraic derivation
+
+A calculation should have one governing relation per line. Align equal signs or
+implication symbols and place reasons beside nontrivial changes. Do not use an
+equality sign to mean “the next thing I did.”
+
+::: {.worked-example}
+### Example 6: repair a running calculation
+
+The line
+
+$$
+3(4)^2-5=3\cdot16=48-5=43
+$$
+
+is invalid because it claims $3(4)^2-5=3\cdot16$, which omits $-5$. A readable
+calculation is
+
+$$
+\begin{aligned}
+3(4)^2-5
+  &=3\cdot16-5 &&\text{(evaluate the power)}\\
+  &=48-5 &&\text{(multiply)}\\
+  &=43. &&\text{(subtract)}
+\end{aligned}
+$$
+
+Every adjacent pair is equal, so transitivity justifies the full chain.
+:::
+
+::: {.worked-example}
+### Example 7: solving with reasons
+
+Solve $4(2x-3)+5=3x+14$.
+
+$$
+\begin{aligned}
+4(2x-3)+5&=3x+14 &&\text{(given)}\\
+8x-12+5&=3x+14 &&\text{(distributive law)}\\
+8x-7&=3x+14 &&\text{(combine like terms)}\\
+5x-7&=14 &&\text{(subtract $3x$ from both sides)}\\
+5x&=21 &&\text{(add $7$ to both sides)}\\
+x&=\frac{21}{5}. &&\text{(divide by nonzero $5$)}
+\end{aligned}
+$$
+
+Substitution gives $4(42/5-3)+5=133/5$ and
+$3(21/5)+14=133/5$. The solution set is $\{21/5\}$.
+:::
+
+### A compact line-audit protocol
+
+For each arrow or equality, ask:
+
+- **Object:** What statement is being transformed?
+- **Operation:** What exactly was done?
+- **Permission:** Which law or condition permits it?
+- **Direction:** Does the new line imply the old one as well?
+- **Residue:** Did the operation introduce a restriction or candidate check?
+
+This protocol is deliberately slow now. With practice it becomes an internal
+habit, leaving written annotations only where a reader genuinely needs them.
+
+## 5. Definition, theorem, example, and counterexample
+
+A **definition** fixes meaning. It is not proved. A **theorem** is a claim proved
+from definitions and accepted results. An **example** illustrates a definition
+or result. A **counterexample** refutes a universal claim by satisfying its
+hypothesis and violating its conclusion.
+
+Examples can reveal a pattern but cannot establish a statement about every
+number. Counterexamples have the opposite asymmetry: one can be enough to
+disprove a universal statement.
+
+::: {.worked-example}
+### Example 8: test a universal claim
+
+Claim: for all real $a,b$,
+
+$$
+\sqrt{a+b}=\sqrt a+\sqrt b.
+$$
+
+Take $a=b=1$. The left side is $\sqrt2$ and the right side is $2$, so they are
+not equal. This one counterexample disproves the universal claim. It also shows
+why checking small values is useful before attempting a proof.
+
+The counterexample is valid because both sides are defined. Choosing $a=-1$,
+$b=0$ over the reals would not refute the claim cleanly; it would instead expose
+an unstated domain problem.
+:::
+
+::: {.worked-example}
+### Example 9: examples are not a proof
+
+The values $1^3-1$, $2^3-2$, and $3^3-3$ are divisible by $3$. That evidence
+suggests the statement “$n^3-n$ is divisible by $3$ for every integer $n$,” but
+it does not prove it.
+
+A proof uses the three possible integer remainders modulo $3$. Here
+$u\equiv v\pmod 3$ means that $u$ and $v$ have the same remainder after
+division by $3$:
+
+- if $n=3k$, then $n^3-n$ is divisible by $3$;
+- if $n=3k+1$, then $n^3-n\equiv1^3-1\equiv0\pmod3$;
+- if $n=3k+2$, then $n^3-n\equiv2^3-2=6\equiv0\pmod3$.
+
+Every integer belongs to one case, so the argument is general.
+:::
+
+## 6. Exact values, approximations, and checks
+
+Use exact forms while they preserve structure. Fractions expose ratios; radicals
+expose algebraic origin; $\pi$ exposes angle geometry. Approximate only when the
+question or interpretation requires it.
+
+::: {.worked-example}
+### Example 10: premature rounding
+
+Suppose $r=\sqrt{10}$ and we need $A=\pi r^2$. Exact substitution gives
+
+$$
+A=\pi(\sqrt{10})^2=10\pi.
+$$
+
+Only then do we report $A\approx31.416$ square units if three decimal places are
+wanted. Replacing $r$ first by $3.16$ gives $\pi(3.16)^2\approx31.365$, a larger
+rounding error. Exact intermediate work is both shorter and more accurate.
+:::
+
+A check need not repeat the same method. Useful independent checks include:
+
+- substitute a proposed solution into the original equation;
+- estimate sign and magnitude;
+- compare units;
+- use a second representation, such as a graph;
+- test a limiting or boundary case;
+- expand a factorization or factor an expansion;
+- use exact symbolic computation after the manual derivation.
+
+## 7. Finding the first invalid step
+
+Later consequences of an error may be correctly derived from a false line. Fixing
+the last line therefore misses the cause. Locate the first adjacent pair for
+which the claimed relation fails.
+
+### Audit 1: distributing a power
+
+$$
+(a+b)^2=a^2+b^2.
+$$
+
+The first line is already false in general. Multiplication gives
+$(a+b)^2=a^2+2ab+b^2$. With $a=b=1$, the false law predicts $4=2$.
+
+### Audit 2: cancelling terms across addition
+
+$$
+\frac{x+2}{x}=2.
+$$
+
+The cancellation is invalid because $x$ is not a factor of the entire numerator.
+For $x\ne0$, the correct form is $1+2/x$.
+
+### Audit 3: dividing by an unknown zero
+
+From $ab=ac$, a learner writes $b=c$. The implication is valid only if $a\ne0$.
+If $a=0$, the original equality holds for every $b,c$. The complete conclusion
+is $a=0$ or $b=c$.
+
+### Audit 4: reversing an inequality incorrectly
+
+From $-2x<6$, the learner writes $x< -3$. Dividing by a negative number reverses
+order, so $x>-3$. A check with $x=0$ confirms the corrected solution and refutes
+the proposed one.
+
+### Audit 5: taking an even root
+
+From $x^2=25$, the learner writes $x=5$. The nonnegative symbol $\sqrt{25}$ is
+$5$, but solving requires both numbers whose square is $25$: $x=\pm5$.
+
+### Audit 6: treating a radical as linear
+
+The claim $\sqrt{x^2}=x$ fails at $x=-1$. The correct real identity is
+$\sqrt{x^2}=|x|$.
+
+### Audit 7: cross-multiplying through zero denominators
+
+From $1/(x-1)=2/(x^2-1)$, cross multiplication can be used only after recording
+$x\ne1,-1$. Multiplication gives $x^2-1=2x-2$, hence $(x-1)^2=0$ and candidate
+$x=1$—but that value is excluded. The original equation has no solution.
+
+### Audit 8: replacing implication by equivalence
+
+From $x=2$, squaring yields $x^2=4$. Writing $\Leftrightarrow$ adds $x=-2$ to the
+reverse direction. The symbol, not the arithmetic, is the first error.
+
+### Audit 9: decimal equality
+
+Writing $1/7=0.143$ is false. The correct statement is $1/7\approx0.143$ to three
+decimal places; the absolute error is about $1.43\times10^{-4}$.
+
+### Audit 10: proving by a picture
+
+A graph appears to show that $x^4+1$ has no real roots. The picture supports a
+conjecture but cannot inspect every real input. The proof is that $x^4\ge0$, so
+$x^4+1\ge1>0$ for every real $x$.
+
+::: {.checkpoint data-problem-id="aa-0-1-checkpoint-first-error" data-level="B" data-skill-mode="symbolic-reasoning"}
+### Guided audit
+
+A learner solves $\sqrt{2x+3}=x$ as follows:
+
+$$
+\sqrt{2x+3}=x
+\Leftrightarrow2x+3=x^2
+\Leftrightarrow(x-3)(x+1)=0
+\Leftrightarrow x=3\text{ or }x=-1.
+$$
+
+Identify the first incorrect relation and complete the solution.
+
+::: {.callout-note collapse="true" title="Hint"}
+Ask whether squaring preserves both directions without an added sign condition.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+The first $\Leftrightarrow$ is unjustified. Squaring gives only
+$\sqrt{2x+3}=x\Rightarrow2x+3=x^2$ unless $x\ge0$ is retained. Factoring gives
+candidates $3$ and $-1$. Substitution yields $\sqrt9=3$ for $x=3$, while
+$\sqrt1=1\ne-1$. The solution set is $\{3\}$.
+:::
+:::
+
+## 8. Common mistakes and how to repair them
+
+::: {.common-mistake}
+### Mistake: the equal sign as punctuation
+
+Writing $18/3=6+4=10$ falsely claims $18/3=10$. Put separate computations on
+separate lines, or write $18/3+4=6+4=10$ if that was the intended expression.
+:::
+
+::: {.common-mistake}
+### Mistake: checking only the derived equation
+
+If a candidate came from squaring or clearing denominators, satisfying the
+new equation is not enough. Substitute into the original equation, including
+its original domain.
+:::
+
+::: {.common-mistake}
+### Mistake: citing a rule without its conditions
+
+“Cancel $x$” is incomplete. State that $x\ne0$ and identify the common
+multiplicative factor. Terms separated by addition do not cancel.
+:::
+
+::: {.common-mistake}
+### Mistake: more symbols means more rigor
+
+A line of unexplained arrows can hide direction errors. Use symbols only when
+the relation is exact, and use a short sentence when the logical role would
+otherwise be ambiguous.
+:::
+
+## 9. Guided practice: write the argument, not only the answer
+
+::: {.practice-box data-problem-id="aa-0-1-guided-01" data-level="A" data-skill-mode="manual-calculation"}
+### Guided exercise 1: aligned arithmetic
+
+Evaluate $2(3-7)^2-5$ in an aligned equality chain, changing one feature per
+line.
+
+::: {.callout-tip collapse="true" title="Solution"}
+$$
+\begin{aligned}
+2(3-7)^2-5
+ &=2(-4)^2-5 &&\text{(parentheses)}\\
+ &=2(16)-5 &&\text{(power)}\\
+ &=32-5 &&\text{(multiplication)}\\
+ &=27. &&\text{(subtraction)}
+\end{aligned}
+$$
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-0-1-guided-02" data-level="B" data-skill-mode="symbolic-reasoning"}
+### Guided exercise 2: condition for cancellation
+
+Complete a correct statement beginning with $a(x-2)=a(x+5)$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Subtracting gives $-2a=5a$, so $7a=0$ and therefore $a=0$. If one instead
+cancels $a$, one must assume $a\ne0$, but that assumption makes the resulting
+$-2=5$ impossible. Thus the original equation holds for every $x$ when $a=0$
+and for no $x$ when $a\ne0$.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-0-1-guided-03" data-level="B" data-skill-mode="interpretation"}
+### Guided exercise 3: exact and approximate reporting
+
+The diagonal of a unit square is $\sqrt2$. Report it exactly, to three decimal
+places, and with a simple interval that certifies the rounding.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The exact length is $\sqrt2$. Since $1.414^2=1.999396<2$ and
+$1.415^2=2.002225>2$, we know $1.414<\sqrt2<1.415$. Hence
+$\sqrt2\approx1.414$ to three decimal places.
+:::
+:::
+
+## 10. Examination strategy clinic
+
+::: {.worked-example data-problem-id="aa-0-1-exam-clinic" data-level="D"}
+### Problem: when does a familiar transformation become valid?
+
+Determine all real pairs $(a,b)$ for which the implication
+
+$$
+a^2=b^2\Rightarrow a=b
+$$
+
+is valid under each additional condition below. Justify necessity and
+sufficiency.
+
+1. $a,b\ge0$;
+2. $a+b\ne0$;
+3. $ab>0$;
+4. $a\ge b$.
+
+**Inventory.** The base equation factors as
+$(a-b)(a+b)=0$, so $a=b$ or $a=-b$. Any sufficient condition must eliminate the
+second branch unless it overlaps the first at zero.
+
+**Case 1.** If $a,b\ge0$ and $a=-b$, then both must be zero, which also gives
+$a=b$. The implication is valid.
+
+**Case 2.** The condition $a+b\ne0$ directly eliminates the $a=-b$ factor, so
+$a-b=0$. The implication is valid.
+
+**Case 3.** If $ab>0$, the numbers have the same nonzero sign. The branch
+$a=-b$ would give $ab=-b^2<0$, impossible. The implication is valid.
+
+**Case 4.** The condition $a\ge b$ is not enough: $a=1$, $b=-1$ satisfies
+$a^2=b^2$ and $a\ge b$ but not $a=b$. A counterexample settles the question.
+
+**Strategy lesson.** Factor first, list all branches, and ask what each extra
+condition eliminates. This is faster and more reliable than testing random
+pairs. Necessity questions often require a counterexample; sufficiency questions
+require an argument covering every allowed case.
+:::
+
+## 11. Exercises by purpose and difficulty
+
+Attempt all problems before opening the answer block. Problems 1–5 emphasize
+fluency, 6–11 connected reasoning, 12–15 synthesis, and 16–18 honors-level
+argument.
+
+1. ::: {.exercise data-problem-id="aa-0-1-review-01" data-level="A"}
+   Classify $x^2+1$, $x^2+1=0$, and $x^2+1>0$ over the reals.
+   :::
+2. ::: {.exercise data-problem-id="aa-0-1-review-02" data-level="A"}
+   Replace the incorrect symbol in $\pi=3.14159$.
+   :::
+3. ::: {.exercise data-problem-id="aa-0-1-review-03" data-level="A"}
+   Solve $7-2x=19$ using an equivalence chain and check the solution.
+   :::
+4. ::: {.exercise data-problem-id="aa-0-1-review-04" data-level="A"}
+   State the real domain of $\sqrt{5-x}/(x+2)$.
+   :::
+5. ::: {.exercise data-problem-id="aa-0-1-review-05" data-level="A"}
+   Write $5/6$ to four decimal places using correct notation.
+   :::
+6. ::: {.exercise data-problem-id="aa-0-1-review-06" data-level="B"}
+   Explain why $x^2-9=(x-3)(x+3)$ is an identity but $x^2-9=0$ is not.
+   :::
+7. ::: {.exercise data-problem-id="aa-0-1-review-07" data-level="B"}
+   Identify the first invalid step: $2/x=3/x\Leftrightarrow2=3$, so no solution.
+   :::
+8. ::: {.exercise data-problem-id="aa-0-1-review-08" data-level="B"}
+   Give a counterexample to $(a-b)^2=a^2-b^2$ and state the correct expansion.
+   :::
+9. ::: {.exercise data-problem-id="aa-0-1-review-09" data-level="B"}
+   Decide which direction is valid between $x>2$ and $x^2>4$ over $\mathbb R$.
+   :::
+10. ::: {.exercise data-problem-id="aa-0-1-review-10" data-level="B"}
+    Solve $\sqrt{x+6}=x$ and mark every implication-only step.
+    :::
+11. ::: {.exercise data-problem-id="aa-0-1-review-11" data-level="B"}
+    A learner writes $(x^2-4)/(x-2)=x+2$. Supply the missing condition and
+    explain its graphical meaning.
+    :::
+12. ::: {.exercise data-problem-id="aa-0-1-review-12" data-level="C"}
+    Solve $a(x-1)=2a$ for real $x$, classifying all real values of $a$.
+    :::
+13. ::: {.exercise data-problem-id="aa-0-1-review-13" data-level="C"}
+    Find all real $x$ satisfying $\sqrt{x^2}=x-2$.
+    :::
+14. ::: {.exercise data-problem-id="aa-0-1-review-14" data-level="C"}
+    Critique: “The graphs of two expressions agree for $-10\le x\le10$, so the
+    expressions are identical.” Give two distinct reasons the conclusion may fail.
+    :::
+15. ::: {.exercise data-problem-id="aa-0-1-review-15" data-level="C"}
+    Write a valid argument proving that the square of every odd integer is odd.
+    :::
+16. ::: {.exercise data-problem-id="aa-0-1-review-16" data-level="D"}
+    Determine all real $c$ for which $x^2=c\Leftrightarrow x=\sqrt c$ is a true
+    statement for every real $x$ under consideration. Clarify the universe.
+    :::
+17. ::: {.exercise data-problem-id="aa-0-1-review-17" data-level="D"}
+    Find the first invalid step in the classic false proof obtained from $a=b\ne0$:
+    $a^2=ab$, $a^2-b^2=ab-b^2$, $(a-b)(a+b)=b(a-b)$, $a+b=b$, $2b=b$, $2=1$.
+    Explain why all earlier lines are valid.
+    :::
+18. ::: {.exercise data-problem-id="aa-0-1-review-18" data-level="D"}
+    Prove or disprove: if applying the same real-valued function to both sides of
+    an equation preserves equality, then the operation also preserves the
+    solution set.
+    :::
+
+### Concise answers
+
+::: {.callout-note collapse="true" title="Answers 1–18"}
+1. Expression; conditional equation with no real solution; true predicate (and
+   universally true statement if quantified over all reals).
+2. $\pi\approx3.14159$.
+3. $7-2x=19\Leftrightarrow-2x=12\Leftrightarrow x=-6$; substitution gives $19$.
+4. $x\le5$ and $x\ne-2$, or $(-\infty,-2)\cup(-2,5]$.
+5. $5/6=0.8333\ldots\approx0.8333$ to four decimal places.
+6. Expansion proves the first equality for every real $x$; the second is true
+   only at $x=\pm3$.
+7. The first equivalence silently multiplies by $x$. It needs $x\ne0$, already
+   forced by the original fractions; with that condition the conclusion of no
+   solution is correct.
+8. $a=2,b=1$ gives $1\ne3$; $(a-b)^2=a^2-2ab+b^2$.
+9. $x>2\Rightarrow x^2>4$ is valid. The reverse fails at $x=-3$.
+10. The solution is $x=3$: squaring gives $x+6=x^2$, candidates $3,-2$, and
+    substitution rejects $-2$.
+11. $x\ne2$; the rational graph is the line $y=x+2$ with a hole at $(2,4)$.
+12. If $a=0$, every real $x$ is a solution. If $a\ne0$, $x=3$.
+13. Since $\sqrt{x^2}=|x|$, solve $|x|=x-2$. The right side must be nonnegative,
+    so $x\ge2$ and then $|x|=x$, giving $x=x-2$, impossible. No solution.
+14. A finite window misses behavior outside it, and finite-resolution plots can
+    hide small differences, holes, or isolated exceptions.
+15. See the full solution below.
+16. With universe $x\ge0$, the equivalence is true for every $c\ge0$ when read
+    as a solution statement; over all real $x$, no positive $c$ works because
+    $x=-\sqrt c$ is lost, while $c=0$ does work.
+17. Cancelling $a-b$ is invalid because $a=b$, so $a-b=0$. Earlier lines are
+    equality-preserving algebra.
+18. False. Equality is preserved by every function: $u=v\Rightarrow f(u)=f(v)$.
+    Solution sets are preserved only when the function is injective on the
+    relevant values. Squaring loses injectivity: $x=-1$ implies $x^2=1$, whose
+    solution set also contains $1$.
+:::
+
+### Selected full solutions
+
+::: {.callout-tip collapse="true" title="Problem 10: radical equation"}
+The original equation requires $x+6\ge0$ and also $x\ge0$. Squaring is therefore
+recorded as implication:
+
+$$
+\sqrt{x+6}=x\Rightarrow x+6=x^2
+\Leftrightarrow x^2-x-6=0
+\Leftrightarrow(x-3)(x+2)=0.
+$$
+
+The candidates are $3$ and $-2$. The sign condition already excludes $-2$, and
+substitution confirms $\sqrt9=3$. Thus the solution set is $\{3\}$.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 15: square of an odd integer"}
+Let $n$ be an arbitrary odd integer. By definition, $n=2k+1$ for some integer
+$k$. Then
+
+$$
+n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.
+$$
+
+Because integers are closed under multiplication and addition,
+$2k^2+2k$ is an integer. Hence $n^2$ has the form $2m+1$ for an integer $m$ and
+is odd. The word “arbitrary” matters: the proof did not depend on a special odd
+integer.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 16: universe and equivalence"}
+Fix $c\ge0$. Over the universe $x\in\mathbb R$, the equation $x^2=c$ has
+solutions $x=\pm\sqrt c$. The statement $x=\sqrt c$ retains only the nonnegative
+one. They are equivalent only when the two roots coincide, which occurs at
+$c=0$. If instead the universe is restricted in advance to $x\ge0$, then the
+principal-square-root definition gives
+$x^2=c\Leftrightarrow x=\sqrt c$ for every $c\ge0$. For $c<0$, $\sqrt c$ is not a
+real number, so the displayed real statement is not an admissible equivalence.
+:::
+
+## 12. Cumulative retrieval
+
+This first chapter has no earlier book chapter to retrieve, so use prerequisite
+ideas in a new logical form.
+
+::: {.practice-box data-problem-id="aa-0-1-cumulative-01" data-level="C"}
+### Fractions plus domain reasoning
+
+Solve
+
+$$
+\frac{1}{x} + \frac{1}{x+1}=\frac32
+$$
+
+over the reals. Record restrictions before clearing denominators and check every
+candidate.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The restrictions are $x\ne0,-1$. Multiplying by $2x(x+1)$ is reversible on that
+domain:
+
+$$
+2(x+1)+2x=3x(x+1),
+$$
+
+so $3x^2-x-2=0=(3x+2)(x-1)$. The candidates are $x=-2/3$ and $x=1$, neither
+excluded. Substitution gives $-3/2+3=3/2$ and $1+1/2=3/2$, respectively. The
+solution set is $\{-2/3,1\}$.
+:::
+:::
+
+## 13. Topic checkpoint
+
+The checkpoint samples classification, equivalence, domain, exactness, and
+argument repair. Treat explanations as part of the answer.
+
+<fc-quiz data-source="../../../../quizzes/advanced-algebra/argument-language.yml"></fc-quiz>
+
+## 14. Summary and next step
+
+- Expressions name objects; equations, inequalities, and quantified predicates
+  make claims.
+- Equality, approximation, implication, and equivalence have different logical
+  jobs.
+- Domain restrictions and parameter cases must be written before an operation
+  hides them.
+- A derivation changes one thing per line and identifies nontrivial reasons.
+- Squaring, applying non-injective functions, and clearing expressions under
+  uncertain conditions may produce only implications.
+- Examples support intuition; proofs establish general claims; one valid
+  counterexample refutes a universal claim.
+- Audit the first invalid step and verify the final answer in the original
+  problem.
+
+Next, use these habits in the
+[readiness diagnostic and repair chapter](readiness-diagnostic-and-repair.qmd).
+The diagnostic measures separate subskills so that practice is targeted rather
+than repetitive.
+
+## References and further study
+
+- Richard Hammack, [*Book of Proof*](https://richardhammack.github.io/BookOfProof/),
+  especially the opening chapters on statements and proof language.
+- OpenStax, [*Algebra and Trigonometry 2e*](https://openstax.org/details/books/algebra-and-trigonometry-2e),
+  for prerequisite algebra and solution checking.
+- Daniel Velleman, *How to Prove It*, for a deeper treatment of logical form and
+  proof construction.
+- George Pólya, *How to Solve It*, for planning, checking, and reflection habits.
+- SymPy documentation, [Solvers](https://docs.sympy.org/latest/guides/solving/index.html),
+  for interpreting symbolic solution workflows.
+
+## Using this lesson with fcmath and SymPy
+
+Computation belongs after the manual argument. The first example checks an
+identity; the second distinguishes a candidate-producing transformation from a
+verified solution set.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x", real=True)
+identity_difference = sp.expand((x + 1) ** 2 - (x**2 + 2 * x + 1))
+identity_difference
+```
+
+An output of `0` shows that the difference simplifies to zero symbolically. It
+supports the algebraic identity; the distributive-law derivation explains why
+it is true.
+
+```{python}
+#| echo: true
+original = sp.sqrt(x + 2) - x
+candidates = sp.solve(sp.Eq(x + 2, x**2), x)
+verified = [value for value in candidates if sp.simplify(original.subs(x, value)) == 0]
+candidates, verified
+```
+
+The squared equation produces `[-1, 2]`, while substitution in the original
+expression retains only `[2]`. This is the computational version of the
+implication audit, not a replacement for it.
+
+A reusable future `fcmath` transformation-audit helper should record the
+original domain, operation, direction, new candidates, and verification result.
+Until that API is independently reviewed, keep those fields explicitly in your
+written work.

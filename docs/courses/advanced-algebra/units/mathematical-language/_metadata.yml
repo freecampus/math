@@ -1,0 +1,14 @@
+{
+  "id": "mathematical-language",
+  "title": "Mathematical Language, Numbers, and Proof Foundations",
+  "course_id": "advanced-algebra",
+  "outcomes": [
+    "Transform algebraic expressions while preserving domains and equivalence.",
+    "Solve equations, inequalities, and systems and justify each transformation.",
+    "Express mathematical conditions precisely with sets, logic, intervals, and quantifiers.",
+    "Reason across number systems using exact values, order, distance, bounds, and controlled approximation.",
+    "Write proofs, equivalence arguments, case analyses, and decisive counterexamples for algebraic claims.",
+    "Use fcmath and SymPy to explore and verify results while exposing assumptions, precision, and limitations.",
+    "Solve unfamiliar cumulative problems under demanding examination conditions and communicate verifiable reasoning."
+  ]
+}

@@ -20,6 +20,42 @@
     {
       "id": "advanced-algebra-outcome-5",
       "description": "Construct, critique, and verify algebraic models with appropriate computational tools."
+    },
+    {
+      "id": "advanced-algebra-outcome-6",
+      "description": "Express mathematical conditions precisely with sets, logic, intervals, and quantifiers."
+    },
+    {
+      "id": "advanced-algebra-outcome-7",
+      "description": "Reason across number systems using exact values, order, distance, bounds, and controlled approximation."
+    },
+    {
+      "id": "advanced-algebra-outcome-8",
+      "description": "Write proofs, equivalence arguments, case analyses, and decisive counterexamples for algebraic claims."
+    },
+    {
+      "id": "advanced-algebra-outcome-9",
+      "description": "Connect polynomial coefficients, factors, roots, multiplicities, complex structure, and graphs."
+    },
+    {
+      "id": "advanced-algebra-outcome-10",
+      "description": "Analyze exponential, logarithmic, sequence, and growth structures in exact and modeled settings."
+    },
+    {
+      "id": "advanced-algebra-outcome-11",
+      "description": "Classify and solve simultaneous constraints, including nonlinear and parameter-dependent systems."
+    },
+    {
+      "id": "advanced-algebra-outcome-12",
+      "description": "Construct, compose, restrict, and invert functions with explicit domain and range conditions."
+    },
+    {
+      "id": "advanced-algebra-outcome-13",
+      "description": "Use fcmath and SymPy to explore and verify results while exposing assumptions, precision, and limitations."
+    },
+    {
+      "id": "advanced-algebra-outcome-14",
+      "description": "Solve unfamiliar cumulative problems under demanding examination conditions and communicate verifiable reasoning."
     }
   ]
 }

@@ -1,0 +1,760 @@
+---
+title: Readiness Diagnostic and Targeted Repair
+description: Measure prerequisite skills by subdomain, diagnose the cause of errors, and complete a targeted correction and reassessment loop.
+execute:
+  echo: false
+  warning: false
+id: advanced-algebra-orientation-readiness-diagnostic-and-repair
+course_id: advanced-algebra
+unit_id: orientation
+page_type: lesson
+status: active
+estimated_time: "420 minutes"
+skill_modes: [conceptual, manual-calculation, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-3, advanced-algebra-outcome-7, advanced-algebra-outcome-13, advanced-algebra-outcome-14]
+---
+
+## Why this matters
+
+Advanced problems can fail for a basic reason. A correct plan for a parameter
+problem may collapse because of a sign error; a calculus derivation may fail
+because fractions were combined incorrectly; a model may be numerically correct
+but meaningless because units were ignored. The remedy is not to repeat an
+entire elementary course. It is to identify the exact weak link, repair it, and
+verify the repair on a parallel problem.
+
+This chapter uses a **diagnostic cycle**:
+
+$$
+\text{attempt}\longrightarrow\text{classify}\longrightarrow
+\text{repair}\longrightarrow\text{reattempt}\longrightarrow\text{reflect}.
+$$
+
+A diagnostic is not an entrance barrier and its total score is not a measure of
+mathematical potential. It is evidence about present fluency. Honest evidence
+lets you spend time where it produces the largest gain.
+
+::: {.learning-objectives}
+### What you should be able to do
+
+After completing the chapter, you should be able to:
+
+- calculate exactly with signed integers and rational numbers;
+- use factors, powers, roots, and scientific notation without false laws;
+- solve proportions and interpret rates, percentages, and dimensional units;
+- read coordinates, slope, scale, and qualitative behavior from a graph;
+- estimate sign, order of magnitude, and plausible bounds before computing;
+- classify an error by its first cause rather than its last symptom;
+- build and complete a targeted repair route from subskill evidence;
+- use a calculator or SymPy to verify work without surrendering method choice;
+- demonstrate repair on a second attempt and document the change in reasoning.
+:::
+
+::: {.prerequisites}
+### Prerequisites
+
+Complete
+[How to read and write an algebraic argument](reading-writing-algebraic-arguments.qmd)
+first. In particular, use $=$ only for equality, preserve exact values, and mark
+steps that produce candidates rather than equivalent equations.
+:::
+
+## Five-minute retrieval warm-up
+
+1. Which is more informative after a mistake: “careless error” or “I distributed
+   the negative sign to the first term but not the second”? Why?
+2. If a calculator reports `0.3333333333`, what exact number might have produced
+   it, and what can the display alone prove?
+3. Estimate $49.8\times0.203$ before multiplying.
+
+::: {.callout-tip collapse="true" title="Warm-up answers"}
+1. The second description identifies a reproducible operation and therefore a
+   repair. “Careless” does not specify what to practice.
+2. $1/3$ is one possibility, but many real numbers round to that display. The
+   display proves only a finite-precision approximation to the calculator's
+   internal result.
+3. $50\times0.2=10$, so the product should be close to $10$ (in fact $10.1094$).
+   An output near $100$ or $1$ should be rejected immediately.
+:::
+
+## 1. How to take the baseline diagnostic
+
+Set aside 45–60 uninterrupted minutes. Use paper, but do not use notes,
+calculator, search, or computer algebra on the first attempt. Write enough work
+to reveal your method. If you are unsure, record a best attempt and mark your
+confidence as high, medium, or low.
+
+The structured diagnostic near the end contains 24 questions in six strands:
+
+| Questions | Strand | Evidence sought |
+|---|---|---|
+| 1–4 | exact rational arithmetic | grouping, signs, common denominators, exact form |
+| 5–8 | powers, roots, factors | laws with conditions, square roots, divisibility |
+| 9–12 | ratios, percentages, units | multiplicative comparison and dimensional meaning |
+| 13–16 | elementary equations and order | inverse operations, inequalities, checks |
+| 17–20 | coordinates and graphs | scale, slope, intercepts, qualitative reading |
+| 21–24 | estimation and interpretation | magnitude, plausibility, exact versus approximate |
+
+After submitting, score each strand separately. A result of 3 or 4 correct means
+“continue, then retrieve again this week.” A result of 2 means “complete the
+strand repair below.” A result of 0 or 1 means “complete the repair slowly,
+practice five additional examples, and reassess before Unit 1.” Confidence also
+matters: a correct low-confidence answer belongs in retrieval practice.
+
+## 2. Diagnose the first cause
+
+Use one of these categories for every missed or guessed problem.
+
+- **Concept error:** a definition or law is misunderstood, such as believing
+  $a^{-2}$ is negative.
+- **Representation error:** a correct idea is translated incorrectly among
+  words, symbols, tables, graphs, or units.
+- **Strategy error:** the chosen method is valid in principle but poorly suited,
+  or no plan was selected.
+- **Validity error:** a condition is lost, an implication reversed, or an
+  operation applied outside its domain.
+- **Algebra error:** a symbolic law is misapplied, such as distributing a power
+  over addition.
+- **Arithmetic error:** the symbolic plan is correct but a numeric operation is
+  wrong.
+- **Notation error:** the work says something different from the intention,
+  such as using $=$ for approximation.
+- **Interpretation error:** the computed number is not connected back to the
+  question, scale, or units.
+
+Do not classify from the final wrong line. Mark the first line that would need
+to change for the remainder to become valid.
+
+::: {.worked-example}
+### Example 1: error classification
+
+A learner computes
+
+$$
+\frac23-\frac58=\frac{-3}{5}.
+$$
+
+This is not merely an arithmetic slip. The learner subtracted numerators and
+denominators as if fraction bars were independent components. That is an
+**algebra/representation error**: unlike units were combined. The repair is to
+rename both fractions in fifteenths:
+
+$$
+\frac23-\frac58=\frac{16}{24}-\frac{15}{24}=\frac1{24}.
+$$
+
+A useful reattempt changes the surface form, for example
+$5/6-7/10$, while testing the same common-unit idea.
+:::
+
+## 3. Repair strand A: exact rational arithmetic
+
+A fraction $a/b$ with $b\ne0$ is a number, not a pair of independent digits.
+Addition compares common-sized parts:
+
+$$
+\frac ab+\frac cd=\frac{ad+bc}{bd},\qquad b,d\ne0.
+$$
+
+Division asks how many copies of one number fit in another, so multiplying by a
+reciprocal is derived from the inverse property:
+
+$$
+\frac ab\div\frac cd=\frac ab\cdot\frac dc,
+\qquad b,c,d\ne0.
+$$
+
+::: {.worked-example}
+### Example 2: a signed fraction calculation
+
+Evaluate
+
+$$
+-\frac34+\frac56\div\left(-\frac{10}{9}\right).
+$$
+
+Division comes before addition:
+
+$$
+\frac56\div\left(-\frac{10}{9}\right)
+=\frac56\left(-\frac9{10}\right)
+=-\frac{45}{60}=-\frac34.
+$$
+
+Therefore the total is $-3/4-3/4=-3/2$. A decimal check gives $-1.5$, consistent
+with adding two negative numbers of magnitude $0.75$.
+:::
+
+::: {.practice-box data-problem-id="aa-0-2-guided-rational" data-level="A"}
+### Guided repair A
+
+Compute $\frac7{12}-\frac58$ exactly, then estimate to check the sign.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The least common denominator is $24$:
+$14/24-15/24=-1/24$. Since $7/12\approx0.583$ and $5/8=0.625$, a small negative
+answer is plausible.
+:::
+:::
+
+**Mastery signal:** four mixed fraction problems correct in succession, with
+unsimplified denominators and signs checked rather than guessed.
+
+## 4. Repair strand B: signs, order, and absolute size
+
+A leading negative sign means multiplication by $-1$. Thus
+$-(a-b)=-a+b$, not $-a-b$. On a number line, $-7<-2$ because $-7$ lies farther
+left, even though its absolute value is larger.
+
+Multiplying an inequality by a negative reverses order. If $a<b$, then
+$b-a>0$; multiplying by $-1$ gives $a-b<0$. This is the reason, not a memorized
+symbol trick.
+
+::: {.worked-example}
+### Example 3: compound signs and order
+
+Simplify $-2[3-(x-4)]$.
+
+First preserve the inner grouping:
+
+$$
+3-(x-4)=3-x+4=7-x.
+$$
+
+Then distribute $-2$ to the entire bracket:
+
+$$
+-2(7-x)=-14+2x.
+$$
+
+At $x=0$, both the original and final expressions equal $-14$, a quick check
+that catches the common answer $-14-2x$.
+:::
+
+::: {.practice-box data-problem-id="aa-0-2-guided-order" data-level="A"}
+### Guided repair B
+
+Solve $-3(2x-1)\le9$ and test one allowed and one excluded value.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Expand: $-6x+3\le9$, so $-6x\le6$. Division by $-6$ reverses order, giving
+$x\ge-1$. The boundary $x=-1$ yields $9\le9$; the excluded value $x=-2$ yields
+$15\le9$, false.
+:::
+:::
+
+## 5. Repair strand C: factors, powers, roots, and scientific notation
+
+For nonzero $a$ and integers $m,n$,
+
+$$
+a^ma^n=a^{m+n},\qquad
+\frac{a^m}{a^n}=a^{m-n},\qquad
+a^{-n}=\frac1{a^n}.
+$$
+
+The product and quotient laws require a common base. Powers do not distribute
+over addition: $(a+b)^2=a^2+2ab+b^2$. Over the reals, $\sqrt{u}$ denotes the
+nonnegative number whose square is $u$, so $u\ge0$ and $\sqrt{x^2}=|x|$.
+
+Scientific notation writes a nonzero number as $c\times10^n$ with
+$1\le|c|<10$. It separates significant size from decimal placement.
+
+::: {.worked-example}
+### Example 4: exact powers and scale
+
+Compute
+
+$$
+\frac{(3\times10^{-4})(8\times10^7)}{6\times10^2}.
+$$
+
+Separate coefficients and powers:
+
+$$
+\frac{3\cdot8}{6}\times10^{-4+7-2}
+=4\times10^1=40.
+$$
+
+The exponent estimate $-4+7-2=1$ predicts tens, so $40$ has a plausible scale.
+:::
+
+::: {.practice-box data-problem-id="aa-0-2-guided-powers" data-level="B"}
+### Guided repair C
+
+Simplify $(12x^5y^{-2})/(18x^{-1}y)$ for nonzero $x,y$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Reduce coefficients and subtract exponents:
+
+$$
+\frac{12}{18}x^{5-(-1)}y^{-2-1}
+=\frac23x^6y^{-3}
+=\frac{2x^6}{3y^3}.
+$$
+
+The conditions $x,y\ne0$ justify the negative exponents and original quotient.
+:::
+:::
+
+## 6. Repair strand D: ratios, percentages, and units
+
+A ratio compares quantities multiplicatively. A rate carries units, such as
+kilometers per hour. A percentage change is measured relative to the original
+value:
+
+$$
+\text{relative change}=\frac{\text{new}-\text{old}}{\text{old}}.
+$$
+
+An increase of $20\%$ multiplies by $1.20$; a later decrease of $20\%$ multiplies
+by $0.80$. The combined factor is $0.96$, not $1$.
+
+Dimensional analysis treats units as algebraic factors. It catches impossible
+additions and missing conversions.
+
+::: {.worked-example}
+### Example 5: unit-aware rate
+
+A vehicle travels $180$ kilometers in $2.5$ hours. Its average speed is
+
+$$
+\frac{180\ \mathrm{km}}{2.5\ \mathrm h}=72\ \mathrm{km/h}.
+$$
+
+Converting to meters per second,
+
+$$
+72\frac{\mathrm{km}}{\mathrm h}
+\cdot\frac{1000\ \mathrm m}{1\ \mathrm{km}}
+\cdot\frac{1\ \mathrm h}{3600\ \mathrm s}
+=20\ \mathrm{m/s}.
+$$
+
+The cancelled units are part of the reasoning.
+:::
+
+::: {.practice-box data-problem-id="aa-0-2-guided-percent" data-level="B"}
+### Guided repair D
+
+A price rises from $80$ to $92$, then receives a $10\%$ discount. Find the final
+price and the overall percentage change from the original.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The discount multiplier is $0.90$, so the final price is $92(0.90)=82.80$. The
+overall change is $2.80/80=0.035=3.5\%$ increase. Adding $15\%-10\%=5\%$ would
+be wrong because the changes use different bases.
+:::
+:::
+
+## 7. Repair strand E: equations and order
+
+Solving means describing every value in the stated universe that makes the
+original statement true. Reversible operations preserve the solution set;
+nonreversible operations create candidates that need checks.
+
+For a proportion $a/b=c/d$, cross multiplication is shorthand for multiplying
+by $bd$. It requires $b,d\ne0$. For a linear equation with a parameter, isolate
+the coefficient before dividing and split the zero case.
+
+::: {.worked-example}
+### Example 6: a parameter case
+
+Solve $k(x-2)=3k$ for real $x$.
+
+If $k\ne0$, division by $k$ gives $x-2=3$, so $x=5$. If $k=0$, the equation is
+$0=0$ for every real $x$. Thus
+
+$$
+S_k=\begin{cases}
+\mathbb R,&k=0,\\
+\{5\},&k\ne0.
+\end{cases}
+$$
+
+The classification is more complete than the unqualified answer $x=5$.
+:::
+
+::: {.practice-box data-problem-id="aa-0-2-guided-equation" data-level="B"}
+### Guided repair E
+
+Solve $\frac{x-1}{3}-\frac{x+2}{4}=2$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Multiply both sides by $12$:
+$4(x-1)-3(x+2)=24$. Expanding gives $4x-4-3x-6=24$, so $x=34$. Check:
+$33/3-36/4=11-9=2$.
+:::
+:::
+
+## 8. Repair strand F: coordinates, graphs, and estimation
+
+A point $(x,y)$ records an input and output. The slope between distinct points
+$(x_1,y_1)$ and $(x_2,y_2)$ is
+
+$$
+m=\frac{y_2-y_1}{x_2-x_1}.
+$$
+
+Read axis labels and scale before estimating. A steep-looking line can have a
+small numerical slope if the axes use different units. A graph suggests
+behavior on its window; it does not prove exact roots or global behavior.
+
+::: {.worked-example}
+### Example 7: interpret slope with units
+
+A tank contains $120$ liters at minute $2$ and $84$ liters at minute $8$. The
+average rate of change is
+
+$$
+\frac{84-120}{8-2}=-6\ \mathrm{liters/minute}.
+$$
+
+The negative sign means volume decreased as time increased. A linear
+extrapolation would predict $132$ liters at minute $0$, but that conclusion is a
+model assumption, not a fact supplied by two data points.
+:::
+
+::: {.practice-box data-problem-id="aa-0-2-guided-graph" data-level="B"}
+### Guided repair F
+
+A line passes through $(-2,5)$ and $(4,-7)$. Find its slope and equation, then
+check both points.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The slope is $(-7-5)/(4-(-2))=-12/6=-2$. Using $y=mx+b$ with $(-2,5)$ gives
+$5=4+b$, so $b=1$ and $y=-2x+1$. Substitution gives $5$ and $-7$ at the stated
+inputs.
+:::
+:::
+
+## 9. Common mistakes and limitations
+
+::: {.common-mistake}
+### Mistake: using the total score as the diagnosis
+
+Two learners with 16 correct answers may need entirely different repairs. One
+may miss all unit questions while another misses sign and order questions.
+Record strand scores and first causes; the total is only a summary.
+:::
+
+::: {.common-mistake}
+### Mistake: studying the displayed answer instead of the failed operation
+
+Rereading `-13/36` does not repair fraction addition. Close the solution and
+perform the same operation on a new pair of fractions. A transfer problem—not
+recognition of the old answer—is the evidence of repair.
+:::
+
+::: {.common-mistake}
+### Mistake: taking the reassessment immediately
+
+An immediate parallel problem can measure short-term imitation. Insert another
+activity or a delay, then retrieve the method without the model in view. Repeat
+again later in mixed practice.
+:::
+
+::: {.common-mistake}
+### Mistake: using a calculator to hide representation gaps
+
+A decimal output may conceal a wrong denominator, a lost exact form, or an
+incorrect unit. Write the mathematical operation first, estimate its scale,
+and then use a tool for independent verification.
+:::
+
+::: {.common-mistake}
+### Mistake: treating speed as mastery
+
+Early repair should prioritize a correct, explainable method. Add time pressure
+only after several accurate attempts. A fast invalid rule becomes harder—not
+easier—to unlearn through repetition.
+:::
+
+This diagnostic samples prerequisites; it cannot prove mastery of every
+possible school-algebra task. Low confidence, a long pause, or an unexplained
+guess is useful evidence even when the selected answer is correct.
+
+## 10. Topic checkpoint: baseline diagnostic
+
+Record each answer and confidence before submitting. If website controls are not
+available, the generated notebook provides the same questions and collapsed
+solutions.
+
+<fc-quiz data-source="../../../../quizzes/advanced-algebra/readiness-diagnostic.yml"></fc-quiz>
+
+## 11. Build a correction portfolio
+
+For every missed or low-confidence item, use this six-column record:
+
+| Field | Required entry |
+|---|---|
+| Problem ID | stable question identifier |
+| First attempt | enough work to reveal the original method |
+| First invalid step | exact line or decision where validity was lost |
+| Error class | one category from Section 2 |
+| Corrected argument | complete work, not only the corrected answer |
+| Transfer check | a new problem testing the same idea |
+
+A repair is complete only when the transfer check is solved without copying the
+worked example. Schedule another one-question retrieval after two or three days.
+This delay tests learning rather than short-term imitation.
+
+::: {.worked-example}
+### Example 8: correction record
+
+**Problem.** Decrease $200$ by $15\%$.
+
+**First attempt.** $200-15=185$.
+
+**First invalid step.** The percent sign was treated as 15 units rather than
+$15/100$ of the original quantity.
+
+**Class.** Representation error.
+
+**Correction.** $200(1-0.15)=200(0.85)=170$.
+
+**Transfer check.** Increase $240$ by $12\%$:
+$240(1.12)=268.8$.
+
+**Reflection.** Translate a percentage to a multiplier before performing the
+arithmetic.
+:::
+
+## 12. Second-attempt mastery check
+
+Complete these after the targeted repairs, preferably on a later day.
+
+1. ::: {.exercise data-problem-id="aa-0-2-mastery-01" data-level="A"}
+   Compute $-\frac79+\frac5{12}$ exactly.
+   :::
+2. ::: {.exercise data-problem-id="aa-0-2-mastery-02" data-level="A"}
+   Simplify $-[2x-(3-x)]$.
+   :::
+3. ::: {.exercise data-problem-id="aa-0-2-mastery-03" data-level="B"}
+   Simplify $(6a^{-2}b^4)(3a^5b^{-1})$ for nonzero $a,b$.
+   :::
+4. ::: {.exercise data-problem-id="aa-0-2-mastery-04" data-level="B"}
+   Convert $3.6\times10^5$ millimeters to kilometers.
+   :::
+5. ::: {.exercise data-problem-id="aa-0-2-mastery-05" data-level="B"}
+   A quantity falls from $250$ to $215$. Find its percentage decrease.
+   :::
+6. ::: {.exercise data-problem-id="aa-0-2-mastery-06" data-level="B"}
+   Solve $-4<2x+6\le12$ and write interval notation.
+   :::
+7. ::: {.exercise data-problem-id="aa-0-2-mastery-07" data-level="C"}
+   Solve $m(x+1)=m^2$ for $x$, classifying all real $m$.
+   :::
+8. ::: {.exercise data-problem-id="aa-0-2-mastery-08" data-level="C"}
+   A line through $(1,8)$ has slope $-3$. Find where it crosses each axis and
+   interpret the sign of the slope.
+   :::
+9. ::: {.exercise data-problem-id="aa-0-2-mastery-09" data-level="C"}
+   Without a calculator, place $\sqrt{70}$ between consecutive tenths.
+   :::
+10. ::: {.exercise data-problem-id="aa-0-2-mastery-10" data-level="D"}
+    A value is increased by $p\%$ and then decreased by $p\%$. Prove that the
+    result is below the original for every $0<p<100$, and find the percentage
+    loss in terms of $p$.
+    :::
+
+::: {.callout-note collapse="true" title="Mastery-check answers"}
+1. Common denominator $36$ gives $-28/36+15/36=-13/36$.
+2. $-[2x-3+x]=-(3x-3)=-3x+3$.
+3. $18a^3b^3$.
+4. $3.6\times10^5\text{ mm}\cdot10^{-6}\text{ km/mm}=0.36\text{ km}$.
+5. $(250-215)/250=35/250=0.14$, so $14\%$.
+6. Subtract $6$ and divide by $2$: $-5<x\le3$, or $(-5,3]$.
+7. If $m=0$, every real $x$ works. If $m\ne0$, $x+1=m$, so $x=m-1$.
+8. $y-8=-3(x-1)$, hence $y=-3x+11$. The $y$-intercept is $(0,11)$ and the
+   $x$-intercept is $(11/3,0)$. Output decreases three units per one-unit input
+   increase.
+9. $8.3^2=68.89<70$ and $8.4^2=70.56>70$, so $8.3<\sqrt{70}<8.4$.
+10. See the full solution below.
+:::
+
+::: {.callout-tip collapse="true" title="Full solution to Problem 10"}
+Let the original positive value be $V$. The increase multiplies it by
+$1+p/100$ and the decrease multiplies the result by $1-p/100$. Thus
+
+$$
+V\left(1+\frac p{100}\right)\left(1-\frac p{100}\right)
+=V\left(1-\frac{p^2}{10000}\right).
+$$
+
+For $0<p<100$, we have $0<p^2/10000<1$, so the multiplier is positive and
+strictly below $1$. The loss is
+$V p^2/10000$, which is $p^2/100$ percent of the original. The proof explains
+why equal percentage changes do not cancel: the second percentage uses a
+different base.
+:::
+
+## 13. Examination strategy clinic
+
+::: {.worked-example data-problem-id="aa-0-2-exam-clinic" data-level="D"}
+### Problem: reason before computing
+
+Positive numbers $a$ and $b$ satisfy $a/b=3/5$. Without assigning arbitrary
+values, determine
+
+$$
+\frac{2a+3b}{4a-b}
+$$
+
+and state why the denominator is nonzero.
+
+**Plan.** A ratio determines a common scale. Write $a=3t$ and $b=5t$ for some
+$t>0$.
+
+**Execution.** Substitution gives
+
+$$
+\frac{2(3t)+3(5t)}{4(3t)-5t}
+=\frac{21t}{7t}=3.
+$$
+
+Because $t>0$, the denominator $7t$ is nonzero and cancellation is valid.
+
+**Why this method.** Choosing $a=3,b=5$ would produce the right number but would
+not explain why every positive pair with the ratio works. Introducing the scale
+$t$ converts an example into a general argument.
+:::
+
+## 14. Exercises by purpose and difficulty
+
+Use these if a strand score remains below three. Select at least two from the
+weak strand and one mixed problem.
+
+1. ::: {.exercise data-problem-id="aa-0-2-review-01" data-level="A"}
+   Evaluate $5-2[3-(4-9)]$.
+   :::
+2. ::: {.exercise data-problem-id="aa-0-2-review-02" data-level="A"}
+   Compute $7/15\div(-14/25)$.
+   :::
+3. ::: {.exercise data-problem-id="aa-0-2-review-03" data-level="A"}
+   Write $0.000072$ in scientific notation.
+   :::
+4. ::: {.exercise data-problem-id="aa-0-2-review-04" data-level="B"}
+   Explain why $(-3)^4$ and $-3^4$ differ.
+   :::
+5. ::: {.exercise data-problem-id="aa-0-2-review-05" data-level="B"}
+   A recipe ratio is $3$ cups flour to $2$ cups liquid. Scale it to $7.5$ cups
+   flour.
+   :::
+6. ::: {.exercise data-problem-id="aa-0-2-review-06" data-level="B"}
+   Convert $54$ kilometers per hour to meters per second.
+   :::
+7. ::: {.exercise data-problem-id="aa-0-2-review-07" data-level="B"}
+   Solve $3(x-4)-2(x+1)=5$ and check.
+   :::
+8. ::: {.exercise data-problem-id="aa-0-2-review-08" data-level="B"}
+   Find the slope through $(-3,-2)$ and $(5,10)$.
+   :::
+9. ::: {.exercise data-problem-id="aa-0-2-review-09" data-level="C"}
+   Find the number that becomes $126$ after a $12\%$ increase.
+   :::
+10. ::: {.exercise data-problem-id="aa-0-2-review-10" data-level="C"}
+    Determine all real $q$ for which $q/(q-2)>0$ using sign reasoning.
+    :::
+11. ::: {.exercise data-problem-id="aa-0-2-review-11" data-level="C"}
+    A graph's horizontal axis is seconds and vertical axis is meters. Explain
+    the units and meaning of a secant slope of $-4.2$.
+    :::
+12. ::: {.exercise data-problem-id="aa-0-2-review-12" data-level="D"}
+    Prove that if $0<a<b$, then $1/a>1/b$, without relying on decimal examples.
+    :::
+
+::: {.callout-note collapse="true" title="Exercise answers"}
+1. $-11$. 2. $-5/6$. 3. $7.2\times10^{-5}$. 4. Parentheses make the first
+base $-3$, giving $81$; exponent precedence makes the second $-(3^4)=-81$.
+5. The scale factor is $2.5$, so liquid is $5$ cups. 6. $15$ m/s. 7. $x=19$.
+8. $12/8=3/2$. 9. $126/1.12=112.5$. 10. Critical points are $0$ and $2$; the
+quotient is positive on $(-\infty,0)\cup(2,\infty)$. 11. Average position
+changes by $-4.2$ meters per second; the negative sign indicates decreasing
+position over the interval. 12. Since $a,b>0$, $ab>0$. Multiplying $a<b$ by the
+positive number $1/(ab)$ preserves order and gives $1/b<1/a$.
+:::
+
+## 15. Cumulative retrieval
+
+Return to argument language. For each claim below, state whether the displayed
+relation should be $\Rightarrow$ or $\Leftrightarrow$, and name conditions.
+
+1. $x/5=3$ ___ $x=15$.
+2. $x=-2$ ___ $x^2=4$.
+3. $ax=ay$ ___ $x=y$.
+4. $1/x<0$ ___ $x<0$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+1. $\Leftrightarrow$ over the reals because multiplication by nonzero $5$ is
+   reversible. 2. Only $\Rightarrow$. 3. $\Leftrightarrow$ if $a\ne0$; only the
+   forward implication from $x=y$ is unconditional. 4. $\Leftrightarrow$ on the
+   domain $x\ne0$: a reciprocal has the same sign as its nonzero input.
+:::
+
+## 16. Summary and next step
+
+- Score diagnostics by subskill, not only by total.
+- Preserve first attempts and classify the first cause of each error.
+- Repair with a worked model, a new transfer problem, delayed retrieval, and a
+  second attempt.
+- Keep exact arithmetic and units visible; estimate before accepting output.
+- Use tools only after a manual attempt, and interpret their precision and
+  assumptions.
+- Advance when the reassessment shows reliable reasoning, not when the examples
+  merely look familiar.
+
+Proceed to
+[Sets, intervals, statements, and quantifiers](../mathematical-language/sets-intervals-statements-and-quantifiers.qmd).
+If one strand remains below mastery, interleave its repair exercises with the
+next chapter rather than postponing all progress.
+
+## References and further study
+
+- OpenStax, [*Prealgebra 2e*](https://openstax.org/details/books/prealgebra-2e),
+  for open prerequisite practice with complete examples.
+- OpenStax, [*Algebra and Trigonometry 2e*](https://openstax.org/details/books/algebra-and-trigonometry-2e),
+  for algebraic review in a later-course context.
+- George Pólya, *How to Solve It*, for planning and retrospective checking.
+- The Learning Scientists,
+  [Retrieval Practice](https://www.learningscientists.org/retrieval-practice),
+  for an accessible research-informed explanation of delayed self-testing.
+- SymPy documentation,
+  [Gotchas and Pitfalls](https://docs.sympy.org/latest/explanation/gotchas.html),
+  for exact arithmetic and symbol assumptions.
+
+## Using this lesson with fcmath and SymPy
+
+Use Python to verify a completed correction, not to skip the first attempt. The
+first cell preserves exact fractions; the second compares an exact value with a
+floating approximation.
+
+```{python}
+#| echo: true
+from fractions import Fraction
+
+result = -Fraction(3, 4) + Fraction(5, 6) / Fraction(-10, 9)
+result
+```
+
+The output `Fraction(-3, 2)` is exact. A binary floating-point result would be an
+approximation even if its printed digits looked simple.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+x = sp.symbols("x", real=True)
+exact = sp.sqrt(70)
+approximation = sp.N(exact, 12)
+bounds = (sp.Rational(83, 10) ** 2, sp.Rational(84, 10) ** 2)
+exact, approximation, bounds
+```
+
+The squared endpoints $68.89$ and $70.56$ prove
+$8.3<\sqrt{70}<8.4$; the decimal is a convenient report after the bound has
+already explained its plausibility.
+
+For a portfolio, store only problem IDs, classifications, and your own written
+corrections. Do not build code that exposes solutions before an honest attempt
+or uploads raw answers without informed consent.

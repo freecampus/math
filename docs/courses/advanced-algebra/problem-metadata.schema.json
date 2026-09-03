@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freecampus.github.io/math/schemas/advanced-algebra-problem-v1.json",
+  "title": "Advanced Algebra problem metadata",
+  "description": "Metadata required for reusable textbook, checkpoint, and examination problems.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "level",
+    "purpose",
+    "skill_modes",
+    "outcome_ids",
+    "prerequisite_chapter_ids",
+    "estimated_minutes",
+    "answer_policy",
+    "verification"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 8
+    },
+    "level": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D"]
+    },
+    "purpose": {
+      "type": "string",
+      "enum": [
+        "retrieval",
+        "guided-practice",
+        "checkpoint",
+        "lesson-review",
+        "cumulative-review",
+        "unit-challenge",
+        "examination"
+      ]
+    },
+    "skill_modes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "conceptual",
+          "manual-calculation",
+          "symbolic-reasoning",
+          "computational",
+          "interpretation",
+          "mixed"
+        ]
+      }
+    },
+    "outcome_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^advanced-algebra-outcome-[0-9]+$"
+      }
+    },
+    "prerequisite_chapter_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^advanced-algebra-chapter-[a-z0-9-]+$"
+      }
+    },
+    "estimated_minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "answer_policy": {
+      "type": "string",
+      "enum": [
+        "concise-answer",
+        "worked-solution",
+        "rubric",
+        "deferred-examination-solution"
+      ]
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "substitution",
+            "independent-derivation",
+            "counterexample",
+            "symbolic-check",
+            "numerical-check",
+            "graphical-check",
+            "rubric-review"
+          ]
+        },
+        "reviewed_by": {
+          "type": "string",
+          "minLength": 3
+        },
+        "review_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "source_note": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "level": {
+            "const": "D"
+          }
+        },
+        "required": ["level"]
+      },
+      "then": {
+        "properties": {
+          "answer_policy": {
+            "enum": [
+              "worked-solution",
+              "rubric",
+              "deferred-examination-solution"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

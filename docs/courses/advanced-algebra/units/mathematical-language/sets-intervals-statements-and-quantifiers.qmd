@@ -1,0 +1,958 @@
+---
+title: Sets, Intervals, Statements, and Quantifiers
+description: Build precise set and logical language for solution sets, domains, proof, and counterexample.
+execute:
+  echo: false
+  warning: false
+id: advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers
+course_id: advanced-algebra
+unit_id: mathematical-language
+page_type: lesson
+status: active
+estimated_time: "420 minutes"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-3, advanced-algebra-outcome-6, advanced-algebra-outcome-8, advanced-algebra-outcome-14]
+---
+
+## Why this matters
+
+A solution is usually a set, even when that set contains one number. A domain is
+a set. An equation is a statement whose truth depends on a variable. A theorem
+may claim that **every** object with one property has another property, while a
+counterexample shows that **some** object does not. Sets and logic are therefore
+not decoration placed around algebra; they are its grammar.
+
+Compare these claims:
+
+1. $x^2=4$;
+2. the solution set of $x^2=4$ over $\mathbb R$ is $\{-2,2\}$;
+3. for every real $x$, if $x^2=4$, then $x\in\{-2,2\}$;
+4. there exists a real $x$ such that $x^2=4$.
+
+They are related but not interchangeable. The first is a predicate until $x$ is
+specified. The second reports a complete set. The third asserts completeness.
+The fourth asserts existence but says nothing about how many solutions there
+are. Difficult algebra often depends on seeing exactly which claim is required.
+
+::: {.learning-objectives}
+### What you should be able to do
+
+After completing the chapter, you should be able to:
+
+- use roster, descriptive, and set-builder notation precisely;
+- distinguish membership, subset, proper subset, and set equality;
+- compute unions, intersections, differences, complements, and Cartesian
+  products;
+- translate real solution sets among inequalities, number-line descriptions,
+  set-builder notation, and interval notation;
+- distinguish open, closed, bounded, and unbounded intervals;
+- evaluate compound statements using negation, conjunction, disjunction,
+  implication, and biconditional;
+- identify a converse, inverse, and contrapositive;
+- translate and negate universal and existential statements with correct scope;
+- prove elementary set identities by element arguments;
+- refute false universal claims with admissible counterexamples;
+- use SymPy sets as a verifier while retaining the mathematical interpretation.
+:::
+
+::: {.prerequisites}
+### Prerequisites
+
+You should be able to distinguish $=$, $\Rightarrow$, and $\Leftrightarrow$ and
+to audit a line of algebra. Review
+[How to read and write an algebraic argument](../orientation/reading-writing-algebraic-arguments.qmd)
+if a transformation's logical direction is unclear.
+:::
+
+## Five-minute retrieval warm-up
+
+1. Solve $x^2=9$ over the reals and over the nonnegative reals.
+2. Give one counterexample to “if $x^2>4$, then $x>2$” over $\mathbb R$.
+3. State the domain of $1/(x-3)$.
+4. Is $x=2\Rightarrow x^2=4$ reversible over the reals?
+
+::: {.callout-tip collapse="true" title="Warm-up answers"}
+1. Over $\mathbb R$, the solution set is $\{-3,3\}$; over $[0,\infty)$ it is
+   $\{3\}$.
+2. $x=-3$ satisfies $x^2>4$ but not $x>2$.
+3. $\mathbb R\setminus\{3\}$.
+4. No. The reverse statement loses $x=-2$.
+:::
+
+## 1. Sets, elements, and descriptions
+
+A **set** is a collection whose membership is unambiguous. We write $x\in A$ to
+mean “$x$ is an element of $A$” and $x\notin A$ for nonmembership. Order and
+repetition do not matter:
+
+$$
+\{1,2,3\}=\{3,2,1,1\}.
+$$
+
+The empty set, written $\varnothing$, has no elements. A singleton such as
+$\{0\}$ has one element and is not the same object as $0$.
+
+Three common descriptions are:
+
+- **roster notation:** $A=\{-2,0,2,4\}$;
+- **descriptive notation:** “the even integers from $-2$ through $4$”;
+- **set-builder notation:** $A=\{2k:k\in\mathbb Z,-1\le k\le2\}$.
+
+In set-builder notation, the colon or vertical bar means “such that.” The
+universe or type restriction is essential. The notation
+$\{x:x^2<2\}$ describes different sets when $x$ ranges over integers, rationals,
+or reals.
+
+::: {.definition}
+### Standard number-set notation
+
+We use $\mathbb N$ for positive integers $\{1,2,3,\ldots\}$ unless a page states
+another convention, $\mathbb Z$ for integers, $\mathbb Q$ for rationals,
+$\mathbb R$ for reals, and $\mathbb C$ for complex numbers. Because conventions
+for $\mathbb N$ vary, write $\mathbb N_0=\{0,1,2,\ldots\}$ when zero must be
+included explicitly.
+:::
+
+::: {.worked-example}
+### Example 1: change representation without changing the set
+
+Write the set of integer multiples of $3$ whose absolute value is at most $10$.
+
+The phrase “integer multiples” suggests $3k$ with $k\in\mathbb Z$. The bound is
+$|3k|\le10$, which allows $k=-3,-2,-1,0,1,2,3$. Therefore
+
+$$
+\{3k:k\in\mathbb Z,|3k|\le10\}
+=\{-9,-6,-3,0,3,6,9\}.
+$$
+
+The endpoints $\pm10$ are not included merely because the inequality is
+nonstrict; they are not multiples of $3$.
+:::
+
+## 2. Membership, subsets, and equality
+
+The statement $A\subseteq B$ means every element of $A$ is also an element of
+$B$:
+
+$$
+A\subseteq B\quad\Longleftrightarrow\quad
+(\forall x)(x\in A\Rightarrow x\in B).
+$$
+
+Some authors write $A\subset B$ for a proper subset and others for an arbitrary
+subset. We avoid ambiguity by writing $A\subsetneq B$ when $A\subseteq B$ and
+$A\ne B$.
+
+Set equality is mutual containment:
+
+$$
+A=B\quad\Longleftrightarrow\quad A\subseteq B\text{ and }B\subseteq A.
+$$
+
+This gives the standard proof method: choose an arbitrary element of one set,
+show it belongs to the other, then reverse the direction.
+
+::: {.worked-example}
+### Example 2: elements are not subsets
+
+Let $A=\{1,\{2\}\}$. Then $1\in A$ and $\{2\}\in A$. Also $\{1\}\subseteq A$
+and $\{\{2\}\}\subseteq A$. But $2\notin A$: the set $\{2\}$ is an element,
+not its contained number. Braces change the object.
+:::
+
+::: {.worked-example}
+### Example 3: prove set equality from definitions
+
+Prove
+
+$$
+\{x\in\mathbb R:x^2-5x+6=0\}=\{2,3\}.
+$$
+
+Let $S$ denote the left set. If $x\in S$, then
+$x^2-5x+6=(x-2)(x-3)=0$. The zero-product property gives $x=2$ or $x=3$, so
+$x\in\{2,3\}$. Hence $S\subseteq\{2,3\}$.
+
+Conversely, substitution shows both $2$ and $3$ make the polynomial zero. Thus
+$\{2,3\}\subseteq S$. Mutual containment proves equality. Notice that factoring
+found candidates, while the reverse containment verified completeness.
+:::
+
+::: {.checkpoint data-problem-id="aa-1-1-checkpoint-membership" data-level="A"}
+### Checkpoint: count the subsets
+
+How many subsets does $\{a,b,c\}$ have? Include the empty set and the whole set.
+
+::: {.callout-tip collapse="true" title="Answer"}
+Each of the three elements is independently included or excluded, producing
+$2^3=8$ subsets:
+$\varnothing$, $\{a\}$, $\{b\}$, $\{c\}$, $\{a,b\}$, $\{a,c\}$, $\{b,c\}$,
+and $\{a,b,c\}$.
+:::
+:::
+
+## 3. Set operations
+
+For sets $A$ and $B$ in a universe $U$:
+
+$$
+\begin{aligned}
+A\cup B&=\{x:x\in A\text{ or }x\in B\},\\
+A\cap B&=\{x:x\in A\text{ and }x\in B\},\\
+A\setminus B&=\{x:x\in A\text{ and }x\notin B\},\\
+A^c&=U\setminus A.
+\end{aligned}
+$$
+
+Mathematical “or” is inclusive unless stated otherwise: membership in both sets
+still gives membership in the union. Complements depend on the universe. The
+complement of $[0,1]$ in $\mathbb R$ is
+$(-\infty,0)\cup(1,\infty)$; its complement in $[0,2]$ is $(1,2]$.
+
+::: {.worked-example}
+### Example 4: compute with a stated universe
+
+Let $U=\{1,2,3,4,5,6\}$, $A=\{1,2,4,6\}$, and $B=\{2,3,6\}$. Then
+
+$$
+A\cup B=\{1,2,3,4,6\},\qquad A\cap B=\{2,6\},
+$$
+
+$$
+A\setminus B=\{1,4\},\qquad A^c=\{3,5\}.
+$$
+
+The element $2$ appears only once in the union because multiplicity is not part
+of ordinary set membership.
+:::
+
+### De Morgan's laws
+
+Complement reverses union and intersection:
+
+$$
+(A\cup B)^c=A^c\cap B^c,
+\qquad
+(A\cap B)^c=A^c\cup B^c.
+$$
+
+::: {.worked-example}
+### Example 5: prove a De Morgan law by membership
+
+For an arbitrary $x\in U$,
+
+$$
+\begin{aligned}
+x\in(A\cup B)^c
+&\Leftrightarrow x\notin A\cup B\\
+&\Leftrightarrow \text{$x\notin A$ and $x\notin B$}\\
+&\Leftrightarrow \text{$x\in A^c$ and $x\in B^c$}\\
+&\Leftrightarrow x\in A^c\cap B^c.
+\end{aligned}
+$$
+
+The equivalence holds for every $x\in U$, so the sets are equal. The logical
+change from “not (in $A$ or in $B$)” to “not in $A$ and not in $B$” drives the
+set identity.
+:::
+
+## 4. Intervals as real-number sets
+
+For real $a<b$:
+
+| Interval | Inequality description | Endpoint membership |
+|---|---|---|
+| $(a,b)$ | $a<x<b$ | neither endpoint |
+| $[a,b]$ | $a\le x\le b$ | both endpoints |
+| $[a,b)$ | $a\le x<b$ | $a$ only |
+| $(a,b]$ | $a<x\le b$ | $b$ only |
+
+Infinity is not a real endpoint and is never included, so unbounded intervals
+use parentheses: $(-\infty,a)$, $(-\infty,a]$, $(a,\infty)$, and
+$[a,\infty)$.
+
+An interval is **bounded** if it lies between two finite real bounds. It is
+**open** if every one of its points has a small real neighborhood inside the
+set, and **closed** if it contains all of its real limit points. For ordinary
+bounded intervals, round and square endpoint notation matches these ideas.
+However, $\mathbb R$ and $\varnothing$ are both open and closed. “Open” does not
+mean “unbounded,” and “closed” does not mean “finite.”
+
+::: {.worked-example}
+### Example 6: translate a compound inequality
+
+Solve and describe $-2\le3x+1<10$.
+
+Subtract $1$ throughout and divide by positive $3$:
+
+$$
+-3\le3x<9\Leftrightarrow-1\le x<3.
+$$
+
+The solution set is
+
+$$
+\{x\in\mathbb R:-1\le x<3\}=[-1,3).
+$$
+
+The left endpoint is included because equality is allowed; the right is
+excluded.
+:::
+
+::: {.worked-example}
+### Example 7: union versus intersection
+
+The condition $|x|>2$ means the distance from $0$ is greater than $2$, so
+
+$$
+x<-2\text{ or }x>2,
+$$
+
+which is the union $(-\infty,-2)\cup(2,\infty)$.
+
+The simultaneous conditions $x>-2$ **and** $x\le5$ require intersection:
+
+$$
+(-2,\infty)\cap(-\infty,5]=(-2,5].
+$$
+
+Words such as “or” and “and” determine the set operation.
+:::
+
+::: {.worked-example}
+### Example 8: an interval identity
+
+For real $a<b<c$, prove
+
+$$
+[a,c]\setminus(a,b) = \{a\}\cup[b,c].
+$$
+
+A point in $[a,c]$ remains after removing $(a,b)$ exactly when it is $a$ or is
+at least $b$. Thus it belongs to $\{a\}\cup[b,c]$. Conversely, $a$ and every
+point of $[b,c]$ lie in $[a,c]$ but not in $(a,b)$. Both containments hold.
+The singleton $\{a\}$ prevents the common mistake of losing the left endpoint.
+:::
+
+## 5. Cartesian products and regions
+
+The **Cartesian product** is
+
+$$
+A\times B=\{(a,b):a\in A,\ b\in B\}.
+$$
+
+Ordered pairs preserve order: generally $(a,b)\ne(b,a)$. Consequently,
+$A\times B$ and $B\times A$ need not agree.
+
+::: {.worked-example}
+### Example 9: product of finite sets
+
+If $A=\{1,2\}$ and $B=\{u,v,w\}$, then
+
+$$
+A\times B=\{(1,u),(1,v),(1,w),(2,u),(2,v),(2,w)\}.
+$$
+
+There are $2\cdot3=6$ pairs. In the coordinate plane,
+$[0,1]\times[2,4]$ is a closed rectangle, not a one-dimensional interval.
+:::
+
+A graph of a real function is a special subset of a Cartesian product: it
+contains ordered pairs $(x,f(x))$ and never contains two pairs with the same
+first coordinate but different second coordinates.
+
+## 6. Statements and logical connectives
+
+A **statement** is a declarative sentence with a definite truth value. Questions,
+commands, and predicates with unspecified variables are not yet statements.
+Given statements $P$ and $Q$:
+
+- $\neg P$ means “not $P$”;
+- $P\land Q$ means “$P$ and $Q$”;
+- $P\lor Q$ means inclusive “$P$ or $Q$”;
+- $P\Rightarrow Q$ means “if $P$, then $Q$”;
+- $P\Leftrightarrow Q$ means each implies the other.
+
+An implication is false only when its hypothesis $P$ is true and its conclusion
+$Q$ is false. A false hypothesis does not provide a counterexample.
+
+::: {.worked-example}
+### Example 10: necessary and sufficient conditions
+
+“If an integer is divisible by $4$, then it is even” is true. Divisibility by
+$4$ is **sufficient** for evenness, and evenness is **necessary** for divisibility
+by $4$. Evenness is not sufficient: $6$ is even but not divisible by $4$.
+
+The converse “if an integer is even, then it is divisible by $4$” is false. Its
+counterexample must be even (true hypothesis) and not divisible by $4$ (false
+conclusion), as $6$ is.
+:::
+
+For $P\Rightarrow Q$:
+
+- the **converse** is $Q\Rightarrow P$;
+- the **inverse** is $\neg P\Rightarrow\neg Q$;
+- the **contrapositive** is $\neg Q\Rightarrow\neg P$.
+
+The original implication is logically equivalent to its contrapositive, not in
+general to its converse or inverse.
+
+::: {.worked-example}
+### Example 11: use the contrapositive
+
+Claim: if $n^2$ is even for an integer $n$, then $n$ is even.
+
+The contrapositive says: if $n$ is odd, then $n^2$ is odd. Write $n=2k+1$.
+Then
+
+$$
+n^2=4k^2+4k+1=2(2k^2+2k)+1,
+$$
+
+which is odd. Therefore the contrapositive, and hence the original implication,
+is true.
+:::
+
+## 7. Quantifiers and their negations
+
+The universal quantifier $\forall$ means “for every”; the existential quantifier
+$\exists$ means “there exists at least one.” The order of quantifiers matters.
+
+$$
+(\forall x\in\mathbb R)(\exists y\in\mathbb R)(y>x)
+$$
+
+is true: after $x$ is given, choose $y=x+1$. But
+
+$$
+(\exists y\in\mathbb R)(\forall x\in\mathbb R)(y>x)
+$$
+
+is false: there is no single real number larger than every real number.
+
+Negation switches the quantifier and negates the predicate:
+
+$$
+\neg(\forall x\,P(x))\Leftrightarrow\exists x\,\neg P(x),
+$$
+
+$$
+\neg(\exists x\,P(x))\Leftrightarrow\forall x\,\neg P(x).
+$$
+
+In prose, “not every” means “at least one not,” not “none.”
+
+::: {.worked-example}
+### Example 12: negate a nested statement
+
+Negate:
+
+> For every real $x$, there exists an integer $n$ such that $n>x$.
+
+Move inward one quantifier at a time:
+
+$$
+\neg(\forall x\in\mathbb R)(\exists n\in\mathbb Z)(n>x)
+$$
+
+is equivalent to
+
+$$
+(\exists x\in\mathbb R)(\forall n\in\mathbb Z)(n\le x).
+$$
+
+The inequality negates from $n>x$ to $n\le x$. The original statement is true
+(the integers are unbounded above), so its negation is false.
+:::
+
+::: {.worked-example}
+### Example 13: refute a universal-existential claim
+
+Claim: for every real $x$, there exists a real $y$ such that $y^2=x$.
+
+To refute it, we need one real $x$ for which every real $y$ fails. Choose
+$x=-1$. Every real square satisfies $y^2\ge0$, so no real $y$ has $y^2=-1$.
+This identifies exactly why extending from $\mathbb R$ to $\mathbb C$ later is
+useful.
+:::
+
+### Free and bound variables
+
+In $P(x,y):x+y=0$, both variables are free. In
+$(\exists y)(x+y=0)$, $y$ is bound by the quantifier while $x$ remains free; the
+result is a predicate about $x$. A variable's symbol can be renamed inside its
+quantifier without changing meaning:
+$(\exists y)(x+y=0)$ and $(\exists t)(x+t=0)$ are equivalent.
+
+## 8. Translating algebraic solution conditions
+
+Solving often means transforming a predicate into an explicit set description.
+Keep the universe visible and use logic to combine cases.
+
+::: {.worked-example}
+### Example 14: a rational sign condition
+
+Describe
+
+$$
+S=\left\{x\in\mathbb R:\frac{x-1}{x+2}\ge0\right\}.
+$$
+
+The critical values are the zero $x=1$ and excluded denominator value $x=-2$.
+On $(-\infty,-2)$, numerator and denominator are both negative, so the quotient
+is positive. On $(-2,1)$ their signs differ, so it is negative. On
+$(1,\infty)$ both are positive. Equality includes $x=1$ but not $x=-2$.
+Therefore
+
+$$
+S=(-\infty,-2)\cup[1,\infty).
+$$
+
+The logical form is “$x<-2$ or $x\ge1$.”
+:::
+
+::: {.worked-example}
+### Example 15: parameter-dependent existence
+
+For which real $a$ does there exist a real $x$ satisfying $x^2=a$?
+
+The statement is
+
+$$
+(\exists x\in\mathbb R)(x^2=a).
+$$
+
+Every real square is nonnegative, so existence implies $a\ge0$. Conversely, if
+$a\ge0$, the real number $x=\sqrt a$ satisfies $x^2=a$. Therefore existence is
+equivalent to $a\in[0,\infty)$. The proof contains both necessity and
+sufficiency.
+:::
+
+## 9. Common mistakes and limitations
+
+::: {.common-mistake}
+### Mistake: confusing $x\in A$ with $\{x\}\subseteq A$
+
+These statements happen to be equivalent, but $x\subseteq A$ is usually
+meaningless unless $x$ itself is a set. Track the type of each object.
+:::
+
+::: {.common-mistake}
+### Mistake: including infinity
+
+The notation $[2,\infty]$ is not a real interval because $\infty$ is not a real
+number. Write $[2,\infty)$.
+:::
+
+::: {.common-mistake}
+### Mistake: negating each piece but not the connector
+
+The negation of $x>0$ **and** $x<1$ is $x\le0$ **or** $x\ge1$. De Morgan's law
+switches “and” to “or.”
+:::
+
+::: {.common-mistake}
+### Mistake: using a false-hypothesis example as a counterexample
+
+To refute $P\Rightarrow Q$, an example must make $P$ true and $Q$ false. An
+object outside the hypothesis says nothing about the implication.
+:::
+
+::: {.common-mistake}
+### Mistake: changing quantifier order
+
+“Every student chose a book” allows different books. “There is a book every
+student chose” asserts one common book. The same difference drives parameter and
+existence problems.
+:::
+
+## 10. Guided practice
+
+::: {.practice-box data-problem-id="aa-1-1-guided-01" data-level="A"}
+### Guided exercise 1: representations
+
+Write $\{x\in\mathbb Z:-3<x\le2\}$ in roster notation.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The allowed integers are $-2,-1,0,1,2$, so the roster is
+$\{-2,-1,0,1,2\}$. Strictness excludes $-3$; nonstrictness includes $2$.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-1-guided-02" data-level="B"}
+### Guided exercise 2: operations on intervals
+
+Let $A=(-3,4]$ and $B=[1,7)$. Find $A\cap B$, $A\cup B$, and $A\setminus B$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The overlap is $[1,4]$. Together the intervals cover $(-3,7)$. Removing $B$
+from $A$ leaves $(-3,1)$; the point $1$ is removed because it belongs to $B$.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-1-guided-03" data-level="B"}
+### Guided exercise 3: negate precisely
+
+Negate: “For every positive real $x$, if $x>1$, then $x^2>x$.”
+
+::: {.callout-tip collapse="true" title="Solution"}
+A negated universal implication asserts one counterexample:
+
+> There exists a positive real $x$ such that $x>1$ and $x^2\le x$.
+
+The negation is false, because for $x>1$, multiplying by positive $x$ gives
+$x^2>x$.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-1-guided-04" data-level="C"}
+### Guided exercise 4: prove an identity
+
+Prove $A\setminus(B\cup C)=(A\setminus B)\cap(A\setminus C)$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+For arbitrary $x$,
+
+$$
+\begin{aligned}
+x\in A\setminus(B\cup C)
+&\Leftrightarrow x\in A\text{ and }x\notin B\cup C\\
+&\Leftrightarrow x\in A\text{ and }x\notin B\text{ and }x\notin C\\
+&\Leftrightarrow x\in A\setminus B\text{ and }x\in A\setminus C\\
+&\Leftrightarrow x\in(A\setminus B)\cap(A\setminus C).
+\end{aligned}
+$$
+
+Because this holds for every $x$, the sets are equal.
+:::
+:::
+
+## 11. Examination strategy clinic
+
+::: {.worked-example data-problem-id="aa-1-1-exam-clinic" data-level="D"}
+### Problem: determine when two descriptions agree
+
+For real parameters $a$ and $b$, determine exactly when
+
+$$
+(-\infty,a]\cup[b,\infty)=\mathbb R.
+$$
+
+**Interpret first.** The left set covers everything at or below $a$ and
+everything at or above $b$. A gap exists only if $a<b$, namely $(a,b)$.
+
+**Necessity.** Suppose the union equals $\mathbb R$. If $a<b$, the midpoint
+$m=(a+b)/2$ satisfies $a<m<b$. It belongs to neither interval, contradicting
+full coverage. Therefore $a\ge b$.
+
+**Sufficiency.** Suppose $a\ge b$ and let $x\in\mathbb R$. If $x\le a$, then
+$x$ belongs to the first interval. If $x>a$, then $x>a\ge b$, so $x\ge b$ and
+belongs to the second. Every real $x$ belongs to the union.
+
+Thus
+
+$$
+(-\infty,a]\cup[b,\infty)=\mathbb R
+\quad\Longleftrightarrow\quad a\ge b.
+$$
+
+**Strategy lesson.** Draw a qualitative number line, test the possible orderings
+of parameters, use a midpoint to prove a gap, and prove the no-gap case for an
+arbitrary element. The diagram discovers the condition; the two-direction
+argument proves it.
+:::
+
+## 12. Exercises by purpose and difficulty
+
+### Level A — language and fluency
+
+1. ::: {.exercise data-problem-id="aa-1-1-review-01" data-level="A"}
+   Write the odd integers between $-6$ and $8$ in roster and set-builder form.
+   :::
+2. ::: {.exercise data-problem-id="aa-1-1-review-02" data-level="A"}
+   Decide whether each is true for $A=\{0,\{1\},2\}$: $1\in A$,
+   $\{1\}\in A$, $\{0,2\}\subseteq A$.
+   :::
+3. ::: {.exercise data-problem-id="aa-1-1-review-03" data-level="A"}
+   Translate $x<-4$ or $2\le x<7$ into interval notation.
+   :::
+4. ::: {.exercise data-problem-id="aa-1-1-review-04" data-level="A"}
+   Write the complement of $[-2,5)$ in $\mathbb R$.
+   :::
+5. ::: {.exercise data-problem-id="aa-1-1-review-05" data-level="A"}
+   If $A=\{a,b\}$ and $B=\{1,2,3\}$, list $A\times B$.
+   :::
+6. ::: {.exercise data-problem-id="aa-1-1-review-06" data-level="A"}
+   State the converse and contrapositive of “if $x>5$, then $x>0$.”
+   :::
+
+### Level B — connected reasoning
+
+7. ::: {.exercise data-problem-id="aa-1-1-review-07" data-level="B"}
+   For $A=(-4,2]$ and $B=[-1,6)$, find union, intersection, and both differences.
+   :::
+8. ::: {.exercise data-problem-id="aa-1-1-review-08" data-level="B"}
+   Prove $A\cap B\subseteq A\cup B$ directly from membership definitions.
+   :::
+9. ::: {.exercise data-problem-id="aa-1-1-review-09" data-level="B"}
+   Give a counterexample to “if $xy=0$, then $x=0$” and repair the statement.
+   :::
+10. ::: {.exercise data-problem-id="aa-1-1-review-10" data-level="B"}
+    Negate “there exists a real $x$ such that $x^2+1=0$.”
+    :::
+11. ::: {.exercise data-problem-id="aa-1-1-review-11" data-level="B"}
+    Negate “for every integer $n$, $n$ is even or $n$ is odd.”
+    :::
+12. ::: {.exercise data-problem-id="aa-1-1-review-12" data-level="B"}
+    Determine whether the converse of “if an integer is divisible by $6$, then
+    it is divisible by $3$” is true.
+    :::
+13. ::: {.exercise data-problem-id="aa-1-1-review-13" data-level="B"}
+    Express the real solution of $|x-2|\le5$ in set-builder and interval notation.
+    :::
+14. ::: {.exercise data-problem-id="aa-1-1-review-14" data-level="B"}
+    Determine whether $[0,1)\cup[1,2]=[0,2]$ and justify each endpoint.
+    :::
+
+### Level C — synthesis
+
+15. ::: {.exercise data-problem-id="aa-1-1-review-15" data-level="C"}
+    Prove $(A\cap B)\cup(A\setminus B)=A$.
+    :::
+16. ::: {.exercise data-problem-id="aa-1-1-review-16" data-level="C"}
+    Solve $(x-2)(x+1)\le0$ and express the logical sign conditions before giving
+    interval notation.
+    :::
+17. ::: {.exercise data-problem-id="aa-1-1-review-17" data-level="C"}
+    For which real $a$ is $(-\infty,a)\cap[3,\infty)$ nonempty?
+    :::
+18. ::: {.exercise data-problem-id="aa-1-1-review-18" data-level="C"}
+    Compare $(A\setminus B)\times C$ with $(A\times C)\setminus(B\times C)$.
+    Prove equality or give a counterexample.
+    :::
+19. ::: {.exercise data-problem-id="aa-1-1-review-19" data-level="C"}
+    Translate into quantifiers: “Every real polynomial of odd degree has at least
+    one real zero.” Then write its formal negation.
+    :::
+20. ::: {.exercise data-problem-id="aa-1-1-review-20" data-level="C"}
+    Prove that $A\subseteq B$ if and only if $A\cap B=A$.
+    :::
+
+### Level D — honors and examination
+
+21. ::: {.exercise data-problem-id="aa-1-1-review-21" data-level="D"}
+    Determine all real $a,b$ for which $[a,b]=\varnothing$ under the convention
+    that $[a,b]=\{x\in\mathbb R:a\le x\le b\}$.
+    :::
+22. ::: {.exercise data-problem-id="aa-1-1-review-22" data-level="D"}
+    Prove that $A\times B=B\times A$ need not imply $A=B$ unless additional
+    nonemptiness conditions are imposed. State and prove the strongest simple
+    corrected claim.
+    :::
+23. ::: {.exercise data-problem-id="aa-1-1-review-23" data-level="D"}
+    Negate and decide the truth of
+    $(\forall x\in\mathbb R)(\exists! y\in\mathbb R)(x+y=0)$, where $\exists!$
+    means “there exists exactly one.”
+    :::
+24. ::: {.exercise data-problem-id="aa-1-1-review-24" data-level="D"}
+    Let $S_a=\{x\in\mathbb R:|x-a|<1\}$. Determine and prove exactly when
+    $S_a\cap S_b=\varnothing$.
+    :::
+
+### Concise answers
+
+::: {.callout-note collapse="true" title="Answers 1–24"}
+1. $\{-5,-3,-1,1,3,5,7\}=\{2k+1:k\in\mathbb Z,-3\le k\le3\}$.
+2. False, true, true. 3. $(-\infty,-4)\cup[2,7)$. 4.
+$(-\infty,-2)\cup[5,\infty)$. 5. $(a,1),(a,2),(a,3),(b,1),(b,2),(b,3)$.
+6. Converse: $x>0\Rightarrow x>5$; contrapositive: $x\le0\Rightarrow x\le5$.
+7. Union $(-4,6)$; intersection $[-1,2]$; $A\setminus B=(-4,-1)$;
+$B\setminus A=(2,6)$. 8. Membership in both implies membership in at least one.
+9. $x=1,y=0$; correct: $xy=0\Rightarrow x=0$ or $y=0$. 10. For every
+real $x$, $x^2+1\ne0$. 11. There exists an integer that is neither even nor odd.
+12. False; $3$ is divisible by $3$ but not $6$. 13.
+$\{x:-3\le x\le7\}=[-3,7]$. 14. True; $1$ is supplied by both pieces and all
+points from $0$ through $2$ are covered. 15. Use the full solution below.
+16. The factors have opposite signs or one is zero; $[-1,2]$. 17. Exactly
+$a>3$. 18. Equal for all sets; membership in either side means
+$a\in A\setminus B$ and $c\in C$. 19. With a suitable polynomial universe,
+$\forall p[(\deg p\text{ odd})\Rightarrow\exists r\in\mathbb R,p(r)=0]$; negation:
+there exists an odd-degree real polynomial with no real zero. 20. Use the full
+solution below. 21. Exactly $a>b$. 22. Empty products give exceptions; if both
+$A$ and $B$ are nonempty, equality of products implies $A=B$. 23. The statement
+is true: the unique value is $y=-x$. Its negation says some real $x$ has either
+no such $y$ or at least two. 24. Exactly $|a-b|\ge2$.
+:::
+
+### Selected full solutions
+
+::: {.callout-tip collapse="true" title="Problem 15: partition by membership in B"}
+Let $x\in(A\cap B)\cup(A\setminus B)$. In the first case $x\in A$; in the
+second case $x\in A$ as well. Thus the union is a subset of $A$.
+
+Conversely, let $x\in A$. Either $x\in B$ or $x\notin B$. In the first case
+$x\in A\cap B$; in the second $x\in A\setminus B$. Therefore $x$ belongs to the
+union. Mutual containment proves equality.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 20: subset characterization"}
+Suppose $A\subseteq B$. An element of $A\cap B$ lies in $A$, so
+$A\cap B\subseteq A$. Conversely, if $x\in A$, the subset assumption gives
+$x\in B$, hence $x\in A\cap B$. Thus $A\cap B=A$.
+
+For the reverse direction, suppose $A\cap B=A$. If $x\in A$, then
+$x\in A\cap B$ by the equality, so $x\in B$. Hence $A\subseteq B$.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 22: Cartesian-product equality"}
+If $A=\varnothing$ and $B$ is any nonempty set, then
+$A\times B=\varnothing=B\times A$ although $A\ne B$. This disproves the claim
+without nonemptiness.
+
+Now suppose $A$ and $B$ are nonempty and $A\times B=B\times A$. Choose
+$b_0\in B$. For any $a\in A$, $(a,b_0)\in A\times B=B\times A$, so its first
+coordinate $a$ lies in $B$. Thus $A\subseteq B$. By symmetry, $B\subseteq A$,
+and therefore $A=B$.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 24: disjoint moving intervals"}
+We have $S_a=(a-1,a+1)$ and $S_b=(b-1,b+1)$. Assume without loss of generality
+that $a\le b$. They are disjoint exactly when the right endpoint of the first is
+at or left of the left endpoint of the second:
+$a+1\le b-1$, or $b-a\ge2$. Equality still gives disjoint open intervals because
+the touching endpoint belongs to neither. Restoring symmetry yields
+$|a-b|\ge2$.
+:::
+
+## 13. Cumulative retrieval
+
+::: {.practice-box data-problem-id="aa-1-1-cumulative-01" data-level="C"}
+### Audit a solution set
+
+A learner claims
+
+$$
+\left\{x\in\mathbb R:\frac{x^2-1}{x-1}=x+1\right\}=\mathbb R.
+$$
+
+Identify the error and write the correct set.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The rational expression is undefined at $x=1$. For $x\ne1$, factoring and
+cancelling proves equality. Therefore the solution set is
+$\mathbb R\setminus\{1\}=(-\infty,1)\cup(1,\infty)$. Formula simplification did
+not restore an excluded domain point.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-1-cumulative-02" data-level="D"}
+### Direction and quantifiers
+
+Decide whether the following is true, and prove or refute it:
+
+> For every real $x$, if there exists a real $y$ with $xy=1$, then $x\ne0$; and
+> if $x\ne0$, there exists exactly one such $y$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The statement is true. If $xy=1$ and $x=0$, then $0=1$, impossible, so $x\ne0$.
+Conversely, for $x\ne0$, choose $y=1/x$; then $xy=1$. If both $y_1$ and $y_2$
+satisfy the equation, $xy_1=xy_2$ and division by nonzero $x$ gives
+$y_1=y_2$. Thus existence and uniqueness both hold.
+:::
+:::
+
+## 14. Topic checkpoint
+
+Answer from definitions rather than pattern recognition. The generated notebook
+contains the same questions and readable solutions.
+
+<fc-quiz data-source="../../../../quizzes/advanced-algebra/sets-logic.yml"></fc-quiz>
+
+## 15. Summary and next step
+
+- A set is determined by membership, not by order or repetition.
+- $A\subseteq B$ means every member of $A$ belongs to $B$; equality requires
+  both containments.
+- Union encodes inclusive “or,” intersection encodes “and,” and complement
+  encodes negation relative to a universe.
+- Interval brackets record finite endpoint membership; infinity is never a real
+  endpoint.
+- An implication is equivalent to its contrapositive, not generally its
+  converse.
+- Negation swaps $\forall$ with $\exists$, applies De Morgan's laws, and negates
+  the inner predicate.
+- Quantifier order changes meaning.
+- A proof handles every allowed object; a counterexample must satisfy the
+  hypothesis and violate the conclusion.
+
+The next planned chapter develops the real number system and its extensions.
+Until it is published, continue through the current
+[Algebraic Structures and Functions](../algebra/index.qmd) route while retaining
+explicit universes, domains, and solution-set notation.
+
+## References and further study
+
+- Richard Hammack, [*Book of Proof*](https://richardhammack.github.io/BookOfProof/),
+  chapters on sets, logic, and quantified statements.
+- OpenStax, [*Contemporary Mathematics*](https://openstax.org/details/books/contemporary-mathematics),
+  for accessible set and logic review.
+- Daniel Velleman, *How to Prove It*, for formal logic, set arguments, and proof
+  construction.
+- Paul Halmos, *Naive Set Theory*, for a concise deeper view of set language.
+- SymPy documentation, [Sets](https://docs.sympy.org/latest/modules/sets.html),
+  for exact symbolic set operations and solver outputs.
+
+## Using this lesson with fcmath and SymPy
+
+SymPy represents mathematical sets explicitly. Use these objects to check a
+manual result and inspect endpoint behavior.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+A = sp.Interval.Lopen(-3, 4)  # (-3, 4]
+B = sp.Interval.Ropen(1, 7)   # [1, 7)
+intersection = A.intersect(B)
+union = A.union(B)
+difference = A - B
+intersection, union, difference
+```
+
+The output should represent $[1,4]$, $(-3,7)$, and $(-3,1)$, respectively.
+Names such as `Lopen` describe the open **left** endpoint; always compare the
+rendered set with your inequality interpretation.
+
+Use `solveset` rather than assuming that a generic list of roots carries domain
+information:
+
+```{python}
+#| echo: true
+x = sp.symbols("x", real=True)
+polynomial_solutions = sp.solveset(x**2 - 5 * x + 6, x, domain=sp.S.Reals)
+rational_inequality = sp.solve_univariate_inequality(
+    (x - 1) / (x + 2) >= 0,
+    x,
+    relational=False,
+)
+polynomial_solutions, rational_inequality
+```
+
+The expected exact sets are $\{2,3\}$ and
+$(-\infty,-2)\cup[1,\infty)$. The excluded denominator value is absent from the
+second result.
+
+Logic can also be represented symbolically, but a computer simplification does
+not replace a proof that explains the universe and predicates:
+
+```{python}
+#| echo: true
+P, Q = sp.symbols("P Q")
+sp.simplify_logic(sp.Equivalent(sp.Implies(P, Q), sp.Implies(~Q, ~P)))
+```
+
+The result `True` verifies the truth-table equivalence between an implication
+and its contrapositive. Your written work must still translate $P$ and $Q$ back
+to the mathematical claims under discussion.
