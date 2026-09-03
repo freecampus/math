@@ -5,10 +5,10 @@
 [![Package Version](https://img.shields.io/pypi/v/freecampus-math?color=blue)](https://pypi.org/project/freecampus-math/)
 ![License](https://img.shields.io/pypi/l/freecampus-math?color=blue)
 
-FreeCampus Math is an open, institution-independent curriculum for advanced
-quantitative and computational study. Its **Mathematics for Quantitative
-Studies** pathway joins subject courses in algebra, proof, linear algebra,
-calculus, differential equations, probability, statistics, and Python.
+FreeCampus Math is an open, institution-independent catalog of rigorous courses
+for advanced quantitative and computational study. Learners can enter the
+subject they need directly: algebra, proof, linear algebra, calculus,
+differential equations, probability, statistics, or mathematical computing.
 
 The learning standard is proof-aware and computationally reproducible:
 
@@ -25,8 +25,9 @@ raw answers or behavioral history.
 
 ## Start learning
 
-Visit <https://freecampus.github.io/math/> and choose **Start pathway**. The
-pathway diagnostic and course prerequisite graph help you choose an entry point.
+Visit <https://freecampus.github.io/math/> and choose a course by topic, study
+goal, or recommended background. Each course publishes its own outcomes,
+prerequisites, readiness guidance, and current status.
 
 ## Install the lesson-support package
 

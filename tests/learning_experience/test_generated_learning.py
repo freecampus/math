@@ -18,6 +18,30 @@ def test_catalog_derived_files_are_current() -> None:
     assert result.returncode == 0, result.stderr
 
 
+def test_generated_lesson_navigation_stays_within_each_course() -> None:
+    catalog = json.loads((ROOT / "docs/courses/_catalog.yml").read_text())
+    navigation = json.loads((ROOT / "docs/assets/navigation.json").read_text())
+    course_by_item = {
+        item["id"]: course["id"]
+        for course in catalog["courses"]
+        for unit in course["units"]
+        for item in [*unit["lessons"], *unit["challenges"]]
+    }
+    course_by_item.update(
+        {
+            assessment_id: course["id"]
+            for course in catalog["courses"]
+            for unit in course["units"]
+            for assessment_id in unit.get("assessment_ids", [])
+        }
+    )
+
+    for item_id, links in navigation["items"].items():
+        for neighbor_id in (links["previous_id"], links["next_id"]):
+            if neighbor_id is not None:
+                assert course_by_item[item_id] == course_by_item[neighbor_id]
+
+
 def test_generated_notebooks_are_current() -> None:
     result = subprocess.run(
         [sys.executable, "scripts/build_notebooks.py", "--check"],
@@ -29,10 +53,14 @@ def test_generated_notebooks_are_current() -> None:
     assert result.returncode == 0, result.stderr
 
 
-def test_diagnostic_notebook_preserves_source_identity_and_questions() -> None:
-    source = ROOT / "docs/pathways/quantitative-mathematics/diagnostic.qmd"
+def test_course_readiness_notebook_preserves_source_identity_and_questions() -> None:
+    source = (
+        ROOT / "docs/courses/advanced-algebra/units/orientation/"
+        "readiness-diagnostic-and-repair.qmd"
+    )
     notebook_path = (
-        ROOT / "notebooks/pathways/quantitative-mathematics/diagnostic.ipynb"
+        ROOT / "notebooks/courses/advanced-algebra/units/orientation/"
+        "readiness-diagnostic-and-repair.ipynb"
     )
     notebook = json.loads(notebook_path.read_text())
     markdown = "\n".join(
@@ -45,7 +73,7 @@ def test_diagnostic_notebook_preserves_source_identity_and_questions() -> None:
         notebook["metadata"]["fcmath"]["source_sha256"]
         == hashlib.sha256(source.read_bytes()).hexdigest()
     )
-    assert "What does `sum(i*i for i in range(4))` return?" in markdown
+    assert "Evaluate $7-3(2-5)$." in markdown
     assert "<fc-quiz" not in markdown
     assert all(
         cell.get("execution_count") is None
@@ -103,6 +131,7 @@ def test_progress_script_uses_versioned_local_completion_only() -> None:
     assert "schemaVersion" in script
     assert "CURRICULUM_MIGRATIONS" in script
     assert "migrateCurriculumState" in script
+    assert "unit.assessment_ids" in script
     assert "localStorage" in script
     assert "rawAnswer" not in script
     assert "analytics" not in script.lower()

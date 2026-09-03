@@ -1,33 +1,86 @@
 ---
 title: Courses
-description: Explore the subject courses joined by Mathematics for Quantitative Studies.
+description: Choose a rigorous mathematics course by topic, prerequisite, or study goal.
 id: course-catalog
 page_type: catalog
 ---
 
-The pathway is the recommended entry point. Each course is also independently
-navigable and publishes its prerequisites, outcomes, units, and current status.
+Every course stands on its own. Start with the subject that matches your exam,
+degree preparation, professional need, or intellectual goal. A prerequisite is
+advice about the mathematics used in a course—not a locked enrollment sequence.
+
+## Choose by study goal
 
 ::: {.course-grid}
-### Foundations and structure
+### Algebra and entrance-exam fluency
 
-- [Advanced Algebra](advanced-algebra/index.qmd)
-- [Discrete Mathematics](discrete-mathematics/index.qmd)
-- [Linear Algebra](linear-algebra/index.qmd)
-- [Mathematical Computing with Python](mathematical-computing/index.qmd)
+[Advanced Algebra](advanced-algebra/index.qmd) develops exact manipulation,
+equations and inequalities, functions, polynomials, exponentials, logarithms,
+systems, modeling, trigonometry, proof, and demanding cumulative problem
+solving. It includes its own readiness diagnostic and targeted repair work.
 
-### Change and dynamical systems
+### Calculus and mathematical analysis preparation
 
-- [Differential Calculus](differential-calculus/index.qmd)
-- [Integral Calculus](integral-calculus/index.qmd)
-- [Differential Equations](differential-equations/index.qmd)
+Start with [Differential Calculus](differential-calculus/index.qmd) for limits,
+derivatives, optimization, and local change. Continue with
+[Integral Calculus](integral-calculus/index.qmd) for accumulation, the
+Fundamental Theorem of Calculus, applications, and integration methods.
 
-### Uncertainty and data
+### Structure, proof, and abstract reasoning
 
-- [Probability](probability/index.qmd)
-- [Statistics](statistics/index.qmd)
+[Linear Algebra](linear-algebra/index.qmd) studies vectors, matrices, systems,
+linear transformations, and eigenstructure. [Discrete Mathematics](discrete-mathematics/index.qmd)
+develops logic, sets, relations, induction, sequences, and graphs.
 
-### Integration
+### Probability, statistics, and data
 
-- [Cumulative Review and Practice](cumulative-review/index.qmd)
+[Probability](probability/index.qmd) develops uncertainty from sample spaces
+through random variables, distributions, expectation, and variance.
+[Statistics](statistics/index.qmd) develops sampling, estimation, hypothesis
+tests, group comparisons, chi-square methods, and regression foundations.
+
+### Modeling and scientific computation
+
+[Differential Equations](differential-equations/index.qmd) studies first-order
+models, linear and separable equations, slope fields, and systems.
+[Mathematical Computing with Python](mathematical-computing/index.qmd) builds
+reproducible numerical, symbolic, array, and plotting skills.
+
+### Mixed review and exam rehearsal
+
+[Cumulative Review and Practice](cumulative-review/index.qmd) is for learners
+who have already studied several subjects and need interleaved retrieval,
+method selection, comprehensive practice, and timed rehearsal.
+:::
+
+## Compare courses
+
+| Course | Best fit | Recommended background | Current scope |
+|---|---|---|---|
+| [Advanced Algebra](advanced-algebra/index.qmd) | Algebra exams, quantitative entrance preparation, calculus readiness | Arithmetic and elementary pre-algebra | Book-scale active course with readiness diagnostic |
+| [Discrete Mathematics](discrete-mathematics/index.qmd) | Proof, computer science, combinatorial reasoning | Advanced Algebra recommended | Logic, sets, functions, sequences, induction, graphs |
+| [Linear Algebra](linear-algebra/index.qmd) | Mathematics, data science, engineering, economics | Advanced Algebra recommended | Vectors through eigenvalues and eigenvectors |
+| [Differential Calculus](differential-calculus/index.qmd) | Calculus exams and quantitative degrees | Advanced Algebra recommended | Limits, derivatives, rules, optimization |
+| [Integral Calculus](integral-calculus/index.qmd) | Second calculus course and STEM exams | Differential Calculus recommended | Integrals, techniques, applications |
+| [Differential Equations](differential-equations/index.qmd) | Mathematical modeling, science, engineering | Linear and Integral Calculus recommended | First-order equations, slope fields, systems |
+| [Probability](probability/index.qmd) | Probability exams, statistics readiness, uncertainty | Advanced Algebra recommended | Counting through expectation and variance |
+| [Statistics](statistics/index.qmd) | Statistics exams and data analysis | Probability and Mathematical Computing recommended | Sampling through regression foundations |
+| [Mathematical Computing](mathematical-computing/index.qmd) | Python for mathematical work | No course prerequisite | Python, functions, NumPy, plotting |
+| [Cumulative Review](cumulative-review/index.qmd) | Mixed exams and comprehensive rehearsal | Prior study of all subjects included in the assessment | Interleaved and timed practice |
+
+## Decide where to begin
+
+1. Open the course matching the syllabus or exam specification you need.
+2. Compare its outcomes and prerequisites with what you can currently do without
+   notes.
+3. Use that course's readiness material when available. For Advanced Algebra,
+   begin with the [readiness diagnostic and repair lesson](advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd).
+4. If a prerequisite is weak, study only the relevant prerequisite course or
+   lesson, then return and reassess.
+5. Use cumulative and timed work only after untimed reasoning is dependable.
+
+::: {.callout-note}
+Course completion is not a credential or prediction of an exam result. Match
+your study to the current official syllabus for your examination, and use the
+course outcomes as a detailed mastery checklist.
 :::

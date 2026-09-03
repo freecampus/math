@@ -83,11 +83,7 @@ def validate_catalog(
             issues.append(ValidationIssue(version_name, "must be a positive integer"))
 
     courses = _mapping_list(catalog, "courses", issues)
-    pathways = _mapping_list(catalog, "pathways", issues)
     assessments = _mapping_list(catalog, "assessments", issues)
-    assessment_by_id = {
-        str(assessment.get("id", "")): assessment for assessment in assessments
-    }
     course_ids = [str(course.get("id", "")) for course in courses]
     _duplicates(course_ids, "courses", issues)
     course_id_set = set(course_ids)
@@ -298,71 +294,6 @@ def validate_catalog(
                 )
 
     _cycles(courses, issues)
-
-    for pathway in pathways:
-        pathway_id = str(pathway.get("id", ""))
-        location = f"pathway:{pathway_id or '<missing>'}"
-        _require_id(pathway_id, location, issues)
-        all_ids.append(pathway_id)
-        _status(pathway, location, issues)
-        _owned_file(pathway.get("file"), location, root, owned_files, issues)
-        for key in ("required_course_ids", "supporting_course_ids"):
-            for course_id in _string_list(pathway.get(key, []), location, issues):
-                if course_id not in course_id_set:
-                    issues.append(
-                        ValidationIssue(location, f"unknown course {course_id!r}")
-                    )
-        orientation = pathway.get("orientation_file")
-        if not isinstance(orientation, str) or not (root / orientation).is_file():
-            issues.append(ValidationIssue(location, "orientation_file does not exist"))
-        diagnostic_id = pathway.get("diagnostic_id")
-        if diagnostic_id not in assessment_by_id:
-            issues.append(ValidationIssue(location, "diagnostic_id is unknown"))
-        for assessment_id in _string_list(
-            pathway.get("assessment_ids", []), location, issues
-        ):
-            if assessment_id not in assessment_by_id:
-                issues.append(
-                    ValidationIssue(location, f"unknown assessment {assessment_id!r}")
-                )
-        if pathway.get("status") == "complete":
-            required = set(
-                _string_list(pathway.get("required_course_ids"), location, issues)
-            )
-            incomplete = [
-                course["id"]
-                for course in courses
-                if course.get("id") in required and course.get("status") != "complete"
-            ]
-            if incomplete:
-                issues.append(
-                    ValidationIssue(
-                        location, f"required courses are incomplete: {incomplete}"
-                    )
-                )
-            for key in ("diagnostic_id", "assessment_ids"):
-                if not pathway.get(key):
-                    issues.append(
-                        ValidationIssue(location, f"complete pathway requires {key}")
-                    )
-            referenced_assessments = [
-                diagnostic_id,
-                *_string_list(pathway.get("assessment_ids", []), location, issues),
-            ]
-            incomplete_assessments = [
-                assessment_id
-                for assessment_id in referenced_assessments
-                if assessment_id in assessment_by_id
-                and assessment_by_id[assessment_id].get("status") != "complete"
-            ]
-            if incomplete_assessments:
-                issues.append(
-                    ValidationIssue(
-                        location,
-                        "complete pathway has incomplete assessments: "
-                        f"{incomplete_assessments}",
-                    )
-                )
 
     for assessment in assessments:
         assessment_id = str(assessment.get("id", ""))

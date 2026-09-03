@@ -58,8 +58,8 @@ and normalized Python output.
 ```python
 from fcmath import load_quiz
 
-bank = load_quiz("docs/quizzes/pathway/diagnostic.yml")
-result = bank.check("diagnostic-algebra-equation", "6")
+bank = load_quiz("docs/quizzes/advanced-algebra/readiness-diagnostic.yml")
+result = bank.check("readiness-rational-01", "16")
 print(result.message)
 ```
 

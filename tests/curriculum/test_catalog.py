@@ -11,6 +11,13 @@ def test_repository_catalog_is_structurally_valid() -> None:
     assert validate_catalog(CATALOG, docs_root=ROOT / "docs") == ()
 
 
+def test_catalog_is_course_first() -> None:
+    catalog = json.loads(CATALOG.read_text())
+
+    assert "pathways" not in catalog
+    assert catalog["courses"]
+
+
 def test_validator_reports_duplicate_ids_and_prerequisite_cycles(
     tmp_path: Path,
 ) -> None:

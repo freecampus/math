@@ -1,6 +1,6 @@
 ---
 title: Mixed and Comprehensive Practice
-description: Integrate methods across the pathway and turn evidence into a focused review plan.
+description: Integrate methods across multiple courses and turn evidence into a focused review plan.
 page_type: unit
 ---
 

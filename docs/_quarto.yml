@@ -28,10 +28,8 @@ website:
     logo: assets/brand/logo.svg
     logo-alt: FreeCampus Math
     left:
-      - href: pathways/quantitative-mathematics/index.qmd
-        text: Start pathway
       - href: courses/index.qmd
-        text: Courses
+        text: Browse courses
       - href: resources/index.qmd
         text: Resources
       - href: about/index.qmd
@@ -46,13 +44,6 @@ website:
     collapse-level: 2
     contents:
       - index.qmd
-      - section: Mathematics for Quantitative Studies
-        contents:
-          - pathways/quantitative-mathematics/index.qmd
-          - pathways/quantitative-mathematics/start-here.qmd
-          - pathways/quantitative-mathematics/diagnostic.qmd
-          - pathways/quantitative-mathematics/course-sequence.qmd
-          - pathways/quantitative-mathematics/progress.qmd
       - section: Courses
         contents:
           - courses/index.qmd

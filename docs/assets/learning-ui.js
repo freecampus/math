@@ -160,13 +160,21 @@
 
   function allCourseItems() {
     if (!curriculum?.courses) return [];
+    const assessments = Object.fromEntries(
+      (curriculum.assessments || []).map((assessment) => [
+        assessment.id,
+        assessment,
+      ]),
+    );
     return curriculum.courses.map((course) => ({
       id: course.id,
       title: course.title,
-      items: course.units.flatMap((unit) => [
-        ...unit.lessons,
-        ...unit.challenges,
-      ]),
+      items: course.units.flatMap((unit) => {
+        const unitAssessments = (unit.assessment_ids || [])
+          .map((assessmentId) => assessments[assessmentId])
+          .filter(Boolean);
+        return [...unit.lessons, ...unit.challenges, ...unitAssessments];
+      }),
     }));
   }
 

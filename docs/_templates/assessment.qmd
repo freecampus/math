@@ -2,7 +2,7 @@
 title: "Assessment title"
 description: "What this diagnostic, cumulative, or comprehensive assessment measures."
 id: assessment-id
-pathway_id: quantitative-mathematics
+course_id: course-id
 page_type: assessment
 status: in-development
 estimated_time: "120 minutes"
@@ -37,7 +37,7 @@ internal model. Use stable IDs and explicit validation policies. Do not expose
 answers before checking in an interactive version.
 
 ```html
-<!-- Example: <fc-quiz data-source="../../quizzes/pathway/diagnostic.yml"></fc-quiz> -->
+<!-- Example: <fc-quiz data-source="../../quizzes/course-id/diagnostic.yml"></fc-quiz> -->
 ```
 
 ## Results and interpretation
@@ -55,4 +55,4 @@ assessment, place this after the attempt section and label feedback as deferred.
 
 ## Next step
 
-Link the recommended course sequence, targeted lessons, and cumulative practice.
+Link targeted course lessons, prerequisite repair, and cumulative practice.

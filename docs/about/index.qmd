@@ -12,5 +12,5 @@ interaction, reproducible computation, learner privacy, and candid course
 status. It claims no affiliation with a university, employer, or assessment.
 
 Package and contributor material is intentionally secondary to the learner
-pathway. See [Contributing](contributing.qmd) to improve lessons, validators,
+courses. See [Contributing](contributing.qmd) to improve lessons, validators,
 accessibility, or infrastructure.

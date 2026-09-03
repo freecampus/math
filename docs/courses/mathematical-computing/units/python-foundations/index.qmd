@@ -5,7 +5,7 @@ page_type: unit
 ---
 
 Computing is a mathematical instrument, not a replacement for reasoning. This
-unit builds the Python habits needed throughout the pathway: readable programs,
+unit builds Python habits reusable throughout mathematical study: readable programs,
 functions, arrays, plots, verification, and explicit interpretation.
 
 ## Unit outcomes

@@ -13,8 +13,8 @@ poetry install --extras "dev"
 
 ## Curriculum source of truth
 
-`docs/courses/_catalog.yml` owns stable pathway, course, unit, lesson,
-assessment, and outcome IDs. QMD files are canonical lesson sources. Do not edit
+`docs/courses/_catalog.yml` owns stable course, unit, lesson, assessment, and
+outcome IDs. QMD files are canonical lesson sources. Do not edit
 `docs/_quarto.yml`, generated manifests, or `notebooks/` by hand; update the
 catalog or QMD and run the generators.
 

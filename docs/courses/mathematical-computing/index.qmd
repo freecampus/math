@@ -21,7 +21,9 @@ and conclusions are interpreted rather than merely reported.
 
 ## Prerequisites
 
-No course prerequisite; use the pathway diagnostic to check readiness.
+No course prerequisite. You should be comfortable with arithmetic, elementary
+algebra, and reading mathematical notation; use the first unit's exercises to
+identify any skill that needs review.
 
 ## Units
 

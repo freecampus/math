@@ -1,26 +1,28 @@
 ---
 title: FreeCampus Math
-description: A proof-aware pathway for advanced quantitative and computational study.
+description: Rigorous, proof-aware mathematics courses for advanced study and demanding examinations.
 page_type: home
 listing: false
 ---
 
 ::: {.hero}
-## Learn mathematics as a connected way of reasoning
+## Choose the mathematics course you need
 
-Develop theory, manual problem-solving ability, computational fluency, and
-interpretive judgment across algebra, proof, linear algebra, calculus,
-differential equations, probability, statistics, and Python.
+Prepare for a demanding examination, repair a prerequisite, or study a subject
+in depth. Each course is independently navigable and combines precise theory,
+complete manual solutions, guided practice, cumulative review, and reproducible
+computation.
 
-[Start Mathematics for Quantitative Studies](pathways/quantitative-mathematics/start-here.qmd){.btn .btn-primary .btn-lg}
-[Take the diagnostic](pathways/quantitative-mathematics/diagnostic.qmd){.btn .btn-outline-primary .btn-lg}
+[Browse all courses](courses/index.qmd){.btn .btn-primary .btn-lg}
+[Begin Advanced Algebra](courses/advanced-algebra/index.qmd){.btn .btn-outline-primary .btn-lg}
 :::
 
-## One pathway, connected subject courses
+## Independent, university-level courses
 
-You can follow one recommended sequence or enter a subject course directly.
-Stable outcomes and prerequisites connect every course; QMD lessons provide the
-same full lesson material on the website and in generated Colab notebooks.
+Choose by topic or study goal. Every course publishes its own prerequisites,
+outcomes, units, readiness guidance, and current development status. Suggested
+prerequisites explain mathematical dependencies without forcing you through a
+single sequence.
 
 {{< include courses/_cards.qmd >}}
 
@@ -37,19 +39,22 @@ solutions show why each step follows, not only which operation to perform.
 You first build an auditable mathematical argument, then use SymPy, NumPy, and
 other appropriate tools to verify, explore, and scale the idea.
 
-### Practice retrieval and synthesis
+### Prepare for difficult problems
 
-Topic-specific checkpoints sit near the concepts they test. Unit challenges and
-cumulative mixed practice ask you to select methods independently.
+Guided exercises build technique; checkpoints, synthesis problems, and timed
+practice require you to select and justify methods without hints from a topic
+label.
 
 ### Keep control of your learning record
 
-Completion stays in your browser without an account. Export, import, or reset it
-at any time; raw answers and behavioral histories are not stored.
+Completion stays in your browser without an account. Raw answers and behavioral
+histories are not stored.
 :::
 
-## Continue where you left off
+## Continue your courses
 
-<div class="progress-dashboard" data-progress-summary="pathway" aria-live="polite">
+<div class="progress-dashboard" data-progress-summary="courses" aria-live="polite">
   <p>Enable JavaScript to see browser-local progress. All lessons remain available without it.</p>
 </div>
+
+[Study methods and progress controls](resources/study-guidance/index.qmd)

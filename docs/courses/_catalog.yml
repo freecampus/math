@@ -1,30 +1,6 @@
 {
   "schema_version": 1,
-  "curriculum_version": 2,
-  "pathways": [
-    {
-      "id": "quantitative-mathematics",
-      "title": "Mathematics for Quantitative Studies",
-      "description": "A proof-aware pathway joining theory, manual problem solving, computation, and interpretation.",
-      "status": "in-development",
-      "required_course_ids": [
-        "advanced-algebra",
-        "linear-algebra",
-        "differential-calculus",
-        "integral-calculus",
-        "differential-equations",
-        "discrete-mathematics",
-        "probability",
-        "statistics",
-        "mathematical-computing"
-      ],
-      "supporting_course_ids": ["cumulative-review"],
-      "orientation_file": "pathways/quantitative-mathematics/start-here.qmd",
-      "diagnostic_id": "quantitative-mathematics-diagnostic",
-      "assessment_ids": ["quantitative-mathematics-comprehensive"],
-      "file": "pathways/quantitative-mathematics/index.qmd"
-    }
-  ],
+  "curriculum_version": 3,
   "courses": [
     {
       "id": "advanced-algebra",
@@ -2404,7 +2380,7 @@
               "type": "assessment"
             }
           ],
-          "assessment_ids": ["quantitative-mathematics-comprehensive"],
+          "assessment_ids": ["cumulative-review-comprehensive-practice"],
           "item_count": 1
         }
       ],
@@ -2414,35 +2390,7 @@
   ],
   "assessments": [
     {
-      "id": "quantitative-mathematics-diagnostic",
-      "type": "diagnostic",
-      "file": "pathways/quantitative-mathematics/diagnostic.qmd",
-      "status": "in-development",
-      "outcome_ids": [
-        "advanced-algebra-outcome-3",
-        "advanced-algebra-outcome-1",
-        "linear-algebra-outcome-1",
-        "linear-algebra-outcome-3",
-        "differential-calculus-outcome-2",
-        "differential-calculus-outcome-1",
-        "integral-calculus-outcome-2",
-        "differential-equations-outcome-3",
-        "differential-equations-outcome-1",
-        "discrete-mathematics-outcome-1",
-        "discrete-mathematics-outcome-2",
-        "probability-outcome-2",
-        "probability-outcome-4",
-        "statistics-outcome-2",
-        "statistics-outcome-3",
-        "mathematical-computing-outcome-1",
-        "mathematical-computing-outcome-3"
-      ],
-      "estimated_minutes": 60,
-      "skill_modes": ["mixed"],
-      "quiz_file": "quizzes/pathway/diagnostic.yml"
-    },
-    {
-      "id": "quantitative-mathematics-comprehensive",
+      "id": "cumulative-review-comprehensive-practice",
       "type": "comprehensive",
       "file": "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd",
       "status": "in-development",

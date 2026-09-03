@@ -1,8 +1,37 @@
 ---
 title: Study guidance
-description: Evidence-informed routines for learning proof-aware, computational mathematics.
+description: Evidence-informed routines, complete-solution standards, and browser-local progress controls.
 page_type: resource
 ---
+
+## Use an active study cycle
+
+Reading mathematics without reconstructing arguments and solving problems
+produces familiarity, not durable fluency. For each lesson:
+
+1. **Recall prerequisites** without notes.
+2. **Read definitions precisely**, including domains and hypotheses.
+3. **Reproduce worked examples** with the solution hidden.
+4. **Solve guided and checkpoint exercises** on paper.
+5. **Use Python only after stating what you expect** and why.
+6. **Explain discrepancies** between manual and computational work.
+7. **Revisit errors** after a delay.
+
+## Write complete, auditable solutions
+
+When solving an equation or proving a claim, write enough that another learner
+can check every implication.
+
+1. State the unknowns, domain, and assumptions.
+2. Name the definition, identity, or theorem you will use.
+3. Transform one justified step at a time.
+4. Record excluded values and branch conditions as they arise.
+5. Verify candidate solutions in the original statement.
+6. Interpret the result, including units and limitations when relevant.
+
+An answer is not complete merely because its final value is correct. For exam
+preparation, practice producing this structure under realistic time constraints
+only after you can produce it reliably without a timer.
 
 ## Prefer retrieval to rereading
 
@@ -16,8 +45,51 @@ For each consequential error, record the prompt, your reasoning, the first
 invalid step, the underlying misconception, and a new problem that tests the
 same idea. Do not record only the correct answer.
 
+A useful classification is:
+
+- **conceptual:** a definition, theorem, or model was misunderstood;
+- **strategic:** the method selected did not fit the problem;
+- **procedural:** an otherwise valid method was executed incorrectly;
+- **representational:** symbolic, graphical, numerical, or verbal forms were
+  connected incorrectly;
+- **computational:** software, precision, code, or output was misused;
+- **communication:** a necessary hypothesis, justification, or interpretation
+  was omitted.
+
 ## Interleave after initial learning
 
 Blocked practice helps you learn a new method. Mixed practice teaches you to
 choose among methods. Use both, in that order, and revisit material over days
 rather than compressing all practice into one sitting.
+
+## Suggested weekly rhythm
+
+- **Three focused sessions:** theory, examples, and guided practice.
+- **One retrieval session:** mixed questions without notes.
+- **One computational session:** reproduce results and test edge cases.
+- **One short reflection:** update the error log and choose the next lesson.
+
+Adapt the proportions to your course and exam date, but retain spacing,
+retrieval, and error correction.
+
+## Progress stored in this browser
+
+Completion choices are private study bookmarks, not grades or evidence of
+mastery. FreeCampus Math stores no name, raw answer, detailed attempt history,
+or behavioral analytics. Clearing site data removes the record.
+
+<div class="progress-dashboard" data-progress-summary="courses" aria-live="polite">
+  <p>Progress will appear when JavaScript is available.</p>
+</div>
+
+<div class="progress-actions">
+  <button type="button" class="btn btn-secondary" data-progress-action="export">Export progress</button>
+  <label class="btn btn-secondary" for="progress-import">Import progress</label>
+  <input id="progress-import" type="file" accept="application/json" data-progress-action="import" hidden>
+  <button type="button" class="btn btn-outline-danger" data-progress-action="reset">Reset progress</button>
+</div>
+
+<div class="visually-hidden" role="status" data-progress-announcement></div>
+
+Use course outcomes, diagnostic work, cumulative exercises, and fresh problems
+to decide what to review; do not infer mastery from a completion percentage.

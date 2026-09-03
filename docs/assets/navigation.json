@@ -82,7 +82,7 @@
     },
     "advanced-algebra-trigonometry-applications": {
       "file": "courses/advanced-algebra/units/trigonometry/applications.qmd",
-      "next_id": "linear-algebra-foundations-vectors",
+      "next_id": null,
       "previous_id": "advanced-algebra-trigonometry-trig-equations"
     },
     "advanced-algebra-trigonometry-identities": {
@@ -115,10 +115,15 @@
       "next_id": "advanced-algebra-trigonometry-sine-cosine",
       "previous_id": "advanced-algebra-trigonometry-radians-and-degrees"
     },
+    "cumulative-review-comprehensive-practice": {
+      "file": "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd",
+      "next_id": null,
+      "previous_id": "cumulative-review-mixed-practice-timed-practice"
+    },
     "cumulative-review-mixed-practice-timed-practice": {
       "file": "courses/cumulative-review/units/mixed-practice/timed-practice.qmd",
-      "next_id": "quantitative-mathematics-comprehensive",
-      "previous_id": "mathematical-computing-python-foundations-plotting"
+      "next_id": "cumulative-review-comprehensive-practice",
+      "previous_id": null
     },
     "differential-calculus-differentiation-derivative-rules": {
       "file": "courses/differential-calculus/units/differentiation/derivative-rules.qmd",
@@ -133,17 +138,17 @@
     "differential-calculus-differentiation-limits": {
       "file": "courses/differential-calculus/units/differentiation/limits.qmd",
       "next_id": "differential-calculus-differentiation-derivatives",
-      "previous_id": "linear-algebra-foundations-eigenvalues-eigenvectors"
+      "previous_id": null
     },
     "differential-calculus-differentiation-optimization": {
       "file": "courses/differential-calculus/units/differentiation/optimization.qmd",
-      "next_id": "integral-calculus-integration-integrals",
+      "next_id": null,
       "previous_id": "differential-calculus-differentiation-derivative-rules"
     },
     "differential-equations-ordinary-differential-equations-first-order-equations": {
       "file": "courses/differential-equations/units/ordinary-differential-equations/first-order-equations.qmd",
       "next_id": "differential-equations-ordinary-differential-equations-separable-equations",
-      "previous_id": "integral-calculus-integration-applications"
+      "previous_id": null
     },
     "differential-equations-ordinary-differential-equations-linear-equations": {
       "file": "courses/differential-equations/units/ordinary-differential-equations/linear-equations.qmd",
@@ -162,7 +167,7 @@
     },
     "differential-equations-ordinary-differential-equations-systems": {
       "file": "courses/differential-equations/units/ordinary-differential-equations/systems.qmd",
-      "next_id": "discrete-mathematics-foundations-logic",
+      "next_id": null,
       "previous_id": "differential-equations-ordinary-differential-equations-slope-fields"
     },
     "discrete-mathematics-foundations-functions-relations": {
@@ -172,7 +177,7 @@
     },
     "discrete-mathematics-foundations-graphs": {
       "file": "courses/discrete-mathematics/units/foundations/graphs.qmd",
-      "next_id": "probability-foundations-sample-spaces-events",
+      "next_id": null,
       "previous_id": "discrete-mathematics-foundations-induction"
     },
     "discrete-mathematics-foundations-induction": {
@@ -183,7 +188,7 @@
     "discrete-mathematics-foundations-logic": {
       "file": "courses/discrete-mathematics/units/foundations/logic.qmd",
       "next_id": "discrete-mathematics-foundations-sets",
-      "previous_id": "differential-equations-ordinary-differential-equations-systems"
+      "previous_id": null
     },
     "discrete-mathematics-foundations-sequences": {
       "file": "courses/discrete-mathematics/units/foundations/sequences.qmd",
@@ -197,13 +202,13 @@
     },
     "integral-calculus-integration-applications": {
       "file": "courses/integral-calculus/units/integration/applications.qmd",
-      "next_id": "differential-equations-ordinary-differential-equations-first-order-equations",
+      "next_id": null,
       "previous_id": "integral-calculus-integration-integration-techniques"
     },
     "integral-calculus-integration-integrals": {
       "file": "courses/integral-calculus/units/integration/integrals.qmd",
       "next_id": "integral-calculus-integration-integration-techniques",
-      "previous_id": "differential-calculus-differentiation-optimization"
+      "previous_id": null
     },
     "integral-calculus-integration-integration-techniques": {
       "file": "courses/integral-calculus/units/integration/integration-techniques.qmd",
@@ -212,7 +217,7 @@
     },
     "linear-algebra-foundations-eigenvalues-eigenvectors": {
       "file": "courses/linear-algebra/units/foundations/eigenvalues-eigenvectors.qmd",
-      "next_id": "differential-calculus-differentiation-limits",
+      "next_id": null,
       "previous_id": "linear-algebra-foundations-linear-transformations"
     },
     "linear-algebra-foundations-linear-transformations": {
@@ -238,12 +243,12 @@
     "linear-algebra-foundations-vectors": {
       "file": "courses/linear-algebra/units/foundations/vectors.qmd",
       "next_id": "linear-algebra-foundations-matrices",
-      "previous_id": "advanced-algebra-trigonometry-applications"
+      "previous_id": null
     },
     "mathematical-computing-python-foundations-basics": {
       "file": "courses/mathematical-computing/units/python-foundations/basics.qmd",
       "next_id": "mathematical-computing-python-foundations-functions-and-control-flow",
-      "previous_id": "statistics-foundations-statistics-cumulative-review"
+      "previous_id": null
     },
     "mathematical-computing-python-foundations-functions-and-control-flow": {
       "file": "courses/mathematical-computing/units/python-foundations/functions-and-control-flow.qmd",
@@ -257,7 +262,7 @@
     },
     "mathematical-computing-python-foundations-plotting": {
       "file": "courses/mathematical-computing/units/python-foundations/plotting.qmd",
-      "next_id": "cumulative-review-mixed-practice-timed-practice",
+      "next_id": null,
       "previous_id": "mathematical-computing-python-foundations-numpy-and-arrays"
     },
     "probability-foundations-common-distributions": {
@@ -277,7 +282,7 @@
     },
     "probability-foundations-expectation-variance": {
       "file": "courses/probability/units/foundations/expectation-variance.qmd",
-      "next_id": "statistics-foundations-descriptive-statistics",
+      "next_id": null,
       "previous_id": "probability-foundations-common-distributions"
     },
     "probability-foundations-random-variables": {
@@ -288,12 +293,7 @@
     "probability-foundations-sample-spaces-events": {
       "file": "courses/probability/units/foundations/sample-spaces-events.qmd",
       "next_id": "probability-foundations-counting",
-      "previous_id": "discrete-mathematics-foundations-graphs"
-    },
-    "quantitative-mathematics-comprehensive": {
-      "file": "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd",
-      "next_id": null,
-      "previous_id": "cumulative-review-mixed-practice-timed-practice"
+      "previous_id": null
     },
     "statistics-foundations-chi-square-tests": {
       "file": "courses/statistics/units/foundations/chi-square-tests.qmd",
@@ -308,7 +308,7 @@
     "statistics-foundations-descriptive-statistics": {
       "file": "courses/statistics/units/foundations/descriptive-statistics.qmd",
       "next_id": "statistics-foundations-sampling",
-      "previous_id": "probability-foundations-expectation-variance"
+      "previous_id": null
     },
     "statistics-foundations-estimation": {
       "file": "courses/statistics/units/foundations/estimation.qmd",
@@ -342,7 +342,7 @@
     },
     "statistics-foundations-statistics-cumulative-review": {
       "file": "courses/statistics/units/foundations/statistics-cumulative-review.qmd",
-      "next_id": "mathematical-computing-python-foundations-basics",
+      "next_id": null,
       "previous_id": "statistics-foundations-regression-basics"
     }
   },

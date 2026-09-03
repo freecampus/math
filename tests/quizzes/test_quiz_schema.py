@@ -9,17 +9,19 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_diagnostic_bank_loads_and_checks_with_shared_model() -> None:
-    bank = load_quiz(ROOT / "docs/quizzes/pathway/diagnostic.yml")
+    bank = load_quiz(ROOT / "docs/quizzes/advanced-algebra/readiness-diagnostic.yml")
 
-    assert bank.id == "quantitative-mathematics-diagnostic"
-    assert len(bank.questions) == 18
-    assert bank.check("diagnostic-algebra-equation", "6").correct
-    assert bank.check("diagnostic-algebra-domain", ["b", "a"]).correct
-    assert bank.check("diagnostic-calculus-derivative", "3*x*x - 4").correct
+    assert bank.id == "advanced-algebra-readiness-diagnostic"
+    assert len(bank.questions) == 24
+    assert bank.check("readiness-rational-01", "16").correct
+    assert bank.check("readiness-rational-02", "a").correct
+    assert bank.check("readiness-powers-01", "b").correct
 
 
 def test_schema_requires_explanations_and_learning_outcomes() -> None:
-    data = json.loads((ROOT / "docs/quizzes/pathway/diagnostic.yml").read_text())
+    data = json.loads(
+        (ROOT / "docs/quizzes/advanced-algebra/readiness-diagnostic.yml").read_text()
+    )
     del data["questions"][0]["explanation"]
 
     with pytest.raises(ValueError, match="explanation"):
@@ -27,7 +29,9 @@ def test_schema_requires_explanations_and_learning_outcomes() -> None:
 
 
 def test_numeric_schema_requires_explicit_tolerances() -> None:
-    data = json.loads((ROOT / "docs/quizzes/pathway/diagnostic.yml").read_text())
+    data = json.loads(
+        (ROOT / "docs/quizzes/advanced-algebra/readiness-diagnostic.yml").read_text()
+    )
     del data["questions"][0]["validation"]["absolute_tolerance"]
 
     with pytest.raises(ValueError, match="both tolerances"):
@@ -35,7 +39,9 @@ def test_numeric_schema_requires_explicit_tolerances() -> None:
 
 
 def test_schema_rejects_duplicate_question_ids() -> None:
-    data = json.loads((ROOT / "docs/quizzes/pathway/diagnostic.yml").read_text())
+    data = json.loads(
+        (ROOT / "docs/quizzes/advanced-algebra/readiness-diagnostic.yml").read_text()
+    )
     data["questions"][1]["id"] = data["questions"][0]["id"]
 
     with pytest.raises(ValueError, match="unique"):
@@ -43,7 +49,9 @@ def test_schema_rejects_duplicate_question_ids() -> None:
 
 
 def test_schema_rejects_invalid_ids_modes_and_type_policy_pairs() -> None:
-    source = (ROOT / "docs/quizzes/pathway/diagnostic.yml").read_text()
+    source = (
+        ROOT / "docs/quizzes/advanced-algebra/readiness-diagnostic.yml"
+    ).read_text()
 
     invalid_id = json.loads(source)
     invalid_id["questions"][0]["id"] = "Not stable"
