@@ -135,3 +135,11 @@ def test_progress_script_uses_versioned_local_completion_only() -> None:
     assert "localStorage" in script
     assert "rawAnswer" not in script
     assert "analytics" not in script.lower()
+
+
+def test_site_does_not_force_project_links_into_new_tabs() -> None:
+    quarto = (ROOT / "docs/_quarto.yml").read_text()
+    generator = (ROOT / "scripts/generate_navigation.py").read_text()
+
+    assert "link-external-newwindow" not in quarto
+    assert "link-external-newwindow" not in generator

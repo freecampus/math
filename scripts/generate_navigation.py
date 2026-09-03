@@ -232,7 +232,6 @@ format:
     code-copy: true
     code-overflow: wrap
     anchor-sections: true
-    link-external-newwindow: true
 
 execute:
   freeze: false
