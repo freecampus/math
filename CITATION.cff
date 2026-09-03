@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use FreeCampus Math in your work, please cite this software."
 type: software
 title: "FreeCampus Math"
-version: "0.1.0" # semantic-release
+version: "0.4.5" # semantic-release
 authors:
   - name: "FreeCampus contributors"
 abstract: "Proof-aware mathematics curriculum and reusable Python learning tools."

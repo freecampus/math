@@ -1,4 +1,15 @@
 # Release Notes
+---
+
+## [0.4.5](https://github.com/freecampus/math/compare/0.4.4...0.4.5) (2026-09-03)
+
+
+### Bug Fixes
+
+* Fix ci workflows ([#4](https://github.com/freecampus/math/issues/4)) ([5fe889c](https://github.com/freecampus/math/commit/5fe889cd25766ccd8e16bd83de0fe41602fb25e2))
+* Fix initial infra ([#3](https://github.com/freecampus/math/issues/3)) ([b591224](https://github.com/freecampus/math/commit/b5912243f56bd9ebdc92e816db608c15a8268496))
+
+# Release Notes
 
 ## 0.1.0 — modernization baseline
 
