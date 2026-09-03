@@ -1,0 +1,92 @@
+fc-quiz {
+  display: block;
+  max-width: var(--fc-wide);
+  margin-block: var(--fc-space-5);
+}
+.fc-quiz {
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  box-shadow: var(--fc-shadow);
+  overflow: hidden;
+}
+.fc-quiz > header,
+.fc-quiz > form,
+.fc-quiz > .quiz-feedback,
+.fc-quiz > .quiz-score {
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+.fc-quiz > header {
+  padding-block: var(--fc-space-4);
+  background: var(--fc-surface-soft);
+}
+.fc-quiz form {
+  padding-block: var(--fc-space-4);
+}
+.fc-quiz fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.fc-quiz legend {
+  float: none;
+  width: auto;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: var(--fc-space-3);
+}
+.quiz-eyebrow {
+  color: var(--fc-accent);
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+.quiz-options {
+  display: grid;
+  gap: var(--fc-space-2);
+}
+.quiz-options label {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  align-items: start;
+  gap: var(--fc-space-2);
+  padding: 0.8rem;
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  cursor: pointer;
+}
+.quiz-options label:has(input:checked) {
+  border-color: var(--fc-primary);
+  background: color-mix(in srgb, var(--fc-primary) 9%, var(--fc-surface));
+}
+.quiz-text-answer {
+  display: grid;
+  gap: var(--fc-space-2);
+}
+.quiz-text-answer input {
+  width: min(100%, 34rem);
+  padding-inline: 0.75rem;
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+}
+.quiz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--fc-space-2);
+  margin-top: var(--fc-space-4);
+}
+.quiz-feedback > div {
+  border-inline-start: 0.35rem solid;
+  padding: var(--fc-space-2) var(--fc-space-3);
+}
+.quiz-feedback .is-correct {
+  border-color: var(--fc-success);
+}
+.quiz-feedback .is-incorrect {
+  border-color: var(--fc-danger);
+}
+.quiz-score {
+  color: var(--fc-muted);
+  padding-block: var(--fc-space-3);
+}

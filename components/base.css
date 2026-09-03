@@ -1,0 +1,82 @@
+html {
+  scroll-padding-top: 5.25rem;
+}
+body {
+  color: var(--fc-ink);
+  background: var(--fc-surface);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+main.content {
+  line-height: 1.68;
+}
+main.content
+  > *:not(.column-screen):not(.column-page):not(.column-body-outset) {
+  max-width: var(--fc-reading);
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--fc-ink);
+  line-height: 1.22;
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+a {
+  text-underline-offset: 0.16em;
+}
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  inset-block-start: var(--fc-space-2);
+  inset-inline-start: var(--fc-space-2);
+  padding: var(--fc-space-2) var(--fc-space-3);
+  color: var(--fc-ink);
+  background: var(--fc-surface);
+  border: 2px solid var(--fc-focus);
+  border-radius: var(--fc-radius);
+  transform: translateY(-150%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 0.2rem solid var(--fc-focus);
+  outline-offset: 0.2rem;
+}
+button,
+.btn,
+input,
+select {
+  min-height: 2.75rem;
+}
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--fc-space-3);
+  max-width: var(--fc-wide) !important;
+}
+.course-grid > section,
+.course-grid > div {
+  padding: var(--fc-space-3);
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  background: var(--fc-surface-soft);
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

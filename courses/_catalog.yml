@@ -1,0 +1,2333 @@
+{
+  "schema_version": 1,
+  "curriculum_version": 1,
+  "pathways": [
+    {
+      "id": "quantitative-mathematics",
+      "title": "Mathematics for Quantitative Studies",
+      "description": "A proof-aware pathway joining theory, manual problem solving, computation, and interpretation.",
+      "status": "in-development",
+      "required_course_ids": [
+        "advanced-algebra",
+        "linear-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "discrete-mathematics",
+        "probability",
+        "statistics",
+        "mathematical-computing"
+      ],
+      "supporting_course_ids": ["cumulative-review"],
+      "orientation_file": "pathways/quantitative-mathematics/start-here.qmd",
+      "diagnostic_id": "quantitative-mathematics-diagnostic",
+      "assessment_ids": ["quantitative-mathematics-comprehensive"],
+      "file": "pathways/quantitative-mathematics/index.qmd"
+    }
+  ],
+  "courses": [
+    {
+      "id": "advanced-algebra",
+      "title": "Advanced Algebra",
+      "description": "Structural algebra, functions, trigonometry, modeling, and symbolic reasoning.",
+      "status": "active",
+      "prerequisite_ids": [],
+      "outcomes": [
+        {
+          "id": "advanced-algebra-outcome-1",
+          "description": "Transform algebraic expressions while preserving domains and equivalence."
+        },
+        {
+          "id": "advanced-algebra-outcome-2",
+          "description": "Analyze functions through symbolic, graphical, numerical, and inverse viewpoints."
+        },
+        {
+          "id": "advanced-algebra-outcome-3",
+          "description": "Solve equations, inequalities, and systems and justify each transformation."
+        },
+        {
+          "id": "advanced-algebra-outcome-4",
+          "description": "Use trigonometric representations and identities in exact and applied reasoning."
+        },
+        {
+          "id": "advanced-algebra-outcome-5",
+          "description": "Construct, critique, and verify algebraic models with appropriate computational tools."
+        }
+      ],
+      "units": [
+        {
+          "id": "algebra",
+          "title": "Algebraic Structures and Functions",
+          "number": 1,
+          "directory": "courses/advanced-algebra/units/algebra",
+          "overview": "courses/advanced-algebra/units/algebra/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Transform algebraic expressions while preserving domains and equivalence.",
+            "Analyze functions through symbolic, graphical, numerical, and inverse viewpoints.",
+            "Solve equations, inequalities, and systems and justify each transformation.",
+            "Use trigonometric representations and identities in exact and applied reasoning.",
+            "Construct, critique, and verify algebraic models with appropriate computational tools."
+          ],
+          "lessons": [
+            {
+              "id": "advanced-algebra-algebra-expressions-and-equations",
+              "title": "Expressions and Equations",
+              "description": "Build symbolic fluency with expressions, identities, equations, and solution sets.",
+              "file": "courses/advanced-algebra/units/algebra/expressions-and-equations.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 120,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-3"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-inequalities-and-absolute-value",
+              "title": "Inequalities and Absolute Value",
+              "description": "Understand solution sets, intervals, constraints, and absolute value as distance.",
+              "file": "courses/advanced-algebra/units/algebra/inequalities-and-absolute-value.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 110,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-3"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-functions-and-graphs",
+              "title": "Functions and Graphs",
+              "description": "Understand functions as mappings and connect formulas, tables, graphs, and rates of change.",
+              "file": "courses/advanced-algebra/units/algebra/functions-and-graphs.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 105,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["advanced-algebra-outcome-2"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-transformations-composition-inverses",
+              "title": "Transformations, Composition, and Inverses",
+              "description": "Learn how functions move, combine, compose, and reverse.",
+              "file": "courses/advanced-algebra/units/algebra/transformations-composition-inverses.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 110,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["advanced-algebra-outcome-2"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-linear-and-quadratic-functions",
+              "title": "Linear and Quadratic Functions",
+              "description": "Study constant-rate and curved models through slope, intercepts, roots, vertices, and parameters.",
+              "file": "courses/advanced-algebra/units/algebra/linear-and-quadratic-functions.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 110,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-5"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-polynomials",
+              "title": "Polynomials",
+              "description": "Understand polynomial structure, roots, multiplicity, end behavior, and graph interpretation.",
+              "file": "courses/advanced-algebra/units/algebra/polynomials.qmd",
+              "order": 6,
+              "status": "active",
+              "estimated_minutes": 100,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-3"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-rational-and-radical-functions",
+              "title": "Rational and Radical Functions",
+              "description": "Learn domains, simplification, equations, graphs, asymptotes, and radicals.",
+              "file": "courses/advanced-algebra/units/algebra/rational-and-radical-functions.qmd",
+              "order": 7,
+              "status": "active",
+              "estimated_minutes": 95,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-3"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-exponentials-and-logarithms",
+              "title": "Exponentials and Logarithms",
+              "description": "Learn exponential growth, decay, logarithms, equations, and models.",
+              "file": "courses/advanced-algebra/units/algebra/exponentials-and-logarithms.qmd",
+              "order": 8,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-5"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-systems-of-equations",
+              "title": "Systems of Equations",
+              "description": "Solve simultaneous constraints by graphing, substitution, elimination, and checking.",
+              "file": "courses/advanced-algebra/units/algebra/systems-of-equations.qmd",
+              "order": 9,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-5"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-algebraic-modeling",
+              "title": "Algebraic Modeling",
+              "description": "Translate real situations into algebraic models and interpret results.",
+              "file": "courses/advanced-algebra/units/algebra/algebraic-modeling.qmd",
+              "order": 10,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["advanced-algebra-outcome-5"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-symbolic-computation-with-sympy",
+              "title": "Symbolic Computation with SymPy",
+              "description": "Use SymPy to check algebra, solve equations, inspect domains, and explore responsibly.",
+              "file": "courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.qmd",
+              "order": 11,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-5"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-algebra-guessing-quiz",
+              "title": "Guessing Quiz",
+              "description": "Interactive algebra guessing quiz.",
+              "file": "courses/advanced-algebra/units/algebra/guessing_quiz.qmd",
+              "order": 12,
+              "status": "active",
+              "estimated_minutes": 35,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-3"
+              ],
+              "computational_dependencies": ["fcmath"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": false,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [
+            {
+              "id": "advanced-algebra-algebra-cumulative-review",
+              "title": "College Algebra Cumulative Review",
+              "description": "Integrate algebra skills through mixed practice, diagnostics, and strategy.",
+              "file": "courses/advanced-algebra/units/algebra/cumulative-review.qmd",
+              "order": 13,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-5"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "challenge"
+            }
+          ],
+          "item_count": 13
+        },
+        {
+          "id": "trigonometry",
+          "title": "Trigonometry and Periodic Structure",
+          "number": 2,
+          "directory": "courses/advanced-algebra/units/trigonometry",
+          "overview": "courses/advanced-algebra/units/trigonometry/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Transform algebraic expressions while preserving domains and equivalence.",
+            "Analyze functions through symbolic, graphical, numerical, and inverse viewpoints.",
+            "Solve equations, inequalities, and systems and justify each transformation.",
+            "Use trigonometric representations and identities in exact and applied reasoning.",
+            "Construct, critique, and verify algebraic models with appropriate computational tools."
+          ],
+          "lessons": [
+            {
+              "id": "advanced-algebra-trigonometry-radians-and-degrees",
+              "title": "Radians and Degrees",
+              "description": "Angle measure, full turns, coterminal angles, and reference angles.",
+              "file": "courses/advanced-algebra/units/trigonometry/radians-and-degrees.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["advanced-algebra-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-trigonometry-unit-circle",
+              "title": "The Unit Circle",
+              "description": "Sine, cosine, tangent, quadrants, signs, and reference angles on the unit circle.",
+              "file": "courses/advanced-algebra/units/trigonometry/unit-circle.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-trigonometry-sine-cosine",
+              "title": "Sine and Cosine",
+              "description": "Sine and cosine as unit-circle coordinates and right-triangle ratios.",
+              "file": "courses/advanced-algebra/units/trigonometry/sine-cosine.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": ["advanced-algebra-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-trigonometry-trig-functions-and-graphs",
+              "title": "Trigonometric Functions and Graphs",
+              "description": "Sine, cosine, amplitude, period, midline, phase shift, and transformations.",
+              "file": "courses/advanced-algebra/units/trigonometry/trig-functions-and-graphs.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-2",
+                "advanced-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-trigonometry-identities",
+              "title": "Trigonometric Identities",
+              "description": "Pythagorean, quotient, reciprocal, and algebraic trig identities.",
+              "file": "courses/advanced-algebra/units/trigonometry/identities.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": ["advanced-algebra-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-trigonometry-trig-equations",
+              "title": "Trigonometric Equations",
+              "description": "Solve sine, cosine, and tangent equations with the unit circle and periodicity.",
+              "file": "courses/advanced-algebra/units/trigonometry/trig-equations.qmd",
+              "order": 6,
+              "status": "active",
+              "estimated_minutes": 90,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-trigonometry-applications",
+              "title": "Applications of Trigonometry",
+              "description": "Use trigonometry for right triangles, height and distance problems, components, and periodic models.",
+              "file": "courses/advanced-algebra/units/trigonometry/applications.qmd",
+              "order": 7,
+              "status": "active",
+              "estimated_minutes": 80,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-4",
+                "advanced-algebra-outcome-5"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 7
+        }
+      ],
+      "item_count": 20,
+      "file": "courses/advanced-algebra/index.qmd"
+    },
+    {
+      "id": "linear-algebra",
+      "title": "Linear Algebra",
+      "description": "Vector spaces, matrix methods, linear maps, and spectral structure.",
+      "status": "active",
+      "prerequisite_ids": ["advanced-algebra"],
+      "outcomes": [
+        {
+          "id": "linear-algebra-outcome-1",
+          "description": "Represent and reason about vectors, matrices, systems, and linear transformations."
+        },
+        {
+          "id": "linear-algebra-outcome-2",
+          "description": "Distinguish computation from the structural claims that make an algorithm valid."
+        },
+        {
+          "id": "linear-algebra-outcome-3",
+          "description": "Interpret rank, independence, bases, eigenvalues, and eigenvectors geometrically."
+        },
+        {
+          "id": "linear-algebra-outcome-4",
+          "description": "Verify exact calculations with SymPy and numerical calculations with NumPy."
+        }
+      ],
+      "units": [
+        {
+          "id": "foundations",
+          "title": "Vectors, Matrices, and Linear Maps",
+          "number": 1,
+          "directory": "courses/linear-algebra/units/foundations",
+          "overview": "courses/linear-algebra/units/foundations/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Represent and reason about vectors, matrices, systems, and linear transformations.",
+            "Distinguish computation from the structural claims that make an algorithm valid.",
+            "Interpret rank, independence, bases, eigenvalues, and eigenvectors geometrically.",
+            "Verify exact calculations with SymPy and numerical calculations with NumPy."
+          ],
+          "lessons": [
+            {
+              "id": "linear-algebra-foundations-vectors",
+              "title": "Vectors",
+              "description": "Vectors as quantities with magnitude, direction, and coordinates.",
+              "file": "courses/linear-algebra/units/foundations/vectors.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "linear-algebra-outcome-1",
+                "linear-algebra-outcome-2",
+                "linear-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy", "numpy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "linear-algebra-foundations-matrices",
+              "title": "Matrices",
+              "description": "Matrices as rectangular arrays for data, systems, and transformations.",
+              "file": "courses/linear-algebra/units/foundations/matrices.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "linear-algebra-outcome-1",
+                "linear-algebra-outcome-2",
+                "linear-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "linear-algebra-foundations-matrix-operations",
+              "title": "Matrix Operations",
+              "description": "Addition, scalar multiplication, matrix-vector products, and dimension checks.",
+              "file": "courses/linear-algebra/units/foundations/matrix-operations.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "linear-algebra-outcome-1",
+                "linear-algebra-outcome-2",
+                "linear-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy", "numpy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "linear-algebra-foundations-systems-and-elimination",
+              "title": "Systems and Elimination",
+              "description": "Solve linear systems with equations, row operations, and matrix notation.",
+              "file": "courses/linear-algebra/units/foundations/systems-and-elimination.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "linear-algebra-outcome-1",
+                "linear-algebra-outcome-2",
+                "linear-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "linear-algebra-foundations-linear-transformations",
+              "title": "Linear Transformations",
+              "description": "Matrices as functions that move vectors while preserving linear structure.",
+              "file": "courses/linear-algebra/units/foundations/linear-transformations.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "linear-algebra-outcome-1",
+                "linear-algebra-outcome-3",
+                "linear-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy", "matplotlib"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "linear-algebra-foundations-eigenvalues-eigenvectors",
+              "title": "Eigenvalues and Eigenvectors",
+              "description": "Special directions that are only scaled by a matrix transformation.",
+              "file": "courses/linear-algebra/units/foundations/eigenvalues-eigenvectors.qmd",
+              "order": 6,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "linear-algebra-outcome-1",
+                "linear-algebra-outcome-3",
+                "linear-algebra-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 6
+        }
+      ],
+      "item_count": 6,
+      "file": "courses/linear-algebra/index.qmd"
+    },
+    {
+      "id": "differential-calculus",
+      "title": "Differential Calculus",
+      "description": "Limits, derivatives, approximation, optimization, and rigorous local reasoning.",
+      "status": "active",
+      "prerequisite_ids": ["advanced-algebra"],
+      "outcomes": [
+        {
+          "id": "differential-calculus-outcome-1",
+          "description": "Use limits to analyze local behavior and state when limit laws apply."
+        },
+        {
+          "id": "differential-calculus-outcome-2",
+          "description": "Derive and interpret derivatives from definitions, rules, and approximations."
+        },
+        {
+          "id": "differential-calculus-outcome-3",
+          "description": "Connect differentiability to graphs, models, error, and optimization."
+        },
+        {
+          "id": "differential-calculus-outcome-4",
+          "description": "Check symbolic results and investigate edge cases computationally."
+        }
+      ],
+      "units": [
+        {
+          "id": "differentiation",
+          "title": "Limits and Differentiation",
+          "number": 1,
+          "directory": "courses/differential-calculus/units/differentiation",
+          "overview": "courses/differential-calculus/units/differentiation/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Use limits to analyze local behavior and state when limit laws apply.",
+            "Derive and interpret derivatives from definitions, rules, and approximations.",
+            "Connect differentiability to graphs, models, error, and optimization.",
+            "Check symbolic results and investigate edge cases computationally."
+          ],
+          "lessons": [
+            {
+              "id": "differential-calculus-differentiation-limits",
+              "title": "Limits",
+              "description": "Understand limits as nearby behavior and learn step-by-step limit workflows.",
+              "file": "courses/differential-calculus/units/differentiation/limits.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 80,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-calculus-outcome-1",
+                "differential-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-calculus-differentiation-derivatives",
+              "title": "Derivatives",
+              "description": "Understand derivatives as slopes, tangent lines, and instantaneous rates of change.",
+              "file": "courses/differential-calculus/units/differentiation/derivatives.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-calculus-outcome-2",
+                "differential-calculus-outcome-3",
+                "differential-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-calculus-differentiation-derivative-rules",
+              "title": "Derivative Rules",
+              "description": "Learn power, product, quotient, and chain rules as reusable rate patterns.",
+              "file": "courses/differential-calculus/units/differentiation/derivative-rules.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "differential-calculus-outcome-2",
+                "differential-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-calculus-differentiation-optimization",
+              "title": "Optimization",
+              "description": "Use derivatives to find and interpret maximum and minimum values.",
+              "file": "courses/differential-calculus/units/differentiation/optimization.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-calculus-outcome-2",
+                "differential-calculus-outcome-3",
+                "differential-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 4
+        }
+      ],
+      "item_count": 4,
+      "file": "courses/differential-calculus/index.qmd"
+    },
+    {
+      "id": "integral-calculus",
+      "title": "Integral Calculus",
+      "description": "Accumulation, the Fundamental Theorem, techniques, and applications.",
+      "status": "active",
+      "prerequisite_ids": ["differential-calculus"],
+      "outcomes": [
+        {
+          "id": "integral-calculus-outcome-1",
+          "description": "Interpret definite integrals as signed accumulation and limits of sums."
+        },
+        {
+          "id": "integral-calculus-outcome-2",
+          "description": "Use the Fundamental Theorem of Calculus with its hypotheses visible."
+        },
+        {
+          "id": "integral-calculus-outcome-3",
+          "description": "Select, execute, and verify integration techniques."
+        },
+        {
+          "id": "integral-calculus-outcome-4",
+          "description": "Model geometric and quantitative accumulation and analyze approximation error."
+        }
+      ],
+      "units": [
+        {
+          "id": "integration",
+          "title": "Integration and Accumulation",
+          "number": 1,
+          "directory": "courses/integral-calculus/units/integration",
+          "overview": "courses/integral-calculus/units/integration/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Interpret definite integrals as signed accumulation and limits of sums.",
+            "Use the Fundamental Theorem of Calculus with its hypotheses visible.",
+            "Select, execute, and verify integration techniques.",
+            "Model geometric and quantitative accumulation and analyze approximation error."
+          ],
+          "lessons": [
+            {
+              "id": "integral-calculus-integration-integrals",
+              "title": "Integrals",
+              "description": "Interpret integrals as accumulation, signed area, and antiderivatives.",
+              "file": "courses/integral-calculus/units/integration/integrals.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "integral-calculus-outcome-1",
+                "integral-calculus-outcome-2",
+                "integral-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "integral-calculus-integration-integration-techniques",
+              "title": "Integration Techniques",
+              "description": "Choose substitution, parts, simplification, or numerical approximation.",
+              "file": "courses/integral-calculus/units/integration/integration-techniques.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "integral-calculus-outcome-2",
+                "integral-calculus-outcome-3",
+                "integral-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "integral-calculus-integration-applications",
+              "title": "Calculus Applications",
+              "description": "Use derivatives, integrals, optimization, and units in modeling contexts.",
+              "file": "courses/integral-calculus/units/integration/applications.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "integral-calculus-outcome-1",
+                "integral-calculus-outcome-2",
+                "integral-calculus-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 3
+        }
+      ],
+      "item_count": 3,
+      "file": "courses/integral-calculus/index.qmd"
+    },
+    {
+      "id": "differential-equations",
+      "title": "Differential Equations",
+      "description": "Qualitative, symbolic, and numerical analysis of dynamical models.",
+      "status": "active",
+      "prerequisite_ids": ["integral-calculus", "linear-algebra"],
+      "outcomes": [
+        {
+          "id": "differential-equations-outcome-1",
+          "description": "Classify differential equations and select justified solution methods."
+        },
+        {
+          "id": "differential-equations-outcome-2",
+          "description": "Solve and verify foundational first-order equations and linear systems."
+        },
+        {
+          "id": "differential-equations-outcome-3",
+          "description": "Use slope fields and phase behavior to reason before calculating."
+        },
+        {
+          "id": "differential-equations-outcome-4",
+          "description": "Compare exact and numerical solutions while tracking assumptions and error."
+        }
+      ],
+      "units": [
+        {
+          "id": "ordinary-differential-equations",
+          "title": "Ordinary Differential Equations",
+          "number": 1,
+          "directory": "courses/differential-equations/units/ordinary-differential-equations",
+          "overview": "courses/differential-equations/units/ordinary-differential-equations/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Classify differential equations and select justified solution methods.",
+            "Solve and verify foundational first-order equations and linear systems.",
+            "Use slope fields and phase behavior to reason before calculating.",
+            "Compare exact and numerical solutions while tracking assumptions and error."
+          ],
+          "lessons": [
+            {
+              "id": "differential-equations-ordinary-differential-equations-first-order-equations",
+              "title": "First-Order Differential Equations",
+              "description": "Interpret equations involving a function and its first derivative.",
+              "file": "courses/differential-equations/units/ordinary-differential-equations/first-order-equations.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-equations-outcome-1",
+                "differential-equations-outcome-2",
+                "differential-equations-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-equations-ordinary-differential-equations-separable-equations",
+              "title": "Separable Equations",
+              "description": "Solve differential equations by separating variables and integrating.",
+              "file": "courses/differential-equations/units/ordinary-differential-equations/separable-equations.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "differential-equations-outcome-1",
+                "differential-equations-outcome-2",
+                "differential-equations-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-equations-ordinary-differential-equations-linear-equations",
+              "title": "Linear Differential Equations",
+              "description": "Solve first-order linear equations with integrating factors.",
+              "file": "courses/differential-equations/units/ordinary-differential-equations/linear-equations.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-equations-outcome-1",
+                "differential-equations-outcome-2",
+                "differential-equations-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-equations-ordinary-differential-equations-slope-fields",
+              "title": "Slope Fields",
+              "description": "Visualize and approximate differential equations without solving them exactly.",
+              "file": "courses/differential-equations/units/ordinary-differential-equations/slope-fields.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-equations-outcome-1",
+                "differential-equations-outcome-3",
+                "differential-equations-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "differential-equations-ordinary-differential-equations-systems",
+              "title": "Systems of Differential Equations",
+              "description": "Model several changing quantities that influence each other.",
+              "file": "courses/differential-equations/units/ordinary-differential-equations/systems.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "differential-equations-outcome-1",
+                "differential-equations-outcome-2",
+                "differential-equations-outcome-3",
+                "differential-equations-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 5
+        }
+      ],
+      "item_count": 5,
+      "file": "courses/differential-equations/index.qmd"
+    },
+    {
+      "id": "discrete-mathematics",
+      "title": "Discrete Mathematics",
+      "description": "Logic, proof, sets, relations, sequences, induction, and graphs.",
+      "status": "active",
+      "prerequisite_ids": ["advanced-algebra"],
+      "outcomes": [
+        {
+          "id": "discrete-mathematics-outcome-1",
+          "description": "Translate statements into precise logical and set-theoretic notation."
+        },
+        {
+          "id": "discrete-mathematics-outcome-2",
+          "description": "Construct direct, contrapositive, contradiction, and induction arguments."
+        },
+        {
+          "id": "discrete-mathematics-outcome-3",
+          "description": "Analyze functions, relations, sequences, and graph structures."
+        },
+        {
+          "id": "discrete-mathematics-outcome-4",
+          "description": "Separate examples and computational evidence from mathematical proof."
+        }
+      ],
+      "units": [
+        {
+          "id": "foundations",
+          "title": "Logic, Proof, and Discrete Structures",
+          "number": 1,
+          "directory": "courses/discrete-mathematics/units/foundations",
+          "overview": "courses/discrete-mathematics/units/foundations/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Translate statements into precise logical and set-theoretic notation.",
+            "Construct direct, contrapositive, contradiction, and induction arguments.",
+            "Analyze functions, relations, sequences, and graph structures.",
+            "Separate examples and computational evidence from mathematical proof."
+          ],
+          "lessons": [
+            {
+              "id": "discrete-mathematics-foundations-logic",
+              "title": "Logic",
+              "description": "Propositions, truth values, connectives, implication, and truth tables.",
+              "file": "courses/discrete-mathematics/units/foundations/logic.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "symbolic-reasoning"
+              ],
+              "outcome_ids": [
+                "discrete-mathematics-outcome-1",
+                "discrete-mathematics-outcome-2",
+                "discrete-mathematics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "discrete-mathematics-foundations-sets",
+              "title": "Sets",
+              "description": "Collections, membership, subsets, unions, intersections, and products.",
+              "file": "courses/discrete-mathematics/units/foundations/sets.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "discrete-mathematics-outcome-1",
+                "discrete-mathematics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "discrete-mathematics-foundations-functions-relations",
+              "title": "Functions and Relations",
+              "description": "Ordered pairs, finite relations, functions, and relation properties.",
+              "file": "courses/discrete-mathematics/units/foundations/functions-relations.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "discrete-mathematics-outcome-1",
+                "discrete-mathematics-outcome-3",
+                "discrete-mathematics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "discrete-mathematics-foundations-sequences",
+              "title": "Sequences",
+              "description": "Ordered lists generated by explicit or recursive rules.",
+              "file": "courses/discrete-mathematics/units/foundations/sequences.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 65,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "discrete-mathematics-outcome-2",
+                "discrete-mathematics-outcome-3",
+                "discrete-mathematics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "discrete-mathematics-foundations-induction",
+              "title": "Induction",
+              "description": "Prove statements about all positive integers.",
+              "file": "courses/discrete-mathematics/units/foundations/induction.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "symbolic-reasoning"
+              ],
+              "outcome_ids": [
+                "discrete-mathematics-outcome-2",
+                "discrete-mathematics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "discrete-mathematics-foundations-graphs",
+              "title": "Graphs",
+              "description": "Vertices, edges, paths, degrees, and network structure.",
+              "file": "courses/discrete-mathematics/units/foundations/graphs.qmd",
+              "order": 6,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "discrete-mathematics-outcome-2",
+                "discrete-mathematics-outcome-3",
+                "discrete-mathematics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy", "networkx"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 6
+        }
+      ],
+      "item_count": 6,
+      "file": "courses/discrete-mathematics/index.qmd"
+    },
+    {
+      "id": "probability",
+      "title": "Probability",
+      "description": "Axioms, conditioning, random variables, distributions, and expectation.",
+      "status": "active",
+      "prerequisite_ids": ["advanced-algebra"],
+      "outcomes": [
+        {
+          "id": "probability-outcome-1",
+          "description": "Model sample spaces and derive probabilities from axioms and counting arguments."
+        },
+        {
+          "id": "probability-outcome-2",
+          "description": "Use conditional probability, independence, and Bayes reasoning precisely."
+        },
+        {
+          "id": "probability-outcome-3",
+          "description": "Analyze discrete and continuous random variables and distributions."
+        },
+        {
+          "id": "probability-outcome-4",
+          "description": "Compute and interpret expectation, variance, and simulation error."
+        }
+      ],
+      "units": [
+        {
+          "id": "foundations",
+          "title": "Probability Models and Random Variables",
+          "number": 1,
+          "directory": "courses/probability/units/foundations",
+          "overview": "courses/probability/units/foundations/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Model sample spaces and derive probabilities from axioms and counting arguments.",
+            "Use conditional probability, independence, and Bayes reasoning precisely.",
+            "Analyze discrete and continuous random variables and distributions.",
+            "Compute and interpret expectation, variance, and simulation error."
+          ],
+          "lessons": [
+            {
+              "id": "probability-foundations-sample-spaces-events",
+              "title": "Sample Spaces and Events",
+              "description": "Probability starts by naming possible outcomes and the events made from them.",
+              "file": "courses/probability/units/foundations/sample-spaces-events.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 80,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["probability-outcome-1"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "probability-foundations-counting",
+              "title": "Counting",
+              "description": "Product rules, factorials, permutations, and combinations for probability.",
+              "file": "courses/probability/units/foundations/counting.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": ["probability-outcome-1"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "probability-foundations-conditional-probability",
+              "title": "Conditional Probability",
+              "description": "Probability after new information, independence, multiplication rules, and Bayes' rule.",
+              "file": "courses/probability/units/foundations/conditional-probability.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["probability-outcome-2"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "probability-foundations-random-variables",
+              "title": "Random Variables",
+              "description": "Numeric outcomes of random experiments, probability tables, PMFs, and expected value.",
+              "file": "courses/probability/units/foundations/random-variables.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": ["probability-outcome-3", "probability-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "probability-foundations-common-distributions",
+              "title": "Common Distributions",
+              "description": "Bernoulli, binomial, uniform, normal, and other probability patterns.",
+              "file": "courses/probability/units/foundations/common-distributions.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 70,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["probability-outcome-3", "probability-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "probability-foundations-expectation-variance",
+              "title": "Expectation and Variance",
+              "description": "Long-run center, spread, standard deviation, and risk for random variables.",
+              "file": "courses/probability/units/foundations/expectation-variance.qmd",
+              "order": 6,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["probability-outcome-3", "probability-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 6
+        }
+      ],
+      "item_count": 6,
+      "file": "courses/probability/index.qmd"
+    },
+    {
+      "id": "statistics",
+      "title": "Statistics",
+      "description": "Design, estimation, inference, comparison, and regression.",
+      "status": "active",
+      "prerequisite_ids": ["probability", "mathematical-computing"],
+      "outcomes": [
+        {
+          "id": "statistics-outcome-1",
+          "description": "Connect study design and sampling mechanisms to valid statistical conclusions."
+        },
+        {
+          "id": "statistics-outcome-2",
+          "description": "Quantify uncertainty using sampling distributions, intervals, and tests."
+        },
+        {
+          "id": "statistics-outcome-3",
+          "description": "Check assumptions and distinguish statistical from practical significance."
+        },
+        {
+          "id": "statistics-outcome-4",
+          "description": "Fit, diagnose, and interpret foundational statistical models reproducibly."
+        }
+      ],
+      "units": [
+        {
+          "id": "foundations",
+          "title": "Statistical Reasoning and Inference",
+          "number": 1,
+          "directory": "courses/statistics/units/foundations",
+          "overview": "courses/statistics/units/foundations/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Connect study design and sampling mechanisms to valid statistical conclusions.",
+            "Quantify uncertainty using sampling distributions, intervals, and tests.",
+            "Check assumptions and distinguish statistical from practical significance.",
+            "Fit, diagnose, and interpret foundational statistical models reproducibly."
+          ],
+          "lessons": [
+            {
+              "id": "statistics-foundations-descriptive-statistics",
+              "title": "Descriptive Statistics",
+              "description": "Summarize data with center, spread, shape, outliers, and plots.",
+              "file": "courses/statistics/units/foundations/descriptive-statistics.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 75,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["statistics-outcome-3", "statistics-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-sampling",
+              "title": "Sampling and Study Design",
+              "description": "Populations, samples, bias, random sampling, experiments, observational studies, and confounding.",
+              "file": "courses/statistics/units/foundations/sampling.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": ["statistics-outcome-1", "statistics-outcome-3"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-probability-for-statistics",
+              "title": "Probability for Statistics",
+              "description": "Probability rules, expected value, variance, and distribution models used in statistical inference.",
+              "file": "courses/statistics/units/foundations/probability-for-statistics.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["statistics-outcome-2", "statistics-outcome-3"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-sampling-distributions",
+              "title": "Sampling Distributions",
+              "description": "Sample-to-sample variation, standard error, and the central limit theorem.",
+              "file": "courses/statistics/units/foundations/sampling-distributions.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["statistics-outcome-2", "statistics-outcome-3"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-estimation",
+              "title": "Estimation",
+              "description": "Point estimates, confidence intervals, margin of error, and uncertainty.",
+              "file": "courses/statistics/units/foundations/estimation.qmd",
+              "order": 5,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["statistics-outcome-2", "statistics-outcome-3"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-hypothesis-tests",
+              "title": "Hypothesis Tests",
+              "description": "Null and alternative hypotheses, test statistics, p-values, significance, and errors.",
+              "file": "courses/statistics/units/foundations/hypothesis-tests.qmd",
+              "order": 6,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation",
+                "symbolic-reasoning"
+              ],
+              "outcome_ids": ["statistics-outcome-2", "statistics-outcome-3"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-comparing-groups",
+              "title": "Comparing Groups",
+              "description": "Compare two means or proportions with attention to pairing, independence, uncertainty, and practical significance.",
+              "file": "courses/statistics/units/foundations/comparing-groups.qmd",
+              "order": 7,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": ["statistics-outcome-2", "statistics-outcome-3"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-chi-square-tests",
+              "title": "Chi-Square Tests",
+              "description": "Categorical data, observed and expected counts, goodness-of-fit, and independence tests.",
+              "file": "courses/statistics/units/foundations/chi-square-tests.qmd",
+              "order": 8,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation",
+                "symbolic-reasoning"
+              ],
+              "outcome_ids": [
+                "statistics-outcome-2",
+                "statistics-outcome-3",
+                "statistics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "statistics-foundations-regression-basics",
+              "title": "Regression Basics",
+              "description": "Scatterplots, correlation, least-squares lines, residuals, prediction, and causation cautions.",
+              "file": "courses/statistics/units/foundations/regression-basics.qmd",
+              "order": 9,
+              "status": "active",
+              "estimated_minutes": 60,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation",
+                "symbolic-reasoning"
+              ],
+              "outcome_ids": ["statistics-outcome-3", "statistics-outcome-4"],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [
+            {
+              "id": "statistics-foundations-statistics-cumulative-review",
+              "title": "Statistics Cumulative Review",
+              "description": "A mixed review for choosing statistical tools and explaining conclusions carefully.",
+              "file": "courses/statistics/units/foundations/statistics-cumulative-review.qmd",
+              "order": 10,
+              "status": "active",
+              "estimated_minutes": 55,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation",
+                "symbolic-reasoning"
+              ],
+              "outcome_ids": [
+                "statistics-outcome-1",
+                "statistics-outcome-2",
+                "statistics-outcome-3",
+                "statistics-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "challenge"
+            }
+          ],
+          "item_count": 10
+        }
+      ],
+      "item_count": 10,
+      "file": "courses/statistics/index.qmd"
+    },
+    {
+      "id": "mathematical-computing",
+      "title": "Mathematical Computing with Python",
+      "description": "Reproducible numerical, symbolic, and visual mathematical work.",
+      "status": "active",
+      "prerequisite_ids": [],
+      "outcomes": [
+        {
+          "id": "mathematical-computing-outcome-1",
+          "description": "Write clear Python programs for mathematical experiments and verification."
+        },
+        {
+          "id": "mathematical-computing-outcome-2",
+          "description": "Use arrays, vectorization, plotting, and functions without obscuring assumptions."
+        },
+        {
+          "id": "mathematical-computing-outcome-3",
+          "description": "Distinguish exact symbolic results from floating-point approximations."
+        },
+        {
+          "id": "mathematical-computing-outcome-4",
+          "description": "Design reproducible computations with tests, labels, units, and error checks."
+        }
+      ],
+      "units": [
+        {
+          "id": "python-foundations",
+          "title": "Python Foundations for Mathematical Work",
+          "number": 1,
+          "directory": "courses/mathematical-computing/units/python-foundations",
+          "overview": "courses/mathematical-computing/units/python-foundations/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Write clear Python programs for mathematical experiments and verification.",
+            "Use arrays, vectorization, plotting, and functions without obscuring assumptions.",
+            "Distinguish exact symbolic results from floating-point approximations.",
+            "Design reproducible computations with tests, labels, units, and error checks."
+          ],
+          "lessons": [
+            {
+              "id": "mathematical-computing-python-foundations-basics",
+              "title": "Python Basics",
+              "description": "Variables, values, types, and arithmetic for quantitative Python.",
+              "file": "courses/mathematical-computing/units/python-foundations/basics.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 35,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "mathematical-computing-outcome-1",
+                "mathematical-computing-outcome-3",
+                "mathematical-computing-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": false
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "mathematical-computing-python-foundations-functions-and-control-flow",
+              "title": "Functions and Control Flow",
+              "description": "Learn if-statements, loops, and reusable Python functions.",
+              "file": "courses/mathematical-computing/units/python-foundations/functions-and-control-flow.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 35,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational"
+              ],
+              "outcome_ids": [
+                "mathematical-computing-outcome-1",
+                "mathematical-computing-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": false
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "mathematical-computing-python-foundations-numpy-and-arrays",
+              "title": "NumPy and Arrays",
+              "description": "Use NumPy arrays for quantitative calculations.",
+              "file": "courses/mathematical-computing/units/python-foundations/numpy-and-arrays.qmd",
+              "order": 3,
+              "status": "active",
+              "estimated_minutes": 35,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "mathematical-computing-outcome-2",
+                "mathematical-computing-outcome-3",
+                "mathematical-computing-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "numpy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": false
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "mathematical-computing-python-foundations-plotting",
+              "title": "Plotting With Python",
+              "description": "Create line and scatter plots for quantitative data.",
+              "file": "courses/mathematical-computing/units/python-foundations/plotting.qmd",
+              "order": 4,
+              "status": "active",
+              "estimated_minutes": 35,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "mathematical-computing-outcome-2",
+                "mathematical-computing-outcome-4"
+              ],
+              "computational_dependencies": ["fcmath", "matplotlib"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": false
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 4
+        }
+      ],
+      "item_count": 4,
+      "file": "courses/mathematical-computing/index.qmd"
+    },
+    {
+      "id": "cumulative-review",
+      "title": "Cumulative Review and Practice",
+      "description": "Interleaved retrieval, comprehensive assessment, and readiness reflection.",
+      "status": "in-development",
+      "prerequisite_ids": [
+        "advanced-algebra",
+        "linear-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "discrete-mathematics",
+        "probability",
+        "statistics",
+        "mathematical-computing"
+      ],
+      "outcomes": [
+        {
+          "id": "cumulative-review-outcome-1",
+          "description": "Select methods without being told which subject a mixed problem belongs to."
+        },
+        {
+          "id": "cumulative-review-outcome-2",
+          "description": "Synthesize conceptual, manual, symbolic, computational, and interpretive skills."
+        },
+        {
+          "id": "cumulative-review-outcome-3",
+          "description": "Diagnose persistent gaps and build an evidence-based review plan."
+        },
+        {
+          "id": "cumulative-review-outcome-4",
+          "description": "Communicate complete solutions under untimed and timed conditions."
+        }
+      ],
+      "units": [
+        {
+          "id": "mixed-practice",
+          "title": "Mixed and Comprehensive Practice",
+          "number": 1,
+          "directory": "courses/cumulative-review/units/mixed-practice",
+          "overview": "courses/cumulative-review/units/mixed-practice/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Select methods without being told which subject a mixed problem belongs to.",
+            "Synthesize conceptual, manual, symbolic, computational, and interpretive skills.",
+            "Diagnose persistent gaps and build an evidence-based review plan.",
+            "Communicate complete solutions under untimed and timed conditions."
+          ],
+          "lessons": [],
+          "challenges": [
+            {
+              "id": "cumulative-review-mixed-practice-timed-practice",
+              "title": "Timed Practice",
+              "description": "Build speed only after complete mathematical reasoning is dependable.",
+              "file": "courses/cumulative-review/units/mixed-practice/timed-practice.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 35,
+              "skill_modes": ["conceptual", "manual-calculation"],
+              "outcome_ids": [
+                "cumulative-review-outcome-1",
+                "cumulative-review-outcome-2",
+                "cumulative-review-outcome-3",
+                "cumulative-review-outcome-4"
+              ],
+              "computational_dependencies": [],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": false,
+                "checkpoint": false
+              },
+              "type": "assessment"
+            }
+          ],
+          "assessment_ids": ["quantitative-mathematics-comprehensive"],
+          "item_count": 1
+        }
+      ],
+      "item_count": 1,
+      "file": "courses/cumulative-review/index.qmd"
+    }
+  ],
+  "assessments": [
+    {
+      "id": "quantitative-mathematics-diagnostic",
+      "type": "diagnostic",
+      "file": "pathways/quantitative-mathematics/diagnostic.qmd",
+      "status": "in-development",
+      "outcome_ids": [
+        "advanced-algebra-outcome-3",
+        "advanced-algebra-outcome-1",
+        "linear-algebra-outcome-1",
+        "linear-algebra-outcome-3",
+        "differential-calculus-outcome-2",
+        "differential-calculus-outcome-1",
+        "integral-calculus-outcome-2",
+        "differential-equations-outcome-3",
+        "differential-equations-outcome-1",
+        "discrete-mathematics-outcome-1",
+        "discrete-mathematics-outcome-2",
+        "probability-outcome-2",
+        "probability-outcome-4",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "mathematical-computing-outcome-1",
+        "mathematical-computing-outcome-3"
+      ],
+      "estimated_minutes": 60,
+      "skill_modes": ["mixed"],
+      "quiz_file": "quizzes/pathway/diagnostic.yml"
+    },
+    {
+      "id": "quantitative-mathematics-comprehensive",
+      "type": "comprehensive",
+      "file": "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd",
+      "status": "in-development",
+      "outcome_ids": [
+        "advanced-algebra-outcome-1",
+        "advanced-algebra-outcome-2",
+        "advanced-algebra-outcome-3",
+        "advanced-algebra-outcome-4",
+        "advanced-algebra-outcome-5",
+        "linear-algebra-outcome-1",
+        "linear-algebra-outcome-2",
+        "linear-algebra-outcome-3",
+        "linear-algebra-outcome-4",
+        "differential-calculus-outcome-1",
+        "differential-calculus-outcome-2",
+        "differential-calculus-outcome-3",
+        "differential-calculus-outcome-4",
+        "integral-calculus-outcome-1",
+        "integral-calculus-outcome-2",
+        "integral-calculus-outcome-3",
+        "integral-calculus-outcome-4",
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2",
+        "differential-equations-outcome-3",
+        "differential-equations-outcome-4",
+        "discrete-mathematics-outcome-1",
+        "discrete-mathematics-outcome-2",
+        "discrete-mathematics-outcome-3",
+        "discrete-mathematics-outcome-4",
+        "probability-outcome-1",
+        "probability-outcome-2",
+        "probability-outcome-3",
+        "probability-outcome-4",
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4",
+        "mathematical-computing-outcome-1",
+        "mathematical-computing-outcome-2",
+        "mathematical-computing-outcome-3",
+        "mathematical-computing-outcome-4"
+      ],
+      "estimated_minutes": 180,
+      "skill_modes": ["mixed"]
+    }
+  ],
+  "progress": {
+    "storage_key": "fcmath.progress.v1",
+    "schema_version": 1,
+    "migration_ids": []
+  }
+}

@@ -1,1 +1,1 @@
-Sitemap: https://osl-incubator.github.io/edu-math/sitemap.xml
+Sitemap: https://freecampus.github.io/math/sitemap.xml
