@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.5.1](https://github.com/freecampus/math/compare/0.5.0...0.5.1) (2026-09-03)
+
+
+### Bug Fixes
+
+* fix links to open the page in the same tab ([e92a406](https://github.com/freecampus/math/commit/e92a406c8a3d738dc7e0a882ec804d1cc71f8811))
+
 # [0.5.0](https://github.com/freecampus/math/compare/0.4.5...0.5.0) (2026-09-03)
 
 
