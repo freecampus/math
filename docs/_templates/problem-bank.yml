@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "course_id": "advanced-algebra",
+  "chapter_id": "advanced-algebra-chapter-0-1-example",
+  "problems":
+    [
+      {
+        "id": "advanced-algebra-example-a-01",
+        "title": "A stable descriptive problem title",
+        "level": "A",
+        "purpose": "guided-practice",
+        "skill_modes": ["manual-calculation"],
+        "outcome_ids": ["advanced-algebra-outcome-1"],
+        "prerequisite_chapter_ids": [],
+        "estimated_minutes": 5,
+        "answer_policy": "worked-solution",
+        "verification": { "method": "independent-derivation" },
+        "source_note": "Original problem written for this course.",
+        "tags": ["replace-with-topic"],
+      },
+    ],
+}

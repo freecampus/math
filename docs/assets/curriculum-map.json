@@ -1,5 +1,5 @@
 {
-  "curriculumVersion": 1,
+  "curriculumVersion": 2,
   "notebooks": {
     "courses/advanced-algebra/units/algebra/algebraic-modeling.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/algebraic-modeling.ipynb",
     "courses/advanced-algebra/units/algebra/cumulative-review.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/cumulative-review.ipynb",
@@ -14,6 +14,9 @@
     "courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.ipynb",
     "courses/advanced-algebra/units/algebra/systems-of-equations.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/systems-of-equations.ipynb",
     "courses/advanced-algebra/units/algebra/transformations-composition-inverses.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/algebra/transformations-composition-inverses.ipynb",
+    "courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.ipynb",
+    "courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.ipynb",
+    "courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.ipynb",
     "courses/advanced-algebra/units/trigonometry/applications.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/trigonometry/applications.ipynb",
     "courses/advanced-algebra/units/trigonometry/identities.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/trigonometry/identities.ipynb",
     "courses/advanced-algebra/units/trigonometry/radians-and-degrees.qmd": "https://colab.research.google.com/github/freecampus/math/blob/main/notebooks/courses/advanced-algebra/units/trigonometry/radians-and-degrees.ipynb",
@@ -83,6 +86,9 @@
     "courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.qmd": "advanced-algebra-algebra-symbolic-computation-with-sympy",
     "courses/advanced-algebra/units/algebra/systems-of-equations.qmd": "advanced-algebra-algebra-systems-of-equations",
     "courses/advanced-algebra/units/algebra/transformations-composition-inverses.qmd": "advanced-algebra-algebra-transformations-composition-inverses",
+    "courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd": "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers",
+    "courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd": "advanced-algebra-orientation-readiness-diagnostic-and-repair",
+    "courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.qmd": "advanced-algebra-orientation-reading-writing-algebraic-arguments",
     "courses/advanced-algebra/units/trigonometry/applications.qmd": "advanced-algebra-trigonometry-applications",
     "courses/advanced-algebra/units/trigonometry/identities.qmd": "advanced-algebra-trigonometry-identities",
     "courses/advanced-algebra/units/trigonometry/radians-and-degrees.qmd": "advanced-algebra-trigonometry-radians-and-degrees",

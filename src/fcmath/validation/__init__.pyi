@@ -4,6 +4,9 @@ from fcmath.validation.answers import ValidationMode as ValidationMode
 from fcmath.validation.answers import ValidationPolicy as ValidationPolicy
 from fcmath.validation.answers import check_answer as check_answer
 from fcmath.validation.answers import parse_solution_set as parse_solution_set
+from fcmath.validation.coverage import (
+    validate_coverage_matrix as validate_coverage_matrix,
+)
 from fcmath.validation.curriculum import (
     CurriculumValidationError as CurriculumValidationError,
 )

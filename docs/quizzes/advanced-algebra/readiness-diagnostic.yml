@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "id": "advanced-algebra-readiness-diagnostic",
+  "title": "Advanced Algebra readiness diagnostic",
+  "purpose": "diagnostic",
+  "status": "active",
+  "questions": [
+    {
+      "id": "readiness-rational-01",
+      "type": "numeric",
+      "prompt": "Evaluate $7-3(2-5)$.",
+      "answer": 16,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Evaluate the parentheses before multiplying.",
+      "explanation": "$2-5=-3$, so $7-3(-3)=7+9=16$."
+    },
+    {
+      "id": "readiness-rational-02",
+      "type": "single-choice",
+      "prompt": "Compute $2/3-5/8$ exactly.",
+      "options": [
+        { "id": "a", "text": "$1/24$" },
+        { "id": "b", "text": "$-1/24$" },
+        { "id": "c", "text": "$-3/5$" },
+        { "id": "d", "text": "$7/11$" }
+      ],
+      "answer": "a",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Use a common denominator of 24.",
+      "explanation": "$2/3=16/24$ and $5/8=15/24$, so the difference is $1/24$."
+    },
+    {
+      "id": "readiness-rational-03",
+      "type": "single-choice",
+      "prompt": "Compute $(-3/5)\\div(9/10)$.",
+      "options": [
+        { "id": "a", "text": "$-2/3$" },
+        { "id": "b", "text": "$-27/50$" },
+        { "id": "c", "text": "$3/2$" },
+        { "id": "d", "text": "$-1/6$" }
+      ],
+      "answer": "a",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Multiply by the reciprocal of the divisor.",
+      "explanation": "$(-3/5)(10/9)=-30/45=-2/3$."
+    },
+    {
+      "id": "readiness-rational-04",
+      "type": "numeric",
+      "prompt": "Evaluate $2(-3)^2-4(-3)+1$.",
+      "answer": 31,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "The square applies to the grouped negative number.",
+      "explanation": "$2(9)+12+1=31$."
+    },
+    {
+      "id": "readiness-powers-01",
+      "type": "single-choice",
+      "prompt": "For nonzero $x$, simplify $x^5/x^{-2}$.",
+      "options": [
+        { "id": "a", "text": "$x^3$" },
+        { "id": "b", "text": "$x^7$" },
+        { "id": "c", "text": "$x^{-7}$" },
+        { "id": "d", "text": "$1/x^3$" }
+      ],
+      "answer": "b",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Subtract the denominator exponent: $5-(-2)$.",
+      "explanation": "$x^5/x^{-2}=x^{5-(-2)}=x^7$ for $x\\ne0$."
+    },
+    {
+      "id": "readiness-powers-02",
+      "type": "single-choice",
+      "prompt": "Which identity is valid for every real $x$?",
+      "options": [
+        { "id": "a", "text": "$\\sqrt{x^2}=x$" },
+        { "id": "b", "text": "$\\sqrt{x^2}=|x|$" },
+        { "id": "c", "text": "$\\sqrt{x^2}=-x$" },
+        { "id": "d", "text": "$\\sqrt{x^2}=\\pm x$" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "The principal square root is nonnegative.",
+      "explanation": "$|x|$ is nonnegative and its square is $x^2$, so $\\sqrt{x^2}=|x|$."
+    },
+    {
+      "id": "readiness-powers-03",
+      "type": "numeric",
+      "prompt": "What is the greatest common factor of 84 and 126?",
+      "answer": 42,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "$84=2^2\\cdot3\\cdot7$ and $126=2\\cdot3^2\\cdot7$.",
+      "explanation": "Use the minimum exponent of each common prime: $2\\cdot3\\cdot7=42$."
+    },
+    {
+      "id": "readiness-powers-04",
+      "type": "single-choice",
+      "prompt": "Write $0.0000062$ in scientific notation.",
+      "options": [
+        { "id": "a", "text": "$6.2\\times10^{-5}$" },
+        { "id": "b", "text": "$6.2\\times10^{-6}$" },
+        { "id": "c", "text": "$0.62\\times10^{-6}$" },
+        { "id": "d", "text": "$62\\times10^6$" }
+      ],
+      "answer": "b",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Move the decimal six places right to obtain 6.2.",
+      "explanation": "$6.2\\times10^{-6}=0.0000062$, with coefficient magnitude between 1 and 10."
+    },
+    {
+      "id": "readiness-ratios-01",
+      "type": "numeric",
+      "prompt": "A quantity increases from 80 to 92. What is the percentage increase? Enter the percentage number without the percent sign.",
+      "answer": 15,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Divide the change by the original value.",
+      "explanation": "The change is 12, and $12/80=0.15=15\\%$."
+    },
+    {
+      "id": "readiness-ratios-02",
+      "type": "numeric",
+      "prompt": "A map scale is 1 cm to 25 km. How many kilometers does 7.2 cm represent?",
+      "answer": 180,
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Multiply the map length by 25 km per centimeter.",
+      "explanation": "$7.2\\text{ cm}(25\\text{ km}/\\text{cm})=180\\text{ km}$."
+    },
+    {
+      "id": "readiness-ratios-03",
+      "type": "numeric",
+      "prompt": "Convert 72 kilometers per hour to meters per second.",
+      "answer": 20,
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Multiply by 1000 m/km and divide by 3600 s/h.",
+      "explanation": "$72(1000)/3600=20$ meters per second."
+    },
+    {
+      "id": "readiness-ratios-04",
+      "type": "single-choice",
+      "prompt": "A value rises 20% and then falls 20%. What fraction of the original remains?",
+      "options": [
+        { "id": "a", "text": "$1$" },
+        { "id": "b", "text": "$0.96$" },
+        { "id": "c", "text": "$0.80$" },
+        { "id": "d", "text": "$1.04$" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Multiply the successive scale factors.",
+      "explanation": "$1.20(0.80)=0.96$, so 96% of the original remains."
+    },
+    {
+      "id": "readiness-equations-01",
+      "type": "numeric",
+      "prompt": "Solve $5x-7=18$.",
+      "answer": 5,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Add 7, then divide by 5.",
+      "explanation": "$5x=25$, so $x=5$; substitution gives $25-7=18$."
+    },
+    {
+      "id": "readiness-equations-02",
+      "type": "single-choice",
+      "prompt": "Solve $-2x<8$.",
+      "options": [
+        { "id": "a", "text": "$x< -4$" },
+        { "id": "b", "text": "$x> -4$" },
+        { "id": "c", "text": "$x<4$" },
+        { "id": "d", "text": "$x>4$" }
+      ],
+      "answer": "b",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "Division by a negative number reverses order.",
+      "explanation": "Dividing by $-2$ gives $x>-4$. The check $x=0$ satisfies the original inequality."
+    },
+    {
+      "id": "readiness-equations-03",
+      "type": "single-choice",
+      "prompt": "For real $a$, solve $ax=2a$ completely.",
+      "options": [
+        { "id": "a", "text": "$x=2$ for all $a$" },
+        { "id": "b", "text": "all real $x$ if $a=0$; $x=2$ if $a\\ne0$" },
+        { "id": "c", "text": "no solution if $a=0$; $x=2$ otherwise" },
+        { "id": "d", "text": "all real $x$ for all $a$" }
+      ],
+      "answer": "b",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "Separate the case in which division by $a$ is impossible.",
+      "explanation": "At $a=0$ the equation is $0=0$; otherwise division by $a$ gives $x=2$."
+    },
+    {
+      "id": "readiness-equations-04",
+      "type": "numeric",
+      "prompt": "Solve $(x-1)/3-(x+2)/4=2$.",
+      "answer": 34,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Multiply the entire equation by 12.",
+      "explanation": "$4(x-1)-3(x+2)=24$ simplifies to $x-10=24$, so $x=34$."
+    },
+    {
+      "id": "readiness-graphs-01",
+      "type": "numeric",
+      "prompt": "Find the slope through $(1,5)$ and $(4,-1)$.",
+      "answer": -2,
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Use change in output divided by change in input.",
+      "explanation": "$(-1-5)/(4-1)=-6/3=-2$."
+    },
+    {
+      "id": "readiness-graphs-02",
+      "type": "single-choice",
+      "prompt": "For $y=-3x+7$, which statement is correct?",
+      "options": [
+        { "id": "a", "text": "The output rises 3 units per input unit." },
+        { "id": "b", "text": "The graph crosses the vertical axis at $-3$." },
+        {
+          "id": "c",
+          "text": "The output falls 3 units per input unit and the vertical intercept is 7."
+        },
+        { "id": "d", "text": "The horizontal intercept is 7." }
+      ],
+      "answer": "c",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "Read slope and vertical intercept from $y=mx+b$.",
+      "explanation": "The slope is $-3$, indicating a fall of 3 per unit increase in $x$, and $y=7$ at $x=0$."
+    },
+    {
+      "id": "readiness-graphs-03",
+      "type": "single-choice",
+      "prompt": "What can a finite-resolution graph establish by itself?",
+      "options": [
+        { "id": "a", "text": "The exact value of every root." },
+        { "id": "b", "text": "Global behavior outside the viewing window." },
+        {
+          "id": "c",
+          "text": "Evidence about displayed behavior and approximate locations."
+        },
+        {
+          "id": "d",
+          "text": "That two nearly overlapping formulas are identical."
+        }
+      ],
+      "answer": "c",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-13",
+      "validation": { "mode": "exact" },
+      "hint": "Distinguish evidence from proof.",
+      "explanation": "A graph provides useful visual and approximate evidence on its window, but exact and global claims require further reasoning."
+    },
+    {
+      "id": "readiness-graphs-04",
+      "type": "numeric",
+      "prompt": "A quantity changes linearly from 120 at time 2 to 84 at time 8. What is its average rate of change?",
+      "answer": -6,
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": {
+        "mode": "numeric",
+        "absolute_tolerance": 0,
+        "relative_tolerance": 0
+      },
+      "hint": "Divide output change by time change.",
+      "explanation": "$(84-120)/(8-2)=-36/6=-6$ units per unit time."
+    },
+    {
+      "id": "readiness-estimation-01",
+      "type": "single-choice",
+      "prompt": "Which is the best quick estimate of $49.8\\times0.203$?",
+      "options": [
+        { "id": "a", "text": "$1$" },
+        { "id": "b", "text": "$10$" },
+        { "id": "c", "text": "$100$" },
+        { "id": "d", "text": "$1000$" }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-13",
+      "validation": { "mode": "exact" },
+      "hint": "Round to $50\\times0.2$.",
+      "explanation": "$50\\times0.2=10$, close to the exact product $10.1094$."
+    },
+    {
+      "id": "readiness-estimation-02",
+      "type": "single-choice",
+      "prompt": "Which statement reports exactness correctly?",
+      "options": [
+        { "id": "a", "text": "$1/3=0.333$" },
+        { "id": "b", "text": "$1/3\\approx0.333$" },
+        { "id": "c", "text": "$1/3\\Rightarrow0.333$" },
+        { "id": "d", "text": "$1/3<0.333$" }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-13",
+      "validation": { "mode": "exact" },
+      "hint": "$0.333=333/1000$, not a repeating decimal.",
+      "explanation": "The terminating decimal is a nearby approximation below $1/3$, so $\\approx$ is appropriate."
+    },
+    {
+      "id": "readiness-estimation-03",
+      "type": "single-choice",
+      "prompt": "Without calculating exactly, between which consecutive integers does $\\sqrt{50}$ lie?",
+      "options": [
+        { "id": "a", "text": "5 and 6" },
+        { "id": "b", "text": "6 and 7" },
+        { "id": "c", "text": "7 and 8" },
+        { "id": "d", "text": "8 and 9" }
+      ],
+      "answer": "c",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Compare 50 with nearby perfect squares.",
+      "explanation": "$7^2=49<50<64=8^2$, so $7<\\sqrt{50}<8$."
+    },
+    {
+      "id": "readiness-estimation-04",
+      "type": "single-choice",
+      "prompt": "A computation of $198/0.51$ returns 3.88. What is the best diagnosis?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The result is plausible because both inputs are positive."
+        },
+        {
+          "id": "b",
+          "text": "The result is implausible: dividing about 200 by about 0.5 should give about 400."
+        },
+        { "id": "c", "text": "The result must be exact." },
+        { "id": "d", "text": "Estimation cannot check division." }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-13",
+      "validation": { "mode": "exact" },
+      "hint": "Round both values to one significant digit.",
+      "explanation": "$200/0.5=400$, so 3.88 is off by roughly two powers of ten and should be rejected before interpretation."
+    }
+  ]
+}

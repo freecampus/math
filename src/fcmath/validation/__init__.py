@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from importlib import import_module
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from fcmath.validation.coverage import validate_coverage_matrix
 
 _LAZY_EXPORTS = {
     "AlgebraicForm": ("fcmath.validation.answers", "AlgebraicForm"),
@@ -19,6 +22,10 @@ _LAZY_EXPORTS = {
     "load_structured_data": ("fcmath.validation.curriculum", "load_structured_data"),
     "parse_solution_set": ("fcmath.validation.answers", "parse_solution_set"),
     "validate_catalog": ("fcmath.validation.curriculum", "validate_catalog"),
+    "validate_coverage_matrix": (
+        "fcmath.validation.coverage",
+        "validate_coverage_matrix",
+    ),
 }
 
 

@@ -1,0 +1,115 @@
+---
+title: Orientation, Diagnostic, and Prerequisite Repair
+description: Learn how mathematical arguments are read and establish an honest readiness baseline.
+id: advanced-algebra-orientation-overview
+course_id: advanced-algebra
+unit_id: orientation
+page_type: unit-overview
+status: active
+estimated_time: "12 hours"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, interpretation]
+outcome_ids: [advanced-algebra-outcome-3, advanced-algebra-outcome-6, advanced-algebra-outcome-7, advanced-algebra-outcome-8, advanced-algebra-outcome-14]
+execute:
+  echo: false
+---
+
+## Purpose
+
+Advanced algebra is not a catalogue of symbolic tricks. It is the practice of
+making claims under stated conditions, transforming those claims without
+changing their meaning, and checking that a conclusion answers the original
+question. This orientation unit establishes those habits before the main
+mathematical sequence begins.
+
+The unit also treats diagnostic work as part of learning. A score is useful only
+when it identifies a repairable subskill. You will therefore keep a correction
+portfolio, explain the first cause of each error, study a targeted repair route,
+and attempt a parallel question again.
+
+::: {.learning-objectives}
+### Unit outcomes
+
+By the end of the unit, you should be able to:
+
+- distinguish equality, implication, equivalence, identity, and approximation;
+- write multi-line algebra in which every transition has a stated reason;
+- identify the first invalid step in a proposed solution and repair it;
+- calculate exactly with signed rational numbers, powers, roots, ratios, and
+  units;
+- estimate before calculating and use the estimate to detect implausible output;
+- classify errors as conceptual, strategic, algebraic, arithmetic, notation, or
+  interpretation errors;
+- turn diagnostic evidence into a concrete review and reassessment plan.
+:::
+
+## Readiness check
+
+No earlier course is required. You should, however, be willing to show work and
+to revise it. Try these without a calculator.
+
+1. Evaluate $3-2(5-8)$.
+2. Explain why $2/3+3/5$ is not $5/8$.
+3. Decide whether squaring both sides of an equation always produces an
+   equivalent equation.
+
+::: {.callout-tip collapse="true" title="Answers and diagnostic meaning"}
+1. $3-2(-3)=9$. An answer of $-3$ usually signals that grouping or signed
+   multiplication needs repair.
+2. Addition requires a common unit: $2/3=10/15$ and $3/5=9/15$, so the sum is
+   $19/15$. Adding numerators and denominators changes the quantities rather
+   than renaming them.
+3. No. From $x=-1$ we may infer $x^2=1$, but $x^2=1$ also allows $x=1$.
+   Squaring is generally implication, not equivalence.
+:::
+
+## Unit map
+
+1. [How to read and write an algebraic argument](reading-writing-algebraic-arguments.qmd)
+   develops the language used throughout the book and teaches a repeatable
+   method for auditing work.
+2. [Readiness diagnostic and targeted repair](readiness-diagnostic-and-repair.qmd)
+   samples prerequisite subskills, explains how to score them, and supplies
+   repair loops and a second-attempt check.
+
+Budget four to five focused sessions. Do not compress the diagnostic into one
+long sitting: the goal is reliable evidence, not endurance.
+
+## How to study this unit
+
+For every worked line, ask three questions:
+
+1. **What object is on this line?** Is it an expression, an equation, a set, or a
+   claim?
+2. **What changed?** Was a term distributed, both sides transformed, or a new
+   condition introduced?
+3. **Why is the change valid?** Is it reversible, or must the final candidates
+   be checked?
+
+Use a separate correction color when revising. Do not erase the failed path;
+mark the first invalid step and explain the replacement. That visible history is
+more useful than a page that looks perfect after the fact.
+
+## Readiness checkpoint
+
+A learner writes
+
+$$
+\sqrt{x^2}=x.
+$$
+
+For which real $x$ is that line correct, and what identity is correct for every
+real $x$?
+
+::: {.callout-tip collapse="true" title="Answer"}
+The displayed line is correct when $x\ge 0$. For every real $x$,
+$\sqrt{x^2}=|x|$, because the principal square root is nonnegative. This small
+example previews the course rule: state the domain, state the convention, and
+test a negative boundary case before declaring an identity.
+:::
+
+## Unit resources and next step
+
+Keep paper available even if you use the generated notebooks. The website and
+notebooks share the same checkpoint questions, but the portfolio should contain
+your own intermediate reasoning. Begin with
+[How to read and write an algebraic argument](reading-writing-algebraic-arguments.qmd).

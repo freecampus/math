@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "curriculum_version": 1,
+  "curriculum_version": 2,
   "pathways": [
     {
       "id": "quantitative-mathematics",
@@ -29,7 +29,7 @@
     {
       "id": "advanced-algebra",
       "title": "Advanced Algebra",
-      "description": "Structural algebra, functions, trigonometry, modeling, and symbolic reasoning.",
+      "description": "A proof-aware, book-scale course in algebraic structure, functions, equations, inequalities, modeling, and trigonometry.",
       "status": "active",
       "prerequisite_ids": [],
       "outcomes": [
@@ -52,13 +52,177 @@
         {
           "id": "advanced-algebra-outcome-5",
           "description": "Construct, critique, and verify algebraic models with appropriate computational tools."
+        },
+        {
+          "id": "advanced-algebra-outcome-6",
+          "description": "Express mathematical conditions precisely with sets, logic, intervals, and quantifiers."
+        },
+        {
+          "id": "advanced-algebra-outcome-7",
+          "description": "Reason across number systems using exact values, order, distance, bounds, and controlled approximation."
+        },
+        {
+          "id": "advanced-algebra-outcome-8",
+          "description": "Write proofs, equivalence arguments, case analyses, and decisive counterexamples for algebraic claims."
+        },
+        {
+          "id": "advanced-algebra-outcome-9",
+          "description": "Connect polynomial coefficients, factors, roots, multiplicities, complex structure, and graphs."
+        },
+        {
+          "id": "advanced-algebra-outcome-10",
+          "description": "Analyze exponential, logarithmic, sequence, and growth structures in exact and modeled settings."
+        },
+        {
+          "id": "advanced-algebra-outcome-11",
+          "description": "Classify and solve simultaneous constraints, including nonlinear and parameter-dependent systems."
+        },
+        {
+          "id": "advanced-algebra-outcome-12",
+          "description": "Construct, compose, restrict, and invert functions with explicit domain and range conditions."
+        },
+        {
+          "id": "advanced-algebra-outcome-13",
+          "description": "Use fcmath and SymPy to explore and verify results while exposing assumptions, precision, and limitations."
+        },
+        {
+          "id": "advanced-algebra-outcome-14",
+          "description": "Solve unfamiliar cumulative problems under demanding examination conditions and communicate verifiable reasoning."
         }
       ],
       "units": [
         {
+          "id": "orientation",
+          "title": "Orientation, Diagnostic, and Prerequisite Repair",
+          "number": 1,
+          "directory": "courses/advanced-algebra/units/orientation",
+          "overview": "courses/advanced-algebra/units/orientation/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Solve equations, inequalities, and systems and justify each transformation.",
+            "Express mathematical conditions precisely with sets, logic, intervals, and quantifiers.",
+            "Reason across number systems using exact values, order, distance, bounds, and controlled approximation.",
+            "Write proofs, equivalence arguments, case analyses, and decisive counterexamples for algebraic claims.",
+            "Solve unfamiliar cumulative problems under demanding examination conditions and communicate verifiable reasoning."
+          ],
+          "lessons": [
+            {
+              "id": "advanced-algebra-orientation-reading-writing-algebraic-arguments",
+              "title": "How to Read and Write an Algebraic Argument",
+              "description": "Distinguish mathematical claims, preserve logical direction, justify each step, and repair invalid solutions.",
+              "file": "courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 300,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "symbolic-reasoning",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-6",
+                "advanced-algebra-outcome-8",
+                "advanced-algebra-outcome-14"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-orientation-readiness-diagnostic-and-repair",
+              "title": "Readiness Diagnostic and Targeted Repair",
+              "description": "Measure prerequisite skills by strand and complete a documented repair, transfer, and reassessment cycle.",
+              "file": "courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd",
+              "order": 2,
+              "status": "active",
+              "estimated_minutes": 420,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-7",
+                "advanced-algebra-outcome-13",
+                "advanced-algebra-outcome-14"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 2
+        },
+        {
+          "id": "mathematical-language",
+          "title": "Mathematical Language, Numbers, and Proof Foundations",
+          "number": 2,
+          "directory": "courses/advanced-algebra/units/mathematical-language",
+          "overview": "courses/advanced-algebra/units/mathematical-language/index.qmd",
+          "status": "active",
+          "outcomes": [
+            "Transform algebraic expressions while preserving domains and equivalence.",
+            "Solve equations, inequalities, and systems and justify each transformation.",
+            "Express mathematical conditions precisely with sets, logic, intervals, and quantifiers.",
+            "Reason across number systems using exact values, order, distance, bounds, and controlled approximation.",
+            "Write proofs, equivalence arguments, case analyses, and decisive counterexamples for algebraic claims.",
+            "Use fcmath and SymPy to explore and verify results while exposing assumptions, precision, and limitations.",
+            "Solve unfamiliar cumulative problems under demanding examination conditions and communicate verifiable reasoning."
+          ],
+          "lessons": [
+            {
+              "id": "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers",
+              "title": "Sets, Intervals, Statements, and Quantifiers",
+              "description": "Use precise set and logical language for solution sets, domains, proof, and counterexample.",
+              "file": "courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd",
+              "order": 1,
+              "status": "active",
+              "estimated_minutes": 420,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "symbolic-reasoning",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-6",
+                "advanced-algebra-outcome-8",
+                "advanced-algebra-outcome-14"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
+            }
+          ],
+          "challenges": [],
+          "item_count": 1
+        },
+        {
           "id": "algebra",
           "title": "Algebraic Structures and Functions",
-          "number": 1,
+          "number": 3,
           "directory": "courses/advanced-algebra/units/algebra",
           "overview": "courses/advanced-algebra/units/algebra/index.qmd",
           "status": "active",
@@ -428,7 +592,7 @@
         {
           "id": "trigonometry",
           "title": "Trigonometry and Periodic Structure",
-          "number": 2,
+          "number": 4,
           "directory": "courses/advanced-algebra/units/trigonometry",
           "overview": "courses/advanced-algebra/units/trigonometry/index.qmd",
           "status": "active",
@@ -621,7 +785,7 @@
           "item_count": 7
         }
       ],
-      "item_count": 20,
+      "item_count": 23,
       "file": "courses/advanced-algebra/index.qmd"
     },
     {

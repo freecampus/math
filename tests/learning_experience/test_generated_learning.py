@@ -76,8 +76,14 @@ def test_topic_checkpoint_is_compiled_to_readable_notebook_practice() -> None:
 
 def test_every_generated_notebook_has_stable_cells_and_clean_python() -> None:
     notebooks = sorted((ROOT / "notebooks").rglob("*.ipynb"))
+    catalog = json.loads((ROOT / "docs/courses/_catalog.yml").read_text())
+    expected_count = sum(
+        len(unit["lessons"]) + len(unit["challenges"])
+        for course in catalog["courses"]
+        for unit in course["units"]
+    ) + len(catalog["assessments"])
 
-    assert len(notebooks) == 67
+    assert len(notebooks) == expected_count
     for path in notebooks:
         notebook = json.loads(path.read_text())
         cell_ids = [cell["id"] for cell in notebook["cells"]]

@@ -18,7 +18,7 @@
     "advanced-algebra-algebra-expressions-and-equations": {
       "file": "courses/advanced-algebra/units/algebra/expressions-and-equations.qmd",
       "next_id": "advanced-algebra-algebra-inequalities-and-absolute-value",
-      "previous_id": null
+      "previous_id": "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers"
     },
     "advanced-algebra-algebra-functions-and-graphs": {
       "file": "courses/advanced-algebra/units/algebra/functions-and-graphs.qmd",
@@ -64,6 +64,21 @@
       "file": "courses/advanced-algebra/units/algebra/transformations-composition-inverses.qmd",
       "next_id": "advanced-algebra-algebra-linear-and-quadratic-functions",
       "previous_id": "advanced-algebra-algebra-functions-and-graphs"
+    },
+    "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers": {
+      "file": "courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd",
+      "next_id": "advanced-algebra-algebra-expressions-and-equations",
+      "previous_id": "advanced-algebra-orientation-readiness-diagnostic-and-repair"
+    },
+    "advanced-algebra-orientation-readiness-diagnostic-and-repair": {
+      "file": "courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd",
+      "next_id": "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers",
+      "previous_id": "advanced-algebra-orientation-reading-writing-algebraic-arguments"
+    },
+    "advanced-algebra-orientation-reading-writing-algebraic-arguments": {
+      "file": "courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.qmd",
+      "next_id": "advanced-algebra-orientation-readiness-diagnostic-and-repair",
+      "previous_id": null
     },
     "advanced-algebra-trigonometry-applications": {
       "file": "courses/advanced-algebra/units/trigonometry/applications.qmd",
