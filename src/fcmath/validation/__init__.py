@@ -12,6 +12,9 @@ if TYPE_CHECKING:
     from fcmath.validation.answers import ValidationPolicy as ValidationPolicy
     from fcmath.validation.answers import check_answer as check_answer
     from fcmath.validation.answers import parse_solution_set as parse_solution_set
+    from fcmath.validation.chapters import (
+        validate_chapter_contracts as validate_chapter_contracts,
+    )
     from fcmath.validation.coverage import (
         validate_coverage_matrix as validate_coverage_matrix,
     )
@@ -41,6 +44,10 @@ _LAZY_EXPORTS = {
     "load_structured_data": ("fcmath.validation.curriculum", "load_structured_data"),
     "parse_solution_set": ("fcmath.validation.answers", "parse_solution_set"),
     "validate_catalog": ("fcmath.validation.curriculum", "validate_catalog"),
+    "validate_chapter_contracts": (
+        "fcmath.validation.chapters",
+        "validate_chapter_contracts",
+    ),
     "validate_coverage_matrix": (
         "fcmath.validation.coverage",
         "validate_coverage_matrix",

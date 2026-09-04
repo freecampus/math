@@ -15,6 +15,7 @@ from fcmath.validation import (
     ValidationIssue,
     load_structured_data,
     validate_catalog,
+    validate_chapter_contracts,
     validate_coverage_matrix,
     validate_external_resources,
 )
@@ -38,6 +39,7 @@ def main() -> int:
     args = parser.parse_args()
     issues = list(validate_catalog(args.catalog, docs_root=ROOT / "docs"))
     issues.extend(validate_coverage_matrix(args.coverage, args.catalog))
+    issues.extend(validate_chapter_contracts(args.coverage, docs_root=ROOT / "docs"))
     issues.extend(validate_external_resources(args.external_resources, args.coverage))
     catalog = load_structured_data(args.catalog)
     coverage = load_structured_data(args.coverage)

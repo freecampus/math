@@ -1,0 +1,1527 @@
+---
+title: Algebraic Laws and Valid Transformation
+description: Justify algebraic transformations, preserve domains and solution sets, and detect invalid steps in symbolic arguments.
+execute:
+  echo: false
+  warning: false
+id: advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation
+course_id: advanced-algebra
+unit_id: mathematical-language
+page_type: lesson
+status: review
+estimated_time: "600 minutes"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-3, advanced-algebra-outcome-7, advanced-algebra-outcome-8]
+---
+
+## Why this matters
+
+Algebra is not the art of moving symbols across an equals sign. It is the study
+of operations that preserve a stated mathematical claim. A line can look
+plausible, use familiar notation, and still change the domain or the solution
+set. Dividing by an expression that might be zero can discard solutions;
+squaring can introduce them; taking a square root can silently select one sign;
+and canceling a factor can erase the point at which the original expression was
+undefined.
+
+Those failures become more dangerous as problems become harder. In a routine
+linear equation, an invalid step may merely give a wrong number. In a parameter
+problem, the same step may erase an entire family of cases. In proof, it can
+turn a one-way implication into a false equivalence. In numerical or symbolic
+software, it can produce a simplified formula whose generic meaning is correct
+while its exceptional inputs have been lost.
+
+This chapter develops a disciplined replacement for “do the same thing to both
+sides.” At every line, ask four questions:
+
+1. **Universe:** In which number system are the variables allowed to live?
+2. **Domain:** For which inputs are all expressions in this line defined?
+3. **Direction:** Is the new line equivalent to the preceding line, or merely a
+   necessary consequence?
+4. **Exception audit:** Could the operation divide by zero, merge signs, or use
+   a law outside its hypotheses?
+
+The goal is not slower algebra. It is reliable algebra: a small set of laws,
+applied quickly because their conditions are understood.
+
+::: {.learning-objectives}
+### What you should be able to do
+
+After completing this chapter, you should be able to:
+
+- state the field laws and order laws used in elementary real algebra;
+- annotate a transformation with the law or operation that licenses it;
+- derive useful rules such as $0a=0$, $(-1)a=-a$, and cancellation rather than
+  treating them as unexplained tricks;
+- distinguish equality of values, equality of functions, identities, equations,
+  implications, and equivalences;
+- preserve excluded values when simplifying rational expressions;
+- decide when addition, multiplication, division, squaring, square-rooting, and
+  substitution preserve an equation's solution set;
+- use the zero-product property and explain why it depends on the absence of
+  zero divisors in the real and complex numbers;
+- construct decisive counterexamples to false laws involving powers, roots,
+  fractions, and inequalities;
+- classify parameter-dependent equations without canceling away exceptional
+  cases;
+- audit a proposed solution by identifying its earliest invalid step; and
+- use SymPy to test identities and candidates while retaining responsibility
+  for assumptions, domains, and logical direction.
+:::
+
+::: {.prerequisites}
+### Prerequisites
+
+You should be comfortable with set notation, implications, equivalences, and
+counterexamples from
+[Sets, intervals, statements, and quantifiers](sets-intervals-statements-and-quantifiers.qmd).
+You should also know the nesting and closure properties of the real and complex
+number systems, the meaning of principal square root, and why
+$\sqrt{x^2}=|x|$ from
+[The real number system and its extensions](real-number-system-and-extensions.qmd).
+:::
+
+## Five-minute retrieval warm-up
+
+1. State the domain over $\mathbb R$ of $\dfrac{x+1}{x^2-4}$.
+2. Is $x=3\Rightarrow x^2=9$ reversible over $\mathbb R$? Give a reason.
+3. Simplify $\sqrt{(x-2)^2}$ for real $x$.
+4. Negate: “Every value of $a$ makes the equation solvable.”
+5. Give one counterexample to the claim that the quotient of two integers is an
+   integer.
+
+::: {.callout-tip collapse="true" title="Warm-up answers"}
+1. $\mathbb R\setminus\{-2,2\}$.
+2. No. $x=-3$ satisfies $x^2=9$ but not $x=3$.
+3. $|x-2|$.
+4. “There exists a value of $a$ for which the equation is not solvable.”
+5. For example, $1/2\notin\mathbb Z$.
+:::
+
+## 1. Equality, substitution, and replacement
+
+An equality $A=B$ asserts that two expressions denote the same object under the
+stated variable assignments. Equality has four basic logical properties:
+
+- **reflexive:** $A=A$;
+- **symmetric:** if $A=B$, then $B=A$;
+- **transitive:** if $A=B$ and $B=C$, then $A=C$;
+- **substitutive:** if $A=B$, either may replace the other inside any context in
+  which both resulting expressions are defined.
+
+Substitution is the engine of algebra. From $A=B$ we obtain
+$A+C=B+C$ and $AC=BC$ because equal inputs may be substituted into the
+functions $t\mapsto t+C$ and $t\mapsto tC$. We obtain $A^2=B^2$ by
+substitution into $t\mapsto t^2$. The reverse statement, however, is a separate
+question: $A^2=B^2$ implies $A=B$ **or** $A=-B$, not necessarily $A=B$.
+
+The phrase “do the same thing to both sides” is safe only after asking whether
+the chosen function is reversible on the values under consideration. Addition
+of a fixed number has inverse subtraction and is reversible. Multiplication by
+a known nonzero number has inverse division and is reversible. Squaring on all
+of $\mathbb R$ is not one-to-one and is therefore not reversible without sign
+information.
+
+::: {.worked-example}
+### Example 1: annotate every line of a simplification
+
+Simplify $3(2x-5)-2(x+4)$ and justify the transformation.
+
+\[
+\begin{aligned}
+3(2x-5)-2(x+4)
+  &=6x-15-2x-8 &&\text{distributive law twice}\\
+  &=(6x-2x)+(-15-8) &&\text{associative and commutative laws}\\
+  &=4x-23 &&\text{integer arithmetic and }ax-bx=(a-b)x.
+\end{aligned}
+\]
+
+Every line has the same value for every real or complex $x$. No denominator,
+radical, or variable exponent changes the domain, so the equality is an
+unconditional identity. A quick check at $x=2$ gives $-15$ in both the original
+and final forms. One numerical check does not prove the identity, but it can
+catch arithmetic errors.
+:::
+
+::: {.checkpoint data-problem-id="aa-1-3-checkpoint-replacement" data-level="A"}
+### Replacement checkpoint
+
+From $u=v$, which conclusion is not always reversible over the reals?
+
+A. $u+7=v+7$
+B. $5u=5v$
+C. $u^2=v^2$
+D. $u-3=v-3$
+
+::: {.callout-tip collapse="true" title="Answer and explanation"}
+C. Equality implies equality of squares, but the reverse loses sign:
+$2^2=(-2)^2$ although $2\ne-2$. The other operations have inverse operations
+because the multiplier $5$ is nonzero.
+:::
+:::
+
+## 2. Field laws and rules derived from them
+
+The real and complex numbers are **fields**. For $a,b,c$ in a field, the
+following laws hold.
+
+| Structure | Laws |
+|---|---|
+| Addition | $a+b=b+a$, $(a+b)+c=a+(b+c)$, $a+0=a$, $a+(-a)=0$ |
+| Multiplication | $ab=ba$, $(ab)c=a(bc)$, $a\cdot1=a$, and if $a\ne0$, $aa^{-1}=1$ |
+| Connection | $a(b+c)=ab+ac$ |
+
+A field also satisfies $0\ne1$. Subtraction means addition of an inverse:
+$a-b=a+(-b)$. Division by nonzero $b$ means multiplication by $b^{-1}$:
+$a/b=ab^{-1}$. Consequently, division by zero is not a difficult value that a
+calculator has failed to find; it is not defined by the field operations.
+
+Many school rules are theorems derived from these axioms. Deriving them once
+makes their hypotheses visible.
+
+::: {.worked-example}
+### Example 2: derive $0a=0$ and $(-1)a=-a$
+
+Because $0+0=0$, distributivity gives
+
+\[
+0a=(0+0)a=0a+0a.
+\]
+
+Add the additive inverse of $0a$ to both sides. The right side becomes $0a$ and
+the left becomes $0$, so $0a=0$.
+
+Next,
+
+\[
+a+(-1)a=1a+(-1)a=(1+(-1))a=0a=0.
+\]
+
+Thus $(-1)a$ is the additive inverse of $a$, so uniqueness of additive inverses
+gives $(-1)a=-a$. No sign rule was assumed; it followed from field laws.
+:::
+
+Two important cancellation theorems now follow:
+
+- **additive cancellation:** $a+c=b+c\Rightarrow a=b$;
+- **multiplicative cancellation:** if $c\ne0$, then
+  $ac=bc\Rightarrow a=b$.
+
+Additive cancellation has no exception because every $c$ has an additive
+inverse. Multiplicative cancellation requires $c\ne0$ because zero has no
+multiplicative inverse.
+
+::: {.practice-box data-problem-id="aa-1-3-guided-cancellation" data-level="B"}
+### Guided exercise: prove cancellation
+
+Prove that $ac=bc$ and $c\ne0$ imply $a=b$.
+
+::: {.callout-note collapse="true" title="Hint"}
+Use the inverse $c^{-1}$ and preserve the grouping explicitly.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+Starting from $ac=bc$, multiply both sides by $c^{-1}$:
+
+\[
+(ac)c^{-1}=(bc)c^{-1}.
+\]
+
+Associativity gives $a(cc^{-1})=b(cc^{-1})$. Since $c\ne0$, its inverse exists,
+so $cc^{-1}=1$. Hence $a=b$. The proof fails at exactly the place where
+$c=0$: the symbol $c^{-1}$ would not denote a field element.
+:::
+:::
+
+## 3. Equations, identities, and domains
+
+An **expression** such as $(x^2-1)/(x-1)$ has a domain. An **equation** asks for
+assignments in a stated universe that make two expressions equal. An
+**identity** is an equality true for every assignment in a specified common
+domain. These distinctions matter:
+
+\[
+\frac{x^2-1}{x-1}=x+1
+\]
+
+is true whenever $x\ne1$, but the left expression is undefined at $x=1$.
+Therefore the two expressions agree on $\mathbb R\setminus\{1\}$ but do not
+define the same real-valued function if the right side is given domain
+$\mathbb R$.
+
+Before transforming an equation, record its **original admissible set**: the
+values for which every denominator is nonzero, every even root has a
+nonnegative radicand, every real logarithm has a positive argument, and every
+other operation is defined. Later algebra produces candidates; only candidates
+in that original set can be solutions.
+
+::: {.worked-example}
+### Example 3: cancellation with a parameter
+
+Solve over $\mathbb R$ in $x$:
+
+\[
+a(x-2)=a(x+1),
+\]
+
+where $a$ is a real parameter.
+
+A tempting step is to cancel $a$, obtaining $x-2=x+1$, hence $-2=1$ and no
+solution. That conclusion assumes $a\ne0$. Split the cases first.
+
+- If $a\ne0$, multiplicative cancellation is legal and gives the contradiction
+  $-2=1$. There is no real $x$.
+- If $a=0$, the original equation is $0=0$, true for every real $x$.
+
+Thus the solution set is
+
+\[
+S_a=\begin{cases}
+\mathbb R,&a=0,\\
+\varnothing,&a\ne0.
+\end{cases}
+\]
+
+The exceptional parameter did not create a small correction; it changed no
+solutions into infinitely many.
+:::
+
+::: {.worked-example}
+### Example 4: equal formulas, unequal domains
+
+Factor and simplify
+
+\[
+f(x)=\frac{x^2-1}{x-1}.
+\]
+
+The original domain is $x\ne1$. Factoring gives
+
+\[
+\frac{(x-1)(x+1)}{x-1}=x+1\qquad(x\ne1).
+\]
+
+The notation $x\ne1$ must survive cancellation. The graph of $f$ is the line
+$y=x+1$ with a hole at $(1,2)$. If we define $g(x)=x+1$ on all real numbers,
+then $f$ and $g$ agree wherever $f$ is defined, but $f\ne g$ as functions
+because their domains differ.
+
+A correct final statement is
+
+\[
+f(x)=x+1\quad\text{for }x\in\mathbb R\setminus\{1\}.
+\]
+:::
+
+::: {.checkpoint data-problem-id="aa-1-3-checkpoint-domain" data-level="B"}
+### Domain checkpoint
+
+Are $(x^2-4)/(x-2)$ and $x+2$ the same function from $\mathbb R$ to
+$\mathbb R$?
+
+::: {.callout-tip collapse="true" title="Answer"}
+No. The rational expression is undefined at $x=2$, while $x+2$ is defined
+there. They have equal values on $\mathbb R\setminus\{2\}$. Restricting both
+domains to that set would make them equal as functions.
+:::
+:::
+
+## 4. Division, fractions, and clearing denominators
+
+A fraction is multiplication by an inverse. This viewpoint explains the valid
+laws, assuming all displayed denominators are nonzero:
+
+\[
+\frac ac+\frac bc=\frac{a+b}{c},\qquad
+\frac ab\cdot\frac cd=\frac{ac}{bd},\qquad
+\frac{a/b}{c/d}=\frac{ad}{bc}.
+\]
+
+It also exposes false distribution. In general,
+
+\[
+\frac{a}{b+c}\ne\frac ab+\frac ac.
+\]
+
+For the counterexample $a=1,b=c=1$, the left side is $1/2$ and the right side
+is $2$. A fraction bar groups its entire numerator and denominator.
+
+**Clearing denominators** means multiplying every term of an equation by a
+common denominator. On the original domain, that multiplier is nonzero, so the
+operation is reversible. If the excluded values are forgotten, the polynomial
+equation obtained afterward may admit values that never belonged to the
+rational equation.
+
+::: {.worked-example}
+### Example 5: a rational equation whose only candidate is excluded
+
+Solve over $\mathbb R$:
+
+\[
+\frac1{x-1}=\frac2{x^2-1}.
+\]
+
+**Step 1: state the domain.** Since $x^2-1=(x-1)(x+1)$,
+
+\[
+x\ne1,qquad x\ne-1.
+\]
+
+**Step 2: multiply by the nonzero common denominator.** On that domain,
+$(x-1)(x+1)\ne0$, so
+
+\[
+\begin{aligned}
+\frac1{x-1}=\frac2{(x-1)(x+1)}
+&\Longleftrightarrow x+1=2\\
+&\Longleftrightarrow x=1.
+\end{aligned}
+\]
+
+**Step 3: enforce the original domain.** The only algebraic candidate $x=1$
+is excluded. Therefore the solution set is $\varnothing$.
+
+Substitution into the original equation does not yield “false”; it yields an
+undefined expression. That is precisely why domain comes before manipulation.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-guided-fractions" data-level="B"}
+### Guided exercise: preserve an excluded value
+
+Solve $\dfrac{x}{x-3}=\dfrac{3}{x-3}+2$ over $\mathbb R$.
+
+::: {.callout-note collapse="true" title="Hint"}
+Record $x\ne3$, then multiply every term—not just selected numerators—by
+$x-3$.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+The original domain is $x\ne3$. Multiplication by $x-3$ gives
+
+\[
+x=3+2(x-3)=2x-3.
+\]
+
+Thus $x=3$, but that candidate is outside the original domain. The solution set
+is empty. If the domain line is omitted, the final answer looks convincing but
+is invalid.
+:::
+:::
+
+## 5. Products, zero, and factor reasoning
+
+In $\mathbb R$ and $\mathbb C$, the **zero-product property** states
+
+\[
+ab=0\Longrightarrow a=0\text{ or }b=0.
+\]
+
+To prove it, suppose $ab=0$. If $a=0$, one branch is complete. If $a\ne0$,
+multiply by $a^{-1}$ to obtain $b=0$. The converse also holds because
+$0b=a0=0$; hence
+
+\[
+ab=0\Longleftrightarrow a=0\text{ or }b=0.
+\]
+
+This property is not merely about notation. It says the field has no nonzero
+**zero divisors**. It permits factoring to turn one equation into several
+branches. It does **not** permit concluding from $ab=6$ that $a=6$ or $b=6$.
+
+::: {.worked-example}
+### Example 6: solve by a reversible factor argument
+
+Solve $2x^3-5x^2-3x=0$ over $\mathbb R$.
+
+Factor before dividing by $x$:
+
+\[
+\begin{aligned}
+2x^3-5x^2-3x&=0\\
+x(2x^2-5x-3)&=0\\
+x(2x+1)(x-3)&=0.
+\end{aligned}
+\]
+
+By the zero-product property,
+
+\[
+x=0,qquad 2x+1=0,qquad\text{or}\qquad x-3=0.
+\]
+
+Therefore $S=\{-\tfrac12,0,3\}$. Substitution verifies every value.
+
+Had we divided the original equation by $x$, we would have assumed $x\ne0$ and
+lost the solution $x=0$. Factoring preserves the zero branch; premature division
+erases it.
+:::
+
+::: {.checkpoint data-problem-id="aa-1-3-checkpoint-zero-product" data-level="A"}
+### Zero-product checkpoint
+
+Why does $(x-4)(x+7)=0$ split into two equations, whereas
+$(x-4)(x+7)=10$ does not?
+
+::: {.callout-tip collapse="true" title="Answer"}
+A product in a field equals zero only if at least one factor is zero. A nonzero
+product has many possible factor pairs, so neither factor is forced to equal
+$10$.
+:::
+:::
+
+## 6. Powers and radicals: laws with hypotheses
+
+Integer exponent laws follow from repeated multiplication. When the displayed
+expressions are defined,
+
+\[
+a^m a^n=a^{m+n},\qquad (a^m)^n=a^{mn},\qquad
+(ab)^n=a^n b^n.
+\]
+
+For negative exponents, $a^{-n}=1/a^n$ requires $a\ne0$. Rational exponents
+bring root conditions. Over the reals, $a^{1/n}$ is defined for every real $a$
+when $n$ is odd, but only for $a\ge0$ when $n$ is even under the principal-root
+convention.
+
+Powers generally do not distribute across addition:
+
+\[
+(a+b)^2=a^2+2ab+b^2\ne a^2+b^2.
+\]
+
+Roots generally do not distribute across addition either:
+$\sqrt{a+b}\ne\sqrt a+\sqrt b$. For $a=b=1$, the sides are $\sqrt2$ and $2$.
+Even the product rule $\sqrt{ab}=\sqrt a\sqrt b$ requires $a,b\ge0$ over
+$\mathbb R$. With $a=b=-1$, the left side is $1$ while the real square roots on
+the right are undefined; in principal complex arithmetic, the right side is
+$i^2=-1$, still not $1$.
+
+::: {.worked-example}
+### Example 7: locate the earliest false power step
+
+A proposed simplification reads
+
+\[
+(x-2)^2=x^2-4x+4=x^2+4.
+\]
+
+The first equality is valid by distributivity. The second drops the term
+$-4x$ and is false except at $x=0$. The repair is to retain all three terms.
+
+A stronger audit uses a counterexample. At $x=1$, the original value is $1$,
+while $x^2+4=5$. Because an identity is a universal claim, one input that makes
+the two sides unequal disproves it.
+:::
+
+::: {.worked-example}
+### Example 8: solving after squaring requires a check
+
+Solve $\sqrt{x+2}=x$ over $\mathbb R$.
+
+**Domain and sign.** The radical requires $x\ge-2$, but the left side is
+nonnegative, so equality additionally requires $x\ge0$.
+
+**Generate candidates.** Squaring is now safe as a necessary step:
+
+\[
+x+2=x^2\Longleftrightarrow x^2-x-2=0
+\Longleftrightarrow(x-2)(x+1)=0.
+\]
+
+The candidates are $2$ and $-1$.
+
+**Check the original equation.** At $x=2$, $\sqrt4=2$. At $x=-1$,
+$\sqrt1=1\ne-1$. Therefore $S=\{2\}$.
+
+The extraneous value did not appear because the arithmetic was poor. It
+appeared because $t\mapsto t^2$ identifies $t$ and $-t$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-guided-radical" data-level="C"}
+### Guided exercise: a radical with two possible candidates
+
+Solve $\sqrt{2x+3}=x+1$ over $\mathbb R$.
+
+::: {.callout-note collapse="true" title="Hint"}
+The right side must be nonnegative. Square, solve the quadratic, and return to
+the original equation.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+The equality requires $x+1\ge0$, so $x\ge-1$. Squaring gives
+
+\[
+2x+3=(x+1)^2=x^2+2x+1,
+\]
+
+hence $x^2-2=0$ and $x=\pm\sqrt2$. The value $-\sqrt2<-1$ violates the sign
+condition and fails the original equation. The value $\sqrt2$ verifies because
+both sides are nonnegative and their squares agree. Thus $S=\{\sqrt2\}$.
+:::
+:::
+
+## 7. Order laws and inequality direction
+
+The real numbers form an **ordered field**. Exactly one of $a<b$, $a=b$, or
+$a>b$ holds. Order is transitive. Addition preserves order:
+
+\[
+a<b\Longleftrightarrow a+c<b+c.
+\]
+
+Multiplication depends on sign:
+
+\[
+\begin{array}{ll}
+c>0:&a<b\Longleftrightarrow ac<bc,\\
+c<0:&a<b\Longleftrightarrow ac>bc.
+\end{array}
+\]
+
+When $c=0$, both products equal zero, so strict order is destroyed. Dividing an
+inequality by a symbolic expression is therefore a case split, not one routine
+move. The sign of the divisor decides both whether division is allowed and
+whether the order reverses.
+
+Squaring also depends on location. On $[0,\infty)$, squaring is strictly
+increasing; on $(-\infty,0]$, it reverses order; across zero, comparing squares
+amounts to comparing absolute values.
+
+::: {.worked-example}
+### Example 9: solve an inequality with a parameter multiplier
+
+Solve $a(x-1)>2a$ for real $x$, classified by real $a$.
+
+First rewrite as $a(x-3)>0$. Now split by the sign of $a$.
+
+- If $a>0$, division preserves order: $x-3>0$, so $x>3$.
+- If $a<0$, division reverses order: $x-3<0$, so $x<3$.
+- If $a=0$, the inequality becomes $0>0$, which is false; there are no
+  solutions.
+
+Thus
+
+\[
+S_a=\begin{cases}
+(3,\infty),&a>0,\\
+\varnothing,&a=0,\\
+(-\infty,3),&a<0.
+\end{cases}
+\]
+
+Writing merely “divide by $a$” would miss both the reversal and the zero case.
+:::
+
+::: {.checkpoint data-problem-id="aa-1-3-checkpoint-order" data-level="B"}
+### Order checkpoint
+
+A student has $-3x<12$ and writes $x<-4$. Identify and repair the error.
+
+::: {.callout-tip collapse="true" title="Answer"}
+Division by the negative number $-3$ reverses the strict inequality. The
+correct solution is $x>-4$. Checking $x=0$ confirms it: $0<12$ is true.
+:::
+:::
+
+## 8. Equivalent transformations and implication-only transformations
+
+Suppose an original condition is $P$ and the next line is $Q$.
+
+- Write $P\Longleftrightarrow Q$ when each implies the other on the stated
+  domain. Solving either produces exactly the same solution set.
+- Write $P\Longrightarrow Q$ when every original solution satisfies the new
+  condition but the new condition may have extra solutions. Then $Q$ produces
+  candidates that must be checked in $P$.
+- A transformation can also be invalid: neither direction may hold.
+
+For equations over a field, these operations are equivalences:
+
+- add or subtract the same defined expression on both sides;
+- multiply or divide both sides by an expression known to be nonzero;
+- apply a one-to-one function on a domain containing both sides.
+
+These commonly give only implications unless extra conditions are supplied:
+
+- square both sides;
+- raise both sides to an even power;
+- multiply by an expression that might be zero when reversing the step;
+- replace $\sqrt{u^2}$ by $u$ without knowing $u\ge0$;
+- apply a periodic function such as sine.
+
+::: {.worked-example}
+### Example 10: label a solution chain by direction
+
+Audit the equation $x-1=\sqrt{x+5}$ over $\mathbb R$.
+
+The equality forces $x-1\ge0$, so $x\ge1$. Then
+
+\[
+\begin{aligned}
+x-1=\sqrt{x+5}
+&\Longrightarrow (x-1)^2=x+5\\
+&\Longleftrightarrow x^2-3x-4=0\\
+&\Longleftrightarrow (x-4)(x+1)=0.
+\end{aligned}
+\]
+
+The first arrow is only an implication before sign information is incorporated.
+The candidates are $x=4,-1$. The condition $x\ge1$ eliminates $-1$; substitution
+confirms $4-1=\sqrt9=3$. Hence $S=\{4\}$.
+
+Alternatively, after explicitly restricting to $x\ge1$, both sides are
+nonnegative and squaring becomes reversible. Good writing makes that restricted
+universe visible.
+:::
+
+::: {.worked-example}
+### Example 11: multiplication can hide a false converse
+
+Compare
+
+\[
+\frac{x-2}{x-2}=1
+\quad\text{and}\quad
+x-2=x-2.
+\]
+
+On the original domain $x\ne2$, multiplying by $x-2$ is reversible and the two
+conditions are equivalent. On all reals, the second equation is true at $x=2$
+while the first is undefined. Therefore the unrestricted converse is false.
+
+A precise chain is
+
+\[
+\frac{x-2}{x-2}=1
+\Longleftrightarrow x-2=x-2
+\qquad\text{under the standing condition }x\ne2.
+\]
+
+The condition is part of the equivalence, not a footnote.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-guided-arrows" data-level="C"}
+### Guided exercise: choose the arrow
+
+For real $x$, insert $\Longleftrightarrow$ or $\Longrightarrow$:
+
+\[
+x=5\quad ?\quad (x-5)(x+2)=0.
+\]
+
+Then state the condition under which the implication can become an equivalence.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The correct unrestricted relation is
+
+\[
+x=5\Longrightarrow(x-5)(x+2)=0.
+\]
+
+The right side also holds at $x=-2$. Under the additional condition $x\ne-2$,
+the zero-product property forces $x-5=0$, so the statements become equivalent.
+:::
+:::
+
+## 9. Conditional identities and substitution
+
+An identity is always relative to a domain. The equation
+
+\[
+(a-b)(a+b)=a^2-b^2
+\]
+
+is an unconditional polynomial identity over every commutative field. In
+contrast,
+
+\[
+\frac{a^2-b^2}{a-b}=a+b
+\]
+
+is conditional: it requires $a\ne b$. The factored numerator does not repair the
+zero denominator in the original expression.
+
+Substitution must also respect domains. If $u=v$ and a formula contains
+$1/u$, replacing it by $1/v$ is valid only where both denominators are defined.
+If $u=v$ as values at one point, that does not prove the formulas are identical
+for every point. If two functions agree on one domain but one has a larger
+natural domain, substitution into a statement about function domains can change
+the claim.
+
+::: {.worked-example}
+### Example 12: state a conditional identity completely
+
+Simplify
+
+\[
+\frac{x^2-a^2}{x-a}.
+\]
+
+Factor the difference of squares:
+
+\[
+\frac{(x-a)(x+a)}{x-a}=x+a,
+\]
+
+provided $x-a\ne0$. The complete identity is
+
+\[
+\frac{x^2-a^2}{x-a}=x+a\qquad\text{for }x\ne a.
+\]
+
+If $a$ is fixed, the left side has a removable discontinuity at $x=a$; its
+limiting value there is $2a$, but its actual value remains undefined. A limit or
+continuous extension is not the same object as the original formula.
+:::
+
+::: {.checkpoint data-problem-id="aa-1-3-checkpoint-identity" data-level="B"}
+### Identity checkpoint
+
+Complete the statement:
+
+\[
+\frac{u^3-v^3}{u-v}=u^2+uv+v^2\quad\text{provided }\underline{\hspace{2cm}}.
+\]
+
+::: {.callout-tip collapse="true" title="Answer"}
+The condition is $u\ne v$. Factoring proves the equality on that domain. When
+$u=v$, the original quotient is undefined even though the polynomial on the
+right is defined.
+:::
+:::
+
+## 10. Parameter equations: classify before canceling
+
+A parameter is held fixed while the principal variable varies. A complete
+answer states how the solution set changes with the parameter. The robust
+workflow is:
+
+1. state restrictions inherited from denominators, radicals, or logarithms;
+2. collect the coefficient of the principal variable;
+3. identify parameter values that make a planned divisor zero;
+4. solve the generic nonzero case;
+5. substitute every exceptional parameter into the **original** equation; and
+6. distinguish no solution, one or finitely many solutions, and infinitely many
+   solutions.
+
+::: {.worked-example}
+### Example 13: one equation, three parameter behaviors
+
+Solve over $\mathbb R$ in $x$:
+
+\[
+(a-2)x=a^2-4.
+\]
+
+Factor the right side:
+
+\[
+(a-2)x=(a-2)(a+2).
+\]
+
+- If $a\ne2$, divide by $a-2$ to obtain the unique solution $x=a+2$.
+- If $a=2$, return to the original equation: $0\cdot x=0$. Every real $x$ is a
+  solution.
+
+Thus
+
+\[
+S_a=\begin{cases}
+\{a+2\},&a\ne2,\\
+\mathbb R,&a=2.
+\end{cases}
+\]
+
+For comparison, changing the right side to $a+2$ would produce no solution at
+$a=2$, because the exceptional equation would be $0x=4$. Exceptional values
+must be substituted, not guessed from the generic formula.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-guided-parameter" data-level="C"}
+### Guided exercise: classify all cases
+
+Solve $(k-1)x=k-1$ over $\mathbb R$.
+
+::: {.callout-note collapse="true" title="Hint"}
+The planned divisor is $k-1$. Separate the case in which it vanishes.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+If $k\ne1$, divide by $k-1$ and obtain $x=1$. If $k=1$, the original equation
+is $0=0$, so every real $x$ works. Therefore
+
+\[
+S_k=\begin{cases}\{1\},&k\ne1,\\\mathbb R,&k=1.\end{cases}
+\]
+:::
+:::
+
+## 11. Common mistakes
+
+### Mistake 1: cancel terms across addition
+
+From $(x+3)/x$, one cannot “cancel the $x$” to get $3$. Cancellation removes a
+common **factor**, not a term. A valid rewrite is
+
+\[
+\frac{x+3}{x}=\frac{x}{x}+\frac3x=1+\frac3x\qquad(x\ne0).
+\]
+
+At $x=1$, the original value is $4$, immediately refuting the proposed value
+$3$.
+
+### Mistake 2: divide by the unknown before checking zero
+
+From $x(x-5)=0$, division by $x$ produces $x=5$ but assumes $x\ne0$ and loses
+the solution $0$. Use the zero-product property or split into $x=0$ and $x\ne0$.
+
+### Mistake 3: distribute a power or root over a sum
+
+Neither $(a+b)^n=a^n+b^n$ nor $\sqrt{a+b}=\sqrt a+\sqrt b$ is a general real
+law. Expand powers by multiplication; test radical claims with small
+nonnegative counterexamples.
+
+### Mistake 4: clear denominators without recording restrictions
+
+Multiplying by a common denominator is reversible only on the set where that
+denominator is nonzero. Write exclusions before multiplying and filter the final
+candidate set through them.
+
+### Mistake 5: reverse an inequality automatically
+
+Addition never reverses order. Multiplication or division reverses it exactly
+when the multiplier is negative. For a symbolic multiplier, determine its sign
+or split into cases.
+
+### Mistake 6: treat an implication as an equivalence
+
+Squaring, even powers, and some trigonometric or absolute-value operations merge
+values. Use $\Rightarrow$ while generating candidates, then verify in the
+original condition. If sign restrictions make the operation one-to-one, say so
+and then use $\Leftrightarrow$.
+
+### Mistake 7: believe software has supplied missing assumptions
+
+A computer algebra system may simplify a generic expression, return candidates
+over the complex numbers, or retain a piecewise result. Its output is evidence
+to interpret. It does not retroactively specify the problem's universe or prove
+that every transformation preserved the domain.
+
+::: {.checkpoint data-problem-id="aa-1-3-checkpoint-earliest-error" data-level="C"}
+### Earliest-invalid-step audit
+
+A student solves
+
+\[
+\begin{aligned}
+\frac{x+1}{x-2}&=1,\\
+x+1&=x-2,\\
+1&=-2,
+\end{aligned}
+\]
+
+and concludes there is no solution. Is any displayed transformation invalid?
+
+::: {.callout-tip collapse="true" title="Answer"}
+The conclusion is correct, and the transformation is valid after stating the
+original restriction $x\ne2$. On that domain, multiplication by $x-2$ is
+reversible. The contradiction $1=-2$ shows no admissible $x$ exists. The audit
+finds an omitted justification, not a false algebraic line.
+:::
+:::
+
+## 12. Examination strategy clinic
+
+Hard questions often combine a parameter, a nonreversible operation, and a
+boundary at which the number of solutions changes. The task is not merely to
+solve a quadratic; it is to decide which roots survive the original equation.
+
+::: {.worked-example}
+### Example 14: classify a parameterized radical equation
+
+For real $a$, determine the number and values of real solutions of
+
+\[
+\sqrt{x+a}=x-a.
+\]
+
+#### Step 1: isolate the sign information
+
+The square root is nonnegative, so every solution must satisfy
+
+\[
+x-a\ge0.
+\]
+
+Set $y=x-a$. Then $y\ge0$ and $x=y+a$. The radicand becomes
+
+\[
+x+a=y+2a.
+\]
+
+The equation is
+
+\[
+\sqrt{y+2a}=y,qquad y\ge0.
+\]
+
+#### Step 2: square and solve the candidate equation
+
+Because the right side is known to be nonnegative, squaring will be reversible
+for candidates that satisfy the resulting equation and $y\ge0$:
+
+\[
+y+2a=y^2
+\Longleftrightarrow y^2-y-2a=0.
+\]
+
+The discriminant is $\Delta=1+8a$, and
+
+\[
+y_{\pm}=\frac{1\pm\sqrt{1+8a}}2.
+\]
+
+Real candidates require $a\ge-1/8$.
+
+#### Step 3: classify by the sign condition $y\ge0$
+
+- If $a<-1/8$, the quadratic has no real roots, so there are no solutions.
+- If $a=-1/8$, the double root is $y=1/2$, giving
+  $x=y+a=3/8$.
+- If $-1/8<a<0$, then $0<\sqrt{1+8a}<1$, so both $y_+$ and $y_-$ are positive.
+  Both give solutions.
+- If $a=0$, the roots are $y=1$ and $y=0$; both are nonnegative, so both
+  survive.
+- If $a>0$, then $\sqrt{1+8a}>1$, so $y_-<0$ and must be rejected, while
+  $y_+>0$ survives.
+
+Converting back to $x=a+y$ gives
+
+\[
+S_a=\begin{cases}
+\varnothing,&a<-\frac18,\\[2mm]
+\left\{\frac38\right\},&a=-\frac18,\\[2mm]
+\left\{a+\frac{1-\sqrt{1+8a}}2,
+        a+\frac{1+\sqrt{1+8a}}2\right\},
+  &-\frac18<a\le0,\\[2mm]
+\left\{a+\frac{1+\sqrt{1+8a}}2\right\},&a>0.
+\end{cases}
+\]
+
+#### Step 4: prove that no hidden extraneous root remains
+
+For every retained root, $y\ge0$ and the quadratic equation gives
+$y+2a=y^2$. Hence
+
+\[
+\sqrt{y+2a}=\sqrt{y^2}=|y|=y.
+\]
+
+So every retained candidate satisfies the original equation. This last argument
+is stronger than checking a few numerical parameters: it verifies the whole
+classified family.
+
+#### Examination audit
+
+A full-credit solution must identify both transition parameters. The value
+$a=-1/8$ changes the discriminant, while $a=0$ changes the sign of the smaller
+root. Reporting only the quadratic formula misses the problem's central
+reasoning.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-clinic-transfer" data-level="D"}
+### Clinic transfer
+
+For real $p$, classify the real solutions of $(p-1)(x+2)=p^2-1$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Factor $p^2-1=(p-1)(p+1)$. If $p\ne1$, cancellation gives
+$x+2=p+1$, so $x=p-1$. If $p=1$, the original equation is $0=0$, so every real
+$x$ is a solution. Therefore
+
+\[
+S_p=\begin{cases}\{p-1\},&p\ne1,\\\mathbb R,&p=1.\end{cases}
+\]
+
+The apparent special value $p=-1$ causes no loss: the divisor $p-1$ is then
+nonzero and the unique solution is $x=-2$.
+:::
+:::
+
+## 13. Exercises by purpose and difficulty
+
+Attempt the problems without software. For an equation, state the universe and
+restrictions before transforming it. For an audit problem, identify the
+**earliest** line that is not justified. Concise answers follow all problems;
+selected Level C and D solutions then model full examination writing.
+
+### Level A — laws and fluency
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a01" data-level="A"}
+1. Name the principal law used in
+$7(x+y)=7x+7y$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a02" data-level="A"}
+2. Simplify $4(3x-2)-5(x+1)$ and name the laws that justify regrouping.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a03" data-level="A"}
+3. State the excluded values for
+$\dfrac{x+4}{x^2-9}$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a04" data-level="A"}
+4. Complete the identity
+$\dfrac{x^2-16}{x-4}=\underline{\hspace{1cm}}$ with its condition.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a05" data-level="A"}
+5. Solve $(2x-1)(x+5)=0$ over $\mathbb R$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a06" data-level="A"}
+6. Solve $-4x\ge20$ and explain the direction of the inequality.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a07" data-level="A"}
+7. Give a counterexample to $\sqrt{u+v}=\sqrt u+\sqrt v$ with
+$u,v\ge0$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-a08" data-level="A"}
+8. Decide whether $x=3\Longrightarrow x^2=9$ and its converse are true.
+:::
+
+### Level B — connected reasoning
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b01" data-level="B"}
+9. Prove additive cancellation from the field laws.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b02" data-level="B"}
+10. Solve $\dfrac{x+2}{x-1}=3$ over $\mathbb R$ and verify the result.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b03" data-level="B"}
+11. Solve $x(x+4)=0$ without dividing by $x$. Explain what division would lose.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b04" data-level="B"}
+12. Determine the common domain on which
+$\dfrac{x^2-x}{x}$ and $x-1$ agree.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b05" data-level="B"}
+13. Solve $\sqrt{x+6}=x$ over $\mathbb R$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b06" data-level="B"}
+14. For $c>0$, solve $c(2x-1)<3c$. Then repeat for $c<0$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b07" data-level="B"}
+15. Disprove $(a/b)+(c/d)=(a+c)/(b+d)$ as a universal fraction law.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-b08" data-level="B"}
+16. State precisely when
+$\dfrac{r^3-s^3}{r-s}=r^2+rs+s^2$.
+:::
+
+### Level C — synthesis and audits
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c01" data-level="C"}
+17. Solve
+$\dfrac{2}{x-2}=\dfrac{x}{x-2}-1$ and explain the status of every candidate.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c02" data-level="C"}
+18. A student writes
+$\sqrt{(x-3)^2}=x-3$. Find the largest real domain on which this identity is
+valid and give a counterexample outside it.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c03" data-level="C"}
+19. Classify the solutions of $(m+2)x=m^2-4$ by real $m$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c04" data-level="C"}
+20. Solve $\sqrt{3x+4}=x+2$ over $\mathbb R$, labeling implication-only steps.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c05" data-level="C"}
+21. For real $a$, solve $a(x+1)\le0$ in $x$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c06" data-level="C"}
+22. Find the earliest invalid step:
+
+\[
+\frac{x^2-4}{x-2}=0
+\Longleftrightarrow x^2-4=0
+\Longleftrightarrow x=\pm2.
+\]
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c07" data-level="C"}
+23. Determine whether
+$\dfrac1{a+b}=\dfrac1a+\dfrac1b$ can ever hold for nonzero real $a,b,a+b$.
+Describe all such pairs.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-c08" data-level="C"}
+24. Solve $|x-1|=x+3$ and state where squaring is reversible.
+:::
+
+### Level D — proof, construction, and classification
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d01" data-level="D"}
+25. Prove from field laws that $(-a)(-b)=ab$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d02" data-level="D"}
+26. Construct an equation for which squaring produces exactly two extraneous
+real roots and justify your construction.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d03" data-level="D"}
+27. For real $a$, classify the solutions of
+$\dfrac{x-a}{x-1}=0$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d04" data-level="D"}
+28. For real $k$, classify the real solutions of
+$(k-2)x=kx+1$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d05" data-level="D"}
+29. Prove that if $0<a<b$, then $1/a>1/b$, using only ordered-field operations
+and explicit sign information.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d06" data-level="D"}
+30. Determine every real $a$ for which
+$\sqrt{x+a}=x$ has exactly two real solutions.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d07" data-level="D"}
+31. Let $u,v\in\mathbb R$. Determine necessary and sufficient conditions for
+$\sqrt{u^2v^2}=uv$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-exercise-d08" data-level="D"}
+32. A proposed proof starts with $p=q\ne0$, multiplies by $p$, subtracts $q^2$,
+factors, divides by $p-q$, and concludes $2=1$. Reconstruct the lines and
+identify exactly why the division is invalid.
+:::
+
+### Concise answers
+
+::: {.callout-tip collapse="true" title="Answers to Problems 1–32"}
+1. Distributivity.
+2. $12x-8-5x-5=7x-13$; distributivity, then associativity and commutativity.
+3. $x\ne-3,3$.
+4. $x+4$, provided $x\ne4$.
+5. $x=1/2$ or $x=-5$.
+6. $x\le-5$; division by $-4$ reverses order.
+7. $u=v=1$: $\sqrt2\ne2$.
+8. The implication is true; the converse is false because $x=-3$ also has
+   square $9$.
+9. Add $-c$ to both sides of $a+c=b+c$ and use associativity and additive
+   inverses.
+10. Domain $x\ne1$; $x+2=3x-3$, so $x=5/2$, which verifies.
+11. $x=0$ or $x=-4$; division by $x$ would discard $0$.
+12. $\mathbb R\setminus\{0\}$.
+13. Sign requires $x\ge0$. Squaring gives $x^2-x-6=0$, so candidates $3,-2$;
+   only $3$ verifies.
+14. If $c>0$, $x<2$; if $c<0$, $x>2$.
+15. Take $a=b=c=d=1$: the left side is $2$, the right side $1$.
+16. It holds whenever $r\ne s$; that is the original quotient's domain.
+17. Domain $x\ne2$. Clearing gives $2=x-(x-2)=2$, so every admissible value
+   works: $\mathbb R\setminus\{2\}$.
+18. Since $\sqrt{(x-3)^2}=|x-3|$, equality with $x-3$ holds exactly for
+   $x\ge3$. At $x=2$, the sides are $1$ and $-1$.
+19. If $m\ne-2$, $x=m-2$; if $m=-2$, every real $x$ solves $0=0$.
+20. The radical requires $x\ge-4/3$; on that domain the right side is already
+   positive. Squaring gives $3x+4=(x+2)^2$, hence $x(x+1)=0$; both $0$ and
+   $-1$ lie in the domain and verify.
+21. If $a>0$, $x\le-1$; if $a<0$, $x\ge-1$; if $a=0$, all real $x$.
+22. The first equivalence omits $x\ne2$. The numerator equation produces
+   $x=2$, which is excluded; the actual solution is $x=-2$.
+23. Multiplication by $ab(a+b)$ gives $ab=(a+b)^2$. Equivalently
+   $a^2+ab+b^2=0$. Its discriminant in $a/b$ is $-3$, so no admissible real
+   pairs exist.
+24. The right side must be nonnegative, which holds for $x\ge-3$. Squaring gives
+   $(x-1)^2=(x+3)^2$, hence $x=-1$; it verifies. On $x\ge-3$, both sides are
+   nonnegative, so squaring is reversible.
+25. See the full solution below.
+26. One answer is $\sqrt{x^2}= -1$. It has no real solution, while squaring
+   gives $x^2=1$ with two extraneous candidates $\pm1$.
+27. Domain $x\ne1$. A fraction is zero exactly when its numerator is zero, so
+   $x=a$ if $a\ne1$; if $a=1$, the candidate is excluded and there is no
+   solution.
+28. Rearrangement gives $-2x=1$, independent of $k$, so $x=-1/2$ for every real
+   $k$.
+29. See the full solution below.
+30. Squaring $\sqrt{x+a}=x$ under $x\ge0$ gives $x^2-x-a=0$. It has two
+   distinct nonnegative roots when $-1/4<a<0$ (both roots are positive) and
+   also at $a=0$ (the roots are $0$ and $1$). Thus the complete parameter set
+   is $-1/4<a\le0$.
+31. The left side is $|uv|$, so equality holds exactly when $uv\ge0$.
+32. See the full solution below.
+:::
+
+### Selected full solutions
+
+::: {.callout-tip collapse="true" title="Problem 25: derive the double-negative law"}
+First, $(-a)b$ is the additive inverse of $ab$ because
+
+\[
+ab+(-a)b=(a+(-a))b=0b=0.
+\]
+
+Hence $(-a)b=-(ab)$. Apply the same fact with $b$ replaced by $-b$:
+$(-a)(-b)=-[a(-b)]$. But $a(-b)=-(ab)$, so
+
+\[
+(-a)(-b)=-[-(ab)]=ab.
+\]
+
+The final equality uses uniqueness of additive inverses, or the previously
+derived rule $-(-t)=t$.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 29: reciprocals reverse positive order"}
+From $0<a<b$, both $a$ and $b$ are positive, so $ab>0$ and division by $ab$
+preserves order. Divide $a<b$ by $ab$:
+
+\[
+\frac{a}{ab}<\frac{b}{ab}.
+\]
+
+Simplifying with nonzero $a,b$ gives $1/b<1/a$, equivalently $1/a>1/b$.
+Every cancellation is licensed by positivity, which implies nonzero.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 32: the disguised division by zero"}
+Starting from $p=q\ne0$:
+
+\[
+\begin{aligned}
+p&=q,\\
+p^2&=pq,\\
+p^2-q^2&=pq-q^2,\\
+(p-q)(p+q)&=q(p-q).
+\end{aligned}
+\]
+
+The false proof divides by $p-q$ to obtain $p+q=q$, then substitutes $p=q$ to
+claim $2q=q$ and $2=1$. But the premise $p=q$ makes $p-q=0$. The cancellation
+step divides by zero and is undefined. Every earlier line is valid.
+:::
+
+## 14. Cumulative retrieval
+
+These problems combine the language of Chapter 1.1 and the number-system
+conditions of Chapter 1.2. The method is deliberately not named in the prompt.
+
+::: {.practice-box data-problem-id="aa-1-3-cumulative-01" data-level="C"}
+### Quantify cancellation correctly
+
+Write a quantified real-number statement expressing multiplicative
+cancellation, then negate it. Explain why deleting the nonzero condition makes
+the original claim false.
+
+::: {.callout-tip collapse="true" title="Solution"}
+A precise statement is
+
+\[
+(\forall a,b,c\in\mathbb R)
+[(ac=bc\land c\ne0)\Rightarrow a=b].
+\]
+
+Its negation is
+
+\[
+(\exists a,b,c\in\mathbb R)
+[ac=bc\land c\ne0\land a\ne b].
+\]
+
+No such triple exists. Without $c\ne0$, choose $a=1,b=2,c=0$; then
+$ac=bc=0$ although $a\ne b$.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-3-cumulative-02" data-level="D"}
+### Domain, density, and identity
+
+Let
+
+\[
+f(x)=\frac{x^2-2}{x-\sqrt2}.
+\]
+
+State its real domain, simplify it there, and decide whether rational inputs are
+dense in its domain. Is the simplified polynomial the same real function?
+
+::: {.callout-tip collapse="true" title="Solution"}
+The denominator excludes $x=\sqrt2$, so the domain is
+$\mathbb R\setminus\{\sqrt2\}$. Factoring over the reals gives
+
+\[
+f(x)=x+\sqrt2\qquad(x\ne\sqrt2).
+\]
+
+The rationals remain dense in this punctured domain: every open interval around
+an admissible point contains rationals, and the removed point is irrational in
+any case. The polynomial $g(x)=x+\sqrt2$ with natural domain $\mathbb R$ is not
+the same function as $f$ because $g(\sqrt2)=2\sqrt2$ while $f(\sqrt2)$ is
+undefined.
+:::
+:::
+
+## 15. Topic checkpoint
+
+First answer the static challenge: for which real $a$ may one cancel $a-3$ from
+
+\[
+(a-3)(x+1)=(a-3)(2x-5)?
+\]
+
+If $a\ne3$, cancellation is valid and leads to $x=6$. If $a=3$, the original
+equation is $0=0$ and every real $x$ is a solution. The interactive checkpoint
+below varies the type of transformation; explain the domain and direction
+before selecting an answer.
+
+<fc-quiz data-source="../../../../quizzes/advanced-algebra/algebraic-laws.yml"></fc-quiz>
+
+## 16. Summary and next step
+
+- Equality permits substitution, but reversing an applied operation requires
+  that operation to be one-to-one on the relevant domain.
+- Field laws justify expansion, regrouping, inverses, and cancellation.
+  Multiplicative cancellation requires a nonzero factor.
+- An expression's original domain survives simplification. Equal formulas need
+  not define equal functions when their domains differ.
+- Clearing denominators is reversible on the original domain; excluded values
+  never become solutions later.
+- The zero-product property creates branches. Dividing by an unknown factor can
+  destroy the zero branch.
+- Power, radical, and fraction laws have hypotheses. One decisive counterexample
+  refutes a proposed universal identity.
+- Multiplication or division of an inequality preserves direction for a
+  positive factor, reverses it for a negative factor, and destroys strict order
+  for a zero factor.
+- Equivalent steps preserve the solution set. Implication-only steps generate
+  candidates that require verification in the original condition.
+- Parameter problems demand a generic case and explicit exceptional cases.
+- A strong solution records universe, domain, direction, exceptions, and a
+  final check.
+
+The next planned chapter, *Proof methods for algebra*, will organize these valid
+local steps into complete direct, contrapositive, contradiction, case,
+equivalence, existence, uniqueness, and induction arguments. Until it is
+published, use the unit overview to review prerequisites rather than treating a
+planned chapter as completed material.
+
+## References and further study
+
+- [OpenStax, *College Algebra 2e*](https://openstax.org/details/books/college-algebra-2e)
+  provides an openly licensed review of real-number properties, equations,
+  rational expressions, radicals, and inequalities. This chapter's exposition
+  and original problems were independently written; the text is a supporting
+  reference rather than a source of copied exercises.
+- [Richard Hammack, *Book of Proof*](https://richardhammack.github.io/BookOfProof/)
+  develops logic, direct proof, contrapositive, contradiction, and careful use
+  of definitions; it is especially useful before the next chapter.
+- [SymPy simplification documentation](https://docs.sympy.org/latest/tutorials/intro-tutorial/simplification.html)
+  explains symbolic expansion, factoring, cancellation, and simplification.
+  Compare its transformations with the domain audit in this chapter.
+- [SymPy equation-solving guidance](https://docs.sympy.org/latest/guides/solving/solve-equation-algebraically.html)
+  documents exact solvers and the interpretation of returned candidates.
+
+## Using this lesson with fcmath and SymPy
+
+Use exact parsing and symbolic subtraction to check a polynomial identity. A
+zero result supports equivalence on the common domain; it does not compare
+function domains for you.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+from fcmath import parse_expression
+
+x, a = sp.symbols("x a", real=True)
+original = parse_expression("3*(2*x - 5) - 2*(x + 4)", variables=(x,))
+simplified = parse_expression("4*x - 23", variables=(x,))
+sp.simplify(original - simplified)
+```
+
+### Auditing a conditional identity
+
+SymPy can cancel the common factor in a rational expression. Record the lost
+input separately:
+
+```{python}
+#| echo: true
+rational = (x**2 - a**2) / (x - a)
+cancelled = sp.cancel(rational)
+excluded = sp.solve(sp.denom(rational), x)
+cancelled, excluded
+```
+
+The output $a+x$ is valid where $x\ne a$. The exclusion list is part of the
+mathematical answer.
+
+### Solving an equation and checking the original
+
+For $\sqrt{x+2}=x$, the manual method first established $x\ge0$, squared to
+generate candidates, and checked both candidates. The equivalent SymPy workflow
+keeps those stages separate:
+
+```{python}
+#| echo: true
+candidate_equation = sp.Eq(x + 2, x**2)
+candidates = sp.solve(candidate_equation, x)
+valid = [
+    value
+    for value in candidates
+    if value >= 0 and sp.simplify(sp.sqrt(value + 2) - value) == 0
+]
+candidates, valid
+```
+
+The candidate list is $[-1,2]$ and the validated list is $[2]$. Asking a solver
+for candidates does not remove the need to inspect the original domain.
+
+### Checking a parameter classification
+
+The examination-clinic substitution $y=x-a$ reduces the radical equation to a
+quadratic. Its discriminant and roots expose the transition values:
+
+```{python}
+#| echo: true
+y = sp.symbols("y", real=True)
+polynomial = y**2 - y - 2 * a
+discriminant = sp.discriminant(polynomial, y)
+roots = sp.solve(polynomial, y)
+discriminant, roots
+```
+
+The symbolic output gives $1+8a$ and
+$(1\pm\sqrt{1+8a})/2$. Human sign analysis of the smaller root supplies the
+second boundary $a=0$.
+
+### Solving an inequality with an explicit real domain
+
+```{python}
+#| echo: true
+inequality_solution = sp.solve_univariate_inequality(-3 * x < 12, x)
+inequality_solution
+```
+
+SymPy returns $-4<x$. Read the relation as a real solution set and connect it to
+the ordered-field rule: division by the negative coefficient reverses the
+inequality.

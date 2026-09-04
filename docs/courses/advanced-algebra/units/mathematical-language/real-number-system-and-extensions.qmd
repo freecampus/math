@@ -1206,9 +1206,10 @@ the same questions, hints, and readable solutions.
 - Complex numbers close equations such as $x^2=-1$ but do not carry a compatible
   order.
 
-The next chapter, *Algebraic laws and valid transformation*, will turn the
-closure and domain habits into a line-by-line system for deciding when an
-algebraic transformation is reversible.
+Continue to
+[Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd),
+which turns the closure and domain habits into a line-by-line system for
+deciding when an algebraic transformation is reversible.
 
 ## References and further study
 

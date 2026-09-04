@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "curriculum_version": 4,
+  "curriculum_version": 5,
   "courses": [
     {
       "id": "advanced-algebra",
@@ -220,10 +220,40 @@
                 "checkpoint": true
               },
               "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation",
+              "title": "Algebraic Laws and Valid Transformation",
+              "description": "Justify algebraic transformations, preserve domains and solution sets, and detect invalid steps in symbolic arguments.",
+              "file": "courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.qmd",
+              "order": 3,
+              "status": "review",
+              "estimated_minutes": 600,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "symbolic-reasoning",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-7",
+                "advanced-algebra-outcome-8"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
             }
           ],
           "challenges": [],
-          "item_count": 2
+          "item_count": 3
         },
         {
           "id": "algebra",
@@ -791,7 +821,7 @@
           "item_count": 7
         }
       ],
-      "item_count": 24,
+      "item_count": 25,
       "file": "courses/advanced-algebra/index.qmd"
     },
     {

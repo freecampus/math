@@ -60,17 +60,21 @@ The available reference-format chapters are:
 
 1. [Sets, intervals, statements, and quantifiers](sets-intervals-statements-and-quantifiers.qmd),
    which establishes precise language for universes, solution sets, logic, and
-   counterexample; and
+   counterexample;
 2. [The real number system and its extensions](real-number-system-and-extensions.qmd),
    which develops closure, rationality, irrationality, density, completeness,
    exact comparison, distance, radicals, approximation, and the complex
-   extension. This new chapter is a review candidate pending independent
-   mathematical and editorial approval.
+   extension; and
+3. [Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd),
+   which develops field and order laws, domain-preserving equivalence,
+   conditional identities, equation audits, and parameter cases.
 
-The coverage matrix next schedules chapters on algebraic laws and valid
-transformation and proof methods for algebra. They remain unpublished until
-they satisfy the same worked-example, exercise, solution, interaction, and
-review standard.
+The second and third chapters are review candidates pending independent
+mathematical and editorial approval.
+
+The coverage matrix next schedules a chapter on proof methods for algebra. It
+remains unpublished until it satisfies the same worked-example, exercise,
+solution, interaction, and review standard.
 
 ## Central ideas and notation
 
@@ -93,6 +97,8 @@ Use the [notation guide](../../../../resources/notation/index.qmd) when a symbol
 unfamiliar. Begin with
 [Sets, intervals, statements, and quantifiers](sets-intervals-statements-and-quantifiers.qmd),
 then continue to
-[The real number system and its extensions](real-number-system-and-extensions.qmd).
+[The real number system and its extensions](real-number-system-and-extensions.qmd),
+and then study
+[Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd).
 Return to the orientation chapter whenever a chain of implications becomes
 unclear.

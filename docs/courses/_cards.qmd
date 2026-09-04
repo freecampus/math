@@ -4,7 +4,7 @@
 
 A proof-aware, book-scale course in algebraic structure, functions, equations, inequalities, modeling, and trigonometry.
 
-**4 unit(s) · 24 activities · active**
+**4 unit(s) · 25 activities · active**
 
 ### [Linear Algebra](courses/linear-algebra/index.qmd)
 

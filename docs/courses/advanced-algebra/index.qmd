@@ -97,8 +97,10 @@ used to grade every later solution.
    - begin with sets, intervals, statements, and quantifiers;
    - continue through number systems, closure, exact reasoning, distance,
      radicals, approximation, and the complex extension;
-   - use the current algebra route while the remaining proof-foundation chapters
-     undergo review.
+   - learn which field and order laws make transformations valid, preserve
+     domains, and classify exceptional parameter cases;
+   - use the current algebra route while the proof-methods chapter undergoes
+     development.
 3. [Algebraic Structures and Functions](units/algebra/index.qmd)
    - use the existing lessons as substantial preparation and migration seeds;
    - retain explicit domains and proof language from the new foundation units.

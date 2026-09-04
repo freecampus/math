@@ -161,8 +161,8 @@
               "id": "advanced-algebra-chapter-1-3-algebraic-laws-valid-transformation",
               "title": "Algebraic laws and valid transformation",
               "scope": "Use field and order laws to justify transformations, state cancellation conditions, distinguish conditional from unconditional identities, and construct counterexamples to common false laws.",
-              "status": "planned",
-              "reference_exemplar": false,
+              "status": "review",
+              "reference_exemplar": true,
               "prerequisite_chapter_ids":
                 ["advanced-algebra-chapter-1-2-real-number-system-extensions"],
               "outcome_ids":
@@ -181,6 +181,8 @@
                 ],
               "fcmath_support":
                 ["transformation audit record", "symbolic equivalence checks"],
+              "catalog_item_id": "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation",
+              "source_file": "courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.qmd",
             },
             {
               "number": "1.4",

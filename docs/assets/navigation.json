@@ -18,7 +18,7 @@
     "advanced-algebra-algebra-expressions-and-equations": {
       "file": "courses/advanced-algebra/units/algebra/expressions-and-equations.qmd",
       "next_id": "advanced-algebra-algebra-inequalities-and-absolute-value",
-      "previous_id": "advanced-algebra-mathematical-language-real-number-system-and-extensions"
+      "previous_id": "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation"
     },
     "advanced-algebra-algebra-functions-and-graphs": {
       "file": "courses/advanced-algebra/units/algebra/functions-and-graphs.qmd",
@@ -65,9 +65,14 @@
       "next_id": "advanced-algebra-algebra-linear-and-quadratic-functions",
       "previous_id": "advanced-algebra-algebra-functions-and-graphs"
     },
+    "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation": {
+      "file": "courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.qmd",
+      "next_id": "advanced-algebra-algebra-expressions-and-equations",
+      "previous_id": "advanced-algebra-mathematical-language-real-number-system-and-extensions"
+    },
     "advanced-algebra-mathematical-language-real-number-system-and-extensions": {
       "file": "courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.qmd",
-      "next_id": "advanced-algebra-algebra-expressions-and-equations",
+      "next_id": "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation",
       "previous_id": "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers"
     },
     "advanced-algebra-mathematical-language-sets-intervals-statements-and-quantifiers": {

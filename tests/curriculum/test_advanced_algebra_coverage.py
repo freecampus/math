@@ -1,10 +1,10 @@
 import json
-import re
 from pathlib import Path
 
 from fcmath.quizzes import load_quiz
 from fcmath.validation import (
     load_structured_data,
+    validate_chapter_contracts,
     validate_coverage_matrix,
     validate_external_resources,
 )
@@ -59,46 +59,44 @@ def test_reference_chapters_meet_book_scale_structure() -> None:
         for chapter in unit["chapters"]
         if chapter["reference_exemplar"]
     ]
-    required_headings = (
-        "Why this matters",
-        "Five-minute retrieval warm-up",
-        "Common mistakes",
-        "Examination strategy clinic",
-        "Exercises by purpose and difficulty",
-        "Cumulative retrieval",
-        "Topic checkpoint",
-        "Summary and next step",
-        "References and further study",
-        "Using this lesson with fcmath and SymPy",
+    assert len(exemplars) == 5
+    assert validate_chapter_contracts(COVERAGE, docs_root=ROOT / "docs") == ()
+
+
+def test_chapter_contract_validator_rejects_incomplete_review_chapter(
+    tmp_path: Path,
+) -> None:
+    coverage = {
+        "units": [
+            {
+                "chapters": [
+                    {
+                        "id": "incomplete-review-chapter",
+                        "status": "review",
+                        "source_file": "bad.qmd",
+                    }
+                ]
+            }
+        ]
+    }
+    (tmp_path / "coverage.yml").write_text(json.dumps(coverage))
+    (tmp_path / "bad.qmd").write_text(
+        '## Why this matters\n\nTODO: expand.\n\n<a target="_blank">link</a>\n'
     )
-    all_problem_ids: list[str] = []
 
-    assert len(exemplars) == 4
-    for chapter in exemplars:
-        source = ROOT / "docs" / chapter["source_file"]
-        text = source.read_text()
-        words = re.findall(r"\b[\w-]+\b", text)
-        headings = re.findall(r"(?m)^## (?:\d+\.\s+)?(.+?)\s*$", text)
-        problem_ids = re.findall(r'data-problem-id="([a-z0-9-]+)"', text)
+    messages = "\n".join(
+        str(issue)
+        for issue in validate_chapter_contracts(
+            tmp_path / "coverage.yml", docs_root=tmp_path
+        )
+    )
 
-        assert len(words) >= 3_000, source
-        assert all(
-            any(heading.startswith(required) for heading in headings)
-            for required in required_headings
-        ), source
-        assert headings[-1] == "Using this lesson with fcmath and SymPy", source
-        assert text.count("{.worked-example") >= 8, source
-        assert set(re.findall(r'data-level="([A-D])"', text)) == {"A", "B", "C", "D"}
-        assert "<fc-quiz" in text
-        assert problem_ids
-        assert len(problem_ids) == len(set(problem_ids))
-        all_problem_ids.extend(problem_ids)
-
-        for chunk in re.findall(r"```\{python\}(.*?)```", text, re.DOTALL):
-            if ".plot(" in chunk or ".render(" in chunk:
-                assert "#| fig-alt:" in chunk, source
-
-    assert len(all_problem_ids) == len(set(all_problem_ids))
+    assert "fewer than 3000 words" in messages
+    assert "missing required heading 'Common mistakes'" in messages
+    assert "fewer than eight worked examples" in messages
+    assert "contains a placeholder" in messages
+    assert "must not force links into new tabs" in messages
+    assert "topic quiz is required" in messages
 
 
 def test_reference_chapter_quizzes_are_valid() -> None:
@@ -108,6 +106,7 @@ def test_reference_chapter_quizzes_are_valid() -> None:
         "readiness-diagnostic.yml": (24, "active"),
         "sets-logic.yml": (10, "active"),
         "number-systems.yml": (10, "review"),
+        "algebraic-laws.yml": (10, "review"),
     }
 
     for name, (expected_count, expected_status) in expected.items():

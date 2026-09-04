@@ -60,6 +60,7 @@ website:
                   - courses/advanced-algebra/units/mathematical-language/index.qmd
                   - courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd
                   - courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.qmd
+                  - courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.qmd
               - section: "Algebraic Structures and Functions"
                 contents:
                   - courses/advanced-algebra/units/algebra/index.qmd
