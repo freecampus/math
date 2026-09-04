@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -1981,7 +1987,7 @@ A\mathbf{x}=4\begin{bmatrix}2\\0\end{bmatrix}
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>NumPy is the standard numeric array library in Python. SymPy is better when you want exact symbolic or fractional answers. The fcmath helpers keep examples short for lessons.</p>
-<div id="9e4de02b" class="cell" data-execution_count="1">
+<div id="7f1653f0" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.linear_algebra <span class="im">import</span> can_multiply, matrix_product, matrix_vector_product</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">3</span>]]</span>
@@ -1996,7 +2002,7 @@ A\mathbf{x}=4\begin{bmatrix}2\\0\end{bmatrix}
 [[11.]]</code></pre>
 </div>
 </div>
-<div id="69b9e4bf" class="cell" data-execution_count="2">
+<div id="c9eaa0ca" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">2</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">3</span>]])</span>

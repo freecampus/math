@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -1422,7 +1428,7 @@ window.Quarto = {
 <p>Example:</p>
 <pre class="text"><code>2x^4 - 3x^2 + 7x - 5</code></pre>
 <p>has degree <code>4</code>, leading coefficient <code>2</code>, and constant term <code>-5</code>.</p>
-<div id="a111baa7" class="cell" data-execution_count="1">
+<div id="832ecdfe" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>(4, 2)</code></pre>
 </div>
@@ -1439,7 +1445,7 @@ window.Quarto = {
 <p>Expanded:</p>
 <pre class="text"><code>(x - 2)(x + 3) = x^2 + x - 6</code></pre>
 <p>The factored form makes roots visible. The expanded form makes degree, leading coefficient, and constant term visible.</p>
-<div id="c19e5ce8" class="cell" data-execution_count="2">
+<div id="5f049d94" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1453,7 +1459,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="building-polynomials-from-roots">Building polynomials from roots</h2>
 <p>If the roots are <code>-1</code>, <code>2</code>, and <code>4</code>, then one polynomial with those roots is:</p>
 <pre class="text"><code>(x + 1)(x - 2)(x - 4)</code></pre>
-<div id="1fb897f8" class="cell" data-execution_count="3">
+<div id="9f56a4da" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle x^{3} - 5 x^{2} + 2 x + 8\)</span></p>
 </div>
@@ -1466,7 +1472,7 @@ window.Quarto = {
 <p>Example:</p>
 <pre class="text"><code>p(x) = (x - 2)^2(x + 1)</code></pre>
 <p>Root <code>2</code> has multiplicity <code>2</code>. Root <code>-1</code> has multiplicity <code>1</code>.</p>
-<div id="b0d5168c" class="cell" data-execution_count="4">
+<div id="86328f34" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>((-1, 1), (2, 2))</code></pre>
 </div>
@@ -1476,7 +1482,7 @@ window.Quarto = {
 <li>odd multiplicity: the graph usually crosses the x-axis;</li>
 <li>even multiplicity: the graph touches/bounces off the x-axis.</li>
 </ul>
-<div id="dce12154" class="cell" data-execution_count="5">
+<div id="49e4d604" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1529,7 +1535,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="4d525db7" class="cell" data-execution_count="6">
+<div id="8f43820b" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -3234,7 +3240,7 @@ p(x) = (x + 3)(x - 2)^2</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>polynomial_summary</code> when you want a compact symbolic report, and use <code>polynomial_root_scene</code> when you want to connect roots to the graph.</p>
-<div id="336c8213" class="cell" data-execution_count="7">
+<div id="341efdd7" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.algebra <span class="im">import</span> polynomial_root_scene, polynomial_summary</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> polynomial_summary(<span class="st">"(x - 2)**2*(x + 1)"</span>)</span>
@@ -3243,7 +3249,7 @@ p(x) = (x + 3)(x - 2)^2</code></pre>
 <pre><code>(3, 1, ((-1, 1), (2, 2)))</code></pre>
 </div>
 </div>
-<div id="3e85946e" class="cell" data-execution_count="8">
+<div id="b87b1fe0" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> polynomial_root_scene(<span class="st">"(x - 2)**2*(x + 1)"</span>, x_min<span class="op">=-</span><span class="dv">4</span>, x_max<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> scene.render()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">

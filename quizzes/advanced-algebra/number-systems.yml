@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "id": "advanced-algebra-number-systems-checkpoint",
+  "title": "Number systems, exact values, and error checkpoint",
+  "purpose": "lesson-review",
+  "status": "review",
+  "questions": [
+    {
+      "id": "number-systems-smallest-set",
+      "type": "single-choice",
+      "prompt": "What is the smallest standard set containing $18/6$?",
+      "options": [
+        { "id": "a", "text": "$\\mathbb N$" },
+        { "id": "b", "text": "$\\mathbb Z$ but not $\\mathbb N$" },
+        { "id": "c", "text": "$\\mathbb Q$ but not $\\mathbb Z$" },
+        { "id": "d", "text": "$\\mathbb R\\setminus\\mathbb Q$" }
+      ],
+      "answer": "a",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Classify the value after simplifying, not the way it is written.",
+      "explanation": "$18/6=3$, so the smallest listed set is $\\mathbb N$."
+    },
+    {
+      "id": "number-systems-repeating-decimal",
+      "type": "single-choice",
+      "prompt": "Which fraction equals $0.\\overline{27}$?",
+      "options": [
+        { "id": "a", "text": "$27/100$" },
+        { "id": "b", "text": "$27/90$" },
+        { "id": "c", "text": "$3/11$" },
+        { "id": "d", "text": "$27/101$" }
+      ],
+      "answer": "c",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "If $x=0.2727\\ldots$, subtract $x$ from $100x$.",
+      "explanation": "$100x-x=27$, so $99x=27$ and $x=3/11$."
+    },
+    {
+      "id": "number-systems-closure",
+      "type": "multiple-select",
+      "prompt": "Select every operation under which $\\mathbb Z$ is closed.",
+      "options": [
+        { "id": "a", "text": "addition" },
+        { "id": "b", "text": "subtraction" },
+        { "id": "c", "text": "multiplication" },
+        { "id": "d", "text": "division by a nonzero integer" }
+      ],
+      "answer": ["a", "b", "c"],
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "set-equality" },
+      "hint": "Try dividing 1 by 2.",
+      "explanation": "Integer sums, differences, and products are integers. Division fails closure because $1/2$ is not an integer."
+    },
+    {
+      "id": "number-systems-irrational-combination",
+      "type": "single-choice",
+      "prompt": "Which statement is always true for rational $r$ and irrational $u$?",
+      "options": [
+        { "id": "a", "text": "$r+u$ is irrational." },
+        { "id": "b", "text": "$ru$ is irrational, including when $r=0$." },
+        { "id": "c", "text": "$u+(-u)$ is irrational." },
+        { "id": "d", "text": "$u^2$ is irrational." }
+      ],
+      "answer": "a",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "If $r+u$ were rational, subtract $r$.",
+      "explanation": "$r+u$ must be irrational or rational closure under subtraction would make $u$ rational. The other claims have counterexamples."
+    },
+    {
+      "id": "number-systems-exact-comparison",
+      "type": "single-choice",
+      "prompt": "Which exact comparison is correct?",
+      "options": [
+        { "id": "a", "text": "$\\sqrt7>8/3$" },
+        { "id": "b", "text": "$\\sqrt7=8/3$" },
+        { "id": "c", "text": "$\\sqrt7<8/3$" },
+        { "id": "d", "text": "The values cannot be compared without decimals." }
+      ],
+      "answer": "c",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Both quantities are positive, so compare their squares.",
+      "explanation": "$7=63/9<64/9=(8/3)^2$, hence $\\sqrt7<8/3$."
+    },
+    {
+      "id": "number-systems-distance-equation",
+      "type": "solution-set",
+      "prompt": "Solve $|2x-5|=7$ over the reals.",
+      "answer": "{-1, 6}",
+      "variable": "x",
+      "domain": "real",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "solution-set" },
+      "hint": "The inside expression is either 7 or -7.",
+      "explanation": "$2x-5=7$ gives $x=6$, while $2x-5=-7$ gives $x=-1$; both verify."
+    },
+    {
+      "id": "number-systems-principal-root",
+      "type": "single-choice",
+      "prompt": "For real $t$, what is $\\sqrt{25(t-1)^2}$?",
+      "options": [
+        { "id": "a", "text": "$5(t-1)$" },
+        { "id": "b", "text": "$25|t-1|$" },
+        { "id": "c", "text": "$5|t-1|$" },
+        { "id": "d", "text": "$|5t-1|$" }
+      ],
+      "answer": "c",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "The principal square root is nonnegative for every real $t$.",
+      "explanation": "$\\sqrt{25(t-1)^2}=5\\sqrt{(t-1)^2}=5|t-1|$."
+    },
+    {
+      "id": "number-systems-rounding-error",
+      "type": "single-choice",
+      "prompt": "A positive length is reported as $12.4$ cm to the nearest $0.1$ cm. Which interval is the standard measurement interval?",
+      "options": [
+        { "id": "a", "text": "$12.3\\le L<12.5$" },
+        { "id": "b", "text": "$12.35\\le L<12.45$" },
+        { "id": "c", "text": "$12.39\\le L<12.41$" },
+        { "id": "d", "text": "$12.4\\le L<12.5$" }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-7",
+      "validation": { "mode": "exact" },
+      "hint": "Half of one tenth is five hundredths.",
+      "explanation": "Rounding to the nearest tenth gives a maximum absolute error of $0.05$, subject to the stated endpoint convention."
+    },
+    {
+      "id": "number-systems-complex-order",
+      "type": "single-choice",
+      "prompt": "Why is there no usual ordered-field relation on $\\mathbb C$ extending the real order?",
+      "options": [
+        { "id": "a", "text": "Complex addition is not closed." },
+        { "id": "b", "text": "Complex multiplication is not closed." },
+        {
+          "id": "c",
+          "text": "Either $i$ or $-i$ would be positive, but its square is $-1$."
+        },
+        { "id": "d", "text": "Real numbers are not complex numbers." }
+      ],
+      "answer": "c",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "In an ordered field, the square of every nonzero element is positive.",
+      "explanation": "A compatible linear order would force a square of $i$ or $-i$ to be positive, contradicting $i^2=(-i)^2=-1<0$."
+    },
+    {
+      "id": "number-systems-polynomial-root-selection",
+      "type": "single-choice",
+      "prompt": "Why does $y^4-10y^2+1=0$ not by itself identify $y=\\sqrt2+\\sqrt3$?",
+      "options": [
+        { "id": "a", "text": "The equation has no real roots." },
+        {
+          "id": "b",
+          "text": "The polynomial also has three other real roots, so bounds or a defining condition are needed."
+        },
+        { "id": "c", "text": "The coefficients are integers." },
+        { "id": "d", "text": "Radicals cannot satisfy polynomial equations." }
+      ],
+      "answer": "b",
+      "skill_mode": "mixed",
+      "outcome_id": "advanced-algebra-outcome-13",
+      "validation": { "mode": "exact" },
+      "hint": "List the sign choices involving $\\sqrt3$ and $\\sqrt2$.",
+      "explanation": "The roots are $\\pm(\\sqrt3+\\sqrt2)$ and $\\pm(\\sqrt3-\\sqrt2)$. The interval $3<y<13/4$ selects the intended one."
+    }
+  ]
+}

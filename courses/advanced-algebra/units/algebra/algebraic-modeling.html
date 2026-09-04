@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -1457,7 +1463,7 @@ window.Quarto = {
 <p>A plant is <code>10 cm</code> tall on day <code>0</code> and <code>22 cm</code> tall on day <code>6</code>:</p>
 <pre class="text"><code>slope = (22 - 10)/(6 - 0) = 2 cm/day
 H(t) = 10 + 2t</code></pre>
-<div id="ab2675e4" class="cell" data-execution_count="1">
+<div id="a11154a1" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
 <p><span class="math inline">\(\displaystyle 2 x + 10\)</span></p>
 </div>
@@ -2991,7 +2997,7 @@ y = 3x + 5</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use parsed equations to check the algebra after you have defined variables and units. The computer can solve, but you must decide whether the model makes sense.</p>
-<div id="bf7114b5" class="cell" data-execution_count="2">
+<div id="47a91e52" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.core <span class="im">import</span> parse_equation</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3022,7 +3028,7 @@ Check:
 n = 6: valid</code></pre>
 </div>
 </div>
-<div id="2c431825" class="cell" data-execution_count="3">
+<div id="f44190eb" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> sp.symbols(<span class="st">"m b"</span>)</span>
@@ -3031,7 +3037,7 @@ n = 6: valid</code></pre>
 <pre><code>{b: 1, m: 3}</code></pre>
 </div>
 </div>
-<div id="d9e48c16" class="cell" data-execution_count="4">
+<div id="8e989c12" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a, x <span class="op">=</span> sp.symbols(<span class="st">"a x"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> a<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sp.solve(sp.Eq(model.subs(x, <span class="dv">5</span>), <span class="dv">2</span>), a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -3039,7 +3045,7 @@ n = 6: valid</code></pre>
 <pre><code>[-2]</code></pre>
 </div>
 </div>
-<div id="6fd808d6" class="cell" data-execution_count="5">
+<div id="c2dafb7d" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.algebra <span class="im">import</span> expression_table</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>expression_table(<span class="st">"35 + 8*x"</span>, inputs<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

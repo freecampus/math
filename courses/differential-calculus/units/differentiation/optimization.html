@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -2136,7 +2142,7 @@ L=20-10=10.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use SymPy to compute candidates, but still build the interpretation yourself.</p>
-<div id="22f19c61" class="cell" data-execution_count="1">
+<div id="2beac834" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
@@ -2147,13 +2153,13 @@ L=20-10=10.
 <pre><code>[3]</code></pre>
 </div>
 </div>
-<div id="a253e24b" class="cell" data-execution_count="2">
+<div id="136f56c3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>[(c, f.subs(x, c)) <span class="cf">for</span> c <span class="kw">in</span> critical]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[(3, 1)]</code></pre>
 </div>
 </div>
-<div id="fdb2545c" class="cell" data-execution_count="3">
+<div id="f593e843" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> optimization_candidate_table, validate_critical_points</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>optimization_candidate_table(<span class="st">"x**3 - 3*x"</span>, domain<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2164,7 +2170,7 @@ L=20-10=10.
  OptimizationCandidate(location=2, value=2, source='endpoint'))</code></pre>
 </div>
 </div>
-<div id="ea78616e" class="cell" data-execution_count="4">
+<div id="6bd14a6e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>validate_critical_points(<span class="st">"3"</span>, <span class="st">"x**2 - 6*x + 10"</span>).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>'Correct.'</code></pre>

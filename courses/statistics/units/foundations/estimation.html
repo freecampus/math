@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -1828,7 +1834,7 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>fcmath</code> to compute confidence intervals.</p>
-<div id="f1f4390e" class="cell" data-execution_count="1">
+<div id="05871edf" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.statistics <span class="im">import</span> confidence_interval_mean, confidence_interval_proportion</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>confidence_interval_mean([<span class="dv">48</span>, <span class="dv">52</span>, <span class="dv">51</span>, <span class="dv">49</span>, <span class="dv">50</span>], confidence_level<span class="op">=</span><span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1836,14 +1842,14 @@ SE_B = s / sqrt(100) = s/10</code></pre>
 <pre><code>ConfidenceInterval(estimate=50.0, lower=48.614096175650324, upper=51.385903824349676, margin_of_error=1.3859038243496775, confidence_level=0.95)</code></pre>
 </div>
 </div>
-<div id="c183a6d8" class="cell" data-execution_count="2">
+<div id="d56fb83f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>confidence_interval_proportion(<span class="dv">60</span>, <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>ConfidenceInterval(estimate=0.6, lower=0.5039817664728938, upper=0.6960182335271061, margin_of_error=0.09601823352710616, confidence_level=0.95)</code></pre>
 </div>
 </div>
 <p>Use SymPy to rearrange the interval formula.</p>
-<div id="19415b80" class="cell" data-execution_count="3">
+<div id="f4c1a394" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>estimate, critical, se <span class="op">=</span> sp.symbols(<span class="st">"estimate critical se"</span>)</span>

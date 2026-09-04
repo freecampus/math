@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -1897,7 +1903,7 @@ sin(theta)=1</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>fcmath</code> for angle facts and SymPy for algebraic verification. SymPy can solve many equations, but interval reasoning is still easier when you understand the unit circle.</p>
-<div id="76e7fdd3" class="cell" data-execution_count="1">
+<div id="e4af5158" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.trigonometry <span class="im">import</span> reference_angle_degrees, trig_signs</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>reference_angle_degrees(<span class="dv">150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1905,14 +1911,14 @@ sin(theta)=1</code></pre>
 <pre><code>30</code></pre>
 </div>
 </div>
-<div id="1f22829c" class="cell" data-execution_count="2">
+<div id="57b69e02" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>trig_signs(<span class="dv">150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>{'sine': '+', 'cosine': '-', 'tangent': '-'}</code></pre>
 </div>
 </div>
 <p>Use SymPy to solve or verify exact equations.</p>
-<div id="34e527d4" class="cell" data-execution_count="3">
+<div id="783644b5" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> sp.symbols(<span class="st">"theta"</span>)</span>
@@ -1922,7 +1928,7 @@ sin(theta)=1</code></pre>
 </div>
 </div>
 <p>For all real solutions, SymPy’s <code>solveset</code> gives a set description.</p>
-<div id="9aaf6224" class="cell" data-execution_count="4">
+<div id="3754512b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sp.solveset(sp.Eq(sp.sin(theta), sp.Rational(<span class="dv">1</span>, <span class="dv">2</span>)), theta, domain<span class="op">=</span>sp.S.Reals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math inline">\(\displaystyle \left\{2 n \pi + \frac{\pi}{6}\; \middle|\; n \in \mathbb{Z}\right\} \cup \left\{2 n \pi + \frac{5 \pi}{6}\; \middle|\; n \in \mathbb{Z}\right\}\)</span></p>

@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -2130,7 +2136,7 @@ F(3)-F(0)=9-0=9.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>fcmath</code> to compute common integral quantities and to build tables that show every rectangle in a Riemann sum.</p>
-<div id="4350b611" class="cell" data-execution_count="1">
+<div id="87022646" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> antiderivative, definite_integral, midpoint_riemann_sum</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>antiderivative(<span class="st">"3*x**2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2138,14 +2144,14 @@ F(3)-F(0)=9-0=9.
 <p><span class="math inline">\(\displaystyle x^{3}\)</span></p>
 </div>
 </div>
-<div id="eaa4ae00" class="cell" data-execution_count="2">
+<div id="0af950bb" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>definite_integral(<span class="st">"2*x"</span>, <span class="dv">0</span>, <span class="dv">3</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>midpoint_riemann_sum(<span class="st">"x**2"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>0.3325</code></pre>
 </div>
 </div>
-<div id="1c0aa40d" class="cell" data-execution_count="3">
+<div id="c82f41c2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> left_riemann_sum, right_riemann_sum, trapezoid_rule</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>left_riemann_sum(<span class="st">"x"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>), right_riemann_sum(<span class="st">"x"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>), trapezoid_rule(<span class="st">"x"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2153,7 +2159,7 @@ F(3)-F(0)=9-0=9.
 <pre><code>(0.45000000000000007, 0.55, 0.5000000000000001)</code></pre>
 </div>
 </div>
-<div id="9ddadf48" class="cell" data-execution_count="4">
+<div id="1ed84c87" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> riemann_sum_table</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> riemann_sum_table(<span class="st">"x**2"</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, method<span class="op">=</span><span class="st">"midpoint"</span>)</span>
@@ -2165,7 +2171,7 @@ F(3)-F(0)=9-0=9.
  (4, 0.875, 0.765625, 0.19140625)]</code></pre>
 </div>
 </div>
-<div id="2530f484" class="cell" data-execution_count="5">
+<div id="625c15bf" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>

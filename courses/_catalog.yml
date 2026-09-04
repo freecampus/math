@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "curriculum_version": 3,
+  "curriculum_version": 4,
   "courses": [
     {
       "id": "advanced-algebra",
@@ -190,10 +190,40 @@
                 "checkpoint": true
               },
               "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-mathematical-language-real-number-system-and-extensions",
+              "title": "The Real Number System and Its Extensions",
+              "description": "Classify number systems, reason about closure, prove exact number claims, and control distance, bounds, radicals, and approximation.",
+              "file": "courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.qmd",
+              "order": 2,
+              "status": "review",
+              "estimated_minutes": 540,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "symbolic-reasoning",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-6",
+                "advanced-algebra-outcome-7",
+                "advanced-algebra-outcome-8",
+                "advanced-algebra-outcome-13"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
             }
           ],
           "challenges": [],
-          "item_count": 1
+          "item_count": 2
         },
         {
           "id": "algebra",
@@ -761,7 +791,7 @@
           "item_count": 7
         }
       ],
-      "item_count": 23,
+      "item_count": 24,
       "file": "courses/advanced-algebra/index.qmd"
     },
     {

@@ -468,6 +468,12 @@ window.Quarto = {
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -2224,7 +2230,7 @@ h'(x)=6x(x^2+1)^2e^x+(x^2+1)^3e^x.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy can check equivalent derivative forms. This is useful because correct answers may look different after expansion or factoring.</p>
-<div id="e2624f1a" class="cell" data-execution_count="1">
+<div id="5e825dcb" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> derivative, derivative_rule_trace, validate_derivative_equivalence</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>expected <span class="op">=</span> derivative(<span class="st">"(x**2 + 1)**3"</span>)</span>
@@ -2233,13 +2239,13 @@ h'(x)=6x(x^2+1)^2e^x+(x^2+1)^3e^x.
 <p><span class="math inline">\(\displaystyle 6 x \left(x^{2} + 1\right)^{2}\)</span></p>
 </div>
 </div>
-<div id="f5687799" class="cell" data-execution_count="2">
+<div id="610e1cb3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>validate_derivative_equivalence(<span class="st">"6*x*(x**2 + 1)**2"</span>, expected).message</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>'Correct.'</code></pre>
 </div>
 </div>
-<div id="3c546e62" class="cell" data-execution_count="3">
+<div id="5e20f3e7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>derivative_rule_trace(<span class="st">"(x**2 + 1)**3"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>('chain rule: differentiate the outside power and multiply by the inside derivative',
@@ -2248,7 +2254,7 @@ h'(x)=6x(x^2+1)^2e^x+(x^2+1)^3e^x.
  'power rule: bring down 2 and subtract 1')</code></pre>
 </div>
 </div>
-<div id="d299114b" class="cell" data-execution_count="4">
+<div id="15ec86ea" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
