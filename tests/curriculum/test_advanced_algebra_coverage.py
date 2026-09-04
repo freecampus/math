@@ -59,7 +59,7 @@ def test_reference_chapters_meet_book_scale_structure() -> None:
         for chapter in unit["chapters"]
         if chapter["reference_exemplar"]
     ]
-    assert len(exemplars) == 5
+    assert len(exemplars) == 6
     assert validate_chapter_contracts(COVERAGE, docs_root=ROOT / "docs") == ()
 
 
@@ -107,12 +107,48 @@ def test_reference_chapter_quizzes_are_valid() -> None:
         "sets-logic.yml": (10, "active"),
         "number-systems.yml": (10, "review"),
         "algebraic-laws.yml": (10, "review"),
+        "proof-methods.yml": (10, "review"),
     }
 
     for name, (expected_count, expected_status) in expected.items():
         bank = load_quiz(quiz_root / name)
         assert bank.status == expected_status
         assert len(bank.questions) == expected_count
+
+
+def test_unit_one_proof_assessments_are_registered() -> None:
+    catalog = load_structured_data(CATALOG)
+    course = next(
+        course for course in catalog["courses"] if course["id"] == "advanced-algebra"
+    )
+    unit = next(
+        unit for unit in course["units"] if unit["id"] == "mathematical-language"
+    )
+    portfolio = next(
+        challenge
+        for challenge in unit["challenges"]
+        if challenge["id"]
+        == "advanced-algebra-mathematical-language-unit-1-proof-portfolio"
+    )
+    examination = next(
+        assessment
+        for assessment in catalog["assessments"]
+        if assessment["id"] == "advanced-algebra-unit-1-proof-examination"
+    )
+
+    assert unit["assessment_ids"] == ["advanced-algebra-unit-1-proof-examination"]
+    assert portfolio["status"] == "review"
+    assert portfolio["estimated_minutes"] == 360
+    assert examination["status"] == "review"
+    assert examination["estimated_minutes"] == 75
+    assert set(examination["outcome_ids"]) == {
+        "advanced-algebra-outcome-1",
+        "advanced-algebra-outcome-3",
+        "advanced-algebra-outcome-6",
+        "advanced-algebra-outcome-7",
+        "advanced-algebra-outcome-8",
+        "advanced-algebra-outcome-14",
+    }
 
 
 def test_problem_metadata_schema_and_template_cover_all_levels() -> None:

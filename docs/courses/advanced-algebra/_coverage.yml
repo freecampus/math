@@ -189,8 +189,8 @@
               "id": "advanced-algebra-chapter-1-4-proof-methods-algebra",
               "title": "Proof methods for algebra",
               "scope": "Write direct, case, contrapositive, contradiction, equivalence, existence, uniqueness, and introductory induction arguments suited to algebraic statements.",
-              "status": "planned",
-              "reference_exemplar": false,
+              "status": "review",
+              "reference_exemplar": true,
               "prerequisite_chapter_ids":
                 [
                   "advanced-algebra-chapter-1-3-algebraic-laws-valid-transformation",
@@ -210,6 +210,8 @@
                 ],
               "fcmath_support":
                 ["proof-step renderer", "counterexample search support"],
+              "catalog_item_id": "advanced-algebra-mathematical-language-proof-methods-for-algebra",
+              "source_file": "courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.qmd",
             },
           ],
       },

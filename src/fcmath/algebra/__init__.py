@@ -25,6 +25,11 @@ from fcmath.algebra.polynomials import (
     polynomial_root_scene,
     polynomial_summary,
 )
+from fcmath.algebra.proofs import (
+    ProofStep,
+    find_implication_counterexample,
+    proof_steps_markdown,
+)
 from fcmath.algebra.quizzes import (
     GuessingQuiz,
     GuessingQuizWidget,
@@ -48,6 +53,7 @@ __all__ = [
     "GuessingQuizWidget",
     "LinearModel",
     "PolynomialSummary",
+    "ProofStep",
     "QuadraticModel",
     "SympyGuessGame",
     "compare_functions_scene",
@@ -55,6 +61,7 @@ __all__ = [
     "expand_question",
     "expression_table",
     "factor_question",
+    "find_implication_counterexample",
     "function_scene",
     "input_output_scene",
     "line_from_points",
@@ -62,6 +69,7 @@ __all__ = [
     "polynomial_from_roots",
     "polynomial_root_scene",
     "polynomial_summary",
+    "proof_steps_markdown",
     "quadratic_from_vertex",
     "symbolic_question",
     "transformation_scene",

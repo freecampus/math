@@ -1419,11 +1419,10 @@ before selecting an answer.
 - A strong solution records universe, domain, direction, exceptions, and a
   final check.
 
-The next planned chapter, *Proof methods for algebra*, will organize these valid
-local steps into complete direct, contrapositive, contradiction, case,
-equivalence, existence, uniqueness, and induction arguments. Until it is
-published, use the unit overview to review prerequisites rather than treating a
-planned chapter as completed material.
+Continue to [Proof methods for algebra](proof-methods-for-algebra.qmd), which
+organizes these valid local steps into complete direct, contrapositive,
+contradiction, case, equivalence, existence, uniqueness, counterexample, and
+induction arguments.
 
 ## References and further study
 

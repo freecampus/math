@@ -49,8 +49,8 @@ assert check_answer("(x + 1)^2", "x^2 + 2*x + 1", policy).correct
 ```
 
 The public API is deliberately small: safe expression handling, mathematical
-answer validation, shared quizzes, plotting primitives, and selected solvers.
-Unreviewed subject helpers are experimental.
+answer validation, shared quizzes, proof-audit helpers, plotting primitives, and
+selected solvers. Unreviewed subject helpers are experimental.
 
 ## Development
 

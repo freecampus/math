@@ -6,7 +6,7 @@ course_id: advanced-algebra
 unit_id: mathematical-language
 page_type: unit-overview
 status: active
-estimated_time: "30 hours"
+estimated_time: "45 hours"
 skill_modes: [conceptual, manual-calculation, symbolic-reasoning, computational, interpretation]
 outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-3, advanced-algebra-outcome-6, advanced-algebra-outcome-7, advanced-algebra-outcome-8, advanced-algebra-outcome-13, advanced-algebra-outcome-14]
 execute:
@@ -67,14 +67,18 @@ The available reference-format chapters are:
    extension; and
 3. [Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd),
    which develops field and order laws, domain-preserving equivalence,
-   conditional identities, equation audits, and parameter cases.
+   conditional identities, equation audits, and parameter cases; and
+4. [Proof methods for algebra](proof-methods-for-algebra.qmd), which develops
+   direct, case, contrapositive, contradiction, biconditional, existence,
+   uniqueness, counterexample, and induction arguments.
 
-The second and third chapters are review candidates pending independent
+The second, third, and fourth chapters are review candidates pending independent
 mathematical and editorial approval.
 
-The coverage matrix next schedules a chapter on proof methods for algebra. It
-remains unpublished until it satisfies the same worked-example, exercise,
-solution, interaction, and review standard.
+After the four chapters, complete the
+[Unit 1 proof portfolio](unit-1-proof-portfolio.qmd) and the
+[75-minute Unit 1 proof examination](unit-1-proof-examination.qmd). Both are
+review candidates with model analyses, marking support, and correction cycles.
 
 ## Central ideas and notation
 
@@ -99,6 +103,8 @@ unfamiliar. Begin with
 then continue to
 [The real number system and its extensions](real-number-system-and-extensions.qmd),
 and then study
-[Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd).
+[Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd)
+and [Proof methods for algebra](proof-methods-for-algebra.qmd). Complete the
+portfolio before the timed examination.
 Return to the orientation chapter whenever a chain of implications becomes
 unclear.

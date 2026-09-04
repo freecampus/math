@@ -66,6 +66,36 @@ print(result.message)
 The same validated bank feeds the accessible website component and optional
 `fcmath.quizzes.notebook.NotebookQuiz` renderer.
 
+## Proof-learning helpers
+
+The small `fcmath.algebra` proof API keeps each mathematical statement beside
+its justification and can search a finite, explicit domain for implication
+counterexamples:
+
+```python
+from fcmath.algebra import (
+    ProofStep,
+    find_implication_counterexample,
+    proof_steps_markdown,
+)
+
+steps = [
+    ProofStep("n = 2k + 1", "definition of odd"),
+    ProofStep("n² = 4k² + 4k + 1", "expansion"),
+]
+print(proof_steps_markdown(steps))
+
+value = find_implication_counterexample(
+    range(-10, 11),
+    hypothesis=lambda x: x**2 > 9,
+    conclusion=lambda x: x > 3,
+)
+```
+
+The renderer organizes an audit but does not certify the justification. A
+finite search can disprove a universal implication when it finds a valid
+counterexample; returning `None` is not a proof that no counterexample exists.
+
 ## Plotting
 
 Stable scene primitives are exported from `fcmath.plotting`. Subject-specific

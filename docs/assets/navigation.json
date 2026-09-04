@@ -18,7 +18,7 @@
     "advanced-algebra-algebra-expressions-and-equations": {
       "file": "courses/advanced-algebra/units/algebra/expressions-and-equations.qmd",
       "next_id": "advanced-algebra-algebra-inequalities-and-absolute-value",
-      "previous_id": "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation"
+      "previous_id": "advanced-algebra-unit-1-proof-examination"
     },
     "advanced-algebra-algebra-functions-and-graphs": {
       "file": "courses/advanced-algebra/units/algebra/functions-and-graphs.qmd",
@@ -67,8 +67,13 @@
     },
     "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation": {
       "file": "courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.qmd",
-      "next_id": "advanced-algebra-algebra-expressions-and-equations",
+      "next_id": "advanced-algebra-mathematical-language-proof-methods-for-algebra",
       "previous_id": "advanced-algebra-mathematical-language-real-number-system-and-extensions"
+    },
+    "advanced-algebra-mathematical-language-proof-methods-for-algebra": {
+      "file": "courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.qmd",
+      "next_id": "advanced-algebra-mathematical-language-unit-1-proof-portfolio",
+      "previous_id": "advanced-algebra-mathematical-language-algebraic-laws-and-valid-transformation"
     },
     "advanced-algebra-mathematical-language-real-number-system-and-extensions": {
       "file": "courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.qmd",
@@ -79,6 +84,11 @@
       "file": "courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.qmd",
       "next_id": "advanced-algebra-mathematical-language-real-number-system-and-extensions",
       "previous_id": "advanced-algebra-orientation-readiness-diagnostic-and-repair"
+    },
+    "advanced-algebra-mathematical-language-unit-1-proof-portfolio": {
+      "file": "courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.qmd",
+      "next_id": "advanced-algebra-unit-1-proof-examination",
+      "previous_id": "advanced-algebra-mathematical-language-proof-methods-for-algebra"
     },
     "advanced-algebra-orientation-readiness-diagnostic-and-repair": {
       "file": "courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.qmd",
@@ -124,6 +134,11 @@
       "file": "courses/advanced-algebra/units/trigonometry/unit-circle.qmd",
       "next_id": "advanced-algebra-trigonometry-sine-cosine",
       "previous_id": "advanced-algebra-trigonometry-radians-and-degrees"
+    },
+    "advanced-algebra-unit-1-proof-examination": {
+      "file": "courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.qmd",
+      "next_id": "advanced-algebra-algebra-expressions-and-equations",
+      "previous_id": "advanced-algebra-mathematical-language-unit-1-proof-portfolio"
     },
     "cumulative-review-comprehensive-practice": {
       "file": "courses/cumulative-review/units/mixed-practice/comprehensive-practice.qmd",

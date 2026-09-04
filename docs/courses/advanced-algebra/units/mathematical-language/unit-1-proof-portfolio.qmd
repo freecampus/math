@@ -1,0 +1,351 @@
+---
+title: Unit 1 Proof Portfolio
+subtitle: Mathematical language, numbers, transformations, and proof
+id: advanced-algebra-mathematical-language-unit-1-proof-portfolio
+course_id: advanced-algebra
+unit_id: mathematical-language
+page_type: assessment
+status: review
+estimated_time: "360 minutes"
+skill_modes: [conceptual, symbolic-reasoning, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-3, advanced-algebra-outcome-6, advanced-algebra-outcome-7, advanced-algebra-outcome-8, advanced-algebra-outcome-13, advanced-algebra-outcome-14]
+execute:
+  echo: false
+  warning: false
+---
+
+## Purpose
+
+This untimed portfolio asks you to produce six complete arguments using the
+proof forms developed in Unit 1. It is not a speed test. The goal is to create
+work that another reader can verify without reconstructing missing definitions,
+cases, or domain conditions.
+
+Complete the portfolio after studying:
+
+1. [Sets, intervals, statements, and quantifiers](sets-intervals-statements-and-quantifiers.qmd);
+2. [The real number system and its extensions](real-number-system-and-extensions.qmd);
+3. [Algebraic laws and valid transformation](algebraic-laws-and-valid-transformation.qmd);
+4. [Proof methods for algebra](proof-methods-for-algebra.qmd).
+
+All tasks are original to this course. You may use notes and the linked
+chapters. Label any computational experiment as exploration or verification;
+the submitted proof must remain mathematical and self-contained.
+
+::: {.callout-warning}
+### Assessment status
+
+This portfolio is a review candidate, not a credential or prediction of
+performance elsewhere. Its rubric and model analyses still require independent
+mathematical and editorial review.
+:::
+
+## Submission protocol
+
+For each artifact:
+
+1. copy the theorem exactly and name its universe;
+2. identify the proof method you intend to use;
+3. list definitions or earlier results you expect to need;
+4. write a complete first attempt without reading the model analysis;
+5. audit every assumption, implication, case boundary, and cancellation;
+6. optionally perform a separate computational check;
+7. use the rubric to annotate one strength and one required revision; and
+8. submit a corrected proof alongside the first attempt.
+
+A portfolio demonstrates learning through revision. Do not erase the first
+attempt: the correction record is part of the evidence.
+
+## Artifact 1 — direct proof from definitions
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-direct" data-level="B"}
+Let $a,b,c\in\mathbb Z$. Prove directly that if $a\mid b$ and $a\mid c$, then
+$a\mid(3b-2c)$.
+
+Your proof must introduce witnesses for both divisibility hypotheses and name
+the integer that witnesses the conclusion.
+:::
+
+::: {.callout-note collapse="true" title="Planning prompts"}
+What do $a\mid b$ and $a\mid c$ mean separately? After substitution, can the
+result be written as $a$ times an integer? Where is integer closure used?
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+Let $a,b,c\in\mathbb Z$ and suppose $a\mid b$ and $a\mid c$. There exist
+$m,n\in\mathbb Z$ such that $b=am$ and $c=an$. Hence
+
+\[
+3b-2c=3am-2an=a(3m-2n).
+\]
+
+Because integers are closed under multiplication and subtraction,
+$3m-2n\in\mathbb Z$. It is the required witness, so $a\mid(3b-2c)$.
+
+A complete proof does not divide by $a$ and therefore does not need $a\ne0$.
+Under the standard definition, $0\mid b$ forces $b=0$; the witness argument
+still works.
+:::
+
+## Artifact 2 — exhaustive cases
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-cases" data-level="C"}
+Prove for every real $x$ that
+
+\[
+|x-1|+|x+1|\ge2.
+\]
+
+Use an exhaustive case argument, identify the intervals that determine the
+absolute-value formulas, and classify every equality case.
+:::
+
+::: {.callout-note collapse="true" title="Planning prompts"}
+The expressions inside the absolute values change sign at $-1$ and $1$. Use
+three intervals. Do not use a graph as the proof.
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+The critical values partition $\mathbb R$ into $x<-1$, $-1\le x\le1$, and
+$x>1$.
+
+- If $x<-1$, then both $x-1$ and $x+1$ are negative, so the sum is
+  $(1-x)+(-x-1)=-2x>2$.
+- If $-1\le x\le1$, then $x-1\le0$ and $x+1\ge0$, so the sum is
+  $(1-x)+(x+1)=2$.
+- If $x>1$, both expressions are positive, so the sum is
+  $(x-1)+(x+1)=2x>2$.
+
+The cases are exhaustive. Therefore the inequality holds for all real $x$, and
+equality holds exactly on the interval $[-1,1]$.
+:::
+
+## Artifact 3 — contraposition
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-contrapositive" data-level="C"}
+For $n\in\mathbb Z$, prove by contraposition:
+
+\[
+5\mid n^2\quad\Longrightarrow\quad5\mid n.
+\]
+
+Use the division algorithm rather than citing a prime-divisor theorem without
+proof.
+:::
+
+::: {.callout-note collapse="true" title="Planning prompts"}
+The contrapositive begins $5\nmid n$. Which four nonzero residues modulo $5$
+are possible, and what are their squares modulo $5$?
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+We prove the contrapositive. If $5\nmid n$, the residue of $n$ modulo $5$ is
+$1,2,3$, or $4$. The corresponding square residues are
+
+\[
+1^2\equiv1,\quad2^2\equiv4,\quad3^2\equiv4,\quad4^2\equiv1\pmod5.
+\]
+
+None is $0$, so $5\nmid n^2$. This proves
+$5\nmid n\Rightarrow5\nmid n^2$, the contrapositive of the stated theorem.
+Hence $5\mid n^2\Rightarrow5\mid n$.
+:::
+
+## Artifact 4 — contradiction
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-contradiction" data-level="C"}
+Prove that $\sqrt5$ is irrational. You may use the result from Artifact 3, but
+you must state where it enters and why a lowest-terms representation exists.
+:::
+
+::: {.callout-note collapse="true" title="Planning prompts"}
+Assume $\sqrt5=p/q$ with $q>0$ and $\gcd(p,q)=1$. After squaring, apply the
+prime-square result twice.
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+Assume for contradiction that $\sqrt5$ is rational. Every rational number has a
+lowest-terms representation, so write $\sqrt5=p/q$ with integers $p,q$,
+$q>0$, and $\gcd(p,q)=1$. Squaring gives $p^2=5q^2$. Thus $5\mid p^2$, and
+Artifact 3 gives $5\mid p$. Write $p=5r$. Substitution yields
+$25r^2=5q^2$, hence $q^2=5r^2$. Therefore $5\mid q^2$, so Artifact 3 gives
+$5\mid q$. This contradicts $\gcd(p,q)=1$. Thus $\sqrt5$ is irrational.
+:::
+
+## Artifact 5 — biconditional, existence, and uniqueness
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-biconditional" data-level="D"}
+Let $a,b\in\mathbb R$. Prove the biconditional:
+
+\[
+\text{the equation }ax=b\text{ has exactly one real solution}
+\quad\Longleftrightarrow\quad a\ne0.
+\]
+
+The forward direction must handle both possibilities for $b$ when $a=0$. The
+reverse direction must prove existence and uniqueness separately.
+:::
+
+::: {.callout-note collapse="true" title="Planning prompts"}
+For the forward direction, contraposition is efficient. If $a=0$, compare
+$b=0$ and $b\ne0$. For the reverse direction, construct $x=b/a$ and use
+multiplicative cancellation.
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+**Forward direction.** We prove the contrapositive. Suppose $a=0$. If $b=0$,
+the equation $0x=0$ is true for every real $x$, so the solution is not unique.
+If $b\ne0$, the equation $0x=b$ has no solution. Thus $a=0$ prevents exactly
+one solution, proving that exactly one solution implies $a\ne0$.
+
+**Reverse direction.** Suppose $a\ne0$. Existence follows because $x=b/a$ is
+real and satisfies $a(b/a)=b$. For uniqueness, if $x_1,x_2$ both solve the
+equation, then $ax_1=b=ax_2$. Since $a\ne0$, multiplicative cancellation gives
+$x_1=x_2$. Hence the solution exists and is unique.
+:::
+
+## Artifact 6 — induction and a recurrence
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-induction" data-level="D"}
+Define $u_0=0$, $u_1=1$, and
+
+\[
+u_{n+2}=3u_{n+1}-2u_n\qquad(n\ge0).
+\]
+
+Prove by induction that $u_n=2^n-1$ for every integer $n\ge0$. Explain why the
+inductive statement or base information must control two consecutive terms.
+:::
+
+::: {.callout-note collapse="true" title="Planning prompts"}
+Check the claimed formula at both $n=0$ and $n=1$. Assume formulas for $u_k$ and
+$u_{k+1}$, then compute $u_{k+2}$.
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+Use the strengthened statement
+
+\[
+P(k):\quad u_k=2^k-1\text{ and }u_{k+1}=2^{k+1}-1.
+\]
+
+For $k=0$, $u_0=0=2^0-1$ and $u_1=1=2^1-1$. Suppose $P(k)$ holds. Then
+
+\[
+\begin{aligned}
+u_{k+2}
+&=3u_{k+1}-2u_k\\
+&=3(2^{k+1}-1)-2(2^k-1)\\
+&=6\cdot2^k-3-2\cdot2^k+2\\
+&=4\cdot2^k-1\\
+&=2^{k+2}-1.
+\end{aligned}
+\]
+
+Together with the assumed formula for $u_{k+1}$, this proves $P(k+1)$. By
+induction, $u_n=2^n-1$ for every $n\ge0$. Two consecutive formulas are needed
+because the recurrence consumes two preceding terms.
+:::
+
+## Counterexample and computation audit
+
+After the six proofs, complete this short audit.
+
+::: {.practice-box data-problem-id="aa-u1-portfolio-audit" data-level="D"}
+A search reports no counterexample to
+
+\[
+n^4+n^2+1\text{ is prime}
+\]
+
+for integers $1\le n\le100$. Explain why this is not a proof. Find an exact
+counterexample or factorization, and state how computation may legitimately
+support the revised argument.
+:::
+
+::: {.callout-tip collapse="true" title="Model analysis"}
+The search covers only finitely many integers, so it cannot prove a universal
+claim. In fact, at $n=2$ the expression is $16+4+1=21$, which is composite.
+More structurally,
+
+\[
+n^4+n^2+1=(n^2+n+1)(n^2-n+1).
+\]
+
+For $n\ge2$, both factors exceed $1$, so the expression is composite, not prime.
+Software may suggest or verify the expansion of this factorization. The written
+proof must still show why both factors exceed $1$ on the stated domain.
+:::
+
+## Analytic rubric
+
+Score each of the six required artifacts from 0 to 4 in each dimension, for a
+maximum of 24 points per artifact and 144 points total.
+
+| Dimension | 4 — independent | 3 — secure | 2 — developing | 1 — fragmentary | 0 — absent |
+|---|---|---|---|---|---|
+| Interpretation | Universe, quantifiers, hypotheses, and target are precise | One minor notation lapse | Meaning mostly right but a condition is implicit | Major misreading needs repair | No relevant interpretation |
+| Method selection | Method is efficient and its use is explained | Valid method with modest inefficiency | Method can work but structure is unclear | Method addresses a different claim | No coherent method |
+| Definitions and assumptions | Every definition and assumption is introduced where used | One noncritical omission | Several implied steps remain recoverable | A decisive condition is missing | Circular or undefined start |
+| Reasoning and algebra | Every inference is valid and ordered | Correct with a minor local slip | Core idea works after repair | Major gap or invalid transformation | No viable chain |
+| Completeness and exceptions | All cases/directions/equality conditions are closed | Complete except one minor closing sentence | Main claim proven but a branch or obligation is thin | Only one substantial branch | Target not established |
+| Communication and verification | Readable proof plus meaningful audit/check | Clear proof with limited audit | Understandable after reconstruction | Difficult to follow | No assessable response |
+
+### Portfolio readiness interpretation
+
+- **122–144:** strong independent evidence; proceed to the timed examination
+  after correcting every marked issue.
+- **101–121:** generally secure; revise every dimension below 3 before timing.
+- **78–100:** developing; repeat the affected proof forms with new examples.
+- **Below 78:** return to the relevant chapter sections and complete guided
+  proofs before reassessment.
+
+A total score cannot hide a structural zero. Do not proceed if any artifact
+scores 0 in reasoning or completeness.
+
+## Peer-review protocol
+
+A peer reviewer should not rewrite the proof. Instead, annotate:
+
+1. the exact sentence where each assumption is introduced;
+2. the line where each definition is closed;
+3. whether every case is exhaustive and every biconditional direction appears;
+4. whether any division, root, or implication needs a missing condition;
+5. one question the current proof leaves a careful reader; and
+6. one concrete revision that would make the argument independently verifiable.
+
+After revision, the author answers each annotation with either a change or a
+mathematical justification for retaining the original line.
+
+## Computational verification appendix
+
+Use computation only after completing the proofs. The following examples check
+finite evidence or algebraic identities; neither replaces the quantified
+argument.
+
+```{python}
+#| echo: true
+from fcmath.algebra import find_implication_counterexample
+
+# Search for a failure of Artifact 3 on a deliberately finite range.
+result = find_implication_counterexample(
+    range(-100, 101),
+    hypothesis=lambda n: n**2 % 5 == 0,
+    conclusion=lambda n: n % 5 == 0,
+)
+result
+```
+
+A result of `None` means only that this finite search found no failure. The
+residue proof establishes the universal theorem.
+
+```{python}
+#| echo: true
+import sympy as sp
+
+n = sp.symbols("n", integer=True)
+sp.factor(n**4 + n**2 + 1)
+```
+
+The factorization is a useful discovery. The proof still supplies the domain
+argument showing compositeness for every integer $n\ge2$.

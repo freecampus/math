@@ -99,8 +99,10 @@ used to grade every later solution.
      radicals, approximation, and the complex extension;
    - learn which field and order laws make transformations valid, preserve
      domains, and classify exceptional parameter cases;
-   - use the current algebra route while the proof-methods chapter undergoes
-     development.
+   - construct direct, case, contrapositive, contradiction, equivalence,
+     existence, uniqueness, counterexample, and induction proofs;
+   - complete an untimed proof portfolio before the 75-minute Unit 1
+     examination.
 3. [Algebraic Structures and Functions](units/algebra/index.qmd)
    - use the existing lessons as substantial preparation and migration seeds;
    - retain explicit domains and proof language from the new foundation units.

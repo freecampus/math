@@ -93,6 +93,7 @@ def validate_catalog(
     courses = _mapping_list(catalog, "courses", issues)
     assessments = _mapping_list(catalog, "assessments", issues)
     course_ids = [str(course.get("id", "")) for course in courses]
+    assessment_ids = {str(assessment.get("id", "")) for assessment in assessments}
     _duplicates(course_ids, "courses", issues)
     course_id_set = set(course_ids)
     all_ids: list[str] = []
@@ -153,6 +154,17 @@ def validate_catalog(
                 issues.append(
                     ValidationIssue(unit_location, "directory does not exist")
                 )
+            assessment_references = _string_list(
+                unit.get("assessment_ids", []), unit_location, issues
+            )
+            for assessment_id in assessment_references:
+                if assessment_id not in assessment_ids:
+                    issues.append(
+                        ValidationIssue(
+                            unit_location,
+                            f"unknown assessment {assessment_id!r}",
+                        )
+                    )
 
             items = [
                 *_mapping_list(unit, "lessons", issues, unit_location),

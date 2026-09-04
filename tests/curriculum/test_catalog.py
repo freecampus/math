@@ -74,3 +74,16 @@ def test_complete_courses_cannot_hide_incomplete_units(tmp_path: Path) -> None:
     assert any(
         "complete course has incomplete items" in issue.message for issue in issues
     )
+
+
+def test_validator_reports_unknown_unit_assessment(tmp_path: Path) -> None:
+    catalog = json.loads(CATALOG.read_text())
+    catalog["courses"][0]["units"][0]["assessment_ids"] = ["unknown-assessment"]
+    path = tmp_path / "catalog.yml"
+    path.write_text(json.dumps(catalog))
+
+    issues = validate_catalog(path, docs_root=ROOT / "docs")
+
+    assert any(
+        "unknown assessment 'unknown-assessment'" in issue.message for issue in issues
+    )

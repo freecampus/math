@@ -1,0 +1,274 @@
+---
+title: Unit 1 Proof Examination
+subtitle: 75-minute closed-resource paper with solutions and marking scheme
+id: advanced-algebra-unit-1-proof-examination
+course_id: advanced-algebra
+unit_id: mathematical-language
+page_type: assessment
+status: review
+estimated_time: "75 minutes"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, interpretation]
+outcome_ids: [advanced-algebra-outcome-1, advanced-algebra-outcome-3, advanced-algebra-outcome-6, advanced-algebra-outcome-7, advanced-algebra-outcome-8, advanced-algebra-outcome-14]
+execute:
+  echo: false
+---
+
+## Instructions
+
+This original examination assesses cumulative work from Chapters 1.1–1.4.
+Allow **75 minutes** and attempt every question. The paper has **60 marks**.
+Use no notes, calculator, computer algebra system, or external resource during
+the attempt.
+
+Write complete arguments. A correct final statement without supporting reasoning
+may earn little credit. You may cite results proved in the four Unit 1 chapters,
+but state the result and verify that its hypotheses apply.
+
+::: {.callout-warning}
+### Assessment status
+
+This paper and marking scheme are review candidates. They provide local learning
+evidence, not a credential or a prediction of performance in another
+examination.
+:::
+
+### Suggested timing
+
+| Question | Focus | Marks | Minutes |
+|---:|---|---:|---:|
+| 1 | quantifiers and cancellation | 10 | 12 |
+| 2 | contrapositive divisibility proof | 12 | 15 |
+| 3 | counterexample and theorem repair | 10 | 12 |
+| 4 | equivalence and domain audit | 14 | 17 |
+| 5 | synthesis divisibility proof | 14 | 19 |
+| **Total** |  | **60** | **75** |
+
+Do not read beyond the end-of-paper marker until the timed attempt is complete.
+
+## Question 1 — language and cancellation [10]
+
+::: {.practice-box data-problem-id="aa-u1-exam-q1" data-level="B"}
+Let $a,b,c\in\mathbb R$.
+
+**(a) [3]** Write with quantifiers and logical connectives the multiplicative
+cancellation theorem: if $ac=bc$ and $c\ne0$, then $a=b$.
+
+**(b) [3]** Negate your complete statement from part (a), pushing the negation
+through every quantifier and connective.
+
+**(c) [4]** Remove the condition $c\ne0$. Give an exact counterexample to the
+resulting claim and explain why it satisfies the hypothesis but not the
+conclusion.
+:::
+
+## Question 2 — contraposition [12]
+
+::: {.practice-box data-problem-id="aa-u1-exam-q2" data-level="C"}
+For every integer $n$, prove by contraposition that
+
+\[
+4\mid n^2\quad\Longrightarrow\quad n\text{ is even}.
+\]
+
+You may use the definition of odd integer, but you must derive the relevant
+remainder of an odd square rather than citing it without explanation.
+:::
+
+## Question 3 — counterexample and repair [10]
+
+::: {.practice-box data-problem-id="aa-u1-exam-q3" data-level="C"}
+Consider the claim:
+
+> If real $x+y$ is rational, then both $x$ and $y$ are rational.
+
+**(a) [4]** Disprove the claim with an exact counterexample.
+
+**(b) [2]** Explain why choosing $x=1$, $y=2$ would not be a counterexample.
+
+**(c) [4]** State and prove a valid implication about the sum of two rational
+numbers that is closely related to the false claim.
+:::
+
+## Question 4 — earliest-invalid-step audit [14]
+
+::: {.practice-box data-problem-id="aa-u1-exam-q4" data-level="C"}
+A student solves over $\mathbb R$:
+
+\[
+\begin{aligned}
+\frac{x^2-4}{x-2}&=x+2,\\
+x^2-4&=(x+2)(x-2),\\
+x^2-4&=x^2-4,\\
+0&=0.
+\end{aligned}
+\]
+
+The student concludes that every real number is a solution.
+
+**(a) [3]** State the original domain.
+
+**(b) [4]** Audit each displayed transformation and identify the earliest
+missing condition or invalid inference.
+
+**(c) [3]** Give the exact solution set.
+
+**(d) [4]** Decide whether the functions
+$f(x)=(x^2-4)/(x-2)$ and $g(x)=x+2$, each with its natural real domain, are
+equal. Justify your answer.
+:::
+
+## Question 5 — synthesis proof [14]
+
+::: {.practice-box data-problem-id="aa-u1-exam-q5" data-level="D"}
+Prove that for every integer $n$,
+
+\[
+24\mid n(n+1)(n+2)(n+3).
+\]
+
+Your proof must establish the required factors of $3$ and $8$, explain why the
+relevant cases are exhaustive, and justify combining the factors into $24$.
+:::
+
+## End of timed paper
+
+Stop the timer. Record your confidence from 0–3 beside each question before
+opening the solutions:
+
+- 0: no viable method;
+- 1: partial method with major gaps;
+- 2: likely correct but not fully audited;
+- 3: independently verifiable.
+
+Then use a different color to mark and correct the paper.
+
+## Solutions and marking scheme
+
+### Question 1 [10]
+
+::: {.callout-tip collapse="true" title="Solution and marks"}
+**(a) [3]** One correct form is
+
+\[
+(\forall a,b,c\in\mathbb R)
+[(ac=bc\land c\ne0)\Rightarrow a=b].
+\]
+
+Award 1 mark for the universal real quantifiers, 1 for the complete conjunctive
+hypothesis, and 1 for the implication to $a=b$.
+
+**(b) [3]** The negation is
+
+\[
+(\exists a,b,c\in\mathbb R)
+[ac=bc\land c\ne0\land a\ne b].
+\]
+
+Award 1 for changing universal to existential, 1 for retaining both hypothesis
+conditions, and 1 for negating the conclusion to $a\ne b$.
+
+**(c) [4]** For example, choose $a=1$, $b=2$, $c=0$. Then
+$ac=0=bc$, so the reduced hypothesis is true, while $a=b$ is false. Award 1 per
+value, 1 for checking equal products, and 1 for explicitly denying the
+conclusion.
+:::
+
+### Question 2 [12]
+
+::: {.callout-tip collapse="true" title="Solution and marks"}
+We prove the contrapositive: if $n$ is odd, then $4\nmid n^2$. Let
+$n=2k+1$ for some integer $k$. Then
+
+\[
+n^2=(2k+1)^2=4k^2+4k+1=4(k^2+k)+1.
+\]
+
+Thus $n^2$ has remainder $1$ upon division by $4$, so $4\nmid n^2$. This proves
+the contrapositive and therefore the original implication.
+
+Marks: 2 for stating the correct contrapositive; 2 for the odd representation
+with integer witness; 3 for correct expansion; 2 for the remainder-$1$ form;
+1 for interpreting nondivisibility; and 2 for closing by contraposition.
+:::
+
+### Question 3 [10]
+
+::: {.callout-tip collapse="true" title="Solution and marks"}
+**(a) [4]** Let $x=\sqrt2$ and $y=-\sqrt2$. Both are irrational, but
+$x+y=0$ is rational. Award 2 for exact values, 1 for verifying the rational
+sum, and 1 for verifying that the claimed conclusion fails.
+
+**(b) [2]** The values $1$ and $2$ make both the hypothesis and conclusion true.
+A supporting example cannot refute a universal implication.
+
+**(c) [4]** A valid related theorem is: if $x,y$ are rational, then $x+y$ is
+rational. Write $x=a/b$ and $y=c/d$ with integer numerators and nonzero integer
+dominators. Then
+
+\[
+x+y=\frac{ad+bc}{bd}.
+\]
+
+The numerator is an integer and the denominator is a nonzero integer, so the sum
+is rational. Award 1 for a correct theorem, 1 for representations, 1 for common
+denominator algebra, and 1 for closure/nonzero justification.
+:::
+
+### Question 4 [14]
+
+::: {.callout-tip collapse="true" title="Solution and marks"}
+**(a) [3]** The denominator requires $x\ne2$, so the original domain is
+$\mathbb R\setminus\{2\}$.
+
+**(b) [4]** Multiplication by $x-2$ is reversible on the original domain because
+there $x-2\ne0$. Expansion is valid, and $0=0$ confirms that every admissible
+input works. The earliest failure is not an algebra line but the final inference
+from “every admissible $x$” to “every real $x$,” which drops the standing domain
+restriction. Award full credit to an answer that calls the first multiplication
+incomplete because the restriction was not stated, provided it explains that
+the step becomes valid under $x\ne2$.
+
+**(c) [3]** The solution set is $\mathbb R\setminus\{2\}$.
+
+**(d) [4]** They are not equal as functions with natural domains. The rational
+formula is undefined at $2$, while $g(2)=4$. They agree at every point of the
+smaller domain, but equality of functions also requires equal domains.
+:::
+
+### Question 5 [14]
+
+::: {.callout-tip collapse="true" title="Solution and marks"}
+Among four consecutive integers, one is divisible by $3$, because their residues
+contain at least one complete run of three consecutive classes modulo $3$.
+Thus $3$ divides the product.
+
+For the factor $8$, split by parity of $n$.
+
+- If $n$ is even, then $n$ and $n+2$ are the two even factors. One of them is
+divisible by $4$, while the other is divisible by $2$; their product is
+therefore divisible by $8$.
+- If $n$ is odd, then $n+1$ and $n+3$ are even. One is divisible by $4$ and the
+other by $2$, so again their product is divisible by $8$.
+
+The two parity cases exhaust the integers. Hence the four-factor product is
+divisible by both $3$ and $8$. Since $\gcd(3,8)=1$, it is divisible by
+$24$.
+
+Marks: 3 for the factor-$3$ argument; 2 for an exhaustive parity split; 5 for
+the factor-$8$ argument including a factor $4$ and another factor $2$; 2 for
+combining coprime divisors; and 2 for a clear universal conclusion.
+:::
+
+## Correction and reassessment record
+
+For every lost mark, record:
+
+| Question | Error category | Earliest unsupported line | Correct principle | Revised line | New check |
+|---|---|---|---|---|---|
+|  | interpretation / definition / logic / algebra / completeness |  |  |  |  |
+
+Suggested local readiness threshold: at least **42/60**, no score below half on
+Questions 4 or 5, and a complete correction of every logical or domain error.
+This threshold guides study only. If the conditions are not met, revise the
+portfolio artifact matching the weak proof form and retake a fresh variant
+written by an instructor or peer rather than memorizing this marking scheme.
