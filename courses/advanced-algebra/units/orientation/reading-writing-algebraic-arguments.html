@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-b26f5ba0f80687c7759f94a438ef5025.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -478,6 +478,24 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof Methods for Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit 1 Proof Portfolio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit 1 Proof Examination</span></a>
   </div>
 </li>
       </ul>
@@ -2178,7 +2196,7 @@ n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Computation belongs after the manual argument. The first example checks an identity; the second distinguishes a candidate-producing transformation from a verified solution set.</p>
-<div id="3294f526" class="cell" data-execution_count="1">
+<div id="e2779cdd" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
@@ -2189,7 +2207,7 @@ n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.
 </div>
 </div>
 <p>An output of <code>0</code> shows that the difference simplifies to zero symbolically. It supports the algebraic identity; the distributive-law derivation explains why it is true.</p>
-<div id="5a03a411" class="cell" data-execution_count="2">
+<div id="4d34fdf5" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>original <span class="op">=</span> sp.sqrt(x <span class="op">+</span> <span class="dv">2</span>) <span class="op">-</span> x</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(sp.Eq(x <span class="op">+</span> <span class="dv">2</span>, x<span class="op">**</span><span class="dv">2</span>), x)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>verified <span class="op">=</span> [value <span class="cf">for</span> value <span class="kw">in</span> candidates <span class="cf">if</span> sp.simplify(original.subs(x, value)) <span class="op">==</span> <span class="dv">0</span>]</span>

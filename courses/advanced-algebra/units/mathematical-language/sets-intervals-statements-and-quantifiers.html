@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-b26f5ba0f80687c7759f94a438ef5025.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -478,6 +478,24 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proof Methods for Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit 1 Proof Portfolio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unit 1 Proof Examination</span></a>
   </div>
 </li>
       </ul>
@@ -2239,7 +2257,7 @@ x\in A\setminus(B\cup C)
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy represents mathematical sets explicitly. Use these objects to check a manual result and inspect endpoint behavior.</p>
-<div id="c4fa295b" class="cell" data-execution_count="1">
+<div id="17291106" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Interval.Lopen(<span class="op">-</span><span class="dv">3</span>, <span class="dv">4</span>)  <span class="co"># (-3, 4]</span></span>
@@ -2254,7 +2272,7 @@ x\in A\setminus(B\cup C)
 </div>
 <p>The output should represent <span class="math inline">\([1,4]\)</span>, <span class="math inline">\((-3,7)\)</span>, and <span class="math inline">\((-3,1)\)</span>, respectively. Names such as <code>Lopen</code> describe the open <strong>left</strong> endpoint; always compare the rendered set with your inequality interpretation.</p>
 <p>Use <code>solveset</code> rather than assuming that a generic list of roots carries domain information:</p>
-<div id="9408f2dd" class="cell" data-execution_count="2">
+<div id="c20dcc93" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>polynomial_solutions <span class="op">=</span> sp.solveset(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">6</span>, x, domain<span class="op">=</span>sp.S.Reals)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>rational_inequality <span class="op">=</span> sp.solve_univariate_inequality(</span>
@@ -2269,7 +2287,7 @@ x\in A\setminus(B\cup C)
 </div>
 <p>The expected exact sets are <span class="math inline">\(\{2,3\}\)</span> and <span class="math inline">\((-\infty,-2)\cup[1,\infty)\)</span>. The excluded denominator value is absent from the second result.</p>
 <p>Logic can also be represented symbolically, but a computer simplification does not replace a proof that explains the universe and predicates:</p>
-<div id="bc7ef4a6" class="cell" data-execution_count="3">
+<div id="82a16b3a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>P, Q <span class="op">=</span> sp.symbols(<span class="st">"P Q"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sp.simplify_logic(sp.Equivalent(sp.Implies(P, Q), sp.Implies(<span class="op">~</span>Q, <span class="op">~</span>P)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Reproducible numerical, symbolic, and visual mathematical work.">
 
-<title>Mathematical Computing with Python – FreeCampus Math</title>
+<title>Unit 1 Proof Examination – FreeCampus Math</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,29 +26,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../courses/mathematical-computing/units/python-foundations/index.html" rel="next">
-<link href="../../courses/statistics/units/foundations/statistics-cumulative-review.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-446fb54370a7a8a17a7083c01ae5dd9f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-b26f5ba0f80687c7759f94a438ef5025.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../courses/advanced-algebra/units/algebra/index.html" rel="next">
+<link href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-446fb54370a7a8a17a7083c01ae5dd9f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-b26f5ba0f80687c7759f94a438ef5025.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-50a8d2aa5ca7aea3a930fe1100efcf30.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,8 +79,37 @@ ul.task-list li input[type="checkbox"] {
 <meta name="theme-color" content="#173f5f">
 <script defer="" src="https://cdn.jsdelivr.net/npm/mathjs@14.8.1/lib/browser/math.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -253,11 +281,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/brand/logo.svg" alt="FreeCampus Math" class="navbar-logo light-content">
-    <img src="../../assets/brand/logo.svg" alt="FreeCampus Math" class="navbar-logo dark-content">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../assets/brand/logo.svg" alt="FreeCampus Math" class="navbar-logo light-content">
+    <img src="../../../../assets/brand/logo.svg" alt="FreeCampus Math" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">FreeCampus Math</span>
     </a>
   </div>
@@ -268,15 +296,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../courses/index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../../../courses/index.html" aria-current="page"> 
 <span class="menu-text">Browse courses</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../resources/index.html"> 
+    <a class="nav-link" href="../../../../resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about/index.html"> 
+    <a class="nav-link" href="../../../../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -298,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../courses/index.html">Courses</a></li><li class="breadcrumb-item"><a href="../../courses/mathematical-computing/index.html">Mathematical Computing with Python</a></li><li class="breadcrumb-item"><a href="../../courses/mathematical-computing/index.html">Mathematical Computing with Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../courses/index.html">Courses</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/index.html">Advanced Algebra</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/mathematical-language/index.html">Mathematical Language, Numbers, and Proof Foundations</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.html">Unit 1 Proof Examination</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -320,7 +348,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FreeCampus Math</span></a>
   </div>
 </li>
@@ -335,22 +363,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Courses</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Advanced Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Advanced Algebra</span></a>
   </div>
 </li>
@@ -365,19 +393,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/orientation/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/orientation/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Orientation, Diagnostic, and Prerequisite Repair</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/orientation/reading-writing-algebraic-arguments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Read and Write an Algebraic Argument</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/orientation/readiness-diagnostic-and-repair.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Readiness Diagnostic and Targeted Repair</span></a>
   </div>
 </li>
@@ -385,52 +413,52 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Mathematical Language, Numbers, and Proof Foundations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mathematical Language, Numbers, and Proof Foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sets, Intervals, Statements, and Quantifiers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Real Number System and Its Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Proof Methods for Algebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unit 1 Proof Portfolio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Unit 1 Proof Examination</span></a>
   </div>
 </li>
@@ -447,85 +475,85 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebra Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/expressions-and-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expressions and Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/inequalities-and-absolute-value.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inequalities and Absolute Value</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/transformations-composition-inverses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transformations, Composition, and Inverses</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/linear-and-quadratic-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear and Quadratic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/polynomials.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Polynomials</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/rational-and-radical-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rational and Radical Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/exponentials-and-logarithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponentials and Logarithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/systems-of-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/algebraic-modeling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/symbolic-computation-with-sympy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Symbolic Computation with SymPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/guessing_quiz.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/guessing_quiz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Guessing Quiz</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/algebra/cumulative-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">College Algebra Cumulative Review</span></a>
   </div>
 </li>
@@ -542,49 +570,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometry Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/radians-and-degrees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Radians and Degrees</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/unit-circle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Unit Circle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/sine-cosine.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sine and Cosine</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/trig-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Functions and Graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/identities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Identities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/trig-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trigonometric Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/advanced-algebra/units/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/advanced-algebra/units/trigonometry/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applications of Trigonometry</span></a>
   </div>
 </li>
@@ -603,7 +631,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Algebra</span></a>
   </div>
 </li>
@@ -618,43 +646,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Algebra Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vectors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/matrix-operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/matrix-operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/systems-and-elimination.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems and Elimination</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/linear-transformations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/linear-transformations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Transformations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/linear-algebra/units/foundations/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/linear-algebra/units/foundations/eigenvalues-eigenvectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Eigenvalues and Eigenvectors</span></a>
   </div>
 </li>
@@ -673,7 +701,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-calculus/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-calculus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Calculus</span></a>
   </div>
 </li>
@@ -688,31 +716,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-calculus/units/differentiation/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-calculus/units/differentiation/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-calculus/units/differentiation/limits.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-calculus/units/differentiation/limits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-calculus/units/differentiation/derivatives.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-calculus/units/differentiation/derivatives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivatives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-calculus/units/differentiation/derivative-rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-calculus/units/differentiation/derivative-rules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derivative Rules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-calculus/units/differentiation/optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-calculus/units/differentiation/optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimization</span></a>
   </div>
 </li>
@@ -731,7 +759,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/integral-calculus/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/integral-calculus/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integral Calculus</span></a>
   </div>
 </li>
@@ -746,25 +774,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/integral-calculus/units/integration/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/integral-calculus/units/integration/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integration and Accumulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/integral-calculus/units/integration/integrals.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/integral-calculus/units/integration/integrals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/integral-calculus/units/integration/integration-techniques.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/integral-calculus/units/integration/integration-techniques.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integration Techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/integral-calculus/units/integration/applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/integral-calculus/units/integration/applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus Applications</span></a>
   </div>
 </li>
@@ -783,7 +811,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Equations</span></a>
   </div>
 </li>
@@ -798,37 +826,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/units/ordinary-differential-equations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Equations Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/units/ordinary-differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/first-order-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First-Order Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/units/ordinary-differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/separable-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Separable Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/units/ordinary-differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/linear-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/units/ordinary-differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/slope-fields.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slope Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/differential-equations/units/ordinary-differential-equations/systems.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/differential-equations/units/ordinary-differential-equations/systems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Systems of Differential Equations</span></a>
   </div>
 </li>
@@ -847,7 +875,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Discrete Mathematics</span></a>
   </div>
 </li>
@@ -862,43 +890,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Discrete Mathematics Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/sets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/functions-relations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/functions-relations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Relations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/sequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sequences</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/induction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/induction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Induction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/discrete-mathematics/units/foundations/graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/discrete-mathematics/units/foundations/graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Graphs</span></a>
   </div>
 </li>
@@ -917,7 +945,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability</span></a>
   </div>
 </li>
@@ -932,43 +960,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/sample-spaces-events.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Spaces and Events</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/counting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/counting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Counting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/conditional-probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/conditional-probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conditional Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Random Variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/common-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/common-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Common Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/probability/units/foundations/expectation-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/probability/units/foundations/expectation-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expectation and Variance</span></a>
   </div>
 </li>
@@ -987,7 +1015,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics</span></a>
   </div>
 </li>
@@ -1002,67 +1030,67 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics Study Path</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/descriptive-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/sampling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling and Study Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/probability-for-statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability for Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/sampling-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/sampling-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampling Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/estimation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/comparing-groups.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/comparing-groups.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comparing Groups</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/chi-square-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/chi-square-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chi-Square Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/regression-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/regression-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/statistics/units/foundations/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/statistics/units/foundations/statistics-cumulative-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics Cumulative Review</span></a>
   </div>
 </li>
@@ -1072,16 +1100,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
  <span class="menu-text">Mathematical Computing with Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/mathematical-computing/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../../courses/mathematical-computing/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mathematical Computing with Python</span></a>
   </div>
 </li>
@@ -1096,31 +1124,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/mathematical-computing/units/python-foundations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Foundations for Mathematical Work</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/mathematical-computing/units/python-foundations/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/mathematical-computing/units/python-foundations/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/functions-and-control-flow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functions and Control Flow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/mathematical-computing/units/python-foundations/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/numpy-and-arrays.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NumPy and Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/mathematical-computing/units/python-foundations/plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/mathematical-computing/units/python-foundations/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting With Python</span></a>
   </div>
 </li>
@@ -1139,7 +1167,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/cumulative-review/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/cumulative-review/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cumulative Review and Practice</span></a>
   </div>
 </li>
@@ -1154,19 +1182,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/cumulative-review/units/mixed-practice/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/cumulative-review/units/mixed-practice/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mixed and Comprehensive Practice</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/cumulative-review/units/mixed-practice/timed-practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/cumulative-review/units/mixed-practice/timed-practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Timed Practice</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../courses/cumulative-review/units/mixed-practice/comprehensive-practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../courses/cumulative-review/units/mixed-practice/comprehensive-practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comprehensive practice</span></a>
   </div>
 </li>
@@ -1187,37 +1215,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../resources/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources/notation/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../resources/notation/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notation and terminology</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources/formula-reference/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../resources/formula-reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Formula reference</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources/computational-setup/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../resources/computational-setup/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Computational setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources/study-guidance/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../resources/study-guidance/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study guidance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources/faq/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../resources/faq/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Frequently asked questions</span></a>
   </div>
 </li>
@@ -1234,13 +1262,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../about/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../about/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About FreeCampus Math</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../about/contributing.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../about/contributing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing</span></a>
   </div>
 </li>
@@ -1257,19 +1285,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../developers/installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../developers/installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Developer installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../developers/api.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../developers/api.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python API</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../changelog.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../changelog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Changelog</span></a>
   </div>
 </li>
@@ -1285,27 +1313,39 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-outcomes" id="toc-course-outcomes" class="nav-link active" data-scroll-target="#course-outcomes">Course outcomes</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#units" id="toc-units" class="nav-link" data-scroll-target="#units">Units</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <ul class="collapse">
+  <li><a href="#suggested-timing" id="toc-suggested-timing" class="nav-link" data-scroll-target="#suggested-timing">Suggested timing</a></li>
+  </ul></li>
+  <li><a href="#question-1-language-and-cancellation-10" id="toc-question-1-language-and-cancellation-10" class="nav-link" data-scroll-target="#question-1-language-and-cancellation-10">Question 1 — language and cancellation [10]</a></li>
+  <li><a href="#question-2-contraposition-12" id="toc-question-2-contraposition-12" class="nav-link" data-scroll-target="#question-2-contraposition-12">Question 2 — contraposition [12]</a></li>
+  <li><a href="#question-3-counterexample-and-repair-10" id="toc-question-3-counterexample-and-repair-10" class="nav-link" data-scroll-target="#question-3-counterexample-and-repair-10">Question 3 — counterexample and repair [10]</a></li>
+  <li><a href="#question-4-earliest-invalid-step-audit-14" id="toc-question-4-earliest-invalid-step-audit-14" class="nav-link" data-scroll-target="#question-4-earliest-invalid-step-audit-14">Question 4 — earliest-invalid-step audit [14]</a></li>
+  <li><a href="#question-5-synthesis-proof-14" id="toc-question-5-synthesis-proof-14" class="nav-link" data-scroll-target="#question-5-synthesis-proof-14">Question 5 — synthesis proof [14]</a></li>
+  <li><a href="#end-of-timed-paper" id="toc-end-of-timed-paper" class="nav-link" data-scroll-target="#end-of-timed-paper">End of timed paper</a></li>
+  <li><a href="#solutions-and-marking-scheme" id="toc-solutions-and-marking-scheme" class="nav-link" data-scroll-target="#solutions-and-marking-scheme">Solutions and marking scheme</a>
+  <ul class="collapse">
+  <li><a href="#question-1-10" id="toc-question-1-10" class="nav-link" data-scroll-target="#question-1-10">Question 1 [10]</a></li>
+  <li><a href="#question-2-12" id="toc-question-2-12" class="nav-link" data-scroll-target="#question-2-12">Question 2 [12]</a></li>
+  <li><a href="#question-3-10" id="toc-question-3-10" class="nav-link" data-scroll-target="#question-3-10">Question 3 [10]</a></li>
+  <li><a href="#question-4-14" id="toc-question-4-14" class="nav-link" data-scroll-target="#question-4-14">Question 4 [14]</a></li>
+  <li><a href="#question-5-14" id="toc-question-5-14" class="nav-link" data-scroll-target="#question-5-14">Question 5 [14]</a></li>
+  </ul></li>
+  <li><a href="#correction-and-reassessment-record" id="toc-correction-and-reassessment-record" class="nav-link" data-scroll-target="#correction-and-reassessment-record">Correction and reassessment record</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/freecampus/math/edit/main/courses/mathematical-computing/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/freecampus/math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/freecampus/math/edit/main/courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/freecampus/math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../courses/index.html">Courses</a></li><li class="breadcrumb-item"><a href="../../courses/mathematical-computing/index.html">Mathematical Computing with Python</a></li><li class="breadcrumb-item"><a href="../../courses/mathematical-computing/index.html">Mathematical Computing with Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../courses/index.html">Courses</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/index.html">Advanced Algebra</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/mathematical-language/index.html">Mathematical Language, Numbers, and Proof Foundations</a></li><li class="breadcrumb-item"><a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.html">Unit 1 Proof Examination</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Mathematical Computing with Python</h1>
+<h1 class="title">Unit 1 Proof Examination</h1>
+<p class="subtitle lead">75-minute closed-resource paper with solutions and marking scheme</p>
 </div>
 
-<div>
-  <div class="description">
-    Reproducible numerical, symbolic, and visual mathematical work.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -1320,27 +1360,298 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Reproducible numerical, symbolic, and visual mathematical work.</p>
-<p>This course expects complete reasoning: definitions and hypotheses are stated, manual arguments remain visible, computation is labeled as exact or approximate, and conclusions are interpreted rather than merely reported.</p>
-<section id="course-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="course-outcomes">Course outcomes</h2>
-<ul>
-<li>Write clear Python programs for mathematical experiments and verification.</li>
-<li>Use arrays, vectorization, plotting, and functions without obscuring assumptions.</li>
-<li>Distinguish exact symbolic results from floating-point approximations.</li>
-<li>Design reproducible computations with tests, labels, units, and error checks.</li>
-</ul>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p>This original examination assesses cumulative work from Chapters 1.1–1.4. Allow <strong>75 minutes</strong> and attempt every question. The paper has <strong>60 marks</strong>. Use no notes, calculator, computer algebra system, or external resource during the attempt.</p>
+<p>Write complete arguments. A correct final statement without supporting reasoning may earn little credit. You may cite results proved in the four Unit 1 chapters, but state the result and verify that its hypotheses apply.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Assessment status
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This paper and marking scheme are review candidates. They provide local learning evidence, not a credential or a prediction of performance in another examination.</p>
+</div>
+</div>
+<section id="suggested-timing" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-timing">Suggested timing</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Question</th>
+<th>Focus</th>
+<th style="text-align: right;">Marks</th>
+<th style="text-align: right;">Minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td>quantifiers and cancellation</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td>contrapositive divisibility proof</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td>counterexample and theorem repair</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td>equivalence and domain audit</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td>synthesis divisibility proof</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>60</strong></td>
+<td style="text-align: right;"><strong>75</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Do not read beyond the end-of-paper marker until the timed attempt is complete.</p>
 </section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>No course prerequisite. You should be comfortable with arithmetic, elementary algebra, and reading mathematical notation; use the first unit’s exercises to identify any skill that needs review.</p>
 </section>
-<section id="units" class="level2">
-<h2 class="anchored" data-anchor-id="units">Units</h2>
+<section id="question-1-language-and-cancellation-10" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-language-and-cancellation-10">Question 1 — language and cancellation [10]</h2>
+<div class="practice-box" data-problem-id="aa-u1-exam-q1" data-level="B">
+<p>Let <span class="math inline">\(a,b,c\in\mathbb R\)</span>.</p>
+<p><strong>(a) [3]</strong> Write with quantifiers and logical connectives the multiplicative cancellation theorem: if <span class="math inline">\(ac=bc\)</span> and <span class="math inline">\(c\ne0\)</span>, then <span class="math inline">\(a=b\)</span>.</p>
+<p><strong>(b) [3]</strong> Negate your complete statement from part (a), pushing the negation through every quantifier and connective.</p>
+<p><strong>(c) [4]</strong> Remove the condition <span class="math inline">\(c\ne0\)</span>. Give an exact counterexample to the resulting claim and explain why it satisfies the hypothesis but not the conclusion.</p>
+</div>
+</section>
+<section id="question-2-contraposition-12" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-contraposition-12">Question 2 — contraposition [12]</h2>
+<div class="practice-box" data-problem-id="aa-u1-exam-q2" data-level="C">
+<p>For every integer <span class="math inline">\(n\)</span>, prove by contraposition that</p>
+<p>[ 4n^2n. ]</p>
+<p>You may use the definition of odd integer, but you must derive the relevant remainder of an odd square rather than citing it without explanation.</p>
+</div>
+</section>
+<section id="question-3-counterexample-and-repair-10" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-counterexample-and-repair-10">Question 3 — counterexample and repair [10]</h2>
+<div class="practice-box" data-problem-id="aa-u1-exam-q3" data-level="C">
+<p>Consider the claim:</p>
+<blockquote class="blockquote">
+<p>If real <span class="math inline">\(x+y\)</span> is rational, then both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are rational.</p>
+</blockquote>
+<p><strong>(a) [4]</strong> Disprove the claim with an exact counterexample.</p>
+<p><strong>(b) [2]</strong> Explain why choosing <span class="math inline">\(x=1\)</span>, <span class="math inline">\(y=2\)</span> would not be a counterexample.</p>
+<p><strong>(c) [4]</strong> State and prove a valid implication about the sum of two rational numbers that is closely related to the false claim.</p>
+</div>
+</section>
+<section id="question-4-earliest-invalid-step-audit-14" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-earliest-invalid-step-audit-14">Question 4 — earliest-invalid-step audit [14]</h2>
+<div class="practice-box" data-problem-id="aa-u1-exam-q4" data-level="C">
+<p>A student solves over <span class="math inline">\(\mathbb R\)</span>:</p>
+[
+<span class="math display">\[\begin{aligned}
+\frac{x^2-4}{x-2}&amp;=x+2,\\
+x^2-4&amp;=(x+2)(x-2),\\
+x^2-4&amp;=x^2-4,\\
+0&amp;=0.
+\end{aligned}\]</span>
+<p>]</p>
+<p>The student concludes that every real number is a solution.</p>
+<p><strong>(a) [3]</strong> State the original domain.</p>
+<p><strong>(b) [4]</strong> Audit each displayed transformation and identify the earliest missing condition or invalid inference.</p>
+<p><strong>(c) [3]</strong> Give the exact solution set.</p>
+<p><strong>(d) [4]</strong> Decide whether the functions <span class="math inline">\(f(x)=(x^2-4)/(x-2)\)</span> and <span class="math inline">\(g(x)=x+2\)</span>, each with its natural real domain, are equal. Justify your answer.</p>
+</div>
+</section>
+<section id="question-5-synthesis-proof-14" class="level2">
+<h2 class="anchored" data-anchor-id="question-5-synthesis-proof-14">Question 5 — synthesis proof [14]</h2>
+<div class="practice-box" data-problem-id="aa-u1-exam-q5" data-level="D">
+<p>Prove that for every integer <span class="math inline">\(n\)</span>,</p>
+<p>[ 24n(n+1)(n+2)(n+3). ]</p>
+<p>Your proof must establish the required factors of <span class="math inline">\(3\)</span> and <span class="math inline">\(8\)</span>, explain why the relevant cases are exhaustive, and justify combining the factors into <span class="math inline">\(24\)</span>.</p>
+</div>
+</section>
+<section id="end-of-timed-paper" class="level2">
+<h2 class="anchored" data-anchor-id="end-of-timed-paper">End of timed paper</h2>
+<p>Stop the timer. Record your confidence from 0–3 beside each question before opening the solutions:</p>
 <ul>
-<li><a href="../../courses/mathematical-computing/units/python-foundations/index.html">1. Python Foundations for Mathematical Work</a></li>
+<li>0: no viable method;</li>
+<li>1: partial method with major gaps;</li>
+<li>2: likely correct but not fully audited;</li>
+<li>3: independently verifiable.</li>
 </ul>
-<p><a href="../../courses/mathematical-computing/units/python-foundations/index.html" class="btn btn-primary">Begin or continue the course</a></p>
+<p>Then use a different color to mark and correct the paper.</p>
+</section>
+<section id="solutions-and-marking-scheme" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-and-marking-scheme">Solutions and marking scheme</h2>
+<section id="question-1-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-10">Question 1 [10]</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution and marks">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution and marks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) [3]</strong> One correct form is</p>
+<p>[ (a,b,cR) [(ac=bcc)a=b]. ]</p>
+<p>Award 1 mark for the universal real quantifiers, 1 for the complete conjunctive hypothesis, and 1 for the implication to <span class="math inline">\(a=b\)</span>.</p>
+<p><strong>(b) [3]</strong> The negation is</p>
+<p>[ (a,b,cR) [ac=bccab]. ]</p>
+<p>Award 1 for changing universal to existential, 1 for retaining both hypothesis conditions, and 1 for negating the conclusion to <span class="math inline">\(a\ne b\)</span>.</p>
+<p><strong>(c) [4]</strong> For example, choose <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=2\)</span>, <span class="math inline">\(c=0\)</span>. Then <span class="math inline">\(ac=0=bc\)</span>, so the reduced hypothesis is true, while <span class="math inline">\(a=b\)</span> is false. Award 1 per value, 1 for checking equal products, and 1 for explicitly denying the conclusion.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-12">Question 2 [12]</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution and marks">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution and marks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We prove the contrapositive: if <span class="math inline">\(n\)</span> is odd, then <span class="math inline">\(4\nmid n^2\)</span>. Let <span class="math inline">\(n=2k+1\)</span> for some integer <span class="math inline">\(k\)</span>. Then</p>
+<p>[ n<sup>2=(2k+1)</sup>2=4k<sup>2+4k+1=4(k</sup>2+k)+1. ]</p>
+<p>Thus <span class="math inline">\(n^2\)</span> has remainder <span class="math inline">\(1\)</span> upon division by <span class="math inline">\(4\)</span>, so <span class="math inline">\(4\nmid n^2\)</span>. This proves the contrapositive and therefore the original implication.</p>
+<p>Marks: 2 for stating the correct contrapositive; 2 for the odd representation with integer witness; 3 for correct expansion; 2 for the remainder-<span class="math inline">\(1\)</span> form; 1 for interpreting nondivisibility; and 2 for closing by contraposition.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-10">Question 3 [10]</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution and marks">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution and marks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) [4]</strong> Let <span class="math inline">\(x=\sqrt2\)</span> and <span class="math inline">\(y=-\sqrt2\)</span>. Both are irrational, but <span class="math inline">\(x+y=0\)</span> is rational. Award 2 for exact values, 1 for verifying the rational sum, and 1 for verifying that the claimed conclusion fails.</p>
+<p><strong>(b) [2]</strong> The values <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> make both the hypothesis and conclusion true. A supporting example cannot refute a universal implication.</p>
+<p><strong>(c) [4]</strong> A valid related theorem is: if <span class="math inline">\(x,y\)</span> are rational, then <span class="math inline">\(x+y\)</span> is rational. Write <span class="math inline">\(x=a/b\)</span> and <span class="math inline">\(y=c/d\)</span> with integer numerators and nonzero integer dominators. Then</p>
+<p>[ x+y=. ]</p>
+<p>The numerator is an integer and the denominator is a nonzero integer, so the sum is rational. Award 1 for a correct theorem, 1 for representations, 1 for common denominator algebra, and 1 for closure/nonzero justification.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4-14" class="level3">
+<h3 class="anchored" data-anchor-id="question-4-14">Question 4 [14]</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution and marks">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution and marks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) [3]</strong> The denominator requires <span class="math inline">\(x\ne2\)</span>, so the original domain is <span class="math inline">\(\mathbb R\setminus\{2\}\)</span>.</p>
+<p><strong>(b) [4]</strong> Multiplication by <span class="math inline">\(x-2\)</span> is reversible on the original domain because there <span class="math inline">\(x-2\ne0\)</span>. Expansion is valid, and <span class="math inline">\(0=0\)</span> confirms that every admissible input works. The earliest failure is not an algebra line but the final inference from “every admissible <span class="math inline">\(x\)</span>” to “every real <span class="math inline">\(x\)</span>,” which drops the standing domain restriction. Award full credit to an answer that calls the first multiplication incomplete because the restriction was not stated, provided it explains that the step becomes valid under <span class="math inline">\(x\ne2\)</span>.</p>
+<p><strong>(c) [3]</strong> The solution set is <span class="math inline">\(\mathbb R\setminus\{2\}\)</span>.</p>
+<p><strong>(d) [4]</strong> They are not equal as functions with natural domains. The rational formula is undefined at <span class="math inline">\(2\)</span>, while <span class="math inline">\(g(2)=4\)</span>. They agree at every point of the smaller domain, but equality of functions also requires equal domains.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5-14" class="level3">
+<h3 class="anchored" data-anchor-id="question-5-14">Question 5 [14]</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution and marks">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution and marks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Among four consecutive integers, one is divisible by <span class="math inline">\(3\)</span>, because their residues contain at least one complete run of three consecutive classes modulo <span class="math inline">\(3\)</span>. Thus <span class="math inline">\(3\)</span> divides the product.</p>
+<p>For the factor <span class="math inline">\(8\)</span>, split by parity of <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(n\)</span> is even, then <span class="math inline">\(n\)</span> and <span class="math inline">\(n+2\)</span> are the two even factors. One of them is divisible by <span class="math inline">\(4\)</span>, while the other is divisible by <span class="math inline">\(2\)</span>; their product is therefore divisible by <span class="math inline">\(8\)</span>.</li>
+<li>If <span class="math inline">\(n\)</span> is odd, then <span class="math inline">\(n+1\)</span> and <span class="math inline">\(n+3\)</span> are even. One is divisible by <span class="math inline">\(4\)</span> and the other by <span class="math inline">\(2\)</span>, so again their product is divisible by <span class="math inline">\(8\)</span>.</li>
+</ul>
+<p>The two parity cases exhaust the integers. Hence the four-factor product is divisible by both <span class="math inline">\(3\)</span> and <span class="math inline">\(8\)</span>. Since <span class="math inline">\(\gcd(3,8)=1\)</span>, it is divisible by <span class="math inline">\(24\)</span>.</p>
+<p>Marks: 3 for the factor-<span class="math inline">\(3\)</span> argument; 2 for an exhaustive parity split; 5 for the factor-<span class="math inline">\(8\)</span> argument including a factor <span class="math inline">\(4\)</span> and another factor <span class="math inline">\(2\)</span>; 2 for combining coprime divisors; and 2 for a clear universal conclusion.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="correction-and-reassessment-record" class="level2">
+<h2 class="anchored" data-anchor-id="correction-and-reassessment-record">Correction and reassessment record</h2>
+<p>For every lost mark, record:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Error category</th>
+<th>Earliest unsupported line</th>
+<th>Correct principle</th>
+<th>Revised line</th>
+<th>New check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>interpretation / definition / logic / algebra / completeness</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Suggested local readiness threshold: at least <strong>42/60</strong>, no score below half on Questions 4 or 5, and a complete correction of every logical or domain error. This threshold guides study only. If the conditions are not met, revise the portfolio artifact matching the weak proof form and retake a fresh variant written by an instructor or peer rather than memorizing this marking scheme.</p>
 
 
 </section>
@@ -1777,13 +2088,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../courses/statistics/units/foundations/statistics-cumulative-review.html" class="pagination-link" aria-label="Statistics Cumulative Review">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistics Cumulative Review</span>
+      <a href="../../../../courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.html" class="pagination-link" aria-label="Unit 1 Proof Portfolio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Unit 1 Proof Portfolio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../courses/mathematical-computing/units/python-foundations/index.html" class="pagination-link" aria-label="Python Foundations for Mathematical Work">
-        <span class="nav-page-text">Python Foundations for Mathematical Work</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../../courses/advanced-algebra/units/algebra/index.html" class="pagination-link" aria-label="Algebra Study Path">
+        <span class="nav-page-text">Algebra Study Path</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1795,7 +2106,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/freecampus/math/edit/main/courses/mathematical-computing/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/freecampus/math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/freecampus/math/edit/main/courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/freecampus/math/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Progress remains in your browser; no account or analytics profile is required.</p>
 </div>

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "id": "advanced-algebra-proof-methods-checkpoint",
+  "title": "Proof methods for algebra checkpoint",
+  "purpose": "lesson-review",
+  "status": "review",
+  "questions": [
+    {
+      "id": "proof-methods-hypothesis-conclusion",
+      "type": "single-choice",
+      "prompt": "In the theorem 'if integer $n$ is divisible by $6$, then $n$ is even,' which statement is the hypothesis?",
+      "options": [
+        { "id": "a", "text": "$n$ is an integer" },
+        { "id": "b", "text": "$6\\mid n$" },
+        { "id": "c", "text": "$n$ is even" },
+        { "id": "d", "text": "$2\\mid6$" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "exact" },
+      "hint": "The hypothesis follows the word 'if'; the integer universe is already declared.",
+      "explanation": "$6\\mid n$ is assumed. The conclusion to derive is that $n$ is even."
+    },
+    {
+      "id": "proof-methods-contrapositive",
+      "type": "single-choice",
+      "prompt": "What is the contrapositive of $P\\Rightarrow Q$?",
+      "options": [
+        { "id": "a", "text": "$Q\\Rightarrow P$" },
+        { "id": "b", "text": "$\\neg P\\Rightarrow\\neg Q$" },
+        { "id": "c", "text": "$\\neg Q\\Rightarrow\\neg P$" },
+        { "id": "d", "text": "$P\\Rightarrow\\neg Q$" }
+      ],
+      "answer": "c",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Negate both parts and reverse their order.",
+      "explanation": "$P\\Rightarrow Q$ and $\\neg Q\\Rightarrow\\neg P$ are logically equivalent."
+    },
+    {
+      "id": "proof-methods-valid-counterexample",
+      "type": "single-choice",
+      "prompt": "Which value refutes 'if real $x^2>9$, then $x>3$'?",
+      "options": [
+        { "id": "a", "text": "$x=0$" },
+        { "id": "b", "text": "$x=2$" },
+        { "id": "c", "text": "$x=4$" },
+        { "id": "d", "text": "$x=-4$" }
+      ],
+      "answer": "d",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "A counterexample must make the hypothesis true and the conclusion false.",
+      "explanation": "$(-4)^2=16>9$, while $-4>3$ is false."
+    },
+    {
+      "id": "proof-methods-exhaustive-cases",
+      "type": "single-choice",
+      "prompt": "Which cases exhaust every real parameter when both division and inequality direction may matter?",
+      "options": [
+        { "id": "a", "text": "$a>0$ and $a<0$" },
+        { "id": "b", "text": "$a\\ge0$ and $a\\le0$" },
+        { "id": "c", "text": "$a>0$, $a=0$, and $a<0$" },
+        { "id": "d", "text": "$a=1$ and $a=-1$" }
+      ],
+      "answer": "c",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "The sign of a divisor has three distinct behaviors.",
+      "explanation": "Trichotomy gives exactly the positive, zero, and negative cases."
+    },
+    {
+      "id": "proof-methods-divisibility-witness",
+      "type": "single-choice",
+      "prompt": "To prove $a\\mid(b+c)$ from $a\\mid b$ and $a\\mid c$, which representation begins a direct proof?",
+      "options": [
+        { "id": "a", "text": "$a=bm=cn$" },
+        { "id": "b", "text": "$b=am$ and $c=an$ for integers $m,n$" },
+        { "id": "c", "text": "$b/a=c/a$" },
+        { "id": "d", "text": "$b+c=a$" }
+      ],
+      "answer": "b",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Expand each divisibility hypothesis using its own integer witness.",
+      "explanation": "$b+c=a(m+n)$ and $m+n$ is an integer, which is exactly the target definition."
+    },
+    {
+      "id": "proof-methods-contradiction-opening",
+      "type": "single-choice",
+      "prompt": "To prove by contradiction that there is no greatest integer, what should be assumed?",
+      "options": [
+        { "id": "a", "text": "Every integer is greatest." },
+        { "id": "b", "text": "There is a greatest integer $N$." },
+        { "id": "c", "text": "$N+1$ is not an integer." },
+        { "id": "d", "text": "The integers are finite." }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Assume the exact negation of the theorem.",
+      "explanation": "From an alleged greatest integer $N$, the larger integer $N+1$ gives the contradiction."
+    },
+    {
+      "id": "proof-methods-biconditional-obligations",
+      "type": "multiple-select",
+      "prompt": "Which proof obligations establish $P\\Longleftrightarrow Q$?",
+      "options": [
+        { "id": "a", "text": "$P\\Rightarrow Q$" },
+        { "id": "b", "text": "$Q\\Rightarrow P$" },
+        { "id": "c", "text": "$P\\Rightarrow P$" },
+        { "id": "d", "text": "one supporting example" }
+      ],
+      "answer": ["a", "b"],
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-6",
+      "validation": { "mode": "set-equality" },
+      "hint": "An 'if and only if' contains a forward and reverse implication.",
+      "explanation": "Both $P\\Rightarrow Q$ and $Q\\Rightarrow P$ are required."
+    },
+    {
+      "id": "proof-methods-existence-uniqueness",
+      "type": "multiple-select",
+      "prompt": "Which components are required to prove there exists exactly one object with property $P$?",
+      "options": [
+        { "id": "a", "text": "construct or establish at least one object" },
+        { "id": "b", "text": "show any two such objects are equal" },
+        { "id": "c", "text": "check one numerical example only" },
+        { "id": "d", "text": "assume the object is unique" }
+      ],
+      "answer": ["a", "b"],
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "set-equality" },
+      "hint": "'Exactly one' combines at-least-one and at-most-one.",
+      "explanation": "Existence supplies an object; uniqueness proves no distinct second object can satisfy the property."
+    },
+    {
+      "id": "proof-methods-induction-step",
+      "type": "single-choice",
+      "prompt": "In ordinary induction beginning at $n=1$, what does the inductive step prove?",
+      "options": [
+        { "id": "a", "text": "$P(1)$ only" },
+        { "id": "b", "text": "$P(k+1)\\Rightarrow P(k)$" },
+        {
+          "id": "c",
+          "text": "for arbitrary $k\\ge1$, $P(k)\\Rightarrow P(k+1)$"
+        },
+        { "id": "d", "text": "$P(k)$ by assuming $P(k)$" }
+      ],
+      "answer": "c",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "The step propagates truth from one arbitrary index to its successor.",
+      "explanation": "Together with the base case, $P(k)\\Rightarrow P(k+1)$ establishes the infinite chain."
+    },
+    {
+      "id": "proof-methods-method-selection",
+      "type": "single-choice",
+      "prompt": "Which method is usually most efficient for proving $n^2$ even implies integer $n$ even?",
+      "options": [
+        { "id": "a", "text": "contraposition using an odd representation" },
+        { "id": "b", "text": "checking the first ten integers" },
+        { "id": "c", "text": "assuming $n$ is even immediately" },
+        { "id": "d", "text": "proving the converse only" }
+      ],
+      "answer": "a",
+      "skill_mode": "mixed",
+      "outcome_id": "advanced-algebra-outcome-14",
+      "validation": { "mode": "exact" },
+      "hint": "Negating 'even' gives a useful formula $n=2k+1$.",
+      "explanation": "The contrapositive says an odd integer has odd square, which follows directly by expansion."
+    }
+  ]
+}

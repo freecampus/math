@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "curriculum_version": 5,
+  "curriculum_version": 6,
   "courses": [
     {
       "id": "advanced-algebra",
@@ -250,10 +250,73 @@
                 "checkpoint": true
               },
               "type": "lesson"
+            },
+            {
+              "id": "advanced-algebra-mathematical-language-proof-methods-for-algebra",
+              "title": "Proof Methods for Algebra",
+              "description": "Select, construct, audit, and communicate direct, case, contrapositive, contradiction, equivalence, existence, uniqueness, counterexample, and induction arguments.",
+              "file": "courses/advanced-algebra/units/mathematical-language/proof-methods-for-algebra.qmd",
+              "order": 4,
+              "status": "review",
+              "estimated_minutes": 720,
+              "skill_modes": [
+                "conceptual",
+                "manual-calculation",
+                "symbolic-reasoning",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-6",
+                "advanced-algebra-outcome-8",
+                "advanced-algebra-outcome-14"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "lesson"
             }
           ],
-          "challenges": [],
-          "item_count": 3
+          "challenges": [
+            {
+              "id": "advanced-algebra-mathematical-language-unit-1-proof-portfolio",
+              "title": "Unit 1 Proof Portfolio",
+              "description": "Produce, audit, peer-review, and revise six complete proof forms before timed assessment.",
+              "file": "courses/advanced-algebra/units/mathematical-language/unit-1-proof-portfolio.qmd",
+              "order": 5,
+              "status": "review",
+              "estimated_minutes": 360,
+              "skill_modes": [
+                "conceptual",
+                "symbolic-reasoning",
+                "computational",
+                "interpretation"
+              ],
+              "outcome_ids": [
+                "advanced-algebra-outcome-1",
+                "advanced-algebra-outcome-3",
+                "advanced-algebra-outcome-6",
+                "advanced-algebra-outcome-7",
+                "advanced-algebra-outcome-8",
+                "advanced-algebra-outcome-13",
+                "advanced-algebra-outcome-14"
+              ],
+              "computational_dependencies": ["fcmath", "sympy"],
+              "coverage": {
+                "theory": true,
+                "manual_practice": true,
+                "computation": true,
+                "checkpoint": true
+              },
+              "type": "assessment"
+            }
+          ],
+          "assessment_ids": ["advanced-algebra-unit-1-proof-examination"],
+          "item_count": 5
         },
         {
           "id": "algebra",
@@ -821,7 +884,7 @@
           "item_count": 7
         }
       ],
-      "item_count": 25,
+      "item_count": 27,
       "file": "courses/advanced-algebra/index.qmd"
     },
     {
@@ -2449,6 +2512,27 @@
     }
   ],
   "assessments": [
+    {
+      "id": "advanced-algebra-unit-1-proof-examination",
+      "type": "unit-examination",
+      "file": "courses/advanced-algebra/units/mathematical-language/unit-1-proof-examination.qmd",
+      "status": "review",
+      "outcome_ids": [
+        "advanced-algebra-outcome-1",
+        "advanced-algebra-outcome-3",
+        "advanced-algebra-outcome-6",
+        "advanced-algebra-outcome-7",
+        "advanced-algebra-outcome-8",
+        "advanced-algebra-outcome-14"
+      ],
+      "estimated_minutes": 75,
+      "skill_modes": [
+        "conceptual",
+        "manual-calculation",
+        "symbolic-reasoning",
+        "interpretation"
+      ]
+    },
     {
       "id": "cumulative-review-comprehensive-practice",
       "type": "comprehensive",
