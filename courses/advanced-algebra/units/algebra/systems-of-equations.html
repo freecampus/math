@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-e7947a025f2dd68575f6576291c65d2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -472,6 +472,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
   </div>
 </li>
       </ul>
@@ -1413,7 +1419,7 @@ x - y = 1</code></pre>
 <li>Parallel distinct lines: no solution.</li>
 <li>Same line written two ways: infinitely many solutions.</li>
 </ul>
-<div id="32d4c04e" class="cell" data-execution_count="1">
+<div id="3248c0f2" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2993,7 +2999,7 @@ y = 1/2</code></pre>
 </section>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
-<div id="dd08101a" class="cell" data-execution_count="2">
+<div id="fe6e0820" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
@@ -3002,13 +3008,13 @@ y = 1/2</code></pre>
 <pre><code>{x: 3, y: 6}</code></pre>
 </div>
 </div>
-<div id="ae0fab1f" class="cell" data-execution_count="3">
+<div id="457b0cf3" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sp.linsolve((sp.Matrix([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]]), sp.Matrix([<span class="dv">5</span>, <span class="dv">1</span>])), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle \left\{\left( 3, \  2\right)\right\}\)</span></p>
 </div>
 </div>
-<div id="c2f3a188" class="cell" data-execution_count="4">
+<div id="007fd42f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sp.solve((sp.Eq(y, x<span class="op">**</span><span class="dv">2</span>), sp.Eq(y, x <span class="op">+</span> <span class="dv">2</span>)), (x, y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[(-1, 1), (2, 4)]</code></pre>

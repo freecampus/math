@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-e7947a025f2dd68575f6576291c65d2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -472,6 +472,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
   </div>
 </li>
       </ul>
@@ -2221,7 +2227,7 @@ P(a\le X\le b)=\int_a^b f(x)\,dx.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use computation to check derivative, integral, and optimization calculations. Then translate the output into units and context.</p>
-<div id="f8e812b8" class="cell" data-execution_count="1">
+<div id="6358007e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> derivative, definite_integral</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>derivative(<span class="st">"100 + 5*x + 0.2*x**2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2229,13 +2235,13 @@ P(a\le X\le b)=\int_a^b f(x)\,dx.
 <p><span class="math inline">\(\displaystyle 0.4 x + 5\)</span></p>
 </div>
 </div>
-<div id="df6b6374" class="cell" data-execution_count="2">
+<div id="9ae9574a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>definite_integral(<span class="st">"3*t**2"</span>, <span class="dv">0</span>, <span class="dv">2</span>, variable<span class="op">=</span><span class="st">"t"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <p><span class="math inline">\(\displaystyle 8\)</span></p>
 </div>
 </div>
-<div id="b8094848" class="cell" data-execution_count="3">
+<div id="0459ce0a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>)</span>
@@ -2246,7 +2252,7 @@ P(a\le X\le b)=\int_a^b f(x)\,dx.
 <pre><code>[5]</code></pre>
 </div>
 </div>
-<div id="8216246f" class="cell" data-execution_count="4">
+<div id="61a2207f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.calculus <span class="im">import</span> calculus_application_tool_choice_exercise</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>exercise <span class="op">=</span> calculus_application_tool_choice_exercise(seed<span class="op">=</span><span class="dv">2</span>)</span>

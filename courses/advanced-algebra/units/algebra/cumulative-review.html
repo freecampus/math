@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-e7947a025f2dd68575f6576291c65d2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -443,6 +443,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
   </div>
 </li>
       </ul>
@@ -3056,7 +3062,7 @@ units, if the problem has units</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>fcmath</code>’s parser and solver as a checking partner after you have selected a method and tried the problem by hand.</p>
-<div id="3ca0c2c3" class="cell" data-execution_count="1">
+<div id="43eda5c3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.core <span class="im">import</span> parse_equation</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3090,7 +3096,7 @@ Check:
 x = 4: valid</code></pre>
 </div>
 </div>
-<div id="061a5658" class="cell" data-execution_count="2">
+<div id="85b92238" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
@@ -3106,14 +3112,14 @@ x = 4: valid</code></pre>
  'solve system': {x: 3, y: 2}}</code></pre>
 </div>
 </div>
-<div id="bfa35a5e" class="cell" data-execution_count="3">
+<div id="1f221854" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sp.cancel(expr), sp.solve(sp.Eq(sp.denom(expr), <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(x + 1, [1])</code></pre>
 </div>
 </div>
-<div id="f3540663" class="cell" data-execution_count="4">
+<div id="0f851122" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.algebra <span class="im">import</span> expand_question, factor_question</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>questions <span class="op">=</span> [expand_question((x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)), factor_question(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">6</span>)]</span>

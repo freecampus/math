@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../">
-<link href="../../../../courses/advanced-algebra/units/algebra/index.html" rel="next">
+<link href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" rel="next">
 <link href="../../../../courses/advanced-algebra/units/mathematical-language/sets-intervals-statements-and-quantifiers.html" rel="prev">
 <script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-394ead12451981d31e5928c23125edf0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-e7947a025f2dd68575f6576291c65d2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-c1d946c358e12276ee1b5ff18d5399f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3978650f288f19fdb139b05d0d30c3c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-79d1291b595f6f7d1c68ce9e6aa50f89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -472,6 +472,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../../courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">The Real Number System and Its Extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algebraic Laws and Valid Transformation</span></a>
   </div>
 </li>
       </ul>
@@ -2648,7 +2654,7 @@ x=\frac{N}{10^k(10^m-1)}
 <li>Approximate values need error information. Equivalent exact forms can have different numerical stability.</li>
 <li>Complex numbers close equations such as <span class="math inline">\(x^2=-1\)</span> but do not carry a compatible order.</li>
 </ul>
-<p>The next chapter, <em>Algebraic laws and valid transformation</em>, will turn the closure and domain habits into a line-by-line system for deciding when an algebraic transformation is reversible.</p>
+<p>Continue to <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html">Algebraic laws and valid transformation</a>, which turns the closure and domain habits into a line-by-line system for deciding when an algebraic transformation is reversible.</p>
 </section>
 <section id="references-and-further-study" class="level2">
 <h2 class="anchored" data-anchor-id="references-and-further-study">References and further study</h2>
@@ -2663,7 +2669,7 @@ x=\frac{N}{10^k(10^m-1)}
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy distinguishes exact rational objects from Python floating-point numbers. Construct exact values before evaluating decimals:</p>
-<div id="be39afd6" class="cell" data-execution_count="1">
+<div id="8ca7a1e7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> sp.Rational(<span class="dv">611</span>, <span class="dv">4950</span>)</span>
@@ -2675,7 +2681,7 @@ x=\frac{N}{10^k(10^m-1)}
 </div>
 <p>The objects <code>Rational(611, 4950)</code> and <code>sqrt(2)</code> remain exact. <code>N(..., 20)</code> asks for a 20-digit approximation; it does not change the underlying exact value.</p>
 <p>Use exact comparisons or simplify their difference instead of comparing short printed decimals:</p>
-<div id="cbd10ff8" class="cell" data-execution_count="2">
+<div id="01301dc1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>comparison <span class="op">=</span> sp.simplify(sp.Rational(<span class="dv">8</span>, <span class="dv">3</span>) <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">7</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>comparison, sp.Rational(<span class="dv">8</span>, <span class="dv">3</span>) <span class="op">&gt;</span> sp.sqrt(<span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -2693,7 +2699,7 @@ x=\frac{N}{10^k(10^m-1)}
 <li>substitute each candidate into the original equation.</li>
 </ol>
 <p>The equivalent exact SymPy workflow is:</p>
-<div id="5b7b0367" class="cell" data-execution_count="3">
+<div id="b03367b7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> sp.solveset(sp.Abs(<span class="dv">2</span> <span class="op">*</span> x <span class="op">-</span> <span class="dv">5</span>) <span class="op">-</span> <span class="dv">7</span>, x, domain<span class="op">=</span>sp.S.Reals)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>checks <span class="op">=</span> {candidate: sp.Abs(<span class="dv">2</span> <span class="op">*</span> candidate <span class="op">-</span> <span class="dv">5</span>) <span class="op">==</span> <span class="dv">7</span> <span class="cf">for</span> candidate <span class="kw">in</span> solution}</span>
@@ -2704,7 +2710,7 @@ x=\frac{N}{10^k(10^m-1)}
 </div>
 <p>The expected set is <span class="math inline">\(\{-1,6\}\)</span>, and both checks are <code>True</code>. The explicit real domain matters: solver output is always interpreted relative to its domain.</p>
 <p>Assumptions can prevent an invalid radical simplification:</p>
-<div id="76446bd2" class="cell" data-execution_count="4">
+<div id="d83e32e2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">"t"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>t_nonnegative <span class="op">=</span> sp.symbols(<span class="st">"t_nonnegative"</span>, nonnegative<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>general <span class="op">=</span> sp.sqrt(t<span class="op">**</span><span class="dv">2</span>)</span>
@@ -2716,7 +2722,7 @@ x=\frac{N}{10^k(10^m-1)}
 </div>
 <p>For a general real symbol SymPy retains <span class="math inline">\(|t|\)</span> (or an equivalent form); with a nonnegative assumption it can return the symbol itself. A software assumption is part of the mathematical statement, not a convenience to hide.</p>
 <p>Finally, verify the examination-clinic polynomial while remembering that polynomial membership does not identify which root was intended:</p>
-<div id="171e9024" class="cell" data-execution_count="5">
+<div id="76030e49" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>value <span class="op">=</span> sp.sqrt(<span class="dv">2</span>) <span class="op">+</span> sp.sqrt(<span class="dv">3</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>polynomial <span class="op">=</span> sp.expand(value<span class="op">**</span><span class="dv">4</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">*</span> value<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>all_roots <span class="op">=</span> sp.solve(sp.Symbol(<span class="st">"y"</span>) <span class="op">**</span> <span class="dv">4</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">*</span> sp.Symbol(<span class="st">"y"</span>) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>
@@ -3172,8 +3178,8 @@ x=\frac{N}{10^k(10^m-1)}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../../courses/advanced-algebra/units/algebra/index.html" class="pagination-link" aria-label="Algebra Study Path">
-        <span class="nav-page-text">Algebra Study Path</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../../courses/advanced-algebra/units/mathematical-language/algebraic-laws-and-valid-transformation.html" class="pagination-link" aria-label="Algebraic Laws and Valid Transformation">
+        <span class="nav-page-text">Algebraic Laws and Valid Transformation</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

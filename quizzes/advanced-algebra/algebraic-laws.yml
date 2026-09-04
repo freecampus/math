@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "id": "advanced-algebra-algebraic-laws-checkpoint",
+  "title": "Algebraic laws and valid transformation checkpoint",
+  "purpose": "lesson-review",
+  "status": "review",
+  "questions": [
+    {
+      "id": "algebraic-laws-cancellation-condition",
+      "type": "single-choice",
+      "prompt": "From $ac=bc$, which condition makes cancellation of $c$ valid in a field?",
+      "options": [
+        { "id": "a", "text": "$a\\ne b$" },
+        { "id": "b", "text": "$c\\ne0$" },
+        { "id": "c", "text": "$c>0$" },
+        { "id": "d", "text": "$a,b,c$ must be integers" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-1",
+      "validation": { "mode": "exact" },
+      "hint": "Cancellation multiplies by the inverse of the common factor.",
+      "explanation": "The inverse $c^{-1}$ exists exactly when $c\\ne0$. Positivity is stronger than necessary."
+    },
+    {
+      "id": "algebraic-laws-rational-domain",
+      "type": "single-choice",
+      "prompt": "On which real domain does $(x^2-9)/(x-3)=x+3$ hold?",
+      "options": [
+        { "id": "a", "text": "all real $x$" },
+        { "id": "b", "text": "$x\\ne-3$" },
+        { "id": "c", "text": "$x\\ne3$" },
+        { "id": "d", "text": "$x>3$" }
+      ],
+      "answer": "c",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-1",
+      "validation": { "mode": "exact" },
+      "hint": "Find where the original denominator is zero before factoring.",
+      "explanation": "Factoring and cancellation give $x+3$, but the original quotient remains undefined at $x=3$."
+    },
+    {
+      "id": "algebraic-laws-zero-product",
+      "type": "solution-set",
+      "prompt": "Solve $x(3x-6)=0$ over the reals.",
+      "answer": "{0, 2}",
+      "variable": "x",
+      "domain": "real",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "solution-set" },
+      "hint": "Do not divide by $x$; use both zero-product branches.",
+      "explanation": "$x=0$ or $3x-6=0$, giving the solution set $\\{0,2\\}$."
+    },
+    {
+      "id": "algebraic-laws-squaring-direction",
+      "type": "single-choice",
+      "prompt": "Which symbol is always valid over $\\mathbb R$ in $x=4$ ___ $x^2=16$?",
+      "options": [
+        { "id": "a", "text": "$\\Longleftrightarrow$" },
+        { "id": "b", "text": "$\\Longrightarrow$ only" },
+        { "id": "c", "text": "$\\Longleftarrow$ only" },
+        { "id": "d", "text": "neither direction" }
+      ],
+      "answer": "b",
+      "skill_mode": "conceptual",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Test the squared equation at $x=-4$.",
+      "explanation": "$x=4$ implies $x^2=16$, but $x=-4$ shows the converse is false."
+    },
+    {
+      "id": "algebraic-laws-radical-candidate",
+      "type": "solution-set",
+      "prompt": "Solve $\\sqrt{x+6}=x$ over the reals.",
+      "answer": "{3}",
+      "variable": "x",
+      "domain": "real",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "solution-set" },
+      "hint": "The right side must be nonnegative; check both roots after squaring.",
+      "explanation": "Squaring gives $(x-3)(x+2)=0$. Only $x=3$ satisfies the original equation."
+    },
+    {
+      "id": "algebraic-laws-inequality-sign",
+      "type": "single-choice",
+      "prompt": "What is the solution of $-5x>20$?",
+      "options": [
+        { "id": "a", "text": "$x>4$" },
+        { "id": "b", "text": "$x<-4$" },
+        { "id": "c", "text": "$x>-4$" },
+        { "id": "d", "text": "$x<4$" }
+      ],
+      "answer": "b",
+      "skill_mode": "manual-calculation",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "Division by a negative number reverses order.",
+      "explanation": "Dividing by $-5$ reverses $>$ to $<$, so $x<-4$."
+    },
+    {
+      "id": "algebraic-laws-parameter-equation",
+      "type": "single-choice",
+      "prompt": "For $a=2$, what is the real solution set of $(a-2)x=a^2-4$?",
+      "options": [
+        { "id": "a", "text": "$\\{4\\}$" },
+        { "id": "b", "text": "$\\{0\\}$" },
+        { "id": "c", "text": "$\\varnothing$" },
+        { "id": "d", "text": "$\\mathbb R$" }
+      ],
+      "answer": "d",
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-3",
+      "validation": { "mode": "exact" },
+      "hint": "Substitute the exceptional parameter into the original equation.",
+      "explanation": "At $a=2$ the equation is $0x=0$, which every real $x$ satisfies."
+    },
+    {
+      "id": "algebraic-laws-false-law",
+      "type": "multiple-select",
+      "prompt": "Select every identity that is valid for all real $u,v$.",
+      "options": [
+        { "id": "a", "text": "$(u+v)^2=u^2+2uv+v^2$" },
+        { "id": "b", "text": "$\\sqrt{u^2}=u$" },
+        { "id": "c", "text": "$u(v+1)=uv+u$" },
+        { "id": "d", "text": "$1/(u+v)=1/u+1/v$" }
+      ],
+      "answer": ["a", "c"],
+      "skill_mode": "symbolic-reasoning",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "set-equality" },
+      "hint": "Remember $\\sqrt{u^2}=|u|$ and inspect denominators.",
+      "explanation": "Expansion and distributivity make A and C identities. B fails for negative $u$; D is not a fraction law and is not even defined for all reals."
+    },
+    {
+      "id": "algebraic-laws-earliest-invalid-step",
+      "type": "single-choice",
+      "prompt": "Starting from $x(x-1)=0$, a student divides by $x$, obtains $x-1=0$, and answers $x=1$. What went wrong?",
+      "options": [
+        { "id": "a", "text": "Factoring was required first." },
+        {
+          "id": "b",
+          "text": "Division by $x$ assumed $x\\ne0$ and discarded a solution."
+        },
+        { "id": "c", "text": "$x-1=0$ has no solution." },
+        { "id": "d", "text": "Multiplication cannot equal zero." }
+      ],
+      "answer": "b",
+      "skill_mode": "interpretation",
+      "outcome_id": "advanced-algebra-outcome-8",
+      "validation": { "mode": "exact" },
+      "hint": "Check the original equation at the value used as a divisor.",
+      "explanation": "$x=0$ satisfies the original equation. Dividing by the unknown $x$ silently removed that branch."
+    },
+    {
+      "id": "algebraic-laws-conditional-identity",
+      "type": "single-choice",
+      "prompt": "Which statement best describes $(r^3-s^3)/(r-s)=r^2+rs+s^2$?",
+      "options": [
+        { "id": "a", "text": "It is false for all reals." },
+        { "id": "b", "text": "It is an identity for $r\\ne s$." },
+        { "id": "c", "text": "It is an identity only for $r=s$." },
+        { "id": "d", "text": "It requires $r,s>0$." }
+      ],
+      "answer": "b",
+      "skill_mode": "mixed",
+      "outcome_id": "advanced-algebra-outcome-1",
+      "validation": { "mode": "exact" },
+      "hint": "Factor the numerator, then retain the denominator restriction.",
+      "explanation": "$r^3-s^3=(r-s)(r^2+rs+s^2)$, and cancellation is valid exactly when $r-s\\ne0$."
+    }
+  ]
+}
