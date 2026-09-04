@@ -10,7 +10,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, cast
 
-VALID_STATUSES = {"planned", "in-development", "active", "complete", "archived"}
+VALID_STATUSES = {
+    "planned",
+    "draft",
+    "review",
+    "in-development",
+    "active",
+    "complete",
+    "archived",
+}
 VALID_SKILL_MODES = {
     "conceptual",
     "manual-calculation",

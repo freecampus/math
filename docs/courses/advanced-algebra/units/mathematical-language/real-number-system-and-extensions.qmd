@@ -1,0 +1,1306 @@
+---
+title: The Real Number System and Its Extensions
+description: Classify number systems, reason about closure, prove exact number claims, and control distance, bounds, radicals, and approximation.
+execute:
+  echo: false
+  warning: false
+id: advanced-algebra-mathematical-language-real-number-system-and-extensions
+course_id: advanced-algebra
+unit_id: mathematical-language
+page_type: lesson
+status: review
+estimated_time: "540 minutes"
+skill_modes: [conceptual, manual-calculation, symbolic-reasoning, computational, interpretation]
+outcome_ids: [advanced-algebra-outcome-6, advanced-algebra-outcome-7, advanced-algebra-outcome-8, advanced-algebra-outcome-13]
+---
+
+## Why this matters
+
+The equation $x^2=2$ has no rational solution but has two real solutions. The
+equation $x^2=-1$ has no real solution but has two complex solutions. Dividing
+two integers can leave the integers, and subtracting two natural numbers can
+leave the natural numbers. Even the familiar simplification
+$\sqrt{x^2}=x$ fails whenever $x<0$.
+
+These are not unrelated exceptions. Every algebraic statement lives in a
+**number system**, and that system decides which operations are available,
+which comparisons make sense, and which equations can be solved. Difficult
+problems often hide their decisive information in a phrase such as “integer,”
+“real,” “exact,” or “to three decimal places.”
+
+This chapter builds a working map of the standard number systems. It also
+develops three habits used throughout the course:
+
+1. name the universe before making a claim;
+2. preserve exact structure until approximation is requested; and
+3. attach an error bound to every numerical approximation.
+
+::: {.learning-objectives}
+### What you should be able to do
+
+After completing the chapter, you should be able to:
+
+- classify a number in the smallest standard set that contains it;
+- use the inclusions among $\mathbb N$, $\mathbb Z$, $\mathbb Q$, $\mathbb R$,
+  and $\mathbb C$ without confusing membership with equality;
+- determine whether a set is closed under a stated operation and disprove
+  closure with a valid counterexample;
+- convert terminating and repeating decimals to exact fractions;
+- prove elementary irrationality results and avoid false rules about sums and
+  products of irrational numbers;
+- use density and the least-upper-bound property to explain the structure of
+  the real line;
+- compare exact radicals without relying on rounded decimal output;
+- derive and apply absolute-value distance and triangle-inequality results;
+- simplify radicals with the correct sign and domain conditions;
+- report absolute and relative error and infer intervals from rounded data;
+- explain why complex numbers extend the reals but do not inherit a compatible
+  order; and
+- use SymPy number objects and assumptions as checks rather than as proofs.
+:::
+
+::: {.prerequisites}
+### Prerequisites
+
+You should be able to use set-builder notation, intervals, implications, and
+quantifiers. Review
+[Sets, intervals, statements, and quantifiers](sets-intervals-statements-and-quantifiers.qmd)
+if the difference between $x\in\mathbb Q$ and $\mathbb Q\subseteq\mathbb R$ is
+unclear. You should also be able to compute exactly with signed fractions and
+integer powers.
+:::
+
+## Five-minute retrieval warm-up
+
+1. Write the domain of $1/(x-2)$ as a subset of $\mathbb R$.
+2. Negate: “Every real solution is rational.”
+3. Is $\{-1,0,1\}\subseteq\mathbb Z$? Is it an element of $\mathbb Z$?
+4. Give a counterexample to “if $x^2>4$, then $x>2$” over $\mathbb R$.
+5. Explain why $x=2\Rightarrow x^2=4$ is not reversible over $\mathbb R$.
+
+::: {.callout-tip collapse="true" title="Warm-up answers"}
+1. $\mathbb R\setminus\{2\}$.
+2. “There exists a real solution that is irrational.”
+3. It is a subset, but it is not an integer and therefore not an element of
+   $\mathbb Z$.
+4. $x=-3$ satisfies the hypothesis but not the conclusion.
+5. $x^2=4$ also allows $x=-2$.
+:::
+
+## 1. A nested map of number systems
+
+We use the following conventions:
+
+| Set | Description | Examples |
+|---|---|---|
+| $\mathbb N$ | positive integers $\{1,2,3,\ldots\}$ | $1,12,10^6$ |
+| $\mathbb N_0$ | nonnegative integers $\{0,1,2,\ldots\}$ | $0,8$ |
+| $\mathbb Z$ | integers | $-9,0,14$ |
+| $\mathbb Q$ | rationals $p/q$, where $p,q\in\mathbb Z$ and $q\ne0$ | $-7/3,0,2.125$ |
+| $\mathbb R$ | points on the real line | $\sqrt2,\pi,-4$ |
+| $\mathbb C$ | numbers $a+bi$, where $a,b\in\mathbb R$ and $i^2=-1$ | $3-2i,i,5$ |
+
+The inclusions are
+
+$$
+\mathbb N\subsetneq\mathbb N_0\subsetneq\mathbb Z
+\subsetneq\mathbb Q\subsetneq\mathbb R\subsetneq\mathbb C.
+$$
+
+Every integer is rational because $n=n/1$. Every rational is real, and every
+real is complex because $a=a+0i$. The converses fail. For example, $1/2$ is not
+an integer, $\sqrt2$ is not rational, and $i$ is not real.
+
+The **irrational numbers** are $\mathbb R\setminus\mathbb Q$. “Irrational” is
+not a synonym for “complicated decimal” or “contains a radical.” For example,
+$\sqrt{49}=7$ is natural, while the number with decimal expansion
+$0.101001000100001\ldots$ is irrational even though no radical appears.
+
+::: {.worked-example}
+### Example 1: classify by the smallest standard set
+
+Classify each number as narrowly as possible:
+
+$$
+-12,\qquad \frac{18}{6},\qquad \sqrt{18},\qquad 0.\overline{27},
+\qquad \sqrt{-9}.
+$$
+
+1. $-12\in\mathbb Z$ and is not natural.
+2. $18/6=3\in\mathbb N$; an unreduced fraction can still be an integer.
+3. $\sqrt{18}=3\sqrt2$ is real and irrational.
+4. $0.\overline{27}=27/99=3/11\in\mathbb Q$.
+5. Over $\mathbb C$, the principal square root is $3i\in\mathbb C\setminus
+   \mathbb R$. Over $\mathbb R$, $\sqrt{-9}$ is not defined.
+
+Classification therefore requires simplification and an announced universe.
+:::
+
+::: {.checkpoint data-problem-id="aa-1-2-checkpoint-classification" data-level="A"}
+### Classification checkpoint
+
+What is the smallest listed set containing $(\sqrt5)^2$?
+
+::: {.callout-tip collapse="true" title="Answer"}
+Because $\sqrt5$ denotes the nonnegative real whose square is $5$,
+$(\sqrt5)^2=5\in\mathbb N$.
+:::
+:::
+
+## 2. Rational numbers and decimal representations
+
+A number is rational when it can be represented by an integer ratio. The
+representation is not unique: $2/3=4/6=-10/-15$. A reduced fraction chooses
+$q>0$ and $\gcd(|p|,q)=1$.
+
+Every terminating decimal is rational because a finite string of $k$ decimal
+digits is an integer divided by $10^k$. Every eventually repeating decimal is
+also rational. Conversely, long division of $p$ by $q$ has only finitely many
+possible remainders $0,1,\ldots,q-1$. It must either reach remainder zero and
+terminate, or repeat a remainder and thereafter repeat the same digit cycle.
+
+::: {.theorem}
+### Decimal characterization of rational numbers
+
+A real number is rational if and only if its decimal expansion terminates or is
+eventually periodic. The familiar ambiguity
+$0.999\ldots=1.000\ldots$ represents the same real number, not two adjacent
+real numbers.
+:::
+
+::: {.worked-example}
+### Example 2: convert an eventually repeating decimal exactly
+
+Let $x=0.12\overline{34}=0.12343434\ldots$. The nonrepeating part has two
+digits and the repeating block has two digits. Align two copies:
+
+$$
+100x=12.343434\ldots,
+\qquad
+10000x=1234.343434\ldots.
+$$
+
+Subtracting cancels the infinite tail:
+
+$$
+9900x=1222,
+\qquad
+x=\frac{1222}{9900}=\frac{611}{4950}.
+$$
+
+Substitution by division reproduces the repeating decimal. The subtraction is
+exact; no infinite decimal was rounded.
+:::
+
+::: {.practice-box data-problem-id="aa-1-2-guided-decimal" data-level="A"}
+### Guided exercise: a one-digit repeat
+
+Convert $0.1\overline6=0.1666\ldots$ to a reduced fraction.
+
+::: {.callout-note collapse="true" title="Hint"}
+First remove the one nonrepeating digit by considering $10x$; then align the
+one-digit repeating tails.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+Let $x=0.1666\ldots$. Then $10x=1.666\ldots$ and $100x=16.666\ldots$.
+Subtract:
+
+$$90x=15,$$
+
+so $x=15/90=1/6$.
+:::
+:::
+
+## 3. Closure: which operations stay inside?
+
+A set $S$ is **closed under** a binary operation $\star$ if
+
+$$
+(\forall a,b\in S)\;a\star b\in S.
+$$
+
+Closure always names both the set and the operation. The integers are closed
+under subtraction because $a-b\in\mathbb Z$ whenever $a,b\in\mathbb Z$, but
+they are not closed under division because $1,2\in\mathbb Z$ while
+$1/2\notin\mathbb Z$. Division by zero is not an operation value at all, so
+closure under division is stated only for nonzero divisors.
+
+| Set | Addition | Subtraction | Multiplication | Division by nonzero members |
+|---|---:|---:|---:|---:|
+| $\mathbb N$ | yes | no | yes | no |
+| $\mathbb Z$ | yes | yes | yes | no |
+| $\mathbb Q$ | yes | yes | yes | yes |
+| $\mathbb R$ | yes | yes | yes | yes |
+| $\mathbb C$ | yes | yes | yes | yes |
+
+The irrational numbers are not closed under addition or multiplication:
+
+$$
+\sqrt2+(-\sqrt2)=0,\qquad \sqrt2\cdot\sqrt2=2.
+$$
+
+One counterexample disproves a universal closure claim. A list of successful
+examples cannot prove closure; a proof must start with arbitrary admissible
+members.
+
+::: {.worked-example}
+### Example 3: prove rational closure and identify the condition
+
+Let $a=p/q$ and $b=r/s$, with integers $p,q,r,s$ and $q,s\ne0$. Then
+
+$$
+a+b=\frac{ps+rq}{qs},
+\qquad
+ab=\frac{pr}{qs}.
+$$
+
+Both are integer ratios with nonzero denominators, so both are rational. Also,
+
+$$
+\frac{a}{b}=\frac{ps}{qr}
+$$
+
+is rational provided $b\ne0$, which forces $r\ne0$. The hypothesis is not
+optional: division by zero has no value in $\mathbb Q$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-2-guided-closure" data-level="B"}
+### Guided exercise: rational times irrational
+
+Prove that if $r\in\mathbb Q\setminus\{0\}$ and $u$ is irrational, then $ru$
+is irrational. Explain why $r\ne0$ is necessary.
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+Suppose for contradiction that $ru$ were rational. Because $r$ is nonzero and
+rational, closure of rational division would make $u=(ru)/r$ rational,
+contradicting the hypothesis. If $r=0$, then $ru=0$ is rational for every $u$,
+so the condition is necessary.
+:::
+:::
+
+## 4. Irrationality and exact proof
+
+A decimal approximation cannot prove irrationality: every displayed finite
+decimal is rational. Irrationality proofs instead use definitions and structural
+facts such as divisibility.
+
+::: {.worked-example}
+### Example 4: prove that $\sqrt2$ is irrational
+
+Assume for contradiction that $\sqrt2=p/q$ in lowest terms, with
+$p,q\in\mathbb Z$, $q>0$. Squaring gives
+
+$$p^2=2q^2.$$
+
+Thus $p^2$ is even, so $p$ is even. Write $p=2k$. Substitution gives
+
+$$4k^2=2q^2\quad\Longrightarrow\quad q^2=2k^2,$$
+
+so $q$ is also even. Then $p$ and $q$ have the common factor $2$, contradicting
+that $p/q$ was reduced. Therefore $\sqrt2\notin\mathbb Q$.
+
+The step “$p^2$ even implies $p$ even” follows because an odd integer
+$p=2m+1$ has odd square $4m^2+4m+1$.
+:::
+
+::: {.worked-example}
+### Example 5: sums of irrational numbers require analysis
+
+No single closure rule determines the sum of two irrational numbers:
+
+$$
+\sqrt2+(-\sqrt2)=0\in\mathbb Q,
+$$
+
+but $\sqrt2+\sqrt3$ is irrational. To prove the second claim, suppose
+$\sqrt2+\sqrt3=r\in\mathbb Q$. Then
+
+$$
+r^2=5+2\sqrt6,
+\qquad
+\sqrt6=\frac{r^2-5}{2}\in\mathbb Q.
+$$
+
+The same reduced-fraction argument as for $\sqrt2$ shows $\sqrt6$ is
+irrational, a contradiction. The examples refute both false universal rules
+“irrational plus irrational is always rational” and “always irrational.”
+:::
+
+::: {.checkpoint data-problem-id="aa-1-2-checkpoint-irrational" data-level="B"}
+### Irrationality checkpoint
+
+If $r$ is rational and $u$ is irrational, must $r+u$ be irrational?
+
+::: {.callout-tip collapse="true" title="Answer and proof"}
+Yes. If $r+u$ were rational, subtracting the rational number $r$ would make
+$u=(r+u)-r$ rational, a contradiction.
+:::
+:::
+
+## 5. Density and completeness of the real line
+
+The rational and irrational numbers are both **dense** in $\mathbb R$: between
+any two distinct real numbers lies a rational and an irrational number. Dense
+does not mean that the two sets have the same size, and it does not mean every
+short decimal display reveals which kind a number is.
+
+For $a<b$, choose a natural number $n$ with $1/n<b-a$, and let
+$m=\lfloor na\rfloor+1$. Then
+
+$$
+a<\frac mn\le a+\frac1n<b.
+$$
+
+Thus $m/n$ is a rational between $a$ and $b$. To obtain an irrational, first
+choose a rational $q$ between $a-\sqrt2$ and $b-\sqrt2$; then
+$q+\sqrt2$ lies between $a$ and $b$ and is irrational.
+
+::: {.worked-example}
+### Example 6: place a rational beside an irrational exactly
+
+Find a rational strictly between $\sqrt2$ and $1.42$. Consider
+$283/200=1.415$. Both quantities are positive, so comparison by squares is
+reversible:
+
+$$
+\left(\frac{283}{200}\right)^2
+=\frac{80089}{40000}>2.
+$$
+
+Hence $283/200>\sqrt2$, and visibly $1.415<1.42$. Therefore
+
+$$
+\sqrt2<\frac{283}{200}<1.42.
+$$
+
+The proof uses exact integers; the decimal is terminating and exact.
+:::
+
+Density says there are no gaps around rationals or irrationals. A stronger real
+number property supplies endpoints for bounded sets.
+
+::: {.theorem}
+### Least-upper-bound property
+
+Every nonempty subset of $\mathbb R$ that is bounded above has a least upper
+bound (a supremum) in $\mathbb R$.
+:::
+
+This property is a form of **completeness**. It distinguishes $\mathbb R$ from
+$\mathbb Q$. The rational set
+
+$$
+S=\{q\in\mathbb Q:q>0\text{ and }q^2<2\}
+$$
+
+is nonempty and bounded above, but its real supremum is $\sqrt2$, which is not
+rational. A full construction of the real numbers belongs to analysis; here we
+use completeness as an explicit structural fact rather than assuming every
+bounded decimal search must terminate at a rational endpoint.
+
+::: {.worked-example}
+### Example 7: compare exact positive quantities without decimals
+
+Compare $\sqrt7$ and $8/3$. Both are positive, so squaring preserves order:
+
+$$
+(\sqrt7)^2=7=\frac{63}{9}
+<\frac{64}{9}=\left(\frac83\right)^2.
+$$
+
+Therefore $\sqrt7<8/3$. Squaring would not be automatically reversible if the
+signs were unknown; for example, $(-3)^2>2^2$ does not imply $-3>2$.
+:::
+
+::: {.worked-example}
+### Example 8: identify a missing rational endpoint
+
+For
+
+$$S=\{q\in\mathbb Q:q\ge0, q^2<5\},$$
+
+$3$ is an upper bound, but it is not least. The real number $\sqrt5$ is an upper
+bound: if a nonnegative $q$ exceeded $\sqrt5$, then $q^2>5$. Every number below
+$\sqrt5$ fails to be an upper bound because rational density supplies a rational
+between it and $\sqrt5$ whose square is still below $5$. Thus
+$\sup_{\mathbb R}S=\sqrt5$, although $S\subseteq\mathbb Q$ and
+$\sqrt5\notin\mathbb Q$.
+:::
+
+## 6. Absolute value is distance
+
+For real $x$,
+
+$$
+|x|=
+\begin{cases}
+x,&x\ge0,\\
+-x,&x<0.
+\end{cases}
+$$
+
+Geometrically, $|x|$ is the distance from $x$ to $0$, and $|x-a|$ is the
+distance from $x$ to $a$. Distance is nonnegative, symmetric, and zero exactly
+when the points agree.
+
+Two essential bounds follow from the definition:
+
+$$
+-|x|\le x\le |x|.
+$$
+
+Adding the corresponding bounds for $u$ and $v$ gives
+$-|u|-|v|\le u+v\le |u|+|v|$, so
+
+$$
+|u+v|\le |u|+|v|.
+$$
+
+This is the **triangle inequality**. Applying it to
+$u=(u-v)+v$ produces the reverse form
+
+$$
+\bigl||u|-|v|\bigr|\le |u-v|.
+$$
+
+::: {.worked-example}
+### Example 9: solve a distance equation and verify both points
+
+Solve $|2x-5|=7$ over $\mathbb R$.
+
+The distance of $2x-5$ from zero is $7$, so
+
+$$
+2x-5=7\quad\text{or}\quad 2x-5=-7.
+$$
+
+These give $x=6$ or $x=-1$. Substitution checks both:
+
+$$|2(6)-5|=7,\qquad |2(-1)-5|=7.$$
+
+Hence the solution set is $\{-1,6\}$. The two branches are exhaustive because
+$|y|=7$ means exactly $y=7$ or $y=-7$.
+:::
+
+::: {.practice-box data-problem-id="aa-1-2-guided-distance" data-level="B"}
+### Guided exercise: total distance
+
+Solve $|x-2|+|x+2|=6$.
+
+::: {.callout-note collapse="true" title="Strategic hint"}
+The formulas change at $x=-2$ and $x=2$. Analyze the three intervals.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+For $x\le-2$, the sum is $(2-x)+(-x-2)=-2x$, so $-2x=6$ gives
+$x=-3$, which belongs to the case. For $-2\le x\le2$, the sum is constantly
+$4$, so there is no solution. For $x\ge2$, the sum is
+$(x-2)+(x+2)=2x$, giving $x=3$. The solution set is $\{-3,3\}$.
+:::
+:::
+
+## 7. Exact radicals and their conditions
+
+For $a\ge0$, $\sqrt a$ means the **nonnegative** real number whose square is
+$a$. Consequently,
+
+$$
+(\sqrt a)^2=a\quad(a\ge0),
+\qquad
+\sqrt{x^2}=|x|\quad(x\in\mathbb R).
+$$
+
+The absolute value in the second identity is necessary. If $x=-5$, then
+$\sqrt{x^2}=\sqrt{25}=5$, not $-5$.
+
+For nonnegative $a,b$,
+
+$$\sqrt{ab}=\sqrt a\sqrt b.$$
+
+The conditions matter over the reals. Applying the formula separately to two
+negative factors would falsely give
+$\sqrt{(-1)(-1)}=\sqrt{-1}\sqrt{-1}$, whose left side is $1$ but whose right
+side is not even real.
+
+::: {.worked-example}
+### Example 10: simplify without losing a sign
+
+For real $x$ and $y$,
+
+$$
+\sqrt{72x^2y^4}
+=\sqrt{36\cdot2}\sqrt{x^2}\sqrt{y^4}
+=6\sqrt2\,|x|\,y^2.
+$$
+
+We used $\sqrt{x^2}=|x|$ and
+$\sqrt{y^4}=\sqrt{(y^2)^2}=|y^2|=y^2$. The result $6xy^2\sqrt2$ would be
+negative when $x<0$, impossible for a principal square root.
+:::
+
+Rationalizing a denominator replaces a quotient containing a radical below the
+fraction bar by an exact equivalent form. For example,
+
+$$
+\frac5{\sqrt3}=\frac{5\sqrt3}{3}.
+$$
+
+This is not a decimal approximation, and it is valid because $\sqrt3\ne0$.
+Conjugates handle two-term expressions:
+
+$$
+\frac1{\sqrt{n+1}+\sqrt n}
+=\sqrt{n+1}-\sqrt n
+$$
+
+for $n\ge0$, because the product of the conjugates is $1$.
+
+::: {.checkpoint data-problem-id="aa-1-2-checkpoint-radical" data-level="B"}
+### Radical checkpoint
+
+Simplify $\sqrt{25(t-1)^2}$ for real $t$.
+
+::: {.callout-tip collapse="true" title="Answer"}
+$5|t-1|$. The answer is $5(t-1)$ only under the additional condition $t\ge1$.
+:::
+:::
+
+## 8. Exact values, approximations, and error
+
+An **exact value** identifies the number without rounding, as in
+$1/3$, $\sqrt2$, or $2+3i$. An **approximation** such as
+$\sqrt2\approx1.414$ must be accompanied by precision information.
+
+If the exact value is $x$ and the approximation is $a$, then
+
+$$
+\text{absolute error}=|x-a|,
+\qquad
+\text{relative error}=\frac{|x-a|}{|x|}\quad(x\ne0).
+$$
+
+Relative error measures error compared with the size of the quantity. A small
+absolute error may be large in relative terms near zero.
+
+Reporting $a=4.27$ “to the nearest hundredth” normally asserts
+
+$$|x-4.27|\le0.005,$$
+
+with one endpoint adjusted under the chosen tie-breaking convention. Reporting
+only `4.27` without units or a rounding convention does not determine a unique
+error interval.
+
+::: {.worked-example}
+### Example 11: certify a rounded radical by exact bounds
+
+To prove that $\sqrt2$ rounds to $1.414$ to three decimal places, it is enough
+to show
+
+$$1.4135<\sqrt2<1.4145.$$
+
+All quantities are positive, so square exactly:
+
+$$
+1.4135^2=1.99798225<2,
+\qquad
+1.4145^2=2.00081025>2.
+$$
+
+The first comparison can equivalently be checked using integers:
+$14135^2=199798225<2\cdot10^8$. Thus the exact number lies in the rounding
+interval centered at $1.414$, and the absolute rounding error is at most
+$0.0005$.
+:::
+
+Equivalent exact expressions can behave very differently in floating-point
+arithmetic. When $n$ is large,
+$\sqrt{n+1}-\sqrt n$ subtracts nearly equal numbers. Its conjugate form
+
+$$
+\frac1{\sqrt{n+1}+\sqrt n}
+$$
+
+usually evaluates more stably. Algebraic form is therefore relevant to
+numerical reliability, not only appearance.
+
+::: {.worked-example}
+### Example 12: propagate a stated measurement interval
+
+A measured length is $L=12.4$ cm to the nearest $0.1$ cm. Then
+
+$$12.35\le L<12.45.$$
+
+For a square with side $L$, positivity makes squaring order-preserving:
+
+$$
+12.35^2\le L^2<12.45^2,
+$$
+
+so
+
+$$152.5225\le A<155.0025\text{ cm}^2.$$
+
+Simply writing $A=12.4^2=153.76$ hides the input uncertainty. The computed
+central value is useful, but it is not exact evidence about the physical area.
+:::
+
+::: {.practice-box data-problem-id="aa-1-2-guided-error" data-level="C"}
+### Guided exercise: compare two close rational approximations
+
+Which is closer to $\sqrt2$: $99/70$ or $140/99$? Do not use rounded values of
+$\sqrt2$.
+
+::: {.callout-note collapse="true" title="Strategic hint"}
+Show that one fraction is above $\sqrt2$ and one below. Their errors are equal
+at their midpoint, so compare that midpoint with $\sqrt2$.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+$99/70>\sqrt2$ because $99^2>2(70^2)$, while
+$140/99<\sqrt2$ because $140^2<2(99^2)$. Their midpoint is
+
+$$
+\frac12\left(\frac{99}{70}+\frac{140}{99}\right)
+=\frac{19601}{13860}.
+$$
+
+The remarkable exact comparison
+
+$$19601^2-2(13860^2)=1>0$$
+
+shows the midpoint is just above $\sqrt2$. Therefore $\sqrt2$ is closer to the
+lower fraction $140/99$.
+:::
+:::
+
+## 9. Why the complex numbers are an extension, not an order line
+
+The real equation $x^2=-1$ has no solution because every real square is
+nonnegative. The complex system introduces $i$ with $i^2=-1$ and contains
+numbers $a+bi$. Real numbers are precisely the complex numbers with $b=0$.
+
+Addition and multiplication remain closed:
+
+$$
+(a+bi)+(c+di)=(a+c)+(b+d)i,
+$$
+
+$$
+(a+bi)(c+di)=(ac-bd)+(ad+bc)i.
+$$
+
+There is no order on $\mathbb C$ compatible with the usual ordered-field laws.
+If such an order existed, either $i>0$ or $-i>0$; in either case its square
+would be positive. But $i^2=(-i)^2=-1$, contradicting $-1<0$. Statements such
+as $2+i<3+i$ have no standard ordered-number meaning.
+
+::: {.worked-example}
+### Example 13: solve a quadratic in the announced universe
+
+Solve $x^2+9=0$.
+
+- Over $\mathbb R$, $x^2=-9$ is impossible, so the solution set is empty.
+- Over $\mathbb C$, $x=3i$ and $x=-3i$, since both square to $-9$.
+
+Thus
+
+$$
+\{x\in\mathbb R:x^2+9=0\}=\varnothing,
+\qquad
+\{x\in\mathbb C:x^2+9=0\}=\{-3i,3i\}.
+$$
+
+The formula did not change; the universe changed the available solutions.
+Chapter 5.5 will develop complex geometry, conjugates, polar form, and roots of
+unity in full.
+:::
+
+## 10. Common mistakes and limitations
+
+::: {.common-mistake}
+### Mistake 1: treating a displayed decimal as proof of type
+
+Seeing `1.41421356` does not prove $\sqrt2$ is irrational. That displayed
+finite decimal is rational. Irrationality concerns the exact number and needs a
+structural proof.
+:::
+
+::: {.common-mistake}
+### Mistake 2: assuming irrational numbers are closed
+
+The words “both inputs are irrational” do not determine whether their sum or
+product is irrational. Test the universal claim with counterexamples, then
+prove any stronger conditional statement you actually use.
+:::
+
+::: {.common-mistake}
+### Mistake 3: writing $\sqrt{x^2}=x$
+
+For real $x$, the correct identity is $\sqrt{x^2}=|x|$. Test $x=-1$ before
+accepting a proposed radical identity.
+:::
+
+::: {.common-mistake}
+### Mistake 4: squaring an inequality without checking signs
+
+Squaring preserves order on $[0,\infty)$, not on all of $\mathbb R$. Establish
+nonnegativity or split into cases before using squares to compare values.
+:::
+
+::: {.common-mistake}
+### Mistake 5: treating an approximation as equality
+
+$\sqrt2=1.414$ is false. Write $\sqrt2\approx1.414$ and state the rounding or
+error convention. Preserve the exact form during symbolic work.
+:::
+
+::: {.common-mistake}
+### Mistake 6: ordering complex numbers as if they were real
+
+Complex numbers have magnitude and geometry but no compatible linear order.
+Compare $|z|$, real parts, or another explicitly defined quantity instead.
+:::
+
+## 11. Guided practice across the chapter
+
+::: {.practice-box data-problem-id="aa-1-2-guided-proof" data-level="C"}
+### Guided proof: uniqueness of rational and irrational parts
+
+Let $a,b\in\mathbb Q$. Prove that if $a+b\sqrt2=0$, then $a=b=0$.
+
+::: {.callout-note collapse="true" title="Representation hint"}
+Separate the case $b=0$ from the case $b\ne0$.
+:::
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+If $b=0$, then the equation gives $a=0$. If $b\ne0$, rearrangement gives
+$\sqrt2=-a/b$. Closure of $\mathbb Q$ under division by a nonzero rational
+would make $\sqrt2$ rational, contradicting Example 4. Hence $b=0$, and then
+$a=0$.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-2-guided-density" data-level="C"}
+### Guided construction: an irrational in a rational interval
+
+Construct an irrational number between $1/3$ and $1/2$ and verify both bounds
+without decimals.
+
+::: {.callout-tip collapse="true" title="Step-by-step solution"}
+Take $u=1/3+\sqrt2/100$. It is irrational because it is a rational plus a
+nonzero rational multiple of an irrational. It is greater than $1/3$. Also
+$\sqrt2<2$, so
+
+$$u<\frac13+\frac2{100}=\frac{53}{150}<\frac12.$$
+
+Thus $1/3<u<1/2$.
+:::
+:::
+
+## 12. Examination strategy clinic
+
+::: {.worked-example data-problem-id="aa-1-2-exam-clinic" data-level="D"}
+### A number described by several structures
+
+Let $x=\sqrt2+\sqrt3$.
+
+1. Find a polynomial with integer coefficients having $x$ as a root.
+2. Prove that $x$ is irrational.
+3. Locate $x$ in a rational interval of width $1/4$.
+4. Explain why the polynomial alone does not uniquely identify $x$.
+
+**Inventory.** The expression has two radicals. Squaring once leaves the mixed
+term $\sqrt6$; squaring again removes it. Conjugate-like products can prove
+irrationality. Exact rational square bounds can locate the number.
+
+**Polynomial.** From $x^2=5+2\sqrt6$,
+
+$$
+(x^2-5)^2=24,
+$$
+
+so
+
+$$x^4-10x^2+1=0.$$
+
+Every squaring step was implication-only, so this establishes that $x$ is a
+root; it does not claim every root is the original number.
+
+**Irrationality.** Observe
+
+$$
+(\sqrt2+\sqrt3)(\sqrt3-\sqrt2)=1,
+$$
+
+so $1/x=\sqrt3-\sqrt2$. If $x$ were rational, then $1/x$ would be rational and
+
+$$x+\frac1x=2\sqrt3$$
+
+would be rational, contradicting irrationality of $\sqrt3$.
+
+**Bounds.** Because $(7/5)^2<2$ and $(8/5)^2<3$,
+$\sqrt2>7/5$ and $\sqrt3>8/5$, giving $x>3$. Because
+$(3/2)^2>2$ and $(7/4)^2>3$,
+
+$$x<\frac32+\frac74=\frac{13}{4}.$$
+
+Thus $3<x<13/4$, an interval of width $1/4$.
+
+**Completeness audit.** The polynomial is even and has four real roots:
+$\pm(\sqrt3+\sqrt2)$ and $\pm(\sqrt3-\sqrt2)$. The definition and the bounds
+select the positive root greater than $3$. A polynomial equation without that
+extra information does not uniquely recover the original radical expression.
+:::
+
+## 13. Exercises by purpose and difficulty
+
+Unless a problem says otherwise, work exactly, use no calculator, and state the
+smallest standard number set justified by your result.
+
+### Level A — fluency
+
+1. ::: {.exercise data-problem-id="aa-1-2-review-01" data-level="A"}
+   Classify $-7$, $0.125$, $\sqrt{49}$, $\sqrt5$, and $2+3i$ as narrowly as possible.
+   :::
+2. ::: {.exercise data-problem-id="aa-1-2-review-02" data-level="A"}
+   Write $0.36$ as a reduced fraction.
+   :::
+3. ::: {.exercise data-problem-id="aa-1-2-review-03" data-level="A"}
+   Convert $0.\overline{27}$ to a reduced fraction.
+   :::
+4. ::: {.exercise data-problem-id="aa-1-2-review-04" data-level="A"}
+   Is $\mathbb Z$ closed under addition, multiplication, subtraction, and division by a nonzero integer?
+   :::
+5. ::: {.exercise data-problem-id="aa-1-2-review-05" data-level="A"}
+   Evaluate $|-9|$, $|4-11|$, and $|3-(-5)|$.
+   :::
+6. ::: {.exercise data-problem-id="aa-1-2-review-06" data-level="A"}
+   Compare $\sqrt{10}$ and $19/6$ exactly.
+   :::
+7. ::: {.exercise data-problem-id="aa-1-2-review-07" data-level="A"}
+   Simplify $\sqrt{72}$.
+   :::
+8. ::: {.exercise data-problem-id="aa-1-2-review-08" data-level="A"}
+   Rationalize $5/\sqrt3$.
+   :::
+9. ::: {.exercise data-problem-id="aa-1-2-review-09" data-level="A"}
+   A value is reported as $4.27$ to the nearest hundredth. Give a standard maximum absolute rounding error.
+   :::
+10. ::: {.exercise data-problem-id="aa-1-2-review-10" data-level="A"}
+    Compute the modulus $|3-4i|$.
+    :::
+
+### Level B — connected reasoning
+
+11. ::: {.exercise data-problem-id="aa-1-2-review-11" data-level="B"}
+    Explain why every terminating decimal is rational.
+    :::
+12. ::: {.exercise data-problem-id="aa-1-2-review-12" data-level="B"}
+    Convert $0.1\overline6$ to a fraction by aligning repeating tails.
+    :::
+13. ::: {.exercise data-problem-id="aa-1-2-review-13" data-level="B"}
+    Give one pair of irrationals with rational sum and one pair with irrational sum. Justify the second classification.
+    :::
+14. ::: {.exercise data-problem-id="aa-1-2-review-14" data-level="B"}
+    Prove that a nonzero rational times an irrational is irrational.
+    :::
+15. ::: {.exercise data-problem-id="aa-1-2-review-15" data-level="B"}
+    Find a rational strictly between $5/7$ and $3/4$ without using decimals.
+    :::
+16. ::: {.exercise data-problem-id="aa-1-2-review-16" data-level="B"}
+    Compare $\sqrt{13}$ and $18/5$ exactly.
+    :::
+17. ::: {.exercise data-problem-id="aa-1-2-review-17" data-level="B"}
+    Solve $|x+2|=5$ over $\mathbb R$ and verify the solution set.
+    :::
+18. ::: {.exercise data-problem-id="aa-1-2-review-18" data-level="B"}
+    Write $\{x\in\mathbb R:|x-1|\le3\}$ in interval notation.
+    :::
+19. ::: {.exercise data-problem-id="aa-1-2-review-19" data-level="B"}
+    Derive $|u+v|\le|u|+|v|$ from $-|u|\le u\le|u|$ and the corresponding bounds for $v$.
+    :::
+20. ::: {.exercise data-problem-id="aa-1-2-review-20" data-level="B"}
+    Simplify $\sqrt{x^2y^4}$ for real $x,y$.
+    :::
+21. ::: {.exercise data-problem-id="aa-1-2-review-21" data-level="B"}
+    For the approximation $a=1.41$ to $x=\sqrt2$, express absolute and relative error exactly.
+    :::
+22. ::: {.exercise data-problem-id="aa-1-2-review-22" data-level="B"}
+    Multiply $(2+3i)(1-4i)$ and verify real and imaginary parts separately.
+    :::
+
+### Level C — synthesis
+
+23. ::: {.exercise data-problem-id="aa-1-2-review-23" data-level="C"}
+    Convert $0.12\overline{34}$ to a reduced fraction.
+    :::
+24. ::: {.exercise data-problem-id="aa-1-2-review-24" data-level="C"}
+    Prove that $\sqrt3+\sqrt5$ is irrational.
+    :::
+25. ::: {.exercise data-problem-id="aa-1-2-review-25" data-level="C"}
+    Construct and verify an irrational strictly between $1/3$ and $1/2$.
+    :::
+26. ::: {.exercise data-problem-id="aa-1-2-review-26" data-level="C"}
+    Find the real supremum of $\{q\in\mathbb Q:q\ge0, q^2<5\}$ and explain why the set has no rational least upper bound.
+    :::
+27. ::: {.exercise data-problem-id="aa-1-2-review-27" data-level="C"}
+    Classify all real $a$ for which $a+\sqrt2$ is rational.
+    :::
+28. ::: {.exercise data-problem-id="aa-1-2-review-28" data-level="C"}
+    Solve $|x-2|+|x+2|=6$ by cases.
+    :::
+29. ::: {.exercise data-problem-id="aa-1-2-review-29" data-level="C"}
+    Prove $\bigl||u|-|v|\bigr|\le|u-v|$.
+    :::
+30. ::: {.exercise data-problem-id="aa-1-2-review-30" data-level="C"}
+    Compare $\sqrt2+\sqrt3$ with $\sqrt{10}$ exactly.
+    :::
+31. ::: {.exercise data-problem-id="aa-1-2-review-31" data-level="C"}
+    Find an integer-coefficient polynomial having $\sqrt2+\sqrt3$ as a root and list all its real roots.
+    :::
+32. ::: {.exercise data-problem-id="aa-1-2-review-32" data-level="C"}
+    Rewrite $\sqrt{n+1}-\sqrt n$ in a numerically stable exact form for $n\ge0$.
+    :::
+33. ::: {.exercise data-problem-id="aa-1-2-review-33" data-level="C"}
+    If $a,b\in\mathbb Q$ and $a+b\sqrt2=0$, prove $a=b=0$.
+    :::
+34. ::: {.exercise data-problem-id="aa-1-2-review-34" data-level="C"}
+    Solve $z^2=-16$ over $\mathbb C$ and explain why there is no real solution.
+    :::
+
+### Level D — honors and examination
+
+35. ::: {.exercise data-problem-id="aa-1-2-review-35" data-level="D"}
+    Prove that every eventually periodic decimal is rational, including a nonrepeating initial block.
+    :::
+36. ::: {.exercise data-problem-id="aa-1-2-review-36" data-level="D"}
+    Prove that $\sqrt n+\sqrt{n+1}$ is irrational for every positive integer $n$.
+    :::
+37. ::: {.exercise data-problem-id="aa-1-2-review-37" data-level="D"}
+    Prove $|x-a|+|x-b|\ge|a-b|$ for real $a,b,x$, and classify every equality case.
+    :::
+38. ::: {.exercise data-problem-id="aa-1-2-review-38" data-level="D"}
+    Prove that $0.101001000100001\ldots$ is irrational, where successive blocks of zeros have lengths $1,2,3,\ldots$.
+    :::
+39. ::: {.exercise data-problem-id="aa-1-2-review-39" data-level="D"}
+    Decide exactly which of $99/70$ and $140/99$ is closer to $\sqrt2$.
+    :::
+40. ::: {.exercise data-problem-id="aa-1-2-review-40" data-level="D"}
+    Suppose $x\ne0$ and $x+x^{-1}\in\mathbb Q$. Prove that $x^n+x^{-n}\in\mathbb Q$ for every positive integer $n$, and exhibit an irrational $x$ satisfying the hypothesis.
+    :::
+
+### Concise answers
+
+::: {.callout-note collapse="true" title="Answers 1–40"}
+1. $-7:\mathbb Z$; $0.125:\mathbb Q$; $\sqrt{49}=7:\mathbb N$;
+   $\sqrt5:\mathbb R\setminus\mathbb Q$; $2+3i:\mathbb C\setminus\mathbb R$.
+2. $9/25$.
+3. $3/11$.
+4. Yes under $+$, $-$, and multiplication; no under division, since $1/2\notin\mathbb Z$.
+5. $9,7,8$.
+6. $\sqrt{10}<19/6$ because $10<361/36$.
+7. $6\sqrt2$.
+8. $5\sqrt3/3$.
+9. $0.005$.
+10. $5$.
+11. A decimal with $k$ digits after the point is an integer divided by $10^k$.
+12. $1/6$.
+13. $\sqrt2+(-\sqrt2)=0$; $\sqrt2+\sqrt3$ is irrational as in Example 5.
+14. Use contradiction and divide by the nonzero rational.
+15. The midpoint $41/56$.
+16. $\sqrt{13}>18/5$ because $13>324/25$.
+17. $\{-7,3\}$.
+18. $[-2,4]$.
+19. Add the two pairs of bounds and use the definition of absolute value.
+20. $|x|y^2$.
+21. Absolute error $|\sqrt2-141/100|=\sqrt2-141/100$; relative error
+    $1-141\sqrt2/200$.
+22. $14-5i$.
+23. $611/4950$.
+24. Squaring a hypothetical rational sum makes $\sqrt{15}$ rational, a contradiction.
+25. One answer is $1/3+\sqrt2/100$.
+26. $\sqrt5$; rational density gives members above every smaller proposed bound.
+27. Exactly $a=r-\sqrt2$ for some $r\in\mathbb Q$.
+28. $\{-3,3\}$.
+29. Apply the triangle inequality to $u=(u-v)+v$ and swap $u,v$.
+30. $\sqrt2+\sqrt3<\sqrt{10}$ because its square is
+    $5+2\sqrt6<10$, using $\sqrt6<5/2$.
+31. $t^4-10t^2+1$; roots $\pm(\sqrt3+\sqrt2)$ and
+    $\pm(\sqrt3-\sqrt2)$.
+32. $1/(\sqrt{n+1}+\sqrt n)$.
+33. Separate $b=0$; otherwise $\sqrt2=-a/b$ would be rational.
+34. $z=\pm4i$; real squares are nonnegative.
+35. Align the repeating tails after powers of $10$ and subtract; see the full solution.
+36. There are no positive-integer exceptions; see the full solution.
+37. Equality holds exactly when $x$ lies between $a$ and $b$, inclusive.
+38. Its decimal is neither terminating nor eventually periodic.
+39. $140/99$ is closer.
+40. Use the recurrence $s_{n+1}=s_1s_n-s_{n-1}$ with $s_n=x^n+x^{-n}$;
+    $x=(3+\sqrt5)/2$ is an irrational example because $x+x^{-1}=3$.
+:::
+
+### Selected full solutions
+
+::: {.callout-tip collapse="true" title="Problem 24: a sum of radicals"}
+Suppose $r=\sqrt3+\sqrt5$ were rational. Squaring gives
+$r^2=8+2\sqrt{15}$, so $\sqrt{15}=(r^2-8)/2$ would be rational. In a reduced
+fraction proof, $\sqrt{15}=p/q$ would imply $p^2=15q^2$; prime divisibility
+forces both $3$ and $5$ into $p$, and then into $q$, contradicting reduction.
+Thus $r$ is irrational.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 29: reverse triangle inequality"}
+From $u=(u-v)+v$, the triangle inequality gives
+$|u|\le|u-v|+|v|$, hence $|u|-|v|\le|u-v|$. Swapping $u$ and $v$ gives
+$|v|-|u|\le|u-v|$. Together these say
+$- |u-v|\le |u|-|v|\le |u-v|$, which is equivalent to
+$\bigl||u|-|v|\bigr|\le|u-v|$.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 35: eventually periodic means rational"}
+Suppose a decimal has $k$ initial digits and then a block of $m$ digits repeats.
+Multiplying the number $x$ by $10^k$ moves the repeating part to the decimal
+point. Multiplying again by $10^m$ advances by one full period. Therefore
+$10^{k+m}x-10^kx$ is an integer: the infinite repeating tails align and cancel.
+Thus
+
+$$
+x=\frac{N}{10^k(10^m-1)}
+$$
+
+for some integer $N$, so $x$ is rational. Terminating decimals are the special
+case in which the tail is all zeros.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 36: consecutive square roots"}
+Assume $r=\sqrt n+\sqrt{n+1}$ is rational for a positive integer $n$. Then
+
+$$r^2=2n+1+2\sqrt{n(n+1)},$$
+
+so $\sqrt{n(n+1)}$ is rational. The square root of an integer is rational only
+when that integer is a perfect square. Since $\gcd(n,n+1)=1$, their product can
+be a square only if both are squares. But two positive consecutive integers
+cannot both be squares: consecutive positive squares differ by at least $3$.
+This contradiction proves the claim. (If $n=0$ were allowed, the sum would be
+$1$, which explains the positive-integer condition.)
+:::
+
+::: {.callout-tip collapse="true" title="Problem 37: equality in the distance bound"}
+The triangle inequality applied to $(a-x)+(x-b)=a-b$ gives
+
+$$|a-b|\le|a-x|+|x-b|.$$
+
+On the real line, equality in $|u+v|\le|u|+|v|$ occurs when $u$ and $v$ have
+the same sign or one is zero. Here that means $a-x$ and $x-b$ have the same
+sign, which is exactly that $x$ lies between $a$ and $b$, including endpoints.
+The statement remains correct whichever of $a,b$ is larger.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 38: a nonperiodic decimal"}
+The decimal does not terminate because it contains infinitely many $1$s. If it
+were eventually periodic with period $m$, every sufficiently late block of
+$m$ consecutive digits would repeat forever. But the construction contains
+arbitrarily long runs of zeros between successive $1$s. Choose a run longer
+than $m$ after the alleged periodic start. A periodic tail containing a $1$
+cannot have such an unbounded gap; a periodic all-zero tail would terminate.
+Both alternatives contradict the construction. By the decimal
+characterization theorem, the number is irrational.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 39: exact approximation comparison"}
+The square tests place $140/99<\sqrt2<99/70$. The midpoint of the fractions is
+$19601/13860$. Since
+
+$$19601^2-2(13860)^2=1,$$
+
+the midpoint is greater than $\sqrt2$. On a line, a point below the midpoint is
+closer to the lower endpoint, so $140/99$ is closer to $\sqrt2$.
+:::
+
+::: {.callout-tip collapse="true" title="Problem 40: a rational recurrence"}
+Let $s_n=x^n+x^{-n}$ and $s_0=2$. Direct multiplication gives
+
+$$
+(x+x^{-1})(x^n+x^{-n})
+=s_{n+1}+s_{n-1},
+$$
+
+so $s_{n+1}=s_1s_n-s_{n-1}$. Because $s_0=2$ and
+$s_1=x+x^{-1}$ are rational, induction proves every $s_n$ rational. For
+$x=(3+\sqrt5)/2$, the reciprocal is $(3-\sqrt5)/2$, so $s_1=3$ although $x$
+is irrational.
+:::
+
+## 14. Cumulative retrieval
+
+::: {.practice-box data-problem-id="aa-1-2-cumulative-01" data-level="C"}
+### Universe and quantifier audit
+
+Consider: “Every number satisfying $x^2=2$ is irrational.” Write a precise
+version over $\mathbb Q$, over $\mathbb R$, and over $\mathbb C$. Which claims
+are vacuously true, substantively true, or false if “irrational” means a member
+of $\mathbb R\setminus\mathbb Q$?
+
+::: {.callout-tip collapse="true" title="Solution"}
+Over $\mathbb Q$ there are no solutions, so the universal implication is
+vacuously true. Over $\mathbb R$, the solutions $\pm\sqrt2$ exist and are both
+irrational, so the statement is substantively true. Over $\mathbb C$, the same
+two solutions happen to be real and irrational, so the claim remains true for
+this equation, but “irrational” does not classify arbitrary nonreal complex
+numbers. The universe must still be stated.
+:::
+:::
+
+::: {.practice-box data-problem-id="aa-1-2-cumulative-02" data-level="D"}
+### Negate a density statement
+
+Negate precisely: “Between every two distinct real numbers there is an
+irrational number.” Then explain what a counterexample would have to provide.
+
+::: {.callout-tip collapse="true" title="Solution"}
+One precise form is
+
+$$
+(\forall a,b\in\mathbb R)(a<b\Rightarrow
+(\exists u\in\mathbb R\setminus\mathbb Q)(a<u<b)).
+$$
+
+Its negation is
+
+$$
+(\exists a,b\in\mathbb R)(a<b\ \text{and}\
+(\forall u\in\mathbb R\setminus\mathbb Q)(u\le a\ \text{or}\ u\ge b)).
+$$
+
+A counterexample would therefore be a genuine open interval $(a,b)$ containing
+no irrational number, not merely a failed attempt to name one.
+:::
+:::
+
+## 15. Topic checkpoint
+
+Answer from definitions and exact comparisons. The generated notebook contains
+the same questions, hints, and readable solutions.
+
+<fc-quiz data-source="../../../../quizzes/advanced-algebra/number-systems.yml"></fc-quiz>
+
+## 16. Summary and next step
+
+- The standard systems form a strict chain
+  $\mathbb N\subsetneq\mathbb N_0\subsetneq\mathbb Z\subsetneq\mathbb Q
+  \subsetneq\mathbb R\subsetneq\mathbb C$.
+- Rational numbers are exactly the reals with terminating or eventually
+  periodic decimal expansions.
+- Closure must specify a set and operation; one counterexample disproves it.
+- Rational plus irrational is irrational, and nonzero rational times irrational
+  is irrational, but two irrational inputs have no universal sum/product rule.
+- Rationals and irrationals are dense in the reals; completeness supplies least
+  upper bounds that may be missing from $\mathbb Q$.
+- Absolute value is distance, and the triangle inequalities control how
+  distances combine.
+- $\sqrt{x^2}=|x|$ over the reals; radical laws require domain and sign
+  conditions.
+- Approximate values need error information. Equivalent exact forms can have
+  different numerical stability.
+- Complex numbers close equations such as $x^2=-1$ but do not carry a compatible
+  order.
+
+The next chapter, *Algebraic laws and valid transformation*, will turn the
+closure and domain habits into a line-by-line system for deciding when an
+algebraic transformation is reversible.
+
+## References and further study
+
+- OpenStax, [*College Algebra 2e*](https://openstax.org/details/books/college-algebra-2e),
+  for additional number-system and algebra review. The book is CC BY 4.0; this
+  lesson's explanations and problems are original rather than adaptations.
+- Richard Hammack, [*Book of Proof*](https://richardhammack.github.io/BookOfProof/),
+  for contradiction, divisibility, and set arguments.
+- Serge Lang, *Basic Mathematics*, for exact arithmetic, inequalities, and the
+  transition from computation to proof.
+- NIST, [Digital Library of Mathematical Functions](https://dlmf.nist.gov/),
+  for authoritative notation and numerical reference.
+- SymPy documentation, [Numbers](https://docs.sympy.org/latest/modules/core.html#module-sympy.core.numbers)
+  and [Assumptions](https://docs.sympy.org/latest/guides/assumptions.html), for
+  exact computational representations and the limits of automated inference.
+
+## Using this lesson with fcmath and SymPy
+
+SymPy distinguishes exact rational objects from Python floating-point numbers.
+Construct exact values before evaluating decimals:
+
+```{python}
+#| echo: true
+import sympy as sp
+
+q = sp.Rational(611, 4950)
+r = sp.sqrt(2)
+q, sp.N(q, 20), r, sp.N(r, 20)
+```
+
+The objects `Rational(611, 4950)` and `sqrt(2)` remain exact. `N(..., 20)` asks
+for a 20-digit approximation; it does not change the underlying exact value.
+
+Use exact comparisons or simplify their difference instead of comparing short
+printed decimals:
+
+```{python}
+#| echo: true
+comparison = sp.simplify(sp.Rational(8, 3) ** 2 - 7)
+comparison, sp.Rational(8, 3) > sp.sqrt(7)
+```
+
+The positive difference $1/9$ supports the manual comparison from Example 7.
+
+### Solving a number-system equation with SymPy
+
+For $|2x-5|=7$, the manual reasoning was:
+
+1. the absolute value is a distance of $7$;
+2. therefore $2x-5=7$ or $2x-5=-7$;
+3. solve the two linear branches; and
+4. substitute each candidate into the original equation.
+
+The equivalent exact SymPy workflow is:
+
+```{python}
+#| echo: true
+x = sp.symbols("x", real=True)
+solution = sp.solveset(sp.Abs(2 * x - 5) - 7, x, domain=sp.S.Reals)
+checks = {candidate: sp.Abs(2 * candidate - 5) == 7 for candidate in solution}
+solution, checks
+```
+
+The expected set is $\{-1,6\}$, and both checks are `True`. The explicit real
+domain matters: solver output is always interpreted relative to its domain.
+
+Assumptions can prevent an invalid radical simplification:
+
+```{python}
+#| echo: true
+t = sp.symbols("t", real=True)
+t_nonnegative = sp.symbols("t_nonnegative", nonnegative=True)
+general = sp.sqrt(t**2)
+restricted = sp.sqrt(t_nonnegative**2)
+general, restricted
+```
+
+For a general real symbol SymPy retains $|t|$ (or an equivalent form); with a
+nonnegative assumption it can return the symbol itself. A software assumption
+is part of the mathematical statement, not a convenience to hide.
+
+Finally, verify the examination-clinic polynomial while remembering that
+polynomial membership does not identify which root was intended:
+
+```{python}
+#| echo: true
+value = sp.sqrt(2) + sp.sqrt(3)
+polynomial = sp.expand(value**4 - 10 * value**2 + 1)
+all_roots = sp.solve(sp.Symbol("y") ** 4 - 10 * sp.Symbol("y") ** 2 + 1)
+polynomial, all_roots
+```
+
+The first result is exactly zero. The root list contains four values, so the
+original definition and the proven interval $3<x<13/4$ are still needed to
+select $\sqrt2+\sqrt3$.

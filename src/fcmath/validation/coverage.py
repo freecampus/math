@@ -9,8 +9,16 @@ from typing import Any, cast
 
 from fcmath.validation.curriculum import ValidationIssue, load_structured_data
 
-_CHAPTER_STATUSES = {"planned", "in-development", "active", "complete"}
+_CHAPTER_STATUSES = {
+    "planned",
+    "draft",
+    "review",
+    "in-development",
+    "active",
+    "complete",
+}
 _PROBLEM_LEVELS = {"A", "B", "C", "D"}
+_STATUS_POLICY_KEYS = {"planned", "draft", "review", "active", "complete"}
 
 
 def validate_coverage_matrix(
@@ -31,6 +39,28 @@ def validate_coverage_matrix(
 
     if not isinstance(coverage.get("schema_version"), int):
         issues.append(ValidationIssue("coverage", "schema_version must be an integer"))
+
+    status_policy = coverage.get("chapter_status_policy")
+    if (
+        not isinstance(status_policy, Mapping)
+        or set(status_policy) != _STATUS_POLICY_KEYS
+    ):
+        issues.append(
+            ValidationIssue(
+                "coverage",
+                "chapter_status_policy must define planned, draft, review, active, "
+                "and complete",
+            )
+        )
+    elif not all(
+        isinstance(description, str) and description.strip()
+        for description in status_policy.values()
+    ):
+        issues.append(
+            ValidationIssue(
+                "coverage", "chapter status descriptions must be non-empty strings"
+            )
+        )
 
     course_id = coverage.get("course_id")
     courses = catalog.get("courses", [])
@@ -188,12 +218,12 @@ def validate_coverage_matrix(
 
         catalog_item_id = chapter.get("catalog_item_id")
         source_file = chapter.get("source_file")
-        if status in {"active", "complete"}:
+        if status in _CHAPTER_STATUSES - {"planned"}:
             item = catalog_items.get(str(catalog_item_id))
             if item is None:
                 issues.append(
                     ValidationIssue(
-                        location, "published chapter is missing from catalog"
+                        location, "draft or published chapter is missing from catalog"
                     )
                 )
             else:

@@ -3,11 +3,16 @@ import re
 from pathlib import Path
 
 from fcmath.quizzes import load_quiz
-from fcmath.validation import load_structured_data, validate_coverage_matrix
+from fcmath.validation import (
+    load_structured_data,
+    validate_coverage_matrix,
+    validate_external_resources,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 COVERAGE = ROOT / "docs/courses/advanced-algebra/_coverage.yml"
 CATALOG = ROOT / "docs/courses/_catalog.yml"
+EXTERNAL_RESOURCES = ROOT / "docs/courses/advanced-algebra/_external-resources.yml"
 
 
 def test_advanced_algebra_coverage_matrix_is_complete_and_valid() -> None:
@@ -17,6 +22,14 @@ def test_advanced_algebra_coverage_matrix_is_complete_and_valid() -> None:
     assert matrix["chapter_count"] == 49
     assert [unit["book_unit"] for unit in matrix["units"]] == list(range(11))
     assert set(matrix["problem_level_policy"]) == {"A", "B", "C", "D"}
+    assert set(matrix["chapter_status_policy"]) == {
+        "planned",
+        "draft",
+        "review",
+        "active",
+        "complete",
+    }
+    assert "route_compatibility" not in matrix
 
 
 def test_coverage_validator_detects_published_and_prerequisite_drift(
@@ -60,7 +73,7 @@ def test_reference_chapters_meet_book_scale_structure() -> None:
     )
     all_problem_ids: list[str] = []
 
-    assert len(exemplars) == 3
+    assert len(exemplars) == 4
     for chapter in exemplars:
         source = ROOT / "docs" / chapter["source_file"]
         text = source.read_text()
@@ -90,15 +103,16 @@ def test_reference_chapters_meet_book_scale_structure() -> None:
 
 def test_reference_chapter_quizzes_are_valid() -> None:
     quiz_root = ROOT / "docs/quizzes/advanced-algebra"
-    expected_counts = {
-        "argument-language.yml": 8,
-        "readiness-diagnostic.yml": 24,
-        "sets-logic.yml": 10,
+    expected = {
+        "argument-language.yml": (8, "active"),
+        "readiness-diagnostic.yml": (24, "active"),
+        "sets-logic.yml": (10, "active"),
+        "number-systems.yml": (10, "review"),
     }
 
-    for name, expected_count in expected_counts.items():
+    for name, (expected_count, expected_status) in expected.items():
         bank = load_quiz(quiz_root / name)
-        assert bank.status == "active"
+        assert bank.status == expected_status
         assert len(bank.questions) == expected_count
 
 
@@ -115,3 +129,41 @@ def test_problem_metadata_schema_and_template_cover_all_levels() -> None:
     assert schema["additionalProperties"] is False
     assert template["problems"][0]["level"] == "A"
     assert template["problems"][0]["verification"]["method"]
+    assert {
+        "source_kind",
+        "source_note",
+        "calculator_policy",
+        "hint_policy",
+        "solution_location",
+        "review_status",
+    }.issubset(schema["required"])
+    assert template["problems"][0]["source_kind"] == "original"
+    assert template["problems"][0]["calculator_policy"] == "no-calculator"
+
+
+def test_external_resource_registry_is_valid_and_rights_aware() -> None:
+    assert validate_external_resources(EXTERNAL_RESOURCES, COVERAGE) == ()
+
+    registry = load_structured_data(EXTERNAL_RESOURCES)
+    assert registry["resources"]
+    for resource in registry["resources"]:
+        if resource["license"]["status"] == "not-confirmed":
+            assert resource["use_policy"] == "link-only"
+
+
+def test_external_resource_validator_detects_unsafe_reuse_and_unknown_chapter(
+    tmp_path: Path,
+) -> None:
+    registry = load_structured_data(EXTERNAL_RESOURCES)
+    resource = registry["resources"][0]
+    resource["use_policy"] = "adapt-with-attribution"
+    resource["chapter_ids"] = ["advanced-algebra-chapter-does-not-exist"]
+    path = tmp_path / "resources.yml"
+    path.write_text(json.dumps(registry))
+
+    messages = "\n".join(
+        str(issue) for issue in validate_external_resources(path, COVERAGE)
+    )
+
+    assert "must be link-only" in messages
+    assert "unknown chapter placement" in messages

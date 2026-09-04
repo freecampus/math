@@ -24,12 +24,13 @@ checkpoint, and a final reproducible `fcmath`/SymPy appendix.
 ::: {.callout-important}
 ## Reconstruction status
 
-The complete book architecture contains 11 units and 49 planned chapters.
-Orientation, the readiness system, and the first mathematical-language chapter
-are the reference implementation for the reconstruction. Existing algebra and
-trigonometry lessons remain available while they are split, deepened, reviewed,
-and migrated. Their stable public routes and progress IDs will not be removed
-without tested redirects and progress migration.
+The complete book architecture contains 11 units and 49 chapters. Orientation,
+the readiness system, and the first two mathematical-language chapters are the
+reference implementation for the reconstruction. Existing algebra and
+trigonometry lessons remain available as temporary study material while they
+are replaced by canonical book chapters. Because the course has no current
+learners, obsolete lesson routes and progress IDs may be removed when their
+replacements are ready; reconstruction work does not preserve legacy URLs.
 :::
 
 ## Who this course is for
@@ -94,8 +95,10 @@ used to grade every later solution.
    - complete targeted repair and reassessment.
 2. [Mathematical Language, Numbers, and Proof Foundations](units/mathematical-language/index.qmd)
    - begin with sets, intervals, statements, and quantifiers;
-   - continue to the current algebra route while the remaining proof-foundation
-     chapters undergo review.
+   - continue through number systems, closure, exact reasoning, distance,
+     radicals, approximation, and the complex extension;
+   - use the current algebra route while the remaining proof-foundation chapters
+     undergo review.
 3. [Algebraic Structures and Functions](units/algebra/index.qmd)
    - use the existing lessons as substantial preparation and migration seeds;
    - retain explicit domains and proof language from the new foundation units.

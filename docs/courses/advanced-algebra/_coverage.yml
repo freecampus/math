@@ -1,19 +1,22 @@
 {
   "schema_version": 1,
   "course_id": "advanced-algebra",
-  "architecture_version": 1,
+  "architecture_version": 2,
   "chapter_count": 49,
+  "chapter_status_policy":
+    {
+      "planned": "Architecture and scope exist, but substantive chapter drafting has not begun.",
+      "draft": "Substantive content exists but has not passed mathematical and editorial review.",
+      "review": "Content is complete enough for independent mathematical, pedagogical, accessibility, and licensing review.",
+      "active": "Published for learners after all current chapter quality gates pass.",
+      "complete": "Active and supported by cumulative assessment, learner evidence, and final course audit.",
+    },
   "problem_level_policy":
     {
       "A": "fluency with one defined skill",
       "B": "connected reasoning and routine proof",
       "C": "unfamiliar synthesis across ideas",
       "D": "honors or demanding examination reasoning",
-    },
-  "route_compatibility":
-    {
-      "policy": "preserve-current-routes-during-incremental-migration",
-      "note": "Existing algebra and trigonometry pages remain public until a tested redirect and progress migration exists.",
     },
   "units":
     [
@@ -128,8 +131,8 @@
               "id": "advanced-algebra-chapter-1-2-real-number-system-extensions",
               "title": "The real number system and its extensions",
               "scope": "Organize natural, integer, rational, irrational, real, and complex numbers by closure and structure while connecting absolute value, order, distance, exact radicals, and approximation.",
-              "status": "planned",
-              "reference_exemplar": false,
+              "status": "review",
+              "reference_exemplar": true,
               "prerequisite_chapter_ids":
                 [
                   "advanced-algebra-chapter-1-1-sets-intervals-statements-quantifiers",
@@ -150,6 +153,8 @@
                 ],
               "fcmath_support":
                 ["exact numeric representations", "assumption-aware symbols"],
+              "catalog_item_id": "advanced-algebra-mathematical-language-real-number-system-and-extensions",
+              "source_file": "courses/advanced-algebra/units/mathematical-language/real-number-system-and-extensions.qmd",
             },
             {
               "number": "1.3",

@@ -16,6 +16,7 @@ from fcmath.validation import (
     load_structured_data,
     validate_catalog,
     validate_coverage_matrix,
+    validate_external_resources,
 )
 
 
@@ -29,9 +30,15 @@ def main() -> int:
         type=Path,
         default=ROOT / "docs/courses/advanced-algebra/_coverage.yml",
     )
+    parser.add_argument(
+        "--external-resources",
+        type=Path,
+        default=ROOT / "docs/courses/advanced-algebra/_external-resources.yml",
+    )
     args = parser.parse_args()
     issues = list(validate_catalog(args.catalog, docs_root=ROOT / "docs"))
     issues.extend(validate_coverage_matrix(args.coverage, args.catalog))
+    issues.extend(validate_external_resources(args.external_resources, args.coverage))
     catalog = load_structured_data(args.catalog)
     coverage = load_structured_data(args.coverage)
     outcome_ids = {
@@ -90,10 +97,20 @@ def main() -> int:
     if issues:
         print("\n".join(str(issue) for issue in issues), file=sys.stderr)
         return 1
+    advanced_algebra_chapters = [
+        chapter for unit in coverage["units"] for chapter in unit["chapters"]
+    ]
+    status_summary = ", ".join(
+        f"{sum(chapter['status'] == status for chapter in advanced_algebra_chapters)} "
+        f"{status}"
+        for status in ("active", "review", "draft", "planned", "complete")
+        if any(chapter["status"] == status for chapter in advanced_algebra_chapters)
+    )
     print(
         f"Curriculum valid: {len(catalog['courses'])} courses, "
         f"{len(outcome_ids)} outcomes, {len(question_ids)} quiz questions, "
-        f"{coverage['chapter_count']} planned Advanced Algebra chapters."
+        f"{coverage['chapter_count']} architected Advanced Algebra chapters "
+        f"({status_summary})."
     )
     return 0
 

@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "course_id": "advanced-algebra",
+  "policy": "Public availability is not permission to reproduce. Resources without a confirmed open license are link-only; adapted resources retain item-level attribution and license metadata.",
+  "resources":
+    [
+      {
+        "id": "oxford-mat-syllabus-practice",
+        "title": "MAT syllabus practice",
+        "owner": "University of Oxford Mathematical Institute",
+        "resource_type": "practice-bank",
+        "url": "https://www.maths.ox.ac.uk/study-here/undergraduate-study/maths-admissions-test/mat-syllabus-practice",
+        "chapter_ids":
+          [
+            "advanced-algebra-chapter-2-3-linear-equations-literal-formulas",
+            "advanced-algebra-chapter-5-2-quadratic-forms-completing-square",
+            "advanced-algebra-chapter-5-3-polynomial-arithmetic-division",
+            "advanced-algebra-chapter-7-2-logarithms-inverse-functions",
+            "advanced-algebra-chapter-7-4-sequences-recurrences-finite-sums",
+          ],
+        "topic_tags": ["equations", "polynomials", "logarithms", "sequences"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "No explicit open-content license was located on the resource page during review.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Place descriptive links in the listed topical chapters; do not transcribe questions or solutions.",
+      },
+      {
+        "id": "oxford-mat-syllabus-practice-solutions",
+        "title": "MAT syllabus practice solutions",
+        "owner": "University of Oxford Mathematical Institute",
+        "resource_type": "solutions",
+        "url": "https://www.maths.ox.ac.uk/study-here/undergraduate-study/maths-admissions-test/mat-syllabus-practice-solutions",
+        "chapter_ids":
+          [
+            "advanced-algebra-chapter-2-3-linear-equations-literal-formulas",
+            "advanced-algebra-chapter-5-2-quadratic-forms-completing-square",
+            "advanced-algebra-chapter-5-3-polynomial-arithmetic-division",
+            "advanced-algebra-chapter-7-2-logarithms-inverse-functions",
+            "advanced-algebra-chapter-7-4-sequences-recurrences-finite-sums",
+          ],
+        "topic_tags":
+          ["worked-solutions", "polynomials", "logarithms", "sequences"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "No explicit open-content license was located on the solution page during review.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Learners may compare after a serious attempt; local pages must not reproduce the official solutions.",
+      },
+      {
+        "id": "oxford-mat-algebra-livestream-solutions",
+        "title": "MAT livestream algebra solutions",
+        "owner": "University of Oxford Mathematical Institute",
+        "resource_type": "solutions",
+        "url": "https://www.maths.ox.ac.uk/study-here/undergraduate-study/tmua/mat-livestream/algebra-solutions",
+        "chapter_ids":
+          [
+            "advanced-algebra-chapter-5-2-quadratic-forms-completing-square",
+            "advanced-algebra-chapter-5-3-polynomial-arithmetic-division",
+            "advanced-algebra-chapter-5-4-factorization-root-structure",
+            "advanced-algebra-chapter-10-1-structural-problem-solving",
+          ],
+        "topic_tags": ["algebra", "problem-solving", "worked-solutions"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "No explicit open-content license was located for the linked solution materials.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Use as optional external worked-solution study after local method instruction.",
+      },
+      {
+        "id": "oxford-mat-archive",
+        "title": "Mathematics Admissions Test archive",
+        "owner": "University of Oxford Mathematical Institute",
+        "resource_type": "examination",
+        "url": "https://www.maths.ox.ac.uk/study-here/undergraduate-study/maths-admissions-test",
+        "chapter_ids":
+          ["advanced-algebra-chapter-10-3-cumulative-examinations-corrections"],
+        "topic_tags": ["mixed-examination", "admissions", "problem-solving"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "The archive is public, but no explicit open license for reproducing the papers was located.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "MAT ran from 2007 through 2025. Link in the cumulative-examination chapter and select only algebra-relevant questions.",
+      },
+      {
+        "id": "oxford-mat-2020",
+        "title": "MAT 2020",
+        "owner": "University of Oxford Mathematical Institute",
+        "resource_type": "examination",
+        "url": "https://www.maths.ox.ac.uk/study-here/undergraduate-study/maths-admissions-test/mat-past-papers/mat-2020",
+        "chapter_ids":
+          ["advanced-algebra-chapter-10-3-cumulative-examinations-corrections"],
+        "topic_tags":
+          [
+            "polynomials",
+            "trigonometry",
+            "series",
+            "recurrences",
+            "implicit-relations",
+          ],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "No explicit open license was located on the web-formatted examination page.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Use as a named mixed benchmark at the end of the course; do not duplicate question text.",
+      },
+      {
+        "id": "uat-uk-tmua-preparation-materials",
+        "title": "TMUA preparation materials",
+        "owner": "University Admissions Tests UK",
+        "resource_type": "examination",
+        "url": "https://esat-tmua.ac.uk/tmua-preparation-materials/",
+        "chapter_ids":
+          ["advanced-algebra-chapter-10-3-cumulative-examinations-corrections"],
+        "topic_tags": ["mixed-examination", "reasoning", "admissions"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "The historic papers and worked answers are free to access, but no open-reuse license was located.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Link at the end of the course and identify algebra-relevant questions; the complete test has broader scope.",
+      },
+      {
+        "id": "uat-uk-tmua-prepare",
+        "title": "UAT-UK preparation and test specification",
+        "owner": "University Admissions Tests UK",
+        "resource_type": "specification",
+        "url": "https://esat-tmua.ac.uk/prepare/",
+        "chapter_ids":
+          [
+            "advanced-algebra-chapter-10-1-structural-problem-solving",
+            "advanced-algebra-chapter-10-3-cumulative-examinations-corrections",
+          ],
+        "topic_tags": ["specification", "reasoning", "sample-tests"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "No explicit open-content license was located for the specification or sample tests.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Use to build a skills crosswalk, not as permission to reproduce official items.",
+      },
+      {
+        "id": "cambridge-step-information",
+        "title": "STEP information and preparation route",
+        "owner": "University of Cambridge Faculty of Mathematics",
+        "resource_type": "examination",
+        "url": "https://www.maths.cam.ac.uk/undergrad/admissions/step",
+        "chapter_ids":
+          ["advanced-algebra-chapter-10-3-cumulative-examinations-corrections"],
+        "topic_tags": ["mixed-examination", "proof", "unstructured-problems"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "not-confirmed",
+            "identifier": null,
+            "url": null,
+            "notes": "No open license for STEP papers was confirmed; Cambridge separately states that its Tripos past papers are copyrighted.",
+          },
+        "use_policy": "link-only",
+        "attribution": null,
+        "notes": "Use selected algebraic work only as a stretch benchmark; STEP includes substantial material beyond this course.",
+      },
+      {
+        "id": "openstax-college-algebra-2e",
+        "title": "College Algebra 2e",
+        "owner": "OpenStax, Rice University",
+        "resource_type": "course",
+        "url": "https://openstax.org/details/books/college-algebra-2e",
+        "chapter_ids":
+          [
+            "advanced-algebra-chapter-1-2-real-number-system-extensions",
+            "advanced-algebra-chapter-2-1-expression-structure-canonical-forms",
+            "advanced-algebra-chapter-4-1-functions-as-mappings",
+            "advanced-algebra-chapter-5-2-quadratic-forms-completing-square",
+            "advanced-algebra-chapter-6-2-rational-equations-inequalities-graphs",
+          ],
+        "topic_tags": ["numbers", "equations", "functions", "polynomials"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "open",
+            "identifier": "CC-BY-4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/",
+            "notes": "Textbook content is CC BY 4.0; trademarks and any separately credited third-party material are excluded.",
+          },
+        "use_policy": "adapt-with-attribution",
+        "attribution": "College Algebra 2e, OpenStax, Rice University, licensed CC BY 4.0; retain the attribution required on each reused digital page view.",
+        "notes": "Use as a supporting reference. Any adapted item needs item-level attribution and an adaptation note.",
+      },
+      {
+        "id": "mit-ocw-algebra-i",
+        "title": "18.701 Algebra I",
+        "owner": "MIT OpenCourseWare",
+        "resource_type": "course",
+        "url": "https://ocw.mit.edu/courses/18-701-algebra-i-fall-2010/pages/syllabus/",
+        "chapter_ids": [],
+        "topic_tags": ["abstract-algebra", "scope-boundary", "groups", "rings"],
+        "access_date": "2026-09-04",
+        "last_link_check": { "date": "2026-09-04", "status": "verified" },
+        "license":
+          {
+            "status": "open",
+            "identifier": "CC-BY-NC-SA-4.0",
+            "url": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
+            "notes": "MIT OCW uses CC BY-NC-SA 4.0 with possible third-party exclusions.",
+          },
+        "use_policy": "separate-license-review",
+        "attribution": "MIT OpenCourseWare, 18.701 Algebra I, Fall 2010, CC BY-NC-SA 4.0 unless an item states otherwise.",
+        "notes": "Scope-boundary reference for a future Abstract Algebra course. Do not mix adapted ShareAlike/NonCommercial content into BSD material without review.",
+      },
+    ],
+}

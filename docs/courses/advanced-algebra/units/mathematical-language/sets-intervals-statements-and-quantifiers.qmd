@@ -887,10 +887,10 @@ contains the same questions and readable solutions.
 - A proof handles every allowed object; a counterexample must satisfy the
   hypothesis and violate the conclusion.
 
-The next planned chapter develops the real number system and its extensions.
-Until it is published, continue through the current
-[Algebraic Structures and Functions](../algebra/index.qmd) route while retaining
-explicit universes, domains, and solution-set notation.
+Continue with
+[The real number system and its extensions](real-number-system-and-extensions.qmd),
+which uses this chapter's set and quantifier language to study closure,
+rationality, irrationality, density, exact comparison, and approximation.
 
 ## References and further study
 

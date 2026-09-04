@@ -7,6 +7,9 @@ from fcmath.validation.answers import parse_solution_set as parse_solution_set
 from fcmath.validation.coverage import (
     validate_coverage_matrix as validate_coverage_matrix,
 )
+from fcmath.validation.resources import (
+    validate_external_resources as validate_external_resources,
+)
 from fcmath.validation.curriculum import (
     CurriculumValidationError as CurriculumValidationError,
 )

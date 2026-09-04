@@ -15,7 +15,13 @@
     "prerequisite_chapter_ids",
     "estimated_minutes",
     "answer_policy",
-    "verification"
+    "verification",
+    "source_kind",
+    "source_note",
+    "calculator_policy",
+    "hint_policy",
+    "solution_location",
+    "review_status"
   ],
   "properties": {
     "id": {
@@ -116,7 +122,41 @@
       }
     },
     "source_note": {
-      "type": "string"
+      "type": "string",
+      "minLength": 8
+    },
+    "source_kind": {
+      "type": "string",
+      "enum": ["original", "adapted-open", "external-link-only"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "source_license": {
+      "type": "string",
+      "minLength": 3
+    },
+    "adaptation_note": {
+      "type": "string",
+      "minLength": 8
+    },
+    "calculator_policy": {
+      "type": "string",
+      "enum": ["no-calculator", "basic-calculator", "cas-allowed", "mixed"]
+    },
+    "hint_policy": {
+      "type": "string",
+      "enum": ["none", "single-hint", "graduated"]
+    },
+    "solution_location": {
+      "type": "string",
+      "minLength": 3
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "mathematical-review", "editorial-review", "approved"]
     },
     "tags": {
       "type": "array",
@@ -147,6 +187,32 @@
             ]
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_kind": {
+            "const": "adapted-open"
+          }
+        },
+        "required": ["source_kind"]
+      },
+      "then": {
+        "required": ["source_url", "source_license", "adaptation_note"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_kind": {
+            "const": "external-link-only"
+          }
+        },
+        "required": ["source_kind"]
+      },
+      "then": {
+        "required": ["source_url"]
       }
     }
   ]

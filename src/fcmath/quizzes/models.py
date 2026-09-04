@@ -57,7 +57,15 @@ _QUIZ_PURPOSES = {
     "comprehensive-practice",
     "timed-practice",
 }
-_QUIZ_STATUSES = {"planned", "in-development", "active", "complete", "archived"}
+_QUIZ_STATUSES = {
+    "planned",
+    "draft",
+    "review",
+    "in-development",
+    "active",
+    "complete",
+    "archived",
+}
 _SKILL_MODES = {
     "conceptual",
     "manual-calculation",
