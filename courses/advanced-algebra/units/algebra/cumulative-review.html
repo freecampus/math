@@ -3080,7 +3080,7 @@ units, if the problem has units</code></pre>
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use <code>fcmath</code>’s parser and solver as a checking partner after you have selected a method and tried the problem by hand.</p>
-<div id="b134b665" class="cell" data-execution_count="1">
+<div id="78cb02d8" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.core <span class="im">import</span> parse_equation</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.solvers <span class="im">import</span> solve_equation_steps</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3114,7 +3114,7 @@ Check:
 x = 4: valid</code></pre>
 </div>
 </div>
-<div id="e33d6502" class="cell" data-execution_count="2">
+<div id="bd561d2b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
@@ -3130,14 +3130,14 @@ x = 4: valid</code></pre>
  'solve system': {x: 3, y: 2}}</code></pre>
 </div>
 </div>
-<div id="ce382dcc" class="cell" data-execution_count="3">
+<div id="2720b2c0" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sp.cancel(expr), sp.solve(sp.Eq(sp.denom(expr), <span class="dv">0</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(x + 1, [1])</code></pre>
 </div>
 </div>
-<div id="a257970a" class="cell" data-execution_count="4">
+<div id="ba61e8f1" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.algebra <span class="im">import</span> expand_question, factor_question</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>questions <span class="op">=</span> [expand_question((x <span class="op">+</span> <span class="dv">2</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">3</span>)), factor_question(x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">6</span>)]</span>

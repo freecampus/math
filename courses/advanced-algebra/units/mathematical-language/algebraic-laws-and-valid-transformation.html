@@ -2663,7 +2663,7 @@ p^2-q^2&amp;=pq-q^2,\\
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>Use exact parsing and symbolic subtraction to check a polynomial identity. A zero result supports equivalence on the common domain; it does not compare function domains for you.</p>
-<div id="55417124" class="cell" data-execution_count="1">
+<div id="1d30bda5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath <span class="im">import</span> parse_expression</span>
@@ -2679,7 +2679,7 @@ p^2-q^2&amp;=pq-q^2,\\
 <section id="auditing-a-conditional-identity" class="level3">
 <h3 class="anchored" data-anchor-id="auditing-a-conditional-identity">Auditing a conditional identity</h3>
 <p>SymPy can cancel the common factor in a rational expression. Record the lost input separately:</p>
-<div id="25b4c4bd" class="cell" data-execution_count="2">
+<div id="40a6aac3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rational <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> a<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (x <span class="op">-</span> a)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cancelled <span class="op">=</span> sp.cancel(rational)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>excluded <span class="op">=</span> sp.solve(sp.denom(rational), x)</span>
@@ -2693,7 +2693,7 @@ p^2-q^2&amp;=pq-q^2,\\
 <section id="solving-an-equation-and-checking-the-original" class="level3">
 <h3 class="anchored" data-anchor-id="solving-an-equation-and-checking-the-original">Solving an equation and checking the original</h3>
 <p>For <span class="math inline">\(\sqrt{x+2}=x\)</span>, the manual method first established <span class="math inline">\(x\ge0\)</span>, squared to generate candidates, and checked both candidates. The equivalent SymPy workflow keeps those stages separate:</p>
-<div id="cee5b419" class="cell" data-execution_count="3">
+<div id="d6aca221" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>candidate_equation <span class="op">=</span> sp.Eq(x <span class="op">+</span> <span class="dv">2</span>, x<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> sp.solve(candidate_equation, x)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>valid <span class="op">=</span> [</span>
@@ -2711,7 +2711,7 @@ p^2-q^2&amp;=pq-q^2,\\
 <section id="checking-a-parameter-classification" class="level3">
 <h3 class="anchored" data-anchor-id="checking-a-parameter-classification">Checking a parameter classification</h3>
 <p>The examination-clinic substitution <span class="math inline">\(y=x-a\)</span> reduces the radical equation to a quadratic. Its discriminant and roots expose the transition values:</p>
-<div id="7ad59925" class="cell" data-execution_count="4">
+<div id="c2b09a50" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.symbols(<span class="st">"y"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>polynomial <span class="op">=</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> a</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>discriminant <span class="op">=</span> sp.discriminant(polynomial, y)</span>
@@ -2725,7 +2725,7 @@ p^2-q^2&amp;=pq-q^2,\\
 </section>
 <section id="solving-an-inequality-with-an-explicit-real-domain" class="level3">
 <h3 class="anchored" data-anchor-id="solving-an-inequality-with-an-explicit-real-domain">Solving an inequality with an explicit real domain</h3>
-<div id="baa6dac1" class="cell" data-execution_count="5">
+<div id="f25efaaa" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>inequality_solution <span class="op">=</span> sp.solve_univariate_inequality(<span class="op">-</span><span class="dv">3</span> <span class="op">*</span> x <span class="op">&lt;</span> <span class="dv">12</span>, x)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>inequality_solution</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">

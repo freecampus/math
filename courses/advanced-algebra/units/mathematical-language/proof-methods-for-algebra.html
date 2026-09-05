@@ -2505,7 +2505,7 @@ w_{3k+5}&amp;=w_{3k+4}+w_{3k+3} &amp;&amp;\text{is odd}.
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>The <code>fcmath.algebra</code> proof renderer keeps statements and justifications paired. It is useful for auditing a finished proof, not for deciding whether a reason is mathematically valid.</p>
-<div id="9e7a2cad" class="cell" data-execution_count="1">
+<div id="ed6a0a3b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.algebra <span class="im">import</span> ProofStep, proof_steps_markdown</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> [</span>
@@ -2525,7 +2525,7 @@ w_{3k+5}&amp;=w_{3k+4}+w_{3k+3} &amp;&amp;\text{is odd}.
 <section id="search-for-a-counterexample-correctly" class="level3">
 <h3 class="anchored" data-anchor-id="search-for-a-counterexample-correctly">Search for a counterexample correctly</h3>
 <p>A counterexample to an implication must satisfy its hypothesis and fail its conclusion. Search a small, transparent domain first:</p>
-<div id="a4850015" class="cell" data-execution_count="2">
+<div id="e9b76d4b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.algebra <span class="im">import</span> find_implication_counterexample</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>counterexample <span class="op">=</span> find_implication_counterexample(</span>
@@ -2543,7 +2543,7 @@ w_{3k+5}&amp;=w_{3k+4}+w_{3k+3} &amp;&amp;\text{is odd}.
 <section id="verify-algebra-without-outsourcing-the-proof" class="level3">
 <h3 class="anchored" data-anchor-id="verify-algebra-without-outsourcing-the-proof">Verify algebra without outsourcing the proof</h3>
 <p>SymPy can confirm the polynomial identity in the induction step and factor the examination expression:</p>
-<div id="340b1909" class="cell" data-execution_count="3">
+<div id="c83ca42b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>k, n <span class="op">=</span> sp.symbols(<span class="st">"k n"</span>, integer<span class="op">=</span><span class="va">True</span>)</span>

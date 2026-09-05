@@ -2687,7 +2687,7 @@ x=\frac{N}{10^k(10^m-1)}
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>SymPy distinguishes exact rational objects from Python floating-point numbers. Construct exact values before evaluating decimals:</p>
-<div id="1825fcf4" class="cell" data-execution_count="1">
+<div id="3011091a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> sp.Rational(<span class="dv">611</span>, <span class="dv">4950</span>)</span>
@@ -2699,7 +2699,7 @@ x=\frac{N}{10^k(10^m-1)}
 </div>
 <p>The objects <code>Rational(611, 4950)</code> and <code>sqrt(2)</code> remain exact. <code>N(..., 20)</code> asks for a 20-digit approximation; it does not change the underlying exact value.</p>
 <p>Use exact comparisons or simplify their difference instead of comparing short printed decimals:</p>
-<div id="610bb0cc" class="cell" data-execution_count="2">
+<div id="7e19aeb1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>comparison <span class="op">=</span> sp.simplify(sp.Rational(<span class="dv">8</span>, <span class="dv">3</span>) <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">7</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>comparison, sp.Rational(<span class="dv">8</span>, <span class="dv">3</span>) <span class="op">&gt;</span> sp.sqrt(<span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -2717,7 +2717,7 @@ x=\frac{N}{10^k(10^m-1)}
 <li>substitute each candidate into the original equation.</li>
 </ol>
 <p>The equivalent exact SymPy workflow is:</p>
-<div id="4a1c8599" class="cell" data-execution_count="3">
+<div id="85068391" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">"x"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>solution <span class="op">=</span> sp.solveset(sp.Abs(<span class="dv">2</span> <span class="op">*</span> x <span class="op">-</span> <span class="dv">5</span>) <span class="op">-</span> <span class="dv">7</span>, x, domain<span class="op">=</span>sp.S.Reals)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>checks <span class="op">=</span> {candidate: sp.Abs(<span class="dv">2</span> <span class="op">*</span> candidate <span class="op">-</span> <span class="dv">5</span>) <span class="op">==</span> <span class="dv">7</span> <span class="cf">for</span> candidate <span class="kw">in</span> solution}</span>
@@ -2728,7 +2728,7 @@ x=\frac{N}{10^k(10^m-1)}
 </div>
 <p>The expected set is <span class="math inline">\(\{-1,6\}\)</span>, and both checks are <code>True</code>. The explicit real domain matters: solver output is always interpreted relative to its domain.</p>
 <p>Assumptions can prevent an invalid radical simplification:</p>
-<div id="4a783d43" class="cell" data-execution_count="4">
+<div id="2af5c699" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">"t"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>t_nonnegative <span class="op">=</span> sp.symbols(<span class="st">"t_nonnegative"</span>, nonnegative<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>general <span class="op">=</span> sp.sqrt(t<span class="op">**</span><span class="dv">2</span>)</span>
@@ -2740,7 +2740,7 @@ x=\frac{N}{10^k(10^m-1)}
 </div>
 <p>For a general real symbol SymPy retains <span class="math inline">\(|t|\)</span> (or an equivalent form); with a nonnegative assumption it can return the symbol itself. A software assumption is part of the mathematical statement, not a convenience to hide.</p>
 <p>Finally, verify the examination-clinic polynomial while remembering that polynomial membership does not identify which root was intended:</p>
-<div id="3c30b39e" class="cell" data-execution_count="5">
+<div id="389232dd" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>value <span class="op">=</span> sp.sqrt(<span class="dv">2</span>) <span class="op">+</span> sp.sqrt(<span class="dv">3</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>polynomial <span class="op">=</span> sp.expand(value<span class="op">**</span><span class="dv">4</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">*</span> value<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>all_roots <span class="op">=</span> sp.solve(sp.Symbol(<span class="st">"y"</span>) <span class="op">**</span> <span class="dv">4</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">*</span> sp.Symbol(<span class="st">"y"</span>) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>

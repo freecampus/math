@@ -2017,7 +2017,7 @@ A=\begin{bmatrix}2&amp;0\\0&amp;2\end{bmatrix}
 <section id="using-this-lesson-with-fcmath-and-sympy" class="level2">
 <h2 class="anchored" data-anchor-id="using-this-lesson-with-fcmath-and-sympy">Using this lesson with fcmath and SymPy</h2>
 <p>The fcmath plotting helpers create Matplotlib scenes that can be rendered in Python environments. SymPy can verify the algebra exactly.</p>
-<div id="4977468d" class="cell" data-execution_count="1">
+<div id="2db4ab39" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.linear_algebra <span class="im">import</span> matrix_vector_product</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>]]</span>
@@ -2027,7 +2027,7 @@ A=\begin{bmatrix}2&amp;0\\0&amp;2\end{bmatrix}
 <pre><code>[5. 3.]</code></pre>
 </div>
 </div>
-<div id="85d42903" class="cell" data-execution_count="2">
+<div id="c549cf16" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">"x y"</span>)</span>
@@ -2038,7 +2038,7 @@ A=\begin{bmatrix}2&amp;0\\0&amp;2\end{bmatrix}
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}x + y\\y\end{matrix}\right]\)</span></p>
 </div>
 </div>
-<div id="4f9a7dec" class="cell" data-execution_count="3">
+<div id="9282e90f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fcmath.linear_algebra <span class="im">import</span> basis_transformation_scene</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scene <span class="op">=</span> basis_transformation_scene([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>]])</span>
