@@ -2,10 +2,6 @@ name: Release
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
 
 permissions:
   contents: write
@@ -54,19 +50,12 @@ jobs:
           makim curriculum.check-generated
           makim notebooks.check
           makim tests.unit
-      - name: Semantic-release dry run
-        if: github.event_name == 'pull_request'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: makim release.dry
       - name: Publish release
-        if: github.event_name != 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: makim release.ci
       - name: Detect release distributions
         id: distributions
-        if: github.event_name != 'pull_request'
         run: |
           if compgen -G "dist/*" > /dev/null; then
             echo "available=true" >> "$GITHUB_OUTPUT"
@@ -82,7 +71,7 @@ jobs:
 
   publish-pypi:
     name: Publish distributions to PyPI
-    if: ${{ github.event_name != 'pull_request' && needs.release.outputs.has-distributions == 'true' }}
+    if: ${{ needs.release.outputs.has-distributions == 'true' }}
     needs: release
     runs-on: ubuntu-latest
     timeout-minutes: 10
